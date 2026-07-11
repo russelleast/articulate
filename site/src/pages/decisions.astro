@@ -17,8 +17,17 @@ const decisions = (await getCollection("decisions")).sort((a, b) => b.data.decid
     Articulate and connects them back to Episodes and repository evidence.
   </p>
 
-  <div class="timeline-list">
-    {decisions.map((decision) => (
+  {decisions.length === 0 ? (
+    <div class="empty-state">
+      <h2>No architecture decisions have been published yet</h2>
+      <p>
+        ADRs will appear here after they exist in the project record. The site should not publish
+        decisions ahead of the Episodes and evidence that produce them.
+      </p>
+    </div>
+  ) : (
+    <div class="timeline-list">
+      {decisions.map((decision) => (
       <article id={decision.data.id}>
         <p class="item-meta">{decision.data.id} / {decision.data.status} / {formatDate(decision.data.decided)}</p>
         <h2>{decision.data.title}</h2>
@@ -36,6 +45,7 @@ const decisions = (await getCollection("decisions")).sort((a, b) => b.data.decid
           <p><a href={withBase(`/episodes/${decision.data.episode.id}/`)}>Read the related Episode</a></p>
         )}
       </article>
-    ))}
-  </div>
+      ))}
+    </div>
+  )}
 </ArticleLayout>

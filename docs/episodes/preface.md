@@ -1,3 +1,27 @@
+---
+id: preface
+title: Preface
+summary: >
+  An introduction to the Articulate Journal and the reason for documenting
+  architectural thinking in public.
+published: 2026-07-12
+updated: 2026-07-12
+status: current
+sequence: 0
+season: foundations
+topics:
+  - architectural-journal
+  - build-in-public
+questions:
+  - Why document the journey as well as the destination?
+related_patterns: []
+related_decisions: []
+related_experiments: []
+repository_paths:
+  - docs/episodes/preface.md
+featured: false
+---
+
 # Preface
 
 ## Welcome to the Articulate Journal

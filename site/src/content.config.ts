@@ -13,7 +13,7 @@ const lifecycleStatus = z.enum([
 const repositoryPath = z.string().min(1);
 
 const episodes = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/episodes" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "../docs/episodes" }),
   schema: z.object({
     id: z.string().min(1),
     title: z.string(),
@@ -21,7 +21,7 @@ const episodes = defineCollection({
     published: z.coerce.date(),
     updated: z.coerce.date(),
     status: lifecycleStatus,
-    sequence: z.number().int().positive(),
+    sequence: z.number().int().nonnegative(),
     season: z.string(),
     topics: z.array(z.string()).default([]),
     questions: z.array(z.string()).default([]),

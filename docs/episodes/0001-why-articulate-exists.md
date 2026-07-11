@@ -1,3 +1,28 @@
+---
+id: episode-0001
+title: Why Articulate Exists
+summary: >
+  Why architectural knowledge becomes fragmented, why that matters, and why
+  Articulate exists to explore a different AI-native approach.
+published: 2026-07-12
+updated: 2026-07-12
+status: current
+sequence: 1
+season: foundations
+topics:
+  - architectural-knowledge
+  - ai-native-architecture
+  - architectural-intelligence
+questions:
+  - Can architecture become a continuously evolving body of knowledge instead of a collection of disconnected documents?
+related_patterns: []
+related_decisions: []
+related_experiments: []
+repository_paths:
+  - docs/episodes/0001-why-articulate-exists.md
+featured: false
+---
+
 # Episode 0001 – Why Articulate Exists
 
 > *"Architecture is not difficult because systems are complex. It is difficult because knowledge is fragmented, constantly changing and never complete."*

@@ -158,14 +158,14 @@ h3 {
 
 h1 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.4rem, 8vw, 5.6rem);
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
   font-weight: 520;
-  max-width: 12ch;
+  max-width: 16ch;
 }
 
 h2 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
   font-weight: 520;
 }
 
@@ -191,6 +191,11 @@ h3 {
   font-size: 1.2rem;
   font-family: inherit;
   font-weight: 720;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 8vw, 5.6rem);
+  max-width: 12ch;
 }
 
 .section-block {
@@ -306,7 +311,8 @@ h3 {
 }
 
 .article-header h1 {
-  max-width: 14ch;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  max-width: 18ch;
 }
 
 .prose {
@@ -314,11 +320,16 @@ h3 {
 }
 
 .prose h2 {
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   margin-top: 2.4rem;
 }
 
+.article-shell .prose > h1:first-child {
+  display: none;
+}
+
 .prose h3 {
+  font-size: 1.05rem;
   margin-top: 1.8rem;
 }
 
@@ -394,7 +405,12 @@ h3 {
     padding-top: 2.5rem;
   }
 
-  h1 {
-    font-size: clamp(2.25rem, 14vw, 4rem);
+  h1,
+  .article-header h1 {
+    font-size: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
   }
 }

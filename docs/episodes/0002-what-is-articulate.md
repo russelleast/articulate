@@ -1,3 +1,28 @@
+---
+id: episode-0002
+title: What is Articulate?
+summary: >
+  A clearer definition of Articulate as an exploration into architectural
+  intelligence and an AI-native platform for reasoning about software systems.
+published: 2026-07-12
+updated: 2026-07-12
+status: current
+sequence: 2
+season: foundations
+topics:
+  - architectural-intelligence
+  - architectural-knowledge
+  - conversation
+questions:
+  - What exactly is Articulate?
+related_patterns: []
+related_decisions: []
+related_experiments: []
+repository_paths:
+  - docs/episodes/0002-what-is-articulate.md
+featured: true
+---
+
 # Episode 0002 – What is Articulate?
 
 > *"Articulate is an exploration into architectural intelligence—an AI-native platform designed to help architects understand, evolve and reason about complex software systems."*

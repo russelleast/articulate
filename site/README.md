@@ -22,11 +22,16 @@ The production build is written to `site/dist/`.
 
 ## Content Organisation
 
-Primary content is stored in Astro content collections:
+Primary narrative content is stored in the repository documentation tree and loaded as Astro content:
+
+```text
+../docs/episodes/
+```
+
+Reference content owned by the website is stored in Astro content collections:
 
 ```text
 src/content/
-├── episodes/
 ├── patterns/
 ├── decisions/
 └── experiments/
@@ -69,7 +74,7 @@ historical
 
 ## Adding an Episode
 
-1. Create a Markdown file in `src/content/episodes/`.
+1. Create a Markdown file in `../docs/episodes/`.
 2. Give it a stable `id`, such as `episode-0002`.
 3. Fill in `title`, `summary`, `published`, `updated`, `status`, `sequence`, `season`, `topics`, and relationship fields.
 4. Link related decisions, patterns, and experiments by their stable identifiers.

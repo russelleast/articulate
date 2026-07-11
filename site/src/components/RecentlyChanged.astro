@@ -3,31 +3,23 @@ import type { CollectionEntry } from "astro:content";
 import { formatDate, withBase } from "@/utils/site";
 
 type Episode = CollectionEntry<"episodes">;
-type Decision = CollectionEntry<"decisions">;
 
 interface Props {
   episodes: Episode[];
-  decisions: Decision[];
 }
 
-const { episodes, decisions } = Astro.props;
+const { episodes } = Astro.props;
 const items = [
   ...episodes.map((entry) => ({
     title: entry.data.title,
     type: "Episode",
     date: entry.data.updated,
     href: withBase(`/episodes/${entry.id}/`),
-    status: entry.data.status
-  })),
-  ...decisions.map((entry) => ({
-    title: entry.data.title,
-    type: "Decision",
-    date: entry.data.decided,
-    href: withBase(`/decisions/#${entry.data.id}`),
-    status: entry.data.status
+    status: entry.data.status,
+    sequence: entry.data.sequence
   }))
 ]
-  .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf() || b.sequence - a.sequence)
   .slice(0, 5);
 ---
 
