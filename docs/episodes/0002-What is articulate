@@ -1,0 +1,333 @@
+# Episode 0002 – What is Articulate?
+
+> *"Articulate is an exploration into architectural intelligence—an AI-native platform designed to help architects understand, evolve and reason about complex software systems."*
+
+## Introduction
+
+In the previous episode, I explored why Articulate exists.
+
+This episode answers a different question.
+
+**What exactly is Articulate?**
+
+The answer has changed many times throughout the life of this project.
+
+It has been a documentation tool.
+
+A knowledge graph.
+
+A conversational assistant.
+
+A discovery platform.
+
+An architecture modelling tool.
+
+Each of those ideas solved part of the problem, but none of them captured the bigger picture.
+
+Today, I see Articulate as something much broader.
+
+It is an exploration into what software architecture could become in the age of AI.
+
+---
+
+# What Articulate Isn't
+
+Before explaining what Articulate is, it helps to explain what it is not.
+
+Articulate is **not** another wiki.
+
+It is **not** another Enterprise Architecture Management (EAM) platform.
+
+It is **not** another modelling tool.
+
+It is **not** another diagramming application.
+
+It is **not** another AI chatbot wrapped around documentation.
+
+All of those tools have value.
+
+Most of them solve their own problems extremely well.
+
+Articulate isn't attempting to replace them.
+
+Instead, it aims to complement them by focusing on something that very few tools attempt to model directly:
+
+**Architectural knowledge.**
+
+---
+
+# Architecture Is More Than Documentation
+
+Most architecture tools store artefacts.
+
+Documents.
+
+Diagrams.
+
+Decision records.
+
+Source code.
+
+Infrastructure definitions.
+
+Each represents part of the architecture.
+
+None represents the architecture itself.
+
+Architecture is better thought of as a continuously evolving body of knowledge.
+
+It contains facts.
+
+Assumptions.
+
+Evidence.
+
+Decisions.
+
+Trade-offs.
+
+Relationships.
+
+Capabilities.
+
+Constraints.
+
+Business context.
+
+Technical implementation.
+
+Most importantly, it evolves continuously.
+
+Capturing and maintaining that knowledge is one of the hardest parts of software architecture.
+
+Articulate exists to explore whether that knowledge can itself become the primary asset.
+
+---
+
+# An AI-Native Architecture Platform
+
+Articulate is designed from the outset as an AI-native system.
+
+That does **not** mean AI has replaced architects.
+
+Quite the opposite.
+
+The architect remains responsible for decisions, judgement and accountability.
+
+AI becomes a collaborator.
+
+Helping discover information.
+
+Highlight inconsistencies.
+
+Challenge assumptions.
+
+Explain relationships.
+
+Suggest alternative approaches.
+
+Capture architectural context.
+
+Reason about change.
+
+The objective is not automation.
+
+The objective is augmentation.
+
+---
+
+# Conversation as the Primary Interface
+
+One of the central ideas behind Articulate is that conversation becomes the primary way architects interact with architectural knowledge.
+
+Rather than searching through multiple repositories and documentation systems, architects should be able to ask questions naturally.
+
+Examples might include:
+
+> Explain the payment platform.
+
+> Which systems depend upon this service?
+
+> Why was this technology selected?
+
+> Which architectural decisions relate to authentication?
+
+> What changed between these two architecture baselines?
+
+> Which capabilities would be affected if this service was retired?
+
+Conversation becomes another way of exploring architecture.
+
+Not because conversation is fashionable, but because asking questions is already how architects work.
+
+---
+
+# Architecture as a Living Model
+
+At the heart of Articulate is a continuously evolving architectural model.
+
+Everything contributes to that model.
+
+Discovery.
+
+Documentation.
+
+Architecture Decision Records.
+
+Solution designs.
+
+Source code.
+
+Infrastructure.
+
+Operational data.
+
+Conversations.
+
+Each adds evidence that helps improve understanding of the architecture.
+
+The model is never considered complete.
+
+Instead, it continually evolves as confidence increases and new information becomes available.
+
+The architecture becomes something that is continuously learned rather than periodically documented.
+
+---
+
+# Core Capabilities
+
+Articulate is organised around a collection of architectural capabilities.
+
+These capabilities will evolve throughout this journal, but together they represent the long-term vision of the platform.
+
+### Discovery
+
+Helping architects understand organisations, systems and domains by capturing knowledge from multiple sources.
+
+Rather than assuming perfect information, discovery works with claims, evidence and confidence to gradually improve the architectural model.
+
+---
+
+### Architectural Baselines
+
+Treating architecture as something that evolves over time.
+
+Every solution design, decision and document belongs to an architectural baseline, making it possible to understand not only the current architecture but how it has changed throughout its history.
+
+---
+
+### Architectural Knowledge
+
+Maintaining a continuously evolving representation of the architecture itself.
+
+Rather than treating documents as the primary artefact, Articulate treats architectural knowledge as the central asset from which documents, diagrams and analysis can be derived.
+
+---
+
+### Explore
+
+Allowing architects to navigate architectural knowledge through conversation, visualisations and generated views.
+
+The goal is to make architectural information easier to discover rather than easier to store.
+
+---
+
+### Impact Analysis
+
+Helping architects understand the potential consequences of change before implementation begins.
+
+Relationships between capabilities, systems, technologies and decisions become easier to explore, reducing uncertainty and supporting better decision-making.
+
+---
+
+### Solution Design
+
+Supporting architects throughout the design process.
+
+Helping identify assumptions.
+
+Highlighting constraints.
+
+Recording trade-offs.
+
+Capturing architectural reasoning.
+
+The objective is to support architectural thinking rather than replace it.
+
+---
+
+### Gap Analysis
+
+Helping organisations understand what already exists before building something new.
+
+Encouraging capability reuse.
+
+Reducing duplication.
+
+Making existing architectural knowledge easier to apply.
+
+---
+
+# Architectural Intelligence
+
+The phrase I increasingly use to describe Articulate is **architectural intelligence**.
+
+Not artificial intelligence.
+
+Architectural intelligence.
+
+The ability to understand architecture.
+
+Reason about architecture.
+
+Preserve architectural knowledge.
+
+Explain architectural decisions.
+
+Explore the consequences of change.
+
+Continuously improve understanding as new evidence becomes available.
+
+Whether this can truly be achieved remains an open research question.
+
+Articulate exists to explore that possibility.
+
+---
+
+# Beyond Documentation
+
+One of the ambitions of Articulate is to move architecture away from static documentation and towards continuously evolving knowledge.
+
+Documentation will always remain important.
+
+Diagrams will continue to be valuable.
+
+Decision records will still exist.
+
+The difference is that they become outputs generated from an architectural understanding rather than the primary source of that understanding.
+
+The architecture becomes the source of truth.
+
+Everything else becomes a view.
+
+---
+
+# Looking Ahead
+
+Articulate is intentionally ambitious.
+
+Some ideas described here will evolve.
+
+Others may prove impractical.
+
+Some may be abandoned entirely.
+
+That uncertainty is expected.
+
+This journal exists to document that journey openly.
+
+Future episodes will begin exploring the principles, requirements, constraints and architectural decisions needed to determine whether this vision can become reality.
+
+Ultimately, Articulate is not an attempt to build another architecture tool.
+
+It is an attempt to explore whether AI can help us become better architects.
