@@ -1,0 +1,32 @@
+---
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { withBase } from "@/utils/site";
+---
+
+<ArticleLayout
+  title="Architectural Evolution"
+  description="A timeline of architectural phases, significant problems, changes, decisions, and evidence."
+  eyebrow="Evolution"
+>
+  <p>
+    This is an architecture timeline, not a Git commit log. It will track phases, problems
+    discovered, changes introduced, related Episodes, decisions, diagrams, and releases.
+  </p>
+
+  <div class="timeline-list">
+    <article>
+      <p class="item-meta">11 Jul 2026 / Foundation</p>
+      <h2>Articulate is established as a public architectural journal</h2>
+      <p>
+        The project begins as a production-oriented reference architecture for AI-native systems.
+        The initial architectural move is to separate evidence from interpretation: the repository
+        remains the canonical record while the website provides a navigable narrative surface.
+      </p>
+      <p>
+        Related material:
+        <a href={withBase("/episodes/0001-why-articulate-exists/")}>Episode 0001 placeholder</a>,
+        <a href={withBase("/decisions/#adr-0001")}>ADR 0001</a>.
+      </p>
+    </article>
+  </div>
+</ArticleLayout>

@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+
+const experiments = await getCollection("experiments");
+---
+
+<ArticleLayout
+  title="Experiments"
+  description="Research work used to test architectural assumptions before they become established patterns or decisions."
+  eyebrow="Exploration"
+>
+  {experiments.length === 0 ? (
+    <div class="empty-state">
+      <h2>No experiments have been recorded yet</h2>
+      <p>
+        Experiments are distinct from established patterns. They keep uncertainty visible while the
+        project tests questions, hypotheses, constraints, and runtime behaviour.
+      </p>
+      <p>
+        Future experiment pages will include the research question, hypothesis, context and setup,
+        observations, outcome, limitations, architectural implications, and related repository assets.
+      </p>
+    </div>
+  ) : (
+    <div class="timeline-list">
+      {experiments.map((experiment) => (
+        <article id={experiment.data.id}>
+          <p class="item-meta">{experiment.data.status}</p>
+          <h2>{experiment.data.title}</h2>
+          <p>{experiment.data.summary}</p>
+        </article>
+      ))}
+    </div>
+  )}
+</ArticleLayout>

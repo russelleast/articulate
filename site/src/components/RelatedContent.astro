@@ -1,0 +1,31 @@
+---
+interface RelatedItem {
+  title: string;
+  href?: string;
+  meta?: string;
+}
+
+interface Props {
+  title: string;
+  items: RelatedItem[];
+  empty?: string;
+}
+
+const { title, items, empty = "No related material has been recorded yet." } = Astro.props;
+---
+
+<section class="related-block" aria-labelledby={`${title.toLowerCase().replaceAll(" ", "-")}-heading`}>
+  <h2 id={`${title.toLowerCase().replaceAll(" ", "-")}-heading`}>{title}</h2>
+  {items.length > 0 ? (
+    <ul class="plain-list">
+      {items.map((item) => (
+        <li>
+          {item.href ? <a href={item.href}>{item.title}</a> : <span>{item.title}</span>}
+          {item.meta && <small>{item.meta}</small>}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="muted">{empty}</p>
+  )}
+</section>

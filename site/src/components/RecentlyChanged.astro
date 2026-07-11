@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate, withBase } from "@/utils/site";
+
+type Episode = CollectionEntry<"episodes">;
+type Decision = CollectionEntry<"decisions">;
+
+interface Props {
+  episodes: Episode[];
+  decisions: Decision[];
+}
+
+const { episodes, decisions } = Astro.props;
+const items = [
+  ...episodes.map((entry) => ({
+    title: entry.data.title,
+    type: "Episode",
+    date: entry.data.updated,
+    href: withBase(`/episodes/${entry.id}/`),
+    status: entry.data.status
+  })),
+  ...decisions.map((entry) => ({
+    title: entry.data.title,
+    type: "Decision",
+    date: entry.data.decided,
+    href: withBase(`/decisions/#${entry.data.id}`),
+    status: entry.data.status
+  }))
+]
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+  .slice(0, 5);
+---
+
+<section class="section-block" aria-labelledby="recently-changed">
+  <div class="section-heading">
+    <p class="eyebrow">Returning visitors</p>
+    <h2 id="recently-changed">Recently Changed</h2>
+  </div>
+  <div class="timeline-list">
+    {items.map((item) => (
+      <article>
+        <p class="item-meta">{item.type} / {formatDate(item.date)} / {item.status.replaceAll("-", " ")}</p>
+        <h3><a href={item.href}>{item.title}</a></h3>
+      </article>
+    ))}
+  </div>
+</section>

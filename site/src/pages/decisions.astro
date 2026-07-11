@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import MetadataList from "@/components/MetadataList.astro";
+import { formatDate, withBase } from "@/utils/site";
+
+const decisions = (await getCollection("decisions")).sort((a, b) => b.data.decided.valueOf() - a.data.decided.valueOf());
+---
+
+<ArticleLayout
+  title="Architecture Decisions"
+  description="A readable index of architectural decisions, their status, dates, and relationships."
+  eyebrow="Decision record"
+>
+  <p>
+    Decisions are not raw ADR mirrors. This index provides context for the commitments that shape
+    Articulate and connects them back to Episodes and repository evidence.
+  </p>
+
+  <div class="timeline-list">
+    {decisions.map((decision) => (
+      <article id={decision.data.id}>
+        <p class="item-meta">{decision.data.id} / {decision.data.status} / {formatDate(decision.data.decided)}</p>
+        <h2>{decision.data.title}</h2>
+        <MetadataList
+          items={[
+            { label: "Related Episode", value: decision.data.episode?.id ?? "None yet" },
+            { label: "Supersedes", value: decision.data.supersedes?.id ?? "None" },
+            { label: "Superseded by", value: decision.data.superseded_by?.id ?? "None" }
+          ]}
+        />
+        <ul class="tag-list">
+          {decision.data.topics.map((topic) => <li>{topic}</li>)}
+        </ul>
+        {decision.data.episode && (
+          <p><a href={withBase(`/episodes/${decision.data.episode.id}/`)}>Read the related Episode</a></p>
+        )}
+      </article>
+    ))}
+  </div>
+</ArticleLayout>

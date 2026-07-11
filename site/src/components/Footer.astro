@@ -1,0 +1,16 @@
+---
+import { withBase } from "@/utils/site";
+---
+
+<footer class="site-footer">
+  <div>
+    <strong>Articulate</strong>
+    <p>A public architectural journal and production-oriented reference architecture for AI-native systems.</p>
+  </div>
+  <nav aria-label="Footer">
+    <a href={withBase("/about/")}>About</a>
+    <a href={withBase("/rss.xml")}>RSS</a>
+    <a href="https://github.com/russelleast/articulate">GitHub</a>
+  </nav>
+  <p class="license">Licensed under the Apache License 2.0.</p>
+</footer>

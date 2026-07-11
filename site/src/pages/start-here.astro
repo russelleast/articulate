@@ -1,0 +1,63 @@
+---
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { withBase } from "@/utils/site";
+---
+
+<ArticleLayout
+  title="Start Here"
+  description="An orientation for first-time visitors to Articulate, its repository, and its architectural journal."
+  eyebrow="Orientation"
+>
+  <h2>What Articulate Is</h2>
+  <p>
+    Articulate is a production-oriented reference architecture for AI-native systems. It is also
+    an architectural laboratory and a public engineering journal.
+  </p>
+  <p>
+    The project exists to show how architectural reasoning emerges over time: the questions asked,
+    assumptions made, trade-offs considered, evidence gathered, and changes introduced.
+  </p>
+
+  <h2>Product, Repository, and Journal</h2>
+  <p>
+    The working software is the product surface and the evidence. The repository is the canonical
+    project record. The website is the narrative layer that helps readers move through that record.
+  </p>
+
+  <h2>What Episodes Are</h2>
+  <p>
+    Episodes are narrative investigations into architectural questions. An Episode may produce or
+    revise decisions, introduce patterns, document experiments, and point to repository assets.
+  </p>
+
+  <h2>How the Parts Relate</h2>
+  <p>
+    Decisions record commitments and their consequences. Patterns describe reusable architectural
+    approaches that survive contact with implementation. Experiments keep uncertainty visible.
+    Code, diagrams, and models provide evidence.
+  </p>
+
+  <h2>Suggested Routes</h2>
+  <div class="route-grid">
+    <article class="index-card">
+      <h3>I want to understand the vision.</h3>
+      <p>Start with the foundational Episode placeholder and the About page.</p>
+      <p><a href={withBase("/episodes/0001-why-articulate-exists/")}>Open Episode 0001</a></p>
+    </article>
+    <article class="index-card">
+      <h3>I want to study the architecture.</h3>
+      <p>Use the current architecture view to see what is known and what is not yet decided.</p>
+      <p><a href={withBase("/architecture/")}>Open Architecture</a></p>
+    </article>
+    <article class="index-card">
+      <h3>I want practical examples and patterns.</h3>
+      <p>Use Patterns and Experiments as the implementation begins to produce reusable evidence.</p>
+      <p><a href={withBase("/patterns/")}>Open Patterns</a></p>
+    </article>
+    <article class="index-card">
+      <h3>I want to follow the evolution.</h3>
+      <p>Use the evolution timeline and decision index to see how the architecture changes.</p>
+      <p><a href={withBase("/evolution/")}>Open Evolution</a></p>
+    </article>
+  </div>
+</ArticleLayout>

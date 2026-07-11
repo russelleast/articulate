@@ -44,6 +44,12 @@ ScaffoldingReadMe.txt
 *~
 CodeCoverage/
 
+# Articulate website
+site/node_modules/
+site/dist/
+site/.astro/
+site/.playwright-cli/
+
 # MSBuild Binary and Structured Log
 *.binlog
 

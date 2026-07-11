@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MetadataList from "@/components/MetadataList.astro";
+import RelatedContent from "@/components/RelatedContent.astro";
+import { formatDate, withBase } from "@/utils/site";
+
+export async function getStaticPaths() {
+  const episodes = await getCollection("episodes");
+  return episodes.map((episode) => ({ params: { slug: episode.id }, props: { episode } }));
+}
+
+const { episode } = Astro.props;
+const allEpisodes = (await getCollection("episodes")).sort((a, b) => a.data.sequence - b.data.sequence);
+const decisions = await getCollection("decisions");
+const patterns = await getCollection("patterns");
+const experiments = await getCollection("experiments");
+const index = allEpisodes.findIndex((item) => item.data.id === episode.data.id);
+const previous = allEpisodes[index - 1];
+const next = allEpisodes[index + 1];
+const { Content } = await render(episode);
+
+const relatedDecisions = decisions
+  .filter((decision) => episode.data.related_decisions.some((ref) => ref.id === decision.id))
+  .map((decision) => ({
+    title: decision.data.title,
+    href: withBase(`/decisions/#${decision.data.id}`),
+    meta: `${decision.data.status}, ${formatDate(decision.data.decided)}`
+  }));
+const relatedPatterns = patterns
+  .filter((pattern) => episode.data.related_patterns.some((ref) => ref.id === pattern.id))
+  .map((pattern) => ({ title: pattern.data.title, href: withBase(`/patterns/#${pattern.data.id}`), meta: pattern.data.maturity }));
+const relatedExperiments = experiments
+  .filter((experiment) => episode.data.related_experiments.some((ref) => ref.id === experiment.id))
+  .map((experiment) => ({ title: experiment.data.title, href: withBase(`/experiments/#${experiment.data.id}`), meta: experiment.data.status }));
+---
+
+<BaseLayout title={episode.data.title} description={episode.data.summary}>
+  <article class="article-shell">
+    <header class="article-header">
+      <p class="eyebrow">Episode {episode.data.sequence.toString().padStart(4, "0")}</p>
+      <h1>{episode.data.title}</h1>
+      <p class="lede">{episode.data.summary}</p>
+      <MetadataList
+        items={[
+          { label: "Published", value: formatDate(episode.data.published) },
+          { label: "Updated", value: formatDate(episode.data.updated) },
+          { label: "Status", value: episode.data.status.replaceAll("-", " ") },
+          { label: "Season", value: episode.data.season }
+        ]}
+      />
+      <ul class="tag-list">
+        {episode.data.topics.map((topic) => <li>{topic}</li>)}
+      </ul>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <section class="section-block" aria-labelledby="episode-relationships">
+      <div class="section-heading">
+        <p class="eyebrow">Relationships</p>
+        <h2 id="episode-relationships">Related Material</h2>
+      </div>
+      <div class="two-column">
+        <RelatedContent title="Decisions" items={relatedDecisions} />
+        <RelatedContent title="Patterns" items={relatedPatterns} />
+        <RelatedContent title="Experiments" items={relatedExperiments} />
+        <RelatedContent
+          title="Repository Paths"
+          items={episode.data.repository_paths.map((path) => ({ title: path, href: `https://github.com/russelleast/articulate/blob/main/${path}` }))}
+          empty="No repository paths have been attached."
+        />
+      </div>
+    </section>
+
+    <nav class="section-block two-column" aria-label="Episode navigation">
+      <div>
+        {previous && (
+          <>
+            <p class="eyebrow">Previous</p>
+            <a href={withBase(`/episodes/${previous.id}/`)}>{previous.data.title}</a>
+          </>
+        )}
+      </div>
+      <div>
+        {next && (
+          <>
+            <p class="eyebrow">Next</p>
+            <a href={withBase(`/episodes/${next.id}/`)}>{next.data.title}</a>
+          </>
+        )}
+      </div>
+    </nav>
+  </article>
+</BaseLayout>

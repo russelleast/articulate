@@ -1,0 +1,26 @@
+---
+import { withBase } from "@/utils/site";
+
+const nav = [
+  { href: "/start-here/", label: "Start Here" },
+  { href: "/episodes/", label: "Episodes" },
+  { href: "/architecture/", label: "Architecture" },
+  { href: "/patterns/", label: "Patterns" },
+  { href: "/decisions/", label: "Decisions" },
+  { href: "/experiments/", label: "Experiments" },
+  { href: "/evolution/", label: "Evolution" }
+];
+---
+
+<header class="site-header">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <nav class="nav-shell" aria-label="Primary">
+    <a class="brand" href={withBase("/")}>
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>Articulate</span>
+    </a>
+    <div class="nav-links">
+      {nav.map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
+    </div>
+  </nav>
+</header>
