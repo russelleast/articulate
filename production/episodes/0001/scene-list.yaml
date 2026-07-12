@@ -1,0 +1,198 @@
+episode:
+  id: "episode-0001"
+  title: "Why Articulate Exists"
+  canonical_source: "docs/episodes/0001-why-articulate-exists.md"
+  production_status: "draft"
+scenes:
+  - scene_id: "S001"
+    title: "Opening claim"
+    duration_estimate: "00:35"
+    narration_reference: "N001"
+    visual_type: "title"
+    companion_mode: "present"
+    assets: ["A001", "A002"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Opening quote; Introduction"
+        note: "Opening problem statement."
+    transition:
+      in: "fade in"
+      out: "fade to journal text"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S002"
+    title: "Capable technology, hard understanding"
+    duration_estimate: "00:45"
+    narration_reference: "N002"
+    visual_type: "journal and abstract system fragments"
+    companion_mode: "none"
+    assets: ["A003", "A004"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Introduction"
+        note: "Modern technology is capable; understanding architecture remains hard."
+    transition:
+      in: "text dissolve"
+      out: "fragments scatter"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S003"
+    title: "Architectural questions"
+    duration_estimate: "00:50"
+    narration_reference: "N003"
+    visual_type: "question fragments"
+    companion_mode: "transition"
+    assets: ["A005"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Introduction"
+        note: "Questions architects try to answer."
+    transition:
+      in: "question fragments appear"
+      out: "gather into architecture sketch"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S004"
+    title: "Architecture enables change"
+    duration_estimate: "00:50"
+    narration_reference: "N004"
+    visual_type: "whiteboard"
+    companion_mode: "none"
+    assets: ["A006"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Architecture Is About Change"
+        note: "Architecture as decision support for change."
+    transition:
+      in: "line draw"
+      out: "line continues"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S005"
+    title: "Fragmented knowledge"
+    duration_estimate: "01:05"
+    narration_reference: "N005"
+    visual_type: "diagram"
+    companion_mode: "none"
+    assets: ["A007"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "The Reality of Modern Architecture"
+        note: "Knowledge scattered across multiple sources."
+    transition:
+      in: "progressive reveal"
+      out: "sources form partial picture"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S006"
+    title: "Projections of reality"
+    duration_estimate: "00:55"
+    narration_reference: "N006"
+    visual_type: "diagram"
+    companion_mode: "intro"
+    assets: ["A008"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "The Limits of Today's Tools"
+        note: "Each tool is one projection of reality."
+    transition:
+      in: "companion intro"
+      out: "projection diagram clears"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S007"
+    title: "Cost of fragmentation"
+    duration_estimate: "00:45"
+    narration_reference: "N007"
+    visual_type: "text fragments"
+    companion_mode: "none"
+    assets: ["A009"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "The Cost of Fragmented Knowledge"
+        note: "Consequences of fragmented knowledge."
+    transition:
+      in: "fragments accumulate"
+      out: "quiet clear"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S008"
+    title: "Why AI changes the possibility space"
+    duration_estimate: "00:55"
+    narration_reference: "N008"
+    visual_type: "concept diagram"
+    companion_mode: "transition"
+    assets: ["A010"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Why Now?"
+        note: "AI can reason across unstructured information and incomplete evidence."
+    transition:
+      in: "evidence fragments reorganise"
+      out: "central question appears"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S009"
+    title: "Central question"
+    duration_estimate: "01:00"
+    narration_reference: "N009"
+    visual_type: "question slide and repository view"
+    companion_mode: "present"
+    assets: ["A011", "A012"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "The Vision"
+        note: "Central Articulate question."
+    transition:
+      in: "question reveal"
+      out: "journal view"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S010"
+    title: "Principles before features"
+    duration_estimate: "00:45"
+    narration_reference: "N010"
+    visual_type: "sequence slide"
+    companion_mode: "none"
+    assets: ["A013"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Principles Before Features"
+        note: "Reasoning precedes technology selection."
+    transition:
+      in: "vertical sequence"
+      out: "montage"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S011"
+    title: "Success"
+    duration_estimate: "00:45"
+    narration_reference: "N011"
+    visual_type: "montage"
+    companion_mode: "none"
+    assets: ["A014"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Success"
+        note: "Success criteria for Articulate."
+    transition:
+      in: "slow montage"
+      out: "closing frame"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S012"
+    title: "Looking ahead"
+    duration_estimate: "00:35"
+    narration_reference: "N012"
+    visual_type: "closing"
+    companion_mode: "present"
+    assets: ["A015", "A016"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Looking Ahead"
+        note: "Future episodes will document evolving principles, constraints and experiments."
+    transition:
+      in: "fade to companion"
+      out: "fade to source link"
+    status: "planned"
+    review_state: "not reviewed"

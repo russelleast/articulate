@@ -66,6 +66,10 @@ An Episode may include:
 
 The repository provides the evidence. The journal explains its significance.
 
+## Experimental media production
+
+Articulate also includes an experimental AI-assisted publishing workflow under [`production/`](production/). It supports turning canonical written Episodes into derived media such as narration, video, slides and diagrams while preserving traceability to the source journal.
+
 ## Repository structure
 
 ```text
@@ -77,6 +81,7 @@ The repository provides the evidence. The journal explains its significance.
 │   ├── patterns/       # Reusable AI-native and distributed-system patterns
 │   └── reference/      # Stable reference material, glossaries, and specifications
 ├── examples/           # Focused examples derived from the reference implementation
+├── production/         # AI-assisted publishing workflow for derived media
 ├── src/                # Production implementation
 ├── tests/              # Automated tests and architectural fitness functions
 └── .github/            # Repository automation, templates, and governance

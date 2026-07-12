@@ -1,0 +1,36 @@
+episode:
+  # Stable episode identifier from the canonical Markdown front matter.
+  id: ""
+  # Human-readable episode title.
+  title: ""
+  # Repository path to the canonical written episode.
+  canonical_source: ""
+  # Draft, approved, in production, published, or archived.
+  production_status: "draft"
+scenes:
+  - scene_id: "S001"
+    # Short scene label used in storyboard and review.
+    title: ""
+    # Approximate duration, for example "00:45".
+    duration_estimate: ""
+    # Narration segment id, for example "N001".
+    narration_reference: ""
+    # Examples: title, diagram, slide, whiteboard, screen capture, companion, montage.
+    visual_type: ""
+    # Examples: none, present, intro, closing, transition, voiceover-only.
+    companion_mode: "none"
+    # Asset ids from the asset register.
+    assets: []
+    source_references:
+      - source_path: ""
+        # Heading or section in the canonical source.
+        section: ""
+        # Why this source supports the scene.
+        note: ""
+    transition:
+      in: ""
+      out: ""
+    # Planned, in progress, blocked, ready for review, approved, or replaced.
+    status: "planned"
+    # Not reviewed, changes requested, approved, or rejected.
+    review_state: "not reviewed"
