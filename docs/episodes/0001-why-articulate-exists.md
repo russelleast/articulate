@@ -29,7 +29,7 @@ featured: false
 
 ## Introduction
 
-After almost three decades building software and more than a decade working as a software architect, I've come to appreciate that architecture is rarely constrained by technology alone.
+After three decades building software and more than a decade working as an  architect, I've come to appreciate that architecture is rarely constrained by technology alone.
 
 Most modern technology is remarkably capable.
 
@@ -61,9 +61,9 @@ This episode explores why I believe that problem exists, why existing tools only
 
 ---
 
-# Architecture Is About Change
+## Architecture Is About Change
 
-One of the simplest definitions of software architecture is that it exists to enable change.
+One of the simplest definitions of architecture is that it exists to enable change.
 
 Architects aren't employed to draw diagrams.
 
@@ -89,7 +89,7 @@ Unfortunately, that is often the hardest part.
 
 ---
 
-# The Reality of Modern Architecture
+## The Reality of Modern Architecture
 
 Architecture knowledge is rarely found in one place.
 
@@ -135,7 +135,7 @@ It's simply the consequence of architecture being a living system rather than a 
 
 ---
 
-# The Limits of Today's Tools
+## The Limits of Today's Tools
 
 The industry already has excellent tools.
 
@@ -171,7 +171,7 @@ In other words, the architecture exists largely in people's heads.
 
 ---
 
-# The Cost of Fragmented Knowledge
+## The Cost of Fragmented Knowledge
 
 When architectural knowledge becomes fragmented, every architectural activity becomes more difficult.
 
@@ -193,7 +193,7 @@ Collectively, they consume an enormous amount of time and increase uncertainty a
 
 ---
 
-# Why Now?
+## Why Now?
 
 Many of these observations are not new.
 
@@ -227,7 +227,7 @@ For the first time, it feels practical to imagine software that helps architects
 
 ---
 
-# The Vision
+## The Vision
 
 Articulate began as a side project to scratch my own itch.
 
@@ -269,7 +269,7 @@ That uncertainty is precisely why this project exists.
 
 ---
 
-# Principles Before Features
+## Principles Before Features
 
 One of the goals of this journal is to avoid beginning with technology.
 
@@ -293,7 +293,7 @@ The principles should endure.
 
 ---
 
-# Success
+## Success
 
 If Articulate succeeds, I don't believe it will be because it produces better diagrams or more documentation.
 
@@ -311,7 +311,7 @@ Most importantly, if it demonstrates that AI can become a thoughtful architectur
 
 ---
 
-# Looking Ahead
+## Looking Ahead
 
 This episode has intentionally avoided discussing implementation.
 
