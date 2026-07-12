@@ -1,0 +1,95 @@
+experiment:
+  id: "companion-poc-001"
+  title: "Episode 0001 Companion Proof of Concept"
+  canonical_source: "docs/episodes/0001-why-articulate-exists.md"
+  related_episode_workspace: "production/episodes/0001"
+  production_status: "draft"
+  target_duration: "01:20"
+scenes:
+  - scene_id: "S001"
+    title: "Companion opening"
+    duration_estimate: "00:14"
+    narration_reference: "N001"
+    visual_type: "companion"
+    companion_mode: "present"
+    assets: ["A001", "A002", "A003"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Introduction"
+        note: "Frames the problem of understanding the architecture itself."
+      - source_path: "production/companion/companion-specification.md"
+        section: "Disclosure"
+        note: "Requires plain disclosure that the companion is AI-created."
+    transition:
+      in: "fade in from black"
+      out: "title and companion dissolve into source view"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S002"
+    title: "Persistent questions"
+    duration_estimate: "00:24"
+    narration_reference: "N002"
+    visual_type: "visual narrative"
+    companion_mode: "none"
+    assets: ["A004", "A005"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "Introduction"
+        note: "Modern technology is capable, yet architecture questions remain difficult."
+    transition:
+      in: "source view pushes forward"
+      out: "question fragments scatter into artefacts"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S003"
+    title: "Fragmented knowledge"
+    duration_estimate: "00:27"
+    narration_reference: "N003"
+    visual_type: "non-slide visual sequence"
+    companion_mode: "none"
+    assets: ["A006", "A007"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "The Reality of Modern Architecture"
+        note: "Knowledge is scattered across multiple source types."
+    transition:
+      in: "artefacts enter from different directions"
+      out: "artefacts align into concept diagram"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S004"
+    title: "Evolving body of knowledge"
+    duration_estimate: "00:20"
+    narration_reference: "N004"
+    visual_type: "concept diagram"
+    companion_mode: "none"
+    assets: ["A008", "A009"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "The Vision"
+        note: "Central question about evolving knowledge rather than disconnected documents."
+    transition:
+      in: "fragments connect into graph"
+      out: "diagram holds, then clears to companion close"
+    status: "planned"
+    review_state: "not reviewed"
+  - scene_id: "S005"
+    title: "Companion close"
+    duration_estimate: "00:15"
+    narration_reference: "N005"
+    visual_type: "companion closing"
+    companion_mode: "present"
+    assets: ["A002", "A010"]
+    source_references:
+      - source_path: "docs/episodes/0001-why-articulate-exists.md"
+        section: "The Vision"
+        note: "Articulate as an exploration, not a solved claim."
+      - source_path: "production/architecture/media-system.md"
+        section: "Provenance and Traceability"
+        note: "Derived media remains traceable to the canonical episode."
+    transition:
+      in: "companion returns beside source path"
+      out: "fade to experiment title and canonical source path"
+    status: "planned"
+    review_state: "not reviewed"
+

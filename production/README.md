@@ -26,6 +26,7 @@ production/
 |-- templates/      # Reusable episode production templates
 |-- prompts/        # AI prompt templates for production assistance
 |-- workflow/       # Human review gates and publishing workflow
+|-- experiments/    # Small vertical slices that expose production constraints
 `-- episodes/       # Episode-specific production working areas
 ```
 
