@@ -50,29 +50,33 @@ export function writeArchitectureVisual(filePath, config, { debug = false } = {}
 }
 
 export function writeCompanionFrame(filePath, config, scene, companionImagePath, { debug = false, companionAsset = null } = {}) {
-  const imageHref = readImageDataUri(companionImagePath);
-  const imageInfo = companionAsset?.dimensions ?? { width: 768, height: 1024 };
-  const placement = imageContain({
-    imageHref,
-    sourceWidth: imageInfo.width,
-    sourceHeight: imageInfo.height,
-    box: REGIONS.companion,
-    anchor: "center-bottom"
-  });
   const left = scene.companion?.framing === "left-presenter";
-  const textRegion = left ? REGIONS.closingText : REGIONS.splitText;
   const title = left ? "Human review stays explicit" : "Russell remains the narrator";
   const support = left
     ? "This animatic keeps the source, voice and review trail visible."
-    : "The companion is a static visual presenter. No lip-sync is claimed.";
-  const inner = `
-  ${layoutText({ text: scene.title, box: { x: textRegion.x, y: textRegion.y, width: textRegion.width, height: 55 }, fontSize: 28, minFontSize: 24, maxLines: 1, fill: "#5b5b5b" })}
-  ${layoutText({ text: title, box: { x: textRegion.x, y: textRegion.y + 90, width: textRegion.width, height: 160 }, fontSize: 58, minFontSize: 44, lineHeight: 1.12, maxLines: 2, weight: "700", fill: "#222222" })}
-  ${layoutText({ text: support, box: { x: textRegion.x, y: textRegion.y + 290, width: textRegion.width, height: 150 }, fontSize: 34, minFontSize: 28, lineHeight: 1.28, maxLines: 3, fill: "#364f6b" })}
-  ${layoutText({ text: "Static companion imagery. Lip-sync absent.", box: { x: textRegion.x, y: 900, width: textRegion.width, height: 50 }, fontSize: 24, minFontSize: 22, maxLines: 1, fill: "#5b5b5b" })}
-  ${placement.svg}`;
+    : "The companion is a restrained visual presenter. No lip-sync is claimed.";
+  const inner = left ? `
+  ${layoutText({ text: scene.title, box: { x: REGIONS.closingTitle.x, y: REGIONS.closingTitle.y, width: REGIONS.closingTitle.width, height: 45 }, fontSize: 28, minFontSize: 24, maxLines: 1, fill: "#5b5b5b" })}
+  ${layoutText({ text: title, box: { x: REGIONS.closingTitle.x, y: REGIONS.closingTitle.y + 76, width: REGIONS.closingTitle.width, height: 150 }, fontSize: 58, minFontSize: 44, lineHeight: 1.12, maxLines: 2, weight: "700", fill: "#222222" })}
+  ${layoutText({ text: support, box: REGIONS.closingSupport, fontSize: 34, minFontSize: 28, lineHeight: 1.28, maxLines: 3, fill: "#364f6b" })}
+  ${layoutText({ text: "AI-generated visual presenter. Lip-sync absent.", box: REGIONS.disclosureFooter, fontSize: 24, minFontSize: 22, maxLines: 1, fill: "#5b5b5b" })}` : `
+  ${layoutText({ text: scene.title, box: { x: REGIONS.splitText.x, y: REGIONS.splitText.y, width: REGIONS.splitText.width, height: 55 }, fontSize: 28, minFontSize: 24, maxLines: 1, fill: "#5b5b5b" })}
+  ${layoutText({ text: title, box: { x: REGIONS.splitText.x, y: REGIONS.splitText.y + 90, width: REGIONS.splitText.width, height: 160 }, fontSize: 58, minFontSize: 44, lineHeight: 1.12, maxLines: 2, weight: "700", fill: "#222222" })}
+  ${layoutText({ text: support, box: { x: REGIONS.splitText.x, y: REGIONS.splitText.y + 290, width: REGIONS.splitText.width, height: 150 }, fontSize: 34, minFontSize: 28, lineHeight: 1.28, maxLines: 3, fill: "#364f6b" })}
+  ${layoutText({ text: "AI-generated visual presenter. Lip-sync absent.", box: REGIONS.disclosureFooter, fontSize: 24, minFontSize: 22, maxLines: 1, fill: "#5b5b5b" })}`;
   fs.writeFileSync(filePath, svgCanvas(inner, { background: "#f7f4ee", debug, assetName: companionAsset?.repoPath ?? companionImagePath }), "utf8");
   return filePath;
+}
+
+export function companionPlacementForScene(scene, imageInfo) {
+  const box = scene.companion?.framing === "left-presenter" ? REGIONS.closingCompanion : REGIONS.companion;
+  return imageContain({
+    imageHref: "companion.png",
+    sourceWidth: imageInfo.width,
+    sourceHeight: imageInfo.height,
+    box,
+    anchor: "center-bottom"
+  });
 }
 
 export function writeContactSheet(filePath, frames) {

@@ -65,6 +65,25 @@ test("contain image placement preserves aspect ratio inside companion region", (
   assert.equal(Math.round((placement.width / placement.height) * 100), 75);
 });
 
+test("closing composition gives copy, companion, and disclosure separate safe regions", () => {
+  const regions = [REGIONS.closingCompanion, REGIONS.closingTitle, REGIONS.closingSupport, REGIONS.disclosureFooter];
+  for (const region of regions) {
+    assert.ok(region.x >= REGIONS.safe.x);
+    assert.ok(region.y >= REGIONS.safe.y);
+    assert.ok(region.x + region.width <= REGIONS.safe.x + REGIONS.safe.width);
+    assert.ok(region.y + region.height <= REGIONS.safe.y + REGIONS.safe.height);
+  }
+  for (let left = 0; left < regions.length; left += 1) {
+    for (let right = left + 1; right < regions.length; right += 1) {
+      assert.equal(overlaps(regions[left], regions[right]), false);
+    }
+  }
+});
+
+function overlaps(a, b) {
+  return a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
+}
+
 test("title card uses the fixed 1920x1080 SVG contract", () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "layout-title-"));
   const filePath = path.join(dir, "title.svg");

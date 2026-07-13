@@ -31,7 +31,7 @@ export function buildManifest({
     renderingMode: placeholderAudio ? "placeholder-audio" : "recorded-audio",
     outputIdentity: "Companion PoC 001 animatic",
     narrationProvenance: realNarration ? "real human narration" : (placeholderAudio ? "placeholder silence" : "recorded narration files"),
-    companionImagery: "static companion imagery",
+    companionImagery: "deterministically animated companion imagery",
     genuineLipSync: false,
     placeholderAudioUsed: placeholderAudio,
     companionLipSync: "absent",

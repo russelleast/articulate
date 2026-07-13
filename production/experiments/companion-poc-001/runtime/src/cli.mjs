@@ -6,7 +6,7 @@ import { readSceneConfig, orderedScenes, resolveRepoPath } from "./config.mjs";
 import { fileRecord } from "./checksum.mjs";
 import { assertWritableDirectory, findExecutable, probeDurationSeconds, probeMedia, runCommand } from "./media-tools.mjs";
 import { formatSrtTime, writeSrt } from "./subtitles.mjs";
-import { writeArchitectureVisual, writeContactSheet, writeTitleCard } from "./visuals.mjs";
+import { companionPlacementForScene, writeArchitectureVisual, writeContactSheet, writeTitleCard } from "./visuals.mjs";
 import { StaticCompanionRenderer } from "./renderers.mjs";
 import { buildManifest, writeManifest } from "./manifest.mjs";
 
@@ -519,6 +519,11 @@ function renderSilentSceneSegment({ ffmpeg, context, scene, framePath, segmentPa
     `fade=t=out:st=${fadeOutStart}:d=${transitionDuration}`
   ].join(",");
 
+  if (scene.kind === "companion") {
+    renderMotionCompanionSegment({ ffmpeg, context, scene, framePath, segmentPath, includeAudio: false });
+    return;
+  }
+
   runCommand(ffmpeg, [
     "-y",
     "-loop", "1",
@@ -530,6 +535,50 @@ function renderSilentSceneSegment({ ffmpeg, context, scene, framePath, segmentPa
     "-pix_fmt", "yuv420p",
     segmentPath
   ]);
+}
+
+function renderMotionCompanionSegment({ ffmpeg, context, scene, framePath, segmentPath, audioArgs = [], includeAudio = false }) {
+  const transitionDuration = Math.min(scene.transition?.durationSeconds ?? 0.5, scene.durationSeconds / 3);
+  const fadeOutStart = Math.max(0, scene.durationSeconds - transitionDuration);
+  const frameRate = context.config.output.frameRate;
+  const frameCount = Math.max(2, Math.round(scene.durationSeconds * frameRate));
+  const progress = `on/${frameCount - 1}`;
+  const dimensions = context.companionAsset?.dimensions ?? readPngDimensions(resolveRepoPath(context.repoRoot, context.config.assets.companionNeutral.path));
+  const placement = companionPlacementForScene(scene, dimensions);
+  const centerX = placement.x + placement.width / 2;
+  const centerY = placement.y + placement.height / 2;
+  const isClosing = scene.companion?.framing === "left-presenter";
+  const driftX = isClosing ? "0" : `8*${progress}`;
+  const driftY = isClosing ? `-6*${progress}` : "0";
+  const zoom = `1+0.025*${progress}`;
+  const layerFilter = [
+    `scale=${Math.round(placement.width)}:${Math.round(placement.height)}:force_original_aspect_ratio=decrease`,
+    `pad=${context.config.output.width}:${context.config.output.height}:${Math.round(placement.x)}:${Math.round(placement.y)}:color=0x00000000`,
+    "format=rgba",
+    `zoompan=z='${zoom}':x='${centerX}*(1-1/zoom)-(${driftX})/zoom':y='${centerY}*(1-1/zoom)-(${driftY})/zoom':d=1:s=${context.config.output.width}x${context.config.output.height}:fps=${frameRate}`,
+    "format=rgba",
+    `fade=t=in:st=0:d=${transitionDuration}:alpha=1`,
+    `fade=t=out:st=${fadeOutStart}:d=${transitionDuration}:alpha=1`
+  ].join(",");
+  const complexFilter = [
+    `[0:v]scale=${context.config.output.width}:${context.config.output.height}:force_original_aspect_ratio=decrease,pad=${context.config.output.width}:${context.config.output.height}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=${frameRate}[base]`,
+    `[1:v]${layerFilter}[companion]`,
+    `[base][companion]overlay=0:0:shortest=1,fade=t=in:st=0:d=${transitionDuration},fade=t=out:st=${fadeOutStart}:d=${transitionDuration}[video]`
+  ].join(";");
+  const companionPath = context.companionAsset?.path ?? resolveRepoPath(context.repoRoot, context.config.assets.companionNeutral.path);
+  const args = [
+    "-y",
+    "-loop", "1", "-t", String(scene.durationSeconds), "-i", framePath,
+    "-loop", "1", "-t", String(scene.durationSeconds), "-i", companionPath,
+    ...audioArgs,
+    "-filter_complex", complexFilter,
+    "-map", "[video]"
+  ];
+  if (includeAudio) args.push("-map", "2:a:0", "-shortest");
+  args.push("-c:v", "libx264", "-pix_fmt", "yuv420p");
+  if (includeAudio) args.push("-c:a", "aac");
+  args.push(segmentPath);
+  runCommand(ffmpeg, args);
 }
 
 function rasterizeSvgFrame({ qlmanage, svgPath, outputPath, generatedScenesDir }) {
@@ -667,6 +716,10 @@ function renderSceneSegment({ ffmpeg, context, scene, framePath, segmentPath }) 
   const audioArgs = context.placeholderAudio
     ? ["-f", "lavfi", "-t", String(scene.durationSeconds), "-i", "anullsrc=channel_layout=stereo:sample_rate=48000"]
     : ["-i", resolveRepoPath(context.repoRoot, scene.audio)];
+  if (scene.kind === "companion") {
+    renderMotionCompanionSegment({ ffmpeg, context, scene, framePath, segmentPath, audioArgs, includeAudio: true });
+    return;
+  }
   const transitionDuration = Math.min(scene.transition?.durationSeconds ?? 0.5, scene.durationSeconds / 3);
   const fadeOutStart = Math.max(0, scene.durationSeconds - transitionDuration);
   const videoFilter = [

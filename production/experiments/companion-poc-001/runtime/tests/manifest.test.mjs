@@ -46,7 +46,7 @@ test("manifest records placeholder mode and generated file checksums", () => {
   assert.equal(manifest.placeholderAudioUsed, true);
   assert.equal(manifest.outputIdentity, "Companion PoC 001 animatic");
   assert.equal(manifest.narrationProvenance, "real human narration");
-  assert.equal(manifest.companionImagery, "static companion imagery");
+  assert.equal(manifest.companionImagery, "deterministically animated companion imagery");
   assert.equal(manifest.genuineLipSync, false);
   assert.equal(manifest.realNarration.preparedSha256, "b".repeat(64));
   assert.equal(manifest.generatedFiles.length, 1);

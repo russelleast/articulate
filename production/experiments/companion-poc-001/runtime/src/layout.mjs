@@ -10,9 +10,12 @@ export const REGIONS = Object.freeze({
   title: { x: 140, y: 150, width: 1280, height: 500 },
   titleFooter: { x: 140, y: 880, width: 1440, height: 80 },
   splitText: { x: 140, y: 170, width: 780, height: 650 },
-  companion: { x: 1080, y: 130, width: 650, height: 850 },
+  companion: { x: 1090, y: 130, width: 630, height: 850 },
   diagram: { x: 360, y: 230, width: 1200, height: 680 },
-  closingText: { x: 800, y: 260, width: 820, height: 420 }
+  closingCompanion: { x: 140, y: 210, width: 560, height: 620 },
+  closingTitle: { x: 820, y: 170, width: 900, height: 250 },
+  closingSupport: { x: 820, y: 470, width: 900, height: 170 },
+  disclosureFooter: { x: 140, y: 884, width: 1580, height: 80 }
 });
 
 export function svgCanvas(inner, { background = "#f7f4ee", debug = false, assetName = null } = {}) {
