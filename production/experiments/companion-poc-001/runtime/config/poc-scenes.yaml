@@ -1,0 +1,109 @@
+{
+  "runtimeVersion": "0.1.0",
+  "experiment": {
+    "id": "companion-poc-001",
+    "title": "Episode 0001 Companion PoC 001 Animatic",
+    "canonicalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "prototypeScript": "production/experiments/companion-poc-001/prototype-script.md",
+    "sourceSceneList": "production/experiments/companion-poc-001/scene-list.yaml"
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "format": "mp4",
+    "file": "production/experiments/companion-poc-001/runtime/output/companion-poc-001-animatic.mp4",
+    "placeholderFile": "production/experiments/companion-poc-001/runtime/output/companion-poc-001-placeholder-animatic.mp4"
+  },
+  "assets": {
+    "companionDesignSystem": {
+      "path": "production/assets/companion/design-system/v0.1/articulate-companion-design-system-v0.1.png",
+      "usage": "explicit-crop-reference",
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 1024,
+        "note": "Configured crop for the first rough animatic. This is a reference-board extraction, not the selected production companion design."
+      }
+    }
+  },
+  "audio": {
+    "normalise": false,
+    "durationToleranceSeconds": 1.5,
+    "placeholder": {
+      "type": "silence",
+      "label": "PLACEHOLDER AUDIO - timing validation only"
+    }
+  },
+  "scenes": [
+    {
+      "id": "scene-001-title",
+      "order": 1,
+      "title": "Title card",
+      "kind": "title-card",
+      "durationSeconds": 5,
+      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-001-opening.wav",
+      "transition": { "in": "fade", "out": "crossfade", "durationSeconds": 0.5 },
+      "sourceReferences": [
+        "docs/episodes/0001-why-articulate-exists.md#introduction",
+        "production/experiments/companion-poc-001/prototype-script.md#segment-n001"
+      ],
+      "subtitleText": "Articulate. Episode 0001. Why Articulate Exists. Companion PoC 001."
+    },
+    {
+      "id": "scene-002-companion-opening",
+      "order": 2,
+      "title": "Companion opening",
+      "kind": "companion",
+      "durationSeconds": 7,
+      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-002-transition.wav",
+      "companion": {
+        "renderer": "static",
+        "framing": "right-presenter",
+        "motion": "slow-push",
+        "lipSync": "absent"
+      },
+      "transition": { "in": "crossfade", "out": "crossfade", "durationSeconds": 0.5 },
+      "sourceReferences": [
+        "production/companion/companion-specification.md#disclosure",
+        "production/experiments/companion-poc-001/prototype-script.md#segment-n001"
+      ],
+      "subtitleText": "The voice and argument are Russell's. The companion is an AI-generated visual presenter."
+    },
+    {
+      "id": "scene-003-architecture-visual",
+      "order": 3,
+      "title": "From product to reference implementation",
+      "kind": "architecture-visual",
+      "durationSeconds": 8,
+      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-003-concept.wav",
+      "transition": { "in": "crossfade", "out": "crossfade", "durationSeconds": 0.5 },
+      "sourceReferences": [
+        "docs/episodes/0001-why-articulate-exists.md#the-vision",
+        "production/experiments/companion-poc-001/prototype-script.md#segment-n004"
+      ],
+      "subtitleText": "Articulate asks whether architecture can become a continuously evolving body of knowledge."
+    },
+    {
+      "id": "scene-004-companion-close",
+      "order": 4,
+      "title": "Companion close",
+      "kind": "companion",
+      "durationSeconds": 5,
+      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-004-closing.wav",
+      "companion": {
+        "renderer": "static",
+        "framing": "left-presenter",
+        "motion": "subtle-drift",
+        "lipSync": "absent"
+      },
+      "transition": { "in": "crossfade", "out": "fade", "durationSeconds": 0.5 },
+      "sourceReferences": [
+        "production/architecture/media-system.md#provenance-and-traceability",
+        "production/experiments/companion-poc-001/prototype-script.md#segment-n005"
+      ],
+      "subtitleText": "This is an animatic: a deterministic assembly path, not lip-synced companion footage."
+    }
+  ]
+}

@@ -50,6 +50,22 @@ site/dist/
 site/.astro/
 site/.playwright-cli/
 
+# Companion PoC generated media
+production/experiments/companion-poc-001/runtime/output/*
+!production/experiments/companion-poc-001/runtime/output/.gitkeep
+production/experiments/companion-poc-001/generated/scenes/*
+!production/experiments/companion-poc-001/generated/scenes/.gitkeep
+production/experiments/companion-poc-001/generated/subtitles/*
+!production/experiments/companion-poc-001/generated/subtitles/.gitkeep
+production/experiments/companion-poc-001/generated/manifests/*
+!production/experiments/companion-poc-001/generated/manifests/.gitkeep
+production/experiments/companion-poc-001/inputs/audio/*
+!production/experiments/companion-poc-001/inputs/audio/.gitkeep
+production/experiments/companion-poc-001/inputs/companion/*
+!production/experiments/companion-poc-001/inputs/companion/.gitkeep
+production/experiments/companion-poc-001/inputs/visuals/*
+!production/experiments/companion-poc-001/inputs/visuals/.gitkeep
+
 # MSBuild Binary and Structured Log
 *.binlog
 
