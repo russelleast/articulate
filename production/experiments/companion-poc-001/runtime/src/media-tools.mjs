@@ -46,6 +46,16 @@ export function probeVideo(ffprobePath, mediaPath) {
   return JSON.parse(result.stdout);
 }
 
+export function probeMedia(ffprobePath, mediaPath) {
+  const result = runCommand(ffprobePath, [
+    "-v", "error",
+    "-show_entries", "format=duration:stream=index,codec_type,codec_name,width,height,r_frame_rate,sample_rate,channels",
+    "-of", "json",
+    mediaPath
+  ]);
+  return JSON.parse(result.stdout);
+}
+
 export function assertWritableDirectory(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
   fs.accessSync(dirPath, fs.constants.W_OK);

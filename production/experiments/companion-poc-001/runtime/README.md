@@ -12,11 +12,16 @@ From the repository root:
 make companion-poc-validate
 make companion-poc-validate-placeholder
 make companion-poc-render
+make companion-poc-render-real
+make companion-poc-render-reference-fallback
+make companion-poc-render-layout-debug
 make companion-poc-render-placeholder
 make companion-poc-test
 ```
 
-`companion-poc-render` requires the expected WAV files under `production/experiments/companion-poc-001/inputs/audio/`.
+`companion-poc-render` and `companion-poc-render-real` use Russell's canonical recording at `production/narrator/voice-profile.wav`, prepare an experiment-local WAV under `production/experiments/companion-poc-001/inputs/audio/`, and render the real-audio animatic.
+
+Normal real-audio renders require `production/assets/companion/v1/companion-neutral.png`. The reference-sheet crop is only available through `companion-poc-render-reference-fallback` for temporary layout validation. `companion-poc-render-layout-debug` draws safe areas and layout regions.
 
 `companion-poc-render-placeholder` uses labelled silent placeholder audio. It is only for validating timing and assembly; it is not publishable narration.
 
@@ -24,6 +29,15 @@ make companion-poc-test
 
 - Node.js;
 - FFmpeg and ffprobe for MP4 export and media duration checks.
+- macOS `qlmanage` for rasterizing deterministic SVG frames when FFmpeg cannot decode SVG directly.
+
+## PoC 002 Layout Findings
+
+- The previous MP4 was media-valid but visually invalid because SVG scene composition used ad hoc coordinates rather than a shared 1920 x 1080 composition contract.
+- Text was emitted as single SVG `<text>` nodes without wrapping, height checks or overflow failure.
+- The companion renderer referenced the full character sheet from inside the composed SVG, so the crop was implicit and dependent on the rasterizer's external-image behaviour.
+- Quick Look rasterized SVGs as square thumbnails; FFmpeg then forced them into 16:9, distorting the internal scene layout.
+- PoC 002 centralises safe areas, text layout, image containment and companion asset preparation before scene composition.
 
 If FFmpeg is missing, validation can still check source/configuration structure, but rendering will fail with an actionable error.
 

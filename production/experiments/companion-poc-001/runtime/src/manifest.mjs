@@ -16,7 +16,9 @@ export function buildManifest({
   generatedFiles,
   rendererResults,
   warnings,
-  outputVideo
+  outputVideo,
+  realNarration = null,
+  reviewReport = null
 }) {
   const existingInputs = inputFiles.filter((filePath) => fs.existsSync(filePath));
   const existingGenerated = generatedFiles.filter((filePath) => fs.existsSync(filePath));
@@ -27,6 +29,10 @@ export function buildManifest({
     sceneConfiguration: repoRelative(repoRoot, configPath),
     runtimeVersion: config.runtimeVersion,
     renderingMode: placeholderAudio ? "placeholder-audio" : "recorded-audio",
+    outputIdentity: "Companion PoC 001 animatic",
+    narrationProvenance: realNarration ? "real human narration" : (placeholderAudio ? "placeholder silence" : "recorded narration files"),
+    companionImagery: "static companion imagery",
+    genuineLipSync: false,
     placeholderAudioUsed: placeholderAudio,
     companionLipSync: "absent",
     resolution: {
@@ -39,6 +45,17 @@ export function buildManifest({
     inputFiles: existingInputs.map((filePath) => fileRecord(filePath, repoRelative(repoRoot, filePath))),
     generatedFiles: existingGenerated.map((filePath) => fileRecord(filePath, repoRelative(repoRoot, filePath))),
     outputVideo: outputVideo && fs.existsSync(outputVideo) ? fileRecord(outputVideo, repoRelative(repoRoot, outputVideo)) : null,
+    realNarration: realNarration ? {
+      source: repoRelative(repoRoot, realNarration.sourcePath),
+      prepared: repoRelative(repoRoot, realNarration.path),
+      sourceSha256: realNarration.sourceChecksum,
+      preparedSha256: realNarration.preparedChecksum,
+      sourceDurationSeconds: realNarration.sourceDurationSeconds,
+      preparedDurationSeconds: realNarration.durationSeconds,
+      trim: realNarration.trim,
+      transformations: realNarration.transformations
+    } : null,
+    reviewReport: reviewReport ? repoRelative(repoRoot, reviewReport) : null,
     rendererResults: rendererResults.map((result) => ({
       ...result,
       frame: result.frame ? repoRelative(repoRoot, result.frame) : result.frame,

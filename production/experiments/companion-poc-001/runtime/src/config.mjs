@@ -17,6 +17,7 @@ export function validateSceneConfigShape(config) {
   const errors = [];
   if (!config || typeof config !== "object") errors.push("configuration root must be an object");
   if (!config?.experiment?.canonicalSource) errors.push("experiment.canonicalSource is required");
+  if (!config?.assets?.companionNeutral?.path) errors.push("assets.companionNeutral.path is required");
   if (!config?.assets?.companionDesignSystem?.path) errors.push("assets.companionDesignSystem.path is required");
   if (!config?.output?.width || !config?.output?.height) errors.push("output.width and output.height are required");
   if (!Number.isInteger(config?.output?.frameRate)) errors.push("output.frameRate must be an integer");

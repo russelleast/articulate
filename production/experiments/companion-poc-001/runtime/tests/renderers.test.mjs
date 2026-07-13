@@ -12,13 +12,21 @@ const configPath = path.join(repoRoot, "production/experiments/companion-poc-001
 test("static companion renderer reports absent lip-sync and provenance", () => {
   const config = readSceneConfig(configPath);
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "companion-renderer-"));
-  const renderer = new StaticCompanionRenderer({ config, repoRoot, generatedScenesDir: dir });
+  const companionAsset = {
+    path: path.join(repoRoot, config.assets.companionDesignSystem.path),
+    repoPath: config.assets.companionDesignSystem.path,
+    source: "test-reference",
+    dimensions: { width: 1536, height: 1024 },
+    warnings: []
+  };
+  const renderer = new StaticCompanionRenderer({ config, repoRoot, generatedScenesDir: dir, companionAsset });
   const scene = config.scenes.find((candidate) => candidate.kind === "companion");
   const result = renderer.render(scene);
 
   assert.equal(result.lipSync, "absent");
   assert.equal(result.resolution.width, 1920);
-  assert.ok(result.provenance.crop);
+  assert.equal(result.provenance.source, "test-reference");
+  assert.ok(result.provenance.companionAsset);
   assert.ok(fs.existsSync(result.frame));
 });
 
