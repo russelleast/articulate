@@ -79,3 +79,4 @@ TestResult.xml
 nunit-*.xml
 .DS_Store
 **/.DS_Store
+production/experiments/companion-poc-001/runtime/.DS_Store
