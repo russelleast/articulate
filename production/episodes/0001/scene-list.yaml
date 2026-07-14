@@ -2,197 +2,236 @@ episode:
   id: "episode-0001"
   title: "Why Articulate Exists"
   canonical_source: "docs/episodes/0001-why-articulate-exists.md"
-  production_status: "draft"
+  production_status: "rough-cut-01"
+  timing_authority: "episode-0001-narration-v1"
+  narration_duration_seconds: 550.365692
 scenes:
   - scene_id: "S001"
-    title: "Opening claim"
-    duration_estimate: "00:35"
-    narration_reference: "N001"
-    visual_type: "title"
-    companion_mode: "present"
+    title: "Why Articulate Exists"
+    start_seconds: 0.000
+    end_seconds: 12.872
+    duration_seconds: 12.872
+    narration_reference: "Opening quote; Introduction"
+    visual_type: "title and companion opening"
+    companion_mode: "present-static"
     assets: ["A001", "A002"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Opening quote; Introduction"
-        note: "Opening problem statement."
-    transition:
-      in: "fade in"
-      out: "fade to journal text"
-    status: "planned"
-    review_state: "not reviewed"
+    layout: "editorial split"
+    transition: { in: "fade", out: "cut" }
+    status: "rough-cut-rendered"
   - scene_id: "S002"
-    title: "Capable technology, hard understanding"
-    duration_estimate: "00:45"
-    narration_reference: "N002"
-    visual_type: "journal and abstract system fragments"
+    title: "The architecture itself"
+    start_seconds: 12.872
+    end_seconds: 30.031
+    duration_seconds: 17.159
+    narration_reference: "Introduction — personal context and capable technology"
+    visual_type: "canonical journal source"
     companion_mode: "none"
-    assets: ["A003", "A004"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Introduction"
-        note: "Modern technology is capable; understanding architecture remains hard."
-    transition:
-      in: "text dissolve"
-      out: "fragments scatter"
-    status: "planned"
-    review_state: "not reviewed"
+    assets: ["A003"]
+    layout: "repository window"
+    transition: { in: "cut", out: "cut" }
+    status: "rough-cut-rendered"
   - scene_id: "S003"
-    title: "Architectural questions"
-    duration_estimate: "00:50"
-    narration_reference: "N003"
-    visual_type: "question fragments"
-    companion_mode: "transition"
-    assets: ["A005"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Introduction"
-        note: "Questions architects try to answer."
-    transition:
-      in: "question fragments appear"
-      out: "gather into architecture sketch"
-    status: "planned"
-    review_state: "not reviewed"
+    title: "Capable technology"
+    start_seconds: 30.031
+    end_seconds: 61.104
+    duration_seconds: 31.073
+    narration_reference: "Introduction — modern technology is capable"
+    visual_type: "capability map"
+    companion_mode: "none"
+    assets: ["A004"]
+    layout: "label grid"
+    transition: { in: "cut", out: "cut" }
+    status: "rough-cut-rendered"
   - scene_id: "S004"
+    title: "Architectural questions"
+    start_seconds: 61.104
+    end_seconds: 88.719
+    duration_seconds: 27.615
+    narration_reference: "Introduction — questions architects answer"
+    visual_type: "question fragments"
+    companion_mode: "none"
+    assets: ["A005"]
+    layout: "question grid"
+    transition: { in: "cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S005"
     title: "Architecture enables change"
-    duration_estimate: "00:50"
-    narration_reference: "N004"
-    visual_type: "whiteboard"
+    start_seconds: 88.719
+    end_seconds: 131.563
+    duration_seconds: 42.844
+    narration_reference: "Architecture Is About Change"
+    visual_type: "current-state to future-state diagram"
     companion_mode: "none"
     assets: ["A006"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Architecture Is About Change"
-        note: "Architecture as decision support for change."
-    transition:
-      in: "line draw"
-      out: "line continues"
-    status: "planned"
-    review_state: "not reviewed"
-  - scene_id: "S005"
-    title: "Fragmented knowledge"
-    duration_estimate: "01:05"
-    narration_reference: "N005"
-    visual_type: "diagram"
+    layout: "horizontal flow"
+    transition: { in: "section cut", out: "cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S006"
+    title: "Scattered knowledge"
+    start_seconds: 131.563
+    end_seconds: 157.224
+    duration_seconds: 25.661
+    narration_reference: "The Reality of Modern Architecture — scattered sources"
+    visual_type: "fragmented knowledge diagram"
     companion_mode: "none"
     assets: ["A007"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "The Reality of Modern Architecture"
-        note: "Knowledge scattered across multiple sources."
-    transition:
-      in: "progressive reveal"
-      out: "sources form partial picture"
-    status: "planned"
-    review_state: "not reviewed"
-  - scene_id: "S006"
-    title: "Projections of reality"
-    duration_estimate: "00:55"
-    narration_reference: "N006"
-    visual_type: "diagram"
-    companion_mode: "intro"
-    assets: ["A008"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "The Limits of Today's Tools"
-        note: "Each tool is one projection of reality."
-    transition:
-      in: "companion intro"
-      out: "projection diagram clears"
-    status: "planned"
-    review_state: "not reviewed"
+    layout: "source grid"
+    transition: { in: "cut", out: "cut" }
+    status: "rough-cut-rendered"
   - scene_id: "S007"
-    title: "Cost of fragmentation"
-    duration_estimate: "00:45"
-    narration_reference: "N007"
-    visual_type: "text fragments"
+    title: "A living system"
+    start_seconds: 157.224
+    end_seconds: 193.606
+    duration_seconds: 36.382
+    narration_reference: "The Reality of Modern Architecture — a living system"
+    visual_type: "change timeline"
+    companion_mode: "none"
+    assets: ["A007"]
+    layout: "horizontal timeline"
+    transition: { in: "cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S008"
+    title: "Excellent tools"
+    start_seconds: 193.606
+    end_seconds: 221.454
+    duration_seconds: 27.848
+    narration_reference: "The Limits of Today's Tools — excellent tools"
+    visual_type: "tool evidence grid"
+    companion_mode: "none"
+    assets: ["A008"]
+    layout: "label grid"
+    transition: { in: "section cut", out: "cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S009"
+    title: "Projections of reality"
+    start_seconds: 221.454
+    end_seconds: 247.200
+    duration_seconds: 25.746
+    narration_reference: "The Limits of Today's Tools — projections of reality"
+    visual_type: "projection diagram"
+    companion_mode: "none"
+    assets: ["A008"]
+    layout: "radial diagram"
+    transition: { in: "cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S010"
+    title: "The cost of fragmentation"
+    start_seconds: 247.200
+    end_seconds: 292.230
+    duration_seconds: 45.030
+    narration_reference: "The Cost of Fragmented Knowledge"
+    visual_type: "cost fragments"
     companion_mode: "none"
     assets: ["A009"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "The Cost of Fragmented Knowledge"
-        note: "Consequences of fragmented knowledge."
-    transition:
-      in: "fragments accumulate"
-      out: "quiet clear"
-    status: "planned"
-    review_state: "not reviewed"
-  - scene_id: "S008"
-    title: "Why AI changes the possibility space"
-    duration_estimate: "00:55"
-    narration_reference: "N008"
-    visual_type: "concept diagram"
-    companion_mode: "transition"
+    layout: "consequence grid"
+    transition: { in: "section cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S011"
+    title: "Why now?"
+    start_seconds: 292.230
+    end_seconds: 321.759
+    duration_seconds: 29.529
+    narration_reference: "Why Now? — reason across unstructured information"
+    visual_type: "evidence synthesis diagram"
+    companion_mode: "none"
     assets: ["A010"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Why Now?"
-        note: "AI can reason across unstructured information and incomplete evidence."
-    transition:
-      in: "evidence fragments reorganise"
-      out: "central question appears"
-    status: "planned"
-    review_state: "not reviewed"
-  - scene_id: "S009"
-    title: "Central question"
-    duration_estimate: "01:00"
-    narration_reference: "N009"
-    visual_type: "question slide and repository view"
-    companion_mode: "present"
-    assets: ["A011", "A012"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "The Vision"
-        note: "Central Articulate question."
-    transition:
-      in: "question reveal"
-      out: "journal view"
-    status: "planned"
-    review_state: "not reviewed"
-  - scene_id: "S010"
+    layout: "radial diagram"
+    transition: { in: "section cut", out: "cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S012"
+    title: "Augment, not replace"
+    start_seconds: 321.759
+    end_seconds: 347.767
+    duration_seconds: 26.008
+    narration_reference: "Why Now? — augment architectural thinking"
+    visual_type: "human and AI boundary diagram"
+    companion_mode: "none"
+    assets: ["A010"]
+    layout: "horizontal flow"
+    transition: { in: "cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S013"
+    title: "From side project to question"
+    start_seconds: 347.767
+    end_seconds: 382.661
+    duration_seconds: 34.894
+    narration_reference: "The Vision — origins and convergence"
+    visual_type: "companion bridge"
+    companion_mode: "present-static"
+    assets: ["A011"]
+    layout: "editorial split"
+    transition: { in: "section cut", out: "cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S014"
+    title: "The central question"
+    start_seconds: 382.661
+    end_seconds: 419.901
+    duration_seconds: 37.240
+    narration_reference: "The Vision — central question and uncertainty"
+    visual_type: "central question card"
+    companion_mode: "none"
+    assets: ["A011"]
+    layout: "question focus"
+    transition: { in: "cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S015"
     title: "Principles before features"
-    duration_estimate: "00:45"
-    narration_reference: "N010"
-    visual_type: "sequence slide"
+    start_seconds: 419.901
+    end_seconds: 459.475
+    duration_seconds: 39.574
+    narration_reference: "Principles Before Features"
+    visual_type: "reasoning-order diagram"
     companion_mode: "none"
     assets: ["A013"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Principles Before Features"
-        note: "Reasoning precedes technology selection."
-    transition:
-      in: "vertical sequence"
-      out: "montage"
-    status: "planned"
-    review_state: "not reviewed"
-  - scene_id: "S011"
-    title: "Success"
-    duration_estimate: "00:45"
-    narration_reference: "N011"
-    visual_type: "montage"
+    layout: "horizontal flow"
+    transition: { in: "section cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S016"
+    title: "What success is not"
+    start_seconds: 459.475
+    end_seconds: 484.565
+    duration_seconds: 25.090
+    narration_reference: "Success — less searching, more meaningful problems"
+    visual_type: "success contrast"
     companion_mode: "none"
     assets: ["A014"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Success"
-        note: "Success criteria for Articulate."
-    transition:
-      in: "slow montage"
-      out: "closing frame"
-    status: "planned"
-    review_state: "not reviewed"
-  - scene_id: "S012"
+    layout: "horizontal flow"
+    transition: { in: "section cut", out: "cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S017"
+    title: "What success means"
+    start_seconds: 484.565
+    end_seconds: 509.297
+    duration_seconds: 24.732
+    narration_reference: "Success — preserve knowledge and improve conversations"
+    visual_type: "outcome montage"
+    companion_mode: "none"
+    assets: ["A014"]
+    layout: "evidence grid"
+    transition: { in: "cut", out: "section cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S018"
     title: "Looking ahead"
-    duration_estimate: "00:35"
-    narration_reference: "N012"
-    visual_type: "closing"
-    companion_mode: "present"
+    start_seconds: 509.297
+    end_seconds: 533.884
+    duration_seconds: 24.587
+    narration_reference: "Looking Ahead — future episodes and experiments"
+    visual_type: "journal roadmap"
+    companion_mode: "none"
+    assets: ["A016"]
+    layout: "horizontal flow"
+    transition: { in: "section cut", out: "cut" }
+    status: "rough-cut-rendered"
+  - scene_id: "S019"
+    title: "An exploration"
+    start_seconds: 533.884
+    end_seconds: 550.365692
+    duration_seconds: 16.481692
+    narration_reference: "Looking Ahead — exploration into better architecture"
+    visual_type: "companion close and source card"
+    companion_mode: "present-static"
     assets: ["A015", "A016"]
-    source_references:
-      - source_path: "docs/episodes/0001-why-articulate-exists.md"
-        section: "Looking Ahead"
-        note: "Future episodes will document evolving principles, constraints and experiments."
-    transition:
-      in: "fade to companion"
-      out: "fade to source link"
-    status: "planned"
-    review_state: "not reviewed"
+    layout: "editorial split"
+    transition: { in: "cut", out: "fade" }
+    production_notes: "The last 3.831 seconds preserve the selected recording's trailing silence as a closing hold."
+    status: "rough-cut-rendered"

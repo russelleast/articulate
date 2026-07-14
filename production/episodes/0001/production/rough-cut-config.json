@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "episode-0001",
+    "title": "Why Articulate Exists",
+    "canonicalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "storyboard": "production/episodes/0001/scene-list.yaml",
+    "timingMarkers": "production/episodes/0001/production/narration-markers.json"
+  },
+  "narration": {
+    "assetId": "episode-0001-narration-v1",
+    "expectedSha256": "61cebeeba07b42285a3b130a9484f1452e8163ee0ebee92e2f2bdf32fa9207fa",
+    "expectedDurationSeconds": 550.365692,
+    "preserveWholeRecording": true
+  },
+  "companion": {
+    "assetId": "companion-v1-neutral"
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "video": "production/episodes/0001/output/episode-0001-rough-cut-01.mp4",
+    "generatedDirectory": "production/episodes/0001/generated/rough-cut-01",
+    "reviewDirectory": "production/episodes/0001/output/review/rough-cut-01"
+  },
+  "scenes": [
+    { "id": "S001", "title": "Why Articulate Exists", "kind": "title", "headline": "Why Articulate Exists", "support": "Architecture knowledge is fragmented, changing and never complete.", "items": ["Episode 0001", "Articulate Journal"], "companion": true, "assetIds": ["A001", "A002"], "transition": "fade" },
+    { "id": "S002", "title": "The architecture itself", "kind": "journal", "headline": "Understanding the architecture itself", "support": "Not the diagrams. Not the documentation. The architecture.", "items": ["docs/episodes/0001-why-articulate-exists.md", "Canonical journal source"], "companion": false, "assetIds": ["A003"], "transition": "cut" },
+    { "id": "S003", "title": "Capable technology", "kind": "capabilities", "headline": "Modern technology is remarkably capable", "support": "Yet understanding the architecture remains difficult.", "items": ["Cloud platforms", "Frameworks", "Infrastructure", "AI"], "companion": false, "assetIds": ["A004"], "transition": "cut" },
+    { "id": "S004", "title": "Architectural questions", "kind": "questions", "headline": "Surprisingly simple questions", "support": "The answers are rarely straightforward.", "items": ["What does the current state look like?", "Why was it designed this way?", "Which decisions still hold?", "What happens if this changes?", "Can the documentation be trusted?"], "companion": false, "assetIds": ["A005"], "transition": "cut" },
+    { "id": "S005", "title": "Architecture enables change", "kind": "change", "headline": "Architecture exists to enable change", "support": "Understand today's architecture so it can safely evolve into tomorrow's.", "items": ["Current state", "Trade-offs and risk", "Future state"], "companion": false, "assetIds": ["A006"], "transition": "section" },
+    { "id": "S006", "title": "Scattered knowledge", "kind": "fragments", "headline": "Architectural knowledge is rarely in one place", "support": "Each source contains part of the truth.", "items": ["Source code", "Infrastructure as Code", "ADRs", "Diagrams", "Slide decks", "Monitoring", "People"], "companion": false, "assetIds": ["A007"], "transition": "cut" },
+    { "id": "S007", "title": "A living system", "kind": "timeline", "headline": "The architecture keeps moving", "support": "Our understanding slowly falls behind.", "items": ["Projects change", "Teams change", "Businesses evolve", "Documents age"], "companion": false, "assetIds": ["A007"], "transition": "cut" },
+    { "id": "S008", "title": "Excellent tools", "kind": "tools", "headline": "The industry already has excellent tools", "support": "The problem is not that those tools are poor.", "items": ["Confluence", "Git", "Terraform", "Mermaid / C4", "EAM platforms"], "companion": false, "assetIds": ["A008"], "transition": "section" },
+    { "id": "S009", "title": "Projections of reality", "kind": "projections", "headline": "Each tool represents one projection of reality", "support": "The architect is left connecting the pieces together.", "items": ["View", "Decision", "Implementation", "Deployment", "Concept"], "companion": false, "assetIds": ["A008"], "transition": "cut" },
+    { "id": "S010", "title": "The cost of fragmentation", "kind": "costs", "headline": "More searching. Less reasoning.", "support": "Fragmentation increases uncertainty across every project.", "items": ["Slower current-state discovery", "Duplicated capabilities", "Forgotten decisions", "Manual impact analysis", "Documentation loses relevance"], "companion": false, "assetIds": ["A009"], "transition": "section" },
+    { "id": "S011", "title": "Why now?", "kind": "evidence", "headline": "Reason across unstructured information", "support": "Patterns, summaries, contradictions and questions can emerge from incomplete evidence.", "items": ["Documents", "Code", "Decisions", "Signals"], "companion": false, "assetIds": ["A010"], "transition": "section" },
+    { "id": "S012", "title": "Augment, not replace", "kind": "augment", "headline": "Augment architectural thinking", "support": "Humans remain responsible for judgement and decisions.", "items": ["Human context", "AI-assisted synthesis", "Architectural judgement"], "companion": false, "assetIds": ["A010"], "transition": "cut" },
+    { "id": "S013", "title": "From side project to question", "kind": "companion", "headline": "Several false starts. One broader question.", "support": "The companion bridges from capability to the project's uncertain vision.", "items": ["Idea", "Prototype", "Learning", "Question"], "companion": true, "assetIds": ["A011"], "transition": "section" },
+    { "id": "S014", "title": "The central question", "kind": "question", "headline": "Can architecture become a continuously evolving body of knowledge?", "support": "Instead of a collection of disconnected documents.", "items": ["Whether that proves achievable remains to be seen."], "companion": false, "assetIds": ["A011"], "transition": "cut" },
+    { "id": "S015", "title": "Principles before features", "kind": "principles", "headline": "Principles before features", "support": "Technology changes. The principles should endure.", "items": ["Problem", "Principles", "Capabilities", "Architecture", "Runtime"], "companion": false, "assetIds": ["A013"], "transition": "section" },
+    { "id": "S016", "title": "What success is not", "kind": "contrast", "headline": "Not simply better diagrams or more documentation", "support": "Success starts with less time searching and more time solving meaningful problems.", "items": ["Search", "Understand", "Reason", "Change"], "companion": false, "assetIds": ["A014"], "transition": "section" },
+    { "id": "S017", "title": "What success means", "kind": "success", "headline": "Preserve knowledge. Reduce uncertainty.", "support": "Improve the conversations architects have about change.", "items": ["Evidence", "Decisions", "Context", "Consequences"], "companion": false, "assetIds": ["A014"], "transition": "cut" },
+    { "id": "S018", "title": "Looking ahead", "kind": "roadmap", "headline": "Principles, requirements, constraints and experiments", "support": "Some ideas will succeed. Some will fail. Many will change.", "items": ["Principles", "Requirements", "Constraints", "Experiments"], "companion": false, "assetIds": ["A016"], "transition": "section" },
+    { "id": "S019", "title": "An exploration", "kind": "closing", "headline": "An exploration into how we might build better architecture", "support": "articulate.dev · docs/episodes/0001-why-articulate-exists.md", "items": ["AI-generated visual companion", "Russell's recorded narration"], "companion": true, "assetIds": ["A015", "A016"], "transition": "fade" }
+  ]
+}

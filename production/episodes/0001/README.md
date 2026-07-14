@@ -18,3 +18,39 @@ Episode 0001 opens the Articulate series. The production treatment should theref
 ## Production Position
 
 The episode is essay-like, but it still needs video because it establishes the series. The video should combine companion-led opening and closing, restrained title and section slides, visual storytelling, architectural sketches, repository or journal views, and carefully selected text fragments.
+
+## Rough Cut 01
+
+The first complete rough cut uses the selected recorded narration as its timing authority. The registry resolves `episode-0001-narration-v1` to the approved 9:10.366 master recording; the renderer preserves that complete recording and does not copy it into generated output storage.
+
+The production path is:
+
+```text
+Canonical episode
+    → selected recorded narration
+    → narration analysis and editorial timing markers
+    → synchronised scene list
+    → deterministic authored scene frames
+    → FFmpeg assembly
+    → rough-cut video and editorial review artefacts
+```
+
+Run from the repository root:
+
+```sh
+make assets-validate
+make episode-0001-analyse
+make episode-0001-validate
+make episode-0001-render
+make episode-0001-review
+```
+
+The render command produces the review frames and contact sheet as part of a complete run. The final review command is safe to use when only the review artefacts need to be regenerated from an existing MP4.
+
+Generated media stays outside Git:
+
+- rough cut: `production/episodes/0001/output/episode-0001-rough-cut-01.mp4`;
+- review frames and contact sheet: `production/episodes/0001/output/review/rough-cut-01/`;
+- render manifest, asset manifest, provenance and timing report: `production/episodes/0001/generated/rough-cut-01/`.
+
+Committed timing and reproduction inputs are under `production/episodes/0001/production/`. The renderer is deliberately narrow: it consumes the existing logical asset registry, narration-derived scene timing and FFmpeg assembly conventions without changing the Companion or scene-graph architecture.
