@@ -100,6 +100,8 @@ The storyboard is interpretive. It should exploit video as a medium rather than 
 
 Storyboard treatments should conform to the canonical [Articulate Visual Grammar](../../docs/media/visual-grammar.md), which defines scene archetypes, shot progression, editorial rhythm and the intended meaning of motion and transitions.
 
+At runtime, the renderer consumes a named executable profile of that grammar. Existing scene-list vocabulary is resolved into an archetype, composition strategy and transition intent before shared layout primitives create a frame. This keeps the storyboard editorial and allows rendering policy to evolve independently of an episode. See the [renderer architecture](../runtime/renderer/README.md) and [ADR 0002](decisions/0002-render-through-visual-grammar-profile.md).
+
 ### Scene List
 
 The scene list is the operational view of the storyboard. It identifies each scene, duration estimate, narration reference, visual type, companion mode, required assets, transition, status and review state.
@@ -127,6 +129,8 @@ This stage is generative and must be reviewed. The companion must be presented a
 Video assembly combines recorded voice, scenes, visual assets, subtitles, transcripts, title cards and publication metadata into a rough cut and final cut.
 
 The assembly process should preserve editability. Project files, export settings and asset versions should be recorded so the episode can be revised or recovered.
+
+Rendering and assembly are separate runtime concerns. The renderer interprets Visual Grammar presentation plans into deterministic frames; assembly synchronises those approved frames with narration and produces media and review artefacts.
 
 ### Human Editorial Review
 

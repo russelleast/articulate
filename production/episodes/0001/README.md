@@ -53,4 +53,4 @@ Generated media stays outside Git:
 - review frames and contact sheet: `production/episodes/0001/output/review/rough-cut-01/`;
 - render manifest, asset manifest, provenance and timing report: `production/episodes/0001/generated/rough-cut-01/`.
 
-Committed timing and reproduction inputs are under `production/episodes/0001/production/`. The renderer is deliberately narrow: it consumes the existing logical asset registry, narration-derived scene timing and FFmpeg assembly conventions without changing the Companion or scene-graph architecture.
+Committed timing and reproduction inputs are under `production/episodes/0001/production/`. The renderer resolves the existing scene vocabulary through the shared [Visual Grammar runtime profile](../../runtime/renderer/README.md), then uses reusable compositions and layout primitives without changing the Companion placement, scene order or timing architecture.

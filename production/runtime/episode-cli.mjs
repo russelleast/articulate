@@ -6,18 +6,15 @@ import { spawnSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { createLocalAssetManager } from "./assets/index.mjs";
+import { xml } from "./renderer/layout.mjs";
+import { renderSceneSvg } from "./renderer/scene-renderer.mjs";
+import { getVisualGrammarProfile, resolveScenePresentation } from "./renderer/visual-grammar.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
 const require = createRequire(import.meta.url);
 const sharp = require(path.join(repoRoot, "site/node_modules/sharp"));
 const DEFAULT_CONFIG = "production/episodes/0001/production/rough-cut-config.json";
-const AUDIO_ANALYSIS = "production/episodes/0001/production/narration-analysis.json";
-const PALETTE = {
-  paper: "#f4f0e8", ink: "#172028", muted: "#59656d", blue: "#3d6075",
-  paleBlue: "#dce7eb", rust: "#a65d3f", paleRust: "#ead8cd", green: "#547064",
-  white: "#fffdfa", line: "#aeb8bc", dark: "#111920"
-};
 
 main().catch((error) => {
   console.error(error.stack ?? error.message);
@@ -55,16 +52,18 @@ async function main() {
 
 function loadContext(configPath) {
   const config = readJson(configPath);
+  const grammar = getVisualGrammarProfile(config.rendering?.visualGrammarProfile);
   const markersPath = resolvePath(config.episode.timingMarkers);
   const markers = readJson(markersPath);
   const timingById = new Map(markers.scenes.map((scene) => [scene.id, scene]));
   const scenes = config.scenes.map((scene, index) => {
     const timing = timingById.get(scene.id);
     if (!timing) throw new Error(`No narration timing marker for ${scene.id}`);
-    return { ...scene, ...timing, order: index + 1, durationSeconds: timing.endSeconds - timing.startSeconds };
+    const resolved = { ...scene, ...timing, order: index + 1, durationSeconds: timing.endSeconds - timing.startSeconds };
+    return { ...resolved, presentation: resolveScenePresentation(resolved, grammar) };
   });
   const assetManager = createLocalAssetManager({ repoRoot });
-  return { configPath, config, markersPath, markers, scenes, assetManager };
+  return { configPath, config, markersPath, markers, scenes, assetManager, grammar };
 }
 
 function analyseNarration(context) {
@@ -116,7 +115,7 @@ function analyseNarration(context) {
       "The trailing silence begins after the spoken close and remains part of the selected recording."
     ]
   };
-  const output = resolvePath(AUDIO_ANALYSIS);
+  const output = resolvePath(context.config.output.narrationAnalysis);
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, `${JSON.stringify(analysis, null, 2)}\n`);
   return output;
@@ -173,8 +172,9 @@ function validate(context) {
   if (Math.abs(finalEnd - duration) > 0.001) errors.push(`Storyboard ends at ${finalEnd}; narration ends at ${duration}`);
   const sceneIds = new Set(context.scenes.map((scene) => scene.id));
   if (sceneIds.size !== context.scenes.length) errors.push("Duplicate scene IDs");
-  const assetRegister = fs.readFileSync(resolvePath("production/episodes/0001/asset-register.yaml"), "utf8");
+  const assetRegister = fs.readFileSync(resolvePath(context.config.episode.assetRegister), "utf8");
   for (const scene of context.scenes) {
+    renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar);
     for (const assetId of scene.assetIds ?? []) {
       if (!assetRegister.includes(`asset_id: \"${assetId}\"`)) errors.push(`${scene.id} references unknown episode asset ${assetId}`);
     }
@@ -196,7 +196,7 @@ async function render(context, validation) {
   for (const scene of context.scenes) {
     const svgPath = path.join(framesDir, `${scene.id}.svg`);
     const pngPath = path.join(framesDir, `${scene.id}.png`);
-    fs.writeFileSync(svgPath, sceneSvg(scene, context, companionData));
+    fs.writeFileSync(svgPath, renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar));
     await sharp(svgPath, { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
     const segmentPath = path.join(segmentsDir, `${scene.id}.mp4`);
     const frameDuration = Math.ceil(scene.durationSeconds * context.config.output.frameRate) / context.config.output.frameRate;
@@ -234,7 +234,14 @@ async function render(context, validation) {
     command: `node production/runtime/episode-cli.mjs render --config ${relative(context.configPath)}`,
     frameRate: context.config.output.frameRate,
     resolution: `${context.config.output.width}x${context.config.output.height}`,
+    visualGrammar: { profile: context.grammar.id, source: context.grammar.source },
     sceneCount: context.scenes.length,
+    presentationPlan: context.scenes.map((scene) => ({
+      id: scene.id,
+      archetype: scene.presentation.archetype,
+      composition: scene.presentation.composition,
+      transition: scene.presentation.transition
+    })),
     generatedFrames: frameFiles.map(fileRecord),
     generatedSegments: segmentFiles.map(fileRecord),
     timingReport: relative(timingPath),
@@ -259,7 +266,7 @@ async function generateReviewArtifacts(context, validation) {
   }
   const contactSvg = path.join(reviewDir, "contact-sheet.svg");
   const contactPng = path.join(reviewDir, "contact-sheet.png");
-  fs.writeFileSync(contactSvg, contactSheetSvg(frames));
+  fs.writeFileSync(contactSvg, contactSheetSvg(frames, context.grammar));
   await sharp(contactSvg, { density: 144 }).resize(1920, 1080).png().toFile(contactPng);
   const mediaReportPath = path.join(reviewDir, "media-report.json");
   fs.writeFileSync(mediaReportPath, `${JSON.stringify({
@@ -284,121 +291,17 @@ async function generateReviewArtifacts(context, validation) {
   return reviewDir;
 }
 
-function sceneSvg(scene, context, companionData) {
-  const width = context.config.output.width;
-  const height = context.config.output.height;
-  const header = `<text x="112" y="90" font-size="28" fill="${PALETTE.muted}" letter-spacing="2">ARTICULATE JOURNAL · EPISODE 0001 · ${scene.id}</text>`;
-  const footer = `<line x1="112" y1="996" x2="1808" y2="996" stroke="${PALETTE.line}"/><text x="112" y="1035" font-size="22" fill="${PALETTE.muted}">${xml(scene.narrationReference)}</text><text x="1808" y="1035" text-anchor="end" font-size="22" fill="${PALETTE.muted}">${time(scene.startSeconds)} — ${time(scene.endSeconds)}</text>`;
-  const content = scene.companion
-    ? companionScene(scene, companionData)
-    : visualScene(scene);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-  <rect width="${width}" height="${height}" fill="${PALETTE.paper}"/>
-  <style>text{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif}</style>
-  ${header}${content}${footer}</svg>`;
-}
-
-function companionScene(scene, companionData) {
-  const title = textBlock(scene.headline, 112, 215, 900, 74, 3, PALETTE.ink, 700);
-  const support = textBlock(scene.support, 112, 510, 760, 38, 4, PALETTE.blue, 400);
-  const pills = (scene.items ?? []).map((item, index) => pill(item, 112 + (index % 2) * 300, 760 + Math.floor(index / 2) * 72, 270)).join("");
-  return `${title}${support}${pills}<rect x="1050" y="135" width="650" height="800" rx="28" fill="${PALETTE.paleBlue}"/><image href="${companionData}" x="1060" y="150" width="630" height="780" preserveAspectRatio="xMidYMax meet"/><text x="1375" y="950" text-anchor="middle" font-size="20" fill="${PALETTE.muted}">AI-generated visual companion · static neutral asset</text>`;
-}
-
-function visualScene(scene) {
-  const headline = textBlock(scene.headline, 112, 170, 1696, scene.kind === "question" ? 64 : 58, scene.kind === "question" ? 4 : 2, PALETTE.ink, 700);
-  const support = textBlock(scene.support, 112, scene.kind === "question" ? 515 : 330, 1550, 32, 3, PALETTE.blue, 400);
-  const y = scene.kind === "question" ? 720 : 500;
-  return `${headline}${support}${kindGraphic(scene, y)}`;
-}
-
-function kindGraphic(scene, y) {
-  const items = scene.items ?? [];
-  if (["change", "principles", "augment", "roadmap", "contrast"].includes(scene.kind)) return flow(items, y);
-  if (["fragments", "tools", "questions", "costs", "success", "capabilities"].includes(scene.kind)) return grid(items, y, scene.kind === "costs" ? PALETTE.paleRust : PALETTE.white);
-  if (["timeline"].includes(scene.kind)) return timeline(items, y);
-  if (["projections", "evidence"].includes(scene.kind)) return radial(items, y, scene.kind === "evidence" ? "ASSISTED SYNTHESIS" : "PARTIAL PICTURE");
-  if (scene.kind === "journal") return journalWindow(items, y);
-  if (scene.kind === "question") return `<rect x="400" y="760" width="1120" height="96" rx="48" fill="${PALETTE.paleRust}"/>${textBlock(items[0] ?? "", 450, 788, 1020, 28, 2, PALETTE.rust, 600, "middle")}`;
-  return grid(items, y, PALETTE.white);
-}
-
-function grid(items, y, fill) {
-  const columns = items.length > 4 ? 3 : 2;
-  const gap = 26;
-  const width = columns === 3 ? 530 : 790;
-  return items.map((item, index) => {
-    const x = 112 + (index % columns) * (width + gap);
-    const rowY = y + Math.floor(index / columns) * 138;
-    return `<rect x="${x}" y="${rowY}" width="${width}" height="108" rx="10" fill="${fill}" stroke="${PALETTE.line}"/>${textBlock(item, x + 28, rowY + 30, width - 56, 28, 2, PALETTE.ink, 500)}`;
-  }).join("");
-}
-
-function flow(items, y) {
-  const width = Math.min(285, (1650 - (items.length - 1) * 54) / items.length);
-  return items.map((item, index) => {
-    const x = 112 + index * (width + 54);
-    const arrow = index < items.length - 1 ? `<text x="${x + width + 27}" y="${y + 74}" text-anchor="middle" font-size="38" fill="${PALETTE.rust}">→</text>` : "";
-    return `<rect x="${x}" y="${y}" width="${width}" height="132" rx="12" fill="${index === items.length - 1 ? PALETTE.paleBlue : PALETTE.white}" stroke="${PALETTE.line}"/>${textBlock(item, x + 18, y + 38, width - 36, 27, 2, PALETTE.ink, 600, "middle")}${arrow}`;
-  }).join("");
-}
-
-function timeline(items, y) {
-  return `<line x1="190" y1="${y + 110}" x2="1700" y2="${y + 110}" stroke="${PALETTE.blue}" stroke-width="5"/>${items.map((item, index) => {
-    const x = 240 + index * 440;
-    return `<circle cx="${x}" cy="${y + 110}" r="18" fill="${index === items.length - 1 ? PALETTE.rust : PALETTE.green}"/>${textBlock(item, x - 150, y + (index % 2 ? 155 : 15), 300, 28, 2, PALETTE.ink, 600, "middle")}`;
-  }).join("")}`;
-}
-
-function radial(items, y, centre) {
-  const cx = 960, cy = y + 160;
-  const nodes = items.map((item, index) => {
-    const angle = (Math.PI * 2 * index / items.length) - Math.PI / 2;
-    const x = cx + Math.cos(angle) * 600;
-    const ny = cy + Math.sin(angle) * 210;
-    return `<line x1="${x}" y1="${ny}" x2="${cx}" y2="${cy}" stroke="${PALETTE.line}" stroke-width="3"/><rect x="${x - 125}" y="${ny - 42}" width="250" height="84" rx="42" fill="${PALETTE.white}" stroke="${PALETTE.line}"/>${textBlock(item, x - 105, ny - 13, 210, 24, 2, PALETTE.ink, 600, "middle")}`;
-  }).join("");
-  return `${nodes}<circle cx="${cx}" cy="${cy}" r="135" fill="${PALETTE.paleBlue}" stroke="${PALETTE.blue}" stroke-width="3"/>${textBlock(centre, cx - 105, cy - 32, 210, 25, 3, PALETTE.blue, 700, "middle")}`;
-}
-
-function journalWindow(items, y) {
-  return `<rect x="245" y="${y}" width="1430" height="355" rx="16" fill="${PALETTE.dark}"/><circle cx="290" cy="${y + 38}" r="8" fill="${PALETTE.rust}"/><circle cx="318" cy="${y + 38}" r="8" fill="${PALETTE.green}"/><text x="365" y="${y + 47}" font-size="24" fill="#c6d0d5">${xml(items[0] ?? "")}</text><text x="315" y="${y + 125}" font-size="26" fill="#8fb0c0"># Episode 0001 – Why Articulate Exists</text><text x="315" y="${y + 190}" font-size="24" fill="#e7ecee">Architecture is not difficult because systems are complex.</text><text x="315" y="${y + 235}" font-size="24" fill="#e7ecee">It is difficult because knowledge is fragmented, changing and incomplete.</text><text x="315" y="${y + 310}" font-size="22" fill="#9eaaaf">${xml(items[1] ?? "")}</text>`;
-}
-
-function contactSheetSvg(frames) {
+function contactSheetSvg(frames, grammar) {
+  const palette = grammar.palette;
   const cells = frames.map((frame, index) => {
     const column = index % 5;
     const row = Math.floor(index / 5);
     const x = column * 384;
     const y = row * 270;
     const image = `data:image/png;base64,${fs.readFileSync(frame.path).toString("base64")}`;
-    return `<image href="${image}" x="${x}" y="${y}" width="384" height="216"/><rect x="${x}" y="${y + 216}" width="384" height="54" fill="${PALETTE.dark}"/><text x="${x + 12}" y="${y + 249}" font-size="20" fill="#ffffff">${frame.id} · ${xml(frame.title)}</text>`;
+    return `<image href="${image}" x="${x}" y="${y}" width="384" height="216"/><rect x="${x}" y="${y + 216}" width="384" height="54" fill="${palette.dark}"/><text x="${x + 12}" y="${y + 249}" font-size="20" fill="#ffffff">${frame.id} · ${xml(frame.title)}</text>`;
   }).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"><style>text{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif}</style><rect width="1920" height="1080" fill="${PALETTE.dark}"/>${cells}</svg>`;
-}
-
-function textBlock(text, x, y, width, fontSize, maxLines, fill, weight = 400, align = "start") {
-  const maxChars = Math.max(8, Math.floor(width / (fontSize * 0.55)));
-  const lines = wrapText(text, maxChars).slice(0, maxLines);
-  const anchor = align === "middle" ? "middle" : "start";
-  const tx = align === "middle" ? x + width / 2 : x;
-  return `<text x="${tx}" y="${y}" text-anchor="${anchor}" font-size="${fontSize}" font-weight="${weight}" fill="${fill}">${lines.map((line, index) => `<tspan x="${tx}" dy="${index === 0 ? 0 : fontSize * 1.18}">${xml(line)}</tspan>`).join("")}</text>`;
-}
-
-function pill(text, x, y, width) {
-  return `<rect x="${x}" y="${y}" width="${width}" height="50" rx="25" fill="${PALETTE.white}" stroke="${PALETTE.line}"/>${textBlock(text, x + 15, y + 32, width - 30, 19, 1, PALETTE.muted, 500, "middle")}`;
-}
-
-function wrapText(text, maxChars) {
-  const words = String(text).split(/\s+/);
-  const lines = [];
-  let line = "";
-  for (const word of words) {
-    if (line && `${line} ${word}`.length > maxChars) { lines.push(line); line = word; }
-    else line = line ? `${line} ${word}` : word;
-  }
-  if (line) lines.push(line);
-  return lines;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"><style>text{font-family:${grammar.typography.fontFamily}}</style><rect width="1920" height="1080" fill="${palette.dark}"/>${cells}</svg>`;
 }
 
 function buildTimingReport(context, validation, media) {
@@ -423,7 +326,7 @@ function buildAssetManifest(context, validation) {
   return {
     narration: { assetId: context.config.narration.assetId, ...fileRecord(validation.audioPath) },
     companion: { assetId: context.config.companion.assetId, ...fileRecord(validation.companionPath) },
-    authoredVisuals: [...new Set(context.scenes.flatMap((scene) => scene.assetIds ?? []))].map((assetId) => ({ assetId, source: "production/episodes/0001/asset-register.yaml" })),
+    authoredVisuals: [...new Set(context.scenes.flatMap((scene) => scene.assetIds ?? []))].map((assetId) => ({ assetId, source: context.config.episode.assetRegister })),
     unresolvedAssets: [],
     placeholderCount: 0
   };
@@ -474,5 +377,3 @@ function resolvePath(filePath) { return path.isAbsolute(filePath) ? filePath : p
 function relative(filePath) { return path.relative(repoRoot, filePath).replaceAll(path.sep, "/"); }
 function valueAfter(args, flag) { const index = args.indexOf(flag); return index >= 0 ? args[index + 1] : null; }
 function round(value) { return Number(Number(value).toFixed(6)); }
-function xml(value) { return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;"); }
-function time(seconds) { const minutes = Math.floor(seconds / 60); const secs = seconds - minutes * 60; return `${String(minutes).padStart(2, "0")}:${secs.toFixed(3).padStart(6, "0")}`; }

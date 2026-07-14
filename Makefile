@@ -1,4 +1,4 @@
-.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review
+.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test episode-runtime-test episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review
 
 assets-validate:
 	node production/runtime/assets-cli.mjs validate
@@ -29,6 +29,9 @@ companion-poc-render-layout-debug:
 
 companion-poc-test:
 	node --test production/experiments/companion-poc-001/runtime/tests/*.test.mjs
+
+episode-runtime-test:
+	node --test production/runtime/tests/*.test.mjs
 
 episode-0001-analyse:
 	node production/runtime/episode-cli.mjs analyse

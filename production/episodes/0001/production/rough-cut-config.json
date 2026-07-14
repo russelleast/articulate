@@ -5,7 +5,8 @@
     "title": "Why Articulate Exists",
     "canonicalSource": "docs/episodes/0001-why-articulate-exists.md",
     "storyboard": "production/episodes/0001/scene-list.yaml",
-    "timingMarkers": "production/episodes/0001/production/narration-markers.json"
+    "timingMarkers": "production/episodes/0001/production/narration-markers.json",
+    "assetRegister": "production/episodes/0001/asset-register.yaml"
   },
   "narration": {
     "assetId": "episode-0001-narration-v1",
@@ -16,17 +17,21 @@
   "companion": {
     "assetId": "companion-v1-neutral"
   },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v1"
+  },
   "output": {
     "width": 1920,
     "height": 1080,
     "frameRate": 25,
     "video": "production/episodes/0001/output/episode-0001-rough-cut-01.mp4",
     "generatedDirectory": "production/episodes/0001/generated/rough-cut-01",
-    "reviewDirectory": "production/episodes/0001/output/review/rough-cut-01"
+    "reviewDirectory": "production/episodes/0001/output/review/rough-cut-01",
+    "narrationAnalysis": "production/episodes/0001/production/narration-analysis.json"
   },
   "scenes": [
     { "id": "S001", "title": "Why Articulate Exists", "kind": "title", "headline": "Why Articulate Exists", "support": "Architecture knowledge is fragmented, changing and never complete.", "items": ["Episode 0001", "Articulate Journal"], "companion": true, "assetIds": ["A001", "A002"], "transition": "fade" },
-    { "id": "S002", "title": "The architecture itself", "kind": "journal", "headline": "Understanding the architecture itself", "support": "Not the diagrams. Not the documentation. The architecture.", "items": ["docs/episodes/0001-why-articulate-exists.md", "Canonical journal source"], "companion": false, "assetIds": ["A003"], "transition": "cut" },
+    { "id": "S002", "title": "The architecture itself", "kind": "journal", "headline": "Understanding the architecture itself", "support": "Not the diagrams. Not the documentation. The architecture.", "items": ["docs/episodes/0001-why-articulate-exists.md", "Canonical journal source"], "evidence": { "excerpt": ["Architecture is not difficult because systems are complex.", "It is difficult because knowledge is fragmented, changing and incomplete."] }, "companion": false, "assetIds": ["A003"], "transition": "cut" },
     { "id": "S003", "title": "Capable technology", "kind": "capabilities", "headline": "Modern technology is remarkably capable", "support": "Yet understanding the architecture remains difficult.", "items": ["Cloud platforms", "Frameworks", "Infrastructure", "AI"], "companion": false, "assetIds": ["A004"], "transition": "cut" },
     { "id": "S004", "title": "Architectural questions", "kind": "questions", "headline": "Surprisingly simple questions", "support": "The answers are rarely straightforward.", "items": ["What does the current state look like?", "Why was it designed this way?", "Which decisions still hold?", "What happens if this changes?", "Can the documentation be trusted?"], "companion": false, "assetIds": ["A005"], "transition": "cut" },
     { "id": "S005", "title": "Architecture enables change", "kind": "change", "headline": "Architecture exists to enable change", "support": "Understand today's architecture so it can safely evolve into tomorrow's.", "items": ["Current state", "Trade-offs and risk", "Future state"], "companion": false, "assetIds": ["A006"], "transition": "section" },
