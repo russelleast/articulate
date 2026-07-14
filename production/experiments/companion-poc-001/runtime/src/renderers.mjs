@@ -8,17 +8,21 @@ export class CompanionRenderer {
 }
 
 export class StaticCompanionRenderer extends CompanionRenderer {
-  constructor({ config, repoRoot, generatedScenesDir, companionAsset = null, layoutDebug = false }) {
+  constructor({ config, assetManager, generatedScenesDir, companionAsset = null, layoutDebug = false }) {
     super();
     this.config = config;
-    this.repoRoot = repoRoot;
+    this.assetManager = assetManager;
     this.generatedScenesDir = generatedScenesDir;
     this.companionAsset = companionAsset;
     this.layoutDebug = layoutDebug;
   }
 
   render(scene) {
-    const companionPath = this.companionAsset?.path ?? path.join(this.repoRoot, this.config.assets.companionNeutral.path);
+    const companionId = this.config.assets.companionNeutral.assetId;
+    const resolvedCompanionId = this.companionAsset?.assetId ?? companionId;
+    const companionPath = this.companionAsset?.source === "reference-sheet-fallback"
+      ? this.companionAsset.path
+      : this.assetManager.fetch(resolvedCompanionId);
     const outputFrame = path.join(this.generatedScenesDir, `${scene.id}.svg`);
     writeCompanionFrame(outputFrame, this.config, scene, companionPath, {
       debug: this.layoutDebug,
@@ -37,7 +41,7 @@ export class StaticCompanionRenderer extends CompanionRenderer {
       audioStatus: "not-rendered-by-companion-adapter",
       lipSync: "absent",
       provenance: {
-        companionAsset: this.companionAsset?.repoPath ?? this.config.assets.companionNeutral.path,
+        companionAsset: resolvedCompanionId,
         source: this.companionAsset?.source ?? "standalone",
         crop: this.companionAsset?.crop ?? null,
         dimensions: this.companionAsset?.dimensions ?? null

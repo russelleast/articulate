@@ -1,4 +1,10 @@
-.PHONY: companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test
+.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test
+
+assets-validate:
+	node production/runtime/assets-cli.mjs validate
+
+assets-list:
+	node production/runtime/assets-cli.mjs list
 
 companion-poc-validate:
 	node production/experiments/companion-poc-001/runtime/src/cli.mjs validate

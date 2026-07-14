@@ -12,3 +12,7 @@ Examples include:
 - introducing executable production automation.
 
 Do not add a decision merely because a template exists. Add one when a choice constrains future production work and would be difficult to infer later.
+
+## Decisions
+
+- [0001: Resolve media through logical asset IDs](0001-logical-media-assets.md)

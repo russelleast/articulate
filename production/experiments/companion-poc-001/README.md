@@ -70,13 +70,9 @@ Target duration: 60-90 seconds
 
 The experiment now includes a small runtime under [`runtime/`](runtime/) that can validate the animatic inputs, generate deterministic SVG scene frames, generate subtitles, record a provenance manifest and attempt MP4 assembly through FFmpeg.
 
-It is an animatic pipeline, not final companion footage. The current companion renderer is a local static fallback that uses an explicitly configured crop from the design-system reference board:
+It is an animatic pipeline, not final companion footage. The current companion renderer requests the logical asset `companion-design-system-v0-1` and uses an explicitly configured crop from that reference board.
 
-```text
-production/assets/companion/design-system/v0.1/articulate-companion-design-system-v0.1.png
-```
-
-If that image is missing, validation reports the expected path. The crop is recorded in the manifest because the design-system board is a reference artefact, not an approved animation-ready character asset.
+If the provider cannot supply that asset, validation reports its logical ID. The crop is recorded in the manifest because the design-system board is a reference artefact, not an approved animation-ready character asset.
 
 ### Commands
 

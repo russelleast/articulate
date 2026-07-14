@@ -21,8 +21,8 @@ test("scene configuration parses and keeps deterministic scene ordering", () => 
 test("scene configuration validation rejects invalid durations", () => {
   assert.throws(() => validateSceneConfigShape({
     experiment: { canonicalSource: "x" },
-    assets: { companionNeutral: { path: "neutral.png" }, companionDesignSystem: { path: "x" } },
+    assets: { companionNeutral: { assetId: "neutral" }, companionDesignSystem: { assetId: "reference" } },
     output: { width: 1920, height: 1080, frameRate: 25 },
-    scenes: [{ id: "bad", order: 1, kind: "title-card", durationSeconds: 0, audio: "x", subtitleText: "x" }]
+    scenes: [{ id: "bad", order: 1, kind: "title-card", durationSeconds: 0, audioAssetId: "narration", subtitleText: "x" }]
   }), /durationSeconds must be positive/);
 });

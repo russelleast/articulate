@@ -25,6 +25,8 @@ production/
 |-- companion/      # Role and design direction for the Articulate Companion
 |-- templates/      # Reusable episode production templates
 |-- prompts/        # AI prompt templates for production assistance
+|-- runtime/        # Storage-agnostic production runtime capabilities
+|-- cache/          # Ignored local copies fetched by asset providers
 |-- workflow/       # Human review gates and publishing workflow
 |-- experiments/    # Small vertical slices that expose production constraints
 `-- episodes/       # Episode-specific production working areas
@@ -35,3 +37,13 @@ production/
 This directory describes how production should work. It does not contain generated final media by default. Large generated assets, recordings and exports should be stored according to the asset register for each episode, with enough metadata to reproduce, review or replace them later.
 
 Future automation should treat these files as production intent, not as an implementation schema.
+
+## Production Assets
+
+Production inputs are addressed by logical IDs such as `episode-0001-narration-v1` and `companion-v1-neutral`. The registry at `production/assets/registry.yaml` records each asset's type, episode, review status, checksum, provider and provider-specific location. Renderer configuration contains IDs, not storage paths.
+
+`AssetManager` is the runtime entry point. It uses `AssetResolver` to select the provider declared by the registry. The initial `LocalAssetProvider` implements `resolve()`, `exists()`, `fetch()` and `metadata()` for files already available in the working copy. Storage locations are therefore confined to the provider boundary.
+
+Canonical production assets are the approved versions identified by the registry; their physical storage is not part of their identity. `production/cache/` is disposable and ignored by Git. Large binary media should live in an asset provider rather than become canonical Git content. Future remote providers may fetch into this cache, but synchronisation, networking and authentication are intentionally outside the current design.
+
+Use `make assets-list` to inspect registered assets and `make assets-validate` to validate the registry and current local availability.

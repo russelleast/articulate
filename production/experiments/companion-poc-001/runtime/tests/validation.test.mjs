@@ -4,6 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { validateInputs } from "../src/cli.mjs";
+import { localAsset, testAssetManager } from "./helpers.mjs";
 
 test("required asset validation gives an actionable error", () => {
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "validation-repo-"));
@@ -19,15 +20,19 @@ test("required asset validation gives an actionable error", () => {
     outputDir,
     placeholderAudio: true,
     allowDurationMismatch: false,
+    assetManager: testAssetManager(repoRoot, [
+      localAsset("companion-neutral", "assets/neutral.png"),
+      localAsset("companion-reference", "missing.png")
+    ]),
     config: {
       experiment: { canonicalSource: "docs/episodes/source.md" },
-      assets: { companionNeutral: { path: "assets/neutral.png" }, companionDesignSystem: { path: "missing.png" } },
+      assets: { companionNeutral: { assetId: "companion-neutral" }, companionDesignSystem: { assetId: "companion-reference" } },
       audio: { durationToleranceSeconds: 1 },
       output: { width: 1920, height: 1080, frameRate: 25 },
-      scenes: [{ id: "s1", order: 1, durationSeconds: 5, audio: "missing.wav" }]
+      scenes: [{ id: "s1", order: 1, durationSeconds: 5, audioAssetId: "narration" }]
     },
-    scenes: [{ id: "s1", order: 1, durationSeconds: 5, audio: "missing.wav" }]
-  }), /Missing companion design-system image/);
+    scenes: [{ id: "s1", order: 1, durationSeconds: 5, audioAssetId: "narration" }]
+  }), /Missing companion design-system asset/);
 });
 
 test("placeholder mode does not require narration files", () => {
@@ -46,14 +51,18 @@ test("placeholder mode does not require narration files", () => {
     outputDir,
     placeholderAudio: true,
     allowDurationMismatch: false,
+    assetManager: testAssetManager(repoRoot, [
+      localAsset("companion-neutral", "assets/neutral.png"),
+      localAsset("companion-reference", "assets/companion.png")
+    ]),
     config: {
       experiment: { canonicalSource: "docs/episodes/source.md" },
-      assets: { companionNeutral: { path: "assets/neutral.png" }, companionDesignSystem: { path: "assets/companion.png" } },
+      assets: { companionNeutral: { assetId: "companion-neutral" }, companionDesignSystem: { assetId: "companion-reference" } },
       audio: { durationToleranceSeconds: 1 },
       output: { width: 1920, height: 1080, frameRate: 25 },
-      scenes: [{ id: "s1", order: 1, durationSeconds: 5, audio: "missing.wav" }]
+      scenes: [{ id: "s1", order: 1, durationSeconds: 5, audioAssetId: "narration" }]
     },
-    scenes: [{ id: "s1", order: 1, durationSeconds: 5, audio: "missing.wav" }]
+    scenes: [{ id: "s1", order: 1, durationSeconds: 5, audioAssetId: "narration" }]
   });
 
   assert.ok(Array.isArray(result.warnings));
@@ -75,25 +84,30 @@ test("real-audio validation requires the canonical voice profile", () => {
     outputDir,
     placeholderAudio: false,
     allowDurationMismatch: false,
+    assetManager: testAssetManager(repoRoot, [
+      localAsset("companion-neutral", "assets/neutral.png"),
+      localAsset("companion-reference", "assets/companion.png"),
+      localAsset("episode-narration", "production/narrator/missing.wav", "narration")
+    ]),
     config: {
       experiment: { canonicalSource: "docs/episodes/source.md" },
       assets: {
-        companionNeutral: { path: "assets/neutral.png" },
+        companionNeutral: { assetId: "companion-neutral" },
         companionDesignSystem: {
-          path: "assets/companion.png",
+          assetId: "companion-reference",
           crop: { x: 0, y: 0, width: 10, height: 10 }
         }
       },
       audio: {
         durationToleranceSeconds: 1,
         realNarration: {
-          canonicalMaster: "production/narrator/voice-profile.wav",
+          assetId: "episode-narration",
           maxNarrationSeconds: 30
         }
       },
       output: { width: 1920, height: 1080, frameRate: 25 },
-      scenes: [{ id: "s1", order: 1, durationSeconds: 5, audio: "missing.wav" }]
+      scenes: [{ id: "s1", order: 1, durationSeconds: 5, audioAssetId: "episode-narration" }]
     },
-    scenes: [{ id: "s1", order: 1, durationSeconds: 5, audio: "missing.wav" }]
-  }, { realAudio: true }), /Missing canonical voice profile/);
+    scenes: [{ id: "s1", order: 1, durationSeconds: 5, audioAssetId: "episode-narration" }]
+  }, { realAudio: true }), /Missing canonical narration asset/);
 });

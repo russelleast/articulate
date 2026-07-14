@@ -101,6 +101,17 @@ Deliverable:
 
 # Stage 3 – Asset Preparation
 
+Production assets are requested by logical ID. Before rendering, inspect and validate the shared registry:
+
+```bash
+make assets-list
+make assets-validate
+```
+
+The registry at `production/assets/registry.yaml` identifies the approved asset and its provider. Do not put storage paths in scene or renderer configuration. The current `local` provider resolves files already present in the workspace; `production/cache/` is disposable, ignored local storage for provider-managed copies. It is not a canonical asset store.
+
+Large recordings and renders should remain outside canonical Git content. Record their logical identity, status, checksum and provider location in the registry. Cloud providers and synchronisation are future capabilities and are not part of the current operating procedure.
+
 Required assets may include:
 
 ## Companion
@@ -168,6 +179,10 @@ Experiment copies belong inside the episode workspace.
 # Stage 5 – Rendering
 
 Run:
+
+```bash
+make assets-validate
+```
 
 ```bash
 make companion-poc-test

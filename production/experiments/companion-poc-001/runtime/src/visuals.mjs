@@ -64,7 +64,7 @@ export function writeCompanionFrame(filePath, config, scene, companionImagePath,
   ${layoutText({ text: title, box: { x: REGIONS.splitText.x, y: REGIONS.splitText.y + 90, width: REGIONS.splitText.width, height: 160 }, fontSize: 58, minFontSize: 44, lineHeight: 1.12, maxLines: 2, weight: "700", fill: "#222222" })}
   ${layoutText({ text: support, box: { x: REGIONS.splitText.x, y: REGIONS.splitText.y + 290, width: REGIONS.splitText.width, height: 150 }, fontSize: 34, minFontSize: 28, lineHeight: 1.28, maxLines: 3, fill: "#364f6b" })}
   ${layoutText({ text: "AI-generated visual presenter. Lip-sync absent.", box: REGIONS.disclosureFooter, fontSize: 24, minFontSize: 22, maxLines: 1, fill: "#5b5b5b" })}`;
-  fs.writeFileSync(filePath, svgCanvas(inner, { background: "#f7f4ee", debug, assetName: companionAsset?.repoPath ?? companionImagePath }), "utf8");
+  fs.writeFileSync(filePath, svgCanvas(inner, { background: "#f7f4ee", debug, assetName: companionAsset?.assetId ?? companionImagePath }), "utf8");
   return filePath;
 }
 

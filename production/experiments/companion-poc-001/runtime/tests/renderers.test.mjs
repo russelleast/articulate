@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { readSceneConfig } from "../src/config.mjs";
 import { MockCompanionRenderer, StaticCompanionRenderer } from "../src/renderers.mjs";
+import { createLocalAssetManager } from "../../../../runtime/assets/index.mjs";
 
 const repoRoot = path.resolve(import.meta.dirname, "../../../../..");
 const configPath = path.join(repoRoot, "production/experiments/companion-poc-001/runtime/config/poc-scenes.yaml");
@@ -12,14 +13,14 @@ const configPath = path.join(repoRoot, "production/experiments/companion-poc-001
 test("static companion renderer reports absent lip-sync and provenance", () => {
   const config = readSceneConfig(configPath);
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "companion-renderer-"));
+  const assetManager = createLocalAssetManager({ repoRoot });
   const companionAsset = {
-    path: path.join(repoRoot, config.assets.companionDesignSystem.path),
-    repoPath: config.assets.companionDesignSystem.path,
+    assetId: config.assets.companionDesignSystem.assetId,
     source: "test-reference",
     dimensions: { width: 1536, height: 1024 },
     warnings: []
   };
-  const renderer = new StaticCompanionRenderer({ config, repoRoot, generatedScenesDir: dir, companionAsset });
+  const renderer = new StaticCompanionRenderer({ config, assetManager, generatedScenesDir: dir, companionAsset });
   const scene = config.scenes.find((candidate) => candidate.kind === "companion");
   const result = renderer.render(scene);
 

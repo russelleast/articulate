@@ -17,8 +17,8 @@ export function validateSceneConfigShape(config) {
   const errors = [];
   if (!config || typeof config !== "object") errors.push("configuration root must be an object");
   if (!config?.experiment?.canonicalSource) errors.push("experiment.canonicalSource is required");
-  if (!config?.assets?.companionNeutral?.path) errors.push("assets.companionNeutral.path is required");
-  if (!config?.assets?.companionDesignSystem?.path) errors.push("assets.companionDesignSystem.path is required");
+  if (!config?.assets?.companionNeutral?.assetId) errors.push("assets.companionNeutral.assetId is required");
+  if (!config?.assets?.companionDesignSystem?.assetId) errors.push("assets.companionDesignSystem.assetId is required");
   if (!config?.output?.width || !config?.output?.height) errors.push("output.width and output.height are required");
   if (!Number.isInteger(config?.output?.frameRate)) errors.push("output.frameRate must be an integer");
   if (!Array.isArray(config?.scenes) || config.scenes.length === 0) errors.push("scenes must be a non-empty array");
@@ -34,7 +34,7 @@ export function validateSceneConfigShape(config) {
       errors.push(`${scene.id ?? "scene"} durationSeconds must be positive`);
     }
     if (!scene.subtitleText) errors.push(`${scene.id ?? "scene"} subtitleText is required`);
-    if (!scene.audio) errors.push(`${scene.id ?? "scene"} audio path is required`);
+    if (!scene.audioAssetId) errors.push(`${scene.id ?? "scene"} audioAssetId is required`);
   }
 
   if (errors.length > 0) {

@@ -9,6 +9,7 @@ import { formatSrtTime, writeSrt } from "./subtitles.mjs";
 import { companionPlacementForScene, writeArchitectureVisual, writeContactSheet, writeTitleCard } from "./visuals.mjs";
 import { StaticCompanionRenderer } from "./renderers.mjs";
 import { buildManifest, writeManifest } from "./manifest.mjs";
+import { createLocalAssetManager } from "../../../../runtime/assets/index.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.resolve(__dirname, "..");
@@ -90,6 +91,7 @@ function createContext(config, configPath, options) {
     generatedSubtitlesDir,
     generatedManifestsDir,
     outputDir,
+    assetManager: createLocalAssetManager({ repoRoot }),
     placeholderAudio: options.placeholderAudio,
     allowDurationMismatch: options.allowDurationMismatch,
     allowReferenceFallback: options.allowReferenceFallback ?? false,
@@ -99,22 +101,22 @@ function createContext(config, configPath, options) {
 }
 
 export function validateInputs(context, { requireRenderTools = false, realAudio = false } = {}) {
-  const { repoRoot, config, scenes, placeholderAudio, allowDurationMismatch } = context;
+  const { repoRoot, config, scenes, placeholderAudio, allowDurationMismatch, assetManager } = context;
   const errors = [];
   const warnings = [];
 
-  const companionAsset = resolveRepoPath(repoRoot, config.assets.companionDesignSystem.path);
-  if (!fs.existsSync(companionAsset)) {
-    errors.push(`Missing companion design-system image: ${config.assets.companionDesignSystem.path}`);
+  const companionDesignSystemId = config.assets.companionDesignSystem.assetId;
+  if (!assetManager.exists(companionDesignSystemId)) {
+    errors.push(`Missing companion design-system asset: ${companionDesignSystemId}`);
   } else {
     const crop = config.assets.companionDesignSystem.crop;
     if (crop && (crop.x < 0 || crop.y < 0 || crop.x + crop.width > 1536 || crop.y + crop.height > 1024)) {
       errors.push(`Companion crop is outside the configured 1536x1024 reference-sheet bounds: ${JSON.stringify(crop)}`);
     }
   }
-  const standaloneCompanion = resolveRepoPath(repoRoot, config.assets.companionNeutral.path);
-  if (!fs.existsSync(standaloneCompanion)) {
-    warnings.push(`Standalone companion asset is missing: ${config.assets.companionNeutral.path}. Normal render commands will fail until it exists; use the explicit reference fallback only for PoC 002 layout validation.`);
+  const standaloneCompanionId = config.assets.companionNeutral.assetId;
+  if (!assetManager.exists(standaloneCompanionId)) {
+    warnings.push(`Standalone companion asset is missing: ${standaloneCompanionId}. Normal render commands will fail until it exists; use the explicit reference fallback only for PoC 002 layout validation.`);
   }
 
   const canonicalSource = resolveRepoPath(repoRoot, config.experiment.canonicalSource);
@@ -142,13 +144,14 @@ export function validateInputs(context, { requireRenderTools = false, realAudio 
   }
 
   if (realAudio) {
-    const masterPath = resolveRepoPath(repoRoot, config.audio.realNarration.canonicalMaster);
-    if (!fs.existsSync(masterPath)) {
-      errors.push(`Missing canonical voice profile: ${config.audio.realNarration.canonicalMaster}`);
+    const narrationId = config.audio.realNarration.assetId;
+    if (!assetManager.exists(narrationId)) {
+      errors.push(`Missing canonical narration asset: ${narrationId}`);
     } else if (ffprobe) {
+      const masterPath = assetManager.fetch(narrationId);
       const duration = probeDurationSeconds(ffprobe, masterPath);
       if (!Number.isFinite(duration) || duration <= 0) {
-        errors.push(`Canonical voice profile has no measurable duration: ${config.audio.realNarration.canonicalMaster}`);
+        errors.push(`Canonical narration has no measurable duration: ${narrationId}`);
       }
       if (duration > config.audio.realNarration.maxNarrationSeconds) {
         errors.push(`Canonical voice profile is ${duration.toFixed(2)}s, above the configured ${config.audio.realNarration.maxNarrationSeconds}s maximum. Configure an explicit excerpt before rendering.`);
@@ -156,11 +159,12 @@ export function validateInputs(context, { requireRenderTools = false, realAudio 
     }
   } else if (!placeholderAudio) {
     for (const scene of scenes) {
-      const audioPath = resolveRepoPath(repoRoot, scene.audio);
-      if (!fs.existsSync(audioPath)) {
-        errors.push(`Missing narration file for ${scene.id}: ${scene.audio}. Use --placeholder-audio only for timing validation.`);
+      const audioId = scene.audioAssetId;
+      if (!assetManager.exists(audioId)) {
+        errors.push(`Missing narration asset for ${scene.id}: ${audioId}. Use --placeholder-audio only for timing validation.`);
         continue;
       }
+      const audioPath = assetManager.fetch(audioId);
       if (ffprobe) {
         const actualDuration = probeDurationSeconds(ffprobe, audioPath);
         const delta = Math.abs(actualDuration - scene.durationSeconds);
@@ -194,7 +198,7 @@ export function generateDeterministicAssets(context) {
   const rendererResults = [];
   const renderer = new StaticCompanionRenderer({
     config,
-    repoRoot: context.repoRoot,
+    assetManager: context.assetManager,
     generatedScenesDir,
     companionAsset: context.companionAsset,
     layoutDebug: context.layoutDebug
@@ -354,11 +358,11 @@ function outputPathFor(context) {
 }
 
 function prepareCompanionAsset(context, validation) {
-  const standalonePath = resolveRepoPath(context.repoRoot, context.config.assets.companionNeutral.path);
-  if (fs.existsSync(standalonePath)) {
+  const standaloneId = context.config.assets.companionNeutral.assetId;
+  if (context.assetManager.exists(standaloneId)) {
+    const standalonePath = context.assetManager.fetch(standaloneId);
     return {
-      path: standalonePath,
-      repoPath: context.config.assets.companionNeutral.path,
+      assetId: standaloneId,
       source: "standalone",
       dimensions: readPngDimensions(standalonePath),
       warnings: []
@@ -366,10 +370,11 @@ function prepareCompanionAsset(context, validation) {
   }
 
   if (!context.allowReferenceFallback) {
-    throw new Error(`Missing standalone companion asset: ${context.config.assets.companionNeutral.path}\nCreate production/assets/companion/v1/companion-neutral.png, or run make companion-poc-render-reference-fallback for the explicit temporary crop fallback.`);
+    throw new Error(`Missing standalone companion asset: ${standaloneId}\nProvide it through the configured asset provider, or run make companion-poc-render-reference-fallback for the explicit temporary crop fallback.`);
   }
 
-  const sourcePath = resolveRepoPath(context.repoRoot, context.config.assets.companionDesignSystem.path);
+  const sourceAssetId = context.config.assets.companionDesignSystem.assetId;
+  const sourcePath = context.assetManager.fetch(sourceAssetId);
   const sourceDimensions = readPngDimensions(sourcePath);
   const crop = context.config.assets.companionDesignSystem.crop;
   if (crop.x < 0 || crop.y < 0 || crop.x + crop.width > sourceDimensions.width || crop.y + crop.height > sourceDimensions.height) {
@@ -386,9 +391,9 @@ function prepareCompanionAsset(context, validation) {
   ]);
   return {
     path: outputPath,
-    repoPath: path.relative(context.repoRoot, outputPath).replaceAll(path.sep, "/"),
+    assetId: "generated-companion-reference-fallback",
     source: "reference-sheet-fallback",
-    sourcePath: context.config.assets.companionDesignSystem.path,
+    sourceAssetId,
     crop,
     dimensions: readPngDimensions(outputPath),
     sourceDimensions,
@@ -412,9 +417,9 @@ function readPngDimensions(filePath) {
 
 function prepareRealNarration(context, validation) {
   const settings = context.config.audio.realNarration;
-  const masterPath = resolveRepoPath(context.repoRoot, settings.canonicalMaster);
+  const masterPath = context.assetManager.fetch(settings.assetId);
   const preparedPath = resolveRepoPath(context.repoRoot, settings.prepared);
-  const before = fileRecord(masterPath, settings.canonicalMaster);
+  const before = fileRecord(masterPath, settings.assetId);
   const sourceDuration = probeDurationSeconds(validation.ffprobe, masterPath);
   const trim = detectEdgeSilence({ ffmpeg: validation.ffmpeg, inputPath: masterPath, durationSeconds: sourceDuration, settings: settings.trimSilence });
   fs.mkdirSync(path.dirname(preparedPath), { recursive: true });
@@ -428,7 +433,7 @@ function prepareRealNarration(context, validation) {
     "-c:a", "pcm_s16le",
     preparedPath
   ]);
-  const after = fileRecord(masterPath, settings.canonicalMaster);
+  const after = fileRecord(masterPath, settings.assetId);
   if (before.sha256 !== after.sha256) {
     throw new Error("Canonical voice profile changed during preparation; aborting render.");
   }
@@ -440,7 +445,7 @@ function prepareRealNarration(context, validation) {
     path: preparedPath,
     repoPath: settings.prepared,
     sourcePath: masterPath,
-    sourceRepoPath: settings.canonicalMaster,
+    sourceAssetId: settings.assetId,
     sourceChecksum: before.sha256,
     preparedChecksum: fileRecord(preparedPath, settings.prepared).sha256,
     sourceDurationSeconds: sourceDuration,
@@ -543,7 +548,7 @@ function renderMotionCompanionSegment({ ffmpeg, context, scene, framePath, segme
   const frameRate = context.config.output.frameRate;
   const frameCount = Math.max(2, Math.round(scene.durationSeconds * frameRate));
   const progress = `on/${frameCount - 1}`;
-  const dimensions = context.companionAsset?.dimensions ?? readPngDimensions(resolveRepoPath(context.repoRoot, context.config.assets.companionNeutral.path));
+  const dimensions = context.companionAsset?.dimensions ?? readPngDimensions(context.assetManager.fetch(context.config.assets.companionNeutral.assetId));
   const placement = companionPlacementForScene(scene, dimensions);
   const centerX = placement.x + placement.width / 2;
   const centerY = placement.y + placement.height / 2;
@@ -565,7 +570,9 @@ function renderMotionCompanionSegment({ ffmpeg, context, scene, framePath, segme
     `[1:v]${layerFilter}[companion]`,
     `[base][companion]overlay=0:0:shortest=1,fade=t=in:st=0:d=${transitionDuration},fade=t=out:st=${fadeOutStart}:d=${transitionDuration}[video]`
   ].join(";");
-  const companionPath = context.companionAsset?.path ?? resolveRepoPath(context.repoRoot, context.config.assets.companionNeutral.path);
+  const companionPath = context.companionAsset?.source === "reference-sheet-fallback"
+    ? context.companionAsset.path
+    : context.assetManager.fetch(context.companionAsset?.assetId ?? context.config.assets.companionNeutral.assetId);
   const args = [
     "-y",
     "-loop", "1", "-t", String(scene.durationSeconds), "-i", framePath,
@@ -658,9 +665,9 @@ function writeReviewArtifacts({ context, validation, outputVideo, prepared }) {
     subtitleOutput: path.relative(context.repoRoot, subtitlePath).replaceAll(path.sep, "/"),
     inputNarrationPath: prepared.repoPath,
     inputNarrationChecksum: prepared.preparedChecksum,
-    sourceNarrationPath: prepared.sourceRepoPath,
+    sourceNarrationAssetId: prepared.sourceAssetId,
     sourceNarrationChecksum: prepared.sourceChecksum,
-    companionSource: context.companionAsset?.repoPath ?? context.config.assets.companionNeutral.path,
+    companionSourceAssetId: context.companionAsset?.assetId ?? context.config.assets.companionNeutral.assetId,
     companionSourceMode: context.companionAsset?.source ?? "standalone",
     companionCrop: context.companionAsset?.crop ?? null,
     companionDimensions: context.companionAsset?.dimensions ?? null,
@@ -689,10 +696,10 @@ function clampSubtitleEndTime(subtitlePath, durationSeconds) {
 function writeRunManifest({ context, generated, validation, outputVideo, realNarration = null, reviewReport = null }) {
   const manifestPath = path.join(context.generatedManifestsDir, "companion-poc-001-latest-manifest.json");
   const inputFiles = [
-    resolveRepoPath(context.repoRoot, context.config.assets.companionDesignSystem.path),
+    context.assetManager.fetch(context.config.assets.companionDesignSystem.assetId),
     context.configPath,
     ...(realNarration ? [realNarration.sourcePath, realNarration.path] : []),
-    ...(!context.placeholderAudio ? context.scenes.map((scene) => resolveRepoPath(context.repoRoot, scene.audio)) : [])
+    ...(!context.placeholderAudio ? context.scenes.map((scene) => context.assetManager.fetch(scene.audioAssetId)) : [])
   ];
   const manifest = buildManifest({
     repoRoot: context.repoRoot,
@@ -715,7 +722,7 @@ function writeRunManifest({ context, generated, validation, outputVideo, realNar
 function renderSceneSegment({ ffmpeg, context, scene, framePath, segmentPath }) {
   const audioArgs = context.placeholderAudio
     ? ["-f", "lavfi", "-t", String(scene.durationSeconds), "-i", "anullsrc=channel_layout=stereo:sample_rate=48000"]
-    : ["-i", resolveRepoPath(context.repoRoot, scene.audio)];
+    : ["-i", context.assetManager.fetch(scene.audioAssetId)];
   if (scene.kind === "companion") {
     renderMotionCompanionSegment({ ffmpeg, context, scene, framePath, segmentPath, audioArgs, includeAudio: true });
     return;

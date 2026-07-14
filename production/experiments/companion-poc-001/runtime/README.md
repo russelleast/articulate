@@ -19,9 +19,9 @@ make companion-poc-render-placeholder
 make companion-poc-test
 ```
 
-`companion-poc-render` and `companion-poc-render-real` use Russell's canonical recording at `production/narrator/voice-profile.wav`, prepare an experiment-local WAV under `production/experiments/companion-poc-001/inputs/audio/`, and render the real-audio animatic.
+`companion-poc-render` and `companion-poc-render-real` request `episode-0001-narration-v1` through the media asset manager, prepare an experiment-local WAV, and render the real-audio animatic.
 
-Normal real-audio renders require `production/assets/companion/v1/companion-neutral.png`. The reference-sheet crop is only available through `companion-poc-render-reference-fallback` for temporary layout validation. `companion-poc-render-layout-debug` draws safe areas and layout regions.
+Normal real-audio renders require `companion-v1-neutral`. The reference-sheet asset is only available through `companion-poc-render-reference-fallback` for temporary layout validation. Physical locations are defined by `production/assets/registry.yaml`, not by this renderer. `companion-poc-render-layout-debug` draws safe areas and layout regions.
 
 `companion-poc-render-placeholder` uses labelled silent placeholder audio. It is only for validating timing and assembly; it is not publishable narration.
 
@@ -50,6 +50,6 @@ If FFmpeg is missing, validation can still check source/configuration structure,
 
 ## Companion Renderer
 
-The current renderer is `StaticCompanionRenderer`. It uses the configured crop from the design-system board and records a warning in the manifest. It does not produce lip-sync or mouth animation.
+The current renderer is `StaticCompanionRenderer`. It resolves the configured logical companion ID through `AssetManager`, uses the configured crop from the design-system board when explicitly requested, and records a warning in the manifest. It does not produce lip-sync or mouth animation.
 
 A future renderer can replace it by returning the same adapter result shape described in `adapters/companion-renderer-contract.md`.

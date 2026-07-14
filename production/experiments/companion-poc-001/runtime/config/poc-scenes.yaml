@@ -19,11 +19,11 @@
   },
   "assets": {
     "companionNeutral": {
-      "path": "production/assets/companion/v1/companion-neutral.png",
+      "assetId": "companion-v1-neutral",
       "usage": "required-standalone-runtime-asset"
     },
     "companionDesignSystem": {
-      "path": "production/assets/companion/design-system/v0.1/articulate-companion-design-system-v0.1.png",
+      "assetId": "companion-design-system-v0-1",
       "usage": "explicit-temporary-reference-fallback-only",
       "crop": {
         "x": 0,
@@ -38,7 +38,7 @@
     "normalise": false,
     "durationToleranceSeconds": 1.5,
     "realNarration": {
-      "canonicalMaster": "production/narrator/voice-profile.wav",
+      "assetId": "episode-0001-narration-v1",
       "prepared": "production/experiments/companion-poc-001/inputs/audio/scene-001-opening.wav",
       "startOffsetSeconds": 3,
       "maxNarrationSeconds": 30,
@@ -66,7 +66,7 @@
       "title": "Title card",
       "kind": "title-card",
       "durationSeconds": 5,
-      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-001-opening.wav",
+      "audioAssetId": "episode-0001-narration-v1",
       "transition": { "in": "fade", "out": "crossfade", "durationSeconds": 0.5 },
       "sourceReferences": [
         "docs/episodes/0001-why-articulate-exists.md#introduction",
@@ -80,7 +80,7 @@
       "title": "Companion opening",
       "kind": "companion",
       "durationSeconds": 7,
-      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-002-transition.wav",
+      "audioAssetId": "episode-0001-narration-v1",
       "companion": {
         "renderer": "static",
         "framing": "right-presenter",
@@ -100,7 +100,7 @@
       "title": "From product to reference implementation",
       "kind": "architecture-visual",
       "durationSeconds": 8,
-      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-003-concept.wav",
+      "audioAssetId": "episode-0001-narration-v1",
       "transition": { "in": "crossfade", "out": "crossfade", "durationSeconds": 0.5 },
       "sourceReferences": [
         "docs/episodes/0001-why-articulate-exists.md#the-vision",
@@ -114,7 +114,7 @@
       "title": "Companion close",
       "kind": "companion",
       "durationSeconds": 5,
-      "audio": "production/experiments/companion-poc-001/inputs/audio/scene-004-closing.wav",
+      "audioAssetId": "episode-0001-narration-v1",
       "companion": {
         "renderer": "static",
         "framing": "left-presenter",

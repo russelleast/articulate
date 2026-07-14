@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "companion-design-system-v0-1",
+      "type": "companion-reference",
+      "episode": null,
+      "status": "reference",
+      "checksum": null,
+      "location": "production/assets/companion/design-system/v0.1/articulate-companion-design-system-v0.1.png",
+      "provider": "local"
+    },
+    {
+      "id": "companion-v1-neutral",
+      "type": "companion",
+      "episode": null,
+      "status": "approved",
+      "checksum": null,
+      "location": "production/assets/companion/v1/companion-neutral.png",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0001-narration-v1",
+      "type": "narration",
+      "episode": "0001",
+      "status": "approved",
+      "checksum": null,
+      "location": "production/narrator/voice-profile.wav",
+      "provider": "local"
+    }
+  ]
+}

@@ -51,6 +51,8 @@ site/.astro/
 site/.playwright-cli/
 
 # Companion PoC generated media
+production/cache/*
+!production/cache/.gitkeep
 production/experiments/companion-poc-001/runtime/output/*
 !production/experiments/companion-poc-001/runtime/output/.gitkeep
 production/experiments/companion-poc-001/generated/scenes/*
