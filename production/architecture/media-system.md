@@ -98,6 +98,8 @@ The storyboard describes how the episode becomes visual. It determines when the 
 
 The storyboard is interpretive. It should exploit video as a medium rather than turn the essay into a continuous slide deck.
 
+Storyboard treatments should conform to the canonical [Articulate Visual Grammar](../../docs/media/visual-grammar.md), which defines scene archetypes, shot progression, editorial rhythm and the intended meaning of motion and transitions.
+
 ### Scene List
 
 The scene list is the operational view of the storyboard. It identifies each scene, duration estimate, narration reference, visual type, companion mode, required assets, transition, status and review state.

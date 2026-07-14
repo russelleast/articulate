@@ -2,6 +2,8 @@
 
 Articulate media should feel like an architectural journal made visible: precise, calm, thoughtful and production-oriented.
 
+The canonical rules for applying this identity across scenes, shots and episodes are defined in the [Articulate Visual Grammar](../../docs/media/visual-grammar.md). This document establishes the broad visual direction; the grammar governs editorial composition, progression and rhythm.
+
 ## Direction
 
 - Use restrained layouts with clear hierarchy.

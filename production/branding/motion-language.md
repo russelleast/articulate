@@ -2,6 +2,8 @@
 
 Motion in Articulate media should aid comprehension. It should help the viewer understand sequence, relationship, emphasis and transition.
 
+The canonical rules for applying motion, shot progression and transitions are defined in the [Articulate Visual Grammar](../../docs/media/visual-grammar.md). This document establishes the broad motion direction; the grammar governs editorial use.
+
 ## Principles
 
 - Motion should have an editorial purpose.
