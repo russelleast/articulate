@@ -1,4 +1,29 @@
-Episode 5 – Designing an AI-Native Architecture
+---
+id: episode-0005
+title: Designing an AI-Native Architecture
+summary: >
+  A requirements-led process for turning AI-native system qualities into a
+  reasoned architecture whose decisions, trade-offs, and evolution are explicit.
+published: 2026-07-15
+updated: 2026-07-15
+status: current
+sequence: 5
+season: foundations
+topics:
+  - solution-design
+  - architectural-decisions
+  - requirements
+questions:
+  - How do requirements and system qualities become a reasoned AI-native architecture?
+related_patterns: []
+related_decisions: []
+related_experiments: []
+repository_paths:
+  - docs/episodes/0005-designing-an-ai-native-architecture.md
+featured: false
+---
+
+# Episode 5 – Designing an AI-Native Architecture
 
 In the previous episode, I explored the qualities that define an AI-native system. Those qualities describe what the system needs to achieve, but they don't tell us what the architecture should look like. This episode bridges that gap.
 
@@ -8,7 +33,7 @@ Over the years I've developed an approach that is influenced by frameworks such 
 
 It is important to understand that this is an iterative process. On a real project, solution design may take days or weeks. Requirements evolve, assumptions are challenged, trade-offs emerge, and new information changes earlier decisions. For the purpose of this series, I'm compressing that process into a single episode and focusing on the reasoning behind the major architectural decisions rather than every iteration that would occur in a real engagement.
 
-Architecture is More Than Diagrams
+## Architecture is More Than Diagrams
 
 One of the biggest misconceptions about architecture is that it begins with a component diagram.
 
@@ -22,7 +47,7 @@ If someone asks why a particular technology was selected, why services were sepa
 
 That reasoning is where I always begin.
 
-Requirements Drive Everything
+## Requirements Drive Everything
 
 Requirements are the foundation of every architectural decision.
 
@@ -36,81 +61,62 @@ If the answer is no, then the decision probably doesn't belong in the architectu
 
 This continuous validation helps avoid technology-led design where frameworks and platforms are selected because they are interesting rather than because they solve a genuine problem.
 
-Starting With Questions
+## Starting With Questions
 
 Rather than immediately selecting technologies or producing diagrams, I begin by asking a series of fundamental questions.
 
-Why
+### Why
 
 The most important question.
 
-Why does the system exist?
-
-What business problem are we solving?
-
-What value are we trying to create?
-
-What constraints are driving the solution?
+- Why does the system exist?
+- What business problem are we solving?
+- What value are we trying to create?
+- What constraints are driving the solution?
 
 Understanding the justification behind the system influences every decision that follows.
 
-What
+### What
 
-What capabilities does the system need?
+- What capabilities does the system need?
+- What information does it manage?
+- What knowledge must it capture?
+- What are the boundaries of the problem domain?
 
-What information does it manage?
+### How
 
-What knowledge must it capture?
+- How will capabilities be realised?
+- How will users interact with the system?
+- How will AI participate in the workflow?
+- How will information flow through the system?
 
-What are the boundaries of the problem domain?
+### Where
 
-How
+- Where are the architectural boundaries?
+- Where is information stored?
+- Where do services execute?
+- Where should intelligence reside?
 
-How will capabilities be realised?
+### When
 
-How will users interact with the system?
+- When do events occur?
+- When does information change?
+- When should workflows persist?
+- When does human intervention become necessary?
 
-How will AI participate in the workflow?
+### Who
 
-How will information flow through the system?
-
-Where
-
-Where are the architectural boundaries?
-
-Where is information stored?
-
-Where do services execute?
-
-Where should intelligence reside?
-
-When
-
-When do events occur?
-
-When does information change?
-
-When should workflows persist?
-
-When does human intervention become necessary?
-
-Who
-
-Who interacts with the system?
-
-Who owns decisions?
-
-Who are the consumers?
-
-Who are the external systems?
-
-Who are the AI agents participating in the solution?
+- Who interacts with the system?
+- Who owns decisions?
+- Who are the consumers?
+- Who are the external systems?
+- Who are the AI agents participating in the solution?
 
 These questions are not answered once.
 
 They are revisited repeatedly as understanding grows.
 
-Looking Through Different Perspectives
+## Looking Through Different Perspectives
 
 Once I have an initial understanding of the problem, I begin viewing the architecture through different perspectives.
 
@@ -118,31 +124,19 @@ Each perspective asks another set of questions and frequently uncovers additiona
 
 Examples include:
 
-Security
-
-Performance
-
-Scalability
-
-Reliability
-
-Resilience
-
-Availability
-
-Observability
-
-AI evaluation
-
-Usability
-
-Operations
-
-Deployment
-
-Data management
-
-Governance
+- Security
+- Performance
+- Scalability
+- Reliability
+- Resilience
+- Availability
+- Observability
+- AI evaluation
+- Usability
+- Operations
+- Deployment
+- Data management
+- Governance
 
 Each perspective may reveal assumptions that were previously hidden.
 
@@ -154,7 +148,7 @@ An evaluation perspective may introduce an entirely new evaluation service for m
 
 Each review refines the architecture.
 
-Decisions and Trade-offs
+## Decisions and Trade-offs
 
 Architecture is ultimately about making decisions.
 
@@ -170,35 +164,26 @@ Rather than treating ADRs as documentation produced after the architecture is co
 
 Each ADR typically captures:
 
-The context
-
-The problem
-
-Available options
-
-Trade-offs
-
-The decision
-
-The justification
-
-The consequences
+- The context
+- The problem
+- Available options
+- Trade-offs
+- The decision
+- The justification
+- The consequences
 
 Recording the reasoning is often more valuable than recording the final decision.
 
 Months later, when someone asks why a technology was selected or why a particular pattern was adopted, the answer already exists.
 
-Patterns Follow Requirements
+## Patterns Follow Requirements
 
 One mistake I frequently see is starting with patterns.
 
-Should we use CQRS?
-
-Should we use Event Sourcing?
-
-Should we use Actors?
-
-Should we use Durable Workflows?
+- Should we use CQRS?
+- Should we use Event Sourcing?
+- Should we use Actors?
+- Should we use Durable Workflows?
 
 These are the wrong questions.
 
@@ -216,7 +201,7 @@ Patterns are solutions to problems.
 
 They are never the starting point.
 
-Architecture Evolves
+## Architecture Evolves
 
 By this stage, the architecture begins to emerge naturally.
 
@@ -230,19 +215,15 @@ Technology choices become easier because they are responding to requirements rat
 
 This is often the point where diagrams become useful.
 
-Context diagrams.
-
-Container diagrams.
-
-Deployment views.
-
-Interaction diagrams.
-
-Capability maps.
+- Context diagrams.
+- Container diagrams.
+- Deployment views.
+- Interaction diagrams.
+- Capability maps.
 
 These artefacts communicate the architecture that has already been reasoned about.
 
-Collaboration Improves Architecture
+## Collaboration Improves Architecture
 
 Although I spend significant time developing an initial solution design, I don't consider architecture to be a solitary activity.
 
@@ -266,7 +247,7 @@ The people responsible for building and maintaining the system understand not on
 
 Architecture succeeds through collaboration, not through documentation alone.
 
-Applying This Process to Articulate
+## Applying This Process to Articulate
 
 Everything described so far forms the basis of how I intend to build the Solution Design capability within Articulate.
 
@@ -274,31 +255,22 @@ Articulate isn't intended to generate architectures by pressing a button.
 
 Instead, it will support the same reasoning process that I follow today.
 
-It will help discover requirements.
-
-Ask structured questions.
-
-Capture knowledge.
-
-Identify assumptions.
-
-Highlight trade-offs.
-
-Suggest architectural patterns.
-
-Generate candidate ADRs.
-
-Apply different architectural perspectives.
-
-Maintain traceability back to requirements.
-
-Produce architecture views and supporting documentation.
+- It will help discover requirements.
+- Ask structured questions.
+- Capture knowledge.
+- Identify assumptions.
+- Highlight trade-offs.
+- Suggest architectural patterns.
+- Generate candidate ADRs.
+- Apply different architectural perspectives.
+- Maintain traceability back to requirements.
+- Produce architecture views and supporting documentation.
 
 The architect remains responsible for making the decisions.
 
 The AI helps reduce uncertainty, organise knowledge and accelerate the design process.
 
-Looking Ahead
+## Looking Ahead
 
 By the end of this process we have something far more valuable than a collection of diagrams.
 

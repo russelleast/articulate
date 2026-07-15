@@ -12,7 +12,11 @@ export const GET: APIRoute = async (context) => {
     description: siteDescription,
     site: siteUrl,
     items: episodes
-      .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
+      .sort(
+        (a, b) =>
+          b.data.published.valueOf() - a.data.published.valueOf() ||
+          b.data.sequence - a.data.sequence
+      )
       .map((episode) => ({
         title: episode.data.title,
         description: episode.data.summary,

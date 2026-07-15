@@ -1,3 +1,28 @@
+---
+id: episode-0003
+title: Why AI-Native Systems?
+summary: >
+  Why Articulate is being built as an AI-native system, and how intelligence
+  becomes a first-class part of the runtime rather than an isolated feature.
+published: 2026-07-15
+updated: 2026-07-15
+status: current
+sequence: 3
+season: foundations
+topics:
+  - ai-native-architecture
+  - agentic-systems
+  - intelligent-runtime
+questions:
+  - What makes a system AI-native rather than merely AI-powered?
+related_patterns: []
+related_decisions: []
+related_experiments: []
+repository_paths:
+  - docs/episodes/0003-why-ai-native-systems.md
+featured: false
+---
+
 # Episode 3 – Why AI-Native Systems?
 
 *This episode explains why Articulate is being built as an AI-native system and explores what that term means in the context of systems architecture.*

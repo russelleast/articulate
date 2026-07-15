@@ -92,4 +92,4 @@ base: "/articulate"
 
 The workflow at `.github/workflows/deploy-site.yml` installs dependencies, runs Astro checks, builds the site, uploads `site/dist`, and deploys it using GitHub Pages.
 
-Deployment currently runs on pushes to `main` that affect `site/**` or the workflow file. It can also be started manually with `workflow_dispatch`.
+Deployment currently runs on pushes to `main` that affect `site/**`, `docs/episodes/**`, or the workflow file. It can also be started manually with `workflow_dispatch`.

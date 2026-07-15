@@ -1,3 +1,28 @@
+---
+id: episode-0004
+title: "System Characteristics: The Properties Every System Needs"
+summary: >
+  The qualities that make production systems trustworthy, and the additional
+  demands AI-native systems place on reliability, evaluation, and operations.
+published: 2026-07-15
+updated: 2026-07-15
+status: current
+sequence: 4
+season: foundations
+topics:
+  - system-characteristics
+  - trust
+  - ai-evaluation
+questions:
+  - Which characteristics make an AI-native system trustworthy in production?
+related_patterns: []
+related_decisions: []
+related_experiments: []
+repository_paths:
+  - docs/episodes/0004-system-characteristics-the-properties-every-system-needs.md
+featured: false
+---
+
 # Episode 4 — System Characteristics: The Properties Every System Needs
 
 *AI-native systems still need to be systems.*
@@ -57,7 +82,7 @@ Architecture is fundamentally about making trade-offs to achieve the qualities t
 
 ---
 
-# Trust
+## Trust
 
 Trust is the foundation of every production system.
 
@@ -86,7 +111,7 @@ It's also about protecting intelligence.
 
 ---
 
-# Reliability
+## Reliability
 
 Reliability answers a simple question:
 
@@ -107,7 +132,7 @@ Good AI-native systems should continue operating even when parts of their intell
 
 ---
 
-# Performance
+## Performance
 
 Performance is about far more than response times.
 
@@ -126,7 +151,7 @@ A streamed response that begins immediately often provides a better user experie
 
 ---
 
-# Scalability
+## Scalability
 
 Scalability is the ability to continue operating effectively as demand increases.
 
@@ -146,7 +171,7 @@ Designing systems that scale economically is often just as important as designin
 
 ---
 
-# Observability
+## Observability
 
 Modern distributed systems require observability.
 
@@ -177,7 +202,7 @@ It's about understanding intelligent behaviour.
 
 ---
 
-# Evolvability
+## Evolvability
 
 Technology changes.
 
@@ -198,7 +223,7 @@ Good architecture accepts that today's implementation decisions will almost cert
 
 ---
 
-# Operability
+## Operability
 
 Building software is only part of the challenge.
 
@@ -218,7 +243,7 @@ An elegant architecture that cannot be operated effectively is rarely successful
 
 ---
 
-# Quality Assurance: Testing and Evaluation
+## Quality Assurance: Testing and Evaluation
 
 This is where AI-native systems begin to diverge from traditional software engineering.
 
@@ -295,7 +320,7 @@ Both are essential.
 
 ---
 
-# Capabilities and Evaluation
+## Capabilities and Evaluation
 
 One question sits underneath every evaluation framework:
 
@@ -325,7 +350,7 @@ Capabilities provide the semantic foundation upon which meaningful evaluation ca
 
 ---
 
-# Architecture Is About Qualities
+## Architecture Is About Qualities
 
 One observation has become increasingly clear as software evolves.
 
