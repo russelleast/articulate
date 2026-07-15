@@ -63,3 +63,13 @@ assets:
     version: "v1"
     status: "final-authored"
     review_notes: "Maintains visual continuity with the Studio while giving concepts full attention."
+  - asset_id: "A007"
+    asset_type: "Companion performance timeline"
+    source: "episode-0000-narration-v1 source 02:41.687–02:58.127; companion-v1-neutral"
+    generation_method: "deterministic offline signal analysis plus authored restrained motion events"
+    licence_or_ownership: "Articulate project"
+    episode_section: "Companion Motion + Lip-Sync PoC 001"
+    scene_usage: ["S008-EXTRACT"]
+    version: "v1"
+    status: "experiment"
+    review_notes: "Five-state simplified viseme model; not approved for full-episode use."

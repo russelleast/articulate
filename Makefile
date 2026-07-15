@@ -1,4 +1,4 @@
-.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test episode-runtime-test episode-0000-analyse episode-0000-validate episode-0000-render episode-0000-review episode-0000-baseline-validate episode-0000-baseline-render episode-0000-baseline-review episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review
+.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test companion-performance-poc-analyse companion-performance-poc-validate companion-performance-poc-render episode-runtime-test episode-0000-analyse episode-0000-validate episode-0000-render episode-0000-review episode-0000-baseline-validate episode-0000-baseline-render episode-0000-baseline-review episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review
 
 assets-validate:
 	node production/runtime/assets-cli.mjs validate
@@ -29,6 +29,20 @@ companion-poc-render-layout-debug:
 
 companion-poc-test:
 	node --test production/experiments/companion-poc-001/runtime/tests/*.test.mjs
+
+companion-performance-poc-analyse:
+	node production/runtime/companion-performance-cli.mjs analyse --audio production/cache/episode-0000/companion-motion-lip-sync-poc-001/narration.wav --output production/experiments/companion-motion-lip-sync-poc-001/performance/lip-sync.json --source-start 161.686939
+	node production/experiments/companion-motion-lip-sync-poc-001/generate-configs.mjs
+
+companion-performance-poc-validate: companion-performance-poc-analyse
+	node production/runtime/episode-cli.mjs validate --config production/experiments/companion-motion-lip-sync-poc-001/config/baseline.json
+	node production/runtime/episode-cli.mjs validate --config production/experiments/companion-motion-lip-sync-poc-001/config/motion-only.resolved.json
+	node production/runtime/episode-cli.mjs validate --config production/experiments/companion-motion-lip-sync-poc-001/config/motion-lip-sync.resolved.json
+
+companion-performance-poc-render: companion-performance-poc-validate
+	node production/runtime/episode-cli.mjs render --config production/experiments/companion-motion-lip-sync-poc-001/config/baseline.json
+	node production/runtime/episode-cli.mjs render --config production/experiments/companion-motion-lip-sync-poc-001/config/motion-only.resolved.json
+	node production/runtime/episode-cli.mjs render --config production/experiments/companion-motion-lip-sync-poc-001/config/motion-lip-sync.resolved.json
 
 episode-runtime-test:
 	node --test production/runtime/tests/*.test.mjs

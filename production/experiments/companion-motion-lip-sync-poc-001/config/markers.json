@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "episodeId": "companion-motion-lip-sync-poc-001",
+  "timingAuthority": "episode-0000-narration-v1",
+  "sourceNarration": { "assetId": "episode-0000-narration-v1", "startSeconds": 161.686939, "endSeconds": 178.126939 },
+  "scenes": [
+    { "id": "S008-EXTRACT", "startSeconds": 0, "endSeconds": 16.44, "narrationReference": "The Companion — source 02:41.687–02:58.127" }
+  ]
+}

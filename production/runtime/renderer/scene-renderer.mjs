@@ -115,7 +115,7 @@ function studioComposition(scene, companionData, grammar, state) {
   const promptArrow = visible("item-1", state) && visible("item-2", state)
     ? `<line x1="980" y1="376" x2="1118" y2="376" stroke="#7b8c94" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/><text x="1048" y="355" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
     : "";
-  const companion = element("companion", `<g transform="${idle}" filter="url(#companion-shadow)"><image href="${companionData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/></g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`, state);
+  const companion = element("companion", companionFigure(companionData, idle, state), state);
   return `${boardShell}${companion}${headline}${support}${connectors}${promptArrow}${nodes}`;
 }
 
@@ -135,7 +135,7 @@ function studioWelcomeComposition(scene, companionData, grammar, state) {
     const box = { x, y, width, height: 82 };
     return element(`item-${index + 1}`, `<rect x="${x}" y="${y}" width="${width}" height="82" rx="20" fill="#e4eceb" stroke="#92a8a0" stroke-width="2"/>${centredTextBlock(elementText(scene, `item-${index + 1}`, state, item), insetBox(box, 18, 10), { fontSize: 23, weight: 600, maxLines: 2, lineHeight: 1.12, align: "middle", fill: "#26333a" }, `${scene.id} studio item ${index + 1}`)}`, state);
   }).join("");
-  const companion = element("companion", `<g transform="${idle}" filter="url(#companion-shadow)"><image href="${companionData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/></g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`, state);
+  const companion = element("companion", companionFigure(companionData, idle, state), state);
   return `${boardShell}${companion}${headline}${support}${items}`;
 }
 
@@ -285,7 +285,35 @@ function companionIdleTransform(scene, state, grammar) {
   const phase = ((state?.frame ?? 0) % motion.periodFrames) / motion.periodFrames * Math.PI * 2;
   const y = Math.sin(phase) * motion.translateYPixels;
   const scale = 1 + Math.sin(phase) * motion.scaleAmplitude;
-  return `translate(0 ${y.toFixed(3)}) translate(300 980) scale(${scale.toFixed(6)}) translate(-300 -980)`;
+  const head = state?.performance?.head;
+  const headX = (head?.x ?? 0) * (head?.amount ?? 0);
+  const headY = (head?.y ?? 0) * (head?.amount ?? 0);
+  const rotation = (head?.rotation ?? 0) * (head?.amount ?? 0);
+  return `translate(${headX.toFixed(3)} ${(y + headY).toFixed(3)}) translate(300 980) scale(${scale.toFixed(6)}) translate(-300 -980) rotate(${rotation.toFixed(3)} 320 735)`;
+}
+
+function companionFigure(companionData, transform, state) {
+  return `<g transform="${transform}" filter="url(#companion-shadow)"><image href="${companionData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/>${companionFacialOverlay(state?.performance)}</g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`;
+}
+
+function companionFacialOverlay(performance) {
+  if (!performance) return "";
+  const blink = performance.blink ?? 0;
+  const eyelids = blink > 0.02
+    ? `<g data-performance="blink" opacity="${Math.min(1, blink * 1.35).toFixed(3)}"><path d="M 295 691 Q 303 696 311 691 Q 303 699 295 691" fill="#9e6f5e"/><path d="M 326 691 Q 334 696 342 691 Q 334 699 326 691" fill="#9e6f5e"/></g>`
+    : "";
+  return `<g aria-label="Companion facial performance">${eyelids}${mouthOverlay(performance.mouth)}</g>`;
+}
+
+function mouthOverlay(viseme) {
+  if (!viseme || viseme === "rest" || viseme === "closed") return "";
+  const shapes = {
+    open: `<ellipse cx="319" cy="735" rx="5.2" ry="2.8" fill="#2b1717" opacity=".78"/>`,
+    wide: `<path d="M 311 735 Q 319 738 327 735" fill="none" stroke="#321d1d" stroke-width="2.2" stroke-linecap="round" opacity=".76"/>`,
+    rounded: `<ellipse cx="319" cy="735" rx="3.2" ry="3.7" fill="#2b1717" opacity=".78"/>`,
+    teeth: `<path d="M 312 735 Q 319 737.5 326 735" fill="none" stroke="#e6d8cf" stroke-width="1.6" stroke-linecap="round" opacity=".72"/>`
+  };
+  return `<g data-performance="mouth-${viseme}">${shapes[viseme] ?? ""}</g>`;
 }
 
 function companionComposition(scene, companionData, grammar, state) {
