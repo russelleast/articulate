@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { createLocalAssetManager } from "./assets/index.mjs";
 import { xml } from "./renderer/layout.mjs";
 import { renderSceneSvg } from "./renderer/scene-renderer.mjs";
+import { resolveSceneTimeline, timelineChangeFrames, timelineManifestEntry, timelineStateAtFrame } from "./renderer/scene-timeline.mjs";
 import { getVisualGrammarProfile, resolveScenePresentation } from "./renderer/visual-grammar.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -59,8 +60,9 @@ function loadContext(configPath) {
   const scenes = config.scenes.map((scene, index) => {
     const timing = timingById.get(scene.id);
     if (!timing) throw new Error(`No narration timing marker for ${scene.id}`);
-    const resolved = { ...scene, ...timing, order: index + 1, durationSeconds: timing.endSeconds - timing.startSeconds };
-    return { ...resolved, presentation: resolveScenePresentation(resolved, grammar) };
+    const resolved = { ...scene, ...timing, episodeId: config.episode.id, order: index + 1, durationSeconds: timing.endSeconds - timing.startSeconds };
+    const withPresentation = { ...resolved, presentation: resolveScenePresentation(resolved, grammar) };
+    return { ...withPresentation, resolvedTimeline: resolveSceneTimeline(withPresentation, config.output.frameRate, grammar) };
   });
   const assetManager = createLocalAssetManager({ repoRoot });
   return { configPath, config, markersPath, markers, scenes, assetManager, grammar };
@@ -174,7 +176,8 @@ function validate(context) {
   if (sceneIds.size !== context.scenes.length) errors.push("Duplicate scene IDs");
   const assetRegister = fs.readFileSync(resolvePath(context.config.episode.assetRegister), "utf8");
   for (const scene of context.scenes) {
-    renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar);
+    const finalFrame = Math.max(0, Math.ceil(scene.durationSeconds * context.config.output.frameRate) - 1);
+    renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar, timelineStateAtFrame(scene, scene.resolvedTimeline, finalFrame));
     for (const assetId of scene.assetIds ?? []) {
       if (!assetRegister.includes(`asset_id: \"${assetId}\"`)) errors.push(`${scene.id} references unknown episode asset ${assetId}`);
     }
@@ -194,19 +197,28 @@ async function render(context, validation) {
   const frameFiles = [];
   const segmentFiles = [];
   for (const scene of context.scenes) {
-    const svgPath = path.join(framesDir, `${scene.id}.svg`);
-    const pngPath = path.join(framesDir, `${scene.id}.png`);
-    fs.writeFileSync(svgPath, renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar));
-    await sharp(svgPath, { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
-    const segmentPath = path.join(segmentsDir, `${scene.id}.mp4`);
-    const frameDuration = Math.ceil(scene.durationSeconds * context.config.output.frameRate) / context.config.output.frameRate;
-    run(validation.ffmpeg, [
-      "-y", "-loop", "1", "-t", frameDuration.toFixed(3), "-i", pngPath,
-      "-r", String(context.config.output.frameRate), "-c:v", "libx264", "-preset", "veryfast",
-      "-crf", "20", "-pix_fmt", "yuv420p", "-an", segmentPath
-    ]);
-    frameFiles.push(svgPath, pngPath);
-    segmentFiles.push(segmentPath);
+    const frameCount = Math.ceil(scene.durationSeconds * context.config.output.frameRate);
+    const changeFrames = timelineChangeFrames(scene.resolvedTimeline, frameCount);
+    for (let index = 0; index < changeFrames.length - 1; index++) {
+      const startFrame = changeFrames[index];
+      const endFrame = changeFrames[index + 1];
+      if (endFrame <= startFrame) continue;
+      const suffix = changeFrames.length === 2 ? "" : `-${String(index + 1).padStart(3, "0")}`;
+      const svgPath = path.join(framesDir, `${scene.id}${suffix}.svg`);
+      const pngPath = path.join(framesDir, `${scene.id}${suffix}.png`);
+      const state = timelineStateAtFrame(scene, scene.resolvedTimeline, startFrame);
+      fs.writeFileSync(svgPath, renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state));
+      await sharp(svgPath, { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
+      const segmentPath = path.join(segmentsDir, `${scene.id}${suffix}.mp4`);
+      const frameDuration = (endFrame - startFrame) / context.config.output.frameRate;
+      run(validation.ffmpeg, [
+        "-y", "-loop", "1", "-t", frameDuration.toFixed(6), "-i", pngPath,
+        "-r", String(context.config.output.frameRate), "-c:v", "libx264", "-preset", "veryfast",
+        "-crf", "20", "-pix_fmt", "yuv420p", "-an", segmentPath
+      ]);
+      frameFiles.push(svgPath, pngPath);
+      segmentFiles.push(segmentPath);
+    }
   }
   const concatPath = path.join(generatedDir, "segments.txt");
   fs.writeFileSync(concatPath, `${segmentFiles.map((file) => `file '${file.replaceAll("'", "'\\''")}'`).join("\n")}\n`);
@@ -224,6 +236,7 @@ async function render(context, validation) {
   fs.writeFileSync(timingPath, `${JSON.stringify(timingReport, null, 2)}\n`);
   await generateReviewArtifacts(context, validation);
   const manifestPath = path.join(generatedDir, "render-manifest.json");
+  const timelinePath = path.join(generatedDir, "timeline-resolution-report.json");
   const assetManifestPath = path.join(generatedDir, "asset-manifest.json");
   const provenancePath = path.join(generatedDir, "provenance.json");
   fs.writeFileSync(assetManifestPath, `${JSON.stringify(buildAssetManifest(context, validation), null, 2)}\n`);
@@ -240,14 +253,17 @@ async function render(context, validation) {
       id: scene.id,
       archetype: scene.presentation.archetype,
       composition: scene.presentation.composition,
-      transition: scene.presentation.transition
+      transition: scene.presentation.transition,
+      timeline: timelineManifestEntry(scene.resolvedTimeline)
     })),
     generatedFrames: frameFiles.map(fileRecord),
     generatedSegments: segmentFiles.map(fileRecord),
     timingReport: relative(timingPath),
+    timelineResolutionReport: relative(timelinePath),
     assetManifest: relative(assetManifestPath),
     provenance: relative(provenancePath)
   }, null, 2)}\n`);
+  fs.writeFileSync(timelinePath, `${JSON.stringify(buildTimelineReport(context), null, 2)}\n`);
   return videoPath;
 }
 
@@ -259,7 +275,7 @@ async function generateReviewArtifacts(context, validation) {
   fs.mkdirSync(framesDir, { recursive: true });
   const frames = [];
   for (const scene of context.scenes) {
-    const timestamp = scene.startSeconds + Math.min(2, scene.durationSeconds / 2);
+    const timestamp = scene.endSeconds - Math.min(2, scene.durationSeconds / 2);
     const output = path.join(framesDir, `${scene.id}.png`);
     run(validation.ffmpeg, ["-y", "-ss", timestamp.toFixed(3), "-i", videoPath, "-frames:v", "1", output]);
     frames.push({ ...scene, path: output, timestamp });
@@ -276,7 +292,7 @@ async function generateReviewArtifacts(context, validation) {
     expectedDurationSeconds: validation.duration,
     reviewFrameCount: frames.length,
     contactSheet: relative(contactPng),
-    warnings: ["This is an editorial rough cut with static authored frames.", "No lip-sync, facial animation or companion character animation is present."]
+    warnings: ["Timeline motion is deterministic and editorially authored.", "No lip-sync, facial animation or companion character animation is present."]
   }, null, 2)}\n`);
   const logPath = path.join(reviewDir, "render.log");
   fs.writeFileSync(logPath, [
@@ -319,6 +335,24 @@ function buildTimingReport(context, validation, media) {
     companionScreenTimePercent: round(companionSeconds / validation.duration * 100),
     placeholders: 0,
     scenes: context.scenes.map((scene) => ({ id: scene.id, startSeconds: scene.startSeconds, endSeconds: scene.endSeconds, durationSeconds: round(scene.durationSeconds), narrationReference: scene.narrationReference }))
+  };
+}
+
+function buildTimelineReport(context) {
+  return {
+    version: 1,
+    episodeId: context.config.episode.id,
+    frameRate: context.config.output.frameRate,
+    timingRule: "round(offsetSeconds * frameRate); state is evaluated from integer scene-relative frames",
+    scenes: context.scenes.map((scene) => ({
+      id: scene.id,
+      durationSeconds: scene.durationSeconds,
+      elementIds: scene.resolvedTimeline.elements,
+      initiallyHidden: scene.resolvedTimeline.initiallyHidden,
+      declaredEvents: scene.resolvedTimeline.declared,
+      resolvedEvents: scene.resolvedTimeline.events,
+      warnings: scene.resolvedTimeline.warnings
+    }))
   };
 }
 

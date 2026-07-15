@@ -79,6 +79,23 @@ const profile = Object.freeze({
     cut: Object.freeze({ semantic: "cut", renderMode: "cut" }),
     fade: Object.freeze({ semantic: "dissolve", renderMode: "cut", compatibility: true }),
     section: Object.freeze({ semantic: "cut", renderMode: "cut", compatibility: true })
+  }),
+  motion: Object.freeze({
+    actions: Object.freeze({
+      reveal: Object.freeze({ id: "grammar-reveal-v1", renderMode: "cut-at-frame" }),
+      hide: Object.freeze({ id: "grammar-hide-v1", renderMode: "cut-at-frame" }),
+      emphasize: Object.freeze({ id: "grammar-emphasis-v1", strokeWidth: 4, renderMode: "persistent-state" }),
+      deemphasize: Object.freeze({ id: "grammar-deemphasis-v1", renderMode: "persistent-state" }),
+      replace: Object.freeze({ id: "grammar-replace-v1", renderMode: "cut-at-frame" }),
+      transition: Object.freeze({ id: "grammar-transition-v1", renderMode: "cut" }),
+      type: Object.freeze({ id: "grammar-repository-type-v1", renderMode: "frame-indexed-text" })
+    }),
+    directionalConnector: Object.freeze({
+      id: "grammar-directional-connector-v1",
+      arrowhead: true,
+      strokeWidth: 3,
+      colourRole: "blue"
+    })
   })
 });
 

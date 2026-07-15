@@ -30,6 +30,18 @@ scenes:
     transition:
       in: ""
       out: ""
+    # Optional scene-relative editorial events. Targets are stable semantic ids.
+    timeline:
+      events:
+        - id: "reveal-first-idea"
+          at: 2.400
+          action: "reveal"
+          target: "item-1"
+        - id: "emphasize-conclusion"
+          at: 7.800
+          duration: 2.000
+          action: "emphasize"
+          target: "item-2"
     # Planned, in progress, blocked, ready for review, approved, or replaced.
     status: "planned"
     # Not reviewed, changes requested, approved, or rejected.
