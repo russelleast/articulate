@@ -29,7 +29,9 @@ const episodes = defineCollection({
     related_decisions: z.array(reference("decisions")).default([]),
     related_experiments: z.array(reference("experiments")).default([]),
     repository_paths: z.array(repositoryPath).default([]),
-    featured: z.boolean().default(false)
+    featured: z.boolean().default(false),
+    author: z.string().min(1).optional(),
+    image: z.string().min(1).optional()
   })
 });
 

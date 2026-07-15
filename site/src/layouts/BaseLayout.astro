@@ -1,17 +1,31 @@
 ---
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import { siteDescription, siteTitle, withBase } from "@/utils/site";
+import Analytics from "@/components/Analytics.astro";
+import Seo from "@/components/Seo.astro";
+import { siteDescription, withBase } from "@/utils/site";
 import "../styles/global.css";
 
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  type?: "website" | "article";
+  image?: string;
+  author?: string;
+  article?: {
+    published: Date;
+    updated?: Date;
+    tags?: string[];
+  };
+  analytics?: {
+    contentType: "page" | "episode";
+    episode?: string;
+    series?: string;
+  };
 }
 
-const title = Astro.props.title ? `${Astro.props.title} | ${siteTitle}` : siteTitle;
-const description = Astro.props.description ?? siteDescription;
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const { analytics = { contentType: "page" }, ...seo } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,17 +33,19 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    <Seo {...seo} description={seo.description ?? siteDescription} />
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
-    <link rel="alternate" type="application/rss+xml" title="Articulate RSS" href={withBase("/rss.xml")} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
+    <Analytics
+      contentType={analytics.contentType}
+      episode={analytics.episode}
+      series={analytics.series}
+    />
   </head>
-  <body>
+  <body
+    data-content-type={analytics.contentType}
+    data-episode={analytics.episode}
+    data-series={analytics.series}
+  >
     <Header />
     <main id="content">
       <slot />
