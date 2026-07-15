@@ -6,16 +6,17 @@ import RelatedContent from "@/components/RelatedContent.astro";
 import { formatDate, withBase } from "@/utils/site";
 
 export async function getStaticPaths() {
-  const episodes = await getCollection("episodes");
+  const episodes = await getCollection("episodes", ({ data }) => data.status !== "draft");
   return episodes.map((episode) => ({ params: { slug: episode.id }, props: { episode } }));
 }
 
 const { episode } = Astro.props;
-const allEpisodes = (await getCollection("episodes")).sort((a, b) => a.data.sequence - b.data.sequence);
+const allEpisodes = (await getCollection("episodes", ({ data }) => data.status !== "draft"))
+  .sort((a, b) => a.data.sequence - b.data.sequence);
 const decisions = await getCollection("decisions");
 const patterns = await getCollection("patterns");
 const experiments = await getCollection("experiments");
-const index = allEpisodes.findIndex((item) => item.data.id === episode.data.id);
+const index = allEpisodes.findIndex((item) => item.id === episode.id);
 const previous = allEpisodes[index - 1];
 const next = allEpisodes[index + 1];
 const { Content } = await render(episode);
@@ -35,7 +36,23 @@ const relatedExperiments = experiments
   .map((experiment) => ({ title: experiment.data.title, href: withBase(`/experiments/#${experiment.data.id}`), meta: experiment.data.status }));
 ---
 
-<BaseLayout title={episode.data.title} description={episode.data.summary}>
+<BaseLayout
+  title={episode.data.title}
+  description={episode.data.summary}
+  type="article"
+  image={episode.data.image}
+  author={episode.data.author}
+  article={{
+    published: episode.data.published,
+    updated: episode.data.updated,
+    tags: episode.data.topics
+  }}
+  analytics={{
+    contentType: "episode",
+    episode: episode.data.sequence.toString().padStart(4, "0"),
+    series: episode.data.season
+  }}
+>
   <article class="article-shell">
     <header class="article-header">
       <p class="eyebrow">Episode {episode.data.sequence.toString().padStart(4, "0")}</p>

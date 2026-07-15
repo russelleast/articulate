@@ -5,7 +5,7 @@ import RecentlyChanged from "@/components/RecentlyChanged.astro";
 import StatusPill from "@/components/StatusPill.astro";
 import { formatDate, withBase } from "@/utils/site";
 
-const episodes = await getCollection("episodes");
+const episodes = await getCollection("episodes", ({ data }) => data.status !== "draft");
 const featuredEpisode = episodes
   .filter((episode) => episode.data.featured || episode.data.sequence > 0)
   .sort((a, b) => b.data.sequence - a.data.sequence)[0] ?? episodes[0];

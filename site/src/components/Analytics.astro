@@ -1,0 +1,34 @@
+---
+interface Props {
+  contentType?: "page" | "episode";
+  episode?: string;
+  series?: string;
+}
+
+const { contentType = "page", episode, series } = Astro.props;
+const provider = import.meta.env.PUBLIC_ANALYTICS_PROVIDER?.trim().toLowerCase();
+const domain = import.meta.env.PUBLIC_ANALYTICS_DOMAIN?.trim();
+const configuredScriptUrl = import.meta.env.PUBLIC_ANALYTICS_SCRIPT_URL?.trim();
+const enabled = provider === "plausible" && Boolean(domain);
+const scriptUrl = configuredScriptUrl || "https://plausible.io/js/script.js";
+const context = Object.fromEntries(
+  Object.entries({ content_type: contentType, episode, series }).filter(([, value]) => value)
+);
+---
+
+{enabled && (
+  <>
+    <script is:inline defer data-domain={domain} src={scriptUrl}></script>
+    <script is:inline define:vars={{ context }}>
+      window.plausible = window.plausible || function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+
+      window.articulateAnalytics = {
+        trackEvent(name, properties = {}) {
+          window.plausible(name, { props: { ...context, ...properties } });
+        }
+      };
+    </script>
+  </>
+)}

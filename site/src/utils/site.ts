@@ -3,6 +3,24 @@ export const siteTitle = "Articulate";
 export const siteDescription =
   "A production-oriented reference architecture for AI-native systems, documented as a living architectural narrative.";
 
+export const productionOrigin = "https://russelleast.github.io";
+
+export function absoluteUrl(path: string, site: URL | string | undefined = productionOrigin) {
+  if (/^https?:\/\//i.test(path)) {
+    return new URL(path).toString();
+  }
+
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  const pathWithBase = normalized === basePath
+    ? `${basePath}/`
+    : normalized.startsWith(`${basePath}/`)
+    ? normalized
+    : `${basePath}${normalized}`;
+
+  return new URL(pathWithBase, site).toString();
+}
+
 export function withBase(path: string) {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const normalized = path.startsWith("/") ? path : `/${path}`;

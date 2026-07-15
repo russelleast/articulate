@@ -43,6 +43,11 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          PUBLIC_ANALYTICS_PROVIDER: ${{ vars.PUBLIC_ANALYTICS_PROVIDER }}
+          PUBLIC_ANALYTICS_DOMAIN: ${{ vars.PUBLIC_ANALYTICS_DOMAIN }}
+          PUBLIC_ANALYTICS_SCRIPT_URL: ${{ vars.PUBLIC_ANALYTICS_SCRIPT_URL }}
+          PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
