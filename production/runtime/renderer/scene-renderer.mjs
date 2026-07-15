@@ -2,6 +2,9 @@ import { centredTextBlock, insetBox, textBlock, xml } from "./layout.mjs";
 
 export function renderSceneSvg(scene, episode, output, companionData, grammar, state = null) {
   const { palette, frame, typography } = grammar;
+  if (scene.presentation.composition === "studio") {
+    return studioSceneSvg(scene, episode, output, companionData, grammar, state);
+  }
   const episodeIdentity = episodeLabel(episode.id);
   const header = `<text x="${frame.safeArea.x}" y="${frame.header.y}" font-size="28" fill="${palette.muted}" letter-spacing="2">ARTICULATE JOURNAL · ${episodeIdentity} · ${scene.id}</text>`;
   const footer = `<line x1="${frame.safeArea.x}" y1="${frame.footer.lineY}" x2="${frame.safeArea.x + frame.safeArea.width}" y2="${frame.footer.lineY}" stroke="${palette.line}"/><text x="${frame.safeArea.x}" y="${frame.footer.textY}" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${xml(scene.narrationReference)}</text><text x="${frame.safeArea.x + frame.safeArea.width}" y="${frame.footer.textY}" text-anchor="end" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${time(scene.startSeconds)} — ${time(scene.endSeconds)}</text>`;
@@ -15,6 +18,7 @@ export function renderSceneSvg(scene, episode, output, companionData, grammar, s
 
 function renderComposition(scene, episode, companionData, grammar, state) {
   switch (scene.presentation.composition) {
+    case "studio": return studioComposition(scene, companionData, grammar, state);
     case "companion": return companionComposition(scene, companionData, grammar, state);
     case "repository": return visualComposition(scene, grammar, state, (y) => repository(scene, episode, y, grammar, state));
     case "flow": return visualComposition(scene, grammar, state, (y) => flow(scene, y, grammar, state));
@@ -26,6 +30,83 @@ function renderComposition(scene, episode, companionData, grammar, state) {
     case "reflection": return visualComposition(scene, grammar, state, (y) => reflection(scene, y, grammar, state));
     default: throw new Error(`${scene.id} resolved to unsupported composition: ${scene.presentation.composition}`);
   }
+}
+
+function studioSceneSvg(scene, episode, output, companionData, grammar, state) {
+  const content = studioComposition(scene, companionData, grammar, state);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${output.width}" height="${output.height}" viewBox="0 0 ${output.width} ${output.height}">
+  <defs>
+    <linearGradient id="studio-background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d171d"/><stop offset="1" stop-color="#182932"/></linearGradient>
+    <radialGradient id="studio-light"><stop offset="0" stop-color="#c88a62" stop-opacity=".28"/><stop offset="1" stop-color="#c88a62" stop-opacity="0"/></radialGradient>
+    <pattern id="studio-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="#8eabb8" stroke-opacity=".08" stroke-width="1"/></pattern>
+    <filter id="board-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#05090b" flood-opacity=".42"/></filter>
+    <filter id="companion-shadow" x="-30%" y="-20%" width="160%" height="150%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#05090b" flood-opacity=".55"/></filter>
+    <marker id="studio-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#55798b"/></marker>
+  </defs>
+  <style>text{font-family:${grammar.typography.fontFamily}}.emphasized rect{stroke:#b76c4d!important;stroke-width:4}.emphasized text{fill:#9a4f34!important}</style>
+  <rect width="1920" height="1080" fill="url(#studio-background)"/>
+  <rect width="1920" height="1080" fill="url(#studio-grid)"/>
+  <ellipse cx="315" cy="430" rx="520" ry="620" fill="url(#studio-light)"/>
+  <text x="72" y="72" font-size="21" font-weight="650" fill="#d8e1e4" letter-spacing="4">ARTICULATE</text>
+  <text x="72" y="103" font-size="14" fill="#8eabb8" letter-spacing="2">ARCHITECTURAL STUDIO</text>
+  ${content}
+  <text x="72" y="1030" font-size="17" fill="#8eabb8">AI-created visual Companion · Russell's recorded narration</text>
+  <text x="1848" y="1030" text-anchor="end" font-size="17" fill="#8eabb8">${xml(episode.title)} · Production Quality Baseline v1</text>
+  </svg>`;
+}
+
+function studioComposition(scene, companionData, grammar, state) {
+  const board = { x: 590, y: 86, width: 1260, height: 914 };
+  const idle = companionIdleTransform(scene, state, grammar);
+  const positions = new Map([
+    ["item-1", { x: 735, y: 375, width: 230, height: 92 }],
+    ["item-2", { x: 1135, y: 375, width: 230, height: 92 }],
+    ["item-3", { x: 1030, y: 490, width: 390, height: 104 }],
+    ["item-4", { x: 660, y: 670, width: 250, height: 82 }],
+    ["item-5", { x: 960, y: 670, width: 250, height: 82 }],
+    ["item-6", { x: 1260, y: 670, width: 250, height: 82 }],
+    ["item-7", { x: 810, y: 815, width: 250, height: 82 }],
+    ["item-8", { x: 1110, y: 815, width: 250, height: 82 }]
+  ]);
+  const boardShell = `<rect x="${board.x}" y="${board.y}" width="${board.width}" height="${board.height}" rx="34" fill="#f6f2e9" filter="url(#board-shadow)"/><rect x="${board.x + 20}" y="${board.y + 20}" width="${board.width - 40}" height="${board.height - 40}" rx="24" fill="none" stroke="#cfcbc1"/>`;
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 660, y: 190, width: 1080 }, { fontSize: 62, weight: 720, maxLines: 1, fill: "#172028" }, `${scene.id} studio headline`), state);
+  const support = element("support", textBlock(elementText(scene, "support", state), { x: 662, y: 260, width: 1050 }, { fontSize: 28, weight: 450, maxLines: 2, fill: "#55798b" }, `${scene.id} studio support`), state);
+  const connectors = [...(state?.connections?.values() ?? [])].map((connection) => studioConnection(connection, positions)).join("");
+  const nodes = (scene.items ?? []).map((item, index) => {
+    const id = `item-${index + 1}`;
+    const box = positions.get(id);
+    const persistent = id === "item-3";
+    const transactional = id === "item-1" || id === "item-2";
+    const fill = persistent ? "#dbe8eb" : transactional ? "#fffdfa" : "#e8eeeb";
+    const stroke = persistent ? "#55798b" : transactional ? "#b6b0a7" : "#92a8a0";
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="${persistent ? 24 : 18}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 18, 10), { fontSize: persistent ? 27 : 22, weight: persistent ? 700 : 600, maxLines: 2, lineHeight: 1.12, align: "middle", fill: "#26333a" }, `${scene.id} studio item ${index + 1}`)}`, state);
+  }).join("");
+  const promptArrow = visible("item-1", state) && visible("item-2", state)
+    ? `<line x1="980" y1="421" x2="1118" y2="421" stroke="#7b8c94" stroke-width="3" marker-end="url(#studio-arrow)"/><text x="1048" y="400" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
+    : "";
+  const companion = element("companion", `<g transform="${idle}" filter="url(#companion-shadow)"><image href="${companionData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/></g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`, state);
+  return `${boardShell}${companion}${headline}${support}${connectors}${promptArrow}${nodes}`;
+}
+
+function studioConnection(connection, positions) {
+  const from = positions.get(connection.from);
+  const to = positions.get(connection.to);
+  if (!from || !to) return "";
+  const x1 = from.x + from.width / 2;
+  const y1 = from.y + from.height;
+  const x2 = to.x + to.width / 2;
+  const y2 = to.y;
+  const midY = y1 + (y2 - y1) * 0.52;
+  return `<path data-connection="${connection.from}-${connection.to}" d="M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2 - 8}" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round" ${connection.directional === false ? "" : 'marker-end="url(#studio-arrow)"'}/>`;
+}
+
+function companionIdleTransform(scene, state, grammar) {
+  if (!scene.motion?.companionIdle) return "translate(0 0) scale(1)";
+  const motion = grammar.motion.companionIdle;
+  const phase = ((state?.frame ?? 0) % motion.periodFrames) / motion.periodFrames * Math.PI * 2;
+  const y = Math.sin(phase) * motion.translateYPixels;
+  const scale = 1 + Math.sin(phase) * motion.scaleAmplitude;
+  return `translate(0 ${y.toFixed(3)}) translate(300 980) scale(${scale.toFixed(6)}) translate(-300 -980)`;
 }
 
 function companionComposition(scene, companionData, grammar, state) {

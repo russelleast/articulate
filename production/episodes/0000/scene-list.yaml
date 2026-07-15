@@ -1,0 +1,21 @@
+episode:
+  id: "episode-0000"
+  title: "Welcome to the Articulate Journal"
+  canonical_source: "docs/episodes/0000-welcome-to-the-articulate-journal.md"
+  production_status: "baseline-v1-review"
+  timing_authority: "episode-0000-narration-v1"
+  narration_duration_seconds: 261.848141
+scenes:
+  - { scene_id: "S001", start_seconds: 0.000000, end_seconds: 14.588027, narration_reference: "Welcome and architectural perspective", visual_type: "Architectural Studio", companion_mode: "present-idle", status: "planned" }
+  - { scene_id: "S002", start_seconds: 14.588027, end_seconds: 34.724376, narration_reference: "Systems change; problems persist", visual_type: "Architectural Whiteboard", companion_mode: "handoff", status: "planned" }
+  - { scene_id: "S003", start_seconds: 34.724376, end_seconds: 61.194785, narration_reference: "AI opportunity and Articulate territory", visual_type: "Focus Canvas", companion_mode: "none", status: "planned" }
+  - { scene_id: "S004", start_seconds: 61.194785, end_seconds: 83.941814, narration_reference: "Production software and journal record", visual_type: "Digital Workspace", companion_mode: "none", status: "planned" }
+  - { scene_id: "S005", start_seconds: 83.941814, end_seconds: 108.482313, narration_reference: "Ideas, trade-offs and non-linear journey", visual_type: "Architectural Whiteboard", companion_mode: "none", status: "planned" }
+  - { scene_id: "S006", start_seconds: 108.482313, end_seconds: 135.586893, narration_reference: "Preserve architectural reasoning", visual_type: "Digital Workspace", companion_mode: "none", status: "planned" }
+  - { scene_id: "S007", start_seconds: 135.586893, end_seconds: 161.686939, narration_reference: "Build, run and test", visual_type: "Digital Workspace", companion_mode: "handoff", status: "planned" }
+  - { scene_id: "S008", start_seconds: 161.686939, end_seconds: 195.963605, narration_reference: "The Companion", visual_type: "Architectural Studio and Whiteboard", companion_mode: "present-idle", status: "baseline-v1-rendered" }
+  - { scene_id: "S009", start_seconds: 195.963605, end_seconds: 209.585692, narration_reference: "Areas of exploration", visual_type: "Focus Canvas", companion_mode: "none", status: "planned" }
+  - { scene_id: "S010", start_seconds: 209.585692, end_seconds: 227.785488, narration_reference: "Future episode forms", visual_type: "Digital Workspace", companion_mode: "none", status: "planned" }
+  - { scene_id: "S011", start_seconds: 227.785488, end_seconds: 240.801814, narration_reference: "Not a polished retrospective", visual_type: "Reflection", companion_mode: "present", status: "planned" }
+  - { scene_id: "S012", start_seconds: 240.801814, end_seconds: 252.667619, narration_reference: "Invitation", visual_type: "Architectural Studio", companion_mode: "present-idle", status: "planned" }
+  - { scene_id: "S013", start_seconds: 252.667619, end_seconds: 261.848141, narration_reference: "Episode 0001 hand-off", visual_type: "Focus Canvas", companion_mode: "present", status: "planned" }

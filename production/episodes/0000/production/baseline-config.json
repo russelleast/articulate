@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "episode-0000",
+    "title": "Welcome to the Articulate Journal",
+    "canonicalSource": "docs/episodes/0000-welcome-to-the-articulate-journal.md",
+    "storyboard": "production/episodes/0000/scene-list.yaml",
+    "timingMarkers": "production/episodes/0000/production/baseline-markers.json",
+    "assetRegister": "production/episodes/0000/asset-register.yaml"
+  },
+  "narration": {
+    "assetId": "episode-0000-baseline-narration-v1",
+    "expectedSha256": "26a14a7e98327792a011086636cf5480440a9f2cdf3ac167720a177bc65c0be3",
+    "expectedDurationSeconds": 35.558027,
+    "preserveWholeRecording": true,
+    "source": { "assetId": "episode-0000-narration-v1", "startSeconds": 160.405578, "endSeconds": 195.963605 }
+  },
+  "companion": { "assetId": "companion-v1-neutral" },
+  "rendering": { "visualGrammarProfile": "articulate-visual-grammar-v1" },
+  "review": { "includeTimelineStates": true },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "video": "production/episodes/0000/output/episode-0000-production-quality-baseline-v1.mp4",
+    "generatedDirectory": "production/episodes/0000/generated/production-quality-baseline-v1",
+    "reviewDirectory": "production/episodes/0000/output/review/production-quality-baseline-v1",
+    "narrationAnalysis": "production/episodes/0000/production/baseline-narration-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "kind": "studio",
+      "headline": "The Companion",
+      "support": "A different relationship between architect and AI",
+      "items": ["Prompt", "Answer", "Persistent collaborator", "Discover & connect", "Challenge assumptions", "Reason about trade-offs", "Preserve knowledge", "Understand over time"],
+      "companion": true,
+      "assetIds": ["A002", "A003"],
+      "transition": "fade",
+      "motion": { "companionIdle": true },
+      "timeline": {
+        "events": [
+          { "id": "name-companion", "at": 1.280, "action": "reveal", "target": "headline" },
+          { "id": "relationship", "at": 5.960, "action": "reveal", "target": "support" },
+          { "id": "show-prompt", "at": 10.280, "action": "reveal", "target": "item-1" },
+          { "id": "show-answer", "at": 10.280, "action": "reveal", "target": "item-2" },
+          { "id": "emphasize-transaction", "at": 10.320, "duration": 3.200, "action": "emphasize", "target": "item-1" },
+          { "id": "remove-prompt", "at": 17.720, "action": "hide", "target": "item-1" },
+          { "id": "remove-answer", "at": 17.720, "action": "hide", "target": "item-2" },
+          { "id": "show-collaborator", "at": 17.720, "action": "reveal", "target": "item-3" },
+          { "id": "show-discovery", "at": 20.160, "action": "reveal", "target": "item-4" },
+          { "id": "connect-discovery", "at": 20.520, "action": "connect", "from": "item-3", "to": "item-4" },
+          { "id": "show-challenge", "at": 22.080, "action": "reveal", "target": "item-5" },
+          { "id": "connect-challenge", "at": 22.440, "action": "connect", "from": "item-3", "to": "item-5" },
+          { "id": "show-reason", "at": 23.960, "action": "reveal", "target": "item-6" },
+          { "id": "connect-reason", "at": 24.320, "action": "connect", "from": "item-3", "to": "item-6" },
+          { "id": "show-preserve", "at": 25.160, "action": "reveal", "target": "item-7" },
+          { "id": "connect-preserve", "at": 25.520, "action": "connect", "from": "item-3", "to": "item-7" },
+          { "id": "show-understand", "at": 29.680, "action": "reveal", "target": "item-8" },
+          { "id": "connect-understand", "at": 30.040, "action": "connect", "from": "item-3", "to": "item-8" },
+          { "id": "conclude", "at": 31.640, "duration": 3.200, "action": "emphasize", "target": "item-3" }
+        ]
+      }
+    }
+  ]
+}

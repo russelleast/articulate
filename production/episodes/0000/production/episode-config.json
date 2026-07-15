@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "episode-0000",
+    "title": "Welcome to the Articulate Journal",
+    "canonicalSource": "docs/episodes/0000-welcome-to-the-articulate-journal.md",
+    "storyboard": "production/episodes/0000/scene-list.yaml",
+    "timingMarkers": "production/episodes/0000/production/narration-markers.json",
+    "assetRegister": "production/episodes/0000/asset-register.yaml"
+  },
+  "narration": {
+    "assetId": "episode-0000-narration-v1",
+    "expectedSha256": "fe1983991ba3ca864d79737c3393a762ed145929c025332a0b7c4781898943f8",
+    "expectedDurationSeconds": 261.848141,
+    "preserveWholeRecording": true
+  },
+  "companion": { "assetId": "companion-v1-neutral" },
+  "rendering": { "visualGrammarProfile": "articulate-visual-grammar-v1" },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "video": "production/episodes/0000/output/episode-0000-not-for-render.mp4",
+    "generatedDirectory": "production/episodes/0000/generated/full-episode-plan",
+    "reviewDirectory": "production/episodes/0000/output/review/full-episode-plan",
+    "narrationAnalysis": "production/episodes/0000/production/narration-analysis.json"
+  },
+  "scenes": [
+    { "id": "S001", "kind": "companion", "headline": "Welcome to the Articulate Journal", "support": "An architectural programme in the making.", "items": [], "companion": true, "transition": "fade" },
+    { "id": "S002", "kind": "fragments", "headline": "The systems changed", "support": "The underlying challenges remain.", "items": ["Knowledge", "Documentation", "Decisions", "Context"], "companion": false, "transition": "cut" },
+    { "id": "S003", "kind": "question", "headline": "A different role for AI", "support": "The territory Articulate is exploring.", "items": ["An opportunity to rethink the architectural process"], "companion": false, "transition": "section" },
+    { "id": "S004", "kind": "journal", "headline": "Real software. An open architectural record.", "support": "Document the system as it evolves.", "items": ["docs/episodes/0000-welcome-to-the-articulate-journal.md", "Canonical journal source"], "evidence": { "excerpt": ["The ideas. The decisions. The trade-offs. The research."] }, "companion": false, "transition": "cut" },
+    { "id": "S005", "kind": "timeline", "headline": "The journey will not be linear", "support": "Ideas evolve; decisions are revisited.", "items": ["Idea", "Decision", "Evidence", "Revision"], "companion": false, "transition": "cut" },
+    { "id": "S006", "kind": "evidence", "headline": "Preserve what happens in between", "support": "Reasoning can be more valuable than the decision.", "items": ["Alternatives", "Evidence", "Context", "Lessons"], "companion": false, "transition": "section" },
+    { "id": "S007", "kind": "journal", "headline": "Build it. Run it. Test it.", "support": "Ideas meet implementation and operational constraints.", "items": ["production/episodes/0000", "Working production evidence"], "evidence": { "excerpt": ["Use what we learn to shape what comes next."] }, "companion": false, "transition": "cut" },
+    { "id": "S008", "kind": "studio", "headline": "The Companion", "support": "A persistent architectural collaborator.", "items": [], "companion": true, "transition": "section" },
+    { "id": "S009", "kind": "roadmap", "headline": "Make the vision real", "support": "Explore the required architecture.", "items": ["AI-native", "Agentic", "Durable", "Memory", "Collaboration"], "companion": false, "transition": "cut" },
+    { "id": "S010", "kind": "capabilities", "headline": "Ideas meet reality", "support": "Episodes, experiments, prototypes and working software.", "items": ["Principle", "Decision", "Experiment", "Implementation"], "companion": false, "transition": "cut" },
+    { "id": "S011", "kind": "question", "headline": "The architectural record of building it", "support": "Not a polished retrospective.", "items": ["A better approach may be the most valuable outcome"], "companion": false, "transition": "section" },
+    { "id": "S012", "kind": "companion", "headline": "Welcome", "support": "Follow the decisions and discoveries as the system takes shape.", "items": [], "companion": true, "transition": "cut" },
+    { "id": "S013", "kind": "question", "headline": "Why does Articulate need to exist at all?", "support": "Episode 0001", "items": ["Begin with the problem"], "companion": false, "transition": "fade" }
+  ]
+}

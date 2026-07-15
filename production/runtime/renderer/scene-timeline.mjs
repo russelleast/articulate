@@ -11,7 +11,7 @@ export function sceneElementIds(scene) {
   if (scene.presentation?.composition === "repository") {
     ids.push("repository-window", ...(scene.evidence?.excerpt ?? []).map((_, index) => `evidence-${index + 1}`));
   }
-  if (scene.presentation?.composition === "companion") ids.push("companion");
+  if (["companion", "studio"].includes(scene.presentation?.composition)) ids.push("companion");
   return ids;
 }
 

@@ -50,6 +50,8 @@ Episode content belongs in episode configuration. The renderer must not contain 
 - Transition intent is resolved into semantic and runtime behaviour. Episode 0001's existing `fade` and `section` values remain compatibility inputs and still render as deterministic cuts.
 - Render manifests expose the resolved archetype, composition and transition plan for review and provenance.
 - Motion treatments and directional connector styling remain owned by `visual-grammar.mjs`; episode timelines state what changes, never opacity curves, coordinates or FFmpeg filters.
+- The Architectural Studio composition combines the approved Companion asset with a reusable working surface. `motion.companionIdle` opts a scene into deterministic frame-indexed breathing/settling motion; it does not imply lip-sync or facial animation.
+- Review generation can include every authored timeline state when `review.includeTimelineStates` is enabled, allowing progression to be reviewed independently of the final hold.
 
 ## Declarative scene timelines
 

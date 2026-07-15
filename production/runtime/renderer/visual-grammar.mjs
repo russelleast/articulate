@@ -55,6 +55,7 @@ const profile = Object.freeze({
     white: "#fffdfa", line: "#aeb8bc", dark: "#111920"
   }),
   sceneKinds: Object.freeze({
+    studio: Object.freeze({ archetype: "Narrator", composition: "studio" }),
     title: Object.freeze({ archetype: "Narrator", composition: "companion" }),
     companion: Object.freeze({ archetype: "Narrator", composition: "companion" }),
     closing: Object.freeze({ archetype: "Narrator", composition: "companion" }),
@@ -81,6 +82,13 @@ const profile = Object.freeze({
     section: Object.freeze({ semantic: "cut", renderMode: "cut", compatibility: true })
   }),
   motion: Object.freeze({
+    companionIdle: Object.freeze({
+      id: "grammar-companion-idle-v1",
+      periodFrames: 110,
+      translateYPixels: 2.2,
+      scaleAmplitude: 0.0025,
+      renderMode: "frame-indexed"
+    }),
     actions: Object.freeze({
       reveal: Object.freeze({ id: "grammar-reveal-v1", renderMode: "cut-at-frame" }),
       hide: Object.freeze({ id: "grammar-hide-v1", renderMode: "cut-at-frame" }),
@@ -109,7 +117,7 @@ export function getVisualGrammarProfile(profileId = DEFAULT_PROFILE_ID) {
 export function resolveScenePresentation(scene, grammar = profile) {
   const kind = grammar.sceneKinds[scene.kind];
   if (!kind) throw new Error(`${scene.id} uses unsupported visual kind: ${scene.kind}`);
-  if (scene.companion && kind.composition !== "companion") {
+  if (scene.companion && !["companion", "studio"].includes(kind.composition)) {
     throw new Error(`${scene.id} requests Companion placement outside a Companion composition`);
   }
   const transition = grammar.transitions[scene.transition];

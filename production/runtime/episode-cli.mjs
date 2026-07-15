@@ -198,6 +198,25 @@ async function render(context, validation) {
   const segmentFiles = [];
   for (const scene of context.scenes) {
     const frameCount = Math.ceil(scene.durationSeconds * context.config.output.frameRate);
+    if (scene.motion?.companionIdle) {
+      const sequenceDir = path.join(framesDir, scene.id);
+      fs.mkdirSync(sequenceDir, { recursive: true });
+      for (let frame = 0; frame < frameCount; frame++) {
+        const pngPath = path.join(sequenceDir, `${String(frame).padStart(6, "0")}.png`);
+        const state = timelineStateAtFrame(scene, scene.resolvedTimeline, frame);
+        const svg = renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state);
+        await sharp(Buffer.from(svg), { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
+        frameFiles.push(pngPath);
+      }
+      const segmentPath = path.join(segmentsDir, `${scene.id}.mp4`);
+      run(validation.ffmpeg, [
+        "-y", "-framerate", String(context.config.output.frameRate), "-start_number", "0",
+        "-i", path.join(sequenceDir, "%06d.png"), "-frames:v", String(frameCount),
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-an", segmentPath
+      ]);
+      segmentFiles.push(segmentPath);
+      continue;
+    }
     const changeFrames = timelineChangeFrames(scene.resolvedTimeline, frameCount);
     for (let index = 0; index < changeFrames.length - 1; index++) {
       const startFrame = changeFrames[index];
@@ -275,10 +294,14 @@ async function generateReviewArtifacts(context, validation) {
   fs.mkdirSync(framesDir, { recursive: true });
   const frames = [];
   for (const scene of context.scenes) {
-    const timestamp = scene.endSeconds - Math.min(2, scene.durationSeconds / 2);
-    const output = path.join(framesDir, `${scene.id}.png`);
-    run(validation.ffmpeg, ["-y", "-ss", timestamp.toFixed(3), "-i", videoPath, "-frames:v", "1", output]);
-    frames.push({ ...scene, path: output, timestamp });
+    const reviewPoints = context.config.review?.includeTimelineStates
+      ? timelineReviewPoints(scene, context.config.output.frameRate)
+      : [{ frame: null, timestamp: scene.endSeconds - Math.min(2, scene.durationSeconds / 2), label: scene.id }];
+    for (const [index, point] of reviewPoints.entries()) {
+      const output = path.join(framesDir, `${scene.id}${reviewPoints.length > 1 ? `-${String(index + 1).padStart(2, "0")}` : ""}.png`);
+      run(validation.ffmpeg, ["-y", "-ss", point.timestamp.toFixed(3), "-i", videoPath, "-frames:v", "1", output]);
+      frames.push({ ...scene, title: point.label, path: output, timestamp: point.timestamp });
+    }
   }
   const contactSvg = path.join(reviewDir, "contact-sheet.svg");
   const contactPng = path.join(reviewDir, "contact-sheet.png");
@@ -292,7 +315,12 @@ async function generateReviewArtifacts(context, validation) {
     expectedDurationSeconds: validation.duration,
     reviewFrameCount: frames.length,
     contactSheet: relative(contactPng),
-    warnings: ["Timeline motion is deterministic and editorially authored.", "No lip-sync, facial animation or companion character animation is present."]
+    warnings: [
+      "Timeline motion is deterministic and editorially authored.",
+      context.scenes.some((scene) => scene.motion?.companionIdle)
+        ? "Companion character motion is limited to restrained idle translation and breathing scale; no lip-sync or facial animation is present."
+        : "No lip-sync, facial animation or companion character animation is present."
+    ]
   }, null, 2)}\n`);
   const logPath = path.join(reviewDir, "render.log");
   fs.writeFileSync(logPath, [
@@ -305,6 +333,22 @@ async function generateReviewArtifacts(context, validation) {
     "status=complete"
   ].join("\n") + "\n");
   return reviewDir;
+}
+
+function timelineReviewPoints(scene, frameRate) {
+  const frameCount = Math.ceil(scene.durationSeconds * frameRate);
+  const points = timelineChangeFrames(scene.resolvedTimeline, frameCount)
+    .filter((frame) => frame < frameCount)
+    .map((frame, index) => ({
+      frame,
+      timestamp: scene.startSeconds + frame / frameRate,
+      label: `state ${String(index + 1).padStart(2, "0")}`
+    }));
+  const finalFrame = Math.max(0, frameCount - Math.round(frameRate * 1.5));
+  if (!points.some((point) => point.frame === finalFrame)) {
+    points.push({ frame: finalFrame, timestamp: scene.startSeconds + finalFrame / frameRate, label: "final hold" });
+  }
+  return points;
 }
 
 function contactSheetSvg(frames, grammar) {
@@ -367,12 +411,26 @@ function buildAssetManifest(context, validation) {
 }
 
 function buildProvenance(context, validation, videoPath) {
+  const narrationSource = context.config.narration.source;
   return {
     canonicalEpisode: fileRecord(resolvePath(context.config.episode.canonicalSource)),
     sceneConfiguration: fileRecord(context.configPath),
     timingMarkers: fileRecord(context.markersPath),
-    narration: { assetId: context.config.narration.assetId, ...fileRecord(validation.audioPath), treatment: "whole recording retained; AAC encode only during MP4 mux" },
-    companion: { assetId: context.config.companion.assetId, ...fileRecord(validation.companionPath), treatment: "static neutral asset; no lip-sync or character animation" },
+    narration: {
+      assetId: context.config.narration.assetId,
+      ...fileRecord(validation.audioPath),
+      source: narrationSource ? { ...narrationSource, ...fileRecord(context.assetManager.fetch(narrationSource.assetId)) } : null,
+      treatment: narrationSource
+        ? `lossless PCM extract retained from ${narrationSource.startSeconds}s to ${narrationSource.endSeconds}s; AAC encode only during MP4 mux`
+        : "whole recording retained; AAC encode only during MP4 mux"
+    },
+    companion: {
+      assetId: context.config.companion.assetId,
+      ...fileRecord(validation.companionPath),
+      treatment: context.scenes.some((scene) => scene.motion?.companionIdle)
+        ? "approved neutral asset with deterministic frame-indexed idle translation and breathing scale; no lip-sync or facial animation"
+        : "static neutral asset; no lip-sync or character animation"
+    },
     output: fileRecord(videoPath),
     renderer: "production/runtime/episode-cli.mjs",
     deterministicBoundary: "Scene frames and assembly are deterministic for the recorded inputs and configuration; review metadata is derived from the completed render."

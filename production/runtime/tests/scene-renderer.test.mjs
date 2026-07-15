@@ -28,3 +28,19 @@ test("repository composition renders episode-authored evidence without Episode 0
   assert.match(svg, /A future episode supplies its own evidence\./);
   assert.doesNotMatch(svg, /Why Articulate Exists/);
 });
+
+test("studio composition integrates the working surface and deterministic Companion idle motion", () => {
+  const scene = {
+    id: "S001", kind: "studio", transition: "cut", companion: true,
+    headline: "The Companion", support: "A different relationship",
+    items: ["Prompt", "Answer", "Persistent collaborator", "Discover", "Challenge", "Reason", "Preserve", "Understand"],
+    narrationReference: "The Companion", startSeconds: 0, endSeconds: 10,
+    motion: { companionIdle: true }
+  };
+  scene.presentation = resolveScenePresentation(scene, grammar);
+  const svg0 = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "companion.png", grammar, { hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0 });
+  const svg25 = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "companion.png", grammar, { hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 25 });
+  assert.match(svg0, /ARCHITECTURAL STUDIO/);
+  assert.match(svg0, /AI-created visual Companion/);
+  assert.notEqual(svg0, svg25);
+});

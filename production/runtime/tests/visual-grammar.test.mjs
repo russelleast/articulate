@@ -23,3 +23,10 @@ test("unknown presentation vocabulary fails validation", () => {
     /unsupported visual kind/
   );
 });
+
+test("Architectural Studio resolves as a reusable Narrator composition", () => {
+  const presentation = resolveScenePresentation({ id: "S100", kind: "studio", companion: true, transition: "cut" }, grammar);
+  assert.equal(presentation.archetype, "Narrator");
+  assert.equal(presentation.composition, "studio");
+  assert.equal(grammar.motion.companionIdle.renderMode, "frame-indexed");
+});
