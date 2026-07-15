@@ -31,6 +31,7 @@ companion-poc-test:
 	node --test production/experiments/companion-poc-001/runtime/tests/*.test.mjs
 
 companion-performance-poc-analyse:
+	node production/runtime/generate-companion-facial-assets.mjs
 	node production/runtime/companion-performance-cli.mjs analyse --audio production/cache/episode-0000/companion-motion-lip-sync-poc-001/narration.wav --output production/experiments/companion-motion-lip-sync-poc-001/performance/lip-sync.json --source-start 161.686939
 	node production/experiments/companion-motion-lip-sync-poc-001/generate-configs.mjs
 

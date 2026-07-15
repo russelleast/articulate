@@ -58,10 +58,10 @@ The scene timeline remains responsible for visual information and diagram progre
 
 ## Motion design
 
-- existing slow breathing and 2.2-pixel vertical idle motion;
+- slow 6.4-second breathing with a 0.8% scale change and 3.5-pixel vertical displacement;
 - blinks at `03.120` and `10.840`, lasting `0.200` and `0.240` seconds;
-- one 2.4-second head settle peaking below `0.3°`;
-- one 2.2-second posture adjustment peaking below one pixel and `0.2°`;
+- one 2.8-second head settle peaking at six pixels and `1°`;
+- one 2.7-second posture adjustment peaking at five pixels and `0.75°`;
 - no gestures and no gaze change, because the selected composition supplies no purposeful gaze target near the Companion.
 
 The authored events are irregular and deterministic. There is no repeated blink or head loop.
@@ -70,7 +70,7 @@ The authored events are irregular and deterministic. There is no repeated blink 
 
 The analyser decodes the actual narration to 16 kHz mono PCM and evaluates 40 ms windows, matching the 25 fps renderer. A three-frame weighted window smooths RMS energy and zero-crossing rate. Signal thresholds classify voiced frames into `open`, `wide`, `rounded` or `teeth`; silence and low energy retain the unmodified `rest` face. Isolated non-rest frame chatter is suppressed.
 
-The final timeline contains 90 mouth intervals plus four motion events. It is deliberately rhythm-first rather than phoneme-perfect. The first render demonstrated that a large rounded mouth immediately became uncanny, so the reviewed render uses micro-overlays that retain the original mouth texture.
+The final timeline contains 90 mouth intervals plus four motion events. It is deliberately rhythm-first rather than phoneme-perfect. Reviewer feedback rejected the original flashing SVG mouth marks. The current revision instead generates four full facial variants from the approved neutral raster and swaps those identity-preserving frames through the same performance timeline. Only the mouth region differs.
 
 ## Commands
 
@@ -85,11 +85,12 @@ make companion-performance-poc-render
 - `output/A-baseline.mp4` — existing static Companion;
 - `output/B-motion-only.mp4` — idle, blink and posture only;
 - `output/C-motion-lip-sync.mp4` — identical motion plus simplified audio-derived visemes;
+- `output/ABC-side-by-side.mp4` — synchronized A/B/C review montage, left to right;
 - `output/review/comparison/contact-sheet.png` — four temporal samples, with A/B/C in columns;
 - per-variant review frames, contact sheets, media reports and render logs under `output/review/`;
 - render, timing, asset and provenance manifests under `generated/`.
 
-Generated media remains outside Git. The authored and derived performance timelines remain inspectable and reproducible.
+Generated media and derived facial PNGs remain outside Git. The facial-asset generator, authored motion and derived performance timeline remain inspectable and reproducible.
 
 ## Outcome
 

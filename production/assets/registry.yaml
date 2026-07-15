@@ -47,6 +47,42 @@
       "provider": "local"
     },
     {
+      "id": "companion-v1-mouth-open",
+      "type": "companion-facial-variant",
+      "episode": "0000",
+      "status": "derived-experiment",
+      "checksum": null,
+      "location": "production/cache/episode-0000/companion-motion-lip-sync-poc-001/facial-assets/companion-open.png",
+      "provider": "local"
+    },
+    {
+      "id": "companion-v1-mouth-wide",
+      "type": "companion-facial-variant",
+      "episode": "0000",
+      "status": "derived-experiment",
+      "checksum": null,
+      "location": "production/cache/episode-0000/companion-motion-lip-sync-poc-001/facial-assets/companion-wide.png",
+      "provider": "local"
+    },
+    {
+      "id": "companion-v1-mouth-rounded",
+      "type": "companion-facial-variant",
+      "episode": "0000",
+      "status": "derived-experiment",
+      "checksum": null,
+      "location": "production/cache/episode-0000/companion-motion-lip-sync-poc-001/facial-assets/companion-rounded.png",
+      "provider": "local"
+    },
+    {
+      "id": "companion-v1-mouth-teeth",
+      "type": "companion-facial-variant",
+      "episode": "0000",
+      "status": "derived-experiment",
+      "checksum": null,
+      "location": "production/cache/episode-0000/companion-motion-lip-sync-poc-001/facial-assets/companion-teeth.png",
+      "provider": "local"
+    },
+    {
       "id": "episode-0001-narration-v1",
       "type": "narration",
       "episode": "0001",

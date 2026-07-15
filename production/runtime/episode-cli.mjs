@@ -160,6 +160,7 @@ function validate(context) {
   executable("ffmpeg");
   const audioPath = context.assetManager.fetch(context.config.narration.assetId);
   const companionPath = context.assetManager.fetch(context.config.companion.assetId);
+  const performancePaths = Object.fromEntries(Object.entries(context.config.companion.performanceAssets ?? {}).map(([viseme, assetId]) => [viseme, context.assetManager.fetch(assetId)]));
   const actualHash = sha256(audioPath);
   if (actualHash !== context.config.narration.expectedSha256) errors.push(`Narration checksum mismatch: ${actualHash}`);
   const duration = Number(run(ffprobe, ["-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", audioPath]).stdout.trim());
@@ -189,7 +190,7 @@ function validate(context) {
   }
   if (!fs.existsSync(companionPath)) errors.push("Companion asset does not resolve");
   if (errors.length) throw new Error(`Episode validation failed:\n- ${errors.join("\n- ")}`);
-  return { audioPath, companionPath, duration, ffprobe, ffmpeg: executable("ffmpeg") };
+  return { audioPath, companionPath, performancePaths, duration, ffprobe, ffmpeg: executable("ffmpeg") };
 }
 
 async function render(context, validation) {
@@ -199,6 +200,7 @@ async function render(context, validation) {
   fs.mkdirSync(framesDir, { recursive: true });
   fs.mkdirSync(segmentsDir, { recursive: true });
   const companionData = `data:image/png;base64,${fs.readFileSync(validation.companionPath).toString("base64")}`;
+  const performanceData = Object.fromEntries(Object.entries(validation.performancePaths ?? {}).map(([viseme, filePath]) => [viseme, `data:image/png;base64,${fs.readFileSync(filePath).toString("base64")}`]));
   const frameFiles = [];
   const segmentFiles = [];
   for (const scene of context.scenes) {
@@ -210,6 +212,7 @@ async function render(context, validation) {
         const pngPath = path.join(sequenceDir, `${String(frame).padStart(6, "0")}.png`);
         const state = timelineStateAtFrame(scene, scene.resolvedTimeline, frame);
         state.performance = companionPerformanceStateAtFrame(scene.resolvedPerformance, frame);
+        if (state.performance && performanceData[state.performance.mouth]) state.performance.mouthData = performanceData[state.performance.mouth];
         const svg = renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state);
         await sharp(Buffer.from(svg), { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
         frameFiles.push(pngPath);
@@ -430,6 +433,7 @@ function buildAssetManifest(context, validation) {
   return {
     narration: { assetId: context.config.narration.assetId, ...fileRecord(validation.audioPath) },
     companion: { assetId: context.config.companion.assetId, ...fileRecord(validation.companionPath) },
+    companionFacialAssets: Object.entries(context.config.companion.performanceAssets ?? {}).map(([viseme, assetId]) => ({ viseme, assetId, ...fileRecord(validation.performancePaths[viseme]) })),
     companionPerformance: context.scenes.filter((scene) => scene.resolvedPerformance).map((scene) => ({
       sceneId: scene.id,
       timeline: fileRecord(scene.performancePath),

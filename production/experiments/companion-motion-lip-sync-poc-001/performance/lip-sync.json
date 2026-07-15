@@ -286,6 +286,17 @@
       "value": "rounded"
     },
     {
+      "id": "head-settle-01",
+      "type": "head",
+      "at": 5.8,
+      "duration": 2.8,
+      "value": {
+        "x": 6,
+        "y": 1.8,
+        "rotation": 1
+      }
+    },
+    {
       "id": "mouth-0150",
       "type": "mouth",
       "at": 6,
@@ -326,17 +337,6 @@
       "at": 6.52,
       "duration": 0.08,
       "value": "rounded"
-    },
-    {
-      "id": "head-settle-01",
-      "type": "head",
-      "at": 6.6,
-      "duration": 2.4,
-      "value": {
-        "x": 1.2,
-        "y": 0.5,
-        "rotation": 0.28
-      }
     },
     {
       "id": "mouth-0173",
@@ -548,6 +548,17 @@
       "value": "rounded"
     },
     {
+      "id": "posture-01",
+      "type": "head",
+      "at": 12.8,
+      "duration": 2.7,
+      "value": {
+        "x": -5,
+        "y": 2.6,
+        "rotation": -0.75
+      }
+    },
+    {
       "id": "mouth-0323",
       "type": "mouth",
       "at": 12.92,
@@ -595,17 +606,6 @@
       "at": 13.44,
       "duration": 0.08,
       "value": "rounded"
-    },
-    {
-      "id": "posture-01",
-      "type": "head",
-      "at": 13.48,
-      "duration": 2.2,
-      "value": {
-        "x": -0.8,
-        "y": 0.8,
-        "rotation": -0.2
-      }
     },
     {
       "id": "mouth-0347",

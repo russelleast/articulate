@@ -281,7 +281,8 @@ function curvedBoxConnector(connection, positions, connections) {
 
 function companionIdleTransform(scene, state, grammar) {
   if (!scene.motion?.companionIdle) return "translate(0 0) scale(1)";
-  const motion = grammar.motion.companionIdle;
+  const configured = typeof scene.motion.companionIdle === "object" ? scene.motion.companionIdle : {};
+  const motion = { ...grammar.motion.companionIdle, ...configured };
   const phase = ((state?.frame ?? 0) % motion.periodFrames) / motion.periodFrames * Math.PI * 2;
   const y = Math.sin(phase) * motion.translateYPixels;
   const scale = 1 + Math.sin(phase) * motion.scaleAmplitude;
@@ -293,27 +294,17 @@ function companionIdleTransform(scene, state, grammar) {
 }
 
 function companionFigure(companionData, transform, state) {
-  return `<g transform="${transform}" filter="url(#companion-shadow)"><image href="${companionData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/>${companionFacialOverlay(state?.performance)}</g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`;
+  const visualData = state?.performance?.mouthData ?? companionData;
+  return `<g transform="${transform}" filter="url(#companion-shadow)"><image href="${visualData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/>${companionFacialOverlay(state?.performance)}</g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`;
 }
 
 function companionFacialOverlay(performance) {
   if (!performance) return "";
   const blink = performance.blink ?? 0;
   const eyelids = blink > 0.02
-    ? `<g data-performance="blink" opacity="${Math.min(1, blink * 1.35).toFixed(3)}"><path d="M 295 691 Q 303 696 311 691 Q 303 699 295 691" fill="#9e6f5e"/><path d="M 326 691 Q 334 696 342 691 Q 334 699 326 691" fill="#9e6f5e"/></g>`
+    ? `<g data-performance="blink" opacity="${Math.min(1, blink * 1.45).toFixed(3)}"><ellipse cx="303" cy="691" rx="10" ry="5" fill="#a87966"/><ellipse cx="334" cy="691" rx="10" ry="5" fill="#a87966"/><path d="M 294 692 Q 303 696 312 692 M 325 692 Q 334 696 343 692" fill="none" stroke="#49332e" stroke-width="1.5" stroke-linecap="round"/></g>`
     : "";
-  return `<g aria-label="Companion facial performance">${eyelids}${mouthOverlay(performance.mouth)}</g>`;
-}
-
-function mouthOverlay(viseme) {
-  if (!viseme || viseme === "rest" || viseme === "closed") return "";
-  const shapes = {
-    open: `<ellipse cx="319" cy="735" rx="5.2" ry="2.8" fill="#2b1717" opacity=".78"/>`,
-    wide: `<path d="M 311 735 Q 319 738 327 735" fill="none" stroke="#321d1d" stroke-width="2.2" stroke-linecap="round" opacity=".76"/>`,
-    rounded: `<ellipse cx="319" cy="735" rx="3.2" ry="3.7" fill="#2b1717" opacity=".78"/>`,
-    teeth: `<path d="M 312 735 Q 319 737.5 326 735" fill="none" stroke="#e6d8cf" stroke-width="1.6" stroke-linecap="round" opacity=".72"/>`
-  };
-  return `<g data-performance="mouth-${viseme}">${shapes[viseme] ?? ""}</g>`;
+  return `<g aria-label="Companion facial performance">${eyelids}</g>`;
 }
 
 function companionComposition(scene, companionData, grammar, state) {

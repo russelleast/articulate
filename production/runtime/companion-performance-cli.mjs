@@ -54,9 +54,9 @@ for (let index = 1; index < states.length - 1; index++) {
 }
 const events = [
   { id: "blink-01", type: "blink", at: 3.12, duration: 0.20 },
-  { id: "head-settle-01", type: "head", at: 6.60, duration: 2.40, value: { x: 1.2, y: 0.5, rotation: 0.28 } },
+  { id: "head-settle-01", type: "head", at: 5.80, duration: 2.80, value: { x: 6.0, y: 1.8, rotation: 1.0 } },
   { id: "blink-02", type: "blink", at: 10.84, duration: 0.24 },
-  { id: "posture-01", type: "head", at: 13.48, duration: 2.20, value: { x: -0.8, y: 0.8, rotation: -0.20 } }
+  { id: "posture-01", type: "head", at: 12.80, duration: 2.70, value: { x: -5.0, y: 2.6, rotation: -0.75 } }
 ];
 let start = 0;
 for (let frame = 1; frame <= states.length; frame++) {
