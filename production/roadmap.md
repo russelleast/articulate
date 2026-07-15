@@ -96,7 +96,7 @@ episode should look and feel like.
 
 # Phase 1.5 --- Visual Production Baseline
 
-**Status: Current**
+**Status: Complete — Baseline v1 approved and refined**
 
 ## Objective
 
@@ -292,12 +292,18 @@ standard that can confidently be applied to future episodes.
 
 # Phase 2 --- Initial Episode Production
 
+**Status: In progress — Episode 0000 final candidate v1 rendered**
+
 ## Objective
 
 Apply the established production language to the first published
 Articulate Journal videos.
 
 ## Episode 0000 --- Welcome to the Articulate Journal
+
+Production update: the complete 4:22 final candidate now applies the
+approved Studio, Whiteboard, Workspace and Focus Canvas language across
+the canonical narration. Publication remains subject to human review.
 
 Episode 0000 acts as the video equivalent of the written journal
 preface.

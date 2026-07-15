@@ -44,3 +44,36 @@ test("studio composition integrates the working surface and deterministic Compan
   assert.match(svg0, /AI-created visual Companion/);
   assert.notEqual(svg0, svg25);
 });
+
+test("studio connectors use distinct source ports and tangent-aligned arrowheads", () => {
+  const scene = {
+    id: "S001", kind: "studio", transition: "cut", companion: true,
+    headline: "The Companion", support: "A different relationship",
+    items: ["Prompt", "Answer", "Persistent collaborator", "Discover", "Challenge", "Reason", "Preserve", "Understand"],
+    narrationReference: "The Companion", startSeconds: 0, endSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, grammar);
+  const connections = new Map([
+    ["one", { from: "item-3", to: "item-4", directional: true }],
+    ["two", { from: "item-3", to: "item-6", directional: true }]
+  ]);
+  const svg = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "companion.png", grammar, { hidden: new Set(), emphasized: new Set(), connections, text: new Map(), frame: 0 });
+  const starts = [...svg.matchAll(/data-connection="item-3-item-[46]" d="M ([0-9.]+) ([0-9.]+)/g)].map((match) => match[1]);
+  assert.equal(new Set(starts).size, 2);
+  assert.match(svg, /markerUnits="userSpaceOnUse" orient="auto"/);
+  assert.match(svg, /stroke-linejoin="round" marker-end="url\(#studio-arrow\)"/);
+});
+
+test("environment compositions retain shared Articulate world chrome", () => {
+  for (const [kind, expected] of [["whiteboard", "ARCHITECTURAL WHITEBOARD"], ["workspace", "DIGITAL WORKSPACE"], ["focus", "FOCUS CANVAS"]]) {
+    const scene = {
+      id: `S-${kind}`, kind, transition: "cut", companion: false,
+      headline: "A working idea", support: "Evidence develops with narration.", items: ["First", "Second"],
+      evidence: { excerpt: ["Canonical evidence"] }, narrationReference: "Test", startSeconds: 0, endSeconds: 10
+    };
+    scene.presentation = resolveScenePresentation(scene, grammar);
+    const svg = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "", grammar, { hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0 });
+    assert.match(svg, new RegExp(expected));
+    assert.match(svg, /ARTICULATE/);
+  }
+});

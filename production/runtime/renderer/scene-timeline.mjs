@@ -8,8 +8,8 @@ const TARGET_ACTIONS = new Set(["reveal", "hide", "emphasize", "deemphasize", "r
 export function sceneElementIds(scene) {
   const ids = ["headline", "support", ...(scene.items ?? []).map((_, index) => `item-${index + 1}`)];
   if (scene.presentation?.composition?.startsWith("radial-")) ids.push("centre");
-  if (scene.presentation?.composition === "repository") {
-    ids.push("repository-window", ...(scene.evidence?.excerpt ?? []).map((_, index) => `evidence-${index + 1}`));
+  if (["repository", "workspace"].includes(scene.presentation?.composition)) {
+    ids.push(scene.presentation.composition === "workspace" ? "workspace-window" : "repository-window", ...(scene.evidence?.excerpt ?? []).map((_, index) => `evidence-${index + 1}`));
   }
   if (["companion", "studio"].includes(scene.presentation?.composition)) ids.push("companion");
   return ids;

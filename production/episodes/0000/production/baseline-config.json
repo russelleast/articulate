@@ -31,6 +31,8 @@
     {
       "id": "S001",
       "kind": "studio",
+      "studioLayout": "companion-model",
+      "productionLabel": "Production Quality Baseline v1",
       "headline": "The Companion",
       "support": "A different relationship between architect and AI",
       "items": ["Prompt", "Answer", "Persistent collaborator", "Discover & connect", "Challenge assumptions", "Reason about trade-offs", "Preserve knowledge", "Understand over time"],

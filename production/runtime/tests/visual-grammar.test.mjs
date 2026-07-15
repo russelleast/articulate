@@ -30,3 +30,9 @@ test("Architectural Studio resolves as a reusable Narrator composition", () => {
   assert.equal(presentation.composition, "studio");
   assert.equal(grammar.motion.companionIdle.renderMode, "frame-indexed");
 });
+
+test("episode environments resolve without introducing scene-specific kinds", () => {
+  assert.equal(resolveScenePresentation({ id: "S101", kind: "whiteboard", companion: false, transition: "cut" }, grammar).composition, "whiteboard");
+  assert.equal(resolveScenePresentation({ id: "S102", kind: "workspace", companion: false, transition: "cut" }, grammar).composition, "workspace");
+  assert.equal(resolveScenePresentation({ id: "S103", kind: "focus", companion: false, transition: "cut" }, grammar).composition, "focus");
+});

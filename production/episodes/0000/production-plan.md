@@ -1,5 +1,7 @@
 # Episode 0000 Production Plan
 
+Production status: final candidate v1 rendered and ready for human publication review.
+
 ## Objective
 
 Introduce the Articulate Journal as an ongoing architectural programme: its perspective, working method, record of reasoning and areas of exploration. Preserve the editorial boundary with Episode 0001 (why Articulate exists), Episode 0002 (what it is) and Episode 0003 (AI-native systems).
@@ -32,6 +34,18 @@ The selected extract is source `02:40.406–03:15.964` (35.558 seconds), beginni
 
 It is representative because it exercises environment, Companion presence, idle motion, working-surface progression, directional relationships, restrained typography and a final explanatory hold in one coherent argument. The following topic list was intentionally excluded: it would broaden the sequence without increasing the baseline's production-language coverage.
 
-## Review gate
+## Baseline review outcome
 
-Stop after Baseline v1. Review composition, typography, Companion integration, motion restraint, reveal timing, spatial continuity and distinctiveness before extending the treatment to the full episode.
+The overall Production Quality Baseline direction was approved. Before full production, connector fan-out was refined with distinct source ports and tangent-aligned arrowheads, and the Companion diagram was rebalanced upward. Those refinements are present in both the rerendered baseline and the complete episode.
+
+## Production implementation
+
+- Architectural Studio: S001, S008, S012
+- Architectural Whiteboard: S002, S005, S006
+- Digital Workspace: S004, S007, S010
+- Focus Canvas: S003, S009, S011, S013
+- Companion Motion v1: restrained idle translation and breathing scale in Studio scenes
+- Progressive visual construction: authored timeline events in all 13 scenes
+- Long-form review: scene-final contact sheet plus ten-second temporal contact sheet
+
+The complete render preserves the full narration and ends on a direct visual bridge into Episode 0001. Publication remains a separate human decision.

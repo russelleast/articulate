@@ -296,7 +296,7 @@ async function generateReviewArtifacts(context, validation) {
   for (const scene of context.scenes) {
     const reviewPoints = context.config.review?.includeTimelineStates
       ? timelineReviewPoints(scene, context.config.output.frameRate)
-      : [{ frame: null, timestamp: scene.endSeconds - Math.min(2, scene.durationSeconds / 2), label: scene.id }];
+      : [{ frame: null, timestamp: scene.endSeconds - Math.min(2, scene.durationSeconds / 2), label: scene.presentation.composition }];
     for (const [index, point] of reviewPoints.entries()) {
       const output = path.join(framesDir, `${scene.id}${reviewPoints.length > 1 ? `-${String(index + 1).padStart(2, "0")}` : ""}.png`);
       run(validation.ffmpeg, ["-y", "-ss", point.timestamp.toFixed(3), "-i", videoPath, "-frames:v", "1", output]);
@@ -307,6 +307,9 @@ async function generateReviewArtifacts(context, validation) {
   const contactPng = path.join(reviewDir, "contact-sheet.png");
   fs.writeFileSync(contactSvg, contactSheetSvg(frames, context.grammar));
   await sharp(contactSvg, { density: 144 }).resize(1920, 1080).png().toFile(contactPng);
+  const temporalContactSheet = context.config.review?.temporalSampleSeconds
+    ? generateTemporalContactSheet(validation.ffmpeg, videoPath, reviewDir, context.config.review.temporalSampleSeconds)
+    : null;
   const mediaReportPath = path.join(reviewDir, "media-report.json");
   fs.writeFileSync(mediaReportPath, `${JSON.stringify({
     inputNarration: fileRecord(validation.audioPath),
@@ -315,6 +318,7 @@ async function generateReviewArtifacts(context, validation) {
     expectedDurationSeconds: validation.duration,
     reviewFrameCount: frames.length,
     contactSheet: relative(contactPng),
+    temporalContactSheet: temporalContactSheet ? relative(temporalContactSheet) : null,
     warnings: [
       "Timeline motion is deterministic and editorially authored.",
       context.scenes.some((scene) => scene.motion?.companionIdle)
@@ -333,6 +337,19 @@ async function generateReviewArtifacts(context, validation) {
     "status=complete"
   ].join("\n") + "\n");
   return reviewDir;
+}
+
+function generateTemporalContactSheet(ffmpeg, videoPath, reviewDir, intervalSeconds) {
+  if (!Number.isFinite(intervalSeconds) || intervalSeconds <= 0) {
+    throw new Error(`review.temporalSampleSeconds must be a positive number`);
+  }
+  const output = path.join(reviewDir, "temporal-contact-sheet.png");
+  run(ffmpeg, [
+    "-y", "-i", videoPath,
+    "-vf", `fps=1/${intervalSeconds},scale=384:216:force_original_aspect_ratio=decrease,pad=384:216:(ow-iw)/2:(oh-ih)/2,tile=5x6:padding=0:margin=0`,
+    "-frames:v", "1", output
+  ]);
+  return output;
 }
 
 function timelineReviewPoints(scene, frameRate) {

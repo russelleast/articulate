@@ -56,6 +56,9 @@ const profile = Object.freeze({
   }),
   sceneKinds: Object.freeze({
     studio: Object.freeze({ archetype: "Narrator", composition: "studio" }),
+    whiteboard: Object.freeze({ archetype: "Whiteboard", composition: "whiteboard" }),
+    workspace: Object.freeze({ archetype: "Repository", composition: "workspace" }),
+    focus: Object.freeze({ archetype: "Diagram", composition: "focus" }),
     title: Object.freeze({ archetype: "Narrator", composition: "companion" }),
     companion: Object.freeze({ archetype: "Narrator", composition: "companion" }),
     closing: Object.freeze({ archetype: "Narrator", composition: "companion" }),

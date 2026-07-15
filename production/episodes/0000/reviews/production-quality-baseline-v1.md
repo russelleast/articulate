@@ -6,7 +6,7 @@
 - Local duration: 35.558 seconds
 - Delivery: 1920×1080, 25 fps H.264, 44.1 kHz mono AAC
 - Review frames: 20 authored timeline states plus contact sheet
-- Review status: ready for visual direction review
+- Review status: approved; targeted refinements rendered
 
 ## Quality-bar assessment
 
@@ -29,6 +29,12 @@
 - no music or ambient sound design;
 - no full-episode production beyond the treatment and beat map.
 
-## Review decision needed
+## Approved refinements
 
-Confirm whether this Studio/whiteboard direction is the production benchmark before applying it to the rest of Episode 0000. If approved, the next production iteration should first refine only the most material weakness identified in review, then extend the language scene by scene.
+- curved connectors now allocate distinct fan-out source ports;
+- arrowheads align with each path's final tangent and terminate at destination boundaries;
+- deeper paths use a clear routing channel to avoid first-row nodes;
+- the complete diagram is vertically rebalanced toward the title area;
+- the refined animated sequence was rerendered before full-episode production.
+
+The approved baseline became the production benchmark for Episode 0000 final candidate v1.
