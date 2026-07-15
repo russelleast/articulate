@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "companion-design-system-v0-1",
+      "type": "companion-reference",
+      "episode": null,
+      "status": "reference",
+      "checksum": null,
+      "location": "production/assets/companion/design-system/v0.1/articulate-companion-design-system-v0.1.png",
+      "provider": "local"
+    },
+    {
+      "id": "companion-v1-neutral",
+      "type": "companion",
+      "episode": null,
+      "status": "approved",
+      "checksum": null,
+      "location": "production/assets/companion/v1/companion-neutral.png",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0000-narration-v1",
+      "type": "narration",
+      "episode": "0000",
+      "status": "approved",
+      "checksum": "sha256:fe1983991ba3ca864d79737c3393a762ed145929c025332a0b7c4781898943f8",
+      "location": "production/cache/episode-0000/Ep0-welcome-to-the-articulate-journal.wav",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0000-baseline-narration-v1",
+      "type": "narration-extract",
+      "episode": "0000",
+      "status": "derived",
+      "checksum": "sha256:26a14a7e98327792a011086636cf5480440a9f2cdf3ac167720a177bc65c0be3",
+      "location": "production/cache/episode-0000/episode-0000-baseline-v1.wav",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0001-narration-v1",
+      "type": "narration",
+      "episode": "0001",
+      "status": "approved",
+      "checksum": "sha256:61cebeeba07b42285a3b130a9484f1452e8163ee0ebee92e2f2bdf32fa9207fa",
+      "location": "production/narrator/Articulate-Ep1.wav",
+      "provider": "local"
+    }
+  ]
+}

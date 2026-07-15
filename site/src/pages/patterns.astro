@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+
+const patterns = await getCollection("patterns");
+---
+
+<ArticleLayout
+  title="Patterns"
+  description="Reusable architectural patterns that emerge from implementation, experiments, and decisions."
+  eyebrow="Reference navigation"
+>
+  {patterns.length === 0 ? (
+    <div class="empty-state">
+      <h2>No patterns have been published yet</h2>
+      <p>
+        Patterns will emerge from implementation and experiments. They should not be invented ahead
+        of evidence.
+      </p>
+      <p>
+        Future pattern pages will describe the problem, context, forces, pattern, consequences,
+        when to use it, when not to use it, the Articulate implementation, and related Episodes.
+      </p>
+    </div>
+  ) : (
+    <div class="timeline-list">
+      {patterns.map((pattern) => (
+        <article id={pattern.data.id}>
+          <p class="item-meta">{pattern.data.status} / {pattern.data.maturity}</p>
+          <h2>{pattern.data.title}</h2>
+          <p>{pattern.data.summary}</p>
+        </article>
+      ))}
+    </div>
+  )}
+</ArticleLayout>

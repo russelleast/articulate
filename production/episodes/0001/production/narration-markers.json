@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "episodeId": "episode-0001",
+  "narrationAssetId": "episode-0001-narration-v1",
+  "timingAuthority": "recorded-narration",
+  "sourceDurationSeconds": 550.365692,
+  "method": "Editorial correlation of the canonical episode order with deterministic FFmpeg silencedetect pause evidence. Boundaries fall at the end of natural pauses; no speech-to-text output replaces the canonical journal.",
+  "scenes": [
+    { "id": "S001", "startSeconds": 0.000, "endSeconds": 12.872, "narrationReference": "Opening quote; Introduction", "boundaryEvidence": "0.938s pause ending 12.872" },
+    { "id": "S002", "startSeconds": 12.872, "endSeconds": 30.031, "narrationReference": "Introduction — personal context and capable technology", "boundaryEvidence": "0.844s pause ending 30.031" },
+    { "id": "S003", "startSeconds": 30.031, "endSeconds": 61.104, "narrationReference": "Introduction — modern technology is capable", "boundaryEvidence": "1.259s pause ending 61.104" },
+    { "id": "S004", "startSeconds": 61.104, "endSeconds": 88.719, "narrationReference": "Introduction — questions architects answer", "boundaryEvidence": "2.885s section pause ending 88.719" },
+    { "id": "S005", "startSeconds": 88.719, "endSeconds": 131.563, "narrationReference": "Architecture Is About Change", "boundaryEvidence": "paired pauses ending 131.563" },
+    { "id": "S006", "startSeconds": 131.563, "endSeconds": 157.224, "narrationReference": "The Reality of Modern Architecture — scattered sources", "boundaryEvidence": "0.895s natural pause ending 157.224" },
+    { "id": "S007", "startSeconds": 157.224, "endSeconds": 193.606, "narrationReference": "The Reality of Modern Architecture — a living system", "boundaryEvidence": "2.532s section pause ending 193.606" },
+    { "id": "S008", "startSeconds": 193.606, "endSeconds": 221.454, "narrationReference": "The Limits of Today's Tools — excellent tools", "boundaryEvidence": "0.926s natural pause ending 221.454" },
+    { "id": "S009", "startSeconds": 221.454, "endSeconds": 247.200, "narrationReference": "The Limits of Today's Tools — projections of reality", "boundaryEvidence": "2.184s section pause ending 247.200" },
+    { "id": "S010", "startSeconds": 247.200, "endSeconds": 292.230, "narrationReference": "The Cost of Fragmented Knowledge", "boundaryEvidence": "0.948s pause ending 292.230; canonical section correlation" },
+    { "id": "S011", "startSeconds": 292.230, "endSeconds": 321.759, "narrationReference": "Why Now? — reason across unstructured information", "boundaryEvidence": "0.889s natural pause ending 321.759" },
+    { "id": "S012", "startSeconds": 321.759, "endSeconds": 347.767, "narrationReference": "Why Now? — augment architectural thinking", "boundaryEvidence": "cluster of natural pauses ending 347.767" },
+    { "id": "S013", "startSeconds": 347.767, "endSeconds": 382.661, "narrationReference": "The Vision — origins and convergence", "boundaryEvidence": "0.813s reflective pause ending 382.661" },
+    { "id": "S014", "startSeconds": 382.661, "endSeconds": 419.901, "narrationReference": "The Vision — central question and uncertainty", "boundaryEvidence": "2.461s section pause ending 419.901" },
+    { "id": "S015", "startSeconds": 419.901, "endSeconds": 459.475, "narrationReference": "Principles Before Features", "boundaryEvidence": "0.813s pause ending 459.475; canonical section correlation" },
+    { "id": "S016", "startSeconds": 459.475, "endSeconds": 484.565, "narrationReference": "Success — less searching, more meaningful problems", "boundaryEvidence": "0.897s natural pause ending 484.565" },
+    { "id": "S017", "startSeconds": 484.565, "endSeconds": 509.297, "narrationReference": "Success — preserve knowledge and improve conversations", "boundaryEvidence": "paired pauses ending 509.297" },
+    { "id": "S018", "startSeconds": 509.297, "endSeconds": 533.884, "narrationReference": "Looking Ahead — future episodes and experiments", "boundaryEvidence": "1.304s reflective pause ending 533.884" },
+    { "id": "S019", "startSeconds": 533.884, "endSeconds": 550.365692, "narrationReference": "Looking Ahead — exploration into better architecture", "boundaryEvidence": "spoken close ends near 546.535; 3.427s recorded trailing silence retained" }
+  ]
+}

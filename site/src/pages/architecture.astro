@@ -1,0 +1,43 @@
+---
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+---
+
+<ArticleLayout
+  title="Architecture"
+  description="The current architecture view for Articulate, limited to what has been established so far."
+  eyebrow="Current state"
+>
+  <p>
+    This section describes the current state of the system, not the full history of how it arrived
+    here. At this stage, Articulate has established its purpose, principles, and documentation model.
+    Detailed runtime architecture will be added only when decisions and implementation evidence exist.
+  </p>
+
+  <div class="callout">
+    <h2>Current Architectural Position</h2>
+    <p>
+      Articulate is being established as a production-oriented reference architecture and public
+      architectural journal. The repository is the canonical record; the website is the navigable
+      narrative surface.
+    </p>
+  </div>
+
+  <h2>Future Views</h2>
+  <div class="route-grid">
+    {[
+      "System context",
+      "Capability architecture",
+      "Conversational architecture",
+      "Runtime architecture",
+      "Data and memory architecture",
+      "Workflow and agent architecture",
+      "Security and governance",
+      "Operations and observability"
+    ].map((view) => (
+      <article class="index-card">
+        <h3>{view}</h3>
+        <p>This view will be added when the architecture has enough evidence to describe it responsibly.</p>
+      </article>
+    ))}
+  </div>
+</ArticleLayout>

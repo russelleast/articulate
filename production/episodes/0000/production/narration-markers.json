@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "episodeId": "episode-0000",
+  "timingAuthority": "episode-0000-narration-v1",
+  "scenes": [
+    { "id": "S001", "startSeconds": 0.000000, "endSeconds": 14.588027, "narrationReference": "Welcome and architectural perspective" },
+    { "id": "S002", "startSeconds": 14.588027, "endSeconds": 34.724376, "narrationReference": "Systems change; problems persist" },
+    { "id": "S003", "startSeconds": 34.724376, "endSeconds": 61.194785, "narrationReference": "AI opportunity and Articulate territory" },
+    { "id": "S004", "startSeconds": 61.194785, "endSeconds": 83.941814, "narrationReference": "Production software and journal record" },
+    { "id": "S005", "startSeconds": 83.941814, "endSeconds": 108.482313, "narrationReference": "Ideas, trade-offs and non-linear journey" },
+    { "id": "S006", "startSeconds": 108.482313, "endSeconds": 135.586893, "narrationReference": "Preserve architectural reasoning" },
+    { "id": "S007", "startSeconds": 135.586893, "endSeconds": 161.686939, "narrationReference": "Build, run and test" },
+    { "id": "S008", "startSeconds": 161.686939, "endSeconds": 195.963605, "narrationReference": "The Companion" },
+    { "id": "S009", "startSeconds": 195.963605, "endSeconds": 209.585692, "narrationReference": "Areas of exploration" },
+    { "id": "S010", "startSeconds": 209.585692, "endSeconds": 227.785488, "narrationReference": "Future episode forms" },
+    { "id": "S011", "startSeconds": 227.785488, "endSeconds": 240.801814, "narrationReference": "Not a polished retrospective" },
+    { "id": "S012", "startSeconds": 240.801814, "endSeconds": 252.667619, "narrationReference": "Invitation" },
+    { "id": "S013", "startSeconds": 252.667619, "endSeconds": 261.848141, "narrationReference": "Episode 0001 hand-off" }
+  ]
+}

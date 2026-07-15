@@ -1,0 +1,27 @@
+episode:
+  # Stable episode identifier from the canonical Markdown front matter.
+  id: ""
+  # Human-readable episode title.
+  title: ""
+  # Repository path to the canonical written episode.
+  canonical_source: ""
+assets:
+  - asset_id: "A001"
+    # Examples: diagram, slide, companion scene, narration, screen capture, thumbnail.
+    asset_type: ""
+    # Source material or reference used to create the asset.
+    source: ""
+    # Authored, generated, recorded, captured, assembled, or other reviewed method.
+    generation_method: ""
+    # Ownership, licence, or unresolved rights question.
+    licence_or_ownership: ""
+    # Canonical episode heading or editorial addition label.
+    episode_section: ""
+    # Scene ids where this asset appears.
+    scene_usage: []
+    # Version label used for review and replacement.
+    version: "v0"
+    # Planned, generated, captured, approved, rejected, replaced, or archived.
+    status: "planned"
+    # Human review notes, unresolved questions, or replacement guidance.
+    review_notes: ""

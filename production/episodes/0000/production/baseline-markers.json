@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "episodeId": "episode-0000-baseline-v1",
+  "sourceNarration": { "assetId": "episode-0000-narration-v1", "startSeconds": 160.405578, "endSeconds": 195.963605 },
+  "scenes": [
+    { "id": "S001", "startSeconds": 0.000000, "endSeconds": 35.558027, "narrationReference": "The Companion — source 02:40.406–03:15.964" }
+  ]
+}

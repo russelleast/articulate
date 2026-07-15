@@ -1,0 +1,104 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import RecentlyChanged from "@/components/RecentlyChanged.astro";
+import StatusPill from "@/components/StatusPill.astro";
+import { formatDate, withBase } from "@/utils/site";
+
+const episodes = await getCollection("episodes");
+const featuredEpisode = episodes
+  .filter((episode) => episode.data.featured || episode.data.sequence > 0)
+  .sort((a, b) => b.data.sequence - a.data.sequence)[0] ?? episodes[0];
+---
+
+<BaseLayout>
+  <div class="page-shell">
+    <section class="hero" aria-labelledby="home-title">
+      <div>
+        <p class="eyebrow">Reference architecture / public journal</p>
+        <h1 id="home-title">Articulate</h1>
+        <p class="lede">
+          Articulate is a production-oriented reference architecture for AI-native systems,
+          documented as a living architectural narrative.
+        </p>
+        <p>
+          It is built in public through working software, architectural decisions, experiments,
+          patterns, and Episodes that explain not only what was built, but why.
+        </p>
+      </div>
+      <aside class="hero-note" aria-labelledby="current-question">
+        <p class="eyebrow">Current Architectural Question</p>
+        <h2 id="current-question">How should the project record its own architectural evolution?</h2>
+        <p>
+          The first phase establishes the repository, website, and narrative model before detailed
+          runtime architecture is claimed.
+        </p>
+      </aside>
+    </section>
+
+    <section class="section-block" aria-labelledby="start-here">
+      <div class="section-heading">
+        <p class="eyebrow">New visitors</p>
+        <h2 id="start-here">Start Here</h2>
+      </div>
+      <div class="two-column">
+        <p>
+          Begin with the orientation if you want the project frame: what Articulate is, what the
+          repository records, and how Episodes, decisions, patterns, experiments, and code relate.
+        </p>
+        <p>
+          The site will grow reference navigation as Episodes produce real decisions, patterns,
+          experiments, and architecture views.
+        </p>
+      </div>
+      <p><a href={withBase("/start-here/")}>Read the orientation</a></p>
+    </section>
+
+    <section class="section-block" aria-labelledby="latest-episode">
+      <div class="section-heading">
+        <p class="eyebrow">Latest Episode</p>
+        <h2 id="latest-episode">{featuredEpisode.data.title}</h2>
+      </div>
+      <article class="journal-card">
+        <p class="item-meta">
+          Episode {featuredEpisode.data.sequence.toString().padStart(4, "0")} /
+          {formatDate(featuredEpisode.data.published)} /
+          <StatusPill status={featuredEpisode.data.status} />
+        </p>
+        <p>{featuredEpisode.data.summary}</p>
+        <p><a href={withBase(`/episodes/${featuredEpisode.id}/`)}>Read the latest Episode</a></p>
+      </article>
+    </section>
+
+    <section class="section-block" aria-labelledby="architecture-glance">
+      <div class="section-heading">
+        <p class="eyebrow">Current state</p>
+        <h2 id="architecture-glance">Architecture at a Glance</h2>
+      </div>
+      <div class="two-column">
+        <p>
+          The current architecture view is intentionally early: Articulate has defined its purpose,
+          principles, and narrative model, but not a detailed implementation architecture.
+        </p>
+        <p>
+          Future architecture views will describe system context, capabilities, runtime concerns,
+          memory, workflows, security, governance, and operations as decisions are made.
+        </p>
+      </div>
+      <p><a href={withBase("/architecture/")}>View current architecture placeholders</a></p>
+    </section>
+
+    <RecentlyChanged episodes={episodes} />
+
+    <section class="section-block" aria-labelledby="about-brief">
+      <div class="section-heading">
+        <p class="eyebrow">About</p>
+        <h2 id="about-brief">A repository with a narrative surface</h2>
+      </div>
+      <p>
+        The repository provides the evidence. The website provides the narrative and interpretation.
+        Both should remain understandable, composable, observable, evolvable, and production-oriented.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

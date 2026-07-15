@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "episode-0000",
+    "title": "Welcome to the Articulate Journal",
+    "canonicalSource": "docs/episodes/0000-welcome-to-the-articulate-journal.md",
+    "storyboard": "production/episodes/0000/scene-list.yaml",
+    "timingMarkers": "production/episodes/0000/production/narration-markers.json",
+    "assetRegister": "production/episodes/0000/asset-register.yaml"
+  },
+  "narration": {
+    "assetId": "episode-0000-narration-v1",
+    "expectedSha256": "fe1983991ba3ca864d79737c3393a762ed145929c025332a0b7c4781898943f8",
+    "expectedDurationSeconds": 261.848141,
+    "preserveWholeRecording": true
+  },
+  "companion": { "assetId": "companion-v1-neutral" },
+  "rendering": { "visualGrammarProfile": "articulate-visual-grammar-v1" },
+  "review": { "includeTimelineStates": false, "temporalSampleSeconds": 10 },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "video": "production/episodes/0000/output/episode-0000-final-v1.mp4",
+    "generatedDirectory": "production/episodes/0000/generated/final-v1",
+    "reviewDirectory": "production/episodes/0000/output/review/final-v1",
+    "narrationAnalysis": "production/episodes/0000/production/narration-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001", "kind": "studio", "studioLayout": "welcome", "headline": "Welcome to the Articulate Journal", "support": "An architectural programme in the making.",
+      "items": ["Experienced systems perspective", "Architecture in public"], "companion": true, "assetIds": ["A002", "A003"], "transition": "fade", "motion": { "companionIdle": true },
+      "timeline": { "events": [
+        { "id": "welcome", "at": 0.400, "action": "reveal", "target": "headline" },
+        { "id": "programme", "at": 4.700, "action": "reveal", "target": "support" },
+        { "id": "perspective", "at": 8.000, "action": "reveal", "target": "item-1" },
+        { "id": "journal", "at": 11.000, "action": "reveal", "target": "item-2" }
+      ] }
+    },
+    {
+      "id": "S002", "kind": "whiteboard", "diagramLayout": "grid", "headline": "The systems changed", "support": "The underlying architectural challenges remain.",
+      "items": ["Knowledge fragments", "Documentation falls behind", "Decisions lose context", "Why becomes difficult"], "companion": false, "assetIds": ["A004"], "transition": "cut",
+      "timeline": { "events": [
+        { "id": "changed", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "remain", "at": 3.400, "action": "reveal", "target": "support" },
+        { "id": "knowledge", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "documentation", "at": 8.500, "action": "reveal", "target": "item-2" },
+        { "id": "decisions", "at": 12.000, "action": "reveal", "target": "item-3" }, { "id": "why", "at": 15.200, "action": "reveal", "target": "item-4" },
+        { "id": "conclusion", "at": 17.000, "duration": 2.600, "action": "emphasize", "target": "headline" }
+      ] }
+    },
+    {
+      "id": "S003", "kind": "focus", "focusLayout": "flow", "headline": "A different role for AI", "support": "Rethink more than the tools.",
+      "items": ["Tools", "Architectural process", "Persistent collaboration"], "companion": false, "assetIds": ["A006"], "transition": "section",
+      "timeline": { "events": [
+        { "id": "role", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "more", "at": 5.000, "action": "reveal", "target": "support" },
+        { "id": "tools", "at": 8.000, "action": "reveal", "target": "item-1" }, { "id": "process", "at": 13.000, "action": "reveal", "target": "item-2" },
+        { "id": "collaboration", "at": 18.000, "action": "reveal", "target": "item-3" }, { "id": "territory", "at": 22.000, "duration": 3.000, "action": "emphasize", "target": "item-3" }
+      ] }
+    },
+    {
+      "id": "S004", "kind": "workspace", "headline": "Real software. An open architectural record.", "support": "Document the system while it evolves.",
+      "items": ["docs/episodes/", "production/episodes/", "production/architecture/", "architecture/decisions/"],
+      "evidence": { "excerpt": ["The ideas · The decisions", "The trade-offs · The research", "Implementation and operational evidence", "Lessons captured while context is alive"] },
+      "companion": false, "assetIds": ["A005"], "transition": "cut",
+      "timeline": { "events": [
+        { "id": "software", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "record", "at": 3.000, "action": "reveal", "target": "support" },
+        { "id": "path-1", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "evidence-1", "at": 7.000, "action": "reveal", "target": "evidence-1" },
+        { "id": "path-2", "at": 9.000, "action": "reveal", "target": "item-2" }, { "id": "evidence-2", "at": 11.000, "action": "reveal", "target": "evidence-2" },
+        { "id": "path-3", "at": 13.000, "action": "reveal", "target": "item-3" }, { "id": "evidence-3", "at": 15.000, "action": "reveal", "target": "evidence-3" },
+        { "id": "path-4", "at": 17.000, "action": "reveal", "target": "item-4" }, { "id": "evidence-4", "at": 19.000, "action": "reveal", "target": "evidence-4" }
+      ] }
+    },
+    {
+      "id": "S005", "kind": "whiteboard", "diagramLayout": "path", "headline": "The journey will not be linear", "support": "Ideas evolve. Decisions are revisited.",
+      "items": ["Idea", "Decision", "Evidence", "Revision"], "companion": false, "assetIds": ["A004"], "transition": "cut",
+      "timeline": { "events": [
+        { "id": "journey", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "evolves", "at": 3.000, "action": "reveal", "target": "support" },
+        { "id": "idea", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "decision", "at": 8.000, "action": "reveal", "target": "item-2" },
+        { "id": "idea-to-decision", "at": 9.000, "action": "connect", "from": "item-1", "to": "item-2" }, { "id": "evidence", "at": 12.000, "action": "reveal", "target": "item-3" },
+        { "id": "decision-to-evidence", "at": 13.000, "action": "connect", "from": "item-2", "to": "item-3" }, { "id": "revision", "at": 16.000, "action": "reveal", "target": "item-4" },
+        { "id": "evidence-to-revision", "at": 17.000, "action": "connect", "from": "item-3", "to": "item-4" }, { "id": "hold-revision", "at": 20.000, "duration": 3.000, "action": "emphasize", "target": "item-4" }
+      ] }
+    },
+    {
+      "id": "S006", "kind": "whiteboard", "diagramLayout": "hub", "headline": "Preserve what happens in between", "support": "The reasoning can be more valuable than the decision.",
+      "items": ["Architectural decision", "Alternatives", "Evidence", "Context", "Lessons carried forward"], "companion": false, "assetIds": ["A004"], "transition": "section",
+      "timeline": { "events": [
+        { "id": "preserve", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "reasoning", "at": 3.500, "action": "reveal", "target": "support" },
+        { "id": "decision", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "alternatives", "at": 8.000, "action": "reveal", "target": "item-2" },
+        { "id": "alternatives-decision", "at": 9.000, "action": "connect", "from": "item-2", "to": "item-1" }, { "id": "evidence", "at": 12.000, "action": "reveal", "target": "item-3" },
+        { "id": "evidence-decision", "at": 13.000, "action": "connect", "from": "item-3", "to": "item-1" }, { "id": "context", "at": 16.000, "action": "reveal", "target": "item-4" },
+        { "id": "context-decision", "at": 17.000, "action": "connect", "from": "item-4", "to": "item-1" }, { "id": "lessons", "at": 20.000, "action": "reveal", "target": "item-5" },
+        { "id": "decision-lessons", "at": 21.000, "action": "connect", "from": "item-1", "to": "item-5" }, { "id": "hold-decision", "at": 23.000, "duration": 3.000, "action": "emphasize", "target": "item-1" }
+      ] }
+    },
+    {
+      "id": "S007", "kind": "workspace", "headline": "Build it. Run it. Test it.", "support": "Architectural ideas meet implementation and operational constraints.",
+      "items": ["docs/episodes/", "production/runtime/", "production/architecture/"],
+      "evidence": { "excerpt": ["Build real software", "Run the production workflow", "Test ideas against real constraints", "Use learning to shape what comes next"] },
+      "companion": false, "assetIds": ["A005"], "transition": "cut",
+      "timeline": { "events": [
+        { "id": "build", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "constraints", "at": 3.000, "action": "reveal", "target": "support" },
+        { "id": "docs", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "build-evidence", "at": 6.500, "action": "reveal", "target": "evidence-1" },
+        { "id": "runtime", "at": 9.000, "action": "reveal", "target": "item-2" }, { "id": "run-evidence", "at": 10.500, "action": "reveal", "target": "evidence-2" },
+        { "id": "architecture", "at": 13.000, "action": "reveal", "target": "item-3" }, { "id": "test-evidence", "at": 15.500, "action": "reveal", "target": "evidence-3" },
+        { "id": "learn-evidence", "at": 20.500, "action": "reveal", "target": "evidence-4" }
+      ] }
+    },
+    {
+      "id": "S008", "kind": "studio", "studioLayout": "companion-model", "headline": "The Companion", "support": "A different relationship between architect and AI",
+      "items": ["Prompt", "Answer", "Persistent collaborator", "Discover & connect", "Challenge assumptions", "Reason about trade-offs", "Preserve knowledge", "Understand over time"],
+      "companion": true, "assetIds": ["A002", "A003"], "transition": "section", "motion": { "companionIdle": true },
+      "timeline": { "events": [
+        { "id": "name-companion", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "relationship", "at": 4.680, "action": "reveal", "target": "support" },
+        { "id": "show-prompt", "at": 9.000, "action": "reveal", "target": "item-1" }, { "id": "show-answer", "at": 9.000, "action": "reveal", "target": "item-2" },
+        { "id": "emphasize-transaction", "at": 9.040, "duration": 3.200, "action": "emphasize", "target": "item-1" }, { "id": "remove-prompt", "at": 16.440, "action": "hide", "target": "item-1" },
+        { "id": "remove-answer", "at": 16.440, "action": "hide", "target": "item-2" }, { "id": "show-collaborator", "at": 16.440, "action": "reveal", "target": "item-3" },
+        { "id": "show-discovery", "at": 18.880, "action": "reveal", "target": "item-4" }, { "id": "connect-discovery", "at": 19.240, "action": "connect", "from": "item-3", "to": "item-4" },
+        { "id": "show-challenge", "at": 20.800, "action": "reveal", "target": "item-5" }, { "id": "connect-challenge", "at": 21.160, "action": "connect", "from": "item-3", "to": "item-5" },
+        { "id": "show-reason", "at": 22.680, "action": "reveal", "target": "item-6" }, { "id": "connect-reason", "at": 23.040, "action": "connect", "from": "item-3", "to": "item-6" },
+        { "id": "show-preserve", "at": 23.880, "action": "reveal", "target": "item-7" }, { "id": "connect-preserve", "at": 24.240, "action": "connect", "from": "item-3", "to": "item-7" },
+        { "id": "show-understand", "at": 28.400, "action": "reveal", "target": "item-8" }, { "id": "connect-understand", "at": 28.760, "action": "connect", "from": "item-3", "to": "item-8" },
+        { "id": "conclude", "at": 30.360, "duration": 3.200, "action": "emphasize", "target": "item-3" }
+      ] }
+    },
+    {
+      "id": "S009", "kind": "focus", "focusLayout": "constellation", "headline": "Make the vision real", "support": "Explore the architecture required.",
+      "items": ["AI-native systems", "Agentic architectures", "Durable execution", "Knowledge & memory", "Capability-driven design", "Human + AI collaboration"],
+      "companion": false, "assetIds": ["A006"], "transition": "cut",
+      "timeline": { "events": [
+        { "id": "vision", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "architecture", "at": 2.000, "action": "reveal", "target": "support" },
+        { "id": "ai-native", "at": 3.500, "action": "reveal", "target": "item-1" }, { "id": "agentic", "at": 5.000, "action": "reveal", "target": "item-2" },
+        { "id": "durable", "at": 6.500, "action": "reveal", "target": "item-3" }, { "id": "memory", "at": 8.000, "action": "reveal", "target": "item-4" },
+        { "id": "capability", "at": 9.500, "action": "reveal", "target": "item-5" }, { "id": "collaboration", "at": 11.000, "action": "reveal", "target": "item-6" }
+      ] }
+    },
+    {
+      "id": "S010", "kind": "workspace", "headline": "Ideas meet reality", "support": "Episodes, experiments, prototypes and working software.",
+      "items": ["docs/episodes/", "production/experiments/", "production/runtime/"],
+      "evidence": { "excerpt": ["Architectural ideas and principles", "A decision from problem to implementation", "Experiments · prototypes · working software"] },
+      "companion": false, "assetIds": ["A005"], "transition": "cut",
+      "timeline": { "events": [
+        { "id": "reality", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "forms", "at": 2.500, "action": "reveal", "target": "support" },
+        { "id": "episodes", "at": 3.000, "action": "reveal", "target": "item-1" }, { "id": "ideas", "at": 4.000, "action": "reveal", "target": "evidence-1" },
+        { "id": "experiments", "at": 7.000, "action": "reveal", "target": "item-2" }, { "id": "decision", "at": 8.000, "action": "reveal", "target": "evidence-2" },
+        { "id": "runtime", "at": 11.000, "action": "reveal", "target": "item-3" }, { "id": "software", "at": 12.000, "action": "reveal", "target": "evidence-3" },
+        { "id": "hold", "at": 15.000, "duration": 2.500, "action": "emphasize", "target": "headline" }
+      ] }
+    },
+    {
+      "id": "S011", "kind": "focus", "focusLayout": "reflection", "headline": "The architectural record of building it", "support": "Not a polished retrospective.",
+      "items": ["Sometimes the most valuable outcome is discovering a better approach", "Preserve the uncertainty as well as the answer"],
+      "companion": false, "assetIds": ["A006"], "transition": "section",
+      "timeline": { "events": [
+        { "id": "record", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "not-retrospective", "at": 3.000, "action": "reveal", "target": "support" },
+        { "id": "better", "at": 6.000, "action": "reveal", "target": "item-1" }, { "id": "uncertainty", "at": 9.000, "action": "reveal", "target": "item-2" }
+      ] }
+    },
+    {
+      "id": "S012", "kind": "studio", "studioLayout": "closing", "headline": "Welcome", "support": "Follow the decisions and discoveries as Articulate takes shape.",
+      "items": ["Software architecture", "AI-native systems", "The journey behind the system"], "companion": true, "assetIds": ["A002", "A003"], "transition": "cut", "motion": { "companionIdle": true },
+      "timeline": { "events": [
+        { "id": "welcome", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "invitation", "at": 2.800, "action": "reveal", "target": "support" },
+        { "id": "architecture", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "ai-native", "at": 7.000, "action": "reveal", "target": "item-2" },
+        { "id": "journey", "at": 9.000, "action": "reveal", "target": "item-3" }
+      ] }
+    },
+    {
+      "id": "S013", "kind": "focus", "focusLayout": "bridge", "headline": "Why does Articulate need to exist at all?", "support": "The journey continues with the problem.",
+      "items": ["EPISODE 0001 · WHY ARTICULATE EXISTS"], "companion": false, "assetIds": ["A006"], "transition": "fade",
+      "timeline": { "events": [
+        { "id": "question", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "continues", "at": 2.500, "action": "reveal", "target": "support" },
+        { "id": "episode-0001", "at": 5.200, "action": "reveal", "target": "item-1" }
+      ] }
+    }
+  ]
+}
