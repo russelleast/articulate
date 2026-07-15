@@ -1,0 +1,459 @@
+{
+  "version": 1,
+  "seed": 1012,
+  "source": {
+    "audio": "production/cache/episode-0000/companion-performance-v1/S012.wav",
+    "sha256": "fcfe69a16e7af2953fde922416267dc02b68b1fb1456c1226f5806c98ee629bf",
+    "sourceStartSeconds": 240.801814,
+    "durationSeconds": 11.84,
+    "frameRate": 25,
+    "sampleRateHz": 16000
+  },
+  "analysis": {
+    "method": "offline-rms-zero-crossing-v1",
+    "motionProfile": "longform",
+    "speechFloor": 0.012,
+    "noiseFloor": 0.00250188222313043,
+    "visemeModel": [
+      "rest",
+      "open",
+      "wide",
+      "rounded",
+      "teeth"
+    ],
+    "smoothing": "three-frame weighted energy and zero-crossing window; isolated non-rest frame suppression"
+  },
+  "layers": [
+    "idle",
+    "facial",
+    "lip-sync"
+  ],
+  "events": [
+    {
+      "id": "mouth-0007",
+      "type": "mouth",
+      "at": 0.28,
+      "duration": 0.04,
+      "value": "teeth"
+    },
+    {
+      "id": "mouth-0008",
+      "type": "mouth",
+      "at": 0.32,
+      "duration": 0.2,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0013",
+      "type": "mouth",
+      "at": 0.52,
+      "duration": 0.2,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0018",
+      "type": "mouth",
+      "at": 0.72,
+      "duration": 0.12,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0021",
+      "type": "mouth",
+      "at": 0.84,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0026",
+      "type": "mouth",
+      "at": 1.04,
+      "duration": 0.12,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0029",
+      "type": "mouth",
+      "at": 1.16,
+      "duration": 0.04,
+      "value": "teeth"
+    },
+    {
+      "id": "mouth-0031",
+      "type": "mouth",
+      "at": 1.24,
+      "duration": 0.04,
+      "value": "teeth"
+    },
+    {
+      "id": "mouth-0032",
+      "type": "mouth",
+      "at": 1.28,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0036",
+      "type": "mouth",
+      "at": 1.44,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0037",
+      "type": "mouth",
+      "at": 1.48,
+      "duration": 0.08,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0039",
+      "type": "mouth",
+      "at": 1.56,
+      "duration": 0.08,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0053",
+      "type": "mouth",
+      "at": 2.12,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0054",
+      "type": "mouth",
+      "at": 2.16,
+      "duration": 0.08,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0067",
+      "type": "mouth",
+      "at": 2.68,
+      "duration": 0.08,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0069",
+      "type": "mouth",
+      "at": 2.76,
+      "duration": 0.2,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0074",
+      "type": "mouth",
+      "at": 2.96,
+      "duration": 0.16,
+      "value": "rounded"
+    },
+    {
+      "id": "blink-01",
+      "type": "blink",
+      "at": 3.245,
+      "duration": 0.213
+    },
+    {
+      "id": "head-01",
+      "type": "head",
+      "at": 3.789,
+      "duration": 2.8,
+      "value": {
+        "x": 5,
+        "y": 1.8,
+        "rotation": 0.8
+      }
+    },
+    {
+      "id": "mouth-0101",
+      "type": "mouth",
+      "at": 4.04,
+      "duration": 0.04,
+      "value": "teeth"
+    },
+    {
+      "id": "mouth-0102",
+      "type": "mouth",
+      "at": 4.08,
+      "duration": 0.08,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0106",
+      "type": "mouth",
+      "at": 4.24,
+      "duration": 0.04,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0107",
+      "type": "mouth",
+      "at": 4.28,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0111",
+      "type": "mouth",
+      "at": 4.44,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0112",
+      "type": "mouth",
+      "at": 4.48,
+      "duration": 0.32,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0132",
+      "type": "mouth",
+      "at": 5.28,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0133",
+      "type": "mouth",
+      "at": 5.32,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0136",
+      "type": "mouth",
+      "at": 5.44,
+      "duration": 0.04,
+      "value": "teeth"
+    },
+    {
+      "id": "mouth-0137",
+      "type": "mouth",
+      "at": 5.48,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0138",
+      "type": "mouth",
+      "at": 5.52,
+      "duration": 0.08,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0140",
+      "type": "mouth",
+      "at": 5.6,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0141",
+      "type": "mouth",
+      "at": 5.64,
+      "duration": 0.04,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0142",
+      "type": "mouth",
+      "at": 5.68,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0144",
+      "type": "mouth",
+      "at": 5.76,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0145",
+      "type": "mouth",
+      "at": 5.8,
+      "duration": 0.12,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0148",
+      "type": "mouth",
+      "at": 5.92,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0155",
+      "type": "mouth",
+      "at": 6.2,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0156",
+      "type": "mouth",
+      "at": 6.24,
+      "duration": 0.08,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0160",
+      "type": "mouth",
+      "at": 6.4,
+      "duration": 0.04,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0161",
+      "type": "mouth",
+      "at": 6.44,
+      "duration": 0.08,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0168",
+      "type": "mouth",
+      "at": 6.72,
+      "duration": 0.2,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0176",
+      "type": "mouth",
+      "at": 7.04,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0177",
+      "type": "mouth",
+      "at": 7.08,
+      "duration": 0.08,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0181",
+      "type": "mouth",
+      "at": 7.24,
+      "duration": 0.08,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0187",
+      "type": "mouth",
+      "at": 7.48,
+      "duration": 0.04,
+      "value": "teeth"
+    },
+    {
+      "id": "mouth-0188",
+      "type": "mouth",
+      "at": 7.52,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0202",
+      "type": "mouth",
+      "at": 8.08,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0203",
+      "type": "mouth",
+      "at": 8.12,
+      "duration": 0.04,
+      "value": "rounded"
+    },
+    {
+      "id": "head-02",
+      "type": "head",
+      "at": 8.525,
+      "duration": 2.7,
+      "value": {
+        "x": -4,
+        "y": 2.2,
+        "rotation": -0.65
+      }
+    },
+    {
+      "id": "mouth-0226",
+      "type": "mouth",
+      "at": 9.04,
+      "duration": 0.16,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0249",
+      "type": "mouth",
+      "at": 9.96,
+      "duration": 0.08,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0251",
+      "type": "mouth",
+      "at": 10.04,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "blink-02",
+      "type": "blink",
+      "at": 10.103,
+      "duration": 0.22
+    },
+    {
+      "id": "mouth-0254",
+      "type": "mouth",
+      "at": 10.16,
+      "duration": 0.04,
+      "value": "wide"
+    },
+    {
+      "id": "mouth-0255",
+      "type": "mouth",
+      "at": 10.2,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0256",
+      "type": "mouth",
+      "at": 10.24,
+      "duration": 0.2,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0261",
+      "type": "mouth",
+      "at": 10.44,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0268",
+      "type": "mouth",
+      "at": 10.72,
+      "duration": 0.04,
+      "value": "open"
+    },
+    {
+      "id": "mouth-0269",
+      "type": "mouth",
+      "at": 10.76,
+      "duration": 0.28,
+      "value": "rounded"
+    },
+    {
+      "id": "mouth-0276",
+      "type": "mouth",
+      "at": 11.04,
+      "duration": 0.04,
+      "value": "open"
+    }
+  ]
+}
