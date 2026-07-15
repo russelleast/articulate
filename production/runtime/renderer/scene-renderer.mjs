@@ -302,7 +302,7 @@ function companionFacialOverlay(performance) {
   if (!performance) return "";
   const blink = performance.blink ?? 0;
   const eyelids = blink > 0.02
-    ? `<g data-performance="blink" opacity="${Math.min(1, blink * 1.45).toFixed(3)}"><ellipse cx="303" cy="691" rx="10" ry="5" fill="#a87966"/><ellipse cx="334" cy="691" rx="10" ry="5" fill="#a87966"/><path d="M 294 692 Q 303 696 312 692 M 325 692 Q 334 696 343 692" fill="none" stroke="#49332e" stroke-width="1.5" stroke-linecap="round"/></g>`
+    ? `<g data-performance="blink" opacity="${Math.min(1, blink * 1.45).toFixed(3)}"><ellipse cx="292" cy="689" rx="9.5" ry="3.7" fill="#966a50"/><ellipse cx="333" cy="689" rx="9.5" ry="3.7" fill="#d8aa85"/><path d="M 283.5 689.8 Q 292 692.8 300.5 689.8" fill="none" stroke="#51372e" stroke-width="1.35" stroke-linecap="round"/><path d="M 324.5 689.8 Q 333 692.8 341.5 689.8" fill="none" stroke="#765344" stroke-width="1.35" stroke-linecap="round"/></g>`
     : "";
   return `<g aria-label="Companion facial performance">${eyelids}</g>`;
 }

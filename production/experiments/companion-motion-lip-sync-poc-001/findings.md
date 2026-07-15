@@ -20,6 +20,18 @@ Those observations supersede the initial implementation assessment. The first C 
 
 B and C have been rerendered for a second normal-speed review. They are candidates, not approved outcomes.
 
+## Human review 002 and alignment correction
+
+The second review confirmed that motion and mouth activity had become visible, but found two coordinate defects: only part of the mouth changed and the eyelids were offset. Source-raster landmark inspection showed that the animated mouth region covered 90 pixels while the actual mouth spans approximately 145 pixels, and the viewer-left eye centre was 11 Studio pixels away from its overlay.
+
+Revision 003 expands and recentres the facial mouth region across the complete mouth, aligns the eyes independently at their measured centres, reduces eyelid height, and matches the surrounding skin tone more closely. B, C and the synchronized comparison have been rerendered again.
+
+## Human review 003 and cosmetic refinement
+
+The third review accepted the lip-sync timing and full-mouth movement. Remaining findings were cosmetic: the open mouth read as square, the teeth state appeared as an isolated white bar, and identical eyelid colours did not follow the face's directional lighting.
+
+Revision 004 leaves timing and motion unchanged. Open, wide and teeth cavities now use tapered curved contours; the teeth highlight is thinner, curved and contained; and each eyelid uses a separately sampled source-skin colour with its own crease tone.
+
 ## Evaluation
 
 | Criterion | A — baseline | B — motion only | C — motion + lip-sync |
