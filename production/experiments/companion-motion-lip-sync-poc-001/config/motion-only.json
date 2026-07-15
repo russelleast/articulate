@@ -1,0 +1,6 @@
+{
+  "extends": "baseline.json",
+  "note": "Resolved by generate-configs.mjs; retained as an explicit review variant declaration.",
+  "variant": "B-motion-only",
+  "performanceTimeline": "production/experiments/companion-motion-lip-sync-poc-001/performance/motion-only.json"
+}

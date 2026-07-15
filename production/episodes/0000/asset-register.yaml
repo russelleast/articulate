@@ -63,3 +63,13 @@ assets:
     version: "v1"
     status: "final-authored"
     review_notes: "Maintains visual continuity with the Studio while giving concepts full attention."
+  - asset_id: "A007"
+    asset_type: "Companion performance timeline"
+    source: "episode-0000-narration-v1 source 02:41.687–02:58.127; companion-v1-neutral"
+    generation_method: "deterministic offline signal analysis plus authored restrained motion events"
+    licence_or_ownership: "Articulate project"
+    episode_section: "Complete episode Companion scenes"
+    scene_usage: ["S001", "S008", "S012"]
+    version: "v1"
+    status: "production-candidate"
+    review_notes: "Five-state simplified viseme model and facial treatment approved in focused PoC review; complete-episode candidate awaits full-video review."

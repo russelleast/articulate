@@ -67,6 +67,9 @@ production/experiments/companion-poc-001/inputs/companion/*
 !production/experiments/companion-poc-001/inputs/companion/.gitkeep
 production/experiments/companion-poc-001/inputs/visuals/*
 !production/experiments/companion-poc-001/inputs/visuals/.gitkeep
+production/experiments/companion-motion-lip-sync-poc-001/generated/
+production/experiments/companion-motion-lip-sync-poc-001/output/
+production/experiments/companion-motion-lip-sync-poc-001/config/*.resolved.json
 
 # Episode production renders and review media
 production/episodes/*/generated/

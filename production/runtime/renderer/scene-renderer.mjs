@@ -115,7 +115,7 @@ function studioComposition(scene, companionData, grammar, state) {
   const promptArrow = visible("item-1", state) && visible("item-2", state)
     ? `<line x1="980" y1="376" x2="1118" y2="376" stroke="#7b8c94" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/><text x="1048" y="355" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
     : "";
-  const companion = element("companion", `<g transform="${idle}" filter="url(#companion-shadow)"><image href="${companionData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/></g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`, state);
+  const companion = element("companion", companionFigure(companionData, idle, state), state);
   return `${boardShell}${companion}${headline}${support}${connectors}${promptArrow}${nodes}`;
 }
 
@@ -135,7 +135,7 @@ function studioWelcomeComposition(scene, companionData, grammar, state) {
     const box = { x, y, width, height: 82 };
     return element(`item-${index + 1}`, `<rect x="${x}" y="${y}" width="${width}" height="82" rx="20" fill="#e4eceb" stroke="#92a8a0" stroke-width="2"/>${centredTextBlock(elementText(scene, `item-${index + 1}`, state, item), insetBox(box, 18, 10), { fontSize: 23, weight: 600, maxLines: 2, lineHeight: 1.12, align: "middle", fill: "#26333a" }, `${scene.id} studio item ${index + 1}`)}`, state);
   }).join("");
-  const companion = element("companion", `<g transform="${idle}" filter="url(#companion-shadow)"><image href="${companionData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/></g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`, state);
+  const companion = element("companion", companionFigure(companionData, idle, state), state);
   return `${boardShell}${companion}${headline}${support}${items}`;
 }
 
@@ -281,11 +281,30 @@ function curvedBoxConnector(connection, positions, connections) {
 
 function companionIdleTransform(scene, state, grammar) {
   if (!scene.motion?.companionIdle) return "translate(0 0) scale(1)";
-  const motion = grammar.motion.companionIdle;
+  const configured = typeof scene.motion.companionIdle === "object" ? scene.motion.companionIdle : {};
+  const motion = { ...grammar.motion.companionIdle, ...configured };
   const phase = ((state?.frame ?? 0) % motion.periodFrames) / motion.periodFrames * Math.PI * 2;
   const y = Math.sin(phase) * motion.translateYPixels;
   const scale = 1 + Math.sin(phase) * motion.scaleAmplitude;
-  return `translate(0 ${y.toFixed(3)}) translate(300 980) scale(${scale.toFixed(6)}) translate(-300 -980)`;
+  const head = state?.performance?.head;
+  const headX = (head?.x ?? 0) * (head?.amount ?? 0);
+  const headY = (head?.y ?? 0) * (head?.amount ?? 0);
+  const rotation = (head?.rotation ?? 0) * (head?.amount ?? 0);
+  return `translate(${headX.toFixed(3)} ${(y + headY).toFixed(3)}) translate(300 980) scale(${scale.toFixed(6)}) translate(-300 -980) rotate(${rotation.toFixed(3)} 320 735)`;
+}
+
+function companionFigure(companionData, transform, state) {
+  const visualData = state?.performance?.mouthData ?? companionData;
+  return `<g transform="${transform}" filter="url(#companion-shadow)"><image href="${visualData}" x="18" y="145" width="590" height="835" preserveAspectRatio="xMidYMax meet"/>${companionFacialOverlay(state?.performance)}</g><ellipse cx="300" cy="955" rx="225" ry="24" fill="#05090b" opacity=".34"/>`;
+}
+
+function companionFacialOverlay(performance) {
+  if (!performance) return "";
+  const blink = performance.blink ?? 0;
+  const eyelids = blink > 0.02
+    ? `<g data-performance="blink" opacity="${Math.min(1, blink * 1.45).toFixed(3)}"><ellipse cx="292" cy="689" rx="9.5" ry="3.7" fill="#966a50"/><ellipse cx="333" cy="689" rx="9.5" ry="3.7" fill="#d8aa85"/><path d="M 283.5 689.8 Q 292 692.8 300.5 689.8" fill="none" stroke="#51372e" stroke-width="1.35" stroke-linecap="round"/><path d="M 324.5 689.8 Q 333 692.8 341.5 689.8" fill="none" stroke="#765344" stroke-width="1.35" stroke-linecap="round"/></g>`
+    : "";
+  return `<g aria-label="Companion facial performance">${eyelids}</g>`;
 }
 
 function companionComposition(scene, companionData, grammar, state) {

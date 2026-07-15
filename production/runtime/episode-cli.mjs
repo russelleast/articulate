@@ -10,6 +10,7 @@ import { xml } from "./renderer/layout.mjs";
 import { renderSceneSvg } from "./renderer/scene-renderer.mjs";
 import { resolveSceneTimeline, timelineChangeFrames, timelineManifestEntry, timelineStateAtFrame } from "./renderer/scene-timeline.mjs";
 import { getVisualGrammarProfile, resolveScenePresentation } from "./renderer/visual-grammar.mjs";
+import { companionPerformanceManifest, companionPerformanceStateAtFrame, resolveCompanionPerformance } from "./renderer/companion-performance.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
@@ -62,7 +63,11 @@ function loadContext(configPath) {
     if (!timing) throw new Error(`No narration timing marker for ${scene.id}`);
     const resolved = { ...scene, ...timing, episodeId: config.episode.id, order: index + 1, durationSeconds: timing.endSeconds - timing.startSeconds };
     const withPresentation = { ...resolved, presentation: resolveScenePresentation(resolved, grammar) };
-    return { ...withPresentation, resolvedTimeline: resolveSceneTimeline(withPresentation, config.output.frameRate, grammar) };
+    const resolvedTimeline = resolveSceneTimeline(withPresentation, config.output.frameRate, grammar);
+    const performancePath = scene.companionPerformance?.timeline ? resolvePath(scene.companionPerformance.timeline) : null;
+    const performanceDocument = performancePath ? readJson(performancePath) : null;
+    const resolvedPerformance = resolveCompanionPerformance(withPresentation, performanceDocument, config.output.frameRate);
+    return { ...withPresentation, resolvedTimeline, resolvedPerformance, performancePath };
   });
   const assetManager = createLocalAssetManager({ repoRoot });
   return { configPath, config, markersPath, markers, scenes, assetManager, grammar };
@@ -155,6 +160,7 @@ function validate(context) {
   executable("ffmpeg");
   const audioPath = context.assetManager.fetch(context.config.narration.assetId);
   const companionPath = context.assetManager.fetch(context.config.companion.assetId);
+  const performancePaths = Object.fromEntries(Object.entries(context.config.companion.performanceAssets ?? {}).map(([viseme, assetId]) => [viseme, context.assetManager.fetch(assetId)]));
   const actualHash = sha256(audioPath);
   if (actualHash !== context.config.narration.expectedSha256) errors.push(`Narration checksum mismatch: ${actualHash}`);
   const duration = Number(run(ffprobe, ["-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", audioPath]).stdout.trim());
@@ -184,7 +190,7 @@ function validate(context) {
   }
   if (!fs.existsSync(companionPath)) errors.push("Companion asset does not resolve");
   if (errors.length) throw new Error(`Episode validation failed:\n- ${errors.join("\n- ")}`);
-  return { audioPath, companionPath, duration, ffprobe, ffmpeg: executable("ffmpeg") };
+  return { audioPath, companionPath, performancePaths, duration, ffprobe, ffmpeg: executable("ffmpeg") };
 }
 
 async function render(context, validation) {
@@ -194,16 +200,19 @@ async function render(context, validation) {
   fs.mkdirSync(framesDir, { recursive: true });
   fs.mkdirSync(segmentsDir, { recursive: true });
   const companionData = `data:image/png;base64,${fs.readFileSync(validation.companionPath).toString("base64")}`;
+  const performanceData = Object.fromEntries(Object.entries(validation.performancePaths ?? {}).map(([viseme, filePath]) => [viseme, `data:image/png;base64,${fs.readFileSync(filePath).toString("base64")}`]));
   const frameFiles = [];
   const segmentFiles = [];
   for (const scene of context.scenes) {
     const frameCount = Math.ceil(scene.durationSeconds * context.config.output.frameRate);
-    if (scene.motion?.companionIdle) {
+    if (scene.motion?.companionIdle || scene.resolvedPerformance) {
       const sequenceDir = path.join(framesDir, scene.id);
       fs.mkdirSync(sequenceDir, { recursive: true });
       for (let frame = 0; frame < frameCount; frame++) {
         const pngPath = path.join(sequenceDir, `${String(frame).padStart(6, "0")}.png`);
         const state = timelineStateAtFrame(scene, scene.resolvedTimeline, frame);
+        state.performance = companionPerformanceStateAtFrame(scene.resolvedPerformance, frame);
+        if (state.performance && performanceData[state.performance.mouth]) state.performance.mouthData = performanceData[state.performance.mouth];
         const svg = renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state);
         await sharp(Buffer.from(svg), { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
         frameFiles.push(pngPath);
@@ -273,7 +282,8 @@ async function render(context, validation) {
       archetype: scene.presentation.archetype,
       composition: scene.presentation.composition,
       transition: scene.presentation.transition,
-      timeline: timelineManifestEntry(scene.resolvedTimeline)
+      timeline: timelineManifestEntry(scene.resolvedTimeline),
+      companionPerformance: companionPerformanceManifest(scene.resolvedPerformance)
     })),
     generatedFrames: frameFiles.map(fileRecord),
     generatedSegments: segmentFiles.map(fileRecord),
@@ -321,8 +331,10 @@ async function generateReviewArtifacts(context, validation) {
     temporalContactSheet: temporalContactSheet ? relative(temporalContactSheet) : null,
     warnings: [
       "Timeline motion is deterministic and editorially authored.",
-      context.scenes.some((scene) => scene.motion?.companionIdle)
-        ? "Companion character motion is limited to restrained idle translation and breathing scale; no lip-sync or facial animation is present."
+      context.scenes.some((scene) => scene.resolvedPerformance?.layers.includes("lip-sync"))
+        ? "Companion performance includes deterministic idle motion, authored facial motion and audio-derived simplified visemes."
+        : context.scenes.some((scene) => scene.motion?.companionIdle || scene.resolvedPerformance)
+        ? "Companion character motion is limited to deterministic idle, blink and posture treatments; no lip-sync is present."
         : "No lip-sync, facial animation or companion character animation is present."
     ]
   }, null, 2)}\n`);
@@ -421,6 +433,12 @@ function buildAssetManifest(context, validation) {
   return {
     narration: { assetId: context.config.narration.assetId, ...fileRecord(validation.audioPath) },
     companion: { assetId: context.config.companion.assetId, ...fileRecord(validation.companionPath) },
+    companionFacialAssets: Object.entries(context.config.companion.performanceAssets ?? {}).map(([viseme, assetId]) => ({ viseme, assetId, ...fileRecord(validation.performancePaths[viseme]) })),
+    companionPerformance: context.scenes.filter((scene) => scene.resolvedPerformance).map((scene) => ({
+      sceneId: scene.id,
+      timeline: fileRecord(scene.performancePath),
+      model: companionPerformanceManifest(scene.resolvedPerformance)
+    })),
     authoredVisuals: [...new Set(context.scenes.flatMap((scene) => scene.assetIds ?? []))].map((assetId) => ({ assetId, source: context.config.episode.assetRegister })),
     unresolvedAssets: [],
     placeholderCount: 0
@@ -444,10 +462,17 @@ function buildProvenance(context, validation, videoPath) {
     companion: {
       assetId: context.config.companion.assetId,
       ...fileRecord(validation.companionPath),
-      treatment: context.scenes.some((scene) => scene.motion?.companionIdle)
-        ? "approved neutral asset with deterministic frame-indexed idle translation and breathing scale; no lip-sync or facial animation"
+      treatment: context.scenes.some((scene) => scene.resolvedPerformance?.layers.includes("lip-sync"))
+        ? "approved neutral asset with deterministic layered idle, blink, posture and audio-derived simplified viseme overlays"
+        : context.scenes.some((scene) => scene.motion?.companionIdle || scene.resolvedPerformance)
+        ? "approved neutral asset with deterministic frame-indexed idle, blink and posture motion; no lip-sync"
         : "static neutral asset; no lip-sync or character animation"
     },
+    companionPerformance: context.scenes.filter((scene) => scene.resolvedPerformance).map((scene) => ({
+      sceneId: scene.id,
+      timeline: fileRecord(scene.performancePath),
+      model: companionPerformanceManifest(scene.resolvedPerformance)
+    })),
     output: fileRecord(videoPath),
     renderer: "production/runtime/episode-cli.mjs",
     deterministicBoundary: "Scene frames and assembly are deterministic for the recorded inputs and configuration; review metadata is derived from the completed render."
