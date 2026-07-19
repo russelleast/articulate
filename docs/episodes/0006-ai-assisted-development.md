@@ -1,3 +1,20 @@
+---
+episode: 6
+title: "AI-Assisted Development: Building Articulate with an AI Coding Agent"
+description: "An exploration of the deliberately simple AI-assisted development environment used to build Articulate, and why structured architectural context matters more than increasingly complex prompts."
+season: 1
+status: draft
+published: false
+date: null
+topics:
+  - AI-assisted development
+  - Context engineering
+  - AI coding agents
+  - DCL
+  - Architecture documentation
+  - Human-AI collaboration
+---
+
 # Episode 6 – AI-Assisted Development: Building Articulate with an AI Coding Agent
 
 ## Introduction

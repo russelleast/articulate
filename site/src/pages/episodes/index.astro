@@ -4,7 +4,7 @@ import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import StatusPill from "@/components/StatusPill.astro";
 import { formatDate, withBase } from "@/utils/site";
 
-const episodes = (await getCollection("episodes", ({ data }) => data.status !== "draft"))
+const episodes = (await getCollection("episodes", ({ data }) => data.isPublished))
   .sort((a, b) => a.data.sequence - b.data.sequence);
 ---
 

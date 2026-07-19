@@ -1,3 +1,20 @@
+---
+episode: 8
+title: "Agentic RAG and Knowledge Reasoning"
+description: "An exploration of how reasoning agents combine semantic search, graph traversal and structured queries to retrieve and interpret architectural knowledge."
+season: 2
+status: planned
+published: false
+date: null
+topics:
+  - Agentic RAG
+  - Knowledge reasoning
+  - Semantic search
+  - Graph traversal
+  - Structured queries
+  - Reasoning agents
+---
+
 # Episode 9 – Agentic RAG and Knowledge Reasoning
 
 **Question:** *How should AI retrieve and reason about architectural knowledge?*

@@ -1,3 +1,20 @@
+---
+episode: 7
+title: "The Knowledge Model: From Documents to Knowledge"
+description: "An introduction to structured architectural knowledge and the Knowledge Model and Knowledge API that make it the system of record for Articulate."
+season: 2
+status: draft
+published: false
+date: null
+topics:
+  - Architectural knowledge
+  - Knowledge Model
+  - Knowledge API
+  - Claims and evidence
+  - Architectural decisions
+  - Knowledge relationships
+---
+
 # Episode 7 – The Knowledge Model: From Documents to Knowledge
 
 *"Traditional software architecture produces documents. Architectural Intelligence requires knowledge."*
