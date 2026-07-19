@@ -54,6 +54,20 @@ test("directional connections render with grammar-approved arrowheads", () => {
   assert.match(svg, /data-connection="centre-item-1"/);
 });
 
+test("diagram connectors can synchronize with the destination box reveal", () => {
+  const value = scene({ timeline: { connectorTiming: "with-destination", events: [
+    { id: "first", at: 1, action: "reveal", target: "item-1" },
+    { id: "second", at: 3, action: "reveal", target: "item-2" },
+    { id: "first-second", at: 4, action: "connect", from: "item-1", to: "item-2" }
+  ] } });
+  const timeline = resolveSceneTimeline(value, 25, grammar);
+  const connector = timeline.events.find((event) => event.action === "connect");
+  assert.equal(connector.startFrame, 75);
+  assert.equal(timelineStateAtFrame(value, timeline, 74).connections.size, 0);
+  assert.equal(timelineStateAtFrame(value, timeline, 75).connections.size, 1);
+  assert.match(timeline.warnings[0], /synchronized/);
+});
+
 test("Repository typing is progressive and deterministic", () => {
   const value = scene({
     kind: "journal",

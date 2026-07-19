@@ -83,12 +83,18 @@ function studioSceneSvg(scene, episode, output, companionData, grammar, state) {
 }
 
 function studioComposition(scene, companionData, grammar, state) {
-  if (scene.studioLayout && scene.studioLayout !== "companion-model") {
+  if (scene.studioLayout && !scene.studioLayout.startsWith("companion-model")) {
     return studioWelcomeComposition(scene, companionData, grammar, state);
   }
+  const cleanModel = scene.studioLayout === "companion-model-v2";
   const board = { x: 590, y: 86, width: 1260, height: 914 };
   const idle = companionIdleTransform(scene, state, grammar);
-  const positions = new Map([
+  const positions = new Map(cleanModel ? [
+    ["item-1", { x: 750, y: 330, width: 300, height: 92 }],
+    ["item-2", { x: 1190, y: 330, width: 300, height: 92 }],
+    ["item-3", { x: 850, y: 465, width: 540, height: 106 }],
+    ...Array.from({ length: 5 }, (_, index) => [`item-${index + 4}`, { x: 620 + index * 222, y: 700, width: 200, height: 104 }])
+  ] : [
     ["item-1", { x: 735, y: 330, width: 230, height: 92 }],
     ["item-2", { x: 1135, y: 330, width: 230, height: 92 }],
     ["item-3", { x: 1030, y: 435, width: 390, height: 104 }],
@@ -102,7 +108,9 @@ function studioComposition(scene, companionData, grammar, state) {
   const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 660, y: 190, width: 1080 }, { fontSize: 62, weight: 720, maxLines: 1, fill: "#172028" }, `${scene.id} studio headline`), state);
   const support = element("support", textBlock(elementText(scene, "support", state), { x: 662, y: 260, width: 1050 }, { fontSize: 28, weight: 450, maxLines: 2, fill: "#55798b" }, `${scene.id} studio support`), state);
   const activeConnections = [...(state?.connections?.values() ?? [])];
-  const connectors = activeConnections.map((connection) => curvedBoxConnector(connection, positions, activeConnections)).join("");
+  const connectors = cleanModel
+    ? companionCapabilityTree(activeConnections, positions)
+    : activeConnections.map((connection) => curvedBoxConnector(connection, positions, activeConnections)).join("");
   const nodes = (scene.items ?? []).map((item, index) => {
     const id = `item-${index + 1}`;
     const box = positions.get(id);
@@ -110,13 +118,35 @@ function studioComposition(scene, companionData, grammar, state) {
     const transactional = id === "item-1" || id === "item-2";
     const fill = persistent ? "#dbe8eb" : transactional ? "#fffdfa" : "#e8eeeb";
     const stroke = persistent ? "#55798b" : transactional ? "#b6b0a7" : "#92a8a0";
-    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="${persistent ? 24 : 18}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 18, 10), { fontSize: persistent ? 27 : 22, weight: persistent ? 700 : 600, maxLines: 2, lineHeight: 1.12, align: "middle", fill: "#26333a" }, `${scene.id} studio item ${index + 1}`)}`, state);
+    const capability = cleanModel && index >= 3;
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="${persistent ? 24 : 18}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, capability ? 12 : 18, 10), { fontSize: persistent ? 27 : capability ? 19 : 22, weight: persistent ? 700 : 600, maxLines: capability ? 3 : 2, lineHeight: 1.1, align: "middle", fill: "#26333a" }, `${scene.id} studio item ${index + 1}`)}`, state);
   }).join("");
   const promptArrow = visible("item-1", state) && visible("item-2", state)
-    ? `<line x1="980" y1="376" x2="1118" y2="376" stroke="#7b8c94" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/><text x="1048" y="355" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
+    ? cleanModel
+      ? `<line x1="1065" y1="376" x2="1175" y2="376" stroke="#7b8c94" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/><text x="1120" y="355" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
+      : `<line x1="980" y1="376" x2="1118" y2="376" stroke="#7b8c94" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/><text x="1048" y="355" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
     : "";
   const companion = element("companion", companionFigure(companionData, idle, state), state);
   return `${boardShell}${companion}${headline}${support}${connectors}${promptArrow}${nodes}`;
+}
+
+function companionCapabilityTree(connections, positions) {
+  const branches = connections.filter((connection) => connection.from === "item-3" && positions.has(connection.to));
+  if (branches.length === 0) return "";
+  const source = positions.get("item-3");
+  const sourceX = source.x + source.width / 2;
+  const sourceY = source.y + source.height + 2;
+  const railY = 640;
+  const destinations = branches.map((connection) => ({ connection, box: positions.get(connection.to) }));
+  const centres = destinations.map(({ box }) => box.x + box.width / 2);
+  const railStart = Math.min(sourceX, ...centres);
+  const railEnd = Math.max(sourceX, ...centres);
+  const stem = `<path d="M ${sourceX} ${sourceY} L ${sourceX} ${railY} M ${railStart} ${railY} L ${railEnd} ${railY}" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const drops = destinations.map(({ connection, box }) => {
+    const x = box.x + box.width / 2;
+    return `<line data-connection="${connection.from}-${connection.to}" x1="${x}" y1="${railY}" x2="${x}" y2="${box.y - 5}" stroke="#55798b" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/>`;
+  }).join("");
+  return `${stem}${drops}`;
 }
 
 function studioWelcomeComposition(scene, companionData, grammar, state) {

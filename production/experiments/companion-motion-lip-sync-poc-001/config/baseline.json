@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "episode": { "id": "episode-0000", "title": "Welcome to the Articulate Journal", "canonicalSource": "docs/episodes/0000-welcome-to-the-articulate-journal.md", "storyboard": "production/episodes/0000/scene-list.yaml", "timingMarkers": "production/experiments/companion-motion-lip-sync-poc-001/config/markers.json", "assetRegister": "production/episodes/0000/asset-register.yaml" },
+  "episode": { "id": "episode-0000", "title": "Welcome to the Articulate Journal", "canonicalSource": "production/episodes/0000/0000-welcome-to-the-articulate-journal.md", "storyboard": "production/episodes/0000/scene-list.yaml", "timingMarkers": "production/experiments/companion-motion-lip-sync-poc-001/config/markers.json", "assetRegister": "production/episodes/0000/asset-register.yaml" },
   "narration": { "assetId": "episode-0000-companion-performance-poc-001-narration", "expectedSha256": "6b29c2585bdf2e736da087b53e06133a2b7d70e533c47094d2b19d9183cb005c", "expectedDurationSeconds": 16.44, "preserveWholeRecording": true, "source": { "assetId": "episode-0000-narration-v1", "startSeconds": 161.686939, "endSeconds": 178.126939 } },
   "companion": { "assetId": "companion-v1-neutral" },
   "rendering": { "visualGrammarProfile": "articulate-visual-grammar-v1" },
