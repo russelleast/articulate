@@ -2,7 +2,7 @@ episode:
   id: "episode-0001"
   title: "Why Articulate Exists"
   canonical_source: "docs/episodes/0001-why-articulate-exists.md"
-  production_status: "rough-cut-02"
+  production_status: "rough-cut-03"
   timing_authority: "episode-0001-narration-v1"
   narration_duration_seconds: 550.365692
 scenes:
@@ -13,7 +13,7 @@ scenes:
     duration_seconds: 12.872
     narration_reference: "Opening quote; Introduction"
     visual_type: "title and companion opening"
-    companion_mode: "present-static"
+    companion_mode: "present-motion-only"
     assets: ["A001", "A002"]
     layout: "editorial split"
     transition: { in: "fade", out: "cut" }
@@ -49,7 +49,7 @@ scenes:
     duration_seconds: 27.615
     narration_reference: "Introduction — questions architects answer"
     visual_type: "question fragments"
-    companion_mode: "none"
+    companion_mode: "present-motion-only"
     assets: ["A005"]
     layout: "question grid"
     transition: { in: "cut", out: "section cut" }
@@ -97,7 +97,7 @@ scenes:
     duration_seconds: 27.848
     narration_reference: "The Limits of Today's Tools — excellent tools"
     visual_type: "tool evidence grid"
-    companion_mode: "none"
+    companion_mode: "present-motion-only"
     assets: ["A008"]
     layout: "label grid"
     transition: { in: "section cut", out: "cut" }
@@ -145,7 +145,7 @@ scenes:
     duration_seconds: 26.008
     narration_reference: "Why Now? — augment architectural thinking"
     visual_type: "human and AI boundary diagram"
-    companion_mode: "none"
+    companion_mode: "present-motion-only"
     assets: ["A010"]
     layout: "horizontal flow"
     transition: { in: "cut", out: "section cut" }
@@ -157,7 +157,7 @@ scenes:
     duration_seconds: 34.894
     narration_reference: "The Vision — origins and convergence"
     visual_type: "companion bridge"
-    companion_mode: "present-static"
+    companion_mode: "present-motion-only"
     assets: ["A011"]
     layout: "editorial split"
     transition: { in: "section cut", out: "cut" }
@@ -205,7 +205,7 @@ scenes:
     duration_seconds: 24.732
     narration_reference: "Success — preserve knowledge and improve conversations"
     visual_type: "outcome montage"
-    companion_mode: "none"
+    companion_mode: "present-motion-only"
     assets: ["A014"]
     layout: "evidence grid"
     transition: { in: "cut", out: "section cut" }
@@ -229,7 +229,7 @@ scenes:
     duration_seconds: 16.481692
     narration_reference: "Looking Ahead — exploration into better architecture"
     visual_type: "companion close and source card"
-    companion_mode: "present-static"
+    companion_mode: "present-motion-only"
     assets: ["A015", "A016"]
     layout: "editorial split"
     transition: { in: "cut", out: "fade" }

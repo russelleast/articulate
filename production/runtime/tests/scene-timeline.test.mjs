@@ -2,10 +2,17 @@ import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import test from "node:test";
 import { renderSceneSvg } from "../renderer/scene-renderer.mjs";
-import { resolveSceneTimeline, timelineManifestEntry, timelineStateAtFrame } from "../renderer/scene-timeline.mjs";
+import { resolveSceneTimeline, sceneFrameWindow, timelineManifestEntry, timelineStateAtFrame } from "../renderer/scene-timeline.mjs";
 import { getVisualGrammarProfile, resolveScenePresentation } from "../renderer/visual-grammar.mjs";
 
 const grammar = getVisualGrammarProfile();
+
+test("adjacent scenes allocate against global frame boundaries without cumulative drift", () => {
+  const first = sceneFrameWindow({ startSeconds: 12.872, endSeconds: 30.031 }, 25);
+  const second = sceneFrameWindow({ startSeconds: 30.031, endSeconds: 61.104 }, 25);
+  assert.equal(first.endFrame, second.startFrame);
+  assert.equal(first.frameCount + second.frameCount, second.endFrame - first.startFrame);
+});
 
 function scene(overrides = {}) {
   const value = {

@@ -77,3 +77,31 @@ test("environment compositions retain shared Articulate world chrome", () => {
     assert.match(svg, /ARTICULATE/);
   }
 });
+
+test("radial evidence retains directional relationships when no connection timeline is authored", () => {
+  const scene = {
+    id: "S011", kind: "evidence", transition: "cut", companion: false,
+    headline: "Reason across evidence", support: "Relationships must remain visible.",
+    items: ["Documents", "Code", "Decisions", "Signals"],
+    narrationReference: "Why now", startSeconds: 0, endSeconds: 10,
+    durationSeconds: 10, timeline: { events: [] }
+  };
+  scene.presentation = resolveScenePresentation(scene, grammar);
+  const state = { hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0 };
+  const svg = renderSceneSvg(scene, { id: "episode-0001", title: "Why Articulate Exists" }, { width: 1920, height: 1080 }, "", grammar, state);
+  assert.equal([...svg.matchAll(/data-connection=/g)].length, 4);
+  assert.equal([...svg.matchAll(/marker-end="url\(#direction-arrow\)"/g)].length, 4);
+});
+
+test("production treatment can suppress scene identifiers, timings and diagnostic narration labels", () => {
+  const scene = {
+    id: "S004", kind: "whiteboard", transition: "cut", companion: false,
+    headline: "A question", support: "Follow the narration.", items: ["Why?"],
+    narrationReference: "Diagnostic narration reference", startSeconds: 61.104, endSeconds: 88.719,
+    productionMetadata: false
+  };
+  scene.presentation = resolveScenePresentation(scene, grammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0001", title: "Why Articulate Exists" }, { width: 1920, height: 1080 }, "", grammar);
+  assert.doesNotMatch(svg, /S004|61\.104|88\.719|Diagnostic narration reference/);
+  assert.match(svg, /ARTICULATE JOURNAL/);
+});

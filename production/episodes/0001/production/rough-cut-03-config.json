@@ -1,0 +1,259 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0001",
+    "title": "Why Articulate Exists",
+    "canonicalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "storyboard": "production/episodes/0001/scene-list.yaml",
+    "timingMarkers": "production/episodes/0001/production/narration-markers.json",
+    "assetRegister": "production/episodes/0001/asset-register.yaml"
+  },
+  "narration": {
+    "assetId": "episode-0001-narration-v1",
+    "expectedSha256": "61cebeeba07b42285a3b130a9484f1452e8163ee0ebee92e2f2bdf32fa9207fa",
+    "expectedDurationSeconds": 550.365692,
+    "preserveWholeRecording": true
+  },
+  "companion": { "assetId": "companion-v1-neutral" },
+  "rendering": { "visualGrammarProfile": "articulate-visual-grammar-v1", "productionMetadata": false },
+  "review": { "includeTimelineStates": true, "temporalSampleSeconds": 10 },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "video": "production/episodes/0001/output/episode-0001-rough-cut-03.mp4",
+    "generatedDirectory": "production/episodes/0001/generated/rough-cut-03",
+    "reviewDirectory": "production/episodes/0001/output/review/rough-cut-03",
+    "narrationAnalysis": "production/episodes/0001/production/narration-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001", "title": "Why Articulate Exists", "kind": "studio", "studioLayout": "welcome",
+      "headline": "Why Articulate Exists", "support": "Architectural knowledge is fragmented, changing and never complete.",
+      "items": ["Fragmented", "Changing", "Never complete"], "companion": true, "assetIds": ["A001", "A002"], "transition": "fade",
+      "motion": { "companionIdle": { "periodFrames": 160, "translateYPixels": 3.5, "scaleAmplitude": 0.008 } },
+      "companionPerformance": { "timeline": "production/episodes/0001/production/rough-cut-03-companion/S001.json" },
+      "shots": [
+        { "id": "open", "label": "Enter the Studio", "at": 0, "events": [{ "id": "title", "at": 0.4, "action": "reveal", "target": "headline" }, { "id": "claim", "at": 3, "action": "reveal", "target": "support" }] },
+        { "id": "problem", "label": "State the problem", "at": 6, "events": [{ "id": "fragmented", "at": 0, "action": "reveal", "target": "item-1" }, { "id": "changing", "at": 2.5, "action": "reveal", "target": "item-2" }] },
+        { "id": "purpose", "label": "Complete the opening", "at": 11, "events": [{ "id": "incomplete", "at": 0, "action": "reveal", "target": "item-3" }] }
+      ]
+    },
+    {
+      "id": "S002", "title": "The architecture itself", "kind": "workspace",
+      "headline": "Understanding the architecture itself", "support": "The journal begins with the evidence, not a presentation of it.",
+      "items": ["Journal episode", "Canonical source"],
+      "evidence": { "excerpt": ["Not the diagrams. Not the documentation.", "The architecture itself."] },
+      "companion": false, "assetIds": ["A003"], "transition": "cut",
+      "timeline": { "events": [] },
+      "shots": [
+        { "id": "source", "label": "Open the journal", "at": 0, "events": [{ "id": "source-headline", "at": 0, "action": "reveal", "target": "headline" }, { "id": "source-support", "at": 2, "action": "reveal", "target": "support" }, { "id": "journal", "at": 1, "action": "reveal", "target": "item-1" }, { "id": "type-claim", "at": 4, "duration": 4, "action": "type", "target": "evidence-1" }] },
+        { "id": "architecture", "label": "Name the architecture", "at": 10, "events": [{ "id": "canonical", "at": 0, "action": "reveal", "target": "item-2" }, { "id": "architecture-evidence", "at": 2, "action": "reveal", "target": "evidence-2" }] }
+      ]
+    },
+    {
+      "id": "S003", "title": "The architecture itself", "kind": "focus",
+      "headline": "Understanding the architecture itself", "support": "The distinction develops with the narration.",
+      "items": ["Not the diagrams.", "Not the documentation.", "The architecture."],
+      "companion": false, "assetIds": ["A004"], "transition": "cut",
+      "shots": [
+        { "id": "diagrams", "label": "Not the diagrams", "at": 0, "events": [{ "id": "focus-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "focus-support", "at": 1.5, "action": "reveal", "target": "support" }, { "id": "not-diagrams", "at": 3, "action": "reveal", "target": "item-1" }] },
+        { "id": "documentation", "label": "Not the documentation", "at": 9, "events": [{ "id": "not-documentation", "at": 1, "action": "reveal", "target": "item-2" }] },
+        { "id": "architecture", "label": "The architecture", "at": 16, "events": [{ "id": "the-architecture", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "architecture-focus", "at": 6, "duration": 5, "action": "emphasize", "target": "item-3" }] }
+      ]
+    },
+    {
+      "id": "S004", "title": "Architectural questions", "kind": "studio", "studioLayout": "questions",
+      "headline": "Surprisingly simple questions", "support": "The answers are rarely straightforward.",
+      "items": ["What does the current state look like?", "Why was it designed this way?", "Which decisions still hold?", "What happens if this changes?", "Can the documentation be trusted?"],
+      "companion": true, "assetIds": ["A002", "A005"], "transition": "cut",
+      "motion": { "companionIdle": { "periodFrames": 170, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0001/production/rough-cut-03-companion/S004.json" },
+      "shots": [
+        { "id": "frame", "label": "Frame the questions", "at": 0, "events": [{ "id": "questions-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "questions-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "question-1", "at": 2, "action": "reveal", "target": "item-1" }] },
+        { "id": "question-2", "label": "Why", "at": 7, "events": [{ "id": "reveal-question-2", "at": 0, "action": "reveal", "target": "item-2" }] },
+        { "id": "question-3", "label": "Decisions", "at": 12, "events": [{ "id": "reveal-question-3", "at": 0, "action": "reveal", "target": "item-3" }] },
+        { "id": "question-4", "label": "Change", "at": 17, "events": [{ "id": "reveal-question-4", "at": 0, "action": "reveal", "target": "item-4" }] },
+        { "id": "question-5", "label": "Trust", "at": 22, "events": [{ "id": "reveal-question-5", "at": 0, "action": "reveal", "target": "item-5" }] }
+      ]
+    },
+    {
+      "id": "S005", "title": "Architecture enables change", "kind": "whiteboard", "diagramLayout": "path",
+      "headline": "Architecture exists to enable change", "support": "Understand today so the system can safely evolve into tomorrow.",
+      "items": ["Current state", "Trade-offs and risk", "Future state"], "companion": false, "assetIds": ["A006"], "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [
+        { "id": "current", "label": "Current state", "at": 0, "events": [{ "id": "change-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "change-support", "at": 2, "action": "reveal", "target": "support" }, { "id": "current-state", "at": 4, "action": "reveal", "target": "item-1" }] },
+        { "id": "trade-offs", "label": "Trade-offs and risk", "at": 12, "events": [{ "id": "trade-offs-node", "at": 1, "action": "reveal", "target": "item-2" }, { "id": "current-trade-offs", "at": 1, "action": "connect", "from": "item-1", "to": "item-2" }] },
+        { "id": "future", "label": "Future state", "at": 27, "events": [{ "id": "future-state", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "trade-offs-future", "at": 1, "action": "connect", "from": "item-2", "to": "item-3" }, { "id": "future-focus", "at": 8, "duration": 4, "action": "emphasize", "target": "item-3" }] }
+      ]
+    },
+    {
+      "id": "S006", "title": "Scattered knowledge", "kind": "whiteboard", "diagramLayout": "grid",
+      "headline": "Architectural knowledge is scattered", "support": "Each source contains part of the truth.",
+      "items": ["Source code", "Infrastructure as Code", "ADRs", "Diagrams", "Slide decks", "Monitoring", "People"],
+      "companion": false, "assetIds": ["A007"], "transition": "cut",
+      "shots": [
+        { "id": "technical", "label": "Technical sources", "at": 0, "events": [{ "id": "fragments-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "fragments-support", "at": 1.5, "action": "reveal", "target": "support" }, { "id": "source-code", "at": 3, "action": "reveal", "target": "item-1" }, { "id": "iac", "at": 6, "action": "reveal", "target": "item-2" }, { "id": "adrs", "at": 9, "action": "reveal", "target": "item-3" }] },
+        { "id": "recorded", "label": "Recorded sources", "at": 11, "events": [{ "id": "diagrams", "at": 1, "action": "reveal", "target": "item-4" }, { "id": "slides", "at": 4, "action": "reveal", "target": "item-5" }, { "id": "monitoring", "at": 7, "action": "reveal", "target": "item-6" }] },
+        { "id": "human", "label": "Human memory", "at": 20, "events": [{ "id": "people", "at": 1, "action": "reveal", "target": "item-7" }, { "id": "partial-truth", "at": 2, "duration": 3, "action": "emphasize", "target": "headline" }] }
+      ]
+    },
+    {
+      "id": "S007", "title": "A living system", "kind": "whiteboard", "diagramLayout": "path",
+      "headline": "The architecture keeps moving", "support": "Understanding and documentation slowly fall behind.",
+      "items": ["Architecture changes", "Projects and teams move", "Understanding lags", "Documents age"],
+      "companion": false, "assetIds": ["A007"], "transition": "cut",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [
+        { "id": "system", "label": "The system moves", "at": 0, "events": [{ "id": "living-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "living-support", "at": 2, "action": "reveal", "target": "support" }, { "id": "architecture-changes", "at": 3, "action": "reveal", "target": "item-1" }] },
+        { "id": "change", "label": "Change accumulates", "at": 10, "events": [{ "id": "projects-move", "at": 1, "action": "reveal", "target": "item-2" }, { "id": "architecture-projects", "at": 1, "action": "connect", "from": "item-1", "to": "item-2" }] },
+        { "id": "diverge", "label": "Understanding diverges", "at": 20, "events": [{ "id": "understanding-lags", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "projects-understanding", "at": 1, "action": "connect", "from": "item-2", "to": "item-3" }] },
+        { "id": "age", "label": "Documents age", "at": 29, "events": [{ "id": "documents-age", "at": 1, "action": "reveal", "target": "item-4" }, { "id": "understanding-documents", "at": 1, "action": "connect", "from": "item-3", "to": "item-4" }, { "id": "lag-focus", "at": 4, "duration": 2, "action": "emphasize", "target": "item-3" }] }
+      ]
+    },
+    {
+      "id": "S008", "title": "Excellent tools", "kind": "studio", "studioLayout": "workspace",
+      "headline": "The industry already has excellent tools", "support": "Useful tools still provide partial views of a changing system.",
+      "items": ["Confluence", "Git", "Terraform", "Mermaid / C4", "EAM platforms"],
+      "evidence": { "excerpt": ["Each tool records a useful view.", "The architect still connects the projections."] },
+      "companion": true, "assetIds": ["A002", "A008"], "transition": "section",
+      "motion": { "companionIdle": { "periodFrames": 165, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0001/production/rough-cut-03-companion/S008.json" },
+      "shots": [
+        { "id": "tools", "label": "Introduce the tools", "at": 0, "events": [{ "id": "tools-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "tools-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "confluence", "at": 3, "action": "reveal", "target": "item-1" }, { "id": "git", "at": 7, "action": "reveal", "target": "item-2" }, { "id": "terraform", "at": 11, "action": "reveal", "target": "item-3" }] },
+        { "id": "projections", "label": "Partial projections", "at": 14, "events": [{ "id": "mermaid", "at": 1, "action": "reveal", "target": "item-4" }, { "id": "eam", "at": 5, "action": "reveal", "target": "item-5" }, { "id": "useful-view", "at": 7, "action": "reveal", "target": "evidence-1" }, { "id": "connect-views", "at": 10, "action": "reveal", "target": "evidence-2" }] }
+      ]
+    },
+    {
+      "id": "S009", "title": "Projections of reality", "kind": "focus", "focusLayout": "radial", "centre": "ARCHITECTURE IN PEOPLE'S HEADS",
+      "headline": "Each tool represents one projection of reality", "support": "The architect is left connecting the pieces together.",
+      "items": ["View", "Decision", "Implementation", "Deployment", "Concept"],
+      "companion": false, "assetIds": ["A008"], "transition": "cut",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [
+        { "id": "knowledge", "label": "Architecture in people's heads", "at": 0, "events": [{ "id": "projections-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "projections-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "people-centre", "at": 2, "action": "reveal", "target": "centre" }, { "id": "view", "at": 4, "action": "reveal", "target": "item-1" }, { "id": "decision", "at": 5.5, "action": "reveal", "target": "item-2" }, { "id": "implementation", "at": 7, "action": "reveal", "target": "item-3" }, { "id": "deployment", "at": 8.5, "action": "reveal", "target": "item-4" }, { "id": "concept", "at": 10, "action": "reveal", "target": "item-5" }] },
+        { "id": "connections", "label": "Connect the projections", "at": 12, "events": [{ "id": "centre-view", "at": 0, "action": "connect", "from": "centre", "to": "item-1" }, { "id": "centre-decision", "at": 1, "action": "connect", "from": "centre", "to": "item-2" }, { "id": "centre-implementation", "at": 2, "action": "connect", "from": "centre", "to": "item-3" }, { "id": "centre-deployment", "at": 3, "action": "connect", "from": "centre", "to": "item-4" }, { "id": "centre-concept", "at": 4, "action": "connect", "from": "centre", "to": "item-5" }, { "id": "centre-focus", "at": 7, "duration": 3, "action": "emphasize", "target": "centre" }] }
+      ]
+    },
+    {
+      "id": "S010", "title": "The cost of fragmentation", "kind": "whiteboard", "diagramLayout": "hub",
+      "headline": "More searching. Less reasoning.", "support": "Fragmentation increases uncertainty across every project.",
+      "items": ["Fragmented knowledge", "Slower discovery", "Duplicated capabilities", "Forgotten decisions", "Manual impact analysis", "Documentation loses relevance"],
+      "companion": false, "assetIds": ["A009"], "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [
+        { "id": "fragmentation", "label": "Fragmented knowledge", "at": 0, "events": [{ "id": "cost-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "cost-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "fragmented-knowledge", "at": 3, "action": "reveal", "target": "item-1" }] },
+        { "id": "discovery", "label": "Discovery and duplication", "at": 8, "events": [{ "id": "slower-discovery", "at": 1, "action": "reveal", "target": "item-2" }, { "id": "fragmentation-discovery", "at": 1, "action": "connect", "from": "item-1", "to": "item-2" }, { "id": "duplicated", "at": 6, "action": "reveal", "target": "item-3" }, { "id": "fragmentation-duplication", "at": 6, "action": "connect", "from": "item-1", "to": "item-3" }] },
+        { "id": "consequences", "label": "Consequences accumulate", "at": 19, "events": [{ "id": "forgotten", "at": 1, "action": "reveal", "target": "item-4" }, { "id": "fragmentation-forgotten", "at": 1, "action": "connect", "from": "item-1", "to": "item-4" }, { "id": "manual-impact", "at": 7, "action": "reveal", "target": "item-5" }, { "id": "fragmentation-impact", "at": 7, "action": "connect", "from": "item-1", "to": "item-5" }, { "id": "documentation", "at": 13, "action": "reveal", "target": "item-6" }, { "id": "fragmentation-documentation", "at": 13, "action": "connect", "from": "item-1", "to": "item-6" }, { "id": "fragmentation-focus", "at": 18, "duration": 3, "action": "emphasize", "target": "item-1" }] }
+      ]
+    },
+    {
+      "id": "S011", "title": "Why now?", "kind": "focus", "focusLayout": "radial", "centre": "ASSISTED SYNTHESIS",
+      "headline": "Reason across unstructured information", "support": "Patterns can emerge from incomplete evidence without replacing judgement.",
+      "items": ["Documents", "Code", "Decisions", "Signals"], "companion": false, "assetIds": ["A010"], "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [
+        { "id": "evidence", "label": "Incomplete evidence", "at": 0, "events": [{ "id": "why-now-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "why-now-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "synthesis", "at": 2, "action": "reveal", "target": "centre" }, { "id": "documents", "at": 5, "action": "reveal", "target": "item-1" }, { "id": "documents-synthesis", "at": 5, "action": "connect", "from": "item-1", "to": "centre" }, { "id": "code", "at": 8, "action": "reveal", "target": "item-2" }, { "id": "code-synthesis", "at": 8, "action": "connect", "from": "item-2", "to": "centre" }] },
+        { "id": "reason", "label": "Reason across sources", "at": 13, "events": [{ "id": "decisions", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "decisions-synthesis", "at": 1, "action": "connect", "from": "item-3", "to": "centre" }, { "id": "signals", "at": 5, "action": "reveal", "target": "item-4" }, { "id": "signals-synthesis", "at": 5, "action": "connect", "from": "item-4", "to": "centre" }, { "id": "qualified-synthesis", "at": 10, "duration": 4, "action": "emphasize", "target": "centre" }] }
+      ]
+    },
+    {
+      "id": "S012", "title": "Augment, not replace", "kind": "studio", "studioLayout": "companion-model", "transactionLabel": false,
+      "headline": "Augment architectural thinking", "support": "Humans remain responsible for judgement and decisions.",
+      "items": ["Human context", "AI-assisted synthesis", "Architectural judgement"], "companion": true, "assetIds": ["A002", "A010"], "transition": "cut",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "motion": { "companionIdle": { "periodFrames": 165, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0001/production/rough-cut-03-companion/S012.json" },
+      "shots": [
+        { "id": "human", "label": "Human context", "at": 0, "events": [{ "id": "augment-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "augment-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "human-context", "at": 3, "action": "reveal", "target": "item-1" }] },
+        { "id": "synthesis", "label": "AI-assisted synthesis", "at": 8, "events": [{ "id": "ai-synthesis", "at": 1, "action": "reveal", "target": "item-2" }] },
+        { "id": "judgement", "label": "Architectural judgement", "at": 15, "events": [{ "id": "architectural-judgement", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "human-judgement", "at": 1, "action": "connect", "from": "item-1", "to": "item-3" }, { "id": "synthesis-judgement", "at": 1, "action": "connect", "from": "item-2", "to": "item-3" }, { "id": "judgement-focus", "at": 5, "duration": 3, "action": "emphasize", "target": "item-3" }] }
+      ]
+    },
+    {
+      "id": "S013", "title": "From side project to question", "kind": "studio", "studioLayout": "companion-model", "transactionLabel": false,
+      "headline": "From side project to question", "support": "False starts converge on architectural knowledge.",
+      "items": ["Side project", "False starts", "Architectural knowledge graph", "Broader question", "Continuously evolving"],
+      "companion": true, "assetIds": ["A002", "A011"], "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "motion": { "companionIdle": { "periodFrames": 170, "translateYPixels": 3.2, "scaleAmplitude": 0.007 } },
+      "companionPerformance": { "timeline": "production/episodes/0001/production/rough-cut-03-companion/S013.json" },
+      "shots": [
+        { "id": "origin", "label": "Origins and false starts", "at": 0, "events": [{ "id": "origin-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "origin-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "side-project", "at": 3, "action": "reveal", "target": "item-1" }, { "id": "false-starts", "at": 7, "action": "reveal", "target": "item-2" }] },
+        { "id": "knowledge", "label": "Architectural knowledge model", "at": 12, "events": [{ "id": "knowledge-graph", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "side-knowledge", "at": 1, "action": "connect", "from": "item-1", "to": "item-3" }, { "id": "false-knowledge", "at": 1, "action": "connect", "from": "item-2", "to": "item-3" }] },
+        { "id": "question", "label": "The broader question", "at": 22, "events": [{ "id": "broader-question", "at": 1, "action": "reveal", "target": "item-4" }, { "id": "knowledge-question", "at": 1, "action": "connect", "from": "item-3", "to": "item-4" }, { "id": "evolving", "at": 6, "action": "reveal", "target": "item-5" }, { "id": "knowledge-evolving", "at": 6, "action": "connect", "from": "item-3", "to": "item-5" }, { "id": "knowledge-focus", "at": 10, "duration": 2, "action": "emphasize", "target": "item-3" }] }
+      ]
+    },
+    {
+      "id": "S014", "title": "The central question", "kind": "workspace", "workspaceLayout": "question",
+      "headline": "Can architecture become a continuously evolving body of knowledge?", "support": "The journal preserves the question rather than pretending it is solved.",
+      "items": ["Journal episodes", "Architecture decisions", "Runtime evidence"],
+      "evidence": { "excerpt": ["Principles remain versioned", "Decisions preserve context", "Experiments record evidence", "Confidence remains explicit"] },
+      "companion": false, "assetIds": ["A011", "A012"], "transition": "cut",
+      "shots": [
+        { "id": "question", "label": "The central question", "at": 0, "events": [{ "id": "central-question", "at": 0, "action": "reveal", "target": "headline" }, { "id": "question-support", "at": 3, "action": "reveal", "target": "support" }, { "id": "episodes", "at": 6, "action": "reveal", "target": "item-1" }, { "id": "principles-evidence", "at": 9, "action": "reveal", "target": "evidence-1" }] },
+        { "id": "record", "label": "A living record", "at": 15, "events": [{ "id": "decisions-path", "at": 1, "action": "reveal", "target": "item-2" }, { "id": "decisions-evidence", "at": 4, "action": "reveal", "target": "evidence-2" }, { "id": "runtime-path", "at": 7, "action": "reveal", "target": "item-3" }, { "id": "runtime-evidence", "at": 10, "action": "reveal", "target": "evidence-3" }] },
+        { "id": "uncertainty", "label": "Preserve uncertainty", "at": 29, "events": [{ "id": "confidence", "at": 1, "action": "reveal", "target": "evidence-4" }, { "id": "question-focus", "at": 4, "duration": 3, "action": "emphasize", "target": "headline" }] }
+      ]
+    },
+    {
+      "id": "S015", "title": "Principles before features", "kind": "whiteboard", "diagramLayout": "grid",
+      "headline": "Principles before features", "support": "Version architecture, model confidence, preserve evidence and keep humans in control.",
+      "items": ["Versioned architecture", "Confidence", "Evidence", "Human control", "Runtime"],
+      "companion": false, "assetIds": ["A013"], "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [
+        { "id": "principles", "label": "Establish the principles", "at": 0, "events": [{ "id": "principles-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "principles-support", "at": 2, "action": "reveal", "target": "support" }, { "id": "versioning", "at": 5, "action": "reveal", "target": "item-1" }] },
+        { "id": "confidence", "label": "Confidence and evidence", "at": 12, "events": [{ "id": "confidence-node", "at": 1, "action": "reveal", "target": "item-2" }, { "id": "version-confidence", "at": 1, "action": "connect", "from": "item-1", "to": "item-2" }, { "id": "evidence-node", "at": 6, "action": "reveal", "target": "item-3" }, { "id": "confidence-evidence", "at": 6, "action": "connect", "from": "item-2", "to": "item-3" }] },
+        { "id": "control", "label": "Human control", "at": 24, "events": [{ "id": "human-control", "at": 1, "action": "reveal", "target": "item-4" }, { "id": "evidence-control", "at": 1, "action": "connect", "from": "item-3", "to": "item-4" }] },
+        { "id": "runtime", "label": "Runtime follows", "at": 32, "events": [{ "id": "runtime-node", "at": 1, "action": "reveal", "target": "item-5" }, { "id": "control-runtime", "at": 1, "action": "connect", "from": "item-4", "to": "item-5" }, { "id": "principles-focus", "at": 4, "duration": 2, "action": "emphasize", "target": "headline" }] }
+      ]
+    },
+    {
+      "id": "S016", "title": "What success is not", "kind": "focus", "focusLayout": "balance",
+      "headline": "Less searching. More meaningful change.", "support": "Success shifts attention from finding information to reasoning about solutions.",
+      "items": ["Searching", "Information retrieval", "Reasoning", "Meaningful change"],
+      "companion": false, "assetIds": ["A014"], "transition": "section",
+      "shots": [
+        { "id": "search", "label": "Time spent searching", "at": 0, "events": [{ "id": "success-not-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "success-not-support", "at": 1.5, "action": "reveal", "target": "support" }, { "id": "searching", "at": 3, "action": "reveal", "target": "item-1" }, { "id": "retrieval", "at": 8, "action": "reveal", "target": "item-2" }] },
+        { "id": "reason", "label": "Shift toward reasoning", "at": 14, "events": [{ "id": "reasoning", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "meaningful-change", "at": 5, "action": "reveal", "target": "item-4" }, { "id": "change-focus", "at": 7, "duration": 2, "action": "emphasize", "target": "item-4" }] }
+      ]
+    },
+    {
+      "id": "S017", "title": "What success means", "kind": "studio", "studioLayout": "companion-model", "studioHeadlineLines": 2, "transactionLabel": false,
+      "headline": "Preserve knowledge. Reduce uncertainty.", "support": "A thoughtful collaborator improves conversations about change.",
+      "items": ["Architectural knowledge", "Evidence and context", "Thoughtful AI collaborator", "Reduced uncertainty", "Better conversations"],
+      "companion": true, "assetIds": ["A002", "A014"], "transition": "cut",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "motion": { "companionIdle": { "periodFrames": 170, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0001/production/rough-cut-03-companion/S017.json" },
+      "shots": [
+        { "id": "knowledge", "label": "Knowledge and evidence", "at": 0, "events": [{ "id": "success-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "success-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "architectural-knowledge", "at": 3, "action": "reveal", "target": "item-1" }, { "id": "evidence-context", "at": 7, "action": "reveal", "target": "item-2" }] },
+        { "id": "collaborator", "label": "Thoughtful collaborator", "at": 11, "events": [{ "id": "thoughtful-collaborator", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "knowledge-collaborator", "at": 1, "action": "connect", "from": "item-1", "to": "item-3" }, { "id": "evidence-collaborator", "at": 1, "action": "connect", "from": "item-2", "to": "item-3" }] },
+        { "id": "outcomes", "label": "Better outcomes", "at": 17, "events": [{ "id": "reduced-uncertainty", "at": 1, "action": "reveal", "target": "item-4" }, { "id": "collaborator-uncertainty", "at": 1, "action": "connect", "from": "item-3", "to": "item-4" }, { "id": "better-conversations", "at": 4, "action": "reveal", "target": "item-5" }, { "id": "collaborator-conversations", "at": 4, "action": "connect", "from": "item-3", "to": "item-5" }, { "id": "collaborator-focus", "at": 5, "duration": 2, "action": "emphasize", "target": "item-3" }] }
+      ]
+    },
+    {
+      "id": "S018", "title": "Looking ahead", "kind": "workspace",
+      "headline": "Looking Ahead", "support": "The journal will expose the principles, requirements, constraints and experiments.",
+      "items": ["Principles", "Requirements", "Constraints", "Experiments"],
+      "evidence": { "excerpt": ["Episodes expose the reasoning", "Decisions preserve trade-offs", "Experiments test assumptions"] },
+      "companion": false, "assetIds": ["A016"], "transition": "section",
+      "shots": [
+        { "id": "journal", "label": "Looking Ahead", "at": 0, "events": [{ "id": "looking-ahead", "at": 0, "action": "reveal", "target": "headline" }, { "id": "looking-support", "at": 1, "action": "reveal", "target": "support" }, { "id": "principles-path", "at": 3, "action": "reveal", "target": "item-1" }, { "id": "principles-record", "at": 5, "action": "reveal", "target": "evidence-1" }, { "id": "requirements-path", "at": 7, "action": "reveal", "target": "item-2" }, { "id": "decisions-record", "at": 9, "action": "reveal", "target": "evidence-2" }] },
+        { "id": "experiments", "label": "Constraints and experiments", "at": 13, "events": [{ "id": "constraints-path", "at": 1, "action": "reveal", "target": "item-3" }, { "id": "experiments-path", "at": 4, "action": "reveal", "target": "item-4" }, { "id": "experiments-record", "at": 6, "action": "reveal", "target": "evidence-3" }] }
+      ]
+    },
+    {
+      "id": "S019", "title": "An exploration", "kind": "studio", "studioLayout": "closing",
+      "headline": "An exploration into better architecture", "support": "The Articulate Journal continues.",
+      "items": ["Architecture in public"], "companion": true, "assetIds": ["A002", "A015"], "transition": "fade",
+      "motion": { "companionIdle": { "periodFrames": 175, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0001/production/rough-cut-03-companion/S019.json" },
+      "shots": [
+        { "id": "close", "label": "Close in the Studio", "at": 0, "events": [{ "id": "closing-title", "at": 0.5, "action": "reveal", "target": "headline" }, { "id": "closing-support", "at": 3, "action": "reveal", "target": "support" }, { "id": "architecture-public", "at": 7, "action": "reveal", "target": "item-1" }, { "id": "closing-focus", "at": 11, "duration": 2, "action": "emphasize", "target": "headline" }] }
+      ]
+    }
+  ]
+}

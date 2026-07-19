@@ -9,8 +9,11 @@ export function renderSceneSvg(scene, episode, output, companionData, grammar, s
     return environmentSceneSvg(scene, episode, output, companionData, grammar, state);
   }
   const episodeIdentity = episodeLabel(episode.id);
-  const header = `<text x="${frame.safeArea.x}" y="${frame.header.y}" font-size="28" fill="${palette.muted}" letter-spacing="2">ARTICULATE JOURNAL · ${episodeIdentity} · ${scene.id}</text>`;
-  const footer = `<line x1="${frame.safeArea.x}" y1="${frame.footer.lineY}" x2="${frame.safeArea.x + frame.safeArea.width}" y2="${frame.footer.lineY}" stroke="${palette.line}"/><text x="${frame.safeArea.x}" y="${frame.footer.textY}" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${xml(scene.narrationReference)}</text><text x="${frame.safeArea.x + frame.safeArea.width}" y="${frame.footer.textY}" text-anchor="end" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${time(scene.startSeconds)} — ${time(scene.endSeconds)}</text>`;
+  const headerText = scene.productionMetadata === false ? `ARTICULATE JOURNAL · ${episodeIdentity}` : `ARTICULATE JOURNAL · ${episodeIdentity} · ${scene.id}`;
+  const header = `<text x="${frame.safeArea.x}" y="${frame.header.y}" font-size="28" fill="${palette.muted}" letter-spacing="2">${headerText}</text>`;
+  const footer = scene.productionMetadata === false
+    ? `<line x1="${frame.safeArea.x}" y1="${frame.footer.lineY}" x2="${frame.safeArea.x + frame.safeArea.width}" y2="${frame.footer.lineY}" stroke="${palette.line}"/><text x="${frame.safeArea.x}" y="${frame.footer.textY}" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">ARTICULATE JOURNAL</text><text x="${frame.safeArea.x + frame.safeArea.width}" y="${frame.footer.textY}" text-anchor="end" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${xml(episode.title)}</text>`
+    : `<line x1="${frame.safeArea.x}" y1="${frame.footer.lineY}" x2="${frame.safeArea.x + frame.safeArea.width}" y2="${frame.footer.lineY}" stroke="${palette.line}"/><text x="${frame.safeArea.x}" y="${frame.footer.textY}" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${xml(scene.narrationReference)}</text><text x="${frame.safeArea.x + frame.safeArea.width}" y="${frame.footer.textY}" text-anchor="end" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${time(scene.startSeconds)} — ${time(scene.endSeconds)}</text>`;
   const content = renderComposition(scene, episode, companionData, grammar, state);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${output.width}" height="${output.height}" viewBox="0 0 ${output.width} ${output.height}">
   <rect width="${output.width}" height="${output.height}" fill="${palette.paper}"/>
@@ -48,13 +51,14 @@ function environmentSceneSvg(scene, episode, output, companionData, grammar, sta
     <pattern id="studio-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="#8eabb8" stroke-opacity=".08" stroke-width="1"/></pattern>
     <filter id="board-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#05090b" flood-opacity=".42"/></filter>
     <marker id="studio-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#55798b"/></marker>
+    <marker id="direction-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#55798b"/></marker>
   </defs>
   <style>text{font-family:${grammar.typography.fontFamily}}.emphasized rect,.emphasized circle{stroke:#b76c4d!important;stroke-width:4}.emphasized text{fill:#9a4f34!important}</style>
   <rect width="1920" height="1080" fill="url(#studio-background)"/><rect width="1920" height="1080" fill="url(#studio-grid)"/>
   <text x="72" y="72" font-size="21" font-weight="650" fill="#d8e1e4" letter-spacing="4">ARTICULATE</text>
   <text x="72" y="103" font-size="14" fill="#8eabb8" letter-spacing="2">${labels[scene.presentation.composition]}</text>
   ${content}
-  <text x="72" y="1030" font-size="17" fill="#8eabb8">${xml(scene.narrationReference)}</text>
+  <text x="72" y="1030" font-size="17" fill="#8eabb8">${scene.productionMetadata === false ? "ARTICULATE JOURNAL" : xml(scene.narrationReference)}</text>
   <text x="1848" y="1030" text-anchor="end" font-size="17" fill="#8eabb8">${xml(episode.title)} · ${episodeLabel(episode.id)}</text>
   </svg>`;
 }
@@ -83,10 +87,14 @@ function studioSceneSvg(scene, episode, output, companionData, grammar, state) {
 }
 
 function studioComposition(scene, companionData, grammar, state) {
+  if (scene.studioLayout === "workspace") {
+    return studioWorkspaceComposition(scene, companionData, grammar, state);
+  }
   if (scene.studioLayout && !scene.studioLayout.startsWith("companion-model")) {
     return studioWelcomeComposition(scene, companionData, grammar, state);
   }
   const cleanModel = scene.studioLayout === "companion-model-v2";
+  const expandedHeading = scene.studioHeadlineLines === 2;
   const board = { x: 590, y: 86, width: 1260, height: 914 };
   const idle = companionIdleTransform(scene, state, grammar);
   const positions = new Map(cleanModel ? [
@@ -95,18 +103,18 @@ function studioComposition(scene, companionData, grammar, state) {
     ["item-3", { x: 850, y: 465, width: 540, height: 106 }],
     ...Array.from({ length: 5 }, (_, index) => [`item-${index + 4}`, { x: 620 + index * 222, y: 700, width: 200, height: 104 }])
   ] : [
-    ["item-1", { x: 735, y: 330, width: 230, height: 92 }],
-    ["item-2", { x: 1135, y: 330, width: 230, height: 92 }],
-    ["item-3", { x: 1030, y: 435, width: 390, height: 104 }],
-    ["item-4", { x: 660, y: 590, width: 250, height: 82 }],
-    ["item-5", { x: 960, y: 590, width: 250, height: 82 }],
-    ["item-6", { x: 1260, y: 590, width: 250, height: 82 }],
-    ["item-7", { x: 810, y: 725, width: 250, height: 82 }],
-    ["item-8", { x: 1110, y: 725, width: 250, height: 82 }]
+    ["item-1", { x: 735, y: expandedHeading ? 420 : 330, width: 230, height: 92 }],
+    ["item-2", { x: 1135, y: expandedHeading ? 420 : 330, width: 230, height: 92 }],
+    ["item-3", { x: 1030, y: expandedHeading ? 535 : 435, width: 390, height: 104 }],
+    ["item-4", { x: 660, y: expandedHeading ? 695 : 590, width: 250, height: 82 }],
+    ["item-5", { x: 960, y: expandedHeading ? 695 : 590, width: 250, height: 82 }],
+    ["item-6", { x: 1260, y: expandedHeading ? 695 : 590, width: 250, height: 82 }],
+    ["item-7", { x: 810, y: expandedHeading ? 820 : 725, width: 250, height: 82 }],
+    ["item-8", { x: 1110, y: expandedHeading ? 820 : 725, width: 250, height: 82 }]
   ]);
   const boardShell = `<rect x="${board.x}" y="${board.y}" width="${board.width}" height="${board.height}" rx="34" fill="#f6f2e9" filter="url(#board-shadow)"/><rect x="${board.x + 20}" y="${board.y + 20}" width="${board.width - 40}" height="${board.height - 40}" rx="24" fill="none" stroke="#cfcbc1"/>`;
-  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 660, y: 190, width: 1080 }, { fontSize: 62, weight: 720, maxLines: 1, fill: "#172028" }, `${scene.id} studio headline`), state);
-  const support = element("support", textBlock(elementText(scene, "support", state), { x: 662, y: 260, width: 1050 }, { fontSize: 28, weight: 450, maxLines: 2, fill: "#55798b" }, `${scene.id} studio support`), state);
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 660, y: 190, width: 1080 }, { fontSize: expandedHeading ? 52 : 62, weight: 720, maxLines: expandedHeading ? 2 : 1, lineHeight: 1.05, fill: "#172028" }, `${scene.id} studio headline`), state);
+  const support = element("support", textBlock(elementText(scene, "support", state), { x: 662, y: expandedHeading ? 330 : 260, width: 1050 }, { fontSize: expandedHeading ? 25 : 28, weight: 450, maxLines: 2, fill: "#55798b" }, `${scene.id} studio support`), state);
   const activeConnections = [...(state?.connections?.values() ?? [])];
   const connectors = cleanModel
     ? companionCapabilityTree(activeConnections, positions)
@@ -121,7 +129,7 @@ function studioComposition(scene, companionData, grammar, state) {
     const capability = cleanModel && index >= 3;
     return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="${persistent ? 24 : 18}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, capability ? 12 : 18, 10), { fontSize: persistent ? 27 : capability ? 19 : 22, weight: persistent ? 700 : 600, maxLines: capability ? 3 : 2, lineHeight: 1.1, align: "middle", fill: "#26333a" }, `${scene.id} studio item ${index + 1}`)}`, state);
   }).join("");
-  const promptArrow = visible("item-1", state) && visible("item-2", state)
+  const promptArrow = scene.transactionLabel !== false && visible("item-1", state) && visible("item-2", state)
     ? cleanModel
       ? `<line x1="1065" y1="376" x2="1175" y2="376" stroke="#7b8c94" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/><text x="1120" y="355" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
       : `<line x1="980" y1="376" x2="1118" y2="376" stroke="#7b8c94" stroke-width="3" stroke-linecap="round" marker-end="url(#studio-arrow)"/><text x="1048" y="355" text-anchor="middle" font-size="16" fill="#7b8c94" letter-spacing="1.5">TRANSACTION</text>`
@@ -169,6 +177,23 @@ function studioWelcomeComposition(scene, companionData, grammar, state) {
   return `${boardShell}${companion}${headline}${support}${items}`;
 }
 
+function studioWorkspaceComposition(scene, companionData, grammar, state) {
+  const idle = companionIdleTransform(scene, state, grammar);
+  const window = { x: 590, y: 105, width: 1260, height: 875 };
+  const shell = `<rect x="${window.x}" y="${window.y}" width="${window.width}" height="${window.height}" rx="30" fill="#111920" filter="url(#board-shadow)"/><rect x="${window.x}" y="${window.y}" width="${window.width}" height="64" rx="30" fill="#1b2931"/><circle cx="635" cy="137" r="7" fill="#a65d3f"/><circle cx="661" cy="137" r="7" fill="#c3a36b"/><circle cx="687" cy="137" r="7" fill="#547064"/><line x1="955" y1="169" x2="955" y2="980" stroke="#31424b"/>`;
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 1010, y: 250, width: 760 }, { fontSize: 48, weight: 700, maxLines: 2, lineHeight: 1.08, fill: "#f4f0e8" }, `${scene.id} studio workspace headline`), state);
+  const support = element("support", textBlock(elementText(scene, "support", state), { x: 1012, y: 360, width: 730 }, { fontSize: 26, weight: 430, maxLines: 3, lineHeight: 1.14, fill: "#8fb0c0" }, `${scene.id} studio workspace support`), state);
+  const paths = (scene.items ?? []).map((item, index) => {
+    const box = { x: 630, y: 235 + index * 105, width: 280, height: 70 };
+    return element(`item-${index + 1}`, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="12" fill="#18262e" stroke="#31424b"/>${centredTextBlock(elementText(scene, `item-${index + 1}`, state, item), insetBox(box, 18, 10), { fontSize: 20, weight: 550, maxLines: 2, lineHeight: 1.1, align: "middle", fill: "#cbd5d9" }, `${scene.id} studio workspace item ${index + 1}`)}`, state);
+  }).join("");
+  const evidence = (scene.evidence?.excerpt ?? []).map((line, index) => {
+    const box = { x: 1010, y: 500 + index * 112, width: 730, height: 82 };
+    return element(`evidence-${index + 1}`, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="14" fill="#18262e" stroke="#31424b"/><rect x="${box.x}" y="${box.y}" width="8" height="${box.height}" rx="4" fill="#3d6075"/>${centredTextBlock(elementText(scene, `evidence-${index + 1}`, state, line), insetBox(box, 28, 10), { fontSize: 22, weight: 500, maxLines: 2, lineHeight: 1.12, fill: "#dce4e7" }, `${scene.id} studio workspace evidence ${index + 1}`)}`, state);
+  }).join("");
+  return `${shell}${element("companion", companionFigure(companionData, idle, state), state)}${headline}${support}${paths}${evidence}`;
+}
+
 function whiteboardComposition(scene, grammar, state) {
   const board = { x: 130, y: 90, width: 1660, height: 900 };
   const positions = whiteboardPositions(scene, board);
@@ -196,7 +221,8 @@ function whiteboardPositions(scene, board) {
     const boxes = [
       { x: 760, y: 470, width: 400, height: 120 },
       { x: 230, y: 400, width: 330, height: 108 }, { x: 230, y: 665, width: 330, height: 108 },
-      { x: 1360, y: 400, width: 330, height: 108 }, { x: 1360, y: 665, width: 330, height: 108 }
+      { x: 1360, y: 400, width: 330, height: 108 }, { x: 1360, y: 665, width: 330, height: 108 },
+      { x: 795, y: 720, width: 330, height: 108 }
     ];
     items.forEach((_, index) => positions.set(`item-${index + 1}`, boxes[index]));
     return positions;
@@ -211,12 +237,13 @@ function whiteboardPositions(scene, board) {
 
 function workspaceComposition(scene, grammar, state) {
   const window = { x: 145, y: 120, width: 1630, height: 830 };
+  const questionLayout = scene.workspaceLayout === "question";
   const shell = `<rect x="${window.x}" y="${window.y}" width="${window.width}" height="${window.height}" rx="28" fill="#111920" filter="url(#board-shadow)"/><rect x="${window.x}" y="${window.y}" width="${window.width}" height="66" rx="28" fill="#1b2931"/><circle cx="195" cy="153" r="8" fill="#a65d3f"/><circle cx="224" cy="153" r="8" fill="#c3a36b"/><circle cx="253" cy="153" r="8" fill="#547064"/><line x1="620" y1="186" x2="620" y2="950" stroke="#31424b"/><text x="290" y="163" font-size="19" fill="#9fb2bb">articulate / architectural-journal</text>`;
-  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 680, y: 260, width: 1010 }, { fontSize: 52, weight: 700, maxLines: 2, lineHeight: 1.08, fill: "#f4f0e8" }, `${scene.id} workspace headline`), state);
-  const support = element("support", textBlock(elementText(scene, "support", state), { x: 682, y: 365, width: 980 }, { fontSize: 27, weight: 430, maxLines: 2, fill: "#8fb0c0" }, `${scene.id} workspace support`), state);
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 680, y: 260, width: 1010 }, { fontSize: questionLayout ? 46 : 52, weight: 700, maxLines: questionLayout ? 3 : 2, lineHeight: 1.08, fill: "#f4f0e8" }, `${scene.id} workspace headline`), state);
+  const support = element("support", textBlock(elementText(scene, "support", state), { x: 682, y: questionLayout ? 440 : 365, width: 980 }, { fontSize: 27, weight: 430, maxLines: 2, fill: "#8fb0c0" }, `${scene.id} workspace support`), state);
   const paths = (scene.items ?? []).map((item, index) => element(`item-${index + 1}`, `<rect x="185" y="${250 + index * 105}" width="390" height="74" rx="12" fill="#18262e" stroke="#31424b"/><text x="215" y="${296 + index * 105}" font-size="22" fill="#cbd5d9">${xml(elementText(scene, `item-${index + 1}`, state, item))}</text>`, state)).join("");
   const evidence = (scene.evidence?.excerpt ?? []).map((line, index) => {
-    const box = { x: 680, y: 455 + index * 112, width: 980, height: 82 };
+    const box = { x: 680, y: (questionLayout ? 535 : 455) + index * (questionLayout ? 96 : 112), width: 980, height: 82 };
     return element(`evidence-${index + 1}`, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="14" fill="#18262e" stroke="#31424b"/><rect x="${box.x}" y="${box.y}" width="8" height="${box.height}" rx="4" fill="${index % 2 ? "#547064" : "#3d6075"}"/>${centredTextBlock(elementText(scene, `evidence-${index + 1}`, state, line), insetBox(box, 32, 12), { fontSize: 24, weight: 500, maxLines: 2, lineHeight: 1.14, fill: "#dce4e7" }, `${scene.id} workspace evidence ${index + 1}`)}`, state);
   }).join("");
   return `${element("workspace-window", shell, state)}${headline}${support}${paths}${evidence}`;
@@ -227,12 +254,15 @@ function focusComposition(scene, grammar, state) {
   const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 210, y: scene.focusLayout === "bridge" ? 310 : 220, width: 1500 }, { fontSize: headlineSize, weight: 720, maxLines: 4, lineHeight: 1.05, align: scene.focusLayout === "bridge" ? "middle" : "start", fill: "#f4f0e8" }, `${scene.id} focus headline`), state);
   const support = element("support", textBlock(elementText(scene, "support", state), { x: 260, y: scene.focusLayout === "bridge" ? 560 : 350, width: 1400 }, { fontSize: 31, weight: 430, maxLines: 3, lineHeight: 1.15, align: scene.focusLayout === "bridge" ? "middle" : "start", fill: "#9bb7c4" }, `${scene.id} focus support`), state);
   const glow = `<ellipse cx="960" cy="560" rx="840" ry="520" fill="url(#focus-light)"/>`;
-  const items = focusItems(scene, state);
+  const items = scene.focusLayout === "radial"
+    ? radial(scene, 430, scene.centre ?? "CONNECTED KNOWLEDGE", grammar, state)
+    : focusItems(scene, state);
   return `${glow}${headline}${support}${items}`;
 }
 
 function focusItems(scene, state) {
   const items = scene.items ?? [];
+  if (scene.focusLayout === "balance") return focusBalance(scene, state);
   if (scene.focusLayout === "bridge") {
     return items.map((item, index) => {
       const box = { x: 610, y: 690 + index * 115, width: 700, height: 82 };
@@ -254,6 +284,24 @@ function focusItems(scene, state) {
     const box = { x: startX + (index % columns) * (width + gap), y: 540 + Math.floor(index / columns) * 155, width, height: 104 };
     return element(`item-${index + 1}`, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="24" fill="#263a45" stroke="#6f8e9d" stroke-width="2"/>${centredTextBlock(elementText(scene, `item-${index + 1}`, state, item), insetBox(box, 28, 14), { fontSize: 27, weight: 620, maxLines: 2, lineHeight: 1.12, align: "middle", fill: "#e8eeef" }, `${scene.id} focus item ${index + 1}`)}`, state);
   }).join("");
+}
+
+function focusBalance(scene, state) {
+  const items = scene.items ?? [];
+  const positions = [
+    { x: 260, y: 585, width: 430, height: 92 },
+    { x: 310, y: 715, width: 430, height: 92 },
+    { x: 1230, y: 485, width: 430, height: 92 },
+    { x: 1180, y: 615, width: 430, height: 92 }
+  ];
+  const beam = `<path d="M 520 590 L 1390 500" fill="none" stroke="#8fb0c0" stroke-width="8" stroke-linecap="round"/><path d="M 920 570 L 1000 760 L 840 760 Z" fill="#263a45" stroke="#6f8e9d" stroke-width="3"/><path d="M 720 830 C 940 900 1190 850 1370 745" fill="none" stroke="#b76c4d" stroke-width="4" marker-end="url(#direction-arrow)"/><text x="1045" y="882" text-anchor="middle" font-size="25" font-weight="650" fill="#d18a69">LESS SEARCHING · MORE REASONING</text>`;
+  const nodes = items.map((item, index) => {
+    const box = positions[index];
+    if (!box) return "";
+    const id = `item-${index + 1}`;
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="46" fill="#263a45" stroke="#6f8e9d" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 30, 12), { fontSize: 27, weight: 620, maxLines: 2, lineHeight: 1.12, align: "middle", fill: "#e8eeef" }, `${scene.id} balance item ${index + 1}`)}`, state);
+  }).join("");
+  return `${beam}${nodes}`;
 }
 
 function straightBoxConnector(connection, positions) {
@@ -379,11 +427,12 @@ function flow(scene, y, grammar, state) {
   const width = Math.min(285, (1650 - (items.length - 1) * spacing.flowGap) / items.length);
   return items.map((item, index) => {
     const x = 112 + index * (width + spacing.flowGap);
-    const arrow = index < items.length - 1 ? `<line x1="${x + width + 10}" y1="${y + 66}" x2="${x + width + spacing.flowGap - 10}" y2="${y + 66}" stroke="${palette.blue}" stroke-width="3" marker-end="url(#direction-arrow)"/>` : "";
+    const id = `item-${index + 1}`;
+    const nextId = `item-${index + 2}`;
+    const arrow = index < items.length - 1 && visible(id, state) && visible(nextId, state) ? `<line x1="${x + width + 10}" y1="${y + 66}" x2="${x + width + spacing.flowGap - 10}" y2="${y + 66}" stroke="${palette.blue}" stroke-width="3" marker-end="url(#direction-arrow)"/>` : "";
     const box = { x, y, width, height: 132 };
     const inner = insetBox(box, 18, spacing.boxBlock);
-    const id = `item-${index + 1}`;
-    return `${element(id, `<rect x="${x}" y="${y}" width="${width}" height="132" rx="12" fill="${index === items.length - 1 ? palette.paleBlue : palette.white}" stroke="${palette.line}"/>${centredTextBlock(elementText(scene, id, state, item), inner, { ...typography.roles.flowLabel, align: "middle", fill: palette.ink }, `${scene.id} flow item ${index + 1}`)}`, state)}${visible(id, state) ? arrow : ""}`;
+    return `${element(id, `<rect x="${x}" y="${y}" width="${width}" height="132" rx="12" fill="${index === items.length - 1 ? palette.paleBlue : palette.white}" stroke="${palette.line}"/>${centredTextBlock(elementText(scene, id, state, item), inner, { ...typography.roles.flowLabel, align: "middle", fill: palette.ink }, `${scene.id} flow item ${index + 1}`)}`, state)}${arrow}`;
   }).join("");
 }
 
@@ -409,7 +458,10 @@ function radial(scene, y, centre, grammar, state) {
   });
   const nodes = positions.map((node, index) => element(node.id, `<rect x="${node.box.x}" y="${node.box.y}" width="250" height="84" rx="42" fill="${palette.white}" stroke="${palette.line}"/>${centredTextBlock(elementText(scene, node.id, state, node.item), insetBox(node.box, 20, 8), { ...typography.roles.diagramLabel, fontSize: 24, weight: 600, align: "middle", fill: palette.ink }, `${scene.id} radial item ${index + 1}`)}`, state)).join("");
   const point = new Map([["centre", { x: cx, y: cy }], ...positions.map((node) => [node.id, { x: node.x, y: node.y }])]);
-  const declaredConnections = state ? [...state.connections.values()] : positions.map((node) => ({ from: node.id, to: "centre", directional: true }));
+  const hasAuthoredConnections = scene.timeline?.events?.some((event) => ["connect", "disconnect"].includes(event.action));
+  const declaredConnections = hasAuthoredConnections
+    ? [...(state?.connections?.values() ?? [])]
+    : positions.map((node) => ({ from: node.id, to: "centre", directional: true }));
   const connectors = declaredConnections.map((connection) => {
     const from = point.get(connection.from), to = point.get(connection.to);
     if (!from || !to) return "";

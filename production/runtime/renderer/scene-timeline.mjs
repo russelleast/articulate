@@ -5,11 +5,20 @@ const ACTIONS = new Set([
 
 const TARGET_ACTIONS = new Set(["reveal", "hide", "emphasize", "deemphasize", "replace", "type"]);
 
+export function sceneFrameWindow(scene, frameRate) {
+  const startFrame = Math.round(scene.startSeconds * frameRate);
+  const endFrame = Math.round(scene.endSeconds * frameRate);
+  return Object.freeze({ startFrame, endFrame, frameCount: endFrame - startFrame });
+}
+
 export function sceneElementIds(scene) {
   const ids = ["headline", "support", ...(scene.items ?? []).map((_, index) => `item-${index + 1}`)];
-  if (scene.presentation?.composition?.startsWith("radial-")) ids.push("centre");
+  if (scene.presentation?.composition?.startsWith("radial-") || scene.focusLayout === "radial" || scene.diagramLayout === "radial" || scene.centre) ids.push("centre");
   if (["repository", "workspace"].includes(scene.presentation?.composition)) {
     ids.push(scene.presentation.composition === "workspace" ? "workspace-window" : "repository-window", ...(scene.evidence?.excerpt ?? []).map((_, index) => `evidence-${index + 1}`));
+  }
+  if (scene.presentation?.composition === "studio" && scene.studioLayout === "workspace") {
+    ids.push(...(scene.evidence?.excerpt ?? []).map((_, index) => `evidence-${index + 1}`));
   }
   if (["companion", "studio"].includes(scene.presentation?.composition)) ids.push("companion");
   return ids;
@@ -169,7 +178,8 @@ export function timelineManifestEntry(timeline) {
       endFrame: event.endFrame,
       startSeconds: event.startSeconds,
       endSeconds: event.endSeconds,
-      treatment: event.treatment
+      treatment: event.treatment,
+      shotId: event.shotId ?? null
     })),
     warnings: timeline.warnings
   };

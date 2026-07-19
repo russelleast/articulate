@@ -19,3 +19,4 @@ Do not add a decision merely because a template exists. Add one when a choice co
 - [0002: Render through a Visual Grammar profile](0002-render-through-visual-grammar-profile.md)
 - [0003: Declarative Scene Timeline](0003-declarative-scene-timeline.md)
 - [0004: Separate Companion performance from scene rendering](0004-separate-companion-performance-timeline.md)
+- [0005: Declarative Shot Hierarchy](0005-declarative-shot-hierarchy.md)

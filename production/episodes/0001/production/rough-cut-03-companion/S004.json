@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "seed": 2004,
+  "source": {
+    "audio": "production/cache/episode-0001/rough-cut-03-companion/S004.wav",
+    "sha256": "3f73081166dc5067f055aa6c081e3c4b951aae53cc92ca241dc63f11b16a1171",
+    "sourceStartSeconds": 61.104,
+    "durationSeconds": 27.6,
+    "frameRate": 25,
+    "sampleRateHz": 16000
+  },
+  "analysis": {
+    "method": "offline-rms-zero-crossing-v1",
+    "motionProfile": "longform",
+    "speechFloor": 0.012,
+    "noiseFloor": 0.0007582702811740074,
+    "visemeModel": [],
+    "smoothing": "three-frame weighted energy and zero-crossing window; isolated non-rest frame suppression",
+    "motionOnly": true
+  },
+  "layers": [
+    "idle",
+    "facial"
+  ],
+  "events": [
+    {
+      "id": "blink-01",
+      "type": "blink",
+      "at": 3.344,
+      "duration": 0.224
+    },
+    {
+      "id": "head-01",
+      "type": "head",
+      "at": 8.832,
+      "duration": 2.8,
+      "value": {
+        "x": 5,
+        "y": 1.8,
+        "rotation": 0.8
+      }
+    },
+    {
+      "id": "blink-02",
+      "type": "blink",
+      "at": 11.335,
+      "duration": 0.221
+    },
+    {
+      "id": "blink-03",
+      "type": "blink",
+      "at": 18.97,
+      "duration": 0.18
+    },
+    {
+      "id": "head-02",
+      "type": "head",
+      "at": 19.872,
+      "duration": 2.7,
+      "value": {
+        "x": -4,
+        "y": 2.2,
+        "rotation": -0.65
+      }
+    },
+    {
+      "id": "blink-04",
+      "type": "blink",
+      "at": 26.341,
+      "duration": 0.191
+    }
+  ]
+}
