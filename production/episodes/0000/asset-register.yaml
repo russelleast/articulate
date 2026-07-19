@@ -73,3 +73,13 @@ assets:
     version: "v1"
     status: "production-candidate"
     review_notes: "Five-state simplified viseme model and facial treatment approved in focused PoC review; complete-episode candidate awaits full-video review."
+  - asset_id: "A008"
+    asset_type: "publication thumbnail system"
+    source: "Companion v1 neutral asset; Articulate Visual Grammar; Episode 0000 Architectural Studio"
+    generation_method: "deterministic SVG composition with raster publication and reduced-size review outputs"
+    licence_or_ownership: "Articulate project"
+    episode_section: "Publication"
+    scene_usage: []
+    version: "v1"
+    status: "review-candidate"
+    review_notes: "Three related composition variants retain the full BUILDING AI-NATIVE ARCHITECTURE headline and are reviewed at 1280, 320 and 160 pixel widths."

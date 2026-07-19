@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1320" viewBox="0 0 1600 1320">
+    <rect width="100%" height="100%" fill="#0b151c"/>
+    <text x="48" y="50" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="800" fill="#f4f0e8">EPISODE 0000 · THUMBNAIL SIZE REVIEW</text>
+    <text x="48" y="82" font-family="Inter,Arial,sans-serif" font-size="16" fill="#8fa2aa">Full comparison · 320 px browsing size · 160 px compact size</text>
+    <text x="48" y="110" font-family="Inter,Arial,sans-serif" font-size="13" fill="#a65d3f" letter-spacing="1.5">1280 × 720 SOURCE (DISPLAYED AT 640)</text>
+    <text x="740" y="110" font-family="Inter,Arial,sans-serif" font-size="13" fill="#a65d3f" letter-spacing="1.5">320 × 180</text>
+    <text x="1115" y="110" font-family="Inter,Arial,sans-serif" font-size="13" fill="#a65d3f" letter-spacing="1.5">160 × 90</text>
+    <text x="48" y="140" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" fill="#f4f0e8" letter-spacing="1.3">A · COMPANION-LED</text>
+<image href="../episode-0000-thumbnail-a-companion-led.png" x="48" y="150" width="640" height="360"/>
+<image href="../episode-0000-thumbnail-a-companion-led.png" x="740" y="205" width="320" height="180"/>
+<image href="../episode-0000-thumbnail-a-companion-led.png" x="1115" y="250" width="160" height="90"/>
+<text x="48" y="530" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" fill="#f4f0e8" letter-spacing="1.3">B · ARCHITECTURE-LED</text>
+<image href="../episode-0000-thumbnail-b-architecture-led.png" x="48" y="540" width="640" height="360"/>
+<image href="../episode-0000-thumbnail-b-architecture-led.png" x="740" y="595" width="320" height="180"/>
+<image href="../episode-0000-thumbnail-b-architecture-led.png" x="1115" y="640" width="160" height="90"/>
+<text x="48" y="920" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" fill="#f4f0e8" letter-spacing="1.3">C · BALANCED</text>
+<image href="../episode-0000-thumbnail-c-balanced.png" x="48" y="930" width="640" height="360"/>
+<image href="../episode-0000-thumbnail-c-balanced.png" x="740" y="985" width="320" height="180"/>
+<image href="../episode-0000-thumbnail-c-balanced.png" x="1115" y="1030" width="160" height="90"/>
+  </svg>

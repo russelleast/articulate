@@ -8,6 +8,8 @@ Timing authority: the final recorded narration, registered as `episode-0000-narr
 
 Production Quality Baseline v1 established and received approval for the Architectural Studio, Companion presence, restrained idle motion, working visual surface, progressive reveals and directional relationships. The approved language is now applied across the complete episode through the Architectural Studio, Architectural Whiteboard, Digital Workspace and Focus Canvas.
 
+Publication artwork is maintained as a first-class episode artefact under [`publication/thumbnail/`](publication/thumbnail/). The Episode 0000 thumbnail source produces three related 1280 × 720 candidates, reduced-size previews and a comparison contact sheet without modifying the approved video assets.
+
 ## Commands
 
 ```sh
