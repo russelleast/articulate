@@ -53,7 +53,7 @@ export function resolveSceneTimeline(scene, frameRate, grammar) {
     if (event.at > scene.durationSeconds || endSeconds > scene.durationSeconds) {
       errors.push(issue(scene, eventId, event, `event ends outside scene duration ${scene.durationSeconds.toFixed(3)}s`));
     }
-    resolved.push(Object.freeze({
+    resolved.push({
       ...event,
       id: eventId,
       startFrame,
@@ -61,11 +61,31 @@ export function resolveSceneTimeline(scene, frameRate, grammar) {
       startSeconds: startFrame / frameRate,
       endSeconds: endFrame / frameRate,
       treatment: treatmentFor(event, grammar)
-    }));
+    });
   }
 
+  if (scene.timeline?.connectorTiming === "with-destination") {
+    const revealFrameByTarget = new Map(resolved
+      .filter((event) => ["reveal", "type"].includes(event.action))
+      .map((event) => [event.target, event.startFrame]));
+    for (const event of resolved.filter((candidate) => candidate.action === "connect")) {
+      const synchronizedFrame = Math.max(revealFrameByTarget.get(event.from) ?? 0, revealFrameByTarget.get(event.to) ?? 0);
+      if (event.startFrame !== synchronizedFrame) {
+        warnings.push(`${event.id} synchronized from frame ${event.startFrame} to destination reveal frame ${synchronizedFrame}`);
+        event.declaredAt = event.at;
+        event.at = synchronizedFrame / frameRate;
+        event.startFrame = synchronizedFrame;
+        event.endFrame = synchronizedFrame;
+        event.startSeconds = synchronizedFrame / frameRate;
+        event.endSeconds = synchronizedFrame / frameRate;
+      }
+    }
+  }
+
+  const finalized = resolved.map((event) => Object.freeze(event));
+
   const firstByTarget = new Map();
-  for (const event of resolved) {
+  for (const event of finalized) {
     if (event.target && !firstByTarget.has(event.target)) firstByTarget.set(event.target, event);
   }
   const initiallyHidden = new Set(scene.timeline?.initiallyHidden ?? []);
@@ -75,15 +95,15 @@ export function resolveSceneTimeline(scene, frameRate, grammar) {
   for (const [target, event] of firstByTarget) {
     if (["reveal", "type"].includes(event.action)) initiallyHidden.add(target);
   }
-  for (const event of resolved) {
+  for (const event of finalized) {
     if (event.action === "replace" && !firstByTarget.has(event.with)) initiallyHidden.add(event.with);
   }
 
-  validateSequence(scene, resolved, initiallyHidden, errors);
+  validateSequence(scene, finalized, initiallyHidden, errors);
   if (errors.length) throw new Error(`Scene timeline validation failed:\n- ${errors.map(formatIssue).join("\n- ")}`);
   return Object.freeze({
     declared: declared.map((event) => ({ ...event })),
-    events: Object.freeze(resolved.sort((a, b) => a.startFrame - b.startFrame || a.id.localeCompare(b.id))),
+    events: Object.freeze(finalized.sort(eventOrder)),
     initiallyHidden: Object.freeze([...initiallyHidden]),
     elements: Object.freeze(elements),
     warnings: Object.freeze(warnings),
@@ -162,7 +182,7 @@ export function connectionId(event) {
 function validateSequence(scene, events, initiallyHidden, errors) {
   const visible = new Set(sceneElementIds(scene).filter((id) => !initiallyHidden.has(id)));
   const connections = new Set();
-  for (const event of events.sort((a, b) => a.startFrame - b.startFrame || a.id.localeCompare(b.id))) {
+  for (const event of events.sort(eventOrder)) {
     if (["emphasize", "deemphasize"].includes(event.action) && !visible.has(event.target)) {
       errors.push(issue(scene, event.id, event, "hidden element is referenced before reveal"));
     }
@@ -194,6 +214,12 @@ function validateSequence(scene, events, initiallyHidden, errors) {
       }
     }
   }
+}
+
+function eventOrder(left, right) {
+  if (left.startFrame !== right.startFrame) return left.startFrame - right.startFrame;
+  const priority = { reveal: 0, type: 0, replace: 0, connect: 1 };
+  return (priority[left.action] ?? 2) - (priority[right.action] ?? 2) || left.id.localeCompare(right.id);
 }
 
 function treatmentFor(event, grammar) {

@@ -5,7 +5,7 @@
     "title": "Welcome to the Articulate Journal",
     "canonicalSource": "production/episodes/0000/0000-welcome-to-the-articulate-journal.md",
     "storyboard": "production/episodes/0000/scene-list.yaml",
-    "timingMarkers": "production/episodes/0000/production/narration-markers.json",
+    "timingMarkers": "production/episodes/0000/production/final-cut-candidate-v2-markers.json",
     "assetRegister": "production/episodes/0000/asset-register.yaml"
   },
   "narration": {
@@ -27,16 +27,16 @@
     "visualGrammarProfile": "articulate-visual-grammar-v1"
   },
   "review": {
-    "includeTimelineStates": false,
-    "temporalSampleSeconds": 10
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 5
   },
   "output": {
     "width": 1920,
     "height": 1080,
     "frameRate": 25,
-    "video": "production/episodes/0000/output/episode-0000-companion-performance-v1.mp4",
-    "generatedDirectory": "production/episodes/0000/generated/companion-performance-v1",
-    "reviewDirectory": "production/episodes/0000/output/review/companion-performance-v1",
+    "video": "production/episodes/0000/output/episode-0000-final-cut-candidate-v2.mp4",
+    "generatedDirectory": "production/episodes/0000/generated/final-cut-candidate-v2",
+    "reviewDirectory": "production/episodes/0000/output/review/final-cut-candidate-v2",
     "narrationAnalysis": "production/episodes/0000/production/narration-analysis.json"
   },
   "scenes": [
@@ -47,8 +47,7 @@
       "headline": "Welcome to the Articulate Journal",
       "support": "An architectural programme in the making.",
       "items": [
-        "Experienced systems perspective",
-        "Architecture in public"
+        "Experienced systems perspective"
       ],
       "companion": true,
       "assetIds": [
@@ -82,12 +81,6 @@
             "at": 8,
             "action": "reveal",
             "target": "item-1"
-          },
-          {
-            "id": "journal",
-            "at": 11,
-            "action": "reveal",
-            "target": "item-2"
           }
         ]
       },
@@ -102,10 +95,9 @@
       "headline": "The systems changed",
       "support": "The underlying architectural challenges remain.",
       "items": [
-        "Knowledge fragments",
+        "Knowledge becomes fragmented",
         "Documentation falls behind",
-        "Decisions lose context",
-        "Why becomes difficult"
+        "Decisions lose context"
       ],
       "companion": false,
       "assetIds": [
@@ -128,34 +120,21 @@
           },
           {
             "id": "knowledge",
-            "at": 5,
+            "at": 15.411973,
             "action": "reveal",
             "target": "item-1"
           },
           {
             "id": "documentation",
-            "at": 8.5,
+            "at": 16.411973,
             "action": "reveal",
             "target": "item-2"
           },
           {
             "id": "decisions",
-            "at": 12,
+            "at": 18.411973,
             "action": "reveal",
             "target": "item-3"
-          },
-          {
-            "id": "why",
-            "at": 15.2,
-            "action": "reveal",
-            "target": "item-4"
-          },
-          {
-            "id": "conclusion",
-            "at": 17,
-            "duration": 2.6,
-            "action": "emphasize",
-            "target": "headline"
           }
         ]
       }
@@ -382,15 +361,9 @@
             "action": "connect",
             "from": "item-3",
             "to": "item-4"
-          },
-          {
-            "id": "hold-revision",
-            "at": 20,
-            "duration": 3,
-            "action": "emphasize",
-            "target": "item-4"
           }
-        ]
+        ],
+        "connectorTiming": "with-destination"
       }
     },
     {
@@ -490,7 +463,8 @@
             "action": "emphasize",
             "target": "item-1"
           }
-        ]
+        ],
+        "connectorTiming": "with-destination"
       }
     },
     {
@@ -578,7 +552,7 @@
     {
       "id": "S008",
       "kind": "studio",
-      "studioLayout": "companion-model",
+      "studioLayout": "companion-model-v2",
       "headline": "The Companion",
       "support": "A different relationship between architect and AI",
       "items": [
@@ -727,7 +701,8 @@
             "action": "emphasize",
             "target": "item-3"
           }
-        ]
+        ],
+        "connectorTiming": "with-destination"
       },
       "companionPerformance": {
         "timeline": "production/episodes/0000/production/companion-performance-v1/S008.json"
@@ -768,25 +743,25 @@
           },
           {
             "id": "ai-native",
-            "at": 3.5,
+            "at": 2.5,
             "action": "reveal",
             "target": "item-1"
           },
           {
             "id": "agentic",
-            "at": 5,
+            "at": 4,
             "action": "reveal",
             "target": "item-2"
           },
           {
             "id": "durable",
-            "at": 6.5,
+            "at": 5.5,
             "action": "reveal",
             "target": "item-3"
           },
           {
             "id": "memory",
-            "at": 8,
+            "at": 7,
             "action": "reveal",
             "target": "item-4"
           },
