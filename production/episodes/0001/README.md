@@ -14,6 +14,7 @@ Episode 0001 opens the Articulate series. The production treatment should theref
 - [`scene-list.yaml`](scene-list.yaml)
 - [`asset-register.yaml`](asset-register.yaml)
 - [`notes.md`](notes.md)
+- [`publication/thumbnail/`](publication/thumbnail/) — deterministic production thumbnail candidates, reduced-size previews and review evidence
 - [`reviews/production-baseline-delta.md`](reviews/production-baseline-delta.md) — Episode 0001 Rough Cut 02 versus the published Episode 0000 production baseline
 - [`reviews/rough-cut-03.md`](reviews/rough-cut-03.md) — three-way editorial assessment of the baseline upgrade
 - [`reviews/rough-cut-04.md`](reviews/rough-cut-04.md) — targeted response to continuous-playback editorial feedback
