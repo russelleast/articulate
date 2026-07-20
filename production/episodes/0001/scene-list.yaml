@@ -2,7 +2,7 @@ episode:
   id: "episode-0001"
   title: "Why Articulate Exists"
   canonical_source: "docs/episodes/0001-why-articulate-exists.md"
-  production_status: "rough-cut-03"
+  production_status: "rough-cut-04"
   timing_authority: "episode-0001-narration-v1"
   narration_duration_seconds: 550.365692
 scenes:
@@ -13,28 +13,28 @@ scenes:
     duration_seconds: 12.872
     narration_reference: "Opening quote; Introduction"
     visual_type: "title and companion opening"
-    companion_mode: "present-motion-only"
+    companion_mode: "present-lip-sync"
     assets: ["A001", "A002"]
     layout: "editorial split"
     transition: { in: "fade", out: "cut" }
     status: "rough-cut-rendered"
   - scene_id: "S002"
-    title: "The architecture itself"
+    title: "Capable technology"
     start_seconds: 12.872
     end_seconds: 30.031
     duration_seconds: 17.159
     narration_reference: "Introduction — personal context and capable technology"
-    visual_type: "canonical journal source"
+    visual_type: "capable technology workspace"
     companion_mode: "none"
-    assets: ["A003"]
-    layout: "repository window"
+    assets: ["A003", "A004"]
+    layout: "digital workspace"
     transition: { in: "cut", out: "cut" }
     status: "rough-cut-rendered"
   - scene_id: "S003"
     title: "Capable technology"
     start_seconds: 30.031
-    end_seconds: 61.104
-    duration_seconds: 31.073
+    end_seconds: 50.000
+    duration_seconds: 19.969
     narration_reference: "Introduction — modern technology is capable"
     visual_type: "capability map"
     companion_mode: "none"
@@ -44,12 +44,12 @@ scenes:
     status: "rough-cut-rendered"
   - scene_id: "S004"
     title: "Architectural questions"
-    start_seconds: 61.104
+    start_seconds: 50.000
     end_seconds: 88.719
-    duration_seconds: 27.615
+    duration_seconds: 38.719
     narration_reference: "Introduction — questions architects answer"
     visual_type: "question fragments"
-    companion_mode: "present-motion-only"
+    companion_mode: "present-lip-sync"
     assets: ["A005"]
     layout: "question grid"
     transition: { in: "cut", out: "section cut" }
@@ -97,7 +97,7 @@ scenes:
     duration_seconds: 27.848
     narration_reference: "The Limits of Today's Tools — excellent tools"
     visual_type: "tool evidence grid"
-    companion_mode: "present-motion-only"
+    companion_mode: "present-lip-sync"
     assets: ["A008"]
     layout: "label grid"
     transition: { in: "section cut", out: "cut" }
@@ -117,8 +117,8 @@ scenes:
   - scene_id: "S010"
     title: "The cost of fragmentation"
     start_seconds: 247.200
-    end_seconds: 292.230
-    duration_seconds: 45.030
+    end_seconds: 291.000
+    duration_seconds: 43.800
     narration_reference: "The Cost of Fragmented Knowledge"
     visual_type: "cost fragments"
     companion_mode: "none"
@@ -128,9 +128,9 @@ scenes:
     status: "rough-cut-rendered"
   - scene_id: "S011"
     title: "Why now?"
-    start_seconds: 292.230
+    start_seconds: 291.000
     end_seconds: 321.759
-    duration_seconds: 29.529
+    duration_seconds: 30.759
     narration_reference: "Why Now? — reason across unstructured information"
     visual_type: "evidence synthesis diagram"
     companion_mode: "none"
@@ -145,19 +145,19 @@ scenes:
     duration_seconds: 26.008
     narration_reference: "Why Now? — augment architectural thinking"
     visual_type: "human and AI boundary diagram"
-    companion_mode: "present-motion-only"
+    companion_mode: "present-lip-sync"
     assets: ["A010"]
     layout: "horizontal flow"
     transition: { in: "cut", out: "section cut" }
     status: "rough-cut-rendered"
   - scene_id: "S013"
-    title: "From side project to question"
+    title: "From side project to product"
     start_seconds: 347.767
     end_seconds: 382.661
     duration_seconds: 34.894
     narration_reference: "The Vision — origins and convergence"
     visual_type: "companion bridge"
-    companion_mode: "present-motion-only"
+    companion_mode: "present-lip-sync"
     assets: ["A011"]
     layout: "editorial split"
     transition: { in: "section cut", out: "cut" }
@@ -165,8 +165,8 @@ scenes:
   - scene_id: "S014"
     title: "The central question"
     start_seconds: 382.661
-    end_seconds: 419.901
-    duration_seconds: 37.240
+    end_seconds: 434.000
+    duration_seconds: 51.339
     narration_reference: "The Vision — central question and uncertainty"
     visual_type: "central question card"
     companion_mode: "none"
@@ -176,9 +176,9 @@ scenes:
     status: "rough-cut-rendered"
   - scene_id: "S015"
     title: "Principles before features"
-    start_seconds: 419.901
+    start_seconds: 434.000
     end_seconds: 459.475
-    duration_seconds: 39.574
+    duration_seconds: 25.475
     narration_reference: "Principles Before Features"
     visual_type: "reasoning-order diagram"
     companion_mode: "none"
@@ -205,7 +205,7 @@ scenes:
     duration_seconds: 24.732
     narration_reference: "Success — preserve knowledge and improve conversations"
     visual_type: "outcome montage"
-    companion_mode: "present-motion-only"
+    companion_mode: "present-lip-sync"
     assets: ["A014"]
     layout: "evidence grid"
     transition: { in: "cut", out: "section cut" }
@@ -229,7 +229,7 @@ scenes:
     duration_seconds: 16.481692
     narration_reference: "Looking Ahead — exploration into better architecture"
     visual_type: "companion close and source card"
-    companion_mode: "present-motion-only"
+    companion_mode: "present-lip-sync"
     assets: ["A015", "A016"]
     layout: "editorial split"
     transition: { in: "cut", out: "fade" }
