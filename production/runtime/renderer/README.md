@@ -12,6 +12,7 @@ Compatibility vocabulary (`kind`, `transition`, `companion`)
 Declarative scene timeline
   - semantic element targets
   - scene-relative event offsets
+  - optional editorial shots with shot-relative events
       |
       v
 Resolved presentation plan
@@ -35,9 +36,12 @@ Deterministic SVG frame
 - `layout.mjs` owns deterministic text wrapping, multiline block measurement, vertical centring, padding helpers and overflow failure.
 - `scene-renderer.mjs` interprets a resolved presentation plan using reusable Companion, repository, flow, grid, timeline, radial and reflection compositions.
 - `scene-timeline.mjs` validates editorial events, resolves seconds to integer frames and produces immutable presentation state for a requested frame.
+- `scene-shots.mjs` validates editorial shot groups and flattens their relative events into the existing scene timeline while retaining shot provenance.
 - `episode-cli.mjs` remains responsible for episode input, asset resolution, timing validation, media assembly, manifests and review artefacts.
 
 Episode content belongs in episode configuration. The renderer must not contain episode titles, excerpts, claims, asset-register locations or scene-specific coordinate exceptions.
+
+Scene frame windows are calculated from rounded global start and end frames, not by rounding every scene duration independently. Adjacent scenes therefore share the same frame boundary and cannot accumulate audiovisual drift across a long episode.
 
 ## Supported Visual Grammar concepts
 
@@ -82,6 +86,28 @@ Validation rejects duplicate event IDs, unknown targets, missing connection endp
 Typing is intentionally restricted to the `Repository` archetype unless an episode explicitly records `allowTyping`. It reveals authored text by character count from integer frames. It is not a general heading or diagram-label treatment.
 
 The render manifest records declared and resolved events, frame numbers, resolved times, targets, selected grammar treatments, warnings and a link to the full timeline resolution report.
+
+## Declarative shot hierarchy
+
+Long scenes may group events into ordered `shots`. A shot starts at a scene-relative offset; its event offsets are relative to that shot. The runtime flattens them before applying the normal timeline validation and frame resolution, so shots add editorial structure without adding a second animation system.
+
+```json
+{
+  "shots": [
+    {
+      "id": "evidence",
+      "label": "Evidence accumulates",
+      "at": 8,
+      "events": [
+        { "id": "show-source", "at": 1, "action": "reveal", "target": "item-2" },
+        { "id": "connect-source", "at": 1, "action": "connect", "from": "item-1", "to": "item-2" }
+      ]
+    }
+  ]
+}
+```
+
+Shot IDs, order, bounds and event containment are validated. The render manifest records authored and resolved shot timing, and timeline-state review includes shot starts. See [ADR 0005](../../architecture/decisions/0005-declarative-shot-hierarchy.md).
 
 ## Adding an event type safely
 

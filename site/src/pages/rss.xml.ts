@@ -4,7 +4,7 @@ import type { APIRoute } from "astro";
 import { absoluteUrl, siteDescription, siteTitle } from "@/utils/site";
 
 export const GET: APIRoute = async (context) => {
-  const episodes = await getCollection("episodes", ({ data }) => data.status !== "draft");
+  const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
   const siteUrl = absoluteUrl("/", context.site);
 
   return rss({

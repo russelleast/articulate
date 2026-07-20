@@ -8,9 +8,10 @@ import { fileURLToPath } from "node:url";
 import { createLocalAssetManager } from "./assets/index.mjs";
 import { xml } from "./renderer/layout.mjs";
 import { renderSceneSvg } from "./renderer/scene-renderer.mjs";
-import { resolveSceneTimeline, timelineChangeFrames, timelineManifestEntry, timelineStateAtFrame } from "./renderer/scene-timeline.mjs";
+import { resolveSceneTimeline, sceneFrameWindow, timelineChangeFrames, timelineManifestEntry, timelineStateAtFrame } from "./renderer/scene-timeline.mjs";
 import { getVisualGrammarProfile, resolveScenePresentation } from "./renderer/visual-grammar.mjs";
 import { companionPerformanceManifest, companionPerformanceStateAtFrame, resolveCompanionPerformance } from "./renderer/companion-performance.mjs";
+import { resolveSceneShots, shotsManifestEntry } from "./renderer/scene-shots.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
@@ -61,13 +62,14 @@ function loadContext(configPath) {
   const scenes = config.scenes.map((scene, index) => {
     const timing = timingById.get(scene.id);
     if (!timing) throw new Error(`No narration timing marker for ${scene.id}`);
-    const resolved = { ...scene, ...timing, episodeId: config.episode.id, order: index + 1, durationSeconds: timing.endSeconds - timing.startSeconds };
-    const withPresentation = { ...resolved, presentation: resolveScenePresentation(resolved, grammar) };
+    const resolved = { ...scene, ...timing, episodeId: config.episode.id, order: index + 1, durationSeconds: timing.endSeconds - timing.startSeconds, productionMetadata: config.rendering?.productionMetadata !== false };
+    const shotResolution = resolveSceneShots(resolved, config.output.frameRate);
+    const withPresentation = { ...shotResolution.scene, presentation: resolveScenePresentation(shotResolution.scene, grammar) };
     const resolvedTimeline = resolveSceneTimeline(withPresentation, config.output.frameRate, grammar);
     const performancePath = scene.companionPerformance?.timeline ? resolvePath(scene.companionPerformance.timeline) : null;
     const performanceDocument = performancePath ? readJson(performancePath) : null;
     const resolvedPerformance = resolveCompanionPerformance(withPresentation, performanceDocument, config.output.frameRate);
-    return { ...withPresentation, resolvedTimeline, resolvedPerformance, performancePath };
+    return { ...withPresentation, resolvedTimeline, resolvedShots: shotResolution.shots, resolvedPerformance, performancePath };
   });
   const assetManager = createLocalAssetManager({ repoRoot });
   return { configPath, config, markersPath, markers, scenes, assetManager, grammar };
@@ -182,7 +184,7 @@ function validate(context) {
   if (sceneIds.size !== context.scenes.length) errors.push("Duplicate scene IDs");
   const assetRegister = fs.readFileSync(resolvePath(context.config.episode.assetRegister), "utf8");
   for (const scene of context.scenes) {
-    const finalFrame = Math.max(0, Math.ceil(scene.durationSeconds * context.config.output.frameRate) - 1);
+    const finalFrame = Math.max(0, sceneFrameWindow(scene, context.config.output.frameRate).frameCount - 1);
     renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar, timelineStateAtFrame(scene, scene.resolvedTimeline, finalFrame));
     for (const assetId of scene.assetIds ?? []) {
       if (!assetRegister.includes(`asset_id: \"${assetId}\"`)) errors.push(`${scene.id} references unknown episode asset ${assetId}`);
@@ -204,7 +206,7 @@ async function render(context, validation) {
   const frameFiles = [];
   const segmentFiles = [];
   for (const scene of context.scenes) {
-    const frameCount = Math.ceil(scene.durationSeconds * context.config.output.frameRate);
+    const frameCount = sceneFrameWindow(scene, context.config.output.frameRate).frameCount;
     if (scene.motion?.companionIdle || scene.resolvedPerformance) {
       const sequenceDir = path.join(framesDir, scene.id);
       fs.mkdirSync(sequenceDir, { recursive: true });
@@ -282,6 +284,7 @@ async function render(context, validation) {
       archetype: scene.presentation.archetype,
       composition: scene.presentation.composition,
       transition: scene.presentation.transition,
+      shots: shotsManifestEntry(scene.resolvedShots),
       timeline: timelineManifestEntry(scene.resolvedTimeline),
       companionPerformance: companionPerformanceManifest(scene.resolvedPerformance)
     })),
@@ -316,7 +319,14 @@ async function generateReviewArtifacts(context, validation) {
   const contactSvg = path.join(reviewDir, "contact-sheet.svg");
   const contactPng = path.join(reviewDir, "contact-sheet.png");
   fs.writeFileSync(contactSvg, contactSheetSvg(frames, context.grammar));
-  await sharp(contactSvg, { density: 144 }).resize(1920, 1080).png().toFile(contactPng);
+  await sharp(contactSvg, { density: 144 }).png().toFile(contactPng);
+  const sceneContactDir = path.join(reviewDir, "scene-contact-sheets");
+  fs.mkdirSync(sceneContactDir, { recursive: true });
+  for (const scene of context.scenes) {
+    const sceneFrames = frames.filter((frame) => frame.id === scene.id);
+    const sceneContact = path.join(sceneContactDir, `${scene.id}.png`);
+    await sharp(Buffer.from(contactSheetSvg(sceneFrames, context.grammar)), { density: 144 }).png().toFile(sceneContact);
+  }
   const temporalContactSheet = context.config.review?.temporalSampleSeconds
     ? generateTemporalContactSheet(validation.ffmpeg, videoPath, reviewDir, context.config.review.temporalSampleSeconds)
     : null;
@@ -328,6 +338,7 @@ async function generateReviewArtifacts(context, validation) {
     expectedDurationSeconds: validation.duration,
     reviewFrameCount: frames.length,
     contactSheet: relative(contactPng),
+    sceneContactSheets: relative(sceneContactDir),
     temporalContactSheet: temporalContactSheet ? relative(temporalContactSheet) : null,
     warnings: [
       "Timeline motion is deterministic and editorially authored.",
@@ -365,12 +376,21 @@ function generateTemporalContactSheet(ffmpeg, videoPath, reviewDir, intervalSeco
 }
 
 function timelineReviewPoints(scene, frameRate) {
-  const frameCount = Math.ceil(scene.durationSeconds * frameRate);
-  const points = timelineChangeFrames(scene.resolvedTimeline, frameCount)
+  const window = sceneFrameWindow(scene, frameRate);
+  const frameCount = window.frameCount;
+  const reviewFrames = new Set([0]);
+  for (const event of scene.resolvedTimeline.events) {
+    reviewFrames.add(Math.min(frameCount - 1, event.startFrame));
+    if (event.endFrame > event.startFrame) reviewFrames.add(Math.min(frameCount - 1, event.endFrame));
+  }
+  for (const shot of scene.resolvedShots ?? []) reviewFrames.add(Math.min(frameCount - 1, shot.startFrame));
+  const points = [...reviewFrames].sort((left, right) => left - right)
     .filter((frame) => frame < frameCount)
     .map((frame, index) => ({
       frame,
-      timestamp: scene.startSeconds + frame / frameRate,
+      // Sample safely inside the requested state. Exact cut/event timestamps can
+      // resolve to the preceding encoded frame when FFmpeg seeks between GOPs.
+      timestamp: (window.startFrame + Math.min(frameCount - 1, frame + 5)) / frameRate,
       label: `state ${String(index + 1).padStart(2, "0")}`
     }));
   const finalFrame = Math.max(0, frameCount - Math.round(frameRate * 1.5));
@@ -382,6 +402,7 @@ function timelineReviewPoints(scene, frameRate) {
 
 function contactSheetSvg(frames, grammar) {
   const palette = grammar.palette;
+  const height = Math.max(270, Math.ceil(frames.length / 5) * 270);
   const cells = frames.map((frame, index) => {
     const column = index % 5;
     const row = Math.floor(index / 5);
@@ -390,7 +411,7 @@ function contactSheetSvg(frames, grammar) {
     const image = `data:image/png;base64,${fs.readFileSync(frame.path).toString("base64")}`;
     return `<image href="${image}" x="${x}" y="${y}" width="384" height="216"/><rect x="${x}" y="${y + 216}" width="384" height="54" fill="${palette.dark}"/><text x="${x + 12}" y="${y + 249}" font-size="20" fill="#ffffff">${frame.id} · ${xml(frame.title)}</text>`;
   }).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"><style>text{font-family:${grammar.typography.fontFamily}}</style><rect width="1920" height="1080" fill="${palette.dark}"/>${cells}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="${height}" viewBox="0 0 1920 ${height}"><style>text{font-family:${grammar.typography.fontFamily}}</style><rect width="1920" height="${height}" fill="${palette.dark}"/>${cells}</svg>`;
 }
 
 function buildTimingReport(context, validation, media) {
@@ -424,7 +445,8 @@ function buildTimelineReport(context) {
       initiallyHidden: scene.resolvedTimeline.initiallyHidden,
       declaredEvents: scene.resolvedTimeline.declared,
       resolvedEvents: scene.resolvedTimeline.events,
-      warnings: scene.resolvedTimeline.warnings
+      warnings: scene.resolvedTimeline.warnings,
+      shots: shotsManifestEntry(scene.resolvedShots)
     }))
   };
 }

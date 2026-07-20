@@ -6,7 +6,7 @@ import { spawnSync } from "node:child_process";
 
 const args = process.argv.slice(2);
 if (args[0] !== "analyse") {
-  console.error("Usage: node production/runtime/companion-performance-cli.mjs analyse --audio PATH --output PATH --source-start SECONDS [--motion-profile experiment|longform] [--seed INTEGER]");
+  console.error("Usage: node production/runtime/companion-performance-cli.mjs analyse --audio PATH --output PATH --source-start SECONDS [--motion-profile experiment|longform] [--seed INTEGER] [--motion-only]");
   process.exit(2);
 }
 const audio = value("--audio");
@@ -14,6 +14,7 @@ const output = value("--output");
 const sourceStart = Number(value("--source-start") ?? 0);
 const motionProfile = value("--motion-profile") ?? "experiment";
 const seed = Number(value("--seed") ?? 1701);
+const motionOnly = args.includes("--motion-only");
 if (!audio || !output || !Number.isFinite(sourceStart)) throw new Error("audio, output and numeric source-start are required");
 if (!new Set(["experiment", "longform"]).has(motionProfile)) throw new Error(`Unsupported motion profile '${motionProfile}'`);
 if (!Number.isInteger(seed)) throw new Error("seed must be an integer");
@@ -66,20 +67,22 @@ const events = motionProfile === "longform"
       { id: "blink-02", type: "blink", at: 10.84, duration: 0.24 },
       { id: "posture-01", type: "head", at: 12.80, duration: 2.70, value: { x: -5.0, y: 2.6, rotation: -0.75 } }
     ];
-let start = 0;
-for (let frame = 1; frame <= states.length; frame++) {
-  if (frame < states.length && states[frame] === states[start]) continue;
-  const viseme = states[start];
-  if (viseme !== "rest") events.push({ id: `mouth-${String(start).padStart(4, "0")}`, type: "mouth", at: start / frameRate, duration: (frame - start) / frameRate, value: viseme });
-  start = frame;
+if (!motionOnly) {
+  let start = 0;
+  for (let frame = 1; frame <= states.length; frame++) {
+    if (frame < states.length && states[frame] === states[start]) continue;
+    const viseme = states[start];
+    if (viseme !== "rest") events.push({ id: `mouth-${String(start).padStart(4, "0")}`, type: "mouth", at: start / frameRate, duration: (frame - start) / frameRate, value: viseme });
+    start = frame;
+  }
 }
 events.sort((a, b) => a.at - b.at || a.id.localeCompare(b.id));
 const document = {
   version: 1,
   seed,
   source: { audio, sha256: crypto.createHash("sha256").update(fs.readFileSync(audio)).digest("hex"), sourceStartSeconds: sourceStart, durationSeconds, frameRate, sampleRateHz: sampleRate },
-  analysis: { method: "offline-rms-zero-crossing-v1", motionProfile, speechFloor, noiseFloor, visemeModel: ["rest", "open", "wide", "rounded", "teeth"], smoothing: "three-frame weighted energy and zero-crossing window; isolated non-rest frame suppression" },
-  layers: ["idle", "facial", "lip-sync"],
+  analysis: { method: "offline-rms-zero-crossing-v1", motionProfile, speechFloor, noiseFloor, visemeModel: motionOnly ? [] : ["rest", "open", "wide", "rounded", "teeth"], smoothing: "three-frame weighted energy and zero-crossing window; isolated non-rest frame suppression", motionOnly },
+  layers: motionOnly ? ["idle", "facial"] : ["idle", "facial", "lip-sync"],
   events
 };
 fs.mkdirSync(path.dirname(output), { recursive: true });

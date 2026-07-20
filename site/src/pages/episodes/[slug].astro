@@ -6,12 +6,12 @@ import RelatedContent from "@/components/RelatedContent.astro";
 import { formatDate, withBase } from "@/utils/site";
 
 export async function getStaticPaths() {
-  const episodes = await getCollection("episodes", ({ data }) => data.status !== "draft");
+  const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
   return episodes.map((episode) => ({ params: { slug: episode.id }, props: { episode } }));
 }
 
 const { episode } = Astro.props;
-const allEpisodes = (await getCollection("episodes", ({ data }) => data.status !== "draft"))
+const allEpisodes = (await getCollection("episodes", ({ data }) => data.isPublished))
   .sort((a, b) => a.data.sequence - b.data.sequence);
 const decisions = await getCollection("decisions");
 const patterns = await getCollection("patterns");

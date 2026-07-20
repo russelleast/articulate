@@ -14,6 +14,10 @@ Episode 0001 opens the Articulate series. The production treatment should theref
 - [`scene-list.yaml`](scene-list.yaml)
 - [`asset-register.yaml`](asset-register.yaml)
 - [`notes.md`](notes.md)
+- [`publication/thumbnail/`](publication/thumbnail/) — deterministic production thumbnail candidates, reduced-size previews and review evidence
+- [`reviews/production-baseline-delta.md`](reviews/production-baseline-delta.md) — Episode 0001 Rough Cut 02 versus the published Episode 0000 production baseline
+- [`reviews/rough-cut-03.md`](reviews/rough-cut-03.md) — three-way editorial assessment of the baseline upgrade
+- [`reviews/rough-cut-04.md`](reviews/rough-cut-04.md) — targeted response to continuous-playback editorial feedback
 
 ## Production Position
 
@@ -54,3 +58,43 @@ Generated media stays outside Git:
 - render manifest, asset manifest, provenance and timing report: `production/episodes/0001/generated/rough-cut-01/`.
 
 Committed timing and reproduction inputs are under `production/episodes/0001/production/`. The renderer resolves the existing scene vocabulary through the shared [Visual Grammar runtime profile](../../runtime/renderer/README.md), then uses reusable compositions and layout primitives without changing the Companion placement, scene order or timing architecture.
+
+## Rough Cut 03
+
+Rough Cut 03 applies the published Episode 0000 production language to Episode 0001 while preserving its approved narration and nineteen narration-derived scene boundaries. It uses the shared Studio, Whiteboard, Workspace and Focus environments, authored progression in every scene, a declarative shot hierarchy for long editorial beats and restrained motion-only Companion presence in seven scenes.
+
+Run from the repository root:
+
+```sh
+make episode-0001-rough-cut-03-prepare
+make episode-0001-rough-cut-03-validate
+make episode-0001-rough-cut-03-render
+make episode-0001-rough-cut-03-review
+```
+
+Outputs remain outside Git:
+
+- cut: `production/episodes/0001/output/episode-0001-rough-cut-03.mp4`;
+- temporal and per-scene review package: `production/episodes/0001/output/review/rough-cut-03/`;
+- render, asset, timing and provenance manifests: `production/episodes/0001/generated/rough-cut-03/`.
+
+The committed production authority is `production/rough-cut-03-config.json`; generated Companion performance timelines are committed beneath `production/rough-cut-03-companion/` so the render can be reproduced and audited without speech generation.
+
+## Rough Cut 04
+
+Rough Cut 04 is a targeted editorial correction pass over RC03. It introduces narration-evidenced boundary corrections at 00:50, 04:51 and 07:14; aligns requested reveals to absolute playback timestamps; restores a missing capable-technology scene; replaces the weakest diagram treatments; and enables the existing deterministic simplified-viseme Companion performance proven by Episode 0000's production candidate.
+
+```sh
+make episode-0001-rough-cut-04-prepare
+make episode-0001-rough-cut-04-validate
+make episode-0001-rough-cut-04-render
+make episode-0001-rough-cut-04-review
+```
+
+Outputs remain outside Git:
+
+- cut: `production/episodes/0001/output/episode-0001-rough-cut-04.mp4`;
+- temporal and per-scene review package: `production/episodes/0001/output/review/rough-cut-04/`;
+- manifests and provenance: `production/episodes/0001/generated/rough-cut-04/`.
+
+The committed authority is `production/rough-cut-04-config.json`, with corrected boundaries in `production/rough-cut-04-markers.json` and deterministic Companion performance timelines beneath `production/rough-cut-04-companion/`.

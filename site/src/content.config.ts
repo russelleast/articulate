@@ -3,6 +3,7 @@ import { glob } from "astro/loaders";
 
 const lifecycleStatus = z.enum([
   "draft",
+  "planned",
   "exploratory",
   "current",
   "partially-revised",
@@ -13,16 +14,19 @@ const lifecycleStatus = z.enum([
 const repositoryPath = z.string().min(1);
 
 const episodes = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "../docs/episodes" }),
+  loader: glob({ pattern: ["**/*.{md,mdx}", "!episode-roadmap.md"], base: "../docs/episodes" }),
   schema: z.object({
-    id: z.string().min(1),
+    id: z.string().min(1).optional(),
+    episode: z.number().int().positive().optional(),
     title: z.string(),
-    summary: z.string(),
-    published: z.coerce.date(),
-    updated: z.coerce.date(),
+    summary: z.string().optional(),
+    description: z.string().optional(),
+    published: z.union([z.literal(false), z.coerce.date()]),
+    date: z.union([z.literal(null), z.coerce.date()]).optional(),
+    updated: z.coerce.date().optional(),
     status: lifecycleStatus,
-    sequence: z.number().int().nonnegative(),
-    season: z.string(),
+    sequence: z.number().int().nonnegative().optional(),
+    season: z.union([z.string(), z.number().int().positive()]),
     topics: z.array(z.string()).default([]),
     questions: z.array(z.string()).default([]),
     related_patterns: z.array(reference("patterns")).default([]),
@@ -32,6 +36,21 @@ const episodes = defineCollection({
     featured: z.boolean().default(false),
     author: z.string().min(1).optional(),
     image: z.string().min(1).optional()
+  }).transform((data) => {
+    const publicationDate = data.published === false ? null : data.published;
+    const frontMatterDate = data.date instanceof Date ? data.date : null;
+    const sequence = data.sequence ?? data.episode ?? 0;
+
+    return {
+      ...data,
+      id: data.id ?? `episode-${sequence.toString().padStart(4, "0")}`,
+      summary: data.summary ?? data.description ?? "",
+      published: publicationDate ?? new Date(0),
+      updated: data.updated ?? frontMatterDate ?? publicationDate ?? new Date(0),
+      sequence,
+      season: data.season.toString(),
+      isPublished: publicationDate !== null
+    };
   })
 });
 
