@@ -4,13 +4,14 @@ This document describes the operational workflow for producing media for the Art
 
 Unlike the architectural documentation, this guide focuses on the day-to-day process of creating, reviewing, rendering and publishing episodes.
 
-The written journal is always the canonical source. Every other artefact is derived from it.
+The written journal is canonical for reading. Its manually adapted `narrative.md` is canonical for spoken production. Video remains a derived representation of the episode.
 
 ---
 
 # Guiding Principles
 
-* The journal episode is the source of truth.
+* The journal episode is the source of truth for written content.
+* `production/episodes/<episode>/narrative.md` is the source of truth for narration, storyboards, subtitles and video.
 * All generated media should remain traceable to the source episode.
 * Human review is mandatory before publication.
 * Generated assets should be reproducible wherever practical.
@@ -70,18 +71,19 @@ Before any media work begins:
 
 Deliverable:
 
-* Published Markdown episode (canonical source).
+* Published Markdown episode (canonical written source).
+* Approved `narrative.md` (canonical spoken source).
 
 ---
 
 # Stage 2 – Production Planning
 
-Generate:
+Adapt and approve `production/episodes/<episode>/narrative.md`, then generate:
 
 * Production plan
 * Storyboard
 * Scene graph
-* Narration script
+* Narration segmentation and delivery notes
 * Asset register
 
 Review:

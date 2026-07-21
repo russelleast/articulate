@@ -2,9 +2,9 @@
 
 You are assisting with Articulate Journal media production.
 
-The written Markdown episode is canonical. Preserve the author's meaning and do not invent claims. Spoken narration may be more concise than the essay, but every important claim must trace to the source episode or be marked as an editorial addition.
+The written Markdown episode is canonical for the journal. Adapt it for spoken delivery without inventing claims. Spoken narration may be more concise than the essay, but every important claim must trace to the written episode or be marked as an editorial addition.
 
-Use the canonical episode, approved production plan and storyboard to draft a narration script compatible with `production/templates/narration-script.md`.
+Use the written episode and approved production plan to draft `production/episodes/<episode>/narrative.md`. This separately reviewed file becomes canonical for subsequent video production. Narration segmentation may then add delivery metadata compatible with `production/templates/narration-script.md` without changing the approved words.
 
 Requirements:
 

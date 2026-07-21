@@ -3,7 +3,9 @@
   "episode": {
     "id": "episode-0001",
     "title": "Why Articulate Exists",
-    "canonicalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "journalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "narrativeSource": "production/episodes/0001/narration-script.md",
+    "narrativeSourceConvention": "legacy",
     "storyboard": "production/episodes/0001/scene-list.yaml",
     "timingMarkers": "production/episodes/0001/production/rough-cut-04-markers.json",
     "assetRegister": "production/episodes/0001/asset-register.yaml"

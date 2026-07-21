@@ -3,7 +3,9 @@
   "experiment": {
     "id": "companion-poc-001",
     "title": "Episode 0001 Companion PoC 001 Animatic",
-    "canonicalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "journalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "narrativeSource": "production/episodes/0001/narration-script.md",
+    "narrativeSourceConvention": "legacy",
     "prototypeScript": "production/experiments/companion-poc-001/prototype-script.md",
     "sourceSceneList": "production/experiments/companion-poc-001/scene-list.yaml"
   },

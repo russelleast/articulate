@@ -1,7 +1,9 @@
 experiment:
   id: "companion-poc-001"
   title: "Episode 0001 Companion Proof of Concept"
-  canonical_source: "docs/episodes/0001-why-articulate-exists.md"
+  journal_source: "docs/episodes/0001-why-articulate-exists.md"
+  narrative_source: "production/episodes/0001/narration-script.md"
+  narrative_source_convention: "legacy"
   related_episode_workspace: "production/episodes/0001"
   production_status: "draft"
   target_duration: "01:20"
@@ -92,4 +94,3 @@ scenes:
       out: "fade to experiment title and canonical source path"
     status: "planned"
     review_state: "not reviewed"
-

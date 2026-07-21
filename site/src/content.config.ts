@@ -35,7 +35,9 @@ const episodes = defineCollection({
     repository_paths: z.array(repositoryPath).default([]),
     featured: z.boolean().default(false),
     author: z.string().min(1).optional(),
-    image: z.string().min(1).optional()
+    image: z.string().min(1).optional(),
+    thumbnail: z.string().min(1).optional(),
+    youtube_url: z.string().url().optional()
   }).transform((data) => {
     const publicationDate = data.published === false ? null : data.published;
     const frontMatterDate = data.date instanceof Date ? data.date : null;

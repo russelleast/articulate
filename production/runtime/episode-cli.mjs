@@ -12,6 +12,7 @@ import { resolveSceneTimeline, sceneFrameWindow, timelineChangeFrames, timelineM
 import { getVisualGrammarProfile, resolveScenePresentation } from "./renderer/visual-grammar.mjs";
 import { companionPerformanceManifest, companionPerformanceStateAtFrame, resolveCompanionPerformance } from "./renderer/companion-performance.mjs";
 import { resolveSceneShots, shotsManifestEntry } from "./renderer/scene-shots.mjs";
+import { resolveEpisodeSources } from "./narrative-source.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
@@ -55,6 +56,7 @@ async function main() {
 
 function loadContext(configPath) {
   const config = readJson(configPath);
+  const sources = resolveEpisodeSources({ repoRoot, episode: config.episode });
   const grammar = getVisualGrammarProfile(config.rendering?.visualGrammarProfile);
   const markersPath = resolvePath(config.episode.timingMarkers);
   const markers = readJson(markersPath);
@@ -72,7 +74,7 @@ function loadContext(configPath) {
     return { ...withPresentation, resolvedTimeline, resolvedShots: shotResolution.shots, resolvedPerformance, performancePath };
   });
   const assetManager = createLocalAssetManager({ repoRoot });
-  return { configPath, config, markersPath, markers, scenes, assetManager, grammar };
+  return { configPath, config, markersPath, markers, scenes, assetManager, grammar, sources };
 }
 
 function analyseNarration(context) {
@@ -470,7 +472,11 @@ function buildAssetManifest(context, validation) {
 function buildProvenance(context, validation, videoPath) {
   const narrationSource = context.config.narration.source;
   return {
-    canonicalEpisode: fileRecord(resolvePath(context.config.episode.canonicalSource)),
+    writtenJournal: fileRecord(context.sources.journalPath),
+    spokenNarrative: {
+      ...fileRecord(context.sources.narrativePath),
+      convention: context.sources.narrativeConvention
+    },
     sceneConfiguration: fileRecord(context.configPath),
     timingMarkers: fileRecord(context.markersPath),
     narration: {

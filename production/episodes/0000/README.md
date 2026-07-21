@@ -1,5 +1,9 @@
 # Episode 0000 Production
 
+Written journal: [`docs/episodes/preface.md`](../../../docs/episodes/preface.md)
+
+Legacy spoken narrative: [`0000-welcome-to-the-articulate-journal.md`](0000-welcome-to-the-articulate-journal.md). This episode predates the `narrative.md` convention; render configurations mark the exception explicitly and do not fall back to the journal article.
+
 This is the production working area for Episode 0000, "Welcome to the Articulate Journal".
 
 Canonical editorial source: [`0000-welcome-to-the-articulate-journal.md`](0000-welcome-to-the-articulate-journal.md)

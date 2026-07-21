@@ -19,7 +19,7 @@ test("manifest records placeholder mode and generated file checksums", () => {
     configPath,
     config: {
       runtimeVersion: "0.1.0",
-      experiment: { id: "companion-poc-001", canonicalSource: "episode.md" },
+      experiment: { id: "companion-poc-001", journalSource: "episode.md", narrativeSource: "narrative.md" },
       output: { width: 1920, height: 1080, frameRate: 25 },
       scenes: [{ durationSeconds: 5 }]
     },
@@ -46,6 +46,8 @@ test("manifest records placeholder mode and generated file checksums", () => {
   assert.equal(manifest.placeholderAudioUsed, true);
   assert.equal(manifest.outputIdentity, "Companion PoC 001 animatic");
   assert.equal(manifest.narrationProvenance, "real human narration");
+  assert.equal(manifest.writtenJournal, "episode.md");
+  assert.equal(manifest.spokenNarrative, "narrative.md");
   assert.equal(manifest.companionImagery, "deterministically animated companion imagery");
   assert.equal(manifest.genuineLipSync, false);
   assert.equal(manifest.realNarration.preparedSha256, "b".repeat(64));

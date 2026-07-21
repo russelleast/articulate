@@ -1,18 +1,21 @@
 # Media Production System
 
-The Articulate media production system turns a canonical written episode into reviewed, publishable media. It exists to make production repeatable without weakening the primacy of the written journal.
+The Articulate media production system adapts a canonical written episode into a separately approved spoken narrative and then into reviewed, publishable media. It exists to make production repeatable without weakening the primacy of the written journal or pretending that prose and speech are identical artefacts.
 
 The system is intentionally staged. Some stages are deterministic, such as extracting source references or assembling approved metadata. Other stages are generative, such as proposing a storyboard, drafting narration, or creating visual material. Generative stages may accelerate production, but they do not become authoritative until reviewed.
 
 ## Conceptual Flow
 
 ```text
-Canonical episode
+Written journal
       |
       v
 Production plan
       |
-      +--> Narration script
+      v
+Spoken narrative (narrative.md)
+      |
+      +--> Narration segments
       +--> Storyboard
       +--> Scene list
       +--> Asset register
@@ -43,11 +46,11 @@ Publication
 
 ```mermaid
 flowchart TD
-    A["Canonical episode"] --> B["Production plan"]
-    B --> C["Narration script"]
-    B --> D["Storyboard"]
-    B --> E["Scene list"]
-    B --> F["Asset register"]
+    A["Written journal (canonical for reading)"] --> B["Manual adaptation and production plan"]
+    B --> C["Spoken narrative (canonical for video)"]
+    C --> D["Storyboard"]
+    C --> E["Scene list"]
+    C --> F["Asset register"]
     F --> G["Companion scenes"]
     F --> H["Slides"]
     F --> I["Diagrams"]
@@ -76,7 +79,7 @@ flowchart TD
 
 ### Canonical Episode
 
-The canonical episode is the Markdown source under `docs/episodes/`. It contains the approved argument, sequence, claims and framing. Production work may summarise, sequence or adapt this material, but must not silently add unsupported claims.
+The canonical written episode is the Markdown source under `docs/episodes/`. It contains the approved journal argument, sequence, claims and framing. Production work may summarise, sequence or adapt this material, but must not silently add unsupported claims.
 
 Source management is handled through normal repository version control. Production artefacts should reference the episode path, heading names and, where useful, short source excerpts.
 
@@ -86,11 +89,11 @@ The production plan defines the editorial treatment for a specific episode. It r
 
 The plan is authored by a human with AI assistance. It is expected to evolve during production, but approved versions should be retained through Git history.
 
-### Narration Script
+### Spoken Narrative and Narration Segments
 
-The narration script adapts the episode into spoken form. It may omit detail, change order for listening clarity, or add brief transitions, but each important claim must remain traceable to the canonical episode or be labelled as an editorial addition.
+`production/episodes/<episode>/narrative.md` adapts the episode into spoken form. It may omit detail, change order for listening clarity, or add brief transitions, but each important claim must remain traceable to the canonical written episode or be labelled as an editorial addition. Once approved, it is the canonical text input for storyboarding, narration segmentation, voice recording, subtitles and video production.
 
-The script is an authored production artefact. AI may draft or restructure it, but Russell's recorded voice is the authoritative performance.
+Narration segment files may add timing, emphasis and delivery notes without becoming an alternative source of words. AI may help draft or restructure the narrative, but human approval establishes authority and Russell's recorded voice remains the authoritative performance.
 
 ### Storyboard
 
@@ -172,7 +175,7 @@ Every published video should plan for subtitles, transcripts, meaningful on-scre
 
 ### Subtitles and Transcripts
 
-Subtitles and transcripts should derive from the approved narration and final edit. They need review because recorded delivery often differs from the written script. Transcripts should link back to the canonical episode where practical.
+Subtitles and transcripts should derive from the approved `narrative.md` and final edit. They need review because recorded delivery may differ from the approved narrative. They must not be generated directly from the journal article, and transcripts should link back to it where practical.
 
 ### Publication Metadata
 

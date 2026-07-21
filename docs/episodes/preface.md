@@ -20,6 +20,8 @@ related_experiments: []
 repository_paths:
   - docs/episodes/preface.md
 featured: false
+thumbnail: /media/episodes/0000/episode-0000-thumbnail-a-companion-led.png
+youtube_url: https://youtu.be/2PkyWAlfS_w
 ---
 
 # Preface

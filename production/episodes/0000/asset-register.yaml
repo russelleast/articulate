@@ -1,7 +1,9 @@
 episode:
   id: "episode-0000"
   title: "Welcome to the Articulate Journal"
-  canonical_source: "production/episodes/0000/0000-welcome-to-the-articulate-journal.md"
+  journal_source: "docs/episodes/preface.md"
+  narrative_source: "production/episodes/0000/0000-welcome-to-the-articulate-journal.md"
+  narrative_source_convention: "legacy"
 assets:
   - asset_id: "A001"
     asset_type: "narration"

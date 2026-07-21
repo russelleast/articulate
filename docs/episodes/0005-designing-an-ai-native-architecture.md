@@ -5,7 +5,6 @@ summary: >
   The approach I use to move from questions and requirements to
   architectural decisions, while continuously testing assumptions and
   evolving the architecture as new evidence emerges.
-title: How I Approach Solution Design and Evolving Architecture
 published: 2026-07-15
 updated: 2026-07-15
 status: current
@@ -18,7 +17,7 @@ topics:
   - architecture-evolution
 questions:
   - How do I approach solution design and allow architecture to evolve as
-  understanding improves?
+    understanding improves?
 related_patterns: []
 related_decisions: []
 related_experiments: []

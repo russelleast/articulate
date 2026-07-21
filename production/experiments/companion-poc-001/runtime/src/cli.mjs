@@ -119,9 +119,13 @@ export function validateInputs(context, { requireRenderTools = false, realAudio 
     warnings.push(`Standalone companion asset is missing: ${standaloneCompanionId}. Normal render commands will fail until it exists; use the explicit reference fallback only for PoC 002 layout validation.`);
   }
 
-  const canonicalSource = resolveRepoPath(repoRoot, config.experiment.canonicalSource);
-  if (!fs.existsSync(canonicalSource)) {
-    errors.push(`Missing canonical source episode: ${config.experiment.canonicalSource}`);
+  const journalSource = resolveRepoPath(repoRoot, config.experiment.journalSource);
+  const narrativeSource = resolveRepoPath(repoRoot, config.experiment.narrativeSource);
+  if (!fs.existsSync(journalSource)) {
+    errors.push(`Missing written journal source: ${config.experiment.journalSource}`);
+  }
+  if (!fs.existsSync(narrativeSource)) {
+    errors.push(`Missing spoken narrative source: ${config.experiment.narrativeSource}`);
   }
 
   for (const dirPath of [context.generatedScenesDir, context.generatedSubtitlesDir, context.generatedManifestsDir, context.outputDir]) {

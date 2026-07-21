@@ -3,8 +3,10 @@ episode:
   id: ""
   # Human-readable episode title.
   title: ""
-  # Repository path to the canonical written episode.
-  canonical_source: ""
+  # Repository path to the canonical written journal episode.
+  journal_source: ""
+  # Repository path to the canonical spoken adaptation.
+  narrative_source: "production/episodes/<episode>/narrative.md"
   # Draft, approved, in production, published, or archived.
   production_status: "draft"
 scenes:

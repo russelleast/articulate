@@ -80,7 +80,9 @@ historical
 3. Fill in `title`, `summary`, `published`, `updated`, `status`, `sequence`, `season`, `topics`, and relationship fields.
 4. Link related decisions, patterns, and experiments by their stable identifiers.
 5. Add repository evidence through `repository_paths`.
-6. Run `npm run check` and `npm run build`.
+6. Optionally add `thumbnail` and `youtube_url` when companion media is published.
+7. Put web-facing thumbnails under `site/public/media/episodes/<episode>/`; production masters remain under `production/episodes/<episode>/publication/`.
+8. Run `npm run check` and `npm run build`.
 
 Episodes with `status: draft` are authoring content only. They are excluded from generated Episode
 routes, navigation, the home page, the sitemap, and RSS. Other lifecycle statuses are public.
@@ -119,9 +121,12 @@ come from the Episode's canonical front matter:
 | `topics` | article tags and JSON-LD keywords |
 | `author` (optional) | HTML author and JSON-LD Person |
 | `image` (optional) | absolute Open Graph, Twitter/X, and JSON-LD image URL |
+| `thumbnail` (optional) | episode companion-video artwork and social image fallback |
+| `youtube_url` (optional URL) | companion-video link on the Episode page |
 
-`author` and `image` are optional to preserve compatibility with existing Episodes. If no social
-image is configured, the site emits a summary card and does not invent an image URL.
+`author`, `image`, `thumbnail`, and `youtube_url` are optional to preserve compatibility with existing
+Episodes. If `image` is absent, an Episode thumbnail is used for social metadata. If neither exists,
+the site emits a summary card and does not invent an image URL.
 
 The official `@astrojs/sitemap` integration generates `sitemap-index.xml` and `sitemap-0.xml` during
 the production build. `src/pages/robots.txt.ts` permits normal crawling and points crawlers to that

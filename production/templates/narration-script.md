@@ -1,6 +1,8 @@
 # Narration Script
 
-Canonical source:
+Written journal source:
+
+Canonical spoken narrative: `production/episodes/<episode>/narrative.md`
 
 Episode:
 
@@ -24,6 +26,6 @@ Narration:
 
 ## Review Notes
 
-- Important claims should trace to source sections.
+- Important claims should trace to written journal sections.
 - Editorial additions should be labelled.
-- Spoken phrasing may differ from the written episode, but meaning must be preserved.
+- Segment text, subtitles, and recordings should derive from the approved spoken narrative, not directly from the written episode.

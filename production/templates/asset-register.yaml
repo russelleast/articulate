@@ -3,8 +3,10 @@ episode:
   id: ""
   # Human-readable episode title.
   title: ""
-  # Repository path to the canonical written episode.
-  canonical_source: ""
+  # Repository path to the canonical written journal episode.
+  journal_source: ""
+  # Repository path to the canonical spoken adaptation used for video assets.
+  narrative_source: "production/episodes/<episode>/narrative.md"
 assets:
   - asset_id: "A001"
     # Examples: diagram, slide, companion scene, narration, screen capture, thumbnail.

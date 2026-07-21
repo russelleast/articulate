@@ -1,7 +1,9 @@
 experiment:
   id: "companion-poc-001"
   title: "Episode 0001 Companion Proof of Concept"
-  canonical_source: "docs/episodes/0001-why-articulate-exists.md"
+  journal_source: "docs/episodes/0001-why-articulate-exists.md"
+  narrative_source: "production/episodes/0001/narration-script.md"
+  narrative_source_convention: "legacy"
 assets:
   - asset_id: "A001"
     asset_type: "title treatment"
@@ -103,4 +105,3 @@ assets:
     version: "v0"
     status: "planned"
     review_notes: "Final frame should point to the canonical episode and reviewed media chain."
-

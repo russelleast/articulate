@@ -40,7 +40,7 @@ const relatedExperiments = experiments
   title={episode.data.title}
   description={episode.data.summary}
   type="article"
-  image={episode.data.image}
+  image={episode.data.image ?? episode.data.thumbnail}
   author={episode.data.author}
   article={{
     published: episode.data.published,
@@ -70,6 +70,32 @@ const relatedExperiments = experiments
         {episode.data.topics.map((topic) => <li>{topic}</li>)}
       </ul>
     </header>
+
+    {episode.data.youtube_url && (
+      <aside class="episode-media" aria-labelledby="episode-media-title">
+        {episode.data.thumbnail && (
+          <a class="episode-media-thumbnail" href={episode.data.youtube_url} aria-label={`Watch ${episode.data.title} on YouTube`}>
+            <img
+              src={withBase(episode.data.thumbnail)}
+              alt={`Video thumbnail for ${episode.data.title}`}
+              width="1280"
+              height="720"
+              loading="eager"
+            />
+            <span aria-hidden="true">Play</span>
+          </a>
+        )}
+        <div>
+          <p class="eyebrow">Companion video</p>
+          <h2 id="episode-media-title">Prefer to watch?</h2>
+          <p>
+            This video is a spoken and visual adaptation of the Episode. The journal article below
+            remains the canonical written version.
+          </p>
+          <p><a href={episode.data.youtube_url}>Watch this Episode on YouTube</a></p>
+        </div>
+      </aside>
+    )}
 
     <div class="prose">
       <Content />
