@@ -2,6 +2,10 @@
 
 Production status: final candidate v1 rendered and ready for human publication review.
 
+Written journal source: [`docs/episodes/preface.md`](../../../docs/episodes/preface.md)
+
+Legacy spoken narrative source: [`0000-welcome-to-the-articulate-journal.md`](0000-welcome-to-the-articulate-journal.md)
+
 ## Objective
 
 Introduce the Articulate Journal as an ongoing architectural programme: its perspective, working method, record of reasoning and areas of exploration. Preserve the editorial boundary with Episode 0001 (why Articulate exists), Episode 0002 (what it is) and Episode 0003 (AI-native systems).

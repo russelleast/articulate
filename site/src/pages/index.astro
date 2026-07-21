@@ -3,12 +3,13 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import RecentlyChanged from "@/components/RecentlyChanged.astro";
 import StatusPill from "@/components/StatusPill.astro";
-import { formatDate, withBase } from "@/utils/site";
+import { formatDate, withBase, youtubeEmbedUrl } from "@/utils/site";
 
 const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
 const featuredEpisode = episodes
   .filter((episode) => episode.data.featured || episode.data.sequence > 0)
   .sort((a, b) => b.data.sequence - a.data.sequence)[0] ?? episodes[0];
+const introductionEpisode = episodes.find((episode) => episode.data.sequence === 0);
 ---
 
 <BaseLayout>
@@ -35,6 +36,34 @@ const featuredEpisode = episodes
         </p>
       </aside>
     </section>
+
+    {introductionEpisode?.data.youtube_url && (
+      <section class="section-block introduction-video" aria-labelledby="introduction-video-title">
+        <div class="section-heading">
+          <p class="eyebrow">An introduction to the journal</p>
+          <h2 id="introduction-video-title">Start with the story behind Articulate</h2>
+        </div>
+        <div class="introduction-video-grid">
+          <div class="responsive-video">
+            <iframe
+              src={youtubeEmbedUrl(introductionEpisode.data.youtube_url)}
+              title="Welcome to the Articulate Journal"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div>
+            <p>
+              Episode 0000 introduces the architectural problem Articulate is exploring, why the
+              journal records the thinking as well as the software, and what future Episodes will
+              make visible.
+            </p>
+            <p><a href={withBase(`/episodes/${introductionEpisode.id}/`)}>Read the written introduction</a></p>
+          </div>
+        </div>
+      </section>
+    )}
 
     <section class="section-block" aria-labelledby="start-here">
       <div class="section-heading">

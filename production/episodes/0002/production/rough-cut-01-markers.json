@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "episodeId": "episode-0002",
+  "timingAuthority": "episode-0002-narration-v1",
+  "sourceDurationSeconds": 396.845782,
+  "method": "Editorial correlation of the canonical spoken narrative with deterministic FFmpeg silencedetect pause evidence. Boundaries use the end of natural pauses and preserve the complete recording.",
+  "scenes": [
+    { "id": "S001", "startSeconds": 0.000000, "endSeconds": 13.735533, "narrationReference": "Introduction — previous episode and the apparently simple question" },
+    { "id": "S002", "startSeconds": 13.735533, "endSeconds": 46.149229, "narrationReference": "Introduction — changing definitions and architectural intelligence" },
+    { "id": "S003", "startSeconds": 46.149229, "endSeconds": 85.469093, "narrationReference": "Architectural Knowledge — artefacts are partial representations" },
+    { "id": "S004", "startSeconds": 85.469093, "endSeconds": 104.549320, "narrationReference": "Architectural Knowledge — knowledge as the primary evolving asset" },
+    { "id": "S005", "startSeconds": 104.549320, "endSeconds": 125.988866, "narrationReference": "Where AI Fits — AI-native does not replace the architect" },
+    { "id": "S006", "startSeconds": 125.988866, "endSeconds": 147.534127, "narrationReference": "Where AI Fits — AI collaborates and augments" },
+    { "id": "S007", "startSeconds": 147.534127, "endSeconds": 174.147460, "narrationReference": "Conversation — the questions architects ask" },
+    { "id": "S008", "startSeconds": 174.147460, "endSeconds": 203.698481, "narrationReference": "Conversation — conversation as the collaboration interface" },
+    { "id": "S009", "startSeconds": 203.698481, "endSeconds": 222.697891, "narrationReference": "A Living Architectural Model — sources contribute evidence" },
+    { "id": "S010", "startSeconds": 222.697891, "endSeconds": 249.837279, "narrationReference": "A Living Architectural Model — understanding evolves continuously" },
+    { "id": "S011", "startSeconds": 249.837279, "endSeconds": 275.395850, "narrationReference": "What Articulate Actually Does — discover, preserve and explore" },
+    { "id": "S012", "startSeconds": 275.395850, "endSeconds": 307.369093, "narrationReference": "What Articulate Actually Does — reason, design, reuse and learn in public" },
+    { "id": "S013", "startSeconds": 307.369093, "endSeconds": 332.329569, "narrationReference": "Architectural Intelligence — working definition" },
+    { "id": "S014", "startSeconds": 332.329569, "endSeconds": 356.861497, "narrationReference": "Architectural Intelligence — the three open questions" },
+    { "id": "S015", "startSeconds": 356.861497, "endSeconds": 369.231769, "narrationReference": "Architectural Intelligence — uncertainty is the point" },
+    { "id": "S016", "startSeconds": 369.231769, "endSeconds": 384.210839, "narrationReference": "Looking Ahead — what Articulate is now" },
+    { "id": "S017", "startSeconds": 384.210839, "endSeconds": 396.845782, "narrationReference": "Looking Ahead — principles, requirements and constraints" }
+  ]
+}

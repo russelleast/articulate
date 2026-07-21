@@ -3,7 +3,9 @@
   "episode": {
     "id": "episode-0000",
     "title": "Welcome to the Articulate Journal",
-    "canonicalSource": "production/episodes/0000/0000-welcome-to-the-articulate-journal.md",
+    "journalSource": "docs/episodes/preface.md",
+    "narrativeSource": "production/episodes/0000/0000-welcome-to-the-articulate-journal.md",
+    "narrativeSourceConvention": "legacy",
     "storyboard": "production/episodes/0000/scene-list.yaml",
     "timingMarkers": "production/episodes/0000/production/final-cut-candidate-v2-markers.json",
     "assetRegister": "production/episodes/0000/asset-register.yaml"

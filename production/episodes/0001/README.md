@@ -2,7 +2,9 @@
 
 This is the production working area for Episode 0001, "Why Articulate Exists".
 
-Canonical source: [`docs/episodes/0001-why-articulate-exists.md`](../../../docs/episodes/0001-why-articulate-exists.md)
+Written journal: [`docs/episodes/0001-why-articulate-exists.md`](../../../docs/episodes/0001-why-articulate-exists.md)
+
+Legacy spoken narrative: [`narration-script.md`](narration-script.md). This episode predates the `narrative.md` convention; render configurations mark the exception explicitly and do not fall back to the written journal.
 
 Episode 0001 opens the Articulate series. The production treatment should therefore introduce the journal, the architectural problem and the role of AI-native exploration without overstating the maturity of the project.
 

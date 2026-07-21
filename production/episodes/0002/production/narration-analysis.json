@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "episodeId": "episode-0002",
+  "narrationAssetId": "episode-0002-narration-v1",
+  "sha256": "4f6c0f30e45690df7314f3c9be257e79880c61356f219d14d3dc58fbea08edda",
+  "media": {
+    "durationSeconds": 396.845782,
+    "sizeBytes": 35001842,
+    "bitRate": 705600,
+    "codec": "pcm_s16le",
+    "sampleRateHz": 44100,
+    "channels": 1,
+    "channelLayout": "mono"
+  },
+  "silenceAnalysis": {
+    "noiseThreshold": "-42dB",
+    "minimumSilenceSeconds": 0.35,
+    "leadingSilenceSeconds": 0,
+    "trailingSilenceSeconds": 0.699297,
+    "usableNarrationDurationSeconds": 396.146485,
+    "detectedPauseCount": 109,
+    "majorPauseMinimumSeconds": 1.3,
+    "majorPauses": [
+      {
+        "startSeconds": 44.617528,
+        "endSeconds": 46.149229,
+        "durationSeconds": 1.531701
+      },
+      {
+        "startSeconds": 84.034943,
+        "endSeconds": 85.469093,
+        "durationSeconds": 1.43415
+      },
+      {
+        "startSeconds": 145.417347,
+        "endSeconds": 147.534127,
+        "durationSeconds": 2.11678
+      },
+      {
+        "startSeconds": 151.248594,
+        "endSeconds": 152.573673,
+        "durationSeconds": 1.325079
+      },
+      {
+        "startSeconds": 192.329909,
+        "endSeconds": 193.660295,
+        "durationSeconds": 1.330385
+      },
+      {
+        "startSeconds": 201.875079,
+        "endSeconds": 203.698481,
+        "durationSeconds": 1.823401
+      },
+      {
+        "startSeconds": 247.872517,
+        "endSeconds": 249.837279,
+        "durationSeconds": 1.964762
+      },
+      {
+        "startSeconds": 305.880113,
+        "endSeconds": 307.369093,
+        "durationSeconds": 1.48898
+      },
+      {
+        "startSeconds": 329.310816,
+        "endSeconds": 332.329569,
+        "durationSeconds": 3.018753
+      },
+      {
+        "startSeconds": 346.029252,
+        "endSeconds": 347.943107,
+        "durationSeconds": 1.913855
+      },
+      {
+        "startSeconds": 355.448707,
+        "endSeconds": 356.861497,
+        "durationSeconds": 1.412789
+      },
+      {
+        "startSeconds": 382.553379,
+        "endSeconds": 384.210839,
+        "durationSeconds": 1.65746
+      }
+    ]
+  },
+  "interpretation": [
+    "The complete master recording is preserved for rough-cut timing; no silence was removed.",
+    "Major pauses are deterministic signal evidence. Editorial section markers additionally use canonical section order and are stored in narration-markers.json.",
+    "The trailing silence begins after the spoken close and remains part of the selected recording."
+  ]
+}

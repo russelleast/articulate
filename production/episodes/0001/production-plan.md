@@ -4,7 +4,8 @@
 
 - Episode id: episode-0001
 - Episode title: Why Articulate Exists
-- Canonical source: [`docs/episodes/0001-why-articulate-exists.md`](../../../docs/episodes/0001-why-articulate-exists.md)
+- Written journal source: [`docs/episodes/0001-why-articulate-exists.md`](../../../docs/episodes/0001-why-articulate-exists.md)
+- Legacy spoken narrative: [`narration-script.md`](narration-script.md)
 - Source status: current
 - Production status: draft
 - Target duration: 7-9 minutes

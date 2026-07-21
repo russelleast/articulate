@@ -4,7 +4,8 @@
 
 - Episode id:
 - Episode title:
-- Canonical source:
+- Written journal source:
+- Spoken narrative source: `production/episodes/<episode>/narrative.md`
 - Source version or commit:
 - Production owner:
 - Production status:
@@ -39,7 +40,7 @@
 
 ## Central Narrative
 
-Describe the episode's production narrative in a few paragraphs. Preserve the author's meaning and identify any editorial additions.
+Describe the episode's production narrative in a few paragraphs. The approved `narrative.md` is the text authority for spoken delivery; preserve the written journal's meaning and identify any editorial additions.
 
 ## Major Sections
 

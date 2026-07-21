@@ -34,3 +34,13 @@ export function formatDate(date: Date) {
     year: "numeric"
   }).format(date);
 }
+
+export function youtubeEmbedUrl(value: string) {
+  const url = new URL(value);
+  const videoId = url.hostname === "youtu.be"
+    ? url.pathname.slice(1)
+    : url.searchParams.get("v") ?? url.pathname.split("/").filter(Boolean).at(-1);
+
+  if (!videoId) throw new Error(`YouTube URL has no video id: ${value}`);
+  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
+}

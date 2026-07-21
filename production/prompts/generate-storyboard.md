@@ -2,7 +2,7 @@
 
 You are assisting with Articulate Journal media production.
 
-The written Markdown episode is canonical. Preserve the author's meaning. Do not invent unsupported visual claims. Visual concepts must trace to source sections or be labelled as editorial additions.
+The written Markdown episode is canonical for the journal, while the approved `production/episodes/<episode>/narrative.md` is canonical for video production. Plan scene order and narration timing from the narrative. Do not invent unsupported visual claims; visual concepts must still trace to written journal sections or be labelled as editorial additions.
 
 Use the approved production plan and canonical episode to produce a storyboard compatible with `production/templates/storyboard.md`.
 

@@ -10,7 +10,9 @@ test("required asset validation gives an actionable error", () => {
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "validation-repo-"));
   const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), "validation-output-"));
   fs.mkdirSync(path.join(repoRoot, "docs/episodes"), { recursive: true });
+  fs.mkdirSync(path.join(repoRoot, "production/episodes/0001"), { recursive: true });
   fs.writeFileSync(path.join(repoRoot, "docs/episodes/source.md"), "# Source\n", "utf8");
+  fs.writeFileSync(path.join(repoRoot, "production/episodes/0001/narrative.md"), "# Narrative\n", "utf8");
 
   assert.throws(() => validateInputs({
     repoRoot,
@@ -25,7 +27,7 @@ test("required asset validation gives an actionable error", () => {
       localAsset("companion-reference", "missing.png")
     ]),
     config: {
-      experiment: { canonicalSource: "docs/episodes/source.md" },
+      experiment: { journalSource: "docs/episodes/source.md", narrativeSource: "production/episodes/0001/narrative.md" },
       assets: { companionNeutral: { assetId: "companion-neutral" }, companionDesignSystem: { assetId: "companion-reference" } },
       audio: { durationToleranceSeconds: 1 },
       output: { width: 1920, height: 1080, frameRate: 25 },
@@ -39,8 +41,10 @@ test("placeholder mode does not require narration files", () => {
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "validation-repo-"));
   const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), "validation-output-"));
   fs.mkdirSync(path.join(repoRoot, "docs/episodes"), { recursive: true });
+  fs.mkdirSync(path.join(repoRoot, "production/episodes/0001"), { recursive: true });
   fs.mkdirSync(path.join(repoRoot, "assets"), { recursive: true });
   fs.writeFileSync(path.join(repoRoot, "docs/episodes/source.md"), "# Source\n", "utf8");
+  fs.writeFileSync(path.join(repoRoot, "production/episodes/0001/narrative.md"), "# Narrative\n", "utf8");
   fs.writeFileSync(path.join(repoRoot, "assets/companion.png"), "png", "utf8");
 
   const result = validateInputs({
@@ -56,7 +60,7 @@ test("placeholder mode does not require narration files", () => {
       localAsset("companion-reference", "assets/companion.png")
     ]),
     config: {
-      experiment: { canonicalSource: "docs/episodes/source.md" },
+      experiment: { journalSource: "docs/episodes/source.md", narrativeSource: "production/episodes/0001/narrative.md" },
       assets: { companionNeutral: { assetId: "companion-neutral" }, companionDesignSystem: { assetId: "companion-reference" } },
       audio: { durationToleranceSeconds: 1 },
       output: { width: 1920, height: 1080, frameRate: 25 },
@@ -72,8 +76,10 @@ test("real-audio validation requires the canonical voice profile", () => {
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "validation-repo-"));
   const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), "validation-output-"));
   fs.mkdirSync(path.join(repoRoot, "docs/episodes"), { recursive: true });
+  fs.mkdirSync(path.join(repoRoot, "production/episodes/0001"), { recursive: true });
   fs.mkdirSync(path.join(repoRoot, "assets"), { recursive: true });
   fs.writeFileSync(path.join(repoRoot, "docs/episodes/source.md"), "# Source\n", "utf8");
+  fs.writeFileSync(path.join(repoRoot, "production/episodes/0001/narrative.md"), "# Narrative\n", "utf8");
   fs.writeFileSync(path.join(repoRoot, "assets/companion.png"), "png", "utf8");
 
   assert.throws(() => validateInputs({
@@ -90,7 +96,7 @@ test("real-audio validation requires the canonical voice profile", () => {
       localAsset("episode-narration", "production/narrator/missing.wav", "narration")
     ]),
     config: {
-      experiment: { canonicalSource: "docs/episodes/source.md" },
+      experiment: { journalSource: "docs/episodes/source.md", narrativeSource: "production/episodes/0001/narrative.md" },
       assets: {
         companionNeutral: { assetId: "companion-neutral" },
         companionDesignSystem: {

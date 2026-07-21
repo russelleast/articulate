@@ -1,7 +1,9 @@
 episode:
   id: "episode-0001"
   title: "Why Articulate Exists"
-  canonical_source: "docs/episodes/0001-why-articulate-exists.md"
+  journal_source: "docs/episodes/0001-why-articulate-exists.md"
+  narrative_source: "production/episodes/0001/narration-script.md"
+  narrative_source_convention: "legacy"
 assets:
   - asset_id: "A001"
     asset_type: "title slide"

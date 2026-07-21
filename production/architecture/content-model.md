@@ -26,13 +26,25 @@ Origin: authored with possible AI assistance.
 
 Evolution: expected to evolve until approved for production.
 
+## Spoken Narrative
+
+Purpose: adapts the written episode for listening and provides the canonical text input to video production.
+
+Required metadata: episode id, written journal source, narrative path, approval state and update date.
+
+Relationship to canonical episode: preserves the journal's argument while changing phrasing, pacing or sequence for spoken delivery. It does not replace the written episode.
+
+Origin: manually authored or AI-assisted, then human reviewed.
+
+Evolution: expected to evolve until voice recording and editorial approval; later delivery differences must be recorded explicitly.
+
 ## Narration Segment
 
 Purpose: represents a spoken unit of the narration.
 
 Required metadata: segment id, corresponding scene, source references, narration text, pauses, emphasis notes, pronunciation notes, on-screen text and retake notes.
 
-Relationship to canonical episode: adapts source material for listening and must preserve meaning.
+Relationship to canonical episode: segments the approved spoken narrative for recording and scene alignment; it must not re-derive narration from the journal article.
 
 Origin: authored or AI-drafted, then recorded by a human.
 

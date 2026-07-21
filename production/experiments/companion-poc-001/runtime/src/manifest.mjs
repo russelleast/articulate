@@ -24,7 +24,8 @@ export function buildManifest({
   const existingGenerated = generatedFiles.filter((filePath) => fs.existsSync(filePath));
   return {
     experiment: config.experiment.id,
-    sourceEpisode: config.experiment.canonicalSource,
+    writtenJournal: config.experiment.journalSource,
+    spokenNarrative: config.experiment.narrativeSource,
     sourceRevision: getGitRevision(repoRoot),
     sceneConfiguration: repoRelative(repoRoot, configPath),
     runtimeVersion: config.runtimeVersion,

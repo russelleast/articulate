@@ -2,13 +2,14 @@
 
 The production system is an experimental AI-assisted publishing workflow for the Articulate Journal.
 
-Its purpose is to help turn canonical written episodes into derived media: narration, video, slides, diagrams, demonstrations, social extracts and publication metadata. The written Markdown episode remains the source of record. Every other format is a representation of that source, shaped for a different medium and reviewed by a human before publication.
+Its purpose is to help adapt canonical written episodes into derived media: spoken narratives, video, slides, diagrams, demonstrations, social extracts and publication metadata. The written Markdown episode remains the journal's source of record. Video production uses a separately approved spoken adaptation at `production/episodes/<episode>/narrative.md`; it does not read the article as if article and narration were interchangeable.
 
 This area is deliberately technology-neutral. It defines the production architecture, content model, reusable templates, prompts, review gates and Episode working areas. It does not select avatar vendors, video tools, voice services or automation frameworks.
 
 ## Principles
 
-- The written episode is canonical.
+- The written episode is canonical for the journal.
+- `narrative.md` is canonical for spoken delivery, scene planning, recordings, subtitles, and video production.
 - Derived media must preserve the author's meaning.
 - Each medium should use its strengths rather than repeat the episode verbatim.
 - Generated artefacts must remain traceable to source sections.
@@ -31,6 +32,19 @@ production/
 |-- experiments/    # Small vertical slices that expose production constraints
 `-- episodes/       # Episode-specific production working areas
 ```
+
+## Episode Representations
+
+```text
+Episode
+|-- Written representation  -> docs/episodes/<episode>.md
+|-- Spoken representation   -> production/episodes/<episode>/narrative.md
+`-- Published media         -> thumbnail, YouTube URL, and generated production artefacts
+```
+
+The written article is adapted manually into the spoken narrative. Text is canonical for the journal; narrative is canonical for video production; video is an adapted representation of the episode, not a recording of the article.
+
+New productions fail validation when `narrative.md` is missing. Episodes 0000 and 0001 predate the convention, so their existing render configurations declare an explicit `legacy` narrative source. They should gain `narrative.md` during a deliberate editorial migration; the runtime never silently falls back to `docs/episodes`.
 
 ## Boundaries
 
