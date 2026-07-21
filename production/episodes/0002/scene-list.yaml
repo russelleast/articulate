@@ -1,0 +1,24 @@
+episode:
+  id: "episode-0002"
+  title: "What Is Articulate?"
+  production_status: "rough-cut-01"
+  timing_authority: "episode-0002-narration-v1"
+  narration_duration_seconds: 396.845782
+scenes:
+  - { scene_id: "S001", start_seconds: 0.000000, end_seconds: 13.735533, visual_type: "Narrator", companion_mode: "present-lip-sync", assets: ["A001", "A002"] }
+  - { scene_id: "S002", start_seconds: 13.735533, end_seconds: 46.149229, visual_type: "Whiteboard", companion_mode: "none", assets: ["A003"] }
+  - { scene_id: "S003", start_seconds: 46.149229, end_seconds: 85.469093, visual_type: "Diagram", companion_mode: "none", assets: ["A004"] }
+  - { scene_id: "S004", start_seconds: 85.469093, end_seconds: 104.549320, visual_type: "Whiteboard", companion_mode: "none", assets: ["A005"] }
+  - { scene_id: "S005", start_seconds: 104.549320, end_seconds: 125.988866, visual_type: "Narrator", companion_mode: "present-lip-sync", assets: ["A002", "A006"] }
+  - { scene_id: "S006", start_seconds: 125.988866, end_seconds: 147.534127, visual_type: "Whiteboard", companion_mode: "none", assets: ["A007"] }
+  - { scene_id: "S007", start_seconds: 147.534127, end_seconds: 174.147460, visual_type: "Reflection", companion_mode: "none", assets: ["A008"] }
+  - { scene_id: "S008", start_seconds: 174.147460, end_seconds: 203.698481, visual_type: "Narrator", companion_mode: "present-lip-sync", assets: ["A002", "A009"] }
+  - { scene_id: "S009", start_seconds: 203.698481, end_seconds: 222.697891, visual_type: "Evidence", companion_mode: "none", assets: ["A010"] }
+  - { scene_id: "S010", start_seconds: 222.697891, end_seconds: 249.837279, visual_type: "Whiteboard", companion_mode: "none", assets: ["A011"] }
+  - { scene_id: "S011", start_seconds: 249.837279, end_seconds: 275.395850, visual_type: "Diagram", companion_mode: "none", assets: ["A012"] }
+  - { scene_id: "S012", start_seconds: 275.395850, end_seconds: 307.369093, visual_type: "Repository", companion_mode: "none", assets: ["A013"] }
+  - { scene_id: "S013", start_seconds: 307.369093, end_seconds: 332.329569, visual_type: "Narrator", companion_mode: "present-lip-sync", assets: ["A002", "A014"] }
+  - { scene_id: "S014", start_seconds: 332.329569, end_seconds: 356.861497, visual_type: "Reflection", companion_mode: "none", assets: ["A015"] }
+  - { scene_id: "S015", start_seconds: 356.861497, end_seconds: 369.231769, visual_type: "Narrator", companion_mode: "present-lip-sync", assets: ["A002", "A016"] }
+  - { scene_id: "S016", start_seconds: 369.231769, end_seconds: 384.210839, visual_type: "Repository", companion_mode: "none", assets: ["A017"] }
+  - { scene_id: "S017", start_seconds: 384.210839, end_seconds: 396.845782, visual_type: "Narrator", companion_mode: "present-lip-sync", assets: ["A002", "A018"] }

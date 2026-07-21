@@ -90,6 +90,15 @@
       "checksum": "sha256:61cebeeba07b42285a3b130a9484f1452e8163ee0ebee92e2f2bdf32fa9207fa",
       "location": "production/narrator/Articulate-Ep1.wav",
       "provider": "local"
+    },
+    {
+      "id": "episode-0002-narration-v1",
+      "type": "narration",
+      "episode": "0002",
+      "status": "approved",
+      "checksum": "sha256:4f6c0f30e45690df7314f3c9be257e79880c61356f219d14d3dc58fbea08edda",
+      "location": "production/episodes/0002/ep2-what-is-articulate.wav",
+      "provider": "local"
     }
   ]
 }

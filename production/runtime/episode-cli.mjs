@@ -330,7 +330,7 @@ async function generateReviewArtifacts(context, validation) {
     await sharp(Buffer.from(contactSheetSvg(sceneFrames, context.grammar)), { density: 144 }).png().toFile(sceneContact);
   }
   const temporalContactSheet = context.config.review?.temporalSampleSeconds
-    ? generateTemporalContactSheet(validation.ffmpeg, videoPath, reviewDir, context.config.review.temporalSampleSeconds)
+    ? generateTemporalContactSheet(validation.ffmpeg, videoPath, reviewDir, context.config.review.temporalSampleSeconds, validation.duration)
     : null;
   const mediaReportPath = path.join(reviewDir, "media-report.json");
   fs.writeFileSync(mediaReportPath, `${JSON.stringify({
@@ -364,14 +364,19 @@ async function generateReviewArtifacts(context, validation) {
   return reviewDir;
 }
 
-function generateTemporalContactSheet(ffmpeg, videoPath, reviewDir, intervalSeconds) {
+function generateTemporalContactSheet(ffmpeg, videoPath, reviewDir, intervalSeconds, durationSeconds) {
   if (!Number.isFinite(intervalSeconds) || intervalSeconds <= 0) {
     throw new Error(`review.temporalSampleSeconds must be a positive number`);
   }
+  if (!Number.isFinite(durationSeconds) || durationSeconds <= 0) {
+    throw new Error(`Review duration must be a positive number`);
+  }
   const output = path.join(reviewDir, "temporal-contact-sheet.png");
+  const columns = 5;
+  const rows = Math.max(1, Math.ceil(Math.ceil(durationSeconds / intervalSeconds) / columns));
   run(ffmpeg, [
     "-y", "-i", videoPath,
-    "-vf", `fps=1/${intervalSeconds},scale=384:216:force_original_aspect_ratio=decrease,pad=384:216:(ow-iw)/2:(oh-ih)/2,tile=5x6:padding=0:margin=0`,
+    "-vf", `fps=1/${intervalSeconds},scale=384:216:force_original_aspect_ratio=decrease,pad=384:216:(ow-iw)/2:(oh-ih)/2,tile=${columns}x${rows}:padding=0:margin=0`,
     "-frames:v", "1", output
   ]);
   return output;
