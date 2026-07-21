@@ -1,9 +1,11 @@
 ---
 id: episode-0005
-title: Designing an AI-Native Architecture
+title: How I Approach Solution Design and Evolving Architecture
 summary: >
-  A requirements-led process for turning AI-native system qualities into a
-  reasoned architecture whose decisions, trade-offs, and evolution are explicit.
+  The approach I use to move from questions and requirements to
+  architectural decisions, while continuously testing assumptions and
+  evolving the architecture as new evidence emerges.
+title: How I Approach Solution Design and Evolving Architecture
 published: 2026-07-15
 updated: 2026-07-15
 status: current
@@ -13,8 +15,10 @@ topics:
   - solution-design
   - architectural-decisions
   - requirements
+  - architecture-evolution
 questions:
-  - How do requirements and system qualities become a reasoned AI-native architecture?
+  - How do I approach solution design and allow architecture to evolve as
+  understanding improves?
 related_patterns: []
 related_decisions: []
 related_experiments: []
@@ -23,271 +27,627 @@ repository_paths:
 featured: false
 ---
 
-# Episode 5 – Designing an AI-Native Architecture
+# Episode 5 – How I Approach Solution Design and Evolving Architecture
 
-In the previous episode, I explored the qualities that define an AI-native system. Those qualities describe what the system needs to achieve, but they don't tell us what the architecture should look like. This episode bridges that gap.
+Architecture is often presented retrospectively.
 
-This isn't an episode about drawing diagrams or choosing technology. It's about the process of turning requirements into an architecture.
+We see the finished diagrams, the selected technologies and the
+decisions that survived. What we rarely see is the process that produced
+them: the questions that were asked, the assumptions that proved wrong,
+the alternatives that were rejected and the architecture that changed as
+understanding improved.
 
-Over the years I've developed an approach that is influenced by frameworks such as the Zachman Framework and TOGAF ADM, but adapted through practical experience delivering enterprise systems. Every architect develops their own way of working, and this is the approach I use today.
+Articulate is intended to be different.
 
-It is important to understand that this is an iterative process. On a real project, solution design may take days or weeks. Requirements evolve, assumptions are challenged, trade-offs emerge, and new information changes earlier decisions. For the purpose of this series, I'm compressing that process into a single episode and focusing on the reasoning behind the major architectural decisions rather than every iteration that would occur in a real engagement.
+This journal is not documenting a system whose architecture has already
+been designed. The architecture will emerge throughout the project as I
+investigate problems, test ideas, make decisions and learn from
+implementation.
 
-## Architecture is More Than Diagrams
+Before going further, I therefore want to explain the approach I use
+when designing systems.
 
-One of the biggest misconceptions about architecture is that it begins with a component diagram.
+This is not intended to be a universal architecture methodology. Over
+the years, I have developed an approach influenced by frameworks such as
+the Zachman Framework and TOGAF ADM, but adapted through practical
+experience designing and delivering systems.
 
-Diagrams are valuable. They communicate ideas, facilitate workshops, and provide a shared understanding across teams. I use them extensively, particularly when collaborating with others.
+More importantly, this is not a process that will be completed in this
+episode.
+
+It is the approach I intend to follow throughout the rest of this
+journal.
+
+## Architecture Is More Than Diagrams
+
+One of the biggest misconceptions about architecture is that it begins
+with a component diagram.
+
+Diagrams are valuable.
+
+They communicate ideas, facilitate conversations and help people develop
+a shared understanding of a system. I use them extensively throughout
+the architecture process.
 
 However, diagrams are not the architecture.
 
-The architecture is the collection of decisions, constraints, assumptions and trade-offs that shape the system. The diagrams simply communicate those decisions.
+The architecture is the collection of significant decisions,
+constraints, assumptions and trade-offs that shape a system.
 
-If someone asks why a particular technology was selected, why services were separated in a certain way, or why one pattern was chosen over another, the answer will never be found in a diagram. It is found in the reasoning that led to those decisions.
+A diagram might show that two components communicate through a message
+broker. It cannot necessarily explain why asynchronous communication was
+required, what alternatives were considered or what consequences were
+accepted by making that decision.
 
-That reasoning is where I always begin.
+That reasoning matters.
 
-## Requirements Drive Everything
+If someone asks why a particular technology was selected, why a system
+boundary exists or why one pattern was chosen over another, I want to be
+able to trace that decision back to the problem it was intended to
+solve.
 
-Requirements are the foundation of every architectural decision.
+That is where I begin.
 
-Throughout the design process I continually return to the requirements to ensure the architecture remains aligned with the original objectives. This applies equally to functional requirements, quality attributes, business constraints and technical constraints.
+## Requirements and Architectural Drivers
 
-As new ideas emerge, I ask a simple question:
+Requirements provide the context for architectural decisions, but not
+every requirement has the same architectural significance.
 
-Does this help satisfy the requirements?
+As an architect, I am particularly interested in identifying
+**Architecturally Significant Requirements**, often shortened to
+**ASRs**.
 
-If the answer is no, then the decision probably doesn't belong in the architecture.
+A normal requirement describes something the system needs to do or a
+constraint within which it must operate.
 
-This continuous validation helps avoid technology-led design where frameworks and platforms are selected because they are interesting rather than because they solve a genuine problem.
+An ASR is a requirement that has a meaningful influence on the shape of
+the architecture.
+
+The difference is not always obvious from how a requirement is written.
+
+Consider a requirement such as:
+
+> A user can submit a request for analysis.
+
+On its own, that tells us relatively little about the architecture.
+
+Now imagine that the analysis may take several hours, must survive
+service restarts, may require human approval before continuing and must
+maintain a complete audit trail of how its conclusions were reached.
+
+The requirement has become architecturally significant.
+
+It introduces concerns around durable execution, state management,
+human-in-the-loop workflows, observability and traceability.
+
+These become architectural drivers.
+
+ASRs frequently emerge from quality attributes such as scalability,
+availability, security, performance and reliability, but they can also
+originate from functional requirements, business constraints, regulatory
+obligations and technical constraints.
+
+The important question is therefore not simply:
+
+> What are the requirements?
+
+It is:
+
+> Which requirements will materially influence the architecture?
+
+I look particularly for requirements that force difficult decisions,
+constrain multiple parts of the system, introduce significant risk or
+make one architectural approach more appropriate than another.
+
+Sometimes these requirements are explicit.
+
+More often, they have to be discovered.
 
 ## Starting With Questions
 
-Rather than immediately selecting technologies or producing diagrams, I begin by asking a series of fundamental questions.
+I tend to begin architecture work with questions rather than solutions.
 
-### Why
+At the highest level, those questions are deliberately simple:
 
-The most important question.
+-   What?
+-   How?
+-   Where?
+-   Who?
+-   When?
+-   Why?
 
-- Why does the system exist?
-- What business problem are we solving?
-- What value are we trying to create?
-- What constraints are driving the solution?
+This approach is influenced by the Zachman Framework, although I do not
+use Zachman as a rigid documentation framework.
 
-Understanding the justification behind the system influences every decision that follows.
+The idea I find valuable is that the same fundamental questions can be
+explored from different perspectives.
 
-### What
+The questions remain broadly the same.
 
-- What capabilities does the system need?
-- What information does it manage?
-- What knowledge must it capture?
-- What are the boundaries of the problem domain?
+What changes is **who I am asking them for and what I am trying to
+understand**.
 
-### How
+From a product perspective, **What?** may identify business entities and
+features. **How?** may describe workflows. **When?** may expose roadmap
+dependencies. **Why?** may reveal business value and rationale.
 
-- How will capabilities be realised?
-- How will users interact with the system?
-- How will AI participate in the workflow?
-- How will information flow through the system?
+From an architectural perspective, those same questions lead somewhere
+different.
 
-### Where
+**What?** may identify major building blocks and scope.
 
-- Where are the architectural boundaries?
-- Where is information stored?
-- Where do services execute?
-- Where should intelligence reside?
+**How?** may explore interactions, patterns and architectural
+approaches.
 
-### When
+**Where?** may reveal boundaries, distribution and deployment concerns.
 
-- When do events occur?
-- When does information change?
-- When should workflows persist?
-- When does human intervention become necessary?
+**Who?** may identify actors, stakeholders and responsibilities.
 
-### Who
+**When?** may expose system events and temporal dependencies.
 
-- Who interacts with the system?
-- Who owns decisions?
-- Who are the consumers?
-- Who are the external systems?
-- Who are the AI agents participating in the solution?
+**Why?** may uncover architectural characteristics, significant
+decisions and their justification.
 
-These questions are not answered once.
+For developers, the questions become more concrete again, covering
+applications, components, data models, integrations, deployment
+approaches and ownership.
 
-They are revisited repeatedly as understanding grows.
+For operations, they may expose infrastructure, networks, provisioning,
+capacity, security policies, availability, recovery and monitoring.
+
+I have previously represented this approach as a grid, with perspectives
+forming one dimension and these fundamental questions forming the other.
+The intersections provide prompts for deeper investigation.
+
+The purpose is not to complete every cell.
+
+Doing that would simply replace one heavyweight documentation template
+with another.
+
+Instead, I use the grid as a **question-generation mechanism**.
+
+Depending on the problem, its scope and the people involved, I explore
+the perspectives that matter.
+
+For example, asking:
+
+> Where does this system run?
+
+may produce a simple infrastructure answer.
+
+But exploring **Where?** from several perspectives might reveal very
+different questions:
+
+-   Where are the users?
+-   Where are the teams responsible for the system?
+-   Where is data created?
+-   Where is it stored?
+-   Where do components execute?
+-   Where are the trust boundaries?
+-   Where can failures occur?
+
+Likewise, **Who?** can expand into users, actors, stakeholders,
+ownership, responsibilities and security boundaries.
+
+**When?** can expose business events, system events, sequencing,
+temporal dependencies and lifecycle concerns.
+
+The questions are simple.
+
+The investigation they create is not.
 
 ## Looking Through Different Perspectives
 
-Once I have an initial understanding of the problem, I begin viewing the architecture through different perspectives.
+The perspective-based questions help me understand the problem, but I
+also examine the emerging design through architectural perspectives.
 
-Each perspective asks another set of questions and frequently uncovers additional requirements or design decisions.
+These might include:
 
-Examples include:
+-   Security
+-   Performance
+-   Scalability
+-   Reliability
+-   Resilience
+-   Availability
+-   Observability
+-   Usability
+-   Operations
+-   Deployment
+-   Data management
+-   Governance
 
-- Security
-- Performance
-- Scalability
-- Reliability
-- Resilience
-- Availability
-- Observability
-- AI evaluation
-- Usability
-- Operations
-- Deployment
-- Data management
-- Governance
+For an AI-native system, that list may need to expand further.
 
-Each perspective may reveal assumptions that were previously hidden.
+I may need to consider AI evaluation, explainability, model behaviour,
+confidence, provenance, human oversight and the operational consequences
+of non-deterministic behaviour.
 
-For example, considering observability may introduce new telemetry requirements.
+Each perspective can reveal requirements or assumptions that were
+previously hidden.
 
-A resilience review may require workflow checkpointing.
+An observability review may introduce additional telemetry requirements.
 
-An evaluation perspective may introduce an entirely new evaluation service for measuring AI quality.
+A resilience review may reveal that a long-running process needs
+checkpointing.
 
-Each review refines the architecture.
+A security review may expose trust boundaries that were not previously
+visible.
+
+An AI evaluation perspective may reveal that the system needs to capture
+information that would not normally be retained by traditional
+application telemetry.
+
+This is one reason I do not consider architecture to be a linear
+process.
+
+Looking at the architecture differently often changes my understanding
+of the original problem.
+
+## From Requirements to Options
+
+Once I understand enough about the problem and its architectural
+drivers, I can begin exploring possible solutions.
+
+This is where I deliberately try to avoid jumping immediately to
+technology.
+
+If a requirement tells me that work may continue for several days and
+must survive process failure, the architectural problem is **durable
+execution**.
+
+That does not immediately mean Temporal.
+
+If a system needs to understand highly connected knowledge, the
+architectural problem may involve representing and traversing
+relationships.
+
+That does not immediately mean a graph database.
+
+If several specialised reasoning behaviours need to collaborate, that
+may indicate some form of agentic architecture.
+
+That does not automatically mean I need an agent framework.
+
+The distinction matters because technologies change much faster than
+architectural problems.
+
+I therefore try to move through the reasoning in this direction:
+
+**Problem → Principles → Capabilities → Architecture → Runtime →
+Technology**
+
+Requirements and architectural drivers inform every stage of that
+progression.
+
+Technology is important.
+
+It is simply not where I want the reasoning to begin.
+
+## Patterns Follow Problems
+
+The same principle applies to architectural patterns.
+
+Questions such as these often appear early in architecture discussions:
+
+> Should we use CQRS?
+
+> Should we use Event Sourcing?
+
+> Should we use actors?
+
+> Should we use durable workflows?
+
+These questions begin with solutions.
+
+Instead, I want to understand the problem first.
+
+If different parts of a system need independently optimised read and
+write models, CQRS may become worth considering.
+
+If historical state and the sequence of changes are fundamental to the
+domain, Event Sourcing may become relevant.
+
+If the system contains large numbers of independently stateful entities
+requiring concurrency and isolation, an actor model may be appropriate.
+
+If work must survive failures, pause for external input and continue
+over long periods, durable workflows may become a candidate solution.
+
+Patterns are useful because they capture accumulated architectural
+experience.
+
+But they are responses to particular forces and problems.
+
+They should not be the starting point.
 
 ## Decisions and Trade-offs
 
-Architecture is ultimately about making decisions.
+Eventually, architecture requires decisions.
 
 Every significant decision introduces trade-offs.
 
-No architecture is perfect.
+There is rarely a universally correct architecture.
 
-Every choice optimises for something while accepting compromises elsewhere.
+A decision may improve scalability while increasing operational
+complexity.
 
-Whenever I encounter an important decision, I begin documenting an Architectural Decision Record (ADR).
+A stronger consistency model may simplify one part of the system while
+reducing availability elsewhere.
 
-Rather than treating ADRs as documentation produced after the architecture is complete, I treat them as part of the design process itself.
+Introducing a workflow engine may provide durable execution while adding
+another significant runtime dependency.
 
-Each ADR typically captures:
+Using specialised data stores may better match individual workloads
+while increasing the operational cost of the platform.
 
-- The context
-- The problem
-- Available options
-- Trade-offs
-- The decision
-- The justification
-- The consequences
+Architecture is about understanding and deliberately accepting those
+trade-offs.
 
-Recording the reasoning is often more valuable than recording the final decision.
+When I encounter a significant decision, I use an Architectural Decision
+Record, or ADR, to capture the reasoning.
 
-Months later, when someone asks why a technology was selected or why a particular pattern was adopted, the answer already exists.
+An ADR will typically describe:
 
-## Patterns Follow Requirements
+-   The context
+-   The problem
+-   The architectural drivers
+-   The available options
+-   The trade-offs
+-   The decision
+-   The justification
+-   The consequences
 
-One mistake I frequently see is starting with patterns.
+I do not see ADRs as documentation written after the architecture has
+been designed.
 
-- Should we use CQRS?
-- Should we use Event Sourcing?
-- Should we use Actors?
-- Should we use Durable Workflows?
+The act of writing the ADR is part of the design process.
 
-These are the wrong questions.
+If I cannot clearly explain the problem, the alternatives and why one
+option is preferable, I may not yet understand the decision well enough
+to make it.
 
-Instead I ask:
+## Architecture Emerges
 
-What quality attribute am I trying to satisfy?
-
-If long-running conversations require durable execution, then I investigate patterns that solve durable execution.
-
-If resilience is important, I explore resilience tactics.
-
-If scalability becomes a requirement, I investigate architectural patterns that support scalability.
-
-Patterns are solutions to problems.
-
-They are never the starting point.
-
-## Architecture Evolves
-
-By this stage, the architecture begins to emerge naturally.
-
-Services become clearer.
+As these decisions accumulate, the architecture begins to emerge.
 
 Boundaries become clearer.
 
 Responsibilities become clearer.
 
-Technology choices become easier because they are responding to requirements rather than driving them.
+Relationships become clearer.
 
-This is often the point where diagrams become useful.
+Runtime requirements become clearer.
 
-- Context diagrams.
-- Container diagrams.
-- Deployment views.
-- Interaction diagrams.
-- Capability maps.
+At this point, diagrams become increasingly useful.
 
-These artefacts communicate the architecture that has already been reasoned about.
+I might create context diagrams, capability maps, interaction diagrams,
+deployment views or other architectural representations.
+
+But those diagrams are now communicating reasoning that has already
+taken place.
+
+They are also snapshots.
+
+The diagram I draw today represents my current understanding of the
+system.
+
+It is not a promise that the architecture will remain that way.
+
+This is particularly important for Articulate.
+
+I already have ideas about how the system might work.
+
+Some of those ideas come from previous versions of Articulate. Others
+come from technologies and architectural patterns I have worked with
+before.
+
+Those ideas are useful hypotheses.
+
+They are not automatically architectural decisions.
+
+The purpose of this journal is partly to test them.
+
+## Architecture Evolves Through Evidence
+
+Architecture does not stop when implementation begins.
+
+Implementation creates new evidence.
+
+An assumption about performance may prove incorrect.
+
+A service boundary may create unnecessary complexity.
+
+A technology selected for one reason may introduce consequences that
+were not understood during design.
+
+An experiment may show that an architectural concept does not work as
+expected.
+
+The problem itself may become better understood.
+
+When that happens, the architecture should be capable of changing.
+
+This does not mean constantly redesigning the system.
+
+It means treating architectural decisions as decisions made with the
+best available information at a particular point in time.
+
+As the available information changes, significant decisions may need to
+be revisited.
+
+For Articulate, I want that evolution to be visible.
+
+If an architectural hypothesis proves wrong, I want to document why.
+
+If an ADR is superseded, I want the original reasoning to remain
+available.
+
+If an experiment changes the architecture, I want the evidence that
+caused that change to be clear.
+
+The evolution of the architecture is part of the architecture.
 
 ## Collaboration Improves Architecture
 
-Although I spend significant time developing an initial solution design, I don't consider architecture to be a solitary activity.
+Although I may develop an initial solution design, I do not consider
+architecture to be a solitary activity.
 
-Once I have a draft architecture, I actively involve the people who will ultimately build and operate the system.
+Different people see different parts of the problem.
 
-This typically includes lead engineers, senior developers and platform or DevOps engineers.
+Product specialists understand business outcomes and constraints.
 
-Each brings a different perspective.
+Developers expose implementation realities and edge cases.
 
-Implementation experience often highlights opportunities for simplification.
+Platform and operations engineers identify runtime concerns that may not
+be obvious during conceptual design.
 
-Platform engineers frequently identify operational concerns that are difficult to see during early design.
+Security specialists expose threats and trust boundaries.
 
-Developers challenge assumptions and expose edge cases that deserve further consideration.
+The people responsible for operating a system often ask very different
+questions from the people building it.
 
-These discussions improve the architecture.
+These perspectives challenge assumptions.
 
-Just as importantly, they create shared ownership.
+They also create shared ownership.
 
-The people responsible for building and maintaining the system understand not only what decisions were made, but why they were made.
+A good architectural decision should not depend on everyone agreeing
+with the architect.
 
-Architecture succeeds through collaboration, not through documentation alone.
+It should be possible for people to understand the reasoning, challenge
+the assumptions and contribute new evidence.
 
-## Applying This Process to Articulate
+AI introduces another interesting participant into this process.
 
-Everything described so far forms the basis of how I intend to build the Solution Design capability within Articulate.
+Throughout Articulate, I will be using AI as a collaborator in
+architectural thinking and development.
 
-Articulate isn't intended to generate architectures by pressing a button.
+That does not mean delegating architectural responsibility to an AI.
 
-Instead, it will support the same reasoning process that I follow today.
+It means using AI to explore alternatives, challenge assumptions,
+identify gaps and help maintain the body of knowledge surrounding the
+architecture.
 
-- It will help discover requirements.
-- Ask structured questions.
-- Capture knowledge.
-- Identify assumptions.
-- Highlight trade-offs.
-- Suggest architectural patterns.
-- Generate candidate ADRs.
-- Apply different architectural perspectives.
-- Maintain traceability back to requirements.
-- Produce architecture views and supporting documentation.
+That relationship itself will be one of the things this journal
+explores.
 
-The architect remains responsible for making the decisions.
+## The Architecture Loop
 
-The AI helps reduce uncertainty, organise knowledge and accelerate the design process.
+Although I have described these ideas in sections, I do not see solution
+design as a sequence of phases.
 
-## Looking Ahead
+It is closer to a continuous loop:
 
-By the end of this process we have something far more valuable than a collection of diagrams.
+> **Questions → Requirements → ASRs → Architectural Drivers → Options →
+> Trade-offs → Decisions → Architecture → Evidence → Learning →
+> Re-evaluation**
 
-We have a reasoned architecture.
+New questions can appear at any point.
 
-Every significant decision can be explained.
+A decision may expose a requirement that was previously hidden.
 
-Every technology selection has a justification.
+Implementation may invalidate an assumption.
 
-Every pattern exists to satisfy a requirement.
+An experiment may introduce a completely new option.
 
-Every view represents an architecture that has been deliberately designed rather than accidentally assembled.
+A change in the problem may cause an old architectural decision to
+become inappropriate.
 
-This architecture is not final.
+The loop continues for as long as the system continues to evolve.
 
-It will evolve as implementation begins, assumptions are tested and new information emerges.
+The important thing is maintaining the reasoning that connects each
+step.
 
-That is the nature of architecture.
+## Applying This Approach to Articulate
 
-In the next episode we'll begin turning this architecture into a working system, implementing the first pieces of Articulate while continually validating the assumptions and decisions we've made during solution design.
+This episode does not produce the architecture for Articulate.
+
+That is deliberate.
+
+The architecture will emerge throughout the journal.
+
+The next stage of the project will begin investigating one of the most
+important questions for the system:
+
+> What does architectural knowledge actually look like?
+
+That investigation will lead into the Knowledge Model.
+
+From there I will explore how AI retrieves and reasons over
+architectural knowledge, how agent behaviour should be represented, what
+runtime characteristics the system requires, how memory should work, how
+long-running reasoning can execute durably and how architectural
+knowledge should evolve.
+
+Each investigation will produce new requirements.
+
+Some will reveal ASRs.
+
+Some will result in experiments.
+
+Some will lead to ADRs.
+
+Some may challenge decisions I have already made.
+
+By the time implementation begins, I expect to understand considerably
+more about the architecture than I do today.
+
+But implementation will not mark the end of architectural design.
+
+It will simply provide a new source of evidence.
+
+## An Evolving Architecture
+
+The goal of this process is not to produce an architecture that is
+finished.
+
+It is to create an architecture that can be explained.
+
+I should be able to trace significant decisions back to architectural
+drivers.
+
+I should be able to explain the alternatives considered.
+
+I should understand the trade-offs that were accepted.
+
+And when the architecture changes, I should be able to explain why.
+
+As Articulate evolves, new information will challenge existing
+assumptions.
+
+Research will introduce new possibilities.
+
+Experiments will invalidate ideas.
+
+Implementation will expose constraints that were not visible during
+design.
+
+Some decisions will survive.
+
+Others will change.
+
+That is not a failure of the architecture process.
+
+It is part of it.
+
+The approach described in this episode is therefore not something I will
+complete before moving on to the next stage of Articulate.
+
+It is the process I intend to follow throughout this journal:
+
+**Ask questions.**
+
+**Discover the architectural drivers.**
+
+**Explore the options.**
+
+**Make the trade-offs explicit.**
+
+**Record significant decisions.**
+
+**Test assumptions against evidence.**
+
+**Learn.**
+
+**Evolve the architecture.**
+
+The episodes that follow will put that process into practice.
