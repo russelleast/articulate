@@ -66,6 +66,46 @@ test("the home page features the selected Episode with separate watch and read a
 });
 
 for (const episode of [
+  "0006-ai-assisted-development",
+  "0007-the-knowledge-model",
+  "0008-agentic-rag-and-knowledge-reasoning"
+]) {
+  test(`${episode} is published in the journal`, async () => {
+    const listing = await output("episodes/index.html");
+    const page = await output(`episodes/${episode}/index.html`);
+
+    assert.match(listing, new RegExp(`href="/articulate/episodes/${episode}/"`));
+    assert.match(page, /<meta property="article:published_time" content="2026-07-22T00:00:00.000Z"/);
+  });
+}
+
+const episodeDiagrams = {
+  "0006-ai-assisted-development": [
+    "episode-0006-layered-context-model.svg",
+    "episode-0006-architect-review-workflow.svg"
+  ],
+  "0007-the-knowledge-model": ["knowledge-graph-example.svg"],
+  "0008-agentic-rag-and-knowledge-reasoning": [
+    "knowledge-reasoning-flow.svg",
+    "knowledge-reasoning-layer.svg",
+    "reasoning-before-agents.svg",
+    "knowledge-graph-example.svg",
+    "reasoning-map-example.svg"
+  ]
+};
+
+for (const [episode, diagrams] of Object.entries(episodeDiagrams)) {
+  test(`${episode} publishes its registered diagrams with the GitHub Pages base path`, async () => {
+    const page = await output(`episodes/${episode}/index.html`);
+
+    for (const diagram of diagrams) {
+      assert.match(page, new RegExp(`src="/articulate/diagrams/${diagram}"`));
+      await access(new URL(`../dist/diagrams/${diagram}`, import.meta.url));
+    }
+  });
+}
+
+for (const episode of [
   {
     slug: "0001-why-articulate-exists",
     thumbnail: "episode-0001-thumbnail-a-fragmented-architecture.png",

@@ -3,9 +3,9 @@ episode: 6
 title: "AI-Assisted Development: Building Articulate with an AI Coding Agent"
 description: "An exploration of the deliberately simple AI-assisted development environment used to build Articulate, and why structured architectural context matters more than increasingly complex prompts."
 season: 1
-status: draft
-published: false
-date: null
+status: current
+published: 2026-07-22
+date: 2026-07-22
 topics:
   - AI-assisted development
   - Context engineering
@@ -13,6 +13,10 @@ topics:
   - DCL
   - Architecture documentation
   - Human-AI collaboration
+repository_paths:
+  - docs/episodes/0006-ai-assisted-development.md
+  - production/diagrams/sources/episodes/0006/layered-context-model.d2
+  - production/diagrams/sources/episodes/0006/architect-review-workflow.d2
 ---
 
 # Episode 6 – AI-Assisted Development: Building Articulate with an AI Coding Agent
@@ -66,30 +70,8 @@ An AI coding agent should be no different. Rather than relying on increasingly c
 
 As the project evolves, the coding agent receives context from several different layers.
 
-General coding knowledge
-        │
-        ▼
-Repository source code
-        │
-        ▼
-AGENTS.md
-(Project conventions)
-        │
-        ▼
-Architecture documentation
-(Principles and decisions)
-        │
-        ▼
-DCL capability models
-(Structured architectural intent)
-        │
-        ▼
-DCL MCP Server
-(Queryable architectural knowledge)
-        │
-        ▼
-Codex Skills
-(Repeatable engineering behaviours)
+![Layered context model progressing from general coding knowledge through repository and architectural context to repeatable Codex Skills](/diagrams/episode-0006-layered-context-model.svg)
+
 Each layer serves a different purpose.
 
 Together they provide significantly richer context than a prompt alone.
@@ -162,22 +144,7 @@ Throughout this series you will notice a consistent pattern. The architect remai
 
 The workflow is intentionally simple:
 
-Architect
-        │
-        ▼
-Capability
-        │
-        ▼
-DCL
-        │
-        ▼
-AI Coding Agent
-        │
-        ▼
-Implementation
-        │
-        ▼
-Architect Review
+![AI-assisted development workflow from architect and capability through DCL and an AI coding agent to implementation and architect review](/diagrams/episode-0006-architect-review-workflow.svg)
 
 AI accelerates implementation. It does not replace architectural judgement. 
 

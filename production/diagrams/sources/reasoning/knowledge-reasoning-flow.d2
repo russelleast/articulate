@@ -1,0 +1,27 @@
+...@../../styles/articulate
+direction: down
+
+question: Architectural Question {class: node}
+strategy: Determine Reasoning Strategy {class: node}
+gather: Gather Required Knowledge {class: emphasis}
+
+retrieval: {
+  label: Retrieval Strategies
+  direction: right
+  semantic: Semantic Search {class: capability}
+  graph: Graph Traversal {class: capability}
+  query: Structured Query {class: capability}
+}
+
+reason: Reason Over Context {class: emphasis}
+validate: Validate Result {class: node}
+explain: Explain Conclusion {class: evidence}
+
+question -> strategy -> gather
+gather -> retrieval.semantic
+gather -> retrieval.graph
+gather -> retrieval.query
+retrieval.semantic -> reason
+retrieval.graph -> reason
+retrieval.query -> reason
+reason -> validate -> explain

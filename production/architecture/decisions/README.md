@@ -20,3 +20,4 @@ Do not add a decision merely because a template exists. Add one when a choice co
 - [0003: Declarative Scene Timeline](0003-declarative-scene-timeline.md)
 - [0004: Separate Companion performance from scene rendering](0004-separate-companion-performance-timeline.md)
 - [0005: Declarative Shot Hierarchy](0005-declarative-shot-hierarchy.md)
+- [0006: Use D2 sources for reusable architectural diagrams](0006-d2-diagrams-as-reusable-assets.md)
