@@ -15,7 +15,7 @@ topics:
   - Reasoning agents
 ---
 
-# Episode 9 – Agentic RAG and Knowledge Reasoning
+# Episode 8 – Agentic RAG and Knowledge Reasoning
 
 **Question:** *How should AI retrieve and reason about architectural knowledge?*
 

@@ -95,7 +95,6 @@ Some examples include:
 - Components
 - Architecture Decisions
 - Claims
-- Evidence
 - Characteristics
 - Constraints
 - Relationships
