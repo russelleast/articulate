@@ -1,6 +1,6 @@
-# Episode 0002 Rough Cut 01 Production Report
+# Episode 0002 Final Cut Production Report
 
-Production target: high-quality rough cut for editorial review. This report does not mark the episode publication-ready.
+Production target: publication-ready final cut.
 
 ## Source and timing
 
@@ -16,7 +16,7 @@ Production target: high-quality rough cut for editorial review. This report does
 
 - Scene count: 17
 - Companion scenes: S001, S005, S008, S013, S015 and S017
-- Companion screen time: approximately 114.692 seconds (28.90%)
+- Companion screen time: approximately 118.956 seconds
 - Lip sync: yes; the established deterministic audio-derived simplified-viseme pipeline is used in every Companion scene
 - Subtitles: `publication/subtitles/episode-0002-en.srt` (114 cues; not burned in)
 
@@ -28,14 +28,16 @@ Production target: high-quality rough cut for editorial review. This report does
 - Layout/text overflow validation: passed
 - Lip-sync timeline and source-offset validation: passed
 - Subtitle full-timeline coverage and 42-character line limit: passed
-- Shared runtime tests: 32/32 passed
+- Shared runtime tests: 33/33 passed
 - Asset registry validation: passed
 - Media probe: 1920×1080, 25 fps, H.264/AAC; passed
-- Visual review: complete temporal contact sheet and representative scene-state sheets reviewed; initial S002 clipping corrected and re-rendered
+- Visual review: complete temporal contact sheet and representative scene-state sheets reviewed; final S009 source treatment and YouTube thumbnail reviewed at full, 320 px and 160 px sizes
 
 ## Artefacts
 
-- Rough cut: `output/episode-0002-rough-cut-01.mp4`
+- Final cut: `output/episode-0002-final-cut.mp4`
+- YouTube thumbnail: `publication/thumbnail/episode-0002-thumbnail.png`
+- English subtitles: `publication/subtitles/episode-0002-en.srt`
 - Storyboard: `storyboard.md`
 - Scene manifest: `scene-list.yaml`
 - Render manifest and provenance: `generated/rough-cut-01/`
@@ -45,6 +47,6 @@ Production target: high-quality rough cut for editorial review. This report does
 - Media report: `output/review/rough-cut-01/media-report.json`
 - Editorial review: `reviews/rough-cut-01.md`
 
-## Remaining editorial issues
+## Publication status
 
-Human review is still required for scene-boundary feel, simplified-viseme naturalness, Subtitle cue timing, overall Companion rhythm, and whether any long conceptual scene benefits from an additional emphasis beat. No known technical blocker remains for rough-cut review.
+Final editorial notes are incorporated. The video, external English subtitle file and YouTube thumbnail are ready for publication.

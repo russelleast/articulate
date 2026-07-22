@@ -26,3 +26,18 @@ make episode-0002-rough-cut-01-review
 ```
 
 The authoritative recording remains unchanged at `ep2-what-is-articulate.wav`. Generated media, manifests and review artefacts are written under `generated/rough-cut-01/` and `output/` using the same conventions as Episodes 0000 and 0001.
+
+## Final cut and publication assets
+
+The reviewed rough-cut configuration is the final editorial authority. The final-cut target validates and renders it, then creates the publication copy without re-encoding:
+
+```sh
+make episode-0002-final-cut-render
+make episode-0002-thumbnail
+```
+
+Publication assets:
+
+- `output/episode-0002-final-cut.mp4`
+- `publication/subtitles/episode-0002-en.srt`
+- `publication/thumbnail/episode-0002-thumbnail.png`

@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "stage:episode-media": "node scripts/stage-episode-media.mjs",
+    "predev": "npm run stage:episode-media",
+    "precheck": "npm run stage:episode-media",
+    "prebuild": "npm run stage:episode-media",
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",

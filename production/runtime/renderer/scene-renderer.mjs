@@ -223,7 +223,7 @@ function whiteboardComposition(scene, grammar, state) {
   const board = { x: 130, y: 90, width: 1660, height: 900 };
   const positions = whiteboardPositions(scene, board);
   const shell = `<rect x="${board.x}" y="${board.y}" width="${board.width}" height="${board.height}" rx="34" fill="#f6f2e9" filter="url(#board-shadow)"/><rect x="${board.x + 20}" y="${board.y + 20}" width="${board.width - 40}" height="${board.height - 40}" rx="24" fill="none" stroke="#cfcbc1"/>`;
-  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 205, y: 195, width: 1450 }, { fontSize: 62, weight: 720, maxLines: 2, lineHeight: 1.06, fill: "#172028" }, `${scene.id} whiteboard headline`), state);
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: 205, y: 195, width: scene.whiteboardHeadlineWidth ?? 1450 }, { fontSize: 62, weight: 720, maxLines: 2, lineHeight: 1.06, fill: "#172028" }, `${scene.id} whiteboard headline`), state);
   const support = element("support", textBlock(elementText(scene, "support", state), { x: 208, y: 285, width: 1420 }, { fontSize: 29, weight: 450, maxLines: 2, fill: "#55798b" }, `${scene.id} whiteboard support`), state);
   const connectors = [...(state?.connections?.values() ?? [])].map((connection) => straightBoxConnector(connection, positions)).join("");
   const nodes = (scene.items ?? []).map((item, index) => {
@@ -245,6 +245,17 @@ function whiteboardPositions(scene, board) {
   }
   if (scene.diagramLayout === "change-path") {
     items.forEach((_, index) => positions.set(`item-${index + 1}`, { x: 215 + index * 325, y: 530, width: 270, height: 122 }));
+    return positions;
+  }
+  if (scene.diagramLayout === "capability-map") {
+    const boxes = [
+      { x: 210, y: 500, width: 320, height: 112 },
+      { x: 600, y: 500, width: 320, height: 112 },
+      { x: 990, y: 500, width: 320, height: 112 },
+      { x: 1380, y: 500, width: 320, height: 112 },
+      { x: 1380, y: 720, width: 320, height: 112 }
+    ];
+    items.forEach((_, index) => positions.set(`item-${index + 1}`, boxes[index]));
     return positions;
   }
   if (scene.diagramLayout === "principles") {
