@@ -81,7 +81,9 @@ historical
 4. Link related decisions, patterns, and experiments by their stable identifiers.
 5. Add repository evidence through `repository_paths`.
 6. Optionally add `thumbnail` and `youtube_url` when companion media is published.
-7. Put web-facing thumbnails under `site/public/media/episodes/<episode>/`; production masters remain under `production/episodes/<episode>/publication/`.
+7. Keep the canonical PNG under `production/episodes/<episode>/publication/thumbnail/` and set
+   `thumbnail` to `/media/episodes/<episode>/<same-filename>.png`. Site commands stage that production
+   asset into `site/public`; do not edit the staged copy.
 8. Run `npm run check` and `npm run build`.
 
 Episodes with `status: draft` are authoring content only. They are excluded from generated Episode
@@ -122,11 +124,15 @@ come from the Episode's canonical front matter:
 | `author` (optional) | HTML author and JSON-LD Person |
 | `image` (optional) | absolute Open Graph, Twitter/X, and JSON-LD image URL |
 | `thumbnail` (optional) | episode companion-video artwork and social image fallback |
-| `youtube_url` (optional URL) | companion-video link on the Episode page |
+| `youtube_url` (optional URL) | companion-video link on the Episode listing and page |
 
 `author`, `image`, `thumbnail`, and `youtube_url` are optional to preserve compatibility with existing
 Episodes. If `image` is absent, an Episode thumbnail is used for social metadata. If neither exists,
 the site emits a summary card and does not invent an image URL.
+
+`scripts/stage-episode-media.mjs` derives each production source from the `thumbnail` URL and copies
+it before development, checking, and building. This keeps production artwork as the single editable
+source while satisfying Astro's requirement that static assets exist under `site/public`.
 
 The official `@astrojs/sitemap` integration generates `sitemap-index.xml` and `sitemap-0.xml` during
 the production build. `src/pages/robots.txt.ts` permits normal crawling and points crawlers to that
