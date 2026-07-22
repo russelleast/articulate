@@ -160,6 +160,7 @@ function mergeAdjacentSilence(intervals, maximumGapSeconds) {
 
 function validate(context) {
   const errors = [];
+  const visualAssetPaths = new Map();
   const ffprobe = executable("ffprobe");
   executable("ffmpeg");
   const audioPath = context.assetManager.fetch(context.config.narration.assetId);
@@ -180,6 +181,12 @@ function validate(context) {
       if (Math.abs(delta) > 0.000001) errors.push(`${previous.id}/${scene.id} boundary has ${delta > 0 ? "gap" : "overlap"} ${Math.abs(delta).toFixed(6)}s`);
     }
   }
+  for (const scene of context.scenes) {
+    if (!scene.diagramAssetId) continue;
+    const asset = context.assetManager.registry.require(scene.diagramAssetId);
+    if (asset.type !== "diagram") errors.push(`${scene.id} diagramAssetId '${scene.diagramAssetId}' is not a diagram`);
+    else visualAssetPaths.set(scene.id, context.assetManager.fetch(scene.diagramAssetId));
+  }
   const finalEnd = context.scenes.at(-1)?.endSeconds;
   if (Math.abs(finalEnd - duration) > 0.001) errors.push(`Storyboard ends at ${finalEnd}; narration ends at ${duration}`);
   const sceneIds = new Set(context.scenes.map((scene) => scene.id));
@@ -187,14 +194,15 @@ function validate(context) {
   const assetRegister = fs.readFileSync(resolvePath(context.config.episode.assetRegister), "utf8");
   for (const scene of context.scenes) {
     const finalFrame = Math.max(0, sceneFrameWindow(scene, context.config.output.frameRate).frameCount - 1);
-    renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar, timelineStateAtFrame(scene, scene.resolvedTimeline, finalFrame));
+    const visualAssetData = visualAssetPaths.has(scene.id) ? `data:image/svg+xml;base64,${fs.readFileSync(visualAssetPaths.get(scene.id)).toString("base64")}` : "";
+    renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar, timelineStateAtFrame(scene, scene.resolvedTimeline, finalFrame), visualAssetData);
     for (const assetId of scene.assetIds ?? []) {
       if (!assetRegister.includes(`asset_id: \"${assetId}\"`)) errors.push(`${scene.id} references unknown episode asset ${assetId}`);
     }
   }
   if (!fs.existsSync(companionPath)) errors.push("Companion asset does not resolve");
   if (errors.length) throw new Error(`Episode validation failed:\n- ${errors.join("\n- ")}`);
-  return { audioPath, companionPath, performancePaths, duration, ffprobe, ffmpeg: executable("ffmpeg") };
+  return { audioPath, companionPath, performancePaths, visualAssetPaths, duration, ffprobe, ffmpeg: executable("ffmpeg") };
 }
 
 async function render(context, validation) {
@@ -205,6 +213,7 @@ async function render(context, validation) {
   fs.mkdirSync(segmentsDir, { recursive: true });
   const companionData = `data:image/png;base64,${fs.readFileSync(validation.companionPath).toString("base64")}`;
   const performanceData = Object.fromEntries(Object.entries(validation.performancePaths ?? {}).map(([viseme, filePath]) => [viseme, `data:image/png;base64,${fs.readFileSync(filePath).toString("base64")}`]));
+  const visualAssetData = new Map([...validation.visualAssetPaths.entries()].map(([sceneId, filePath]) => [sceneId, `data:image/svg+xml;base64,${fs.readFileSync(filePath).toString("base64")}`]));
   const frameFiles = [];
   const segmentFiles = [];
   for (const scene of context.scenes) {
@@ -217,7 +226,7 @@ async function render(context, validation) {
         const state = timelineStateAtFrame(scene, scene.resolvedTimeline, frame);
         state.performance = companionPerformanceStateAtFrame(scene.resolvedPerformance, frame);
         if (state.performance && performanceData[state.performance.mouth]) state.performance.mouthData = performanceData[state.performance.mouth];
-        const svg = renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state);
+        const svg = renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state, visualAssetData.get(scene.id) ?? "");
         await sharp(Buffer.from(svg), { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
         frameFiles.push(pngPath);
       }
@@ -239,7 +248,7 @@ async function render(context, validation) {
       const svgPath = path.join(framesDir, `${scene.id}${suffix}.svg`);
       const pngPath = path.join(framesDir, `${scene.id}${suffix}.png`);
       const state = timelineStateAtFrame(scene, scene.resolvedTimeline, startFrame);
-      fs.writeFileSync(svgPath, renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state));
+      fs.writeFileSync(svgPath, renderSceneSvg(scene, context.config.episode, context.config.output, companionData, context.grammar, state, visualAssetData.get(scene.id) ?? ""));
       await sharp(svgPath, { density: 144 }).resize(context.config.output.width, context.config.output.height).png().toFile(pngPath);
       const segmentPath = path.join(segmentsDir, `${scene.id}${suffix}.mp4`);
       const frameDuration = (endFrame - startFrame) / context.config.output.frameRate;

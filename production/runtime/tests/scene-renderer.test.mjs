@@ -111,6 +111,20 @@ test("environment compositions retain shared Articulate world chrome", () => {
   }
 });
 
+test("diagram scenes embed a resolved reusable SVG asset", () => {
+  const scene = {
+    id: "S-D2", kind: "diagram", transition: "cut", companion: false,
+    headline: "Reason over context", support: "The D2 source remains canonical.",
+    diagramAssetId: "knowledge-reasoning-flow", items: [],
+    narrationReference: "Knowledge reasoning", startSeconds: 0, endSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, grammar);
+  const data = "data:image/svg+xml;base64,PHN2Zy8+";
+  const svg = renderSceneSvg(scene, { id: "episode-0008", title: "Knowledge Reasoning" }, { width: 1920, height: 1080 }, "", grammar, null, data);
+  assert.match(svg, /data-diagram-asset="knowledge-reasoning-flow"/);
+  assert.match(svg, /href="data:image\/svg\+xml;base64,PHN2Zy8\+"/);
+});
+
 test("whiteboard capability maps place a child capability beneath its parent", () => {
   const scene = {
     id: "S011", kind: "whiteboard", diagramLayout: "capability-map", transition: "cut", companion: false,

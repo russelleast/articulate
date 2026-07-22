@@ -1,255 +1,529 @@
 ---
 episode: 7
-title: "The Knowledge Model: From Documents to Knowledge"
-description: "An introduction to structured architectural knowledge and the Knowledge Model and Knowledge API that make it the system of record for Articulate."
+title: "The Knowledge Model: What Is Architectural Knowledge?"
+description: "Exploring the difference between architectural information and architectural knowledge, and defining the connected Knowledge Model at the heart of Articulate."
 season: 2
 status: draft
 published: false
 date: null
 topics:
-  - Architectural knowledge
-  - Knowledge Model
-  - Knowledge API
-  - Claims and evidence
-  - Architectural decisions
-  - Knowledge relationships
+- Architectural knowledge
+- Knowledge Model
+- Claims and evidence
+- Architectural structure
+- Architecture characteristics
+- Architecture principles
+- Architecture decisions
+- Knowledge relationships
 ---
 
-# Episode 7 – The Knowledge Model: From Documents to Knowledge
+# Episode 7 – The Knowledge Model: What Is Architectural Knowledge?
 
-*"Traditional software architecture produces documents. Architectural Intelligence requires knowledge."*
+One of the most important questions I need to answer before building Articulate is also one of the most fundamental:
 
-One of the biggest questions I've had to answer while building Articulate is deceptively simple:
+**What is architectural knowledge?**
 
-**What exactly is architecture?**
+This matters because the Knowledge Model sits at the heart of Articulate.
 
-For years we've documented architectures using diagrams, documents, ADRs, specifications and wikis. These artefacts are incredibly valuable to humans because they communicate intent, explain decisions and capture knowledge over time.
+If I cannot clearly define what architectural knowledge is, then I cannot design a model to represent it.
 
-The problem is that computers don't understand architecture.
+And if the model is wrong, everything built on top of it will inherit those assumptions.
 
-They understand documents.
+The agents.
 
-Even modern AI systems typically treat architecture as collections of text. Documents are broken into chunks, embedded into vectors and retrieved when someone asks a question.
+The reasoning.
 
-This works remarkably well for answering questions about documentation.
+The retrieval mechanisms.
 
-It doesn't mean the system understands the architecture itself.
+The impact analysis.
 
-That distinction is fundamental to the rest of this series.
+The conversations.
 
----
+The architecture decisions.
 
-# Documents are not knowledge
+Before thinking about databases, graphs, vectors or AI frameworks, I need to understand the thing I am actually trying to model.
 
-Imagine asking:
+My current answer is deceptively simple:
 
-*"What authentication mechanism does this system use?"*
+> Knowledge is information combined with thinking.
 
-A traditional RAG system searches documentation, retrieves relevant paragraphs and allows the language model to generate an answer.
+For Articulate, that means architectural knowledge is not simply a collection of facts about systems.
 
-Now consider a different question.
+It is information about an architecture, connected together and given meaning through reasoning, evaluation and context.
 
-*"If we replace JWT authentication with OAuth, what architectural decisions, capabilities and quality attributes are affected?"*
+That distinction has become fundamental to how I now think about the Knowledge Model.
 
-This question is very different.
+## What is architecture?
 
-The answer isn't contained within a single document.
+To model architectural knowledge, I first need a working definition of architecture itself.
 
-The AI needs to understand:
+For Articulate, I think about architecture as four connected concerns:
 
-- which capability provides authentication
-- which services participate
-- which architectural decisions introduced the current design
-- what claims those decisions support
-- what quality attributes are affected
-- what evidence exists
-- how confident we are in that evidence
+Structure
 
-This is no longer document retrieval.
+Characteristics
 
-It is architectural reasoning.
+Principles
 
----
+Decisions
 
-# From documents to knowledge
+Structure describes what makes up the architecture and how those parts relate.
 
-This observation led me to rethink the role of documentation.
+Characteristics describe the qualities the architecture needs to exhibit: availability, scalability, security, maintainability, performance and the other system qualities that shape architectural choices.
 
-Instead of becoming the architecture, documents become **sources of architectural knowledge**.
+Principles establish enduring guidance and constraints for how the architecture should evolve.
 
-Documentation, discovery conversations, architecture decisions and future integrations all contribute information into a common model.
+Decisions capture the significant choices made within that architecture and, importantly, why those choices were made.
 
-The model itself becomes the authoritative representation of the architecture.
+These concerns do not exist independently.
 
-Rather than storing documents, it stores knowledge.
+A decision may improve one architectural characteristic while compromising another.
 
----
+A principle may exist because previous systems repeatedly experienced the same operational problem.
 
-# Knowledge as first-class concepts
+A solution design may implement an earlier architecture decision.
 
-The Knowledge Model is composed of architectural concepts rather than files.
+A structural change may invalidate assumptions behind an existing decision.
 
-Some examples include:
+The architecture therefore cannot be understood simply by cataloguing its parts.
 
+It exists in the relationships between those parts.
+
+## The information within an architecture
+
+The structural information itself spans multiple architectural domains.
+
+At a high level, these include:
+
+Business
+Application
+Data
+Infrastructure
+
+Each domain contains different kinds of information.
+
+The business domain might describe capabilities, processes and organisational responsibilities.
+
+The application domain might describe systems, services, components and interfaces.
+
+The data domain might describe databases, data products, schemas and ownership.
+
+The infrastructure domain might describe cloud services, compute environments, networks and deployment platforms.
+
+But these domains are not separate inventories.
+
+They are connected.
+
+A business capability may be realised by several application components.
+
+Those components may depend on databases.
+
+Those databases and components are hosted on infrastructure.
+
+A decision may explain why a particular technology was selected.
+
+A principle may constrain which technologies are acceptable.
+
+An architectural characteristic may explain why a particular infrastructure topology exists.
+
+This means the value of the information is not only in knowing that individual things exist.
+
+The value is also in understanding how they relate.
+
+Consider questions such as:
+
+> Which infrastructure ultimately supports this business capability?
+
+> Which solution designs were influenced by this architecture decision?
+
+> Which architecture principle emerged from previous operational pain?
+
+> Which databases use MongoDB as their database engine?
+
+> Which AWS Lambda functions are running Python 3.12?
+
+These questions cross different architectural domains and different types of architectural information.
+
+Answering them requires more than a list of systems.
+
+It requires a connected representation of the architecture.
+
+## Information is not yet knowledge
+
+This leads to an important distinction.
+
+A connected graph of systems, databases, technologies, capabilities and infrastructure would be extremely useful.
+
+But I am not convinced that it is automatically knowledge.
+
+It may simply be well-structured information.
+
+Suppose Articulate knows that:
+
+> Order Service uses MongoDB.
+
+That is useful information.
+
+But architectural knowledge requires more context.
+
+Where did that information come from?
+
+What evidence supports it?
+
+How confident are we that it is correct?
+
+Was it true six months ago, or is it true now?
+
+Does another source contradict it?
+
+Was MongoDB deliberately selected through an architecture decision, or did it emerge organically?
+
+Does its use align with existing architecture principles?
+
+Does it positively or negatively affect the characteristics we care about?
+
+The statement itself is information.
+
+Understanding what that information means within the wider architecture requires thinking.
+
+This is where claims become important.
+
+## Claims as architectural units
+
+Claims first emerged during earlier Articulate discovery experiments.
+
+During discovery, information from different sources had to be synthesised into statements about the architecture.
+
+Those statements could not simply be treated as unquestionable facts.
+
+They were assertions based on the information available at the time.
+
+This led to the idea of a claim as an architectural unit.
+
+A claim is a statement about the architecture that we currently have some reason to believe.
+
+For example:
+
+> Order Service uses MongoDB.
+
+> Customer authentication is performed using JWT tokens.
+
+> The payments platform requires high availability.
+
+> Service ownership is unclear.
+
+> The current deployment process creates operational risk.
+
+These are all statements about the architecture, but they are not necessarily equally reliable.
+
+A claim therefore needs more than a sentence.
+
+It needs context.
+
+A claim can carry:
+
+* **Provenance** — where the claim came from.
+* **Evidence** — what supports the claim.
+* **Polarity** — whether information supports or opposes the assertion.
+* **Temporal status** — when the claim was, or is believed to be, true.
+* **Confidence** — how strongly the available information supports it.
+* **Domain** — which area of the architecture the claim relates to.
+
+This makes claims fundamentally different from facts stored in a traditional data model.
+
+They acknowledge that architectural understanding is often incomplete.
+
+Different people may describe the same system differently.
+
+Documentation may be outdated.
+
+The implementation may contradict the intended architecture.
+
+A decision may have been made but never implemented.
+
+Something that was true last year may no longer be true today.
+
+Rather than hiding that uncertainty, the Knowledge Model needs to represent it.
+
+A claim is therefore not a weakness in the model.
+
+It is an acknowledgement of how architectural knowledge actually exists.
+
+## From information to knowledge
+
+This brings me back to the distinction at the beginning of this episode.
+
+> Knowledge is information combined with thinking.
+
+Articulate can receive information from many places.
+
+It may emerge through conversation.
+
+It may come from an architecture decision.
+
+It may be observed from source code or infrastructure.
+
+It may be provided by an architect.
+
+It may be discovered in existing documentation.
+
+The source is important, but the source does not define the Knowledge Model.
+
+The Knowledge Model exists to represent what Articulate understands about the architecture.
+
+That understanding includes the information itself, the relationships between information, the claims made about it and the context required to evaluate those claims.
+
+But there is another part.
+
+Thinking.
+
+Imagine that Articulate encounters operational problems across several systems.
+
+Each problem is information.
+
+Individually, they may appear unrelated.
+
+But when that information is evaluated against existing architectural knowledge, a recurring pattern might emerge.
+
+Perhaps multiple incidents share the same architectural cause.
+
+Perhaps an existing architecture principle is repeatedly being violated.
+
+Perhaps the evidence suggests that a new principle should be considered.
+
+Perhaps the pattern indicates that an important architectural characteristic is degrading.
+
+Perhaps the architecture is becoming less resilient even though every individual system appears healthy in isolation.
+
+The information has not simply been stored.
+
+It has been evaluated in the context of what is already known.
+
+Something new has been learned.
+
+That is the difference I am trying to capture.
+
+Information changes as the world changes.
+
+Knowledge evolves when new information is combined with existing understanding and evaluated through reasoning.
+
+## The Knowledge Model
+
+The Knowledge Model is therefore not simply a repository of architectural facts.
+
+It is the connected representation of what Articulate currently understands about an architecture.
+
+At its core are architectural concepts such as:
+
+- Structures
 - Capabilities
 - Components
-- Architecture Decisions
-- Claims
+- Data
+- Infrastructure
 - Characteristics
-- Constraints
-- Relationships
 - Principles
-- Baselines
-- Architectural State
+- Decisions
+- Claims
+- Evidence
 
-These are the language of architecture.
+And, critically:
 
-They are the concepts architects naturally think in.
+**the relationships between them.**
 
-Rather than asking the AI to interpret paragraphs of documentation every time, we build a representation that already understands these concepts.
+A business capability should not exist as an isolated node.
 
----
+It should be possible to understand which application components realise it.
 
-# Claims
+Those components should connect to the data they use.
 
-One concept deserves particular attention.
+They should connect to the infrastructure on which they execute.
 
-A **claim** is a statement believed to be true about the architecture.
+The decisions that shaped them should be traceable.
 
-For example:
+The principles that constrained those decisions should be visible.
 
-- The system is event driven.
-- Authentication uses JWT.
-- Customer data is encrypted at rest.
-- Services communicate asynchronously.
+The characteristics affected by those choices should be understood.
 
-Claims become building blocks that can later be supported by evidence, challenged by new information or invalidated by architectural change.
+Claims should explain what Articulate currently believes about all of these things and why.
 
-This allows the Knowledge Model to reason about architecture rather than simply describe it.
+The result begins to resemble a graph because architecture itself is highly connected.
 
-Future episodes will explore claims in much more detail.
+But the graph is not the point.
 
----
+The relationships are.
 
-# The Knowledge Model is the system of record
+The graph is simply one way of representing them.
 
-Although the Knowledge Model contains vectors and graph relationships, neither of these become the source of truth.
+This distinction is important because I do not want the technology used to store the model to define the conceptual architecture.
 
-The authoritative representation is the knowledge itself.
+The Knowledge Model should describe architectural knowledge independently of whether its implementation eventually uses a graph database, a relational database, event streams or some combination of technologies.
 
-Vectors provide semantic retrieval.
+Architecture first.
 
-Graphs provide relationship traversal.
+Technology later.
 
-Structured storage provides persistence.
+## The Knowledge Model as the system of record
 
-Together they form different representations of the same knowledge rather than separate systems.
+Within Articulate, the Knowledge Model becomes the authoritative representation of architectural knowledge.
 
-This distinction becomes important later when discussing Agentic RAG.
+That does not mean every piece of information within it is unquestionably true.
 
----
+In fact, the claim model explicitly acknowledges the opposite.
 
-# Knowledge evolves
+The system of record is authoritative because it represents the current state of Articulate's understanding.
 
-One idea that has changed significantly during this project is how information enters the model.
+That understanding may include uncertainty.
 
-Originally I thought about "ingesting" documents.
+It may include competing claims.
 
-I no longer think that's the right description.
+It may include incomplete evidence.
 
-Architecture doesn't simply absorb information.
+It may change over time.
 
-It evaluates it.
+The important point is that architectural understanding has a coherent home.
 
-Every new piece of information becomes a proposed knowledge change.
+Other representations may eventually be created to support different capabilities.
 
-Whether it originates from a discovery session, an Architecture Decision Record, imported documentation or a manual update, the system first needs to understand what that information means.
+Some may optimise semantic retrieval.
 
-Questions naturally arise:
+Others may optimise relationship traversal.
 
-- Does it introduce a new claim?
-- Does it contradict an existing claim?
-- Does it invalidate an architectural decision?
-- Does it affect a principle?
-- Does it change architectural maturity?
-- Does it create a new baseline?
-- How confident are we?
+Others may support historical analysis.
 
-Only after this reasoning does the Knowledge Model evolve.
+But those are implementation and retrieval concerns.
 
-This process is much closer to maintaining architectural integrity than importing data.
+They are not the definition of the knowledge itself.
 
----
+That distinction will become important as the architecture evolves.
 
-# Derived knowledge
+## Information enters through many paths
 
-Interestingly, not everything exists as stored knowledge.
+Another important consequence of this model is that the Knowledge Model cannot be designed around documents.
 
-Some concepts are discovered through reasoning.
+Documents are one possible source of information.
 
-For example:
+They are not the architecture.
 
-- Contradictions
-- Knowledge gaps
-- Unsupported claims
-- Principle violations
-- Architectural drift
+And they are not the Knowledge Model.
 
-These are not entities stored within the model.
+Architectural information may arrive through a conversation with an architect.
 
-They are observations produced by analysing the current state of architectural knowledge.
+It may come from a repository.
 
-A contradiction only exists because two or more claims cannot both be true within a particular context.
+It may be observed from running infrastructure.
 
-If those claims change, the contradiction disappears.
+It may come from an Architecture Decision Record.
 
-This is one of the first examples of Architectural Intelligence emerging from the model itself.
+It may be produced by another Articulate capability.
 
----
+It may be inferred through reasoning over information already present.
 
-# The Knowledge API
+This means the boundary around the Knowledge Model needs to deal in architectural concepts rather than files.
 
-The Knowledge Model isn't accessed directly.
+A consumer should not need to understand how architectural knowledge is physically stored.
 
-Everything passes through the Knowledge API.
+Nor should every consumer be allowed to manipulate that knowledge directly.
 
-This isn't a traditional CRUD API exposing tables or collections.
+This leads to another important part of the architecture.
 
-Instead, it becomes the gateway to architectural knowledge.
+## The Knowledge API
 
-Consumers ask architectural questions rather than execute database operations.
+The Knowledge Model will sit behind a Knowledge API.
 
-Internally, the API will use reasoning agents to determine:
+The purpose of this boundary is not simply to hide a database.
 
-- what knowledge is required
-- which retrieval strategy is appropriate
-- how evidence should be gathered
-- how results should be synthesised
+It protects the integrity of architectural knowledge.
 
-This reasoning layer will become the focus of the next episode.
+Consumers interact with architectural concepts and capabilities rather than storage structures.
 
----
+They might need to:
 
-# Architectural Intelligence
+contribute new architectural information
+retrieve connected architectural knowledge
+inspect the evidence behind a claim
+understand the relationship between a decision and a design
+explore the architecture supporting a business capability
 
-As the project has evolved, I've realised Articulate isn't simply becoming another AI application.
+Exactly how those operations should work is something I still need to design.
 
-It is becoming an exploration into **Architectural Intelligence**.
+In particular, adding new information to the Knowledge Model cannot always be treated as a simple CRUD operation.
 
-Rather than treating architecture as documents to search, the goal is to build a living representation of architectural knowledge that can evolve, reason and collaborate with architects.
+New information may need to be interpreted and evaluated against what is already known.
 
-The Knowledge Model sits at the centre of that vision.
+But that is a larger problem.
 
-Everything else—including discovery, impact analysis, documentation, architecture reviews and future AI capabilities—builds upon this single foundation.
+It deserves its own exploration later in this journal when I look specifically at how architectural knowledge evolves.
 
----
+For now, the important decision is the boundary itself:
 
-# Looking ahead
+> Architectural knowledge should be accessed and changed through capabilities that understand its meaning, not through direct manipulation of its storage.
 
-This episode introduced the Knowledge Model and explained why documents alone are insufficient for Architectural Intelligence.
+## A foundation for Architectural Intelligence
 
-The obvious next question is:
+The Knowledge Model is the heart of Articulate because almost every future capability depends on it.
 
-*If the Knowledge Model is the source of truth, how should AI retrieve and reason over that knowledge?*
+Discovery needs somewhere to contribute what it learns.
 
-In the next episode we'll explore the evolution from traditional Retrieval-Augmented Generation (RAG) to Agentic RAG, and why retrieval is only one small part of a much larger reasoning architecture.
+Decision support needs access to previous decisions, principles and evidence.
+
+Impact analysis needs to understand relationships across architectural domains.
+
+Architecture reviews need to evaluate characteristics and principles.
+
+Conversations need context about the architecture being discussed.
+
+Agents need more than disconnected text fragments if they are expected to reason about architectural consequences.
+
+The Knowledge Model provides that foundation.
+
+But the model alone is not Architectural Intelligence.
+
+A graph is not intelligence.
+
+Structured information is not intelligence.
+
+Retrieval is not intelligence.
+
+The intelligence begins to emerge when information can be interpreted in context, evaluated against existing knowledge, connected across architectural domains and used to produce new architectural understanding.
+
+That is the direction I want Articulate to explore.
+
+Not simply:
+
+**How can AI search our architecture documentation?**
+
+But:
+
+**How can AI build, maintain and reason over an evolving understanding of an architecture?**
+
+That is a much harder problem.
+
+It is also a much more interesting one.
+
+## Looking ahead
+
+This episode establishes the conceptual foundation of the Knowledge Model.
+
+Architecture is represented through its structure, characteristics, principles and decisions.
+
+The information describing that architecture spans multiple domains and is connected through relationships.
+
+Claims allow Articulate to represent architectural assertions together with their provenance, evidence, polarity, temporal status, confidence and domain.
+
+And knowledge emerges when information is combined with thinking.
+
+But having a connected Knowledge Model introduces another question.
+
+When an agent needs to answer an architectural question, how should it find the knowledge it needs?
+
+Sometimes the answer may require semantic similarity.
+
+Sometimes it may require following relationships.
+
+Sometimes it may require a precise structured query.
+
+And sometimes the system may not know which approach is appropriate until it begins reasoning about the question.
+
+That is where the next part of the architecture begins.
+
+In the next episode, I will explore **Agentic RAG and Knowledge Reasoning.**

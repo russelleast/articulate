@@ -59,6 +59,7 @@ const profile = Object.freeze({
     whiteboard: Object.freeze({ archetype: "Whiteboard", composition: "whiteboard" }),
     workspace: Object.freeze({ archetype: "Repository", composition: "workspace" }),
     focus: Object.freeze({ archetype: "Diagram", composition: "focus" }),
+    diagram: Object.freeze({ archetype: "Diagram", composition: "diagram" }),
     title: Object.freeze({ archetype: "Narrator", composition: "companion" }),
     companion: Object.freeze({ archetype: "Narrator", composition: "companion" }),
     closing: Object.freeze({ archetype: "Narrator", composition: "companion" }),

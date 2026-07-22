@@ -292,6 +292,12 @@ Colour communicates meaning, state and attention.
 - Avoid adding colours merely to distinguish every node.
 - Ensure contrast survives compression and common forms of colour-vision deficiency.
 
+### Diagram sources
+
+Reusable architectural diagrams are authored in D2 and rendered to SVG according to [`production/diagrams/README.md`](../../production/diagrams/README.md). The shared D2 classes apply this grammar's restrained palette, hierarchy and legibility rules without preventing local overrides.
+
+The authored diagram defines concepts and relationships. Narration-aligned reveal, emphasis, dimming and camera focus remain presentation choreography owned by the storyboard and scene timeline. A presentation need must not create a competing semantic source.
+
 ## 8. Motion
 
 Motion communicates a change in understanding. It may reveal sequence, causality, connection, accumulation, divergence, comparison or focus.

@@ -24,6 +24,7 @@ production/
 |-- architecture/   # Production architecture and conceptual content model
 |-- branding/       # Visual and motion language for derived media
 |-- companion/      # Role and design direction for the Articulate Companion
+|-- diagrams/       # Canonical D2 diagram sources and shared styling
 |-- templates/      # Reusable episode production templates
 |-- prompts/        # AI prompt templates for production assistance
 |-- runtime/        # Storage-agnostic production runtime capabilities
@@ -61,3 +62,7 @@ Production inputs are addressed by logical IDs such as `episode-0001-narration-v
 Canonical production assets are the approved versions identified by the registry; their physical storage is not part of their identity. `production/cache/` is disposable and ignored by Git. Large binary media should live in an asset provider rather than become canonical Git content. Future remote providers may fetch into this cache, but synchronisation, networking and authentication are intentionally outside the current design.
 
 Use `make assets-list` to inspect registered assets and `make assets-validate` to validate the registry and current local availability.
+
+## Diagrams
+
+Reusable architectural diagrams use D2 as their authored source and SVG as their shared website/video output. Sources, rendering commands, Markdown references and static storyboard integration are documented in [`production/diagrams/README.md`](diagrams/README.md). The central asset registry binds each diagram ID to both paths.

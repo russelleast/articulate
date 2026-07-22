@@ -99,6 +99,61 @@
       "checksum": "sha256:4f6c0f30e45690df7314f3c9be257e79880c61356f219d14d3dc58fbea08edda",
       "location": "production/episodes/0002/ep2-what-is-articulate.wav",
       "provider": "local"
+    },
+    {
+      "id": "knowledge-reasoning-flow",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/reasoning/knowledge-reasoning-flow.d2",
+      "location": "site/public/diagrams/knowledge-reasoning-flow.svg",
+      "provider": "local"
+    },
+    {
+      "id": "knowledge-reasoning-layer",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/reasoning/knowledge-reasoning-layer.d2",
+      "location": "site/public/diagrams/knowledge-reasoning-layer.svg",
+      "provider": "local"
+    },
+    {
+      "id": "reasoning-before-agents",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/reasoning/reasoning-before-agents.d2",
+      "location": "site/public/diagrams/reasoning-before-agents.svg",
+      "provider": "local"
+    },
+    {
+      "id": "knowledge-graph-example",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/knowledge/knowledge-graph-example.d2",
+      "location": "site/public/diagrams/knowledge-graph-example.svg",
+      "provider": "local"
+    },
+    {
+      "id": "reasoning-map-example",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/reasoning/reasoning-map-example.d2",
+      "location": "site/public/diagrams/reasoning-map-example.svg",
+      "provider": "local"
     }
   ]
 }

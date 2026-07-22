@@ -1,6 +1,6 @@
 import { centredTextBlock, insetBox, textBlock, xml } from "./layout.mjs";
 
-export function renderSceneSvg(scene, episode, output, companionData, grammar, state = null) {
+export function renderSceneSvg(scene, episode, output, companionData, grammar, state = null, visualAssetData = "") {
   const { palette, frame, typography } = grammar;
   if (scene.presentation.composition === "studio") {
     return studioSceneSvg(scene, episode, output, companionData, grammar, state);
@@ -14,7 +14,7 @@ export function renderSceneSvg(scene, episode, output, companionData, grammar, s
   const footer = scene.productionMetadata === false
     ? `<line x1="${frame.safeArea.x}" y1="${frame.footer.lineY}" x2="${frame.safeArea.x + frame.safeArea.width}" y2="${frame.footer.lineY}" stroke="${palette.line}"/><text x="${frame.safeArea.x}" y="${frame.footer.textY}" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">ARTICULATE JOURNAL</text><text x="${frame.safeArea.x + frame.safeArea.width}" y="${frame.footer.textY}" text-anchor="end" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${xml(episode.title)}</text>`
     : `<line x1="${frame.safeArea.x}" y1="${frame.footer.lineY}" x2="${frame.safeArea.x + frame.safeArea.width}" y2="${frame.footer.lineY}" stroke="${palette.line}"/><text x="${frame.safeArea.x}" y="${frame.footer.textY}" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${xml(scene.narrationReference)}</text><text x="${frame.safeArea.x + frame.safeArea.width}" y="${frame.footer.textY}" text-anchor="end" font-size="${typography.roles.provenance.fontSize}" fill="${palette.muted}">${time(scene.startSeconds)} — ${time(scene.endSeconds)}</text>`;
-  const content = renderComposition(scene, episode, companionData, grammar, state);
+  const content = renderComposition(scene, episode, companionData, grammar, state, visualAssetData);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${output.width}" height="${output.height}" viewBox="0 0 ${output.width} ${output.height}">
   <rect width="${output.width}" height="${output.height}" fill="${palette.paper}"/>
   <defs><marker id="direction-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="${palette.blue}"/></marker></defs>
@@ -22,7 +22,7 @@ export function renderSceneSvg(scene, episode, output, companionData, grammar, s
   ${header}${content}${footer}</svg>`;
 }
 
-function renderComposition(scene, episode, companionData, grammar, state) {
+function renderComposition(scene, episode, companionData, grammar, state, visualAssetData = "") {
   switch (scene.presentation.composition) {
     case "studio": return studioComposition(scene, companionData, grammar, state);
     case "whiteboard": return whiteboardComposition(scene, grammar, state);
@@ -37,6 +37,7 @@ function renderComposition(scene, episode, companionData, grammar, state) {
     case "radial-projection": return visualComposition(scene, grammar, state, (y) => radial(scene, y, "PARTIAL PICTURE", grammar, state));
     case "radial-evidence": return visualComposition(scene, grammar, state, (y) => radial(scene, y, "ASSISTED SYNTHESIS", grammar, state));
     case "reflection": return visualComposition(scene, grammar, state, (y) => reflection(scene, y, grammar, state));
+    case "diagram": return visualComposition(scene, grammar, state, (y) => diagramAsset(scene, y, visualAssetData));
     default: throw new Error(`${scene.id} resolved to unsupported composition: ${scene.presentation.composition}`);
   }
 }
@@ -474,6 +475,12 @@ function visualComposition(scene, grammar, state, graphic) {
   const headline = element("headline", textBlock(elementText(scene, "headline", state), grid.headline, { ...headlineStyle, fill: palette.ink }, `${scene.id} headline`), state);
   const support = element("support", textBlock(elementText(scene, "support", state), grid.support, { ...typography.roles.support, fill: palette.blue }, `${scene.id} support`), state);
   return `${headline}${support}${graphic(grid.graphicY)}`;
+}
+
+function diagramAsset(scene, y, visualAssetData) {
+  if (!scene.diagramAssetId) throw new Error(`${scene.id} diagram scene requires diagramAssetId`);
+  if (!visualAssetData) throw new Error(`${scene.id} diagram asset '${scene.diagramAssetId}' was not resolved`);
+  return `<image data-diagram-asset="${xml(scene.diagramAssetId)}" href="${visualAssetData}" x="112" y="${y - 55}" width="1696" height="500" preserveAspectRatio="xMidYMid meet"/>`;
 }
 
 function grid(scene, y, fill, grammar, state) {

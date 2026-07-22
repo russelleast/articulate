@@ -62,6 +62,12 @@ export function validateRegistryDocument(document) {
     if (!asset.status) errors.push(`${label} requires status`);
     if (!asset.provider) errors.push(`${label} requires provider`);
     if (!asset.location) errors.push(`${label} requires location`);
+    if (asset.type === "diagram") {
+      if (asset.format !== "d2") errors.push(`${label} diagram format must be d2`);
+      if (!asset.source) errors.push(`${label} diagram requires source`);
+      else if (!asset.source.endsWith(".d2")) errors.push(`${label} diagram source must end in .d2`);
+      if (asset.location && !asset.location.endsWith(".svg")) errors.push(`${label} diagram location must end in .svg`);
+    }
     if (asset.checksum != null && typeof asset.checksum !== "string") {
       errors.push(`${label} checksum must be a string or null`);
     }

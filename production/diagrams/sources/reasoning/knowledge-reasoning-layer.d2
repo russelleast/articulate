@@ -1,0 +1,33 @@
+...@../../styles/articulate
+direction: down
+
+capabilities: {
+  label: Reasoning Capabilities
+  direction: right
+  style: {stroke: "#49677C"; stroke-dash: 4; fill: "#FFFFFF"}
+  impact: Impact Analysis {class: capability}
+  decision: Decision Analysis {class: capability}
+  principle: Principle Analysis {class: capability}
+  evolution: Evolution Analysis {class: capability}
+}
+
+layer: Knowledge Reasoning Layer {class: emphasis}
+
+access: {
+  label: Knowledge Access
+  direction: right
+  style: {stroke: "#49677C"; stroke-dash: 4; fill: "#FFFFFF"}
+  semantic: Semantic Search {class: node}
+  graph: Graph Traversal {class: node}
+  queries: Structured Queries {class: node}
+}
+
+model: Knowledge Model {class: evidence}
+
+capabilities -> layer
+layer -> access.semantic
+layer -> access.graph
+layer -> access.queries
+access.semantic -> model
+access.graph -> model
+access.queries -> model
