@@ -3,9 +3,9 @@ episode: 7
 title: "The Knowledge Model: What Is Architectural Knowledge?"
 description: "Exploring the difference between architectural information and architectural knowledge, and defining the connected Knowledge Model at the heart of Articulate."
 season: 2
-status: draft
-published: false
-date: null
+status: current
+published: 2026-07-22
+date: 2026-07-22
 topics:
 - Architectural knowledge
 - Knowledge Model
@@ -15,6 +15,9 @@ topics:
 - Architecture principles
 - Architecture decisions
 - Knowledge relationships
+repository_paths:
+- docs/episodes/0007-the-knowledge-model.md
+- production/diagrams/sources/knowledge/knowledge-graph-example.d2
 ---
 
 # Episode 7 – The Knowledge Model: What Is Architectural Knowledge?
@@ -147,6 +150,8 @@ These questions cross different architectural domains and different types of arc
 Answering them requires more than a list of systems.
 
 It requires a connected representation of the architecture.
+
+![A messaging platform used by an application component that supports a business capability](/diagrams/knowledge-graph-example.svg)
 
 ## Information is not yet knowledge
 

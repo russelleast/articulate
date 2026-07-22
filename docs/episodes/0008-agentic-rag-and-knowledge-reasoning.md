@@ -3,9 +3,9 @@ episode: 8
 title: "Knowledge Reasoning: Beyond RAG"
 description: "An exploration of how AI can reason over architectural knowledge by combining semantic search, graph traversal, structured queries and explicit reasoning strategies."
 season: 2
-status: planned
-published: false
-date: null
+status: current
+published: 2026-07-22
+date: 2026-07-22
 topics:
 - Knowledge reasoning
 - Agentic RAG
@@ -15,6 +15,13 @@ topics:
 - Structured queries
 - Reasoning agents
 - Reasoning maps
+repository_paths:
+- docs/episodes/0008-agentic-rag-and-knowledge-reasoning.md
+- production/diagrams/sources/reasoning/knowledge-reasoning-flow.d2
+- production/diagrams/sources/reasoning/knowledge-reasoning-layer.d2
+- production/diagrams/sources/reasoning/reasoning-before-agents.d2
+- production/diagrams/sources/reasoning/reasoning-map-example.d2
+- production/diagrams/sources/knowledge/knowledge-graph-example.d2
 ---
 
 # Episode 8 – Knowledge Reasoning: Beyond RAG
@@ -270,30 +277,7 @@ The process becomes iterative.
 
 A simplified view might look like this:
 
-```text
-Architectural Question
-        │
-        ▼
-Determine Reasoning Strategy
-        │
-        ▼
-Gather Required Knowledge
-        │
-   ┌────┼─────────────┐
-   ▼    ▼             ▼
-Semantic   Graph    Structured
- Search   Traversal    Query
-   │        │             │
-   └────────┼─────────────┘
-            ▼
-      Reason Over Context
-            │
-            ▼
-       Validate Result
-            │
-            ▼
-    Explain Conclusion
-```
+![Knowledge reasoning flow selecting semantic search, graph traversal or a structured query before reasoning, validation and explanation](/diagrams/knowledge-reasoning-flow.svg)
 
 The important difference is that retrieval is no longer a single step before generation.
 
@@ -313,30 +297,7 @@ The Knowledge Reasoning Layer is responsible for helping Articulate reason with 
 
 Conceptually, it sits between reasoning capabilities and the underlying ways in which knowledge can be accessed.
 
-```text
-                Reasoning Capabilities
-
-     Impact     Decision     Principle     Evolution
-    Analysis    Analysis     Analysis      Analysis
-
-                         │
-                         ▼
-
-              Knowledge Reasoning Layer
-
-                         │
-
-          ┌──────────────┼──────────────┐
-          ▼              ▼              ▼
-
-      Semantic        Graph         Structured
-       Search        Traversal        Queries
-
-          └──────────────┼──────────────┘
-                         ▼
-
-                  Knowledge Model
-```
+![Knowledge Reasoning Layer connecting reasoning capabilities to semantic search, graph traversal and structured queries over the Knowledge Model](/diagrams/knowledge-reasoning-layer.svg)
 
 This is a conceptual boundary rather than an implementation design.
 
@@ -384,21 +345,7 @@ Only then does it make sense to ask how the capability should be implemented and
 
 For Articulate, this suggests a progression:
 
-```text
-Problem
-   │
-   ▼
-Reasoning Capability
-   │
-   ▼
-Required Knowledge
-   │
-   ▼
-Retrieval Strategy
-   │
-   ▼
-Agent Behaviour
-```
+![Reasoning-first progression from the problem through capability, required knowledge and retrieval strategy to agent behaviour](/diagrams/reasoning-before-agents.svg)
 
 This follows the wider architectural approach I am trying to take throughout this project.
 
@@ -418,17 +365,7 @@ Consider an impact analysis.
 
 The Knowledge Model may contain:
 
-```text
-Messaging Platform
-        │
-     used by
-        ▼
-Application Component
-        │
-    supports
-        ▼
-Business Capability
-```
+![Knowledge graph linking a messaging platform to an application component and the business capability it supports](/diagrams/knowledge-graph-example.svg)
 
 A reasoning process may traverse these relationships and conclude that changing the messaging platform could affect the business capability.
 
@@ -444,27 +381,7 @@ A reasoning map represents the path taken through that knowledge while answering
 
 For example:
 
-```text
-Question
-   │
-   ▼
-Identify Messaging Platform
-   │
-   ▼
-Find Dependent Components
-   │
-   ▼
-Identify Supported Capabilities
-   │
-   ▼
-Examine Related Decisions
-   │
-   ▼
-Evaluate Relevant Principles
-   │
-   ▼
-Conclusion
-```
+![Reasoning map tracing a question through platform dependencies, capabilities, decisions and principles to a conclusion](/diagrams/reasoning-map-example.svg)
 
 The reasoning map is not necessarily part of the permanent architectural knowledge.
 

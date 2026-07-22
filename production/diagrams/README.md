@@ -9,7 +9,8 @@ production/diagrams/
 |-- styles/articulate.d2       # Small shared visual foundation
 `-- sources/
     |-- knowledge/             # Knowledge structures and examples
-    `-- reasoning/             # Reasoning flows, layers and maps
+    |-- reasoning/             # Reasoning flows, layers and maps
+    `-- episodes/<episode>/    # Episode-owned diagrams with local meaning
 
 site/public/diagrams/              # Generated, committed shared SVGs
 ```
@@ -36,13 +37,24 @@ Validation discovers all `.d2` files under `sources/`, requires each one to have
 
 ## Website use
 
-Generated SVGs live in Astro's existing public directory, which also leaves them resolvable by the production asset provider. With the current GitHub Pages base path, episode Markdown references a generated diagram as:
+Generated SVGs live in Astro's existing public directory, which also leaves them resolvable by the production asset provider. Episode Markdown uses a deployment-neutral public path:
 
 ```markdown
-![Knowledge reasoning flow](/articulate/diagrams/knowledge-reasoning-flow.svg)
+![Knowledge reasoning flow](/diagrams/knowledge-reasoning-flow.svg)
 ```
 
-The initial Episode 8 ASCII blocks are retained until the generated diagrams receive editorial review. Once approved, replace each block deliberately and retain useful prose as the accessible explanation.
+Astro's Markdown configuration adds the configured `base` during rendering, so the example becomes `/articulate/diagrams/knowledge-reasoning-flow.svg` on GitHub Pages without embedding that deployment detail in the canonical Episode. The pre-development, check, and build publication step scans published Episodes and requires every `/diagrams/<diagram-id>.svg` reference to match a registry entry with both its D2 source and generated SVG present. The site build then copies `site/public/diagrams/` into the final static output.
+
+VS Code Markdown Preview resolves root-relative image URLs against a preview origin rather than Astro's public directory and base-path transform, so these images do not appear in its standalone preview. This is expected: use `npm run dev` in `site/` to preview the canonical publication result. Do not add `/articulate` to source Markdown or duplicate SVGs beside Episodes to accommodate the editor preview.
+
+When publishing an Episode with a diagram:
+
+1. author or update the registered D2 source under `production/diagrams/sources/<concept>/`, or `production/diagrams/sources/episodes/<episode>/` when its meaning is episode-specific;
+2. run `make diagrams-render` from the repository root (never edit the SVG directly);
+3. reference the shared SVG as `/diagrams/<diagram-id>.svg` in the Episode;
+4. run the site check and build, which validate the reference and publish the static asset.
+
+Reusable diagrams stay in the shared namespace and can be referenced by any number of Episodes. Episode-owned diagrams use an `episode-<episode>-` asset ID and set the registry's `episode` field. An absent registry entry, D2 source, or generated SVG fails the publication step before Astro builds.
 
 ## Video use
 

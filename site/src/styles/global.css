@@ -468,6 +468,13 @@ h3 {
   padding: 1rem;
 }
 
+.prose img {
+  display: block;
+  height: auto;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+
 .prose table {
   border-collapse: collapse;
   display: block;

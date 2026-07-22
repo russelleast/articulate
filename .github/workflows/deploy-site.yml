@@ -6,6 +6,8 @@ on:
     paths:
       - "site/**"
       - "docs/episodes/**"
+      - "production/assets/registry.yaml"
+      - "production/diagrams/**"
       - "production/episodes/*/publication/thumbnail/*.png"
       - ".github/workflows/deploy-site.yml"
   workflow_dispatch:

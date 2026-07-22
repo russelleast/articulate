@@ -134,6 +134,11 @@ the site emits a summary card and does not invent an image URL.
 it before development, checking, and building. This keeps production artwork as the single editable
 source while satisfying Astro's requirement that static assets exist under `site/public`.
 
+The same publication step validates registered D2 diagram references in published Episodes. Authors use
+`/diagrams/<diagram-id>.svg`; the Markdown pipeline adds Astro's configured base path, and the build
+publishes the registered generated SVG from `site/public/diagrams/`. The D2 source and authoring
+workflow are documented in [`production/diagrams/README.md`](../production/diagrams/README.md).
+
 The official `@astrojs/sitemap` integration generates `sitemap-index.xml` and `sitemap-0.xml` during
 the production build. `src/pages/robots.txt.ts` permits normal crawling and points crawlers to that
 sitemap index. `src/pages/rss.xml.ts` generates `/articulate/rss.xml` from the same published Episode
