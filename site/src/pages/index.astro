@@ -7,8 +7,12 @@ import { formatDate, withBase, youtubeEmbedUrl } from "@/utils/site";
 
 const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
 const featuredEpisode = episodes
-  .filter((episode) => episode.data.featured || episode.data.sequence > 0)
-  .sort((a, b) => b.data.sequence - a.data.sequence)[0] ?? episodes[0];
+  .filter((episode) => episode.data.featured)
+  .sort((a, b) => b.data.sequence - a.data.sequence)[0]
+  ?? episodes
+    .filter((episode) => episode.data.sequence > 0)
+    .sort((a, b) => b.data.sequence - a.data.sequence)[0]
+  ?? episodes[0];
 const introductionEpisode = episodes.find((episode) => episode.data.sequence === 0);
 ---
 
@@ -88,14 +92,38 @@ const introductionEpisode = episodes.find((episode) => episode.data.sequence ===
         <p class="eyebrow">Latest Episode</p>
         <h2 id="latest-episode">{featuredEpisode.data.title}</h2>
       </div>
-      <article class="journal-card">
-        <p class="item-meta">
-          Episode {featuredEpisode.data.sequence.toString().padStart(4, "0")} /
-          {formatDate(featuredEpisode.data.published)} /
-          <StatusPill status={featuredEpisode.data.status} />
-        </p>
-        <p>{featuredEpisode.data.summary}</p>
-        <p><a href={withBase(`/episodes/${featuredEpisode.id}/`)}>Read the latest Episode</a></p>
+      <article class:list={["journal-card", { "episode-card-with-thumbnail": featuredEpisode.data.thumbnail }]}>
+        {featuredEpisode.data.thumbnail && (
+          <a
+            class="episode-card-thumbnail"
+            href={featuredEpisode.data.youtube_url ?? withBase(`/episodes/${featuredEpisode.id}/`)}
+            aria-label={featuredEpisode.data.youtube_url
+              ? `Watch ${featuredEpisode.data.title} on YouTube`
+              : `Read ${featuredEpisode.data.title}`}
+          >
+            <img
+              src={withBase(featuredEpisode.data.thumbnail)}
+              alt={`Video thumbnail for ${featuredEpisode.data.title}`}
+              width="1280"
+              height="720"
+            />
+            {featuredEpisode.data.youtube_url && <span aria-hidden="true">Play</span>}
+          </a>
+        )}
+        <div class="episode-card-content">
+          <p class="item-meta">
+            Episode {featuredEpisode.data.sequence.toString().padStart(4, "0")} /
+            {formatDate(featuredEpisode.data.published)} /
+            <StatusPill status={featuredEpisode.data.status} />
+          </p>
+          <p>{featuredEpisode.data.summary}</p>
+          <p class="episode-card-actions">
+            <a href={withBase(`/episodes/${featuredEpisode.id}/`)}>Read the latest Episode</a>
+            {featuredEpisode.data.youtube_url && (
+              <a href={featuredEpisode.data.youtube_url}>Watch on YouTube</a>
+            )}
+          </p>
+        </div>
       </article>
     </section>
 

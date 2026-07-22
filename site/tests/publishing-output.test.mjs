@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const productionBase = "https://russelleast.github.io/articulate";
@@ -55,6 +55,40 @@ test("Episode 0000 publishes companion media while keeping the journal article",
   assert.match(episode, /Watch this Episode on YouTube/);
   assert.match(episode, /The journal article below\s+remains the canonical written version/);
 });
+
+test("the home page features the selected Episode with separate watch and read actions", async () => {
+  const home = await output("index.html");
+
+  assert.match(home, /<h2 id="latest-episode">What is Articulate\?<\/h2>/);
+  assert.match(home, /episode-0002-thumbnail\.png/);
+  assert.match(home, /href="https:\/\/youtu\.be\/sZ4VwMCKIlA"/);
+  assert.match(home, /href="\/articulate\/episodes\/0002-what-is-articulate\/"/);
+});
+
+for (const episode of [
+  {
+    slug: "0001-why-articulate-exists",
+    thumbnail: "episode-0001-thumbnail-a-fragmented-architecture.png",
+    youtubeUrl: "https://youtu.be/NISywkx-xW0"
+  },
+  {
+    slug: "0002-what-is-articulate",
+    thumbnail: "episode-0002-thumbnail.png",
+    youtubeUrl: "https://youtu.be/sZ4VwMCKIlA"
+  }
+]) {
+  test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {
+    const listing = await output("episodes/index.html");
+    const page = await output(`episodes/${episode.slug}/index.html`);
+
+    assert.match(listing, new RegExp(episode.thumbnail));
+    assert.match(listing, new RegExp(episode.youtubeUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(listing, new RegExp(`href="/articulate/episodes/${episode.slug}/"`));
+    assert.match(page, new RegExp(episode.thumbnail));
+    assert.match(page, /Watch this Episode on YouTube/);
+    await access(new URL(`../dist/media/episodes/${episode.slug.slice(0, 4)}/${episode.thumbnail}`, import.meta.url));
+  });
+}
 
 test("sitemap, robots, and RSS use production URLs", async () => {
   const sitemap = await output("sitemap-0.xml");

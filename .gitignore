@@ -49,6 +49,8 @@ site/node_modules/
 site/dist/
 site/.astro/
 site/.playwright-cli/
+# Episode thumbnails are staged from canonical production assets before site commands.
+site/public/media/episodes/*/
 
 # Companion PoC generated media
 production/cache/*

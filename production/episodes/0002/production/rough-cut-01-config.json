@@ -44,30 +44,26 @@
       "companionPerformance": { "timeline": "production/episodes/0002/production/rough-cut-01-companion/S001.json" },
       "shots": [{ "id": "opening", "label": "The apparently simple question", "at": 0, "events": [
         { "id": "s1-title", "at": 0.8, "action": "reveal", "target": "headline" },
-        { "id": "s1-support", "at": 7.0, "action": "reveal", "target": "support" }
+        { "id": "s1-support", "at": 16.0, "action": "reveal", "target": "support" }
       ] }]
     },
     {
-      "id": "S002", "title": "Definitions in motion", "kind": "whiteboard", "diagramLayout": "change-path",
+      "id": "S002", "title": "Definitions in motion", "kind": "whiteboard", "diagramLayout": "grid",
       "headline": "Each idea solved part of the problem", "support": "None captured the bigger picture.",
-      "items": ["Documentation tool", "Knowledge graph", "Conversational assistant", "Discovery platform", "Architecture modelling"],
+      "items": ["Documentation tool", "Knowledge graph", "Conversational assistant", "Discovery platform", "Architecture modelling tool"],
       "companion": false, "assetIds": ["A003"], "transition": "cut", "timeline": { "connectorTiming": "with-destination", "events": [] },
       "shots": [{ "id": "evolution", "label": "Definitions evolve", "at": 0, "events": [
         { "id": "s2-title", "at": 0, "action": "reveal", "target": "headline" },
-        { "id": "s2-i1", "at": 5, "action": "reveal", "target": "item-1" },
-        { "id": "s2-i2", "at": 8, "action": "reveal", "target": "item-2" },
-        { "id": "s2-c12", "at": 8, "action": "connect", "from": "item-1", "to": "item-2" },
-        { "id": "s2-i3", "at": 11, "action": "reveal", "target": "item-3" },
-        { "id": "s2-c23", "at": 11, "action": "connect", "from": "item-2", "to": "item-3" },
-        { "id": "s2-i4", "at": 14, "action": "reveal", "target": "item-4" },
-        { "id": "s2-c34", "at": 14, "action": "connect", "from": "item-3", "to": "item-4" },
-        { "id": "s2-i5", "at": 17, "action": "reveal", "target": "item-5" },
-        { "id": "s2-c45", "at": 17, "action": "connect", "from": "item-4", "to": "item-5" },
-        { "id": "s2-support", "at": 23, "action": "reveal", "target": "support" }
+        { "id": "s2-i1", "at": 0, "action": "reveal", "target": "item-1" },
+        { "id": "s2-i2", "at": 3, "action": "reveal", "target": "item-2" },
+        { "id": "s2-i3", "at": 5, "action": "reveal", "target": "item-3" },
+        { "id": "s2-i4", "at": 6, "action": "reveal", "target": "item-4" },
+        { "id": "s2-i5", "at": 8, "action": "reveal", "target": "item-5" },
+        { "id": "s2-support", "at": 14, "action": "reveal", "target": "support" }
       ] }]
     },
     {
-      "id": "S003", "title": "Artefacts are partial", "kind": "focus", "focusLayout": "radial", "centre": "ARCHITECTURE",
+      "id": "S003", "title": "Artefacts are partial", "kind": "focus", "focusLayout": "radial", "radialY": 520, "centre": "ARCHITECTURE",
       "headline": "Artefacts are useful projections", "support": "The architecture is more than any one representation.",
       "items": ["Documents", "Diagrams", "Decision records", "Models", "Assumptions"],
       "companion": false, "assetIds": ["A004"], "transition": "section", "timeline": { "connectorTiming": "with-destination", "events": [] },
@@ -82,7 +78,7 @@
       ] }]
     },
     {
-      "id": "S004", "title": "Knowledge is the asset", "kind": "whiteboard", "diagramLayout": "hub",
+      "id": "S004", "title": "Knowledge is the asset", "kind": "whiteboard", "diagramLayout": "hub", "whiteboardHeadlineWidth": 1530,
       "headline": "Architectural knowledge is the primary asset", "support": "Artefacts contribute to an understanding that keeps evolving.",
       "items": ["Architectural knowledge", "Facts + assumptions", "Evidence + decisions", "Capabilities + constraints", "History + alternatives"],
       "companion": false, "assetIds": ["A005"], "transition": "cut", "timeline": { "connectorTiming": "with-destination", "events": [] },
@@ -98,29 +94,27 @@
     {
       "id": "S005", "title": "AI-native, architect-owned", "kind": "studio", "studioLayout": "companion-model", "studioModelLayout": "converge", "transactionLabel": false,
       "headline": "AI-native. Architect-owned.", "support": "Decisions, judgement and accountability remain human.",
-      "items": ["AI-native system", "Architect judgement", "Human accountability"],
+      "items": ["AI-native system", "Architecture judgement", "Human accountability"],
       "companion": true, "assetIds": ["A002", "A006"], "transition": "section", "timeline": { "connectorTiming": "with-destination", "events": [] },
       "motion": { "companionIdle": { "periodFrames": 170, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
       "companionPerformance": { "timeline": "production/episodes/0002/production/rough-cut-01-companion/S005.json" },
       "shots": [{ "id": "boundary", "label": "Keep the accountability boundary explicit", "at": 0, "events": [
-        { "id": "s5-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s5-i1", "at": 4, "action": "reveal", "target": "item-1" },
-        { "id": "s5-i2", "at": 8, "action": "reveal", "target": "item-2" }, { "id": "s5-c12", "at": 8, "action": "connect", "from": "item-1", "to": "item-2" },
-        { "id": "s5-i3", "at": 12, "action": "reveal", "target": "item-3" }, { "id": "s5-c23", "at": 12, "action": "connect", "from": "item-2", "to": "item-3" },
+        { "id": "s5-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s5-i1", "at": 6.450680, "action": "reveal", "target": "item-1" },
+        { "id": "s5-i2", "at": 13.450680, "action": "reveal", "target": "item-2" }, { "id": "s5-c12", "at": 13.450680, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s5-i3", "at": 16.450680, "action": "reveal", "target": "item-3" }, { "id": "s5-c23", "at": 16.450680, "action": "connect", "from": "item-2", "to": "item-3" },
         { "id": "s5-support", "at": 16, "action": "reveal", "target": "support" }
       ] }]
     },
     {
-      "id": "S006", "title": "AI as collaborator", "kind": "whiteboard", "diagramLayout": "change-path",
+      "id": "S006", "title": "AI as collaborator", "kind": "whiteboard", "diagramLayout": "grid",
       "headline": "Augment the architect", "support": "The objective is better reasoning, not automated architecture.",
       "items": ["Discover", "Identify inconsistencies", "Challenge assumptions", "Explain relationships", "Reason about change"],
       "companion": false, "assetIds": ["A007"], "transition": "cut", "timeline": { "connectorTiming": "with-destination", "events": [] },
       "shots": [{ "id": "collaboration", "label": "Collaborative capabilities", "at": 0, "events": [
         { "id": "s6-title", "at": 0, "action": "reveal", "target": "headline" },
-        { "id": "s6-i1", "at": 3, "action": "reveal", "target": "item-1" }, { "id": "s6-i2", "at": 6, "action": "reveal", "target": "item-2" },
-        { "id": "s6-c12", "at": 6, "action": "connect", "from": "item-1", "to": "item-2" }, { "id": "s6-i3", "at": 9, "action": "reveal", "target": "item-3" },
-        { "id": "s6-c23", "at": 9, "action": "connect", "from": "item-2", "to": "item-3" }, { "id": "s6-i4", "at": 12, "action": "reveal", "target": "item-4" },
-        { "id": "s6-c34", "at": 12, "action": "connect", "from": "item-3", "to": "item-4" }, { "id": "s6-i5", "at": 15, "action": "reveal", "target": "item-5" },
-        { "id": "s6-c45", "at": 15, "action": "connect", "from": "item-4", "to": "item-5" }, { "id": "s6-support", "at": 19, "action": "reveal", "target": "support" }
+        { "id": "s6-i1", "at": 0.011134, "action": "reveal", "target": "item-1" }, { "id": "s6-i2", "at": 3.011134, "action": "reveal", "target": "item-2" },
+        { "id": "s6-i3", "at": 4.011134, "action": "reveal", "target": "item-3" }, { "id": "s6-i4", "at": 7.011134, "action": "reveal", "target": "item-4" },
+        { "id": "s6-i5", "at": 8.011134, "action": "reveal", "target": "item-5" }, { "id": "s6-support", "at": 19, "action": "reveal", "target": "support" }
       ] }]
     },
     {
@@ -129,8 +123,8 @@
       "items": ["Why this decision?", "What depends on this?", "What if this changes?", "Solved before?"],
       "companion": false, "assetIds": ["A008"], "transition": "section",
       "shots": [{ "id": "questions", "label": "Questions reveal the search problem", "at": 0, "events": [
-        { "id": "s7-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s7-i1", "at": 4, "action": "reveal", "target": "item-1" },
-        { "id": "s7-i2", "at": 8, "action": "reveal", "target": "item-2" }, { "id": "s7-i3", "at": 12, "action": "reveal", "target": "item-3" },
+        { "id": "s7-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s7-i1", "at": 8.465873, "action": "reveal", "target": "item-1" },
+        { "id": "s7-i2", "at": 10.465873, "action": "reveal", "target": "item-2" }, { "id": "s7-i3", "at": 12, "action": "reveal", "target": "item-3" },
         { "id": "s7-i4", "at": 16, "action": "reveal", "target": "item-4" }, { "id": "s7-support", "at": 21, "action": "reveal", "target": "support" }
       ] }]
     },
@@ -142,8 +136,8 @@
       "motion": { "companionIdle": { "periodFrames": 168, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
       "companionPerformance": { "timeline": "production/episodes/0002/production/rough-cut-01-companion/S008.json" },
       "shots": [{ "id": "interface", "label": "Conversation gathers and reasons", "at": 0, "events": [
-        { "id": "s8-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s8-i1", "at": 4, "action": "reveal", "target": "item-1" },
-        { "id": "s8-i2", "at": 10, "action": "reveal", "target": "item-2" }, { "id": "s8-c12", "at": 10, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s8-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s8-i1", "at": 10.852540, "action": "reveal", "target": "item-1" },
+        { "id": "s8-i2", "at": 15.852540, "action": "reveal", "target": "item-2" }, { "id": "s8-c12", "at": 15.852540, "action": "connect", "from": "item-1", "to": "item-2" },
         { "id": "s8-i3", "at": 18, "action": "reveal", "target": "item-3" }, { "id": "s8-c23", "at": 18, "action": "connect", "from": "item-2", "to": "item-3" },
         { "id": "s8-support", "at": 24, "action": "reveal", "target": "support" }
       ] }]
@@ -151,13 +145,12 @@
     {
       "id": "S009", "title": "Sources contribute evidence", "kind": "whiteboard", "diagramLayout": "grid",
       "headline": "A living model draws from many sources", "support": "No source necessarily tells the complete truth.",
-      "items": ["Discovery", "Decisions", "Solution designs", "Source code", "Infrastructure", "Operations"],
+      "items": ["Discovery", "Decisions", "Solution designs"],
       "companion": false, "assetIds": ["A010"], "transition": "section",
       "shots": [{ "id": "sources", "label": "Evidence enters the model", "at": 0, "events": [
-        { "id": "s9-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s9-i1", "at": 2, "action": "reveal", "target": "item-1" },
-        { "id": "s9-i2", "at": 4, "action": "reveal", "target": "item-2" }, { "id": "s9-i3", "at": 6, "action": "reveal", "target": "item-3" },
-        { "id": "s9-i4", "at": 8, "action": "reveal", "target": "item-4" }, { "id": "s9-i5", "at": 10, "action": "reveal", "target": "item-5" },
-        { "id": "s9-i6", "at": 12, "action": "reveal", "target": "item-6" }, { "id": "s9-support", "at": 16, "action": "reveal", "target": "support" }
+        { "id": "s9-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s9-i1", "at": 5.301519, "action": "reveal", "target": "item-1" },
+        { "id": "s9-i2", "at": 9.301519, "action": "reveal", "target": "item-2" }, { "id": "s9-i3", "at": 12.301519, "action": "reveal", "target": "item-3" },
+        { "id": "s9-support", "at": 16, "action": "reveal", "target": "support" }
       ] }]
     },
     {
@@ -174,16 +167,16 @@
       ] }]
     },
     {
-      "id": "S011", "title": "Core capabilities", "kind": "whiteboard", "diagramLayout": "change-path",
+      "id": "S011", "title": "Core capabilities", "kind": "whiteboard", "diagramLayout": "capability-map",
       "headline": "Capabilities, not a fixed feature list", "support": "Discover, preserve and explore architectural knowledge.",
       "items": ["Discover", "Preserve", "Understand change", "Explore", "Visualise"],
       "companion": false, "assetIds": ["A012"], "transition": "section", "timeline": { "connectorTiming": "with-destination", "events": [] },
       "shots": [{ "id": "capabilities", "label": "The first capability chain", "at": 0, "events": [
-        { "id": "s11-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s11-i1", "at": 4, "action": "reveal", "target": "item-1" },
-        { "id": "s11-i2", "at": 7, "action": "reveal", "target": "item-2" }, { "id": "s11-c12", "at": 7, "action": "connect", "from": "item-1", "to": "item-2" },
-        { "id": "s11-i3", "at": 10, "action": "reveal", "target": "item-3" }, { "id": "s11-c23", "at": 10, "action": "connect", "from": "item-2", "to": "item-3" },
-        { "id": "s11-i4", "at": 13, "action": "reveal", "target": "item-4" }, { "id": "s11-c34", "at": 13, "action": "connect", "from": "item-3", "to": "item-4" },
-        { "id": "s11-i5", "at": 16, "action": "reveal", "target": "item-5" }, { "id": "s11-c45", "at": 16, "action": "connect", "from": "item-4", "to": "item-5" },
+        { "id": "s11-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s11-i1", "at": 6.162721, "action": "reveal", "target": "item-1" },
+        { "id": "s11-i2", "at": 10.162721, "action": "reveal", "target": "item-2" }, { "id": "s11-c12", "at": 10.162721, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s11-i3", "at": 13.162721, "action": "reveal", "target": "item-3" }, { "id": "s11-c23", "at": 13.162721, "action": "connect", "from": "item-2", "to": "item-3" },
+        { "id": "s11-i4", "at": 17.162721, "action": "reveal", "target": "item-4" }, { "id": "s11-c34", "at": 17.162721, "action": "connect", "from": "item-3", "to": "item-4" },
+        { "id": "s11-i5", "at": 21.162721, "action": "reveal", "target": "item-5" }, { "id": "s11-c45", "at": 21.162721, "action": "connect", "from": "item-4", "to": "item-5" },
         { "id": "s11-support", "at": 21, "action": "reveal", "target": "support" }
       ] }]
     },
@@ -191,13 +184,13 @@
       "id": "S012", "title": "Capabilities will evolve", "kind": "workspace",
       "headline": "The journal discovers the capability shape", "support": "Implementation and architectural reasoning evolve together.",
       "items": ["Impact of change", "Challenge assumptions", "Identify constraints", "Preserve reasoning", "Reuse existing capabilities"],
-      "evidence": { "excerpt": ["These are architectural capabilities.", "Their concrete form remains open to discovery."] },
+      "evidence": { "excerpt": ["These are the architectural capabilities.", "Their concrete form remains open to discovery."] },
       "companion": false, "assetIds": ["A013"], "transition": "cut",
       "shots": [{ "id": "journal", "label": "Repository evidence and open capability shape", "at": 0, "events": [
-        { "id": "s12-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s12-i1", "at": 4, "action": "reveal", "target": "item-1" },
-        { "id": "s12-i2", "at": 7, "action": "reveal", "target": "item-2" }, { "id": "s12-i3", "at": 10, "action": "reveal", "target": "item-3" },
-        { "id": "s12-i4", "at": 13, "action": "reveal", "target": "item-4" }, { "id": "s12-i5", "at": 16, "action": "reveal", "target": "item-5" },
-        { "id": "s12-e1", "at": 21, "action": "reveal", "target": "evidence-1" }, { "id": "s12-e2", "at": 25, "action": "reveal", "target": "evidence-2" },
+        { "id": "s12-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s12-i1", "at": 2, "action": "reveal", "target": "item-1" },
+        { "id": "s12-i2", "at": 7, "action": "reveal", "target": "item-2" }, { "id": "s12-i3", "at": 8, "action": "reveal", "target": "item-3" },
+        { "id": "s12-i4", "at": 10, "action": "reveal", "target": "item-4" }, { "id": "s12-i5", "at": 15, "action": "reveal", "target": "item-5" },
+        { "id": "s12-e1", "at": 23, "action": "reveal", "target": "evidence-1" }, { "id": "s12-e2", "at": 25, "action": "reveal", "target": "evidence-2" },
         { "id": "s12-support", "at": 29, "action": "reveal", "target": "support" }
       ] }]
     },
@@ -209,8 +202,8 @@
       "motion": { "companionIdle": { "periodFrames": 172, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
       "companionPerformance": { "timeline": "production/episodes/0002/production/rough-cut-01-companion/S013.json" },
       "shots": [{ "id": "definition", "label": "Working definition", "at": 0, "events": [
-        { "id": "s13-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s13-i1", "at": 5, "action": "reveal", "target": "item-1" },
-        { "id": "s13-i2", "at": 10, "action": "reveal", "target": "item-2" }, { "id": "s13-c12", "at": 10, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s13-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s13-i1", "at": 9.630907, "action": "reveal", "target": "item-1" },
+        { "id": "s13-i2", "at": 13.630907, "action": "reveal", "target": "item-2" }, { "id": "s13-c12", "at": 13.630907, "action": "connect", "from": "item-1", "to": "item-2" },
         { "id": "s13-i3", "at": 16, "action": "reveal", "target": "item-3" }, { "id": "s13-c23", "at": 16, "action": "connect", "from": "item-2", "to": "item-3" },
         { "id": "s13-support", "at": 21, "action": "reveal", "target": "support" }
       ] }]
@@ -240,7 +233,7 @@
       "id": "S016", "title": "What Articulate is now", "kind": "workspace",
       "headline": "An exploration into architectural intelligence", "support": "An AI-native platform for understanding and evolving complex systems.",
       "items": ["Architecture journal", "Reference implementation", "Architectural laboratory"],
-      "evidence": { "excerpt": ["production/episodes/0002/narrative.md", "Architecture and implementation inform one another."] },
+      "evidence": { "excerpt": ["Architecture and implementation inform one another."] },
       "companion": false, "assetIds": ["A017"], "transition": "cut",
       "shots": [{ "id": "answer", "label": "The current answer grounded in repository evidence", "at": 0, "events": [
         { "id": "s16-title", "at": 0, "action": "reveal", "target": "headline" }, { "id": "s16-i1", "at": 3, "action": "reveal", "target": "item-1" },

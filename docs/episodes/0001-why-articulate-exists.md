@@ -21,6 +21,8 @@ related_experiments: []
 repository_paths:
   - docs/episodes/0001-why-articulate-exists.md
 featured: false
+thumbnail: /media/episodes/0001/episode-0001-thumbnail-a-fragmented-architecture.png
+youtube_url: https://youtu.be/NISywkx-xW0
 ---
 
 # Episode 0001 – Why Articulate Exists

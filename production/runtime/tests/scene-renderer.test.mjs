@@ -111,6 +111,19 @@ test("environment compositions retain shared Articulate world chrome", () => {
   }
 });
 
+test("whiteboard capability maps place a child capability beneath its parent", () => {
+  const scene = {
+    id: "S011", kind: "whiteboard", diagramLayout: "capability-map", transition: "cut", companion: false,
+    headline: "Capabilities", support: "A capability shape.",
+    items: ["Discover", "Preserve", "Understand change", "Explore", "Visualise"],
+    narrationReference: "Capabilities", startSeconds: 0, endSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, grammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0002", title: "What Is Articulate?" }, { width: 1920, height: 1080 }, "", grammar, { hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0 });
+  assert.match(svg, /x="1380" y="500" width="320" height="112"/);
+  assert.match(svg, /x="1380" y="720" width="320" height="112"/);
+});
+
 test("radial evidence retains directional relationships when no connection timeline is authored", () => {
   const scene = {
     id: "S011", kind: "evidence", transition: "cut", companion: false,

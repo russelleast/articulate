@@ -15,17 +15,41 @@ const episodes = (await getCollection("episodes", ({ data }) => data.isPublished
 >
   <div class="timeline-list">
     {episodes.map((episode) => (
-      <article>
-        <p class="item-meta">
-          Episode {episode.data.sequence.toString().padStart(4, "0")} /
-          {formatDate(episode.data.published)} /
-          <StatusPill status={episode.data.status} />
-        </p>
-        <h2><a href={withBase(`/episodes/${episode.id}/`)}>{episode.data.title}</a></h2>
-        <p>{episode.data.summary}</p>
-        <ul class="tag-list">
-          {episode.data.topics.map((topic) => <li>{topic}</li>)}
-        </ul>
+      <article class:list={["episode-card", { "episode-card-with-thumbnail": episode.data.thumbnail }]}>
+        {episode.data.thumbnail && (
+          <a
+            class="episode-card-thumbnail"
+            href={episode.data.youtube_url ?? withBase(`/episodes/${episode.id}/`)}
+            aria-label={episode.data.youtube_url
+              ? `Watch ${episode.data.title} on YouTube`
+              : `Read ${episode.data.title}`}
+          >
+            <img
+              src={withBase(episode.data.thumbnail)}
+              alt={`Video thumbnail for ${episode.data.title}`}
+              width="1280"
+              height="720"
+              loading="lazy"
+            />
+            {episode.data.youtube_url && <span aria-hidden="true">Play</span>}
+          </a>
+        )}
+        <div class="episode-card-content">
+          <p class="item-meta">
+            Episode {episode.data.sequence.toString().padStart(4, "0")} /
+            {formatDate(episode.data.published)} /
+            <StatusPill status={episode.data.status} />
+          </p>
+          <h2><a href={withBase(`/episodes/${episode.id}/`)}>{episode.data.title}</a></h2>
+          <p>{episode.data.summary}</p>
+          <p class="episode-card-actions">
+            <a href={withBase(`/episodes/${episode.id}/`)}>Read Episode</a>
+            {episode.data.youtube_url && <a href={episode.data.youtube_url}>Watch on YouTube</a>}
+          </p>
+          <ul class="tag-list">
+            {episode.data.topics.map((topic) => <li>{topic}</li>)}
+          </ul>
+        </div>
       </article>
     ))}
   </div>

@@ -21,6 +21,8 @@ related_experiments: []
 repository_paths:
   - docs/episodes/0002-what-is-articulate.md
 featured: true
+thumbnail: /media/episodes/0002/episode-0002-thumbnail.png
+youtube_url: https://youtu.be/sZ4VwMCKIlA
 ---
 
 # Episode 0002 – What is Articulate?
