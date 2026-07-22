@@ -8,7 +8,7 @@ Terms like AI-native, agentic systems, AI agents, and even reasoning models are 
 
 So what I'm describing here isn't intended to be the definitive definition of AI-native architecture.
 
-It's my current understanding, based on my experience as a systems architect, the research I've been doing, and what I'm learning through building Articulate.
+It's my current understanding with the research I've been doing, and what I'm learning through building Articulate.
 
 And that distinction is important for this journal.
 
