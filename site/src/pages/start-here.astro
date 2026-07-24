@@ -27,14 +27,15 @@ import { withBase } from "@/utils/site";
   <h2>What Episodes Are</h2>
   <p>
     Episodes are narrative investigations into architectural questions. An Episode may produce or
-    revise decisions, introduce patterns, document experiments, and point to repository assets.
+    revise principles and decisions, introduce patterns, document experiments, and point to
+    repository assets.
   </p>
 
   <h2>How the Parts Relate</h2>
   <p>
-    Decisions record commitments and their consequences. Patterns describe reusable architectural
-    approaches that survive contact with implementation. Experiments keep uncertainty visible.
-    Code, diagrams, and models provide evidence.
+    Principles provide long-lived architectural guidance. Decisions record commitments and their
+    consequences. Patterns describe reusable architectural approaches that survive contact with
+    implementation. Experiments keep uncertainty visible. Code, diagrams, and models provide evidence.
   </p>
 
   <h2>Suggested Routes</h2>
@@ -43,6 +44,11 @@ import { withBase } from "@/utils/site";
       <h3>I want to understand the vision.</h3>
       <p>Start with the preface, the first two Episodes, and the About page.</p>
       <p><a href={withBase("/episodes/0001-why-articulate-exists/")}>Open Episode 0001</a></p>
+    </article>
+    <article class="index-card">
+      <h3>I want to understand the guiding principles.</h3>
+      <p>Use Principles to see the enduring guidance shaping architecture, decisions, and patterns.</p>
+      <p><a href={withBase("/principles/")}>Open Principles</a></p>
     </article>
     <article class="index-card">
       <h3>I want to study the architecture.</h3>

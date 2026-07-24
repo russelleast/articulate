@@ -1,0 +1,105 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MetadataList from "@/components/MetadataList.astro";
+import RelatedContent from "@/components/RelatedContent.astro";
+import { formatDate, withBase } from "@/utils/site";
+
+export async function getStaticPaths() {
+  const principles = await getCollection("principles");
+  return principles.map((principle) => ({
+    params: { slug: principle.id },
+    props: { principle }
+  }));
+}
+
+const { principle } = Astro.props;
+const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
+const decisions = await getCollection("decisions");
+const patterns = await getCollection("patterns");
+
+const relatedEpisodes = episodes
+  .filter((episode) => principle.data.related_episodes.some((ref) => ref.id === episode.id))
+  .map((episode) => ({
+    title: episode.data.title,
+    href: withBase(`/episodes/${episode.id}/`),
+    meta: `Episode ${episode.data.sequence.toString().padStart(4, "0")}`
+  }));
+const relatedDecisions = decisions
+  .filter((decision) => principle.data.related_decisions.some((ref) => ref.id === decision.id))
+  .map((decision) => ({
+    title: decision.data.title,
+    href: withBase(`/decisions/#${decision.data.id}`),
+    meta: decision.data.status
+  }));
+const relatedPatterns = patterns
+  .filter((pattern) => principle.data.related_patterns.some((ref) => ref.id === pattern.id))
+  .map((pattern) => ({
+    title: pattern.data.title,
+    href: withBase(`/patterns/#${pattern.data.id}`),
+    meta: pattern.data.maturity
+  }));
+const relatedArchitecture = principle.data.related_architecture.map((item) => ({
+  title: item,
+  href: withBase(`/architecture/#${item}`)
+}));
+---
+
+<BaseLayout
+  title={principle.data.title}
+  description={principle.data.summary}
+  type="article"
+  article={{
+    published: principle.data.published,
+    updated: principle.data.updated,
+    tags: principle.data.applies_to
+  }}
+>
+  <article class="article-shell">
+    <header class="article-header">
+      <p class="eyebrow">Architectural principle</p>
+      <h1>{principle.data.title}</h1>
+      <p class="lede">{principle.data.summary}</p>
+      <MetadataList
+        items={[
+          { label: "Status", value: principle.data.status },
+          { label: "Published", value: formatDate(principle.data.published) },
+          { label: "Updated", value: formatDate(principle.data.updated) }
+        ]}
+      />
+    </header>
+
+    <div class="prose">
+      <section class="principle-statement" aria-labelledby="principle-statement">
+        <p class="eyebrow">Principle</p>
+        <h2 id="principle-statement">{principle.data.principle}</h2>
+      </section>
+
+      <h2>Rationale</h2>
+      <p>{principle.data.rationale}</p>
+
+      <h2>Consequences and trade-offs</h2>
+      <ul>
+        {principle.data.consequences.map((consequence) => <li>{consequence}</li>)}
+      </ul>
+
+      <h2>Applies to</h2>
+      <ul class="tag-list">
+        {principle.data.applies_to.map((area) => <li>{area}</li>)}
+      </ul>
+    </div>
+
+    <section class="section-block" aria-labelledby="principle-relationships">
+      <div class="section-heading">
+        <p class="eyebrow">Relationships</p>
+        <h2 id="principle-relationships">Related Material</h2>
+      </div>
+      <div class="two-column">
+        <RelatedContent title="Episodes" items={relatedEpisodes} />
+        <RelatedContent title="Decisions" items={relatedDecisions} />
+        <RelatedContent title="Patterns" items={relatedPatterns} />
+        <RelatedContent title="Architecture" items={relatedArchitecture} />
+      </div>
+    </section>
+  </article>
+</BaseLayout>

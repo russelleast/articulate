@@ -164,3 +164,21 @@ test("Search Console verification is opt-in", async () => {
     assert.doesNotMatch(html, /google-site-verification/);
   }
 });
+
+test("architectural principles publish as a first-class, bidirectionally related content type", async () => {
+  const index = await output("principles/index.html");
+  const principle = await output("principles/coherence-before-size/index.html");
+  const episode = await output("episodes/0004-system-characteristics-the-properties-every-system-needs/index.html");
+
+  assert.match(index, /Architectural Principles/);
+  assert.match(index, /href="\/articulate\/principles\/coherence-before-size\/"/);
+  assert.match(await output("index.html"), /href="\/articulate\/principles\/">Principles<\/a>/);
+  assert.match(principle, /Coherence Before Size/);
+  assert.match(principle, /Keep responsibilities coherent/);
+  assert.match(
+    principle,
+    /href="\/articulate\/episodes\/0004-system-characteristics-the-properties-every-system-needs\/"/
+  );
+  assert.match(episode, /Related Material/);
+  assert.match(episode, /href="\/articulate\/principles\/coherence-before-size\/"/);
+});

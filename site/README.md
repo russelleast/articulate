@@ -33,6 +33,7 @@ Reference content owned by the website is stored in Astro content collections:
 
 ```text
 src/content/
+├── principles/
 ├── patterns/
 ├── decisions/
 └── experiments/
@@ -44,7 +45,7 @@ Markdown and MDX are the intended authoring formats. Collection schemas are defi
 
 Use stable identifiers for relationships. Do not depend on display titles or hard-coded paths.
 
-Episodes can relate to decisions, patterns, experiments, and repository paths:
+Episodes can relate to principles, decisions, patterns, experiments, and repository paths:
 
 ```yaml
 id: episode-0001
@@ -58,6 +59,8 @@ topics:
   - ai-native-architecture
 related_decisions:
   - adr-0001
+related_principles:
+  - coherence-before-size
 repository_paths:
   - README.md
 ```
@@ -78,13 +81,25 @@ historical
 1. Create a Markdown file in `../docs/episodes/`.
 2. Give it a stable `id`, such as `episode-0002`.
 3. Fill in `title`, `summary`, `published`, `updated`, `status`, `sequence`, `season`, `topics`, and relationship fields.
-4. Link related decisions, patterns, and experiments by their stable identifiers.
+4. Link related principles, decisions, patterns, and experiments by their stable identifiers.
 5. Add repository evidence through `repository_paths`.
 6. Optionally add `thumbnail` and `youtube_url` when companion media is published.
 7. Keep the canonical PNG under `production/episodes/<episode>/publication/thumbnail/` and set
    `thumbnail` to `/media/episodes/<episode>/<same-filename>.png`. Site commands stage that production
    asset into `site/public`; do not edit the staged copy.
 8. Run `npm run check` and `npm run build`.
+
+## Adding an Architectural Principle
+
+1. Create a Markdown or MDX file in `src/content/principles/`.
+2. Give it a stable content `id` and use a stable filename; the filename becomes the route and the
+   relationship identifier used by other collections.
+3. Record its `title`, `summary`, lifecycle `status`, `published` and `updated` dates, concise
+   `principle` statement, `rationale`, `consequences`, and `applies_to` areas.
+4. Connect Episodes, decisions, and patterns with collection references. Architecture relationships
+   use stable section identifiers until architecture becomes its own collection.
+5. Add the reciprocal `related_principles` reference to related Episodes.
+6. Run `npm run check`, `npm run build`, and `npm run test:publishing`.
 
 Episodes with `status: draft` are authoring content only. They are excluded from generated Episode
 routes, navigation, the home page, the sitemap, and RSS. Other lifecycle statuses are public.

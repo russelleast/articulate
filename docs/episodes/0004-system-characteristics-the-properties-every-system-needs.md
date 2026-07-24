@@ -17,6 +17,8 @@ topics:
   - ai-evaluation
 questions:
   - Which characteristics make an AI-native system trustworthy in production?
+related_principles:
+  - coherence-before-size
 related_patterns: []
 related_decisions: []
 related_experiments: []

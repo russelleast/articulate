@@ -29,6 +29,7 @@ const episodes = defineCollection({
     season: z.union([z.string(), z.number().int().positive()]),
     topics: z.array(z.string()).default([]),
     questions: z.array(z.string()).default([]),
+    related_principles: z.array(reference("principles")).default([]),
     related_patterns: z.array(reference("patterns")).default([]),
     related_decisions: z.array(reference("decisions")).default([]),
     related_experiments: z.array(reference("experiments")).default([]),
@@ -53,6 +54,27 @@ const episodes = defineCollection({
       season: data.season.toString(),
       isPublished: publicationDate !== null
     };
+  })
+});
+
+const principles = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/principles" }),
+  schema: z.object({
+    id: z.string().min(1),
+    title: z.string(),
+    summary: z.string(),
+    status: z.enum(["proposed", "current", "revised", "retired"]).default("proposed"),
+    published: z.coerce.date(),
+    updated: z.coerce.date(),
+    principle: z.string().min(1),
+    rationale: z.string().min(1),
+    consequences: z.array(z.string().min(1)).min(1),
+    applies_to: z.array(z.string().min(1)).min(1),
+    related_episodes: z.array(reference("episodes")).default([]),
+    related_decisions: z.array(reference("decisions")).default([]),
+    related_patterns: z.array(reference("patterns")).default([]),
+    related_architecture: z.array(z.string().min(1)).default([]),
+    featured: z.boolean().default(false)
   })
 });
 
@@ -105,4 +127,4 @@ const experiments = defineCollection({
   })
 });
 
-export const collections = { episodes, patterns, decisions, experiments };
+export const collections = { episodes, principles, patterns, decisions, experiments };
