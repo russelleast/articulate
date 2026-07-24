@@ -5,11 +5,31 @@
     "title": "Why AI-Native Systems?",
     "written_source": "docs/episodes/0003-why-ai-native-systems.md",
     "narrative_source": "production/episodes/0003/narrative.md",
-    "production_status": "awaiting-storyboard"
+    "production_status": "rough-cut-01"
   },
   "timing": {
-    "authority": "planning-estimate",
-    "audio_duration_seconds": null
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 716.76254
   },
-  "scenes": []
+  "scenes": [
+    { "id": "S001", "title": "Why AI-Native Systems?", "narrative_segments": ["N001-N004"], "start_seconds": 0, "end_seconds": 31.582 },
+    { "id": "S002", "title": "A real product creates a real question", "narrative_segments": ["N005-N010"], "start_seconds": 31.582, "end_seconds": 75.985 },
+    { "id": "S003", "title": "A working definition", "narrative_segments": ["N011-N019"], "start_seconds": 75.985, "end_seconds": 146.499 },
+    { "id": "S004", "title": "AI-powered leaves the architecture intact", "narrative_segments": ["N020-N030"], "start_seconds": 146.499, "end_seconds": 197.363 },
+    { "id": "S005", "title": "Built around intelligence", "narrative_segments": ["N031-N044"], "start_seconds": 197.363, "end_seconds": 233.538 },
+    { "id": "S006", "title": "A new set of runtime concerns", "narrative_segments": ["N045-N061"], "start_seconds": 233.538, "end_seconds": 285.629 },
+    { "id": "S007", "title": "Intelligence becomes infrastructure", "narrative_segments": ["N062-N071"], "start_seconds": 285.629, "end_seconds": 331.157 },
+    { "id": "S008", "title": "Architecture and pattern", "narrative_segments": ["N072-N075"], "start_seconds": 331.157, "end_seconds": 349.423 },
+    { "id": "S009", "title": "Agent capability path", "narrative_segments": ["N076-N079"], "start_seconds": 349.423, "end_seconds": 369.937 },
+    { "id": "S010", "title": "Agent capability loop", "narrative_segments": ["N080-N081"], "start_seconds": 369.937, "end_seconds": 382.0 },
+    { "id": "S011", "title": "A useful pattern, not the definition", "narrative_segments": ["N082-N086"], "start_seconds": 382.0, "end_seconds": 410.475 },
+    { "id": "S012", "title": "Why Articulate is AI-native", "narrative_segments": ["N087-N100"], "start_seconds": 410.475, "end_seconds": 473.539 },
+    { "id": "S013", "title": "Conversation is part of the runtime", "narrative_segments": ["N101-N111"], "start_seconds": 473.539, "end_seconds": 522.669 },
+    { "id": "S014", "title": "Architectural principles", "narrative_segments": ["N112-N120"], "start_seconds": 522.669, "end_seconds": 555.651 },
+    { "id": "S015", "title": "Technology decisions come later", "narrative_segments": ["N121-N130"], "start_seconds": 555.651, "end_seconds": 593.329 },
+    { "id": "S016", "title": "Questions for the runtime", "narrative_segments": ["N131-N141"], "start_seconds": 593.329, "end_seconds": 636.936 },
+    { "id": "S017", "title": "Looking Ahead", "narrative_segments": ["N142-N145"], "start_seconds": 636.936, "end_seconds": 665.819 },
+    { "id": "S018", "title": "The removal test", "narrative_segments": ["N146-N149"], "start_seconds": 665.819, "end_seconds": 692.672 },
+    { "id": "S019", "title": "The next architectural question", "narrative_segments": ["N150-N153"], "start_seconds": 692.672, "end_seconds": 716.76254 }
+  ]
 }

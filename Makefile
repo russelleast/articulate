@@ -1,4 +1,4 @@
-.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test companion-performance-poc-analyse companion-performance-poc-validate companion-performance-poc-render episode-production-segments episode-production-validate episode-runtime-test episode-0000-analyse episode-0000-validate episode-0000-render episode-0000-review episode-0000-companion-performance-prepare episode-0000-companion-performance-validate episode-0000-companion-performance-render episode-0000-companion-performance-review episode-0000-final-cut-prepare episode-0000-final-cut-validate episode-0000-final-cut-render episode-0000-final-cut-review episode-0000-baseline-validate episode-0000-baseline-render episode-0000-baseline-review episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review episode-0001-rough-cut-03-prepare episode-0001-rough-cut-03-validate episode-0001-rough-cut-03-render episode-0001-rough-cut-03-review episode-0001-rough-cut-04-prepare episode-0001-rough-cut-04-validate episode-0001-rough-cut-04-render episode-0001-rough-cut-04-review episode-0002-rough-cut-01-prepare episode-0002-rough-cut-01-analyse episode-0002-rough-cut-01-validate episode-0002-rough-cut-01-render episode-0002-rough-cut-01-review episode-0002-final-cut-render episode-0002-thumbnail
+.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test companion-performance-poc-analyse companion-performance-poc-validate companion-performance-poc-render episode-production-segments episode-production-validate episode-runtime-test episode-0000-analyse episode-0000-validate episode-0000-render episode-0000-review episode-0000-companion-performance-prepare episode-0000-companion-performance-validate episode-0000-companion-performance-render episode-0000-companion-performance-review episode-0000-final-cut-prepare episode-0000-final-cut-validate episode-0000-final-cut-render episode-0000-final-cut-review episode-0000-baseline-validate episode-0000-baseline-render episode-0000-baseline-review episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review episode-0001-rough-cut-03-prepare episode-0001-rough-cut-03-validate episode-0001-rough-cut-03-render episode-0001-rough-cut-03-review episode-0001-rough-cut-04-prepare episode-0001-rough-cut-04-validate episode-0001-rough-cut-04-render episode-0001-rough-cut-04-review episode-0002-rough-cut-01-prepare episode-0002-rough-cut-01-analyse episode-0002-rough-cut-01-validate episode-0002-rough-cut-01-render episode-0002-rough-cut-01-review episode-0002-final-cut-render episode-0002-thumbnail episode-0003-rough-cut-01-prepare episode-0003-rough-cut-01-analyse episode-0003-rough-cut-01-validate episode-0003-rough-cut-01-render episode-0003-rough-cut-01-review
 
 .PHONY: diagrams-validate diagrams-render diagram-render
 
@@ -173,3 +173,20 @@ episode-0002-final-cut-render: episode-0002-rough-cut-01-render
 
 episode-0002-thumbnail:
 	node production/episodes/0002/publication/thumbnail/render-thumbnail.mjs
+
+episode-0003-rough-cut-01-prepare:
+	node production/runtime/diagrams-cli.mjs render episode-0003-agent-capability
+	node production/episodes/0003/production/prepare-rough-cut-01.mjs
+
+episode-0003-rough-cut-01-analyse: episode-0003-rough-cut-01-prepare
+	node production/runtime/episode-cli.mjs analyse --config production/episodes/0003/production/rough-cut-01-config.json
+
+episode-0003-rough-cut-01-validate: episode-0003-rough-cut-01-prepare
+	node production/episodes/0003/production/validate-rough-cut-01.mjs
+	node production/runtime/episode-cli.mjs validate --config production/episodes/0003/production/rough-cut-01-config.json
+
+episode-0003-rough-cut-01-render: episode-0003-rough-cut-01-validate
+	node production/runtime/episode-cli.mjs render --config production/episodes/0003/production/rough-cut-01-config.json
+
+episode-0003-rough-cut-01-review:
+	node production/runtime/episode-cli.mjs review --config production/episodes/0003/production/rough-cut-01-config.json

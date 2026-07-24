@@ -92,3 +92,5 @@ nunit-*.xml
 .DS_Store
 **/.DS_Store
 production/experiments/companion-poc-001/runtime/.DS_Store
+production/episodes/*.wav
+production/episodes/0003/audio/ep3-what-is-ai-native.wav

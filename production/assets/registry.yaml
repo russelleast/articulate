@@ -101,6 +101,26 @@
       "provider": "local"
     },
     {
+      "id": "episode-0003-narration-v1",
+      "type": "narration",
+      "episode": "0003",
+      "status": "approved",
+      "checksum": "sha256:13b91ef29b72ed6d0896ee2745888812600ec78e5498683dd9d937b51f94787c",
+      "location": "production/episodes/0003/audio/ep3-what-is-ai-native.wav",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0003-agent-capability",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0003",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0003/agent.d2",
+      "location": "site/public/diagrams/episode-0003-agent-capability.svg",
+      "provider": "local"
+    },
+    {
       "id": "knowledge-reasoning-flow",
       "type": "diagram",
       "format": "d2",

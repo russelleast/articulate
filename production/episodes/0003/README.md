@@ -4,7 +4,7 @@ Written journal: [`docs/episodes/0003-why-ai-native-systems.md`](../../../docs/e
 
 Spoken production source: [`narrative.md`](narrative.md)
 
-The existing narrative has been retained unchanged. `storyboard.yaml` is an intentionally incomplete production scaffold: it must be authored from the narrative segment view before full production validation can pass. No recording, timing or renderer configuration exists yet.
+The existing narrative has been retained unchanged. Rough Cut 01 uses the approved recording as its timing authority and a narrative-aligned 19-scene storyboard. The episode-owned agent capability diagram remains authored in D2 and is rendered to shared SVG through the production diagram pipeline.
 
 Inspect the segments and validate the production contract from the repository root:
 
@@ -18,4 +18,10 @@ make episode-production-validate \
   JOURNAL=docs/episodes/0003-why-ai-native-systems.md
 ```
 
-The second command is expected to report that the storyboard needs at least one narrative-aligned scene until editorial storyboarding is complete. Recorded audio will establish final scene timing later.
+Prepare, validate, render and review Rough Cut 01:
+
+```sh
+make episode-0003-rough-cut-01-analyse
+make episode-0003-rough-cut-01-render
+make episode-0003-rough-cut-01-review
+```

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "audioDurationSeconds": 716.76254,
+  "scenes": [
+    { "id": "S001", "startSeconds": 0, "endSeconds": 31.582, "narrationReference": "Introduction — welcome and continuity" },
+    { "id": "S002", "startSeconds": 31.582, "endSeconds": 75.985, "narrationReference": "Introduction — a real product and the episode question" },
+    { "id": "S003", "startSeconds": 75.985, "endSeconds": 146.499, "narrationReference": "Introduction — an evolving working definition" },
+    { "id": "S004", "startSeconds": 146.499, "endSeconds": 197.363, "narrationReference": "Main narrative — AI-powered applications" },
+    { "id": "S005", "startSeconds": 197.363, "endSeconds": 233.538, "narrationReference": "Main narrative — built around intelligence" },
+    { "id": "S006", "startSeconds": 233.538, "endSeconds": 285.629, "narrationReference": "Main narrative — traditional and intelligent runtime concerns" },
+    { "id": "S007", "startSeconds": 285.629, "endSeconds": 331.157, "narrationReference": "Main narrative — intelligence as infrastructure" },
+    { "id": "S008", "startSeconds": 331.157, "endSeconds": 349.423, "narrationReference": "Main narrative — AI-native philosophy and agentic pattern" },
+    { "id": "S009", "startSeconds": 349.423, "endSeconds": 369.937, "narrationReference": "Main narrative — progressive agent capabilities" },
+    { "id": "S010", "startSeconds": 369.937, "endSeconds": 382, "narrationReference": "Main narrative — completed agent capability loop" },
+    { "id": "S011", "startSeconds": 382, "endSeconds": 410.475, "narrationReference": "Main narrative — agents are not the definition" },
+    { "id": "S012", "startSeconds": 410.475, "endSeconds": 473.539, "narrationReference": "Main narrative — why Articulate is AI-native" },
+    { "id": "S013", "startSeconds": 473.539, "endSeconds": 522.669, "narrationReference": "Main narrative — conversation-driven runtime" },
+    { "id": "S014", "startSeconds": 522.669, "endSeconds": 555.651, "narrationReference": "Main narrative — architectural principles" },
+    { "id": "S015", "startSeconds": 555.651, "endSeconds": 593.329, "narrationReference": "Main narrative — principles before technology" },
+    { "id": "S016", "startSeconds": 593.329, "endSeconds": 636.936, "narrationReference": "Main narrative — open runtime questions" },
+    { "id": "S017", "startSeconds": 636.936, "endSeconds": 665.819, "narrationReference": "Looking Ahead — AI-native recap" },
+    { "id": "S018", "startSeconds": 665.819, "endSeconds": 692.672, "narrationReference": "Looking Ahead — agents and the removal test" },
+    { "id": "S019", "startSeconds": 692.672, "endSeconds": 716.76254, "narrationReference": "Closing — the next architectural question" }
+  ]
+}

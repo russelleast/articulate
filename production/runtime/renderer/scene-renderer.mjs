@@ -248,6 +248,21 @@ function whiteboardPositions(scene, board) {
     items.forEach((_, index) => positions.set(`item-${index + 1}`, { x: 215 + index * 325, y: 530, width: 270, height: 122 }));
     return positions;
   }
+  if (scene.diagramLayout === "agent-capability") {
+    const boxes = [
+      { x: 205, y: 440, width: 250, height: 112 },
+      { x: 520, y: 440, width: 250, height: 112 },
+      { x: 835, y: 440, width: 250, height: 112 },
+      { x: 1150, y: 440, width: 250, height: 112 },
+      { x: 1465, y: 440, width: 250, height: 112 },
+      { x: 1465, y: 700, width: 250, height: 112 },
+      { x: 1150, y: 700, width: 250, height: 112 },
+      { x: 835, y: 700, width: 250, height: 112 },
+      { x: 520, y: 700, width: 250, height: 112 }
+    ];
+    items.forEach((_, index) => positions.set(`item-${index + 1}`, boxes[index]));
+    return positions;
+  }
   if (scene.diagramLayout === "capability-map") {
     const boxes = [
       { x: 210, y: 500, width: 320, height: 112 },

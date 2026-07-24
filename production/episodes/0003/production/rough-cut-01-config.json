@@ -1,0 +1,475 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0003",
+    "title": "Why AI-Native Systems?",
+    "journalSource": "docs/episodes/0003-why-ai-native-systems.md",
+    "narrativeSource": "production/episodes/0003/narrative.md",
+    "storyboard": "production/episodes/0003/storyboard.yaml",
+    "timingMarkers": "production/episodes/0003/production/rough-cut-01-markers.json",
+    "assetRegister": "production/episodes/0003/asset-register.yaml"
+  },
+  "narration": {
+    "assetId": "episode-0003-narration-v1",
+    "expectedSha256": "13b91ef29b72ed6d0896ee2745888812600ec78e5498683dd9d937b51f94787c",
+    "expectedDurationSeconds": 716.76254,
+    "preserveWholeRecording": true
+  },
+  "companion": {
+    "assetId": "companion-v1-neutral",
+    "performanceAssets": {
+      "open": "companion-v1-mouth-open",
+      "wide": "companion-v1-mouth-wide",
+      "rounded": "companion-v1-mouth-rounded",
+      "teeth": "companion-v1-mouth-teeth"
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v1",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 12
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "video": "production/episodes/0003/output/episode-0003-rough-cut-01.mp4",
+    "generatedDirectory": "production/episodes/0003/generated/rough-cut-01",
+    "reviewDirectory": "production/episodes/0003/output/review/rough-cut-01",
+    "narrationAnalysis": "production/episodes/0003/production/narration-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Why AI-Native Systems?",
+      "kind": "studio",
+      "studioLayout": "welcome",
+      "headline": "Why AI-Native Systems?",
+      "support": "Episode 3 · Articulate Journal",
+      "items": [],
+      "companion": true,
+      "assetIds": ["A001", "A002"],
+      "transition": "fade",
+      "motion": { "companionIdle": { "periodFrames": 165, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0003/production/rough-cut-01-companion/S001.json" },
+      "shots": [{ "id": "opening", "label": "Welcome and episode title", "at": 0, "events": [
+        { "id": "s1-title", "at": 0.8, "action": "reveal", "target": "headline" },
+        { "id": "s1-support", "at": 5.5, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S002",
+      "title": "A real product creates a real question",
+      "kind": "workspace",
+      "headline": "A real product creates a real question",
+      "support": "Long-term use, maintainability and evolution change the stakes.",
+      "items": ["problems/", "principles/", "decisions/", "implementation/"],
+      "evidence": { "excerpt": ["Not a temporary proof of concept", "Why AI-native—not AI added later?"] },
+      "companion": false,
+      "assetIds": ["A003"],
+      "transition": "cut",
+      "shots": [{ "id": "journal", "label": "The journal and product evidence", "at": 0, "events": [
+        { "id": "s2-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s2-i1", "at": 3, "action": "reveal", "target": "item-1" },
+        { "id": "s2-i2", "at": 6, "action": "reveal", "target": "item-2" },
+        { "id": "s2-i3", "at": 9, "action": "reveal", "target": "item-3" },
+        { "id": "s2-i4", "at": 12, "action": "reveal", "target": "item-4" },
+        { "id": "s2-e1", "at": 21, "action": "reveal", "target": "evidence-1" },
+        { "id": "s2-e2", "at": 35, "action": "reveal", "target": "evidence-2" },
+        { "id": "s2-support", "at": 38, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S003",
+      "title": "A working definition",
+      "kind": "focus",
+      "focusLayout": "reflection",
+      "headline": "A working definition",
+      "support": "The language is evolving. So is the architecture.",
+      "items": ["Research → understanding", "Challenge → refinement", "Learning → evolution"],
+      "companion": false,
+      "assetIds": ["A004"],
+      "transition": "section",
+      "shots": [{ "id": "reflection", "label": "Definition held as a revisable model", "at": 0, "events": [
+        { "id": "s3-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s3-support", "at": 9, "action": "reveal", "target": "support" },
+        { "id": "s3-i1", "at": 24, "action": "reveal", "target": "item-1" },
+        { "id": "s3-i2", "at": 39, "action": "reveal", "target": "item-2" },
+        { "id": "s3-i3", "at": 54, "action": "reveal", "target": "item-3" }
+      ] }]
+    },
+    {
+      "id": "S004",
+      "title": "AI-powered leaves the architecture intact",
+      "kind": "whiteboard",
+      "diagramLayout": "grid",
+      "headline": "AI-powered",
+      "support": "Remove the AI and most of the architecture remains.",
+      "items": ["Existing application", "Chatbot", "Text generation", "Prompt → response"],
+      "companion": false,
+      "assetIds": ["A005"],
+      "transition": "cut",
+      "shots": [{ "id": "added-feature", "label": "AI attached to an existing application", "at": 0, "events": [
+        { "id": "s4-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s4-i1", "at": 7, "action": "reveal", "target": "item-1" },
+        { "id": "s4-i2", "at": 14, "action": "reveal", "target": "item-2" },
+        { "id": "s4-i3", "at": 20, "action": "reveal", "target": "item-3" },
+        { "id": "s4-i4", "at": 27, "action": "reveal", "target": "item-4" },
+        { "id": "s4-support", "at": 39, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S005",
+      "title": "Built around intelligence",
+      "kind": "whiteboard",
+      "diagramLayout": "change-path",
+      "headline": "AI-native is built around intelligence",
+      "support": "Intelligence participates in the runtime itself.",
+      "items": ["Intent", "Context", "Knowledge", "Reasoning", "Human judgement"],
+      "companion": false,
+      "assetIds": ["A006"],
+      "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [{ "id": "runtime", "label": "Intelligence enters the runtime path", "at": 0, "events": [
+        { "id": "s5-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s5-i1", "at": 8, "action": "reveal", "target": "item-1" },
+        { "id": "s5-i2", "at": 12, "action": "reveal", "target": "item-2" },
+        { "id": "s5-c12", "at": 12, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s5-i3", "at": 16, "action": "reveal", "target": "item-3" },
+        { "id": "s5-c23", "at": 16, "action": "connect", "from": "item-2", "to": "item-3" },
+        { "id": "s5-i4", "at": 21, "action": "reveal", "target": "item-4" },
+        { "id": "s5-c34", "at": 21, "action": "connect", "from": "item-3", "to": "item-4" },
+        { "id": "s5-i5", "at": 27, "action": "reveal", "target": "item-5" },
+        { "id": "s5-c45", "at": 27, "action": "connect", "from": "item-4", "to": "item-5" },
+        { "id": "s5-support", "at": 31, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S006",
+      "title": "A new set of runtime concerns",
+      "kind": "whiteboard",
+      "diagramLayout": "hub",
+      "headline": "A new set of runtime concerns",
+      "support": "Traditional production concerns remain.",
+      "items": ["INTELLIGENT RUNTIME", "Context + memory", "Knowledge", "Reasoning", "Orchestration", "Uncertainty"],
+      "companion": false,
+      "assetIds": ["A007"],
+      "transition": "cut",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [{ "id": "concerns", "label": "Runtime concerns gather around intelligence", "at": 0, "events": [
+        { "id": "s6-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s6-hub", "at": 9, "action": "reveal", "target": "item-1" },
+        { "id": "s6-i2", "at": 18, "action": "reveal", "target": "item-2" },
+        { "id": "s6-c2", "at": 18, "action": "connect", "from": "item-2", "to": "item-1" },
+        { "id": "s6-i3", "at": 23, "action": "reveal", "target": "item-3" },
+        { "id": "s6-c3", "at": 23, "action": "connect", "from": "item-3", "to": "item-1" },
+        { "id": "s6-i4", "at": 28, "action": "reveal", "target": "item-4" },
+        { "id": "s6-c4", "at": 28, "action": "connect", "from": "item-4", "to": "item-1" },
+        { "id": "s6-i5", "at": 33, "action": "reveal", "target": "item-5" },
+        { "id": "s6-c5", "at": 33, "action": "connect", "from": "item-5", "to": "item-1" },
+        { "id": "s6-i6", "at": 38, "action": "reveal", "target": "item-6" },
+        { "id": "s6-c6", "at": 38, "action": "connect", "from": "item-6", "to": "item-1" },
+        { "id": "s6-support", "at": 45, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S007",
+      "title": "Intelligence becomes infrastructure",
+      "kind": "whiteboard",
+      "diagramLayout": "path",
+      "headline": "Intelligence becomes infrastructure",
+      "support": "Shared runtime capabilities must be architected deliberately.",
+      "items": ["Distributed coordination", "Cloud runtime", "Intelligence infrastructure", "Governance + observability"],
+      "companion": false,
+      "assetIds": ["A008"],
+      "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [{ "id": "infrastructure", "label": "Runtime capability evolution", "at": 0, "events": [
+        { "id": "s7-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s7-i1", "at": 5, "action": "reveal", "target": "item-1" },
+        { "id": "s7-i2", "at": 11, "action": "reveal", "target": "item-2" },
+        { "id": "s7-c12", "at": 11, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s7-i3", "at": 18, "action": "reveal", "target": "item-3" },
+        { "id": "s7-c23", "at": 18, "action": "connect", "from": "item-2", "to": "item-3" },
+        { "id": "s7-i4", "at": 30, "action": "reveal", "target": "item-4" },
+        { "id": "s7-c34", "at": 30, "action": "connect", "from": "item-3", "to": "item-4" },
+        { "id": "s7-support", "at": 38, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S008",
+      "title": "Architecture and pattern",
+      "kind": "studio",
+      "studioLayout": "companion-model",
+      "studioModelLayout": "converge",
+      "transactionLabel": false,
+      "headline": "Architecture ≠ pattern",
+      "support": "Agentic behaviour is one way to organise intelligence.",
+      "items": ["AI-native philosophy", "Agentic pattern"],
+      "companion": true,
+      "assetIds": ["A002", "A009"],
+      "transition": "cut",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "motion": { "companionIdle": { "periodFrames": 170, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0003/production/rough-cut-01-companion/S008.json" },
+      "shots": [{ "id": "distinction", "label": "AI-native philosophy and agentic pattern", "at": 0, "events": [
+        { "id": "s8-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s8-i1", "at": 5, "action": "reveal", "target": "item-1" },
+        { "id": "s8-i2", "at": 10, "action": "reveal", "target": "item-2" },
+        { "id": "s8-c12", "at": 10, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s8-support", "at": 13, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S009",
+      "title": "Agent capability path",
+      "kind": "whiteboard",
+      "diagramLayout": "agent-capability",
+      "whiteboardHeadlineWidth": 1500,
+      "headline": "An agent capability path",
+      "support": "A goal becomes a learning loop.",
+      "items": ["Goal", "Plan", "Retrieve information", "Use tools", "Delegate work", "Collaborate", "Reflect", "Maintain memory", "Feedback"],
+      "companion": false,
+      "assetIds": ["A010"],
+      "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [{ "id": "agent-path", "label": "Capabilities reveal with narration", "at": 0, "events": [
+        { "id": "s9-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s9-i1", "at": 1.0, "action": "reveal", "target": "item-1" },
+        { "id": "s9-i2", "at": 3.2, "action": "reveal", "target": "item-2" },
+        { "id": "s9-c12", "at": 3.2, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s9-i3", "at": 5.8, "action": "reveal", "target": "item-3" },
+        { "id": "s9-c23", "at": 5.8, "action": "connect", "from": "item-2", "to": "item-3" },
+        { "id": "s9-i4", "at": 8.1, "action": "reveal", "target": "item-4" },
+        { "id": "s9-c34", "at": 8.1, "action": "connect", "from": "item-3", "to": "item-4" },
+        { "id": "s9-i5", "at": 10.1, "action": "reveal", "target": "item-5" },
+        { "id": "s9-c45", "at": 10.1, "action": "connect", "from": "item-4", "to": "item-5" },
+        { "id": "s9-i6", "at": 12.1, "action": "reveal", "target": "item-6" },
+        { "id": "s9-c56", "at": 12.1, "action": "connect", "from": "item-5", "to": "item-6" },
+        { "id": "s9-i7", "at": 14.0, "action": "reveal", "target": "item-7" },
+        { "id": "s9-c67", "at": 14.0, "action": "connect", "from": "item-6", "to": "item-7" },
+        { "id": "s9-i8", "at": 15.8, "action": "reveal", "target": "item-8" },
+        { "id": "s9-c78", "at": 15.8, "action": "connect", "from": "item-7", "to": "item-8" },
+        { "id": "s9-i9", "at": 18.0, "action": "reveal", "target": "item-9" },
+        { "id": "s9-c89", "at": 18.0, "action": "connect", "from": "item-8", "to": "item-9" },
+        { "id": "s9-support", "at": 19.2, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S010",
+      "title": "Agent capability loop",
+      "kind": "diagram",
+      "diagramAssetId": "episode-0003-agent-capability",
+      "headline": "Agentic behaviour is a pattern",
+      "support": "Useful inside an AI-native architecture—not its definition.",
+      "items": [],
+      "companion": false,
+      "assetIds": ["A011"],
+      "transition": "cut",
+      "shots": [{ "id": "diagram", "label": "Completed D2 capability diagram", "at": 0, "events": [
+        { "id": "s10-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s10-support", "at": 7, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S011",
+      "title": "A useful pattern, not the definition",
+      "kind": "focus",
+      "focusLayout": "balance",
+      "headline": "Use agents where behaviour helps",
+      "support": "Do not add agents simply because agents are interesting.",
+      "items": ["Useful pattern", "Problem-shaped behaviour", "Agents everywhere", "Architecture by fashion"],
+      "companion": false,
+      "assetIds": ["A012"],
+      "transition": "cut",
+      "shots": [{ "id": "guardrail", "label": "Agentic guardrail", "at": 0, "events": [
+        { "id": "s11-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s11-i1", "at": 5, "action": "reveal", "target": "item-1" },
+        { "id": "s11-i2", "at": 9, "action": "reveal", "target": "item-2" },
+        { "id": "s11-i3", "at": 15, "action": "reveal", "target": "item-3" },
+        { "id": "s11-i4", "at": 19, "action": "reveal", "target": "item-4" },
+        { "id": "s11-support", "at": 23, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S012",
+      "title": "Why Articulate is AI-native",
+      "kind": "whiteboard",
+      "diagramLayout": "grid",
+      "headline": "AI participates throughout the process",
+      "support": "Remove AI and Articulate must be fundamentally redesigned.",
+      "items": ["Intent", "Guided discovery", "Context over time", "Architectural knowledge", "Confidence + uncertainty", "Human collaboration"],
+      "companion": false,
+      "assetIds": ["A013"],
+      "transition": "section",
+      "shots": [{ "id": "articulate", "label": "Articulate's intelligent capabilities", "at": 0, "events": [
+        { "id": "s12-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s12-i1", "at": 10, "action": "reveal", "target": "item-1" },
+        { "id": "s12-i2", "at": 15, "action": "reveal", "target": "item-2" },
+        { "id": "s12-i3", "at": 22, "action": "reveal", "target": "item-3" },
+        { "id": "s12-i4", "at": 29, "action": "reveal", "target": "item-4" },
+        { "id": "s12-i5", "at": 36, "action": "reveal", "target": "item-5" },
+        { "id": "s12-i6", "at": 43, "action": "reveal", "target": "item-6" },
+        { "id": "s12-support", "at": 52, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S013",
+      "title": "Conversation is part of the runtime",
+      "kind": "whiteboard",
+      "diagramLayout": "change-path",
+      "headline": "Conversation is part of the runtime",
+      "support": "The conversation is part of how the work happens.",
+      "items": ["Human intent", "Missing information", "Context", "Decisions", "Workflow"],
+      "companion": false,
+      "assetIds": ["A014"],
+      "transition": "cut",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "shots": [{ "id": "conversation", "label": "Conversation-driven runtime path", "at": 0, "events": [
+        { "id": "s13-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s13-i1", "at": 8, "action": "reveal", "target": "item-1" },
+        { "id": "s13-i2", "at": 14, "action": "reveal", "target": "item-2" },
+        { "id": "s13-c12", "at": 14, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s13-i3", "at": 21, "action": "reveal", "target": "item-3" },
+        { "id": "s13-c23", "at": 21, "action": "connect", "from": "item-2", "to": "item-3" },
+        { "id": "s13-i4", "at": 28, "action": "reveal", "target": "item-4" },
+        { "id": "s13-c34", "at": 28, "action": "connect", "from": "item-3", "to": "item-4" },
+        { "id": "s13-i5", "at": 35, "action": "reveal", "target": "item-5" },
+        { "id": "s13-c45", "at": 35, "action": "connect", "from": "item-4", "to": "item-5" },
+        { "id": "s13-support", "at": 43, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S014",
+      "title": "Architectural principles",
+      "kind": "whiteboard",
+      "diagramLayout": "grid",
+      "headline": "Principles before implementation",
+      "support": "Evaluation matters as much as execution.",
+      "items": ["Intelligence = runtime", "Conversation = interface", "Context = state", "Memory beyond request", "Humans remain essential", "Represent uncertainty"],
+      "companion": false,
+      "assetIds": ["A015"],
+      "transition": "section",
+      "shots": [{ "id": "principles", "label": "AI-native architectural principles", "at": 0, "events": [
+        { "id": "s14-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s14-i1", "at": 4, "action": "reveal", "target": "item-1" },
+        { "id": "s14-i2", "at": 8, "action": "reveal", "target": "item-2" },
+        { "id": "s14-i3", "at": 12, "action": "reveal", "target": "item-3" },
+        { "id": "s14-i4", "at": 16, "action": "reveal", "target": "item-4" },
+        { "id": "s14-i5", "at": 21, "action": "reveal", "target": "item-5" },
+        { "id": "s14-i6", "at": 25, "action": "reveal", "target": "item-6" },
+        { "id": "s14-support", "at": 29, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S015",
+      "title": "Technology decisions come later",
+      "kind": "workspace",
+      "headline": "Technology decisions come later",
+      "support": "The architectural sequence stays explicit.",
+      "items": ["problem", "principles", "capabilities", "architecture", "runtime + technology"],
+      "evidence": { "excerpt": ["No framework chosen yet", "No provider chosen yet"] },
+      "companion": false,
+      "assetIds": ["A016"],
+      "transition": "cut",
+      "shots": [{ "id": "sequence", "label": "Architectural reasoning before technology", "at": 0, "events": [
+        { "id": "s15-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s15-i1", "at": 7, "action": "reveal", "target": "item-1" },
+        { "id": "s15-i2", "at": 11, "action": "reveal", "target": "item-2" },
+        { "id": "s15-i3", "at": 15, "action": "reveal", "target": "item-3" },
+        { "id": "s15-i4", "at": 20, "action": "reveal", "target": "item-4" },
+        { "id": "s15-i5", "at": 25, "action": "reveal", "target": "item-5" },
+        { "id": "s15-e1", "at": 29, "action": "reveal", "target": "evidence-1" },
+        { "id": "s15-e2", "at": 32, "action": "reveal", "target": "evidence-2" },
+        { "id": "s15-support", "at": 34, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S016",
+      "title": "Questions for the runtime",
+      "kind": "focus",
+      "headline": "Questions for an intelligent runtime",
+      "support": "The rest of the journal will explore them.",
+      "items": ["Context?", "Memory?", "Knowledge?", "Agents?", "Human participation?", "Observability?"],
+      "companion": false,
+      "assetIds": ["A017"],
+      "transition": "section",
+      "shots": [{ "id": "questions", "label": "Open architectural questions", "at": 0, "events": [
+        { "id": "s16-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s16-i1", "at": 7, "action": "reveal", "target": "item-1" },
+        { "id": "s16-i2", "at": 11, "action": "reveal", "target": "item-2" },
+        { "id": "s16-i3", "at": 15, "action": "reveal", "target": "item-3" },
+        { "id": "s16-i4", "at": 20, "action": "reveal", "target": "item-4" },
+        { "id": "s16-i5", "at": 25, "action": "reveal", "target": "item-5" },
+        { "id": "s16-i6", "at": 31, "action": "reveal", "target": "item-6" },
+        { "id": "s16-support", "at": 37, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S017",
+      "title": "Looking Ahead",
+      "kind": "studio",
+      "studioLayout": "companion-model",
+      "studioModelLayout": "converge",
+      "transactionLabel": false,
+      "headline": "Looking Ahead",
+      "support": "Intelligence participates in the runtime.",
+      "items": ["Intent + context", "Knowledge + reasoning", "Human collaboration"],
+      "companion": true,
+      "assetIds": ["A002", "A018"],
+      "transition": "section",
+      "timeline": { "connectorTiming": "with-destination", "events": [] },
+      "motion": { "companionIdle": { "periodFrames": 172, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0003/production/rough-cut-01-companion/S017.json" },
+      "shots": [{ "id": "recap", "label": "AI-native recap", "at": 0, "events": [
+        { "id": "s17-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s17-i1", "at": 6, "action": "reveal", "target": "item-1" },
+        { "id": "s17-i2", "at": 11, "action": "reveal", "target": "item-2" },
+        { "id": "s17-c12", "at": 11, "action": "connect", "from": "item-1", "to": "item-2" },
+        { "id": "s17-i3", "at": 16, "action": "reveal", "target": "item-3" },
+        { "id": "s17-c23", "at": 16, "action": "connect", "from": "item-2", "to": "item-3" },
+        { "id": "s17-support", "at": 22, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S018",
+      "title": "The removal test",
+      "kind": "focus",
+      "headline": "The clearest test",
+      "support": "Remove AI and the architecture changes fundamentally.",
+      "items": ["Agentic building blocks", "Problem-shaped behaviour", "AI removed", "System redesigned"],
+      "companion": false,
+      "assetIds": ["A019"],
+      "transition": "cut",
+      "shots": [{ "id": "test", "label": "Agents distinguished from the removal test", "at": 0, "events": [
+        { "id": "s18-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s18-i1", "at": 4, "action": "reveal", "target": "item-1" },
+        { "id": "s18-i2", "at": 8, "action": "reveal", "target": "item-2" },
+        { "id": "s18-i3", "at": 14, "action": "reveal", "target": "item-3" },
+        { "id": "s18-i4", "at": 18, "action": "reveal", "target": "item-4" },
+        { "id": "s18-support", "at": 22, "action": "reveal", "target": "support" }
+      ] }]
+    },
+    {
+      "id": "S019",
+      "title": "The next architectural question",
+      "kind": "studio",
+      "studioLayout": "closing",
+      "headline": "How should an intelligent runtime be designed?",
+      "support": "The Articulate Journal · Episode 3",
+      "items": [],
+      "companion": true,
+      "assetIds": ["A002", "A020"],
+      "transition": "fade",
+      "motion": { "companionIdle": { "periodFrames": 168, "translateYPixels": 3, "scaleAmplitude": 0.006 } },
+      "companionPerformance": { "timeline": "production/episodes/0003/production/rough-cut-01-companion/S019.json" },
+      "shots": [{ "id": "closing", "label": "Next question and closing title", "at": 0, "events": [
+        { "id": "s19-title", "at": 0, "action": "reveal", "target": "headline" },
+        { "id": "s19-support", "at": 16, "action": "reveal", "target": "support" }
+      ] }]
+    }
+  ]
+}
