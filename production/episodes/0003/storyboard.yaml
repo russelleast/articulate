@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0003",
+    "title": "Why AI-Native Systems?",
+    "written_source": "docs/episodes/0003-why-ai-native-systems.md",
+    "narrative_source": "production/episodes/0003/narrative.md",
+    "production_status": "awaiting-storyboard"
+  },
+  "timing": {
+    "authority": "planning-estimate",
+    "audio_duration_seconds": null
+  },
+  "scenes": []
+}

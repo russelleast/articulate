@@ -184,19 +184,15 @@ And for me, that's probably the clearest test of whether something is genuinely 
 
 Another important consequence of this is the role of conversation.
 
-One of the ideas I'm exploring throughout Articulate is that AI-native systems can become conversation-driven systems.
+One of the ideas throughout Articulate is that AI-native systems can become conversation-driven systems.
 
 And I don't mean simply putting a chat window on top of an application.
 
 Conversation can become part of the runtime itself.
 
-It's how a human expresses intent.
+It's how a human expresses intent, how thesystem asks for missing information.
 
-It's how the system asks for missing information.
-
-It's how context develops over time.
-
-It's how knowledge is discovered.
+It's how context develops over time and how knowledge is discovered.
 
 It's how decisions can be explored.
 
@@ -262,7 +258,7 @@ How do we coordinate long-running work?
 
 How do humans participate in the runtime?
 
-How do we observe decisions that may be probabilistic rather than deterministic?
+How do we observe decisions that may and may not be deterministic?
 
 And how do we build systems that can evolve as both our understanding and the underlying technology change?
 

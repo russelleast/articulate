@@ -9,11 +9,16 @@ Use the written episode and approved production plan to draft `production/episod
 Requirements:
 
 - organise narration into segments;
+- open with natural continuity from the previous episode and introduce the current question;
+- close by summarising what was established, naming the unresolved architectural question and looking ahead;
+- use spoken transitions rather than relying on visible headings or bullet lists;
 - include scene references;
 - include source references;
 - include pauses, emphasis and pronunciation notes where useful;
 - identify uncertainty;
 - distinguish authored content from generated adaptation;
 - require human review before recording.
+
+These are narrative conventions, not fixed boilerplate.
 
 Output structured Markdown.

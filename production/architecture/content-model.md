@@ -50,11 +50,23 @@ Origin: authored or AI-drafted, then recorded by a human.
 
 Evolution: evolves through scripting, recording and edit alignment.
 
+## Storyboard
+
+Purpose: maps the approved spoken narrative into visual scenes before those scenes become renderer configuration.
+
+Required metadata: episode id, written source, narrative source, production status, timing authority, scene ids, narrative segment references, visual intent, concise on-screen text, asset references and timing estimates or audio-aligned boundaries.
+
+Relationship to canonical episode: derives its scene order and narration references from `narrative.md`, while checking visual claims against the canonical written episode.
+
+Origin: authored or AI-drafted from the approved narrative, then human reviewed.
+
+Evolution: begins with planning estimates; after recording, the audio becomes timing authority and the storyboard gains complete, contiguous scene boundaries.
+
 ## Scene
 
 Purpose: describes one visual and editorial unit in the video.
 
-Required metadata: scene id, title, duration estimate, narration reference, visual type, companion mode, asset references, source references, transition, status and review state.
+Required metadata: scene id, title, duration estimate or final audio-aligned boundaries, narration segment references, visual type, companion mode, asset references, source references, transition, status and review state.
 
 Relationship to canonical episode: visualises one or more source sections or labelled editorial additions.
 

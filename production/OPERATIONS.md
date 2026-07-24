@@ -74,6 +74,17 @@ Deliverable:
 * Published Markdown episode (canonical written source).
 * Approved `narrative.md` (canonical spoken source).
 
+The normal episode working area is:
+
+```text
+production/episodes/<episode>/
+|-- narrative.md
+|-- storyboard.yaml
+|-- scenes/
+|-- audio/
+`-- output/
+```
+
 ---
 
 # Stage 2 – Production Planning
@@ -81,7 +92,7 @@ Deliverable:
 Adapt and approve `production/episodes/<episode>/narrative.md`, then generate:
 
 * Production plan
-* Storyboard
+* Narrative-aligned `storyboard.yaml`
 * Scene graph
 * Narration segmentation and delivery notes
 * Asset register
@@ -98,6 +109,8 @@ Review:
 Deliverable:
 
 * Approved production plan.
+* Approved spoken narrative.
+* Storyboard in which every scene maps to one or more narrative segment ids.
 
 ---
 
@@ -168,19 +181,36 @@ Recommended workflow:
 
 Never overwrite the master recording.
 
-Location:
+Episode recording location:
 
 ```text
-production/narrator/
+production/episodes/<episode>/audio/
 ```
 
-Experiment copies belong inside the episode workspace.
+Shared narrator references and voice profiles may remain under `production/narrator/`. Recordings used by an episode belong in its production working area or in the logical asset provider recorded by its asset register.
+
+After recording, measure the approved audio, set the storyboard timing authority to `recorded-audio`, and align all scenes to a complete timeline ending at that duration. The recording—not the pre-recording storyboard estimate—owns final timing.
 
 ---
 
 # Stage 5 – Rendering
 
 Run:
+
+```bash
+make episode-production-validate \
+  EPISODE=<episode> \
+  JOURNAL=docs/episodes/<written-episode>.md
+```
+
+Then run the episode's config-driven renderer validation and render commands. For example:
+
+```bash
+node production/runtime/episode-cli.mjs validate --config <episode-render-config.json>
+node production/runtime/episode-cli.mjs render --config <episode-render-config.json>
+```
+
+Shared asset and renderer checks remain available:
 
 ```bash
 make assets-validate
@@ -206,6 +236,8 @@ Outputs should include:
 * Manifest
 * Media report
 * Subtitles
+
+Generate subtitles and transcripts from the recorded delivery, using `narrative.md` as the intended-text reference. Never copy them from the written journal episode.
 
 ---
 

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "<episode>",
+    "title": "",
+    "written_source": "docs/episodes/<episode>-<slug>.md",
+    "narrative_source": "production/episodes/<episode>/narrative.md",
+    "production_status": "draft"
+  },
+  "timing": {
+    "authority": "planning-estimate",
+    "audio_duration_seconds": null
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "",
+      "narrative_segments": ["N001"],
+      "visual_type": "diagram",
+      "visual_intent": "",
+      "on_screen_text": [],
+      "assets": [],
+      "duration_estimate_seconds": null,
+      "status": "planned"
+    }
+  ]
+}

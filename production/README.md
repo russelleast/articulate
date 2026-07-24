@@ -45,7 +45,49 @@ Episode
 
 The written article is adapted manually into the spoken narrative. Text is canonical for the journal; narrative is canonical for video production; video is an adapted representation of the episode, not a recording of the article.
 
-New productions fail validation when `narrative.md` is missing. Episodes 0000 and 0001 predate the convention, so their existing render configurations declare an explicit `legacy` narrative source. They should gain `narrative.md` during a deliberate editorial migration; the runtime never silently falls back to `docs/episodes`.
+New productions fail validation when `narrative.md` is missing. Episodes 0000 and 0001 predate the narrative convention, so their existing render configurations declare an explicit `legacy` narrative source. They should gain `narrative.md` during a deliberate editorial migration; the runtime never silently falls back to `docs/episodes`.
+
+Episodes 0000–0002 also retain their reviewed Markdown storyboards and operational `scene-list.yaml` files. The existing config-driven renderer continues to support them. `storyboard.yaml` is the validated contract for new production work; older storyboard paths are compatibility artefacts, not examples of the current convention.
+
+Each new episode working area has this minimum contract:
+
+```text
+docs/
+`-- episodes/
+    `-- 0003-why-ai-native-systems.md
+
+production/
+`-- episodes/
+    `-- 0003/
+        |-- narrative.md
+        |-- storyboard.yaml
+        |-- scenes/
+        |-- audio/
+        `-- output/
+```
+
+`storyboard.yaml` is JSON-compatible YAML so the runtime can validate it without a second parser stack. It maps scenes to deterministic paragraph segments (`N001`, `N002`, and so on) discovered from `narrative.md`. A range such as `N003-N007` is allowed. The storyboard may carry planning estimates, but `start_seconds` and `end_seconds` become final only when `timing.authority` is `recorded-audio` and their complete, gap-free duration matches the recording.
+
+Generate the current narrative segment view and validate an episode with:
+
+```sh
+make episode-production-segments \
+  EPISODE=0003 \
+  JOURNAL=docs/episodes/0003-why-ai-native-systems.md
+
+make episode-production-validate \
+  EPISODE=0003 \
+  JOURNAL=docs/episodes/0003-why-ai-native-systems.md
+```
+
+Rendering remains config-driven because it also needs approved audio, timing markers, assets and output settings:
+
+```sh
+node production/runtime/episode-cli.mjs validate --config <episode-render-config.json>
+node production/runtime/episode-cli.mjs render --config <episode-render-config.json>
+```
+
+For new productions, `episode.storyboard` in that render config must point to the episode's `storyboard.yaml`; renderer startup then applies the same production-contract validation automatically. Existing configurations that explicitly point at their reviewed Markdown or scene-list artefacts continue under the legacy convention.
 
 ## Boundaries
 

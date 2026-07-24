@@ -1,4 +1,6 @@
-# Storyboard
+# Storyboard (Deprecated Markdown Planning View)
+
+New episodes use `production/templates/storyboard.yaml` as the validated, narrative-aligned storyboard. This Markdown table may remain as a human-readable view for older productions, but it is not the production contract.
 
 Canonical source:
 

@@ -75,7 +75,8 @@ production/experiments/companion-motion-lip-sync-poc-001/config/*.resolved.json
 
 # Episode production renders and review media
 production/episodes/*/generated/
-production/episodes/*/output/
+production/episodes/*/output/*
+!production/episodes/*/output/.gitkeep
 
 # MSBuild Binary and Structured Log
 *.binlog

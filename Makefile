@@ -1,4 +1,4 @@
-.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test companion-performance-poc-analyse companion-performance-poc-validate companion-performance-poc-render episode-runtime-test episode-0000-analyse episode-0000-validate episode-0000-render episode-0000-review episode-0000-companion-performance-prepare episode-0000-companion-performance-validate episode-0000-companion-performance-render episode-0000-companion-performance-review episode-0000-final-cut-prepare episode-0000-final-cut-validate episode-0000-final-cut-render episode-0000-final-cut-review episode-0000-baseline-validate episode-0000-baseline-render episode-0000-baseline-review episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review episode-0001-rough-cut-03-prepare episode-0001-rough-cut-03-validate episode-0001-rough-cut-03-render episode-0001-rough-cut-03-review episode-0001-rough-cut-04-prepare episode-0001-rough-cut-04-validate episode-0001-rough-cut-04-render episode-0001-rough-cut-04-review episode-0002-rough-cut-01-prepare episode-0002-rough-cut-01-analyse episode-0002-rough-cut-01-validate episode-0002-rough-cut-01-render episode-0002-rough-cut-01-review episode-0002-final-cut-render episode-0002-thumbnail
+.PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test companion-performance-poc-analyse companion-performance-poc-validate companion-performance-poc-render episode-production-segments episode-production-validate episode-runtime-test episode-0000-analyse episode-0000-validate episode-0000-render episode-0000-review episode-0000-companion-performance-prepare episode-0000-companion-performance-validate episode-0000-companion-performance-render episode-0000-companion-performance-review episode-0000-final-cut-prepare episode-0000-final-cut-validate episode-0000-final-cut-render episode-0000-final-cut-review episode-0000-baseline-validate episode-0000-baseline-render episode-0000-baseline-review episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review episode-0001-rough-cut-03-prepare episode-0001-rough-cut-03-validate episode-0001-rough-cut-03-render episode-0001-rough-cut-03-review episode-0001-rough-cut-04-prepare episode-0001-rough-cut-04-validate episode-0001-rough-cut-04-render episode-0001-rough-cut-04-review episode-0002-rough-cut-01-prepare episode-0002-rough-cut-01-analyse episode-0002-rough-cut-01-validate episode-0002-rough-cut-01-render episode-0002-rough-cut-01-review episode-0002-final-cut-render episode-0002-thumbnail
 
 .PHONY: diagrams-validate diagrams-render diagram-render
 
@@ -17,6 +17,16 @@ assets-validate:
 
 assets-list:
 	node production/runtime/assets-cli.mjs list
+
+episode-production-segments:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0003)" && exit 2)
+	@test -n "$(JOURNAL)" || (echo "JOURNAL is required (for example: JOURNAL=docs/episodes/0003-why-ai-native-systems.md)" && exit 2)
+	node production/runtime/episode-production-cli.mjs segments --episode $(EPISODE) --journal $(JOURNAL)
+
+episode-production-validate:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0003)" && exit 2)
+	@test -n "$(JOURNAL)" || (echo "JOURNAL is required (for example: JOURNAL=docs/episodes/0003-why-ai-native-systems.md)" && exit 2)
+	node production/runtime/episode-production-cli.mjs validate --episode $(EPISODE) --journal $(JOURNAL)
 
 companion-poc-validate:
 	node production/experiments/companion-poc-001/runtime/src/cli.mjs validate

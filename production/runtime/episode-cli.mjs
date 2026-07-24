@@ -13,6 +13,7 @@ import { getVisualGrammarProfile, resolveScenePresentation } from "./renderer/vi
 import { companionPerformanceManifest, companionPerformanceStateAtFrame, resolveCompanionPerformance } from "./renderer/companion-performance.mjs";
 import { resolveSceneShots, shotsManifestEntry } from "./renderer/scene-shots.mjs";
 import { resolveEpisodeSources } from "./narrative-source.mjs";
+import { validateProductionEpisode } from "./episode-production.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../..");
@@ -57,6 +58,24 @@ async function main() {
 function loadContext(configPath) {
   const config = readJson(configPath);
   const sources = resolveEpisodeSources({ repoRoot, episode: config.episode });
+  if (!config.episode.storyboard) {
+    throw new Error(`Episode ${config.episode.id} must declare episode.storyboard`);
+  }
+  const storyboardPath = resolvePath(config.episode.storyboard);
+  if (!fs.existsSync(storyboardPath)) {
+    throw new Error(`Missing storyboard source: ${config.episode.storyboard}`);
+  }
+  const contentContract = config.episode.storyboard.endsWith("/storyboard.yaml")
+    ? validateProductionEpisode({
+      repoRoot,
+      episodeId: config.episode.id,
+      journalSource: config.episode.journalSource,
+      audioDurationSeconds: config.narration?.expectedDurationSeconds
+    })
+    : null;
+  if (contentContract && !contentContract.valid) {
+    throw new Error(`Episode production validation failed:\n- ${contentContract.errors.join("\n- ")}`);
+  }
   const grammar = getVisualGrammarProfile(config.rendering?.visualGrammarProfile);
   const markersPath = resolvePath(config.episode.timingMarkers);
   const markers = readJson(markersPath);
@@ -74,7 +93,7 @@ function loadContext(configPath) {
     return { ...withPresentation, resolvedTimeline, resolvedShots: shotResolution.shots, resolvedPerformance, performancePath };
   });
   const assetManager = createLocalAssetManager({ repoRoot });
-  return { configPath, config, markersPath, markers, scenes, assetManager, grammar, sources };
+  return { configPath, config, markersPath, markers, scenes, assetManager, grammar, sources, storyboardPath, contentContract };
 }
 
 function analyseNarration(context) {
@@ -490,6 +509,10 @@ function buildProvenance(context, validation, videoPath) {
     spokenNarrative: {
       ...fileRecord(context.sources.narrativePath),
       convention: context.sources.narrativeConvention
+    },
+    storyboard: {
+      ...fileRecord(context.storyboardPath),
+      convention: context.contentContract ? "narrative-aligned-storyboard.yaml" : "legacy"
     },
     sceneConfiguration: fileRecord(context.configPath),
     timingMarkers: fileRecord(context.markersPath),

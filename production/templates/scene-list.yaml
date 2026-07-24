@@ -15,7 +15,8 @@ scenes:
     title: ""
     # Approximate duration, for example "00:45".
     duration_estimate: ""
-    # Narration segment id, for example "N001".
+    # Narration segment id from narrative.md, for example "N001".
+    # storyboard.yaml is the canonical mapping; this scene list is an operational view.
     narration_reference: ""
     # Examples: title, diagram, slide, whiteboard, screen capture, companion, montage.
     visual_type: ""
