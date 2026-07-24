@@ -1,21 +1,29 @@
 ---
-
-episode: 9
+id: episode-0009
 title: "Defining Architectural Behaviour with DCL"
-description: "An exploration of how DCL preserves architectural intent by describing capabilities, behaviour, outcomes, rules and policies independently of their implementation."
-season: 2
-status: draft
+summary: >
+  An exploration of declarative agents, capabilities, policies and constraints
+  as architectural building blocks with explicit behavioural contracts.
 published: false
 date: null
+status: planned
+sequence: 9
+season: building-the-knowledge-model
 topics:
-
-* DCL
-* Declarative behaviour
-* Capabilities
-* Architectural intent
-* Policies and constraints
-* Domain discovery
-
+  - DCL
+  - declarative-behaviour
+  - agents
+  - capabilities
+  - policies-and-constraints
+  - agent-contracts
+questions:
+  - "Can we describe AI behaviour declaratively?"
+related_patterns: []
+related_decisions: []
+related_experiments: []
+repository_paths:
+  - docs/episodes/0009-defining-architectural-behaviour-with-dcl.md
+featured: false
 ---
 
 # Episode 9 – Defining Architectural Behaviour with DCL
