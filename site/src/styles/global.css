@@ -422,6 +422,14 @@ h3 {
   color: var(--muted);
 }
 
+.related-block {
+  min-width: 0;
+}
+
+.related-block .plain-list a {
+  overflow-wrap: anywhere;
+}
+
 .metadata-list {
   display: grid;
   gap: 0.4rem 1rem;

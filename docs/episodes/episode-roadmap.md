@@ -34,13 +34,13 @@ The episode introduces the concept of the Knowledge Reasoning Layer.
 
 ## Episode 9 – Defining Architectural Behaviour with DCL
 
-**Question:** *Can we describe AI behaviour declaratively?*
+**Question:** *Can architectural behaviour be described declaratively?*
 
 This episode introduces DCL within the context of Articulate.
 
-Rather than viewing DCL as a capability modelling language alone, it explores how agents, capabilities, policies and constraints can be expressed declaratively.
+It explores how sufficiently understood capability intent, including behaviour, outcomes, rules, policies and constraints, can be expressed declaratively without binding that intent to an implementation.
 
-It introduces the idea that agents become architectural building blocks with explicit contracts rather than prompt implementations.
+It establishes capabilities as durable architectural building blocks, while agents remain one possible implementation mechanism, and connects domain-discovery conversations to the Knowledge Model before any intent is formalised as DCL.
 
 ---
 

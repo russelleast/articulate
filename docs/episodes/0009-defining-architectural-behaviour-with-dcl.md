@@ -1,29 +1,24 @@
 ---
-id: episode-0009
+episode: 9
 title: "Defining Architectural Behaviour with DCL"
-summary: >
-  An exploration of declarative agents, capabilities, policies and constraints
-  as architectural building blocks with explicit behavioural contracts.
-published: false
-date: null
-status: planned
-sequence: 9
-season: building-the-knowledge-model
+description: "An exploration of how DCL preserves architectural intent by describing capabilities, behaviour, outcomes, rules and policies independently of their implementation."
+season: 2
+status: current
+published: 2026-07-24
+date: 2026-07-24
 topics:
   - DCL
-  - declarative-behaviour
-  - agents
-  - capabilities
-  - policies-and-constraints
-  - agent-contracts
-questions:
-  - "Can we describe AI behaviour declaratively?"
-related_patterns: []
-related_decisions: []
-related_experiments: []
+  - Declarative behaviour
+  - Capabilities
+  - Architectural intent
+  - Policies and constraints
+  - Domain discovery
 repository_paths:
   - docs/episodes/0009-defining-architectural-behaviour-with-dcl.md
-featured: false
+  - production/diagrams/sources/episodes/0009/conversation-to-dcl.d2
+  - production/diagrams/sources/episodes/0009/formalised-intent.d2
+  - production/diagrams/sources/episodes/0009/architecture-sequence.d2
+  - production/diagrams/sources/episodes/0009/discovery-to-dcl.d2
 ---
 
 # Episode 9 – Defining Architectural Behaviour with DCL
@@ -240,11 +235,11 @@ Instead, it provides a way of expressing capability behaviour as that understand
 
 The relationship is therefore not:
 
-**Conversation → DCL**
+![A direct transition from conversation to DCL is insufficient](/diagrams/episode-0009-conversation-to-dcl.svg)
 
 It is closer to:
 
-**Conversation → Knowledge → Understanding → Formalised Intent**
+![Conversation progresses through knowledge and understanding before intent is formalised](/diagrams/episode-0009-formalised-intent.svg)
 
 DCL occupies that final stage.
 
@@ -284,7 +279,7 @@ By describing Articulate's capabilities first, I can evaluate future implementat
 
 That is the architectural sequence I want this journal to follow:
 
-**Problem → Principles → Capabilities → Architecture → Runtime → Technology**
+![Architectural sequence from problem and principles through capabilities and architecture to runtime and technology](/diagrams/episode-0009-architecture-sequence.svg)
 
 DCL helps make the capability layer explicit.
 
@@ -438,7 +433,7 @@ Eventually, enough may be known to express its behavioural intent more formally 
 
 This creates a progression from conversation to increasingly explicit architectural knowledge:
 
-**Conversation → Discovery → Knowledge → Capability Understanding → DCL**
+![Conversation progresses through discovery, knowledge and capability understanding before DCL](/diagrams/episode-0009-discovery-to-dcl.svg)
 
 The important point is that DCL is not simply an input into Articulate.
 

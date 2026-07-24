@@ -207,6 +207,50 @@
       "source": "production/diagrams/sources/episodes/0007/architectural-domains.d2",
       "location": "site/public/diagrams/episode-0007-architectural-domains.svg",
       "provider": "local"
+    },
+    {
+      "id": "episode-0009-conversation-to-dcl",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/conversation-to-dcl.d2",
+      "location": "site/public/diagrams/episode-0009-conversation-to-dcl.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-formalised-intent",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/formalised-intent.d2",
+      "location": "site/public/diagrams/episode-0009-formalised-intent.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-architecture-sequence",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/architecture-sequence.d2",
+      "location": "site/public/diagrams/episode-0009-architecture-sequence.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-discovery-to-dcl",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/discovery-to-dcl.d2",
+      "location": "site/public/diagrams/episode-0009-discovery-to-dcl.svg",
+      "provider": "local"
     }
   ]
 }

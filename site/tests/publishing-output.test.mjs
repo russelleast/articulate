@@ -65,17 +65,21 @@ test("the home page features the selected Episode with separate watch and read a
   assert.match(home, /href="\/articulate\/episodes\/0002-what-is-articulate\/"/);
 });
 
-for (const episode of [
-  "0006-ai-assisted-development",
-  "0007-the-knowledge-model",
-  "0008-agentic-rag-and-knowledge-reasoning"
+for (const [episode, published] of [
+  ["0006-ai-assisted-development", "2026-07-22"],
+  ["0007-the-knowledge-model", "2026-07-22"],
+  ["0008-agentic-rag-and-knowledge-reasoning", "2026-07-22"],
+  ["0009-defining-architectural-behaviour-with-dcl", "2026-07-24"]
 ]) {
   test(`${episode} is published in the journal`, async () => {
     const listing = await output("episodes/index.html");
     const page = await output(`episodes/${episode}/index.html`);
 
     assert.match(listing, new RegExp(`href="/articulate/episodes/${episode}/"`));
-    assert.match(page, /<meta property="article:published_time" content="2026-07-22T00:00:00.000Z"/);
+    assert.match(
+      page,
+      new RegExp(`<meta property="article:published_time" content="${published}T00:00:00.000Z"`)
+    );
   });
 }
 
@@ -91,8 +95,26 @@ const episodeDiagrams = {
     "reasoning-before-agents.svg",
     "knowledge-graph-example.svg",
     "reasoning-map-example.svg"
+  ],
+  "0009-defining-architectural-behaviour-with-dcl": [
+    "episode-0009-conversation-to-dcl.svg",
+    "episode-0009-formalised-intent.svg",
+    "episode-0009-architecture-sequence.svg",
+    "episode-0009-discovery-to-dcl.svg"
   ]
 };
+
+test("Episode 0009 follows Episode 0008 without publishing planned Episode 0010", async () => {
+  const listing = await output("episodes/index.html");
+  const episode = await output("episodes/0009-defining-architectural-behaviour-with-dcl/index.html");
+
+  assert.match(
+    episode,
+    /href="\/articulate\/episodes\/0008-agentic-rag-and-knowledge-reasoning\/">Knowledge Reasoning: Beyond RAG<\/a>/
+  );
+  assert.doesNotMatch(listing, /\/episodes\/0010-selecting-an-agent-runtime\//);
+  await assert.rejects(access(new URL("../dist/episodes/0010-selecting-an-agent-runtime/index.html", import.meta.url)));
+});
 
 for (const [episode, diagrams] of Object.entries(episodeDiagrams)) {
   test(`${episode} publishes its registered diagrams with the GitHub Pages base path`, async () => {
