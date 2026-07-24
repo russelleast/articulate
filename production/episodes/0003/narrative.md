@@ -8,11 +8,9 @@ Terms like AI-native, agentic systems, AI agents, and even reasoning models are 
 
 So what I'm describing here isn't intended to be the definitive definition of AI-native architecture.
 
-It's my current understanding with the research I've been doing, and what I'm learning through building Articulate.
+It's my current understanding with the research I've been doing.
 
 And that distinction is important for this journal.
-
-Part of the purpose of Articulate is to document how my thinking evolves.
 
 Some of the ideas I describe today will almost certainly be refined later. Some might be challenged. Some may eventually be replaced completely.
 
@@ -22,7 +20,7 @@ I see it as part of the process of learning how to architect systems around a te
 
 So, with that context, what do I actually mean by an AI-native system?
 
-Over the last few years, almost every software product seems to have become AI-powered.
+Over the last few years, lots of software products seems to have become AI-powered.
 
 And in many cases, what that really means is that an existing application has had an LLM added to it.
 
@@ -40,9 +38,9 @@ If you removed the AI capability, most of the architecture would remain intact.
 
 That isn't the approach I'm taking with Articulate.
 
-Articulate is being designed as an AI-native system.
+Articulate is being designed as an AI-native system (AI first).
 
-For me, the distinction is relatively simple.
+The distinction is relatively simple.
 
 An AI-powered system uses AI.
 
@@ -98,17 +96,13 @@ And uncertainty.
 
 That doesn't mean the traditional concerns disappear.
 
-We still need APIs.
-
-We still need databases.
+We still need APIs and databases.
 
 We still need transactions, messaging, security, observability and all of the other things that make production systems work.
 
 But intelligence becomes another fundamental part of the runtime.
 
 And I think that's one of the most important architectural shifts taking place.
-
-For decades, we've treated databases as infrastructure.
 
 As systems became distributed, we added messaging, networking and distributed coordination.
 
@@ -124,13 +118,9 @@ And once those capabilities become part of the runtime, we have to architect the
 
 We have to think about how they're governed.
 
-How they're observed.
+How they're observed, how they fail.
 
-How they fail.
-
-How state is maintained.
-
-How decisions are explained.
+How state is maintained and how decisions are explained.
 
 And how humans remain involved when the system cannot, or should not, act independently.
 

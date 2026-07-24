@@ -17,6 +17,7 @@ topics:
 - Knowledge relationships
 repository_paths:
 - docs/episodes/0007-the-knowledge-model.md
+- production/diagrams/sources/episodes/0007/architectural-domains.d2
 - production/diagrams/sources/knowledge/knowledge-graph-example.d2
 ---
 
@@ -60,15 +61,12 @@ That distinction has become fundamental to how I now think about the Knowledge M
 
 To model architectural knowledge, I first need a working definition of architecture itself.
 
-For Articulate, I think about architecture as four connected concerns:
+Architecture is four connected concerns:
 
-Structure
-
-Characteristics
-
-Principles
-
-Decisions
+1. Structure
+1. Characteristics
+1. Principles
+1. Decisions
 
 Structure describes what makes up the architecture and how those parts relate.
 
@@ -98,10 +96,7 @@ The structural information itself spans multiple architectural domains.
 
 At a high level, these include:
 
-Business
-Application
-Data
-Infrastructure
+![The business, application, data and infrastructure architectural domains](/diagrams/episode-0007-architectural-domains.svg)
 
 Each domain contains different kinds of information.
 

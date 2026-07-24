@@ -176,6 +176,17 @@
       "source": "production/diagrams/sources/episodes/0006/architect-review-workflow.d2",
       "location": "site/public/diagrams/episode-0006-architect-review-workflow.svg",
       "provider": "local"
+    },
+    {
+      "id": "episode-0007-architectural-domains",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/architectural-domains.d2",
+      "location": "site/public/diagrams/episode-0007-architectural-domains.svg",
+      "provider": "local"
     }
   ]
 }
