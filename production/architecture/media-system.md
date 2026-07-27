@@ -46,33 +46,20 @@ Publication
 
 ```mermaid
 flowchart TD
-    A["Written journal (canonical for reading)"] --> B["Manual adaptation and production plan"]
-    B --> C["Spoken narrative (canonical for video)"]
-    C --> D["Storyboard"]
-    C --> E["Scene list"]
-    C --> F["Asset register"]
-    F --> G["Companion scenes"]
-    F --> H["Slides"]
-    F --> I["Diagrams"]
-    F --> J["Whiteboard scenes"]
-    F --> K["Code demonstrations"]
-    F --> L["Screen recordings"]
-    F --> M["Supporting imagery"]
-    C --> N["Recorded human voice"]
-    D --> O["Avatar and visual generation"]
-    E --> O
-    G --> O
-    H --> O
-    I --> O
-    J --> O
-    K --> O
-    L --> O
-    M --> O
-    N --> P["Video assembly"]
-    O --> P
-    P --> Q["Human editorial review"]
-    Q --> R["Publication"]
-    Q --> B
+    A["Written episode<br/>canonical for reading"] --> B["Narrative adaptation"]
+    B --> C["Spoken narrative<br/>canonical words for production"]
+    C --> D["Audio recording"]
+    C --> E["Narrative-aligned storyboard<br/>planning estimates"]
+    D --> F["Final scene timing<br/>audio authority"]
+    E --> F
+    E --> G["Visual assets"]
+    F --> H["Final video assembly"]
+    G --> H
+    D --> I["Transcript and subtitles"]
+    C --> I
+    H --> J["Human editorial review"]
+    I --> J
+    J --> K["Publication"]
 ```
 
 ## Stage Responsibilities
@@ -99,7 +86,9 @@ Narration segment files may add timing, emphasis and delivery notes without beco
 
 The storyboard describes how the episode becomes visual. It determines when the companion appears, when slides are useful, where diagrams or sketches clarify the argument, and where repository or website views provide evidence.
 
-The storyboard is interpretive. It should exploit video as a medium rather than turn the essay into a continuous slide deck.
+The storyboard is interpretive. It maps scenes to spoken narrative segments and should exploit video as a medium rather than turn the essay into a continuous slide deck. Diagrams, animated relationships, architecture sketches, whiteboard sequences, conceptual comparisons, repository views and evidence scenes should carry the visual argument. On-screen text should be limited to short labels and exact language that genuinely needs to be read.
+
+The storyboard can estimate duration before recording, but recorded narration owns final timing. Once audio is approved, every scene boundary must align into a complete, gap-free timeline ending at the measured audio duration.
 
 Storyboard treatments should conform to the canonical [Articulate Visual Grammar](../../docs/media/visual-grammar.md), which defines scene archetypes, shot progression, editorial rhythm and the intended meaning of motion and transitions.
 
@@ -175,7 +164,7 @@ Every published video should plan for subtitles, transcripts, meaningful on-scre
 
 ### Subtitles and Transcripts
 
-Subtitles and transcripts should derive from the approved `narrative.md` and final edit. They need review because recorded delivery may differ from the approved narrative. They must not be generated directly from the journal article, and transcripts should link back to it where practical.
+Subtitles and transcripts should derive from the approved `narrative.md`, the recorded audio and the final edit. The narrative supplies the intended words; the recording supplies the performed words and timing. They need review because recorded delivery may differ from the approved narrative. They must not be generated directly from the journal article, and transcripts should link back to it where practical.
 
 ### Publication Metadata
 

@@ -1,0 +1,1007 @@
+1
+00:00:00,000 --> 00:00:02,672
+Welcome back to the Articulate Journal.
+
+2
+00:00:02,672 --> 00:00:06,931
+In the previous episode, I introduced
+Articulate: a product intended
+
+3
+00:00:06,931 --> 00:00:11,190
+to help architects discover, understand,
+design and evolve complex systems
+
+4
+00:00:11,190 --> 00:00:13,069
+through collaboration with AI.
+
+5
+00:00:13,069 --> 00:00:16,138
+I also introduced the journal surrounding
+it.
+
+6
+00:00:16,138 --> 00:00:20,397
+The journal makes the architectural
+thinking visible: the problems being
+
+7
+00:00:20,397 --> 00:00:24,656
+explored, the principles guiding the
+design, the decisions being made,
+
+8
+00:00:24,656 --> 00:00:27,725
+and the implementation that emerges from
+them.
+
+9
+00:00:27,725 --> 00:00:31,984
+But Articulate itself is not intended to
+be a temporary
+
+10
+00:00:31,984 --> 00:00:33,466
+proof of concept.
+
+11
+00:00:33,466 --> 00:00:36,932
+The aim is to build a real product.
+
+12
+00:00:36,932 --> 00:00:41,191
+The architecture will evolve, and some
+decisions will change, but
+
+13
+00:00:41,191 --> 00:00:45,450
+the software is being built with long-term
+use, maintainability and
+
+14
+00:00:45,450 --> 00:00:46,932
+evolution in mind.
+
+15
+00:00:46,932 --> 00:00:49,207
+That creates an important question.
+
+16
+00:00:49,207 --> 00:00:53,467
+Why should a product like Articulate be
+designed as an
+
+17
+00:00:53,467 --> 00:00:57,726
+AI-native system rather than as a
+conventional application with AI
+
+18
+00:00:57,726 --> 00:00:59,604
+features added to it?
+
+19
+00:00:59,604 --> 00:01:03,863
+Before exploring the architecture in more
+detail, I want to
+
+20
+00:01:03,863 --> 00:01:08,122
+explain what I currently mean by
+AI-native, how it differs
+
+21
+00:01:08,122 --> 00:01:12,381
+from AI-powered, and why that distinction
+shapes the system I
+
+22
+00:01:12,381 --> 00:01:13,750
+am building.
+
+23
+00:01:13,750 --> 00:01:18,009
+Because AI-native is one of those terms
+that is being
+
+24
+00:01:18,009 --> 00:01:22,268
+used more and more, but it doesn't
+necessarily mean the
+
+25
+00:01:22,268 --> 00:01:24,147
+same thing to everyone.
+
+26
+00:01:24,147 --> 00:01:28,406
+Terms like AI-native, agentic systems, AI
+agents, multi-agent system, and
+
+27
+00:01:28,406 --> 00:01:31,078
+even reasoning models are still evolving.
+
+28
+00:01:31,078 --> 00:01:35,337
+Different organisations, vendors and
+researchers use them in slightly different
+
+29
+00:01:35,337 --> 00:01:39,596
+ways, and I fully expect the language to
+continue changing
+
+30
+00:01:39,596 --> 00:01:41,475
+as the technology matures.
+
+31
+00:01:41,475 --> 00:01:45,734
+So what I'm describing here isn't intended
+to be the
+
+32
+00:01:45,734 --> 00:01:48,010
+definitive definition of AI-native
+architecture.
+
+33
+00:01:48,010 --> 00:01:52,269
+It's my current understanding with the
+research I've been doing.
+
+34
+00:01:52,269 --> 00:01:55,734
+And that distinction is important for this
+journal.
+
+35
+00:01:55,734 --> 00:01:59,993
+Some of the ideas I describe today will
+almost certainly
+
+36
+00:01:59,993 --> 00:02:01,476
+be refined later.
+
+37
+00:02:01,476 --> 00:02:03,354
+Some might be challenged.
+
+38
+00:02:03,354 --> 00:02:06,027
+Some may eventually be replaced
+completely.
+
+39
+00:02:06,027 --> 00:02:09,095
+I don't see that as a problem.
+
+40
+00:02:09,095 --> 00:02:13,354
+I see it as part of the process of
+learning
+
+41
+00:02:13,354 --> 00:02:17,614
+how to architect systems around a
+technology that is itself
+
+42
+00:02:17,614 --> 00:02:18,982
+still evolving.
+
+43
+00:02:18,982 --> 00:02:23,241
+So, with that context, what do I actually
+mean by
+
+44
+00:02:23,241 --> 00:02:24,723
+an AI-native system?
+
+45
+00:02:24,723 --> 00:02:28,982
+Over the last few years, lots of software
+products seems
+
+46
+00:02:28,982 --> 00:02:30,861
+to have become AI-powered.
+
+47
+00:02:30,861 --> 00:02:35,120
+And in many cases, what that really means
+is that
+
+48
+00:02:35,120 --> 00:02:39,379
+an existing application has had an LLM
+added to it.
+
+49
+00:02:39,379 --> 00:02:41,655
+Perhaps there's now a chatbot.
+
+50
+00:02:41,655 --> 00:02:44,327
+Perhaps a feature generates some text.
+
+51
+00:02:44,327 --> 00:02:48,586
+Or perhaps the application sends a prompt
+to a model,
+
+52
+00:02:48,586 --> 00:02:51,655
+receives a response, and displays the
+result.
+
+53
+00:02:51,655 --> 00:02:54,327
+There's nothing inherently wrong with
+that.
+
+54
+00:02:54,327 --> 00:02:58,586
+But architecturally, the application is
+still fundamentally the same system.
+
+55
+00:02:58,586 --> 00:03:02,845
+If you removed the AI capability, most of
+the architecture
+
+56
+00:03:02,845 --> 00:03:04,327
+would remain intact.
+
+57
+00:03:04,327 --> 00:03:07,793
+That isn't the approach I'm taking with
+Articulate.
+
+58
+00:03:07,793 --> 00:03:12,052
+Articulate is being designed as an
+AI-native system (AI first).
+
+59
+00:03:12,052 --> 00:03:14,327
+The distinction is relatively simple.
+
+60
+00:03:14,327 --> 00:03:16,603
+An AI-powered system uses AI.
+
+61
+00:03:16,603 --> 00:03:19,672
+An AI-native system is built around it.
+
+62
+00:03:19,672 --> 00:03:23,931
+In an AI-native system, intelligence
+participates in the runtime itself.
+
+63
+00:03:23,931 --> 00:03:28,587
+It isn't simply waiting for somebody to
+send it a prompt.
+
+64
+00:03:28,587 --> 00:03:31,656
+It might be helping to understand intent.
+
+65
+00:03:31,656 --> 00:03:33,534
+Building and maintaining context.
+
+66
+00:03:33,534 --> 00:03:35,017
+Retrieving relevant knowledge.
+
+67
+00:03:35,017 --> 00:03:36,895
+Reasoning about a problem.
+
+68
+00:03:36,895 --> 00:03:39,171
+Deciding what should happen next.
+
+69
+00:03:39,171 --> 00:03:40,539
+Invoking tools.
+
+70
+00:03:40,539 --> 00:03:41,908
+Coordinating work.
+
+71
+00:03:41,908 --> 00:03:45,374
+Evaluating the confidence it has in a
+result.
+
+72
+00:03:45,374 --> 00:03:49,633
+And, importantly, knowing when a human
+needs to be involved.
+
+73
+00:03:49,633 --> 00:03:52,702
+That changes the architecture of the
+system.
+
+74
+00:03:52,702 --> 00:03:56,961
+Traditional applications are often
+designed around things like CRUD
+operations,
+
+75
+00:03:56,961 --> 00:03:59,236
+APIs, transactions and deterministic
+workflows.
+
+76
+00:03:59,236 --> 00:04:01,115
+We know the inputs.
+
+77
+00:04:01,115 --> 00:04:02,994
+We define the process.
+
+78
+00:04:02,994 --> 00:04:06,063
+And, generally, we expect a predictable
+output.
+
+79
+00:04:06,063 --> 00:04:09,925
+AI-native systems introduce a different
+set of architectural concerns.
+
+80
+00:04:09,925 --> 00:04:12,994
+Now we have to think about context.
+
+81
+00:04:12,994 --> 00:04:14,363
+Memory.
+
+82
+00:04:14,363 --> 00:04:15,731
+Knowledge.
+
+83
+00:04:15,731 --> 00:04:17,100
+Reasoning.
+
+84
+00:04:17,100 --> 00:04:18,469
+Orchestration.
+
+85
+00:04:18,469 --> 00:04:19,837
+Conversation.
+
+86
+00:04:19,837 --> 00:04:21,206
+And uncertainty.
+
+87
+00:04:21,206 --> 00:04:24,275
+That doesn't mean the traditional concerns
+disappear.
+
+88
+00:04:24,275 --> 00:04:26,947
+We still need APIs and databases.
+
+89
+00:04:26,947 --> 00:04:31,206
+We still need transactions, messaging,
+security, observability and all of
+
+90
+00:04:31,206 --> 00:04:34,672
+the other things that make production
+systems work.
+
+91
+00:04:34,672 --> 00:04:38,534
+But intelligence becomes another
+fundamental part of the runtime.
+
+92
+00:04:38,534 --> 00:04:42,793
+And I think that's one of the most
+important architectural
+
+93
+00:04:42,793 --> 00:04:44,275
+shifts taking place.
+
+94
+00:04:44,275 --> 00:04:48,931
+As systems became distributed, we added
+messaging, networking and distributed
+coordination.
+
+95
+00:04:48,931 --> 00:04:52,397
+Cloud computing introduced another
+generation of runtime capabilities.
+
+96
+00:04:52,397 --> 00:04:54,672
+AI-native systems introduce something
+else.
+
+97
+00:04:54,672 --> 00:04:57,344
+Intelligence itself starts to become
+infrastructure.
+
+98
+00:04:57,344 --> 00:05:01,603
+Instead of every part of the application
+making isolated calls
+
+99
+00:05:01,603 --> 00:05:05,862
+to an LLM, the system begins to need
+shared capabilities
+
+100
+00:05:05,862 --> 00:05:10,121
+for reasoning, memory, semantic retrieval,
+tool invocation, evaluation and
+orchestration.
+
+101
+00:05:10,121 --> 00:05:14,380
+And once those capabilities become part of
+the runtime, we
+
+102
+00:05:14,380 --> 00:05:16,656
+have to architect them deliberately.
+
+103
+00:05:16,656 --> 00:05:20,122
+We have to think about how they're
+governed.
+
+104
+00:05:20,122 --> 00:05:22,794
+How they're observed, how they fail.
+
+105
+00:05:22,794 --> 00:05:26,656
+How state is maintained and how decisions
+are explained.
+
+106
+00:05:26,656 --> 00:05:30,915
+And how humans remain involved when the
+system cannot, or
+
+107
+00:05:30,915 --> 00:05:32,794
+should not, act independently.
+
+108
+00:05:32,794 --> 00:05:36,656
+This is also where agentic systems enter
+the conversation.
+
+109
+00:05:36,656 --> 00:05:40,915
+The terms AI-native and agentic are
+sometimes used almost interchangeably,
+
+110
+00:05:40,915 --> 00:05:44,381
+but I don't think they're the same thing.
+
+111
+00:05:44,381 --> 00:05:47,450
+I see AI-native as an architectural
+philosophy.
+
+112
+00:05:47,450 --> 00:05:52,502
+Agentic systems are one possible pattern
+for organising intelligence within that
+architecture.
+
+113
+00:05:52,502 --> 00:05:55,175
+An agent might have a goal.
+
+114
+00:05:55,175 --> 00:05:58,640
+It might plan how to achieve that goal.
+
+115
+00:05:58,640 --> 00:06:02,899
+It might retrieve information, use tools,
+delegate work, collaborate with
+
+116
+00:06:02,899 --> 00:06:07,158
+other agents, reflect on its own results,
+and maintain some
+
+117
+00:06:07,158 --> 00:06:08,640
+form of memory.
+
+118
+00:06:08,640 --> 00:06:10,519
+Those are useful capabilities.
+
+119
+00:06:10,519 --> 00:06:14,778
+But adding an agent to an existing
+application doesn't automatically
+
+120
+00:06:14,778 --> 00:06:16,657
+make that application AI-native.
+
+121
+00:06:16,657 --> 00:06:20,916
+And an AI-native system doesn't
+necessarily need to consist of
+
+122
+00:06:20,916 --> 00:06:24,382
+dozens of autonomous agents talking to
+each other.
+
+123
+00:06:24,382 --> 00:06:29,037
+That's something I want to be careful
+about as Articulate evolves.
+
+124
+00:06:29,037 --> 00:06:34,090
+The goal isn't to add agents everywhere
+simply because agents are interesting.
+
+125
+00:06:34,090 --> 00:06:38,349
+The architecture should use agentic
+behaviour where that behaviour genuinely
+
+126
+00:06:38,349 --> 00:06:40,228
+helps solve the problem.
+
+127
+00:06:40,228 --> 00:06:44,487
+Agents are one architectural pattern
+available to an AI-native system.
+
+128
+00:06:44,487 --> 00:06:47,159
+They aren't the definition of one.
+
+129
+00:06:47,159 --> 00:06:50,625
+So why does Articulate need to be
+AI-native?
+
+130
+00:06:50,625 --> 00:06:54,884
+Because the problem I'm trying to explore
+isn't simply how
+
+131
+00:06:54,884 --> 00:06:57,953
+to generate architecture documents using
+an LLM.
+
+132
+00:06:57,953 --> 00:07:01,418
+AI needs to participate throughout the
+architectural process.
+
+133
+00:07:01,418 --> 00:07:04,090
+Articulate needs to understand
+architectural intent.
+
+134
+00:07:04,090 --> 00:07:06,763
+It needs to conduct guided discovery.
+
+135
+00:07:06,763 --> 00:07:11,022
+It needs to ask useful questions and
+identify where important
+
+136
+00:07:11,022 --> 00:07:12,504
+information is missing.
+
+137
+00:07:12,504 --> 00:07:15,969
+It needs to build contextual understanding
+over time.
+
+138
+00:07:15,969 --> 00:07:19,832
+It needs to retrieve and reason over
+architectural knowledge.
+
+139
+00:07:19,832 --> 00:07:24,487
+It needs to help produce capability models
+and other architectural artefacts.
+
+140
+00:07:24,487 --> 00:07:27,556
+It needs to evaluate confidence and
+uncertainty.
+
+141
+00:07:27,556 --> 00:07:31,815
+And ultimately, it needs to collaborate
+with a human architect
+
+142
+00:07:31,815 --> 00:07:35,281
+throughout the process of understanding
+and designing systems.
+
+143
+00:07:35,281 --> 00:07:40,333
+If I removed AI from Articulate, I
+wouldn't simply lose a feature.
+
+144
+00:07:40,333 --> 00:07:43,799
+I would have to fundamentally redesign the
+system.
+
+145
+00:07:43,799 --> 00:07:48,058
+And for me, that's probably the clearest
+test of whether
+
+146
+00:07:48,058 --> 00:07:49,937
+something is genuinely AI-native.
+
+147
+00:07:49,937 --> 00:07:54,196
+Another important consequence of this is
+the role of conversation.
+
+148
+00:07:54,196 --> 00:07:58,455
+One of the ideas throughout Articulate is
+that AI-native systems
+
+149
+00:07:58,455 --> 00:08:00,334
+can become conversation-driven systems.
+
+150
+00:08:00,334 --> 00:08:04,593
+And I don't mean simply putting a chat
+window on
+
+151
+00:08:04,593 --> 00:08:06,472
+top of an application.
+
+152
+00:08:06,472 --> 00:08:09,937
+Conversation can become part of the
+runtime itself.
+
+153
+00:08:09,937 --> 00:08:14,990
+It's how a human expresses intent, how
+thesystem asks for missing information.
+
+154
+00:08:14,990 --> 00:08:19,646
+It's how context develops over time and
+how knowledge is discovered.
+
+155
+00:08:19,646 --> 00:08:22,318
+It's how decisions can be explored.
+
+156
+00:08:22,318 --> 00:08:26,973
+And it's how workflows can be initiated,
+paused, redirected and continued.
+
+157
+00:08:26,973 --> 00:08:30,836
+In Articulate, architectural artefacts
+should emerge from that collaboration.
+
+158
+00:08:30,836 --> 00:08:33,905
+The conversation isn't separate from the
+work.
+
+159
+00:08:33,905 --> 00:08:37,767
+The conversation is part of how the work
+happens.
+
+160
+00:08:37,767 --> 00:08:42,026
+That leads to a set of principles that I
+expect
+
+161
+00:08:42,026 --> 00:08:44,698
+to return to throughout this journal.
+
+162
+00:08:44,698 --> 00:08:48,164
+Intelligence should be treated as a
+runtime capability.
+
+163
+00:08:48,164 --> 00:08:51,630
+Conversation should be treated as a
+primary interface.
+
+164
+00:08:51,630 --> 00:08:54,302
+Context becomes a form of state.
+
+165
+00:08:54,302 --> 00:08:57,767
+Memory needs to extend beyond a single
+request.
+
+166
+00:08:57,767 --> 00:09:02,820
+Knowledge should be retrieved and evolved
+rather than simply embedded into prompts.
+
+167
+00:09:02,820 --> 00:09:06,286
+Humans remain an essential part of the
+system.
+
+168
+00:09:06,286 --> 00:09:09,751
+Uncertainty has to be represented rather
+than hidden.
+
+169
+00:09:09,751 --> 00:09:13,217
+And evaluation is just as important as
+execution.
+
+170
+00:09:13,217 --> 00:09:15,492
+These aren't implementation decisions yet.
+
+171
+00:09:15,492 --> 00:09:16,974
+They're architectural principles.
+
+172
+00:09:16,974 --> 00:09:18,853
+And that distinction matters.
+
+173
+00:09:18,853 --> 00:09:23,112
+I haven't decided that Articulate needs a
+particular agent framework,
+
+174
+00:09:23,112 --> 00:09:26,181
+workflow engine, vector database or model
+provider.
+
+175
+00:09:26,181 --> 00:09:28,457
+Those decisions should come later.
+
+176
+00:09:28,457 --> 00:09:31,526
+First, I want to understand the problem.
+
+177
+00:09:31,526 --> 00:09:33,404
+Then establish the principles.
+
+178
+00:09:33,404 --> 00:09:36,870
+Then identify the capabilities the system
+actually needs.
+
+179
+00:09:36,870 --> 00:09:41,526
+And only then start making decisions about
+architecture, runtime and technology.
+
+180
+00:09:41,526 --> 00:09:44,595
+That is really what this episode
+establishes.
+
+181
+00:09:44,595 --> 00:09:48,854
+If intelligence becomes a first-class part
+of a system, then
+
+182
+00:09:48,854 --> 00:09:53,113
+we need to think differently about the
+runtime that supports
+
+183
+00:09:53,113 --> 00:09:54,481
+it.
+
+184
+00:09:54,481 --> 00:09:56,757
+What does context actually mean?
+
+185
+00:09:56,757 --> 00:10:00,619
+What forms of memory does an AI-native
+system need?
+
+186
+00:10:00,619 --> 00:10:03,291
+How should architectural knowledge be
+represented?
+
+187
+00:10:03,291 --> 00:10:07,154
+How should AI retrieve and reason over
+that knowledge?
+
+188
+00:10:07,154 --> 00:10:09,429
+Where should we use agents?
+
+189
+00:10:09,429 --> 00:10:12,102
+How do we coordinate long-running work?
+
+190
+00:10:12,102 --> 00:10:15,170
+How do humans participate in the runtime?
+
+191
+00:10:15,170 --> 00:10:20,223
+How do we observe decisions that may and
+may not be deterministic?
+
+192
+00:10:20,223 --> 00:10:24,482
+And how do we build systems that can
+evolve as
+
+193
+00:10:24,482 --> 00:10:27,948
+both our understanding and the underlying
+technology change?
+
+194
+00:10:27,948 --> 00:10:33,000
+Those are the questions that the rest of
+this journal will explore.
+
+195
+00:10:33,000 --> 00:10:37,645
+So in this episode, I've established what
+I currently mean
+
+196
+00:10:37,645 --> 00:10:41,424
+when I describe Articulate as an AI-native
+system.
+
+197
+00:10:41,424 --> 00:10:46,934
+It isn't simply an existing application
+with an LLM attached to it.
+
+198
+00:10:46,934 --> 00:10:49,848
+Intelligence participates in the runtime
+itself.
+
+199
+00:10:49,848 --> 00:10:54,492
+It helps the system understand intent,
+build context, retrieve knowledge,
+
+200
+00:10:54,492 --> 00:10:58,704
+reason about problems, coordinate work and
+collaborate with humans.
+
+201
+00:10:58,704 --> 00:11:02,483
+I've also distinguished AI-native
+architecture from agentic architecture.
+
+202
+00:11:02,483 --> 00:11:07,128
+Agents may become important building
+blocks within Articulate, but adding
+
+203
+00:11:07,128 --> 00:11:09,609
+agents is not the objective.
+
+204
+00:11:09,609 --> 00:11:14,254
+They are one possible way of organising
+intelligent behaviour where
+
+205
+00:11:14,254 --> 00:11:16,735
+the problem genuinely requires it.
+
+206
+00:11:16,735 --> 00:11:21,380
+And perhaps the clearest test is this: If
+AI were
+
+207
+00:11:21,380 --> 00:11:26,025
+removed from Articulate, the system would
+not merely lose a
+
+208
+00:11:26,025 --> 00:11:27,517
+feature.
+
+209
+00:11:27,517 --> 00:11:30,864
+Its architecture would have to change
+fundamentally.
+
+210
+00:11:30,864 --> 00:11:35,508
+But recognising that Articulate is
+AI-native doesn't tell me how
+
+211
+00:11:35,508 --> 00:11:37,125
+to design it.
+
+212
+00:11:37,125 --> 00:11:40,471
+It introduces a much larger architectural
+question.
+
+213
+00:11:40,471 --> 00:11:45,116
+How should I approach the design of a
+system where
+
+214
+00:11:45,116 --> 00:11:49,760
+intelligence, conversation, context,
+knowledge and uncertainty are all part of
+
+215
+00:11:49,760 --> 00:11:51,253
+the runtime?
+
+216
+00:11:51,253 --> 00:11:56,763
+That is the question I will begin
+exploring in the next episode.

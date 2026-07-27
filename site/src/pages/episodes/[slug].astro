@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 const { episode } = Astro.props;
 const allEpisodes = (await getCollection("episodes", ({ data }) => data.isPublished))
   .sort((a, b) => a.data.sequence - b.data.sequence);
+const principles = await getCollection("principles");
 const decisions = await getCollection("decisions");
 const patterns = await getCollection("patterns");
 const experiments = await getCollection("experiments");
@@ -21,6 +22,13 @@ const previous = allEpisodes[index - 1];
 const next = allEpisodes[index + 1];
 const { Content } = await render(episode);
 
+const relatedPrinciples = principles
+  .filter((principle) => episode.data.related_principles.some((ref) => ref.id === principle.id))
+  .map((principle) => ({
+    title: principle.data.title,
+    href: withBase(`/principles/${principle.id}/`),
+    meta: principle.data.status
+  }));
 const relatedDecisions = decisions
   .filter((decision) => episode.data.related_decisions.some((ref) => ref.id === decision.id))
   .map((decision) => ({
@@ -107,6 +115,7 @@ const relatedExperiments = experiments
         <h2 id="episode-relationships">Related Material</h2>
       </div>
       <div class="two-column">
+        <RelatedContent title="Principles" items={relatedPrinciples} />
         <RelatedContent title="Decisions" items={relatedDecisions} />
         <RelatedContent title="Patterns" items={relatedPatterns} />
         <RelatedContent title="Experiments" items={relatedExperiments} />

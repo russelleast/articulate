@@ -75,7 +75,8 @@ production/experiments/companion-motion-lip-sync-poc-001/config/*.resolved.json
 
 # Episode production renders and review media
 production/episodes/*/generated/
-production/episodes/*/output/
+production/episodes/*/output/*
+!production/episodes/*/output/.gitkeep
 
 # MSBuild Binary and Structured Log
 *.binlog
@@ -91,3 +92,5 @@ nunit-*.xml
 .DS_Store
 **/.DS_Store
 production/experiments/companion-poc-001/runtime/.DS_Store
+production/episodes/*.wav
+production/episodes/0003/audio/ep3-what-is-ai-native.wav

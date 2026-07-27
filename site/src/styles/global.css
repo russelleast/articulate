@@ -187,6 +187,18 @@ h3 {
   padding: 1.25rem;
 }
 
+.principle-statement {
+  background: var(--wash);
+  border-left: 4px solid var(--accent);
+  margin: 2rem 0;
+  padding: 1.5rem;
+}
+
+.principle-statement h2 {
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+  line-height: 1.35;
+}
+
 .hero-note h2 {
   font-size: 1.2rem;
   font-family: inherit;
@@ -408,6 +420,14 @@ h3 {
 
 .plain-list small {
   color: var(--muted);
+}
+
+.related-block {
+  min-width: 0;
+}
+
+.related-block .plain-list a {
+  overflow-wrap: anywhere;
 }
 
 .metadata-list {

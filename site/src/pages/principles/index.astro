@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { formatDate, withBase } from "@/utils/site";
+
+const principles = (await getCollection("principles"))
+  .sort((a, b) => b.data.updated.valueOf() - a.data.updated.valueOf());
+---
+
+<ArticleLayout
+  title="Architectural Principles"
+  description="Long-lived guidance for how Articulate is designed and evolved."
+  eyebrow="Architectural guidance"
+>
+  <p>
+    Architectural principles provide enduring guidance for how Articulate is designed and evolved.
+    They influence architecture, decisions, and patterns without prescribing a specific technology
+    or implementation.
+  </p>
+
+  {principles.length === 0 ? (
+    <div class="empty-state">
+      <h2>No architectural principles have been published yet</h2>
+      <p>
+        Principles will be recorded when the project identifies guidance that should endure beyond
+        a single decision, pattern, or experiment.
+      </p>
+    </div>
+  ) : (
+    <div class="timeline-list">
+      {principles.map((principle) => (
+        <article id={principle.data.id}>
+          <p class="item-meta">
+            {principle.data.status} / Updated {formatDate(principle.data.updated)}
+          </p>
+          <h2>
+            <a href={withBase(`/principles/${principle.id}/`)}>{principle.data.title}</a>
+          </h2>
+          <p>{principle.data.summary}</p>
+          <p><a href={withBase(`/principles/${principle.id}/`)}>Read the principle</a></p>
+        </article>
+      ))}
+    </div>
+  )}
+</ArticleLayout>

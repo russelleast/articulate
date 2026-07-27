@@ -1,0 +1,41 @@
+direction: right
+
+goal: Goal {
+  shape: oval
+}
+
+agent: Agent {
+  shape: circle
+  width: 130
+  height: 130
+}
+
+understand: Understand {
+  direction: down
+
+  plan: Plan
+  retrieve: Retrieve information
+  tools: Use tools
+}
+
+act: Act {
+  direction: down
+
+  delegate: Delegate work
+  collaborate: Collaborate
+}
+
+learn: Learn and adapt {
+  direction: down
+
+  reflect: Reflect
+  memory: Maintain memory
+}
+
+goal -> agent
+agent -> understand
+understand -> act
+act -> learn
+learn -> agent: feedback {
+  style.stroke-dash: 4
+}

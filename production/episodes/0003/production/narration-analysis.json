@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "episodeId": "episode-0003",
+  "narrationAssetId": "episode-0003-narration-v1",
+  "sha256": "13b91ef29b72ed6d0896ee2745888812600ec78e5498683dd9d937b51f94787c",
+  "media": {
+    "durationSeconds": 716.76254,
+    "sizeBytes": 63218500,
+    "bitRate": 705600,
+    "codec": "pcm_s16le",
+    "sampleRateHz": 44100,
+    "channels": 1,
+    "channelLayout": "mono"
+  },
+  "silenceAnalysis": {
+    "noiseThreshold": "-42dB",
+    "minimumSilenceSeconds": 0.35,
+    "leadingSilenceSeconds": 0,
+    "trailingSilenceSeconds": 1.261996,
+    "usableNarrationDurationSeconds": 715.500544,
+    "detectedPauseCount": 142,
+    "majorPauseMinimumSeconds": 1.3,
+    "majorPauses": [
+      {
+        "startSeconds": 71.135125,
+        "endSeconds": 72.632381,
+        "durationSeconds": 1.497256
+      },
+      {
+        "startSeconds": 132.980181,
+        "endSeconds": 134.647347,
+        "durationSeconds": 1.667166
+      },
+      {
+        "startSeconds": 537.840431,
+        "endSeconds": 539.212857,
+        "durationSeconds": 1.372426
+      },
+      {
+        "startSeconds": 580.768866,
+        "endSeconds": 582.621406,
+        "durationSeconds": 1.85254
+      }
+    ]
+  },
+  "interpretation": [
+    "The complete master recording is preserved for rough-cut timing; no silence was removed.",
+    "Major pauses are deterministic signal evidence. Editorial section markers additionally use canonical section order and are stored in narration-markers.json.",
+    "The trailing silence begins after the spoken close and remains part of the selected recording."
+  ]
+}
