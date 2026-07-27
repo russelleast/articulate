@@ -12,7 +12,7 @@ Because AI-native systems are still systems.
 
 It's easy to become fascinated by language models, prompts and agents, but none of those replace the fundamentals of software engineering.
 
-Whether you're building a banking platform, an e-commerce application or an AI assistant, every production system is ultimately judged by the same question.
+Whatever system, application or an AI assistant you are building, every production system is ultimately judged by the same question.
 
 Can people trust it?
 
@@ -36,7 +36,7 @@ The first is functionality.
 
 What does the system actually do?
 
-The second is characteristics.
+The second is characteristics.Yes
 
 How well does it do it?
 
@@ -126,13 +126,13 @@ Traditionally that means availability, resilience, fault tolerance and recovery.
 
 AI-native systems introduce new failure modes.
 
-Models may become unavailable.
+- Models may become unavailable.
 
-Providers may rate limit requests.
+- Providers may rate limit requests.
 
-Retrieval services may fail.
+- Retrieval services may fail.
 
-External tools may stop responding.
+- External tools may stop responding.
 
 Sometimes every technical component succeeds, yet the answer itself is still poor.
 
@@ -240,11 +240,7 @@ Initially this feels attractive.
 
 The architecture appears simple.
 
-One agent understands the request.
-
-One agent makes the decisions.
-
-One agent completes the work.
+One agent understands the request, makes the decisions and completes the work.
 
 But eventually that simplicity starts working against us.
 
@@ -432,13 +428,9 @@ AI changes even faster.
 
 Good architecture should make change easier rather than harder.
 
-Models will evolve.
+Models and Prompting techniques will evolve.
 
-Prompting techniques will evolve.
-
-Agent frameworks will evolve.
-
-Retrieval techniques will evolve.
+Agent frameworks and Retrieval techniques will evolve.
 
 Architectural intent should survive all of those implementation changes.
 
@@ -456,33 +448,23 @@ Building software is only part of the challenge.
 
 Someone still has to operate it.
 
-Configuration.
-
-Monitoring.
-
-Diagnostics.
-
-Deployments.
-
-Rollback.
-
-Incident response.
+- Configuration.
+- Monitoring.
+- Diagnostics.
+- Deployments.
+- Rollback.
+- Incident response.
 
 These all remain essential.
 
 AI-native systems introduce new operational concerns.
 
-Changing routing policies.
-
-Disabling models.
-
-Inspecting reasoning paths.
-
-Replaying workflows.
-
-Replacing prompts.
-
-Comparing evaluation results.
+- Changing routing policies.
+- Disabling models.
+- Inspecting reasoning paths.
+- Replaying workflows.
+- Replacing prompts.
+- Comparing evaluation results.
 
 As systems scale out, operational complexity increases.
 
@@ -494,13 +476,10 @@ Architecture has to balance logical separation with practical operability.
 
 Traditional software engineering gives us testing.
 
-Unit tests.
-
-Integration tests.
-
-Contract tests.
-
-Performance tests.
+- Unit tests.
+- Integration tests.
+- Contract tests.
+- Performance tests.
 
 These tell us whether the software behaves correctly.
 
@@ -528,17 +507,12 @@ AI-native systems inherit that mindset.
 
 We need to ask questions like:
 
-Was the answer correct?
-
-Was it grounded in trusted information?
-
-Did the agent choose the right tools?
-
-Did it satisfy the user's intent?
-
-Was the behaviour safe?
-
-Was the outcome worth the cost?
+- Was the answer correct?
+- Was it grounded in trusted information?
+- Did the agent choose the right tools?
+- Did it satisfy the user's intent?
+- Was the behaviour safe?
+- Was the outcome worth the cost?
 
 Testing verifies implementation.
 
@@ -612,7 +586,7 @@ One thing has become increasingly clear to me while researching AI-native system
 
 The fundamentals haven't changed.
 
-Architecture is still about balancing competing qualities.
+Architecture is still about balancing competing system qualities.
 
 Security becomes more complex.
 
@@ -636,7 +610,7 @@ Before designing any architecture, it's worth asking two simple questions.
 
 What must the system do?
 
-And what properties must the system possess?
+And what properties must the system possess?Ste
 
 The first defines functionality.
 

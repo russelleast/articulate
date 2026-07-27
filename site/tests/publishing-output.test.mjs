@@ -59,10 +59,10 @@ test("Episode 0000 publishes companion media while keeping the journal article",
 test("the home page features the selected Episode with separate watch and read actions", async () => {
   const home = await output("index.html");
 
-  assert.match(home, /<h2 id="latest-episode">What is Articulate\?<\/h2>/);
-  assert.match(home, /episode-0002-thumbnail\.png/);
-  assert.match(home, /href="https:\/\/youtu\.be\/sZ4VwMCKIlA"/);
-  assert.match(home, /href="\/articulate\/episodes\/0002-what-is-articulate\/"/);
+  assert.match(home, /<h2 id="latest-episode">Why AI-Native Systems\?<\/h2>/);
+  assert.match(home, /episode-0003-thumbnail\.png/);
+  assert.match(home, /href="https:\/\/youtu\.be\/_ewKC3dZNbY"/);
+  assert.match(home, /href="\/articulate\/episodes\/0003-why-ai-native-systems\/"/);
 });
 
 for (const [episode, published] of [
@@ -137,6 +137,11 @@ for (const episode of [
     slug: "0002-what-is-articulate",
     thumbnail: "episode-0002-thumbnail.png",
     youtubeUrl: "https://youtu.be/sZ4VwMCKIlA"
+  },
+  {
+    slug: "0003-why-ai-native-systems",
+    thumbnail: "episode-0003-thumbnail.png",
+    youtubeUrl: "https://youtu.be/_ewKC3dZNbY"
   }
 ]) {
   test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {
