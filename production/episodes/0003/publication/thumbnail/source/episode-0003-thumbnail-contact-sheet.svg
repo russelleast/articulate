@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820">
+    <rect width="1600" height="820" fill="#0b151c"/>
+    <text x="48" y="55" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="800" fill="#f4f0e8">EPISODE 0003 · THUMBNAIL REVIEW</text>
+    <text x="48" y="86" font-family="Inter,Arial,sans-serif" font-size="16" fill="#8fa2aa">1280 × 720 source · 240 px browsing size · safe-area overlay</text>
+    <text x="48" y="132" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#a65d3f" letter-spacing="1.5">SOURCE DISPLAYED AT 768 × 432</text>
+    <image href="../episode-0003-thumbnail.png" x="48" y="152" width="768" height="432"/>
+    <text x="880" y="132" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#a65d3f">240 × 135</text>
+    <image href="../episode-0003-thumbnail.png" x="880" y="152" width="240" height="135"/>
+    <text x="880" y="352" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#a65d3f">VISUAL CHECK</text>
+    <text x="880" y="388" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="700" fill="#f4f0e8">Companion → headline → Intelligence → runtime</text>
+    <text x="880" y="426" font-family="Inter,Arial,sans-serif" font-size="15" fill="#8fa2aa">No chat UI · no prompt windows · architecture-first</text>
+    <text x="48" y="650" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#a65d3f">SAFE AREA</text>
+    <rect x="48" y="674" width="768" height="86" rx="12" fill="#101d24" stroke="#36515e"/>
+    <text x="76" y="709" font-family="Inter,Arial,sans-serif" font-size="16" fill="#f4f0e8">All critical branding, headline, Companion face and Intelligence label remain inside the 52 × 28 px inset.</text>
+    <text x="76" y="737" font-family="Inter,Arial,sans-serif" font-size="14" fill="#8fa2aa">The runtime panel may extend toward the edge without placing essential text beneath platform overlays.</text>
+  </svg>

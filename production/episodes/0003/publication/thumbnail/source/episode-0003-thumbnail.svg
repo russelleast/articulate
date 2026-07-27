@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#091218"/>
+      <stop offset=".58" stop-color="#0d1820"/>
+      <stop offset="1" stop-color="#132833"/>
+    </linearGradient>
+    <radialGradient id="warm"><stop offset="0" stop-color="#b78360" stop-opacity=".34"/><stop offset="1" stop-color="#b78360" stop-opacity="0"/></radialGradient>
+    <radialGradient id="cool"><stop offset="0" stop-color="#497b91" stop-opacity=".31"/><stop offset="1" stop-color="#497b91" stop-opacity="0"/></radialGradient>
+    <radialGradient id="intelligence-glow"><stop offset="0" stop-color="#dbe8eb" stop-opacity=".72"/><stop offset=".42" stop-color="#7fb4c7" stop-opacity=".28"/><stop offset="1" stop-color="#7fb4c7" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity=".4"/></filter>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".28"/></filter>
+    <filter id="node-glow" x="-80%" y="-100%" width="260%" height="300%"><feDropShadow dx="0" dy="0" stdDeviation="11" flood-color="#9fd6e7" flood-opacity=".82"/></filter>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M 42 0 L 0 0 0 42" fill="none" stroke="#6f858e" stroke-opacity=".11"/></pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#field)"/>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+  <ellipse cx="245" cy="610" rx="530" ry="300" fill="url(#cool)"/>
+  <ellipse cx="1070" cy="235" rx="430" ry="340" fill="url(#warm)"/>
+  <g transform="translate(76 54)">
+    <text font-family="Inter,Arial,sans-serif" font-size="17" font-weight="700" fill="#f4f0e8" letter-spacing="5">ARTICULATE</text>
+    <text x="1" y="22" font-family="Inter,Arial,sans-serif" font-size="9" font-weight="600" fill="#55798b" letter-spacing="2.1">AI-NATIVE ARCHITECTURE JOURNAL</text>
+  </g>
+  <g transform="translate(-48 104)" filter="url(#shadow)">
+    <ellipse cx="248" cy="548" rx="206" ry="28" fill="#020608" opacity=".46"/>
+    <svg x="0" y="0" width="500" height="570" viewBox="377 48 917 976" preserveAspectRatio="xMidYMid meet" overflow="visible"><image href="../../../../../assets/companion/v1/companion-neutral.png" width="1536" height="1024"/></svg>
+  </g>
+  <g transform="translate(430 120)">
+    <rect x="0" y="-22" width="112" height="6" rx="3" fill="#a65d3f"/>
+    <text x="0" y="68" font-family="Inter,Arial,sans-serif" font-size="76" font-weight="800" letter-spacing="-2.6" fill="#f4f0e8">AI-NATIVE</text>
+    <text x="0" y="145" font-family="Inter,Arial,sans-serif" font-size="76" font-weight="800" letter-spacing="-2.6" fill="#a65d3f">SYSTEMS</text>
+    <text x="3" y="205" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="700" fill="#f4f0e8">Architecture,</text>
+    <text x="3" y="240" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="700" fill="#8fa2aa">Not Features</text>
+  </g>
+  <g transform="translate(425 390)" filter="url(#soft-shadow)">
+    <rect width="790" height="266" rx="24" fill="#101d24" fill-opacity=".94" stroke="#36515e" stroke-width="2"/>
+    <text x="28" y="34" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#a65d3f" letter-spacing="2">APPLICATION RUNTIME</text>
+    <path d="M 98 91 C 291 91, 291 156, 484 156" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round"/><path d="M 276 91 C 380 91, 380 156, 484 156" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round"/><path d="M 694 91 C 589 91, 589 156, 484 156" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round"/><path d="M 694 205 C 589 205, 589 156, 484 156" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round"/><path d="M 276 205 C 380 205, 380 156, 484 156" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round"/><path d="M 98 205 C 291 205, 291 156, 484 156" fill="none" stroke="#55798b" stroke-width="3" stroke-linecap="round"/><g>
+    <rect x="34" y="62" width="128" height="58" rx="13" fill="#172a34" stroke="#6f858e" stroke-width="2"/>
+    <text x="98" y="98" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#f4f0e8" letter-spacing=".6">APPLICATION</text>
+  </g><g>
+    <rect x="216" y="62" width="120" height="58" rx="13" fill="#172a34" stroke="#6f858e" stroke-width="2"/>
+    <text x="276" y="98" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#f4f0e8" letter-spacing=".6">SERVICES</text>
+  </g><g>
+    <rect x="632" y="62" width="124" height="58" rx="13" fill="#172a34" stroke="#6f858e" stroke-width="2"/>
+    <text x="694" y="98" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#f4f0e8" letter-spacing=".6">CONTEXT</text>
+  </g><g>
+    <rect x="632" y="176" width="124" height="58" rx="13" fill="#172a34" stroke="#6f858e" stroke-width="2"/>
+    <text x="694" y="212" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#f4f0e8" letter-spacing=".6">KNOWLEDGE</text>
+  </g><g>
+    <rect x="216" y="176" width="120" height="58" rx="13" fill="#172a34" stroke="#6f858e" stroke-width="2"/>
+    <text x="276" y="212" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#f4f0e8" letter-spacing=".6">TOOLS</text>
+  </g><g>
+    <rect x="34" y="176" width="128" height="58" rx="13" fill="#172a34" stroke="#6f858e" stroke-width="2"/>
+    <text x="98" y="212" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#f4f0e8" letter-spacing=".6">MEMORY</text>
+  </g>
+    <ellipse cx="484" cy="156" rx="154" ry="92" fill="url(#intelligence-glow)"/>
+    <g filter="url(#node-glow)">
+      <rect x="402" y="120" width="164" height="72" rx="18" fill="#dbe8eb" stroke="#a65d3f" stroke-width="4"/>
+      <text x="484" y="151" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="800" fill="#172028" letter-spacing=".8">INTELLIGENCE</text>
+      <text x="484" y="172" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#55798b" letter-spacing="1">RUNTIME CAPABILITY</text>
+    </g>
+  </g>
+</svg>
