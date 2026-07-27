@@ -36,7 +36,7 @@ The first is functionality.
 
 What does the system actually do?
 
-The second is characteristics.Yes
+The second most importantly is characteristics
 
 How well does it do it?
 
@@ -610,7 +610,7 @@ Before designing any architecture, it's worth asking two simple questions.
 
 What must the system do?
 
-And what properties must the system possess?Ste
+And what properties must the system possess?
 
 The first defines functionality.
 
