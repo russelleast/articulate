@@ -78,7 +78,7 @@ scenes:
   - scene_id: "S011"
     title: "A useful pattern, not the definition"
     narration_reference: "N082-N086"
-    visual_type: "architectural comparison"
+    visual_type: "agent decision path"
     companion_mode: "none"
     assets: ["A012"]
     status: "ready for review"

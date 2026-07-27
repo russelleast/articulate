@@ -37,8 +37,8 @@ for (const marker of markers.scenes.filter((scene) => companionSceneIds.has(scen
 
 const narrativeSections = parseSections(fs.readFileSync(narrativePath, "utf8"));
 const sections = [
-  ["Introduction", 0, 636.936],
-  ["Looking Ahead", 636.936, markers.audioDurationSeconds]
+  ["Introduction", 0, 633],
+  ["Looking Ahead", 633, markers.audioDurationSeconds]
 ];
 const cues = [];
 for (const [title, start, end] of sections) {

@@ -248,6 +248,17 @@ function whiteboardPositions(scene, board) {
     items.forEach((_, index) => positions.set(`item-${index + 1}`, { x: 215 + index * 325, y: 530, width: 270, height: 122 }));
     return positions;
   }
+  if (scene.diagramLayout === "conversation-path") {
+    const boxes = [
+      { x: 215, y: 530, width: 270, height: 122 },
+      { x: 540, y: 530, width: 270, height: 122 },
+      { x: 865, y: 530, width: 270, height: 122 },
+      { x: 1190, y: 530, width: 270, height: 122 },
+      { x: 1190, y: 720, width: 270, height: 122 }
+    ];
+    items.forEach((_, index) => positions.set(`item-${index + 1}`, boxes[index]));
+    return positions;
+  }
   if (scene.diagramLayout === "agent-capability") {
     const boxes = [
       { x: 205, y: 440, width: 250, height: 112 },

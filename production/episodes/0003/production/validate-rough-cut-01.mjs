@@ -35,6 +35,46 @@ if (revealTargets.join("|") !== agent.items.map((_, index) => `item-${index + 1}
 if (sceneById.get("S010").diagramAssetId !== "episode-0003-agent-capability") {
   throw new Error("S010 must use the registered D2 agent capability SVG");
 }
+if (sceneById.get("S011").kind !== "whiteboard" || sceneById.get("S011").diagramLayout !== "change-path") {
+  throw new Error("S011 must use the reviewed problem-shaped agent decision path");
+}
+if (sceneById.get("S013").diagramLayout !== "conversation-path") {
+  throw new Error("S013 must place Workflow beneath Decisions");
+}
+
+const reviewedGlobalReveals = new Map([
+  ["s4-title", 140], ["s4-i1", 145], ["s4-i2", 148], ["s4-i3", 150], ["s4-i4", 156],
+  ["s5-title", 180], ["s5-i1", 200], ["s5-i2", 203], ["s5-i3", 205], ["s5-i4", 206], ["s5-i5", 218],
+  ["s6-i2", 240], ["s6-i3", 241], ["s6-i4", 242], ["s6-i5", 243], ["s6-i6", 245], ["s6-hub", 261],
+  ["s7-title", 268], ["s7-i1", 274], ["s7-i2", 276], ["s7-i3", 286], ["s7-i4", 310],
+  ["s8-i1", 335], ["s8-i2", 336],
+  ["s9-title", 343], ["s9-i1", 344], ["s9-i2", 345], ["s9-i3", 347], ["s9-i4", 348],
+  ["s9-i5", 349], ["s9-i6", 350], ["s9-i7", 352], ["s9-i8", 354], ["s9-i9", 355],
+  ["s10-title", 360],
+  ["s12-i1", 414], ["s12-i2", 417], ["s12-i3", 426], ["s12-i4", 429], ["s12-i5", 439], ["s12-i6", 443],
+  ["s13-title", 468], ["s13-i1", 484], ["s13-i2", 487], ["s13-i3", 489], ["s13-i4", 495],
+  ["s13-i5", 496], ["s13-support", 510],
+  ["s14-title", 515], ["s14-i1", 518], ["s14-i2", 522], ["s14-i3", 525], ["s14-i4", 529],
+  ["s14-i5", 537], ["s14-i6", 542], ["s14-support", 548],
+  ["s15-i1", 568], ["s15-i2", 570], ["s15-i3", 571], ["s15-i4", 578], ["s15-i5", 581],
+  ["s16-title", 591], ["s16-i1", 595], ["s16-i2", 598], ["s16-i3", 603], ["s16-i4", 609],
+  ["s16-i5", 615], ["s16-i6", 617],
+  ["s17-title", 633], ["s17-i1", 652], ["s17-i2", 656], ["s17-i3", 659],
+  ["s18-i1", 671], ["s18-i2", 681], ["s18-i3", 684], ["s18-i4", 688]
+]);
+for (const scene of config.scenes) {
+  const sceneStart = markers.scenes.find((candidate) => candidate.id === scene.id).startSeconds;
+  for (const shot of scene.shots ?? []) {
+    for (const event of shot.events ?? []) {
+      const expected = reviewedGlobalReveals.get(event.id);
+      if (expected === undefined) continue;
+      const actual = sceneStart + shot.at + event.at;
+      if (Math.abs(actual - expected) > 0.000001) {
+        throw new Error(`${event.id} must reveal at ${clock(expected)}; got ${clock(actual)}`);
+      }
+    }
+  }
+}
 
 for (const sceneId of companionIds) {
   const scene = sceneById.get(sceneId);
@@ -72,4 +112,10 @@ console.log(`Episode 0003 Rough Cut 01 validation passed: 19 scenes, four lip-sy
 
 function read(file) {
   return JSON.parse(fs.readFileSync(path.resolve(scriptDir, file), "utf8"));
+}
+
+function clock(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainder = seconds - minutes * 60;
+  return `${String(minutes).padStart(2, "0")}:${remainder.toFixed(3).padStart(6, "0")}`;
 }
