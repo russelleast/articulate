@@ -69,16 +69,16 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s001-reveal-headline",
+            "id": "opening-system",
             "at": 18.91,
             "action": "reveal",
             "target": "headline",
             "sourcePhrase": "AI-native systems are still systems"
           },
           {
-            "id": "s001-reveal-support",
+            "id": "opening-trust",
             "at": 39,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "Can people trust it"
           }
@@ -96,8 +96,9 @@
     {
       "id": "S002",
       "title": "Functionality and characteristics",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "hub",
+      "diagramAssetId": "episode-0004-functionality-characteristics",
       "headline": "Functionality and characteristics",
       "support": "Features attract users. Characteristics keep them.",
       "items": [
@@ -159,9 +160,9 @@
             "sourcePhrase": "trustworthy"
           },
           {
-            "id": "s002-reveal-support",
+            "id": "s002-emphasise-support",
             "at": 36.94,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "Features attract users"
           }
@@ -179,8 +180,9 @@
     {
       "id": "S003",
       "title": "Patterns improve system qualities",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "hub",
+      "diagramAssetId": "episode-0004-patterns-characteristics",
       "headline": "Patterns improve system qualities",
       "support": "Architecture is about trade-offs.",
       "items": [
@@ -242,9 +244,9 @@
             "sourcePhrase": "caching"
           },
           {
-            "id": "s003-reveal-support",
+            "id": "s003-emphasise-support",
             "at": 21.98,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "Every architecture decision is really a trade-off"
           }
@@ -262,8 +264,9 @@
     {
       "id": "S004",
       "title": "Trust across the entire journey",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "change-path",
+      "diagramAssetId": "episode-0004-trust-chain",
       "headline": "Trust across the entire journey",
       "support": "Capability ≠ Authority",
       "items": [
@@ -281,9 +284,9 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s004-reveal-support",
+            "id": "s004-emphasise-support",
             "at": 38.43,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "technically capable"
           },
@@ -413,9 +416,9 @@
             "sourcePhrase": "selecting another model retrying an operation"
           },
           {
-            "id": "s005-reveal-support",
+            "id": "s005-emphasise-support",
             "at": 55.73,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "deciding what should happen when failure"
           }
@@ -433,8 +436,9 @@
     {
       "id": "S006",
       "title": "The reasoning pipeline",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "change-path",
+      "diagramAssetId": "episode-0004-reasoning-performance",
       "headline": "The reasoning pipeline",
       "support": "Absolute performance · Perceived performance · Cost",
       "items": [
@@ -453,9 +457,9 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s006-reveal-support",
+            "id": "s006-emphasise-support",
             "at": 14.39,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "perceived performance rather than absolute performance"
           },
@@ -592,9 +596,9 @@
             "sourcePhrase": "no longer just scaling infrastructure"
           },
           {
-            "id": "s007-reveal-support",
+            "id": "s007-emphasise-support",
             "at": 38.57,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "scaling intelligence"
           }
@@ -612,8 +616,9 @@
     {
       "id": "S008",
       "title": "Scale up: complexity inside one agent",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "hub",
+      "diagramAssetId": "episode-0004-scaling-one-agent",
       "headline": "Scale up: complexity inside one agent",
       "support": "Larger prompts and contexts drive tokens, latency, cost and dilution.",
       "items": [
@@ -668,9 +673,9 @@
             "sourcePhrase": "knowledge"
           },
           {
-            "id": "s008-reveal-item-6",
+            "id": "s008-emphasise-item-6",
             "at": 34,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "item-6",
             "sourcePhrase": "Latency increases Costs increase"
           }
@@ -688,8 +693,9 @@
     {
       "id": "S009",
       "title": "Scale out: complexity across the system",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "hub",
+      "diagramAssetId": "episode-0004-scaling-agent-system",
       "headline": "Scale out: complexity across the system",
       "support": "Complexity moved into routing, context, state, recovery and tracing.",
       "items": [
@@ -737,9 +743,9 @@
             "sourcePhrase": "explores trade-offs"
           },
           {
-            "id": "s009-reveal-support",
+            "id": "s009-emphasise-support",
             "at": 32.93,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "complexity doesn't disappear"
           },
@@ -785,16 +791,16 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s010-reveal-headline",
+            "id": "s010-emphasise-headline",
             "at": 1.38,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "where we want the complexity to live"
           },
           {
-            "id": "s010-reveal-support",
+            "id": "s010-emphasise-support",
             "at": 11.91,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "Neither approach is universally correct"
           }
@@ -812,8 +818,9 @@
     {
       "id": "S011",
       "title": "Coherence Before Size",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "hub",
+      "diagramAssetId": "episode-0004-coherence-boundaries",
       "headline": "Coherence Before Size",
       "support": "Split when responsibilities diverge—not because smaller looks sophisticated.",
       "items": [
@@ -833,9 +840,9 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s011-reveal-headline",
+            "id": "s011-emphasise-headline",
             "at": 0.97,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "important architectural principle"
           },
@@ -895,8 +902,9 @@
     {
       "id": "S012",
       "title": "Observe intelligent behaviour",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "hub",
+      "diagramAssetId": "episode-0004-ai-native-observability",
       "headline": "Observe intelligent behaviour",
       "support": "Why was this agent selected?",
       "items": [
@@ -958,9 +966,9 @@
             "sourcePhrase": "evaluation results and user feedback"
           },
           {
-            "id": "s012-reveal-support",
+            "id": "s012-emphasise-support",
             "at": 30.01,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "why a particular agent was selected"
           }
@@ -1033,9 +1041,9 @@
             "sourcePhrase": "Architectural intent should survive"
           },
           {
-            "id": "s013-reveal-support",
+            "id": "s013-emphasise-support",
             "at": 26.46,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "Responsibilities shouldn't exist inside prompts"
           }
@@ -1092,9 +1100,9 @@
             "sourcePhrase": "inspecting reasoning paths replaying workflows"
           },
           {
-            "id": "s014-reveal-support",
+            "id": "s014-emphasise-support",
             "at": 40.59,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "practical operability"
           }
@@ -1112,8 +1120,9 @@
     {
       "id": "S015",
       "title": "Testing remains essential",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "change-path",
+      "diagramAssetId": "episode-0004-testing-evaluation",
       "headline": "Testing remains essential",
       "support": "Execution succeeded ≠ Outcome was good",
       "items": [
@@ -1167,9 +1176,9 @@
             "sourcePhrase": "performance tests"
           },
           {
-            "id": "s015-reveal-support",
+            "id": "s015-emphasise-support",
             "at": 23.11,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "poor response"
           }
@@ -1241,16 +1250,16 @@
             "sourcePhrase": "outcome worth the cost"
           },
           {
-            "id": "s016-reveal-headline",
+            "id": "s016-emphasise-headline",
             "at": 31.12,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "Testing verifies"
           },
           {
-            "id": "s016-reveal-support",
+            "id": "s016-emphasise-support",
             "at": 34.38,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "evaluation measures"
           }
@@ -1268,8 +1277,9 @@
     {
       "id": "S017",
       "title": "Evaluate the architecture that produced the answer",
-      "kind": "whiteboard",
+      "kind": "diagram",
       "diagramLayout": "change-path",
+      "diagramAssetId": "episode-0004-agent-architecture-evaluation",
       "headline": "Evaluate the architecture that produced the answer",
       "support": "Did multiple agents produce measurable value?",
       "items": [
@@ -1315,9 +1325,9 @@
             "sourcePhrase": "final answer"
           },
           {
-            "id": "s017-reveal-support",
+            "id": "s017-emphasise-support",
             "at": 34.73,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "additional complexity has to justify"
           },
@@ -1370,16 +1380,16 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s018-reveal-headline",
+            "id": "s018-emphasise-headline",
             "at": 18.31,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "Capabilities"
           },
           {
-            "id": "s018-reveal-support",
+            "id": "s018-emphasise-support",
             "at": 39.87,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "evaluate outcomes rather than"
           }
@@ -1425,9 +1435,9 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s019-reveal-headline",
+            "id": "s019-emphasise-headline",
             "at": 9.65,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "Architecture is still about balancing"
           },
@@ -1485,16 +1495,16 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s020-reveal-headline",
+            "id": "s020-emphasise-headline",
             "at": 5.03,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "What must the system do"
           },
           {
-            "id": "s020-reveal-support",
+            "id": "s020-emphasise-support",
             "at": 6.87,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "what properties must the system possess"
           },
@@ -1568,9 +1578,9 @@
             "sourcePhrase": "next episode"
           },
           {
-            "id": "s021-reveal-support",
+            "id": "s021-emphasise-support",
             "at": 5.72,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "support",
             "sourcePhrase": "approach solution design"
           },

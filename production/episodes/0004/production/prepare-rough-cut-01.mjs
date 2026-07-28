@@ -5,11 +5,16 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import {
-  alignSections,
   cueTime,
   normaliseWhisperTranscript,
   writeTranscriptSrt
 } from "../../../runtime/transcript-alignment.mjs";
+import {
+  buildSourceAlignment,
+  compileTimeline,
+  extractMarkdownSections,
+  validateScenePlan
+} from "../../../runtime/pre-render-workflow.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "../../../..");
@@ -33,7 +38,20 @@ const transcript = normaliseWhisperTranscript(readJson(rawPath), {
     "models that implement them. Architecture should make placement possible": "models that implement them. Architecture should make replacement possible"
   }
 });
-const alignment = alignSections(transcript, plan.sections, audioDurationSeconds);
+const writtenSections = extractMarkdownSections(
+  fs.readFileSync(path.join(repoRoot, plan.episode.writtenSource), "utf8"),
+  { includePreamble: true }
+);
+const narrativeSections = extractMarkdownSections(
+  fs.readFileSync(path.join(repoRoot, plan.episode.narrativeSource), "utf8")
+);
+const alignment = buildSourceAlignment({
+  transcript,
+  specifications: plan.sections,
+  writtenSections,
+  narrativeSections,
+  audioDurationSeconds
+});
 const alignmentById = new Map(alignment.sections.map((section) => [section.id, section]));
 const markers = {
   version: 1,
@@ -54,16 +72,17 @@ const scenes = plan.scenes.map((scene, index) => {
   const section = alignmentById.get(scene.section);
   const reveals = new Map();
   const events = [];
-  for (const [cueIndex, cue] of (scene.cues ?? []).entries()) {
-    const at = Math.min(section.end - section.start - 0.04, cueTime(transcript, cue.phrase, section, cueIndex * 1.2));
+  for (const [cueIndex, cue] of (scene.beats ?? scene.cues ?? []).entries()) {
+    const phrase = cue.alignTo ?? cue.phrase;
+    const at = Math.min(section.end - section.start - 0.04, cueTime(transcript, phrase, section, cueIndex * 1.2));
     if (!reveals.has(cue.target)) {
       reveals.set(cue.target, at);
       events.push({
-        id: `${scene.id.toLowerCase()}-reveal-${cue.target}`,
+        id: cue.id ?? `${scene.id.toLowerCase()}-${cue.action ?? "reveal"}-${cue.target}`,
         at,
-        action: "reveal",
+        action: rendererAction(cue.action ?? "reveal"),
         target: cue.target,
-        sourcePhrase: cue.phrase
+        sourcePhrase: phrase
       });
     }
   }
@@ -162,27 +181,17 @@ const storyboard = {
   })
 };
 
-const timeline = {
-  version: 1,
-  authority: "recorded-audio",
-  transcript: "production/episodes/0004/transcript.json",
-  alignment: "production/episodes/0004/alignment.json",
-  scenes: scenes.map((scene, index) => ({
-    id: scene.id,
-    title: scene.title,
-    section: plan.scenes[index].section,
-    visualArchetype: scene.kind,
-    start: markers.scenes[index].startSeconds,
-    end: markers.scenes[index].endSeconds,
-    narrationRange: markers.scenes[index].narrationReference,
-    elements: {
-      headline: scene.headline,
-      support: scene.support,
-      items: scene.items
-    },
-    events: scene.timeline.events
-  }))
-};
+const timeline = compileTimeline(plan, transcript, alignment, { allowDraft: true });
+timeline.transcript = "production/episodes/0004/transcript.json";
+timeline.alignment = "production/episodes/0004/alignment.json";
+timeline.scenePlan = "production/episodes/0004/scene-plan.yaml";
+
+plan.__transcript = transcript;
+const preRenderValidation = validateScenePlan(plan, { repoRoot, alignment, requireRenderedDiagrams: false });
+delete plan.__transcript;
+if (!preRenderValidation.valid) {
+  throw new Error(`Scene-plan validation failed:\n- ${preRenderValidation.errors.join("\n- ")}`);
+}
 
 writeJson(path.join(episodeDir, "transcript.json"), transcript);
 writeJson(path.join(episodeDir, "alignment.json"), alignment);
@@ -245,6 +254,10 @@ function time(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainder = (seconds % 60).toFixed(3).padStart(6, "0");
   return `${String(minutes).padStart(2, "0")}:${remainder}`;
+}
+
+function rendererAction(action) {
+  return { emphasise: "emphasize", deemphasise: "deemphasize" }[action] ?? action;
 }
 
 function run(command, args, capture = false) {

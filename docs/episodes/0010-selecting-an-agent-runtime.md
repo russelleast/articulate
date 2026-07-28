@@ -24,3 +24,9 @@ The first Architecture Decision Record of the implementation journey.
 This episode establishes the architectural drivers before evaluating candidate technologies such as Microsoft Agent Framework, LangGraph, Dapr Workflows and Temporal.
 
 Rather than selecting a technology because it is popular, the decision is driven by the conceptual architecture developed in previous episodes.
+
+-- notes -- 
+
+Thinking ahead, I know the direction I want to take and that is dapr agents and keeping with Python in the first instance. This is a way goes against the purpose of this episode and ep11 and ep12. In that I know the answer. 
+
+What I need to emphase in this episode is the candidate technologies and my language perference that should not reduce the candidate technologies much but what benefits I need for articulate

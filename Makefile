@@ -1,6 +1,6 @@
 .PHONY: assets-validate assets-list companion-poc-validate companion-poc-validate-placeholder companion-poc-render companion-poc-render-placeholder companion-poc-render-real companion-poc-render-reference-fallback companion-poc-render-layout-debug companion-poc-test companion-performance-poc-analyse companion-performance-poc-validate companion-performance-poc-render episode-production-segments episode-production-validate episode-runtime-test episode-0000-analyse episode-0000-validate episode-0000-render episode-0000-review episode-0000-companion-performance-prepare episode-0000-companion-performance-validate episode-0000-companion-performance-render episode-0000-companion-performance-review episode-0000-final-cut-prepare episode-0000-final-cut-validate episode-0000-final-cut-render episode-0000-final-cut-review episode-0000-baseline-validate episode-0000-baseline-render episode-0000-baseline-review episode-0001-analyse episode-0001-validate episode-0001-render episode-0001-review episode-0001-rough-cut-03-prepare episode-0001-rough-cut-03-validate episode-0001-rough-cut-03-render episode-0001-rough-cut-03-review episode-0001-rough-cut-04-prepare episode-0001-rough-cut-04-validate episode-0001-rough-cut-04-render episode-0001-rough-cut-04-review episode-0002-rough-cut-01-prepare episode-0002-rough-cut-01-analyse episode-0002-rough-cut-01-validate episode-0002-rough-cut-01-render episode-0002-rough-cut-01-review episode-0002-final-cut-render episode-0002-thumbnail episode-0003-rough-cut-01-prepare episode-0003-rough-cut-01-analyse episode-0003-rough-cut-01-validate episode-0003-rough-cut-01-render episode-0003-rough-cut-01-review episode-0003-thumbnail episode-0004-rough-cut-01-prepare episode-0004-rough-cut-01-analyse episode-0004-rough-cut-01-validate episode-0004-rough-cut-01-render episode-0004-rough-cut-01-review
 
-.PHONY: diagrams-validate diagrams-render diagram-render
+.PHONY: diagrams-validate diagrams-render diagram-render pre-render-inspect pre-render-transcript pre-render-align pre-render-plan-validate pre-render-timeline pre-render-validate
 
 diagrams-validate:
 	node production/runtime/diagrams-cli.mjs validate
@@ -11,6 +11,31 @@ diagrams-render:
 diagram-render:
 	@test -n "$(DIAGRAM)" || (echo "DIAGRAM is required (for example: make diagram-render DIAGRAM=knowledge-reasoning-flow)" && exit 2)
 	node production/runtime/diagrams-cli.mjs render $(DIAGRAM)
+
+pre-render-inspect:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0004)" && exit 2)
+	node production/runtime/pre-render-cli.mjs inspect-sources --episode $(EPISODE)
+
+pre-render-transcript:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0004)" && exit 2)
+	@test -n "$(RAW)" || (echo "RAW is required (timestamped Whisper JSON)" && exit 2)
+	node production/runtime/pre-render-cli.mjs normalise-transcript --episode $(EPISODE) --raw $(RAW) $(if $(FORCE),--force)
+
+pre-render-align:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0004)" && exit 2)
+	node production/runtime/pre-render-cli.mjs align-sources --episode $(EPISODE) $(if $(FORCE),--force)
+
+pre-render-plan-validate:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0004)" && exit 2)
+	node production/runtime/pre-render-cli.mjs validate-plan --episode $(EPISODE)
+
+pre-render-timeline:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0004)" && exit 2)
+	node production/runtime/pre-render-cli.mjs generate-timeline --episode $(EPISODE) $(if $(ALLOW_DRAFT),--allow-draft) $(if $(FORCE),--force)
+
+pre-render-validate:
+	@test -n "$(EPISODE)" || (echo "EPISODE is required (for example: EPISODE=0004)" && exit 2)
+	node production/runtime/pre-render-cli.mjs validate --episode $(EPISODE)
 
 assets-validate:
 	node production/runtime/assets-cli.mjs validate
@@ -195,8 +220,7 @@ episode-0003-thumbnail:
 	node production/episodes/0003/publication/thumbnail/render-thumbnail.mjs
 
 episode-0004-rough-cut-01-prepare:
-	node production/runtime/diagrams-cli.mjs render episode-0004-scale-up-scale-out
-	node production/runtime/diagrams-cli.mjs render episode-0004-capability-evaluation
+	node production/runtime/diagrams-cli.mjs render
 	node production/episodes/0004/production/prepare-rough-cut-01.mjs
 
 episode-0004-rough-cut-01-analyse: episode-0004-rough-cut-01-prepare

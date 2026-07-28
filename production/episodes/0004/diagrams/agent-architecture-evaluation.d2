@@ -1,0 +1,18 @@
+...@../../../diagrams/styles/articulate
+direction: right
+
+intent: "User intent" { class: human }
+router: "Routing decision" { class: router }
+agent: "Agent behaviour" { class: agent }
+collaboration: "Collaboration" { class: workflow }
+outcome: "Final outcome" { class: evidence }
+evaluation: "Architecture evaluation" { class: quality }
+
+intent -> router: provides
+router -> agent: routes to
+agent -> collaboration: participates
+collaboration -> outcome: produces
+evaluation -> router: evaluates { style.stroke-dash: 5 }
+evaluation -> agent: evaluates { style.stroke-dash: 5 }
+evaluation -> collaboration: evaluates { style.stroke-dash: 5 }
+evaluation -> outcome: evaluates { style.stroke-dash: 5 }

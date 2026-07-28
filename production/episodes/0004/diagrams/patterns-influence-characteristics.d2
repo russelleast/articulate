@@ -1,0 +1,25 @@
+...@../../../diagrams/styles/articulate
+direction: right
+
+decisions: "Architecture decisions" { class: decision }
+patterns: {
+  cqrs: "CQRS" { class: node }
+  events: "Event sourcing" { class: node }
+  workflows: "Workflow engine" { class: workflow }
+  actors: "Actor model" { class: node }
+  cache: "Caching" { class: service }
+}
+qualities: {
+  scale: "Scalability" { class: quality }
+  audit: "Auditability" { class: quality }
+  reliable: "Reliability" { class: quality }
+  resilience: "Resilience" { class: quality }
+  speed: "Performance" { class: quality }
+}
+
+decisions -> patterns: selects
+patterns.cqrs -> qualities.scale: influences
+patterns.events -> qualities.audit: influences
+patterns.workflows -> qualities.reliable: influences
+patterns.actors -> qualities.resilience: influences
+patterns.cache -> qualities.speed: influences

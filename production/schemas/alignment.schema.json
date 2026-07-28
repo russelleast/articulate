@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://articulate.dev/schemas/alignment.schema.json",
+  "title": "Articulate source and recording alignment",
+  "type": "object",
+  "required": ["version", "authority", "coverage", "warnings", "sections"],
+  "properties": {
+    "version": { "const": 2 },
+    "authority": {
+      "const": {
+        "semantic": "written-episode",
+        "delivery": "verbal-narrative",
+        "timing": "recorded-audio"
+      }
+    },
+    "coverage": { "type": "object" },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "written", "narrative", "audio", "confidence", "warnings"],
+        "properties": {
+          "id": { "type": "string" },
+          "written": {
+            "type": "object",
+            "required": ["section", "heading"],
+            "properties": { "section": { "type": "string" }, "heading": { "type": ["string", "null"] } }
+          },
+          "narrative": {
+            "type": "object",
+            "required": ["section", "heading", "segments"],
+            "properties": {
+              "section": { "type": "string" },
+              "heading": { "type": ["string", "null"] },
+              "segments": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "audio": {
+            "type": "object",
+            "required": ["start", "end", "anchor", "matchedText"],
+            "properties": {
+              "start": { "type": "number", "minimum": 0 },
+              "end": { "type": "number", "minimum": 0 },
+              "anchor": { "type": "string" },
+              "matchedText": { "type": "string" }
+            }
+          },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "warnings": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

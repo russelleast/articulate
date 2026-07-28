@@ -1,51 +1,108 @@
 {
-  "version": 1,
-  "authority": "recorded-audio",
-  "transcript": "production/episodes/0004/transcript.json",
-  "alignment": "production/episodes/0004/alignment.json",
+  "version": 2,
+  "generatedFrom": "production/episodes/0004/scene-plan.yaml",
+  "authority": {
+    "semantic": "written-episode",
+    "visual": "approved-scene-plan",
+    "timing": "recorded-audio"
+  },
+  "reviewOverride": "draft scene plan explicitly compiled for review",
   "scenes": [
     {
       "id": "S001",
-      "title": "AI-native systems still need to be systems.",
       "section": "opening",
-      "visualArchetype": "studio",
+      "title": "AI-native systems still need to be systems.",
+      "archetype": "Narrator",
       "start": 0,
       "end": 56.07,
-      "narrationRange": "Opening · N001-N013",
+      "sources": {
+        "writtenSection": "opening",
+        "narrativeSection": "opening",
+        "narrativeSegments": [
+          "N001-N013"
+        ]
+      },
       "elements": {
         "headline": "AI-native systems still need to be systems.",
         "support": "Can people trust it?",
-        "items": []
+        "labels": []
       },
+      "transition": "fade",
       "events": [
         {
-          "id": "s001-reveal-headline",
+          "id": "opening-system",
           "at": 18.91,
           "action": "reveal",
           "target": "headline",
-          "sourcePhrase": "AI-native systems are still systems"
+          "sourcePhrase": "AI-native systems are still systems",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.964
+          }
         },
         {
-          "id": "s001-reveal-support",
+          "id": "opening-trust",
           "at": 39,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "Can people trust it"
+          "sourcePhrase": "Can people trust it",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S002",
-      "title": "Functionality and characteristics",
       "section": "functionality-versus-characteristics",
-      "visualArchetype": "whiteboard",
+      "title": "Functionality and characteristics",
+      "archetype": "Diagram",
       "start": 56.07,
       "end": 98.09,
-      "narrationRange": "Functionality Versus Characteristics · N014-N024",
+      "sources": {
+        "writtenSection": "functionality-versus-characteristics",
+        "narrativeSection": "functionality-versus-characteristics",
+        "narrativeSegments": [
+          "N014-N024"
+        ]
+      },
+      "diagram": {
+        "id": "functionality-versus-characteristics",
+        "source": "production/episodes/0004/diagrams/functionality-versus-characteristics.d2",
+        "rendered": "production/episodes/0004/diagrams/functionality-versus-characteristics.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "function",
+            "visible": [
+              "system",
+              "functionality"
+            ]
+          },
+          {
+            "id": "characteristics",
+            "visible": [
+              "system",
+              "functionality",
+              "characteristics"
+            ]
+          },
+          {
+            "id": "qualities",
+            "visible": [
+              "system",
+              "functionality",
+              "characteristics",
+              "qualities"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Functionality and characteristics",
         "support": "Features attract users. Characteristics keep them.",
-        "items": [
+        "labels": [
           "SYSTEM OUTPUT",
           "What does it do? → Functionality",
           "How well? → Characteristics",
@@ -54,70 +111,134 @@
           "Trustworthy"
         ]
       },
+      "transition": "section",
       "events": [
         {
           "id": "s002-reveal-item-1",
           "at": 15.93,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "design a solution architecture"
+          "sourcePhrase": "design a solution architecture",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s002-reveal-item-2",
           "at": 6.58,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "What does the system do"
+          "sourcePhrase": "What does the system do",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s002-reveal-item-3",
           "at": 12.17,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "How well does it do it"
+          "sourcePhrase": "How well does it do it",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s002-reveal-item-4",
           "at": 23.27,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "secure reliable"
+          "sourcePhrase": "secure reliable",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s002-reveal-item-5",
           "at": 24.58,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "observable performant"
+          "sourcePhrase": "observable performant",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s002-reveal-item-6",
           "at": 26.14,
           "action": "reveal",
           "target": "item-6",
-          "sourcePhrase": "trustworthy"
+          "sourcePhrase": "trustworthy",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s002-reveal-support",
+          "id": "s002-emphasise-support",
           "at": 36.94,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "Features attract users"
+          "sourcePhrase": "Features attract users",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S003",
-      "title": "Patterns improve system qualities",
       "section": "why-architects-care",
-      "visualArchetype": "whiteboard",
+      "title": "Patterns improve system qualities",
+      "archetype": "Diagram",
       "start": 98.09,
       "end": 141.07,
-      "narrationRange": "Why Architects Care · N025-N039",
+      "sources": {
+        "writtenSection": "why-architects-care",
+        "narrativeSection": "why-architects-care",
+        "narrativeSegments": [
+          "N025-N039"
+        ]
+      },
+      "diagram": {
+        "id": "patterns-influence-characteristics",
+        "source": "production/episodes/0004/diagrams/patterns-influence-characteristics.d2",
+        "rendered": "production/episodes/0004/diagrams/patterns-influence-characteristics.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "decisions",
+            "visible": [
+              "decisions"
+            ]
+          },
+          {
+            "id": "patterns",
+            "visible": [
+              "decisions",
+              "patterns"
+            ]
+          },
+          {
+            "id": "qualities",
+            "visible": [
+              "decisions",
+              "patterns",
+              "qualities"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Patterns improve system qualities",
         "support": "Architecture is about trade-offs.",
-        "items": [
+        "labels": [
           "ARCHITECTURAL DECISIONS",
           "CQRS → Scalability",
           "Event Sourcing → Auditability",
@@ -126,147 +247,256 @@
           "Caching → Performance"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s003-reveal-item-1",
           "at": 5.01,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "architectural patterns"
+          "sourcePhrase": "architectural patterns",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s003-reveal-item-2",
           "at": 9.74,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "CQRS"
+          "sourcePhrase": "CQRS",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s003-reveal-item-3",
           "at": 15.41,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "event sourcing"
+          "sourcePhrase": "event sourcing",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s003-reveal-item-4",
           "at": 3.6,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "workflow engines"
+          "sourcePhrase": "workflow engines",
+          "match": {
+            "method": "section-fallback",
+            "confidence": 0
+          }
         },
         {
           "id": "s003-reveal-item-5",
           "at": 4.8,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "actor models"
+          "sourcePhrase": "actor models",
+          "match": {
+            "method": "section-fallback",
+            "confidence": 0
+          }
         },
         {
           "id": "s003-reveal-item-6",
           "at": 6,
           "action": "reveal",
           "target": "item-6",
-          "sourcePhrase": "caching"
+          "sourcePhrase": "caching",
+          "match": {
+            "method": "section-fallback",
+            "confidence": 0
+          }
         },
         {
-          "id": "s003-reveal-support",
+          "id": "s003-emphasise-support",
           "at": 21.98,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "Every architecture decision is really a trade-off"
+          "sourcePhrase": "Every architecture decision is really a trade-off",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.75
+          }
         }
       ]
     },
     {
       "id": "S004",
-      "title": "Trust across the entire journey",
       "section": "trust",
-      "visualArchetype": "whiteboard",
+      "title": "Trust across the entire journey",
+      "archetype": "Diagram",
       "start": 141.07,
       "end": 197.07,
-      "narrationRange": "Trust · N040-N054",
+      "sources": {
+        "writtenSection": "trust",
+        "narrativeSection": "trust",
+        "narrativeSegments": [
+          "N040-N054"
+        ]
+      },
+      "diagram": {
+        "id": "trust-chain",
+        "source": "production/episodes/0004/diagrams/trust-chain.d2",
+        "rendered": "production/episodes/0004/diagrams/trust-chain.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "intent",
+            "visible": [
+              "human",
+              "reasoning"
+            ]
+          },
+          {
+            "id": "authority",
+            "visible": [
+              "human",
+              "reasoning",
+              "policy",
+              "tools"
+            ]
+          },
+          {
+            "id": "outcome",
+            "visible": [
+              "human",
+              "reasoning",
+              "policy",
+              "tools",
+              "outcome",
+              "trust"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Trust across the entire journey",
         "support": "Capability ≠ Authority",
-        "items": [
+        "labels": [
           "User intent",
           "Agent reasoning",
           "Tool execution",
           "Outcome"
         ]
       },
+      "transition": "section",
       "events": [
         {
-          "id": "s004-reveal-support",
+          "id": "s004-emphasise-support",
           "at": 38.43,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "technically capable"
+          "sourcePhrase": "technically capable",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s004-reveal-item-1",
           "at": 50.29,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "user intent"
+          "sourcePhrase": "user intent",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s004-reveal-item-2",
           "at": 51.71,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "reasoning"
+          "sourcePhrase": "reasoning",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s004-reveal-item-3",
           "at": 52.86,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "tool execution"
+          "sourcePhrase": "tool execution",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s004-reveal-item-4",
           "at": 54.68,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "final result"
+          "sourcePhrase": "final result",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s004-connect-1",
           "at": 51.71,
           "action": "connect",
           "from": "item-1",
-          "to": "item-2"
+          "to": "item-2",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         },
         {
           "id": "s004-connect-2",
           "at": 52.86,
           "action": "connect",
           "from": "item-2",
-          "to": "item-3"
+          "to": "item-3",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         },
         {
           "id": "s004-connect-3",
           "at": 54.68,
           "action": "connect",
           "from": "item-3",
-          "to": "item-4"
+          "to": "item-4",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S005",
-      "title": "Reliability controls what happens when failure occurs.",
       "section": "reliability",
-      "visualArchetype": "whiteboard",
+      "title": "Reliability controls what happens when failure occurs.",
+      "archetype": "Whiteboard",
       "start": 197.07,
       "end": 257.1,
-      "narrationRange": "Reliability · N055-N072",
+      "sources": {
+        "writtenSection": "reliability",
+        "narrativeSection": "reliability",
+        "narrativeSegments": [
+          "N055-N072"
+        ]
+      },
       "elements": {
         "headline": "Reliability controls what happens when failure occurs.",
         "support": "Retry · Fallback · Pause · Human intervention · Degrade · Resume",
-        "items": [
+        "labels": [
           "FAILURE",
           "Model unavailable",
           "Rate limited",
@@ -275,70 +505,140 @@
           "Controlled response"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s005-reveal-item-1",
           "at": 13.26,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "new failure modes"
+          "sourcePhrase": "new failure modes",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s005-reveal-item-2",
           "at": 14.99,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "Models may become unavailable"
+          "sourcePhrase": "Models may become unavailable",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s005-reveal-item-3",
           "at": 18.96,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "rate limit"
+          "sourcePhrase": "rate limit",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s005-reveal-item-4",
           "at": 20.8,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "Retrieval services may fail"
+          "sourcePhrase": "Retrieval services may fail",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s005-reveal-item-5",
           "at": 24.19,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "tools may stop responding"
+          "sourcePhrase": "tools may stop responding",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.75
+          }
         },
         {
           "id": "s005-reveal-item-6",
           "at": 40.78,
           "action": "reveal",
           "target": "item-6",
-          "sourcePhrase": "selecting another model retrying an operation"
+          "sourcePhrase": "selecting another model retrying an operation",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s005-reveal-support",
+          "id": "s005-emphasise-support",
           "at": 55.73,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "deciding what should happen when failure"
+          "sourcePhrase": "deciding what should happen when failure",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S006",
-      "title": "The reasoning pipeline",
       "section": "performance",
-      "visualArchetype": "whiteboard",
+      "title": "The reasoning pipeline",
+      "archetype": "Diagram",
       "start": 257.1,
       "end": 320.07,
-      "narrationRange": "Performance · N073-N089",
+      "sources": {
+        "writtenSection": "performance",
+        "narrativeSection": "performance",
+        "narrativeSegments": [
+          "N073-N089"
+        ]
+      },
+      "diagram": {
+        "id": "reasoning-performance-pipeline",
+        "source": "production/episodes/0004/diagrams/reasoning-performance-pipeline.d2",
+        "rendered": "production/episodes/0004/diagrams/reasoning-performance-pipeline.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "context",
+            "visible": [
+              "context",
+              "retrieval"
+            ]
+          },
+          {
+            "id": "reasoning",
+            "visible": [
+              "context",
+              "retrieval",
+              "model",
+              "tools"
+            ]
+          },
+          {
+            "id": "experience",
+            "visible": [
+              "context",
+              "retrieval",
+              "model",
+              "tools",
+              "coordination",
+              "experience"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "The reasoning pipeline",
         "support": "Absolute performance · Perceived performance · Cost",
-        "items": [
+        "labels": [
           "Context",
           "Retrieval",
           "Model",
@@ -346,146 +646,249 @@
           "Coordination"
         ]
       },
+      "transition": "section",
       "events": [
         {
-          "id": "s006-reveal-support",
+          "id": "s006-emphasise-support",
           "at": 14.39,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "perceived performance rather than absolute performance"
+          "sourcePhrase": "perceived performance rather than absolute performance",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-reveal-item-1",
           "at": 37,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "building context"
+          "sourcePhrase": "building context",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-reveal-item-2",
           "at": 37,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "retrieving knowledge"
+          "sourcePhrase": "retrieving knowledge",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.813
+          }
         },
         {
           "id": "s006-reveal-item-3",
           "at": 34.42,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "entire reasoning pipeline"
+          "sourcePhrase": "entire reasoning pipeline",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-reveal-item-4",
           "at": 41.2,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "calling those tools"
+          "sourcePhrase": "calling those tools",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-reveal-item-5",
           "at": 42.83,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "coordinating agents"
+          "sourcePhrase": "coordinating agents",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-connect-1",
           "at": 37,
           "action": "connect",
           "from": "item-1",
-          "to": "item-2"
+          "to": "item-2",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-connect-2",
           "at": 37,
           "action": "connect",
           "from": "item-2",
-          "to": "item-3"
+          "to": "item-3",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-connect-3",
           "at": 41.2,
           "action": "connect",
           "from": "item-3",
-          "to": "item-4"
+          "to": "item-4",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         },
         {
           "id": "s006-connect-4",
           "at": 42.83,
           "action": "connect",
           "from": "item-4",
-          "to": "item-5"
+          "to": "item-5",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S007",
-      "title": "We are no longer only scaling infrastructure.",
       "section": "scalability",
-      "visualArchetype": "studio",
+      "title": "We are no longer only scaling infrastructure.",
+      "archetype": "Narrator",
       "start": 320.07,
       "end": 361.07,
-      "narrationRange": "Scalability · N090-N104",
+      "sources": {
+        "writtenSection": "scalability",
+        "narrativeSection": "scalability",
+        "narrativeSegments": [
+          "N090-N104"
+        ]
+      },
       "elements": {
         "headline": "We are no longer only scaling infrastructure.",
         "support": "We are scaling intelligence.",
-        "items": [
+        "labels": [
           "Horizontal scaling",
           "Queues",
           "Distributed processing"
         ]
       },
+      "transition": "section",
       "events": [
         {
           "id": "s007-reveal-item-1",
           "at": 5.59,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "horizontal scaling"
+          "sourcePhrase": "horizontal scaling",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s007-reveal-item-2",
           "at": 7.03,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "queues"
+          "sourcePhrase": "queues",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s007-reveal-item-3",
           "at": 7.79,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "distributed processing"
+          "sourcePhrase": "distributed processing",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s007-reveal-headline",
           "at": 34.45,
           "action": "reveal",
           "target": "headline",
-          "sourcePhrase": "no longer just scaling infrastructure"
+          "sourcePhrase": "no longer just scaling infrastructure",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s007-reveal-support",
+          "id": "s007-emphasise-support",
           "at": 38.57,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "scaling intelligence"
+          "sourcePhrase": "scaling intelligence",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S008",
-      "title": "Scale up: complexity inside one agent",
       "section": "scaling-the-agent",
-      "visualArchetype": "whiteboard",
+      "title": "Scale up: complexity inside one agent",
+      "archetype": "Diagram",
       "start": 361.07,
       "end": 418.07,
-      "narrationRange": "Scaling the Agent · N105-N125",
+      "sources": {
+        "writtenSection": "scaling-the-agent",
+        "narrativeSection": "scaling-the-agent",
+        "narrativeSegments": [
+          "N105-N125"
+        ]
+      },
+      "diagram": {
+        "id": "scaling-one-agent",
+        "source": "production/episodes/0004/diagrams/scaling-one-agent.d2",
+        "rendered": "production/episodes/0004/diagrams/scaling-one-agent.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "single-agent",
+            "visible": [
+              "agent"
+            ]
+          },
+          {
+            "id": "growing-context",
+            "visible": [
+              "inputs",
+              "agent"
+            ]
+          },
+          {
+            "id": "operational-pressure",
+            "visible": [
+              "inputs",
+              "agent",
+              "pressure"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Scale up: complexity inside one agent",
         "support": "Larger prompts and contexts drive tokens, latency, cost and dilution.",
-        "items": [
+        "labels": [
           "ONE AGENT",
           "Instructions",
           "Tools",
@@ -494,63 +897,123 @@
           "Latency · Cost · Dilution"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s008-reveal-item-1",
           "at": 1.34,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "individual agent more capable"
+          "sourcePhrase": "individual agent more capable",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s008-reveal-item-2",
           "at": 6.57,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "instructions"
+          "sourcePhrase": "instructions",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s008-reveal-item-3",
           "at": 3.92,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "tools"
+          "sourcePhrase": "tools",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s008-reveal-item-4",
           "at": 4.46,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "memory"
+          "sourcePhrase": "memory",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s008-reveal-item-5",
           "at": 5.08,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "knowledge"
+          "sourcePhrase": "knowledge",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s008-reveal-item-6",
+          "id": "s008-emphasise-item-6",
           "at": 34,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "item-6",
-          "sourcePhrase": "Latency increases Costs increase"
+          "sourcePhrase": "Latency increases Costs increase",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S009",
-      "title": "Scale out: complexity across the system",
       "section": "scaling-the-agent-system",
-      "visualArchetype": "whiteboard",
+      "title": "Scale out: complexity across the system",
+      "archetype": "Diagram",
       "start": 418.07,
       "end": 500.08,
-      "narrationRange": "Scaling the Agent System · N126-N150",
+      "sources": {
+        "writtenSection": "scaling-the-agent-system",
+        "narrativeSection": "scaling-the-agent-system",
+        "narrativeSegments": [
+          "N126-N150"
+        ]
+      },
+      "diagram": {
+        "id": "scaling-agent-system",
+        "source": "production/episodes/0004/diagrams/scaling-agent-system.d2",
+        "rendered": "production/episodes/0004/diagrams/scaling-agent-system.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "coordination",
+            "visible": [
+              "router"
+            ]
+          },
+          {
+            "id": "specialists",
+            "visible": [
+              "router",
+              "agents"
+            ]
+          },
+          {
+            "id": "boundary-costs",
+            "visible": [
+              "router",
+              "agents",
+              "boundaries"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Scale out: complexity across the system",
         "support": "Complexity moved into routing, context, state, recovery and tracing.",
-        "items": [
+        "labels": [
           "COORDINATION",
           "Knowledge agent",
           "Evidence agent",
@@ -559,100 +1022,212 @@
           "Routing · Context · State"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s009-reveal-item-2",
           "at": 10.61,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "retrieves knowledge"
+          "sourcePhrase": "retrieves knowledge",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s009-reveal-item-3",
           "at": 12.67,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "evaluates evidence"
+          "sourcePhrase": "evaluates evidence",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.917
+          }
         },
         {
           "id": "s009-reveal-item-4",
           "at": 14.73,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "architectural principles"
+          "sourcePhrase": "architectural principles",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s009-reveal-item-5",
           "at": 15.93,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "explores trade-offs"
+          "sourcePhrase": "explores trade-offs",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.825
+          }
         },
         {
-          "id": "s009-reveal-support",
+          "id": "s009-emphasise-support",
           "at": 32.93,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "complexity doesn't disappear"
+          "sourcePhrase": "complexity doesn't disappear",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.841
+          }
         },
         {
           "id": "s009-reveal-item-1",
           "at": 38.93,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "architecture has to decide"
+          "sourcePhrase": "architecture has to decide",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s009-reveal-item-6",
           "at": 51.27,
           "action": "reveal",
           "target": "item-6",
-          "sourcePhrase": "workflow state"
+          "sourcePhrase": "workflow state",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S010",
-      "title": "Where should complexity live?",
       "section": "scaling-up-and-scaling-out",
-      "visualArchetype": "diagram",
+      "title": "Where should complexity live?",
+      "archetype": "Diagram",
       "start": 500.08,
       "end": 538.07,
-      "narrationRange": "Scaling Up and Scaling Out · N151-N162",
+      "sources": {
+        "writtenSection": "scaling-up-and-scaling-out",
+        "narrativeSection": "scaling-up-and-scaling-out",
+        "narrativeSegments": [
+          "N151-N162"
+        ]
+      },
+      "diagram": {
+        "id": "scaling-up-versus-out",
+        "source": "production/episodes/0004/diagrams/scaling-up-versus-out.d2",
+        "rendered": "production/episodes/0004/diagrams/scaling-up-versus-out.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "question",
+            "visible": [
+              "question"
+            ]
+          },
+          {
+            "id": "scale-up",
+            "visible": [
+              "question",
+              "up"
+            ]
+          },
+          {
+            "id": "scale-out",
+            "visible": [
+              "question",
+              "up",
+              "out"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Where should complexity live?",
         "support": "Neither approach is universally correct.",
-        "items": []
+        "labels": []
       },
+      "transition": "section",
       "events": [
         {
-          "id": "s010-reveal-headline",
+          "id": "s010-emphasise-headline",
           "at": 1.38,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
-          "sourcePhrase": "where we want the complexity to live"
+          "sourcePhrase": "where we want the complexity to live",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s010-reveal-support",
+          "id": "s010-emphasise-support",
           "at": 11.91,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "Neither approach is universally correct"
+          "sourcePhrase": "Neither approach is universally correct",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S011",
-      "title": "Coherence Before Size",
       "section": "coherence-before-size",
-      "visualArchetype": "whiteboard",
+      "title": "Coherence Before Size",
+      "archetype": "Diagram",
       "start": 538.07,
       "end": 603,
-      "narrationRange": "Coherence Before Size · N163-N179",
+      "sources": {
+        "writtenSection": "coherence-before-size",
+        "narrativeSection": "coherence-before-size",
+        "narrativeSegments": [
+          "N163-N179"
+        ]
+      },
+      "diagram": {
+        "id": "coherence-boundary-costs",
+        "source": "production/episodes/0004/diagrams/coherence-boundary-costs.d2",
+        "rendered": "production/episodes/0004/diagrams/coherence-boundary-costs.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "principle",
+            "visible": [
+              "principle",
+              "responsibility"
+            ]
+          },
+          {
+            "id": "split-decision",
+            "visible": [
+              "principle",
+              "responsibility",
+              "decision"
+            ]
+          },
+          {
+            "id": "boundary-costs",
+            "visible": [
+              "principle",
+              "responsibility",
+              "decision",
+              "boundary",
+              "costs"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Coherence Before Size",
         "support": "Split when responsibilities diverge—not because smaller looks sophisticated.",
-        "items": [
+        "labels": [
           "COHERENT RESPONSIBILITY",
           "Routing boundary",
           "Context boundary",
@@ -661,70 +1236,135 @@
           "Failure boundary"
         ]
       },
+      "transition": "section",
       "events": [
         {
-          "id": "s011-reveal-headline",
+          "id": "s011-emphasise-headline",
           "at": 0.97,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
-          "sourcePhrase": "important architectural principle"
+          "sourcePhrase": "important architectural principle",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s011-reveal-item-1",
           "at": 7.73,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "It should be coherent"
+          "sourcePhrase": "It should be coherent",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s011-reveal-item-2",
           "at": 42.15,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "routing boundary"
+          "sourcePhrase": "routing boundary",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s011-reveal-item-3",
           "at": 44.69,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "context boundary"
+          "sourcePhrase": "context boundary",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s011-reveal-item-4",
           "at": 47.23,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "trust boundary"
+          "sourcePhrase": "trust boundary",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s011-reveal-item-5",
           "at": 49.62,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "evaluation boundary"
+          "sourcePhrase": "evaluation boundary",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s011-reveal-item-6",
           "at": 53.78,
           "action": "reveal",
           "target": "item-6",
-          "sourcePhrase": "failure boundary"
+          "sourcePhrase": "failure boundary",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S012",
-      "title": "Observe intelligent behaviour",
       "section": "observability",
-      "visualArchetype": "whiteboard",
+      "title": "Observe intelligent behaviour",
+      "archetype": "Diagram",
       "start": 603,
       "end": 649.09,
-      "narrationRange": "Observability · N180-N198",
+      "sources": {
+        "writtenSection": "observability",
+        "narrativeSection": "observability",
+        "narrativeSegments": [
+          "N180-N198"
+        ]
+      },
+      "diagram": {
+        "id": "ai-native-observability",
+        "source": "production/episodes/0004/diagrams/ai-native-observability.d2",
+        "rendered": "production/episodes/0004/diagrams/ai-native-observability.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "behaviour",
+            "visible": [
+              "behaviour"
+            ]
+          },
+          {
+            "id": "signals",
+            "visible": [
+              "behaviour",
+              "signals"
+            ]
+          },
+          {
+            "id": "explanation",
+            "visible": [
+              "behaviour",
+              "signals",
+              "trace",
+              "question"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Observe intelligent behaviour",
         "support": "Why was this agent selected?",
-        "items": [
+        "labels": [
           "TRACE",
           "Prompt + model",
           "Tokens + retrieval",
@@ -733,70 +1373,105 @@
           "Evaluation + feedback"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s012-reveal-item-1",
           "at": 6,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "logs metrics and traces"
+          "sourcePhrase": "logs metrics and traces",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s012-reveal-item-2",
           "at": 13.92,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "prompt versions model selection"
+          "sourcePhrase": "prompt versions model selection",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.75
+          }
         },
         {
           "id": "s012-reveal-item-3",
           "at": 17.11,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "token usage retrieval quality"
+          "sourcePhrase": "token usage retrieval quality",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s012-reveal-item-4",
           "at": 19.92,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "tool calls"
+          "sourcePhrase": "tool calls",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s012-reveal-item-5",
           "at": 21.08,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "workflow execution"
+          "sourcePhrase": "workflow execution",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s012-reveal-item-6",
           "at": 24.48,
           "action": "reveal",
           "target": "item-6",
-          "sourcePhrase": "evaluation results and user feedback"
+          "sourcePhrase": "evaluation results and user feedback",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s012-reveal-support",
+          "id": "s012-emphasise-support",
           "at": 30.01,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "why a particular agent was selected"
+          "sourcePhrase": "why a particular agent was selected",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S013",
-      "title": "Stable intent. Replaceable implementation.",
       "section": "evolvability",
-      "visualArchetype": "whiteboard",
+      "title": "Stable intent. Replaceable implementation.",
+      "archetype": "Whiteboard",
       "start": 649.09,
       "end": 684.09,
-      "narrationRange": "Evolvability · N199-N208",
+      "sources": {
+        "writtenSection": "evolvability",
+        "narrativeSection": "evolvability",
+        "narrativeSegments": [
+          "N199-N208"
+        ]
+      },
       "elements": {
         "headline": "Stable intent. Replaceable implementation.",
         "support": "Architectural intent should not live only inside a prompt.",
-        "items": [
+        "labels": [
           "CAPABILITY / RESPONSIBILITY",
           "Models",
           "Prompts",
@@ -804,63 +1479,94 @@
           "Retrieval techniques"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s013-reveal-item-2",
           "at": 8.26,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "Models and prompting techniques"
+          "sourcePhrase": "Models and prompting techniques",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s013-reveal-item-3",
           "at": 9.02,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "prompting techniques"
+          "sourcePhrase": "prompting techniques",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s013-reveal-item-4",
           "at": 11.98,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "Agent frameworks"
+          "sourcePhrase": "Agent frameworks",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s013-reveal-item-5",
           "at": 13.9,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "retrieval techniques"
+          "sourcePhrase": "retrieval techniques",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s013-reveal-item-1",
           "at": 17.4,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "Architectural intent should survive"
+          "sourcePhrase": "Architectural intent should survive",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s013-reveal-support",
+          "id": "s013-emphasise-support",
           "at": 26.46,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "Responsibilities shouldn't exist inside prompts"
+          "sourcePhrase": "Responsibilities shouldn't exist inside prompts",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.739
+          }
         }
       ]
     },
     {
       "id": "S014",
-      "title": "Operational control plane",
       "section": "operability",
-      "visualArchetype": "workspace",
+      "title": "Operational control plane",
+      "archetype": "Repository",
       "start": 684.09,
       "end": 727.09,
-      "narrationRange": "Operability · N209-N217",
+      "sources": {
+        "writtenSection": "operability",
+        "narrativeSection": "operability",
+        "narrativeSegments": [
+          "N209-N217"
+        ]
+      },
       "elements": {
         "headline": "Operational control plane",
         "support": "Logical separation must remain practical to operate.",
-        "items": [
+        "labels": [
           "routing-policy",
           "model-access",
           "tool-policy",
@@ -868,42 +1574,87 @@
           "evaluation"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s014-reveal-evidence-1",
           "at": 18.91,
           "action": "reveal",
           "target": "evidence-1",
-          "sourcePhrase": "Changing routing policies disabling models"
+          "sourcePhrase": "Changing routing policies disabling models",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s014-reveal-evidence-2",
           "at": 22.27,
           "action": "reveal",
           "target": "evidence-2",
-          "sourcePhrase": "inspecting reasoning paths replaying workflows"
+          "sourcePhrase": "inspecting reasoning paths replaying workflows",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s014-reveal-support",
+          "id": "s014-emphasise-support",
           "at": 40.59,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "practical operability"
+          "sourcePhrase": "practical operability",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S015",
-      "title": "Testing remains essential",
       "section": "quality-assurance",
-      "visualArchetype": "whiteboard",
+      "title": "Testing remains essential",
+      "archetype": "Diagram",
       "start": 727.09,
       "end": 755.48,
-      "narrationRange": "Quality Assurance · N218-N227",
+      "sources": {
+        "writtenSection": "quality-assurance-testing-and-evaluation",
+        "narrativeSection": "quality-assurance",
+        "narrativeSegments": [
+          "N218-N227"
+        ]
+      },
+      "diagram": {
+        "id": "testing-versus-evaluation",
+        "source": "production/episodes/0004/diagrams/testing-versus-evaluation.d2",
+        "rendered": "production/episodes/0004/diagrams/testing-versus-evaluation.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "testing",
+            "visible": [
+              "system",
+              "testing",
+              "implementation"
+            ]
+          },
+          {
+            "id": "evaluation",
+            "visible": [
+              "system",
+              "testing",
+              "implementation",
+              "evaluation",
+              "behaviour"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Testing remains essential",
         "support": "Execution succeeded ≠ Outcome was good",
-        "items": [
+        "labels": [
           "Unit",
           "Integration",
           "Contract",
@@ -911,63 +1662,94 @@
           "Performance"
         ]
       },
+      "transition": "section",
       "events": [
         {
           "id": "s015-reveal-item-1",
           "at": 3.09,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "unit tests"
+          "sourcePhrase": "unit tests",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s015-reveal-item-2",
           "at": 3.85,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "integration"
+          "sourcePhrase": "integration",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s015-reveal-item-3",
           "at": 4.74,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "contract"
+          "sourcePhrase": "contract",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s015-reveal-item-4",
           "at": 20.02,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "workflow may execute perfectly"
+          "sourcePhrase": "workflow may execute perfectly",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s015-reveal-item-5",
           "at": 5.49,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "performance tests"
+          "sourcePhrase": "performance tests",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s015-reveal-support",
+          "id": "s015-emphasise-support",
           "at": 23.11,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "poor response"
+          "sourcePhrase": "poor response",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S016",
-      "title": "Testing verifies implementation.",
       "section": "evaluation",
-      "visualArchetype": "focus",
+      "title": "Testing verifies implementation.",
+      "archetype": "Reflection",
       "start": 755.48,
       "end": 795.77,
-      "narrationRange": "Evaluation · N228-N236",
+      "sources": {
+        "writtenSection": "evaluation",
+        "narrativeSection": "evaluation",
+        "narrativeSegments": [
+          "N228-N236"
+        ]
+      },
       "elements": {
         "headline": "Testing verifies implementation.",
         "support": "Evaluation measures behaviour.",
-        "items": [
+        "labels": [
           "Correct?",
           "Grounded?",
           "Intent satisfied?",
@@ -975,225 +1757,398 @@
           "Worth the cost?"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s016-reveal-item-1",
           "at": 17.16,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "answer correct"
+          "sourcePhrase": "answer correct",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s016-reveal-item-2",
           "at": 18.6,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "grounded in trusted information"
+          "sourcePhrase": "grounded in trusted information",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s016-reveal-item-3",
           "at": 21.94,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "satisfy the user's intent"
+          "sourcePhrase": "satisfy the user's intent",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.854
+          }
         },
         {
           "id": "s016-reveal-item-4",
           "at": 27.23,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "behavior safe"
+          "sourcePhrase": "behavior safe",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s016-reveal-item-5",
           "at": 29.04,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "outcome worth the cost"
+          "sourcePhrase": "outcome worth the cost",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s016-reveal-headline",
+          "id": "s016-emphasise-headline",
           "at": 31.12,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
-          "sourcePhrase": "Testing verifies"
+          "sourcePhrase": "Testing verifies",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s016-reveal-support",
+          "id": "s016-emphasise-support",
           "at": 34.38,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "evaluation measures"
+          "sourcePhrase": "evaluation measures",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S017",
-      "title": "Evaluate the architecture that produced the answer",
       "section": "evaluating-agent-architectures",
-      "visualArchetype": "whiteboard",
+      "title": "Evaluate the architecture that produced the answer",
+      "archetype": "Diagram",
       "start": 795.77,
       "end": 837.07,
-      "narrationRange": "Evaluating Agent Architectures · N237-N248",
+      "sources": {
+        "writtenSection": "evaluating-agent-architectures",
+        "narrativeSection": "evaluating-agent-architectures",
+        "narrativeSegments": [
+          "N237-N248"
+        ]
+      },
+      "diagram": {
+        "id": "agent-architecture-evaluation",
+        "source": "production/episodes/0004/diagrams/agent-architecture-evaluation.d2",
+        "rendered": "production/episodes/0004/diagrams/agent-architecture-evaluation.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "execution",
+            "visible": [
+              "intent",
+              "router",
+              "agent",
+              "collaboration",
+              "outcome"
+            ]
+          },
+          {
+            "id": "evaluation",
+            "visible": [
+              "intent",
+              "router",
+              "agent",
+              "collaboration",
+              "outcome",
+              "evaluation"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Evaluate the architecture that produced the answer",
         "support": "Did multiple agents produce measurable value?",
-        "items": [
+        "labels": [
           "Routing",
           "Agent behaviour",
           "Collaboration",
           "Final outcome"
         ]
       },
+      "transition": "cut",
       "events": [
         {
           "id": "s017-reveal-item-1",
           "at": 9.71,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "router select"
+          "sourcePhrase": "router select",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s017-reveal-item-2",
           "at": 12.36,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "each agent receive"
+          "sourcePhrase": "each agent receive",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s017-reveal-item-3",
           "at": 19.91,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "collaboration actually beneficial"
+          "sourcePhrase": "collaboration actually beneficial",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s017-reveal-item-4",
           "at": 5.14,
           "action": "reveal",
           "target": "item-4",
-          "sourcePhrase": "final answer"
+          "sourcePhrase": "final answer",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s017-reveal-support",
+          "id": "s017-emphasise-support",
           "at": 34.73,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "additional complexity has to justify"
+          "sourcePhrase": "additional complexity has to justify",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s017-connect-1",
           "at": 12.36,
           "action": "connect",
           "from": "item-1",
-          "to": "item-2"
+          "to": "item-2",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         },
         {
           "id": "s017-connect-2",
           "at": 19.91,
           "action": "connect",
           "from": "item-2",
-          "to": "item-3"
+          "to": "item-3",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         },
         {
           "id": "s017-connect-3",
           "at": 19.91,
           "action": "connect",
           "from": "item-3",
-          "to": "item-4"
+          "to": "item-4",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S018",
-      "title": "Capability is the semantic contract",
       "section": "capabilities-and-evaluation",
-      "visualArchetype": "diagram",
+      "title": "Capability is the semantic contract",
+      "archetype": "Diagram",
       "start": 837.07,
       "end": 881.07,
-      "narrationRange": "Capabilities and Evaluation · N249-N263",
+      "sources": {
+        "writtenSection": "capabilities-and-evaluation",
+        "narrativeSection": "capabilities-and-evaluation",
+        "narrativeSegments": [
+          "N249-N263"
+        ]
+      },
+      "diagram": {
+        "id": "capabilities-as-evaluation-contracts",
+        "source": "production/episodes/0004/diagrams/capabilities-as-evaluation-contracts.d2",
+        "rendered": "production/episodes/0004/diagrams/capabilities-as-evaluation-contracts.svg",
+        "mode": "progressive",
+        "states": [
+          {
+            "id": "contract",
+            "visible": [
+              "capability",
+              "contract"
+            ]
+          },
+          {
+            "id": "implementation",
+            "visible": [
+              "capability",
+              "contract",
+              "implementation"
+            ]
+          },
+          {
+            "id": "evaluation",
+            "visible": [
+              "capability",
+              "contract",
+              "implementation",
+              "evaluation"
+            ]
+          }
+        ]
+      },
       "elements": {
         "headline": "Capability is the semantic contract",
         "support": "Evaluate outcomes, not internal agent count.",
-        "items": []
+        "labels": []
       },
+      "transition": "section",
       "events": [
         {
-          "id": "s018-reveal-headline",
+          "id": "s018-emphasise-headline",
           "at": 18.31,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
-          "sourcePhrase": "Capabilities"
+          "sourcePhrase": "Capabilities",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s018-reveal-support",
+          "id": "s018-emphasise-support",
           "at": 39.87,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "evaluate outcomes rather than"
+          "sourcePhrase": "evaluate outcomes rather than",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S019",
-      "title": "Architecture is still about qualities.",
       "section": "architecture-is-about-qualities",
-      "visualArchetype": "studio",
+      "title": "Architecture is still about qualities.",
+      "archetype": "Narrator",
       "start": 881.07,
       "end": 920.07,
-      "narrationRange": "Architecture Is About Qualities · N264-N274",
+      "sources": {
+        "writtenSection": "architecture-is-about-qualities",
+        "narrativeSection": "architecture-is-about-qualities",
+        "narrativeSegments": [
+          "N264-N274"
+        ]
+      },
       "elements": {
         "headline": "Architecture is still about qualities.",
         "support": "AI amplifies familiar system characteristics.",
-        "items": [
+        "labels": [
           "Trust · Reliability · Performance",
           "Scalability · Observability",
           "Evolve · Operate · Evaluate"
         ]
       },
+      "transition": "section",
       "events": [
         {
-          "id": "s019-reveal-headline",
+          "id": "s019-emphasise-headline",
           "at": 9.65,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
-          "sourcePhrase": "Architecture is still about balancing"
+          "sourcePhrase": "Architecture is still about balancing",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s019-reveal-item-1",
           "at": 15.11,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "Security becomes more complex"
+          "sourcePhrase": "Security becomes more complex",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s019-reveal-item-2",
           "at": 20,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "Scalability extends beyond infrastructure"
+          "sourcePhrase": "Scalability extends beyond infrastructure",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s019-reveal-item-3",
           "at": 26.76,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "Testing is complemented by evaluation"
+          "sourcePhrase": "Testing is complemented by evaluation",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S020",
-      "title": "What must the system do?",
       "section": "closing-thoughts",
-      "visualArchetype": "focus",
+      "title": "What must the system do?",
+      "archetype": "Reflection",
       "start": 920.07,
       "end": 948.02,
-      "narrationRange": "Closing Thoughts · N275-N283",
+      "sources": {
+        "writtenSection": "closing-thoughts",
+        "narrativeSection": "closing-thoughts",
+        "narrativeSegments": [
+          "N275-N283"
+        ]
+      },
       "elements": {
         "headline": "What must the system do?",
         "support": "What properties must the system possess?",
-        "items": [
+        "labels": [
           "Functionality",
           "+",
           "Characteristics",
@@ -1201,98 +2156,149 @@
           "Architecture"
         ]
       },
+      "transition": "cut",
       "events": [
         {
-          "id": "s020-reveal-headline",
+          "id": "s020-emphasise-headline",
           "at": 5.03,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
-          "sourcePhrase": "What must the system do"
+          "sourcePhrase": "What must the system do",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s020-reveal-support",
+          "id": "s020-emphasise-support",
           "at": 6.87,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "what properties must the system possess"
+          "sourcePhrase": "what properties must the system possess",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s020-reveal-item-1",
           "at": 10.61,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "defines functionality"
+          "sourcePhrase": "defines functionality",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s020-reveal-item-3",
           "at": 12.4,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "shapes the architecture"
+          "sourcePhrase": "shapes the architecture",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s020-reveal-item-5",
           "at": 22.01,
           "action": "reveal",
           "target": "item-5",
-          "sourcePhrase": "architectural thinking"
+          "sourcePhrase": "architectural thinking",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     },
     {
       "id": "S021",
-      "title": "Episode 5",
       "section": "looking-ahead",
-      "visualArchetype": "studio",
+      "title": "Episode 5",
+      "archetype": "Narrator",
       "start": 948.02,
       "end": 972.303,
-      "narrationRange": "Looking Ahead to Episode 5 · N284-N285",
+      "sources": {
+        "writtenSection": "looking-ahead",
+        "narrativeSection": "looking-ahead",
+        "narrativeSegments": [
+          "N284-N285"
+        ]
+      },
       "elements": {
         "headline": "Episode 5",
         "support": "How I Approach Solution Design and Evolving the Architecture",
-        "items": [
+        "labels": [
           "Problem",
           "Architectural thinking",
           "Evolving solution"
         ]
       },
+      "transition": "fade",
       "events": [
         {
           "id": "s021-reveal-headline",
           "at": 0.31,
           "action": "reveal",
           "target": "headline",
-          "sourcePhrase": "next episode"
+          "sourcePhrase": "next episode",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
-          "id": "s021-reveal-support",
+          "id": "s021-emphasise-support",
           "at": 5.72,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "support",
-          "sourcePhrase": "approach solution design"
+          "sourcePhrase": "approach solution design",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s021-reveal-item-1",
           "at": 14.38,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "understanding the problem"
+          "sourcePhrase": "understanding the problem",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s021-reveal-item-2",
           "at": 16.84,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "architectural thinking"
+          "sourcePhrase": "architectural thinking",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         },
         {
           "id": "s021-reveal-item-3",
           "at": 18.55,
           "action": "reveal",
           "target": "item-3",
-          "sourcePhrase": "evolving solution"
+          "sourcePhrase": "evolving solution",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
         }
       ]
     }
-  ]
+  ],
+  "transcript": "production/episodes/0004/transcript.json",
+  "alignment": "production/episodes/0004/alignment.json",
+  "scenePlan": "production/episodes/0004/scene-plan.yaml"
 }
