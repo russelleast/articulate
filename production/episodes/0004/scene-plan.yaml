@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0004",
+    "title": "System Characteristics: The Properties Every System Needs",
+    "writtenSource": "docs/episodes/0004-system-characteristics-the-properties-every-system-needs.md",
+    "narrativeSource": "production/episodes/0004/narrative.md",
+    "audio": "production/episodes/0004/ep4-system-characteristics.wav"
+  },
+  "sections": [
+    { "id": "opening", "title": "Opening", "narrativeSegments": ["N001-N013"], "anchor": null },
+    { "id": "functionality-versus-characteristics", "title": "Functionality Versus Characteristics", "narrativeSegments": ["N014-N024"], "anchor": "When architects think about software" },
+    { "id": "why-architects-care", "title": "Why Architects Care", "narrativeSegments": ["N025-N039"], "anchor": "Throughout my career one lesson" },
+    { "id": "trust", "title": "Trust", "narrativeSegments": ["N040-N054"], "anchor": "Trust is the foundation" },
+    { "id": "reliability", "title": "Reliability", "narrativeSegments": ["N055-N072"], "anchor": "Reliability answers a simple question" },
+    { "id": "performance", "title": "Performance", "narrativeSegments": ["N073-N089"], "anchor": "Performance is much more about response time" },
+    { "id": "scalability", "title": "Scalability", "narrativeSegments": ["N090-N104"], "anchor": "When architects hear the word scalability" },
+    { "id": "scaling-the-agent", "title": "Scaling the Agent", "narrativeSegments": ["N105-N125"], "anchor": "One approach is to make an individual agent" },
+    { "id": "scaling-the-agent-system", "title": "Scaling the Agent System", "narrativeSegments": ["N126-N150"], "anchor": "The alternative is to scale out" },
+    { "id": "scaling-up-and-scaling-out", "title": "Scaling Up and Scaling Out", "narrativeSegments": ["N151-N162"], "anchor": "the architectural question isn't whether agents" },
+    { "id": "coherence-before-size", "title": "Coherence Before Size", "narrativeSegments": ["N163-N179"], "anchor": "This leads to an important architectural principle" },
+    { "id": "observability", "title": "Observability", "narrativeSegments": ["N180-N198"], "anchor": "Observability has become one of the defining characteristics" },
+    { "id": "evolvability", "title": "Evolvability", "narrativeSegments": ["N199-N208"], "anchor": "Technology changes AI changes even faster" },
+    { "id": "operability", "title": "Operability", "narrativeSegments": ["N209-N217"], "anchor": "Building software is only part of the challenge" },
+    { "id": "quality-assurance", "title": "Quality Assurance", "narrativeSegments": ["N218-N227"], "anchor": "Traditional software engineering gives us testing" },
+    { "id": "evaluation", "title": "Evaluation", "narrativeSegments": ["N228-N236"], "anchor": "Machine learning has always relied on evaluation" },
+    { "id": "evaluating-agent-architectures", "title": "Evaluating Agent Architectures", "narrativeSegments": ["N237-N248"], "anchor": "Multi-agent systems introduce another level of evaluation" },
+    { "id": "capabilities-and-evaluation", "title": "Capabilities and Evaluation", "narrativeSegments": ["N249-N263"], "anchor": "One question sits underneath every evaluation framework" },
+    { "id": "architecture-is-about-qualities", "title": "Architecture Is About Qualities", "narrativeSegments": ["N264-N274"], "anchor": "One thing has become increasingly clear" },
+    { "id": "closing-thoughts", "title": "Closing Thoughts", "narrativeSegments": ["N275-N283"], "anchor": "Before designing any architecture" },
+    { "id": "looking-ahead", "title": "Looking Ahead to Episode 5", "narrativeSegments": ["N284-N285"], "anchor": "In the next episode" }
+  ],
+  "scenes": [
+    {
+      "id": "S001", "section": "opening", "kind": "studio", "studioLayout": "welcome", "transition": "fade", "companion": true,
+      "headline": "AI-native systems still need to be systems.", "support": "Can people trust it?", "items": [],
+      "cues": [{ "target": "headline", "phrase": "AI-native systems are still systems" }, { "target": "support", "phrase": "Can people trust it" }]
+    },
+    {
+      "id": "S002", "section": "functionality-versus-characteristics", "kind": "whiteboard", "diagramLayout": "hub", "transition": "section",
+      "headline": "Functionality and characteristics", "support": "Features attract users. Characteristics keep them.",
+      "items": ["SYSTEM OUTPUT", "What does it do? → Functionality", "How well? → Characteristics", "Secure · Reliable", "Observable · Performant", "Trustworthy"],
+      "cues": [{"target":"item-1","phrase":"design a solution architecture"},{"target":"item-2","phrase":"What does the system do"},{"target":"item-3","phrase":"How well does it do it"},{"target":"item-4","phrase":"secure reliable"},{"target":"item-5","phrase":"observable performant"},{"target":"item-6","phrase":"trustworthy"},{"target":"support","phrase":"Features attract users"}]
+    },
+    {
+      "id": "S003", "section": "why-architects-care", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Patterns improve system qualities", "support": "Architecture is about trade-offs.",
+      "items": ["ARCHITECTURAL DECISIONS", "CQRS → Scalability", "Event Sourcing → Auditability", "Workflow engines → Reliability", "Actor models → Resilience", "Caching → Performance"],
+      "cues": [{"target":"item-1","phrase":"architectural patterns"},{"target":"item-2","phrase":"CQRS"},{"target":"item-3","phrase":"event sourcing"},{"target":"item-4","phrase":"workflow engines"},{"target":"item-5","phrase":"actor models"},{"target":"item-6","phrase":"caching"},{"target":"support","phrase":"Every architecture decision is really a trade-off"}]
+    },
+    {
+      "id": "S004", "section": "trust", "kind": "whiteboard", "diagramLayout": "change-path", "transition": "section",
+      "headline": "Trust across the entire journey", "support": "Capability ≠ Authority",
+      "items": ["User intent", "Agent reasoning", "Tool execution", "Outcome"],
+      "cues": [{"target":"support","phrase":"technically capable"},{"target":"item-1","phrase":"user intent"},{"target":"item-2","phrase":"reasoning"},{"target":"item-3","phrase":"tool execution"},{"target":"item-4","phrase":"final result"}],
+      "connections": [["item-1","item-2"],["item-2","item-3"],["item-3","item-4"]]
+    },
+    {
+      "id": "S005", "section": "reliability", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Reliability controls what happens when failure occurs.", "support": "Retry · Fallback · Pause · Human intervention · Degrade · Resume",
+      "items": ["FAILURE", "Model unavailable", "Rate limited", "Retrieval failure", "Tool timeout", "Controlled response"],
+      "cues": [{"target":"item-1","phrase":"new failure modes"},{"target":"item-2","phrase":"Models may become unavailable"},{"target":"item-3","phrase":"rate limit"},{"target":"item-4","phrase":"Retrieval services may fail"},{"target":"item-5","phrase":"tools may stop responding"},{"target":"item-6","phrase":"selecting another model retrying an operation"},{"target":"support","phrase":"deciding what should happen when failure"}]
+    },
+    {
+      "id": "S006", "section": "performance", "kind": "whiteboard", "diagramLayout": "change-path", "transition": "section",
+      "headline": "The reasoning pipeline", "support": "Absolute performance · Perceived performance · Cost",
+      "items": ["Context", "Retrieval", "Model", "Tools", "Coordination"],
+      "cues": [{"target":"support","phrase":"perceived performance rather than absolute performance"},{"target":"item-1","phrase":"building context"},{"target":"item-2","phrase":"retrieving knowledge"},{"target":"item-3","phrase":"entire reasoning pipeline"},{"target":"item-4","phrase":"calling those tools"},{"target":"item-5","phrase":"coordinating agents"}],
+      "connections": [["item-1","item-2"],["item-2","item-3"],["item-3","item-4"],["item-4","item-5"]]
+    },
+    {
+      "id": "S007", "section": "scalability", "kind": "studio", "studioLayout": "welcome", "transition": "section", "companion": true,
+      "headline": "We are no longer only scaling infrastructure.", "support": "We are scaling intelligence.", "items": ["Horizontal scaling", "Queues", "Distributed processing"],
+      "cues": [{"target":"item-1","phrase":"horizontal scaling"},{"target":"item-2","phrase":"queues"},{"target":"item-3","phrase":"distributed processing"},{"target":"headline","phrase":"no longer just scaling infrastructure"},{"target":"support","phrase":"scaling intelligence"}]
+    },
+    {
+      "id": "S008", "section": "scaling-the-agent", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Scale up: complexity inside one agent", "support": "Larger prompts and contexts drive tokens, latency, cost and dilution.",
+      "items": ["ONE AGENT", "Instructions", "Tools", "Memory", "Knowledge", "Latency · Cost · Dilution"],
+      "cues": [{"target":"item-1","phrase":"individual agent more capable"},{"target":"item-2","phrase":"instructions"},{"target":"item-3","phrase":"tools"},{"target":"item-4","phrase":"memory"},{"target":"item-5","phrase":"knowledge"},{"target":"item-6","phrase":"Latency increases Costs increase"}]
+    },
+    {
+      "id": "S009", "section": "scaling-the-agent-system", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Scale out: complexity across the system", "support": "Complexity moved into routing, context, state, recovery and tracing.",
+      "items": ["COORDINATION", "Knowledge agent", "Evidence agent", "Principle agent", "Trade-off agent", "Routing · Context · State"],
+      "cues": [{"target":"item-2","phrase":"retrieves knowledge"},{"target":"item-3","phrase":"evaluates evidence"},{"target":"item-4","phrase":"architectural principles"},{"target":"item-5","phrase":"explores trade-offs"},{"target":"support","phrase":"complexity doesn't disappear"},{"target":"item-1","phrase":"architecture has to decide"},{"target":"item-6","phrase":"workflow state"}]
+    },
+    {
+      "id": "S010", "section": "scaling-up-and-scaling-out", "kind": "diagram", "transition": "section", "diagramAssetId": "episode-0004-scale-up-scale-out",
+      "headline": "Where should complexity live?", "support": "Neither approach is universally correct.", "items": [],
+      "cues": [{"target":"headline","phrase":"where we want the complexity to live"},{"target":"support","phrase":"Neither approach is universally correct"}]
+    },
+    {
+      "id": "S011", "section": "coherence-before-size", "kind": "whiteboard", "diagramLayout": "hub", "transition": "section",
+      "headline": "Coherence Before Size", "support": "Split when responsibilities diverge—not because smaller looks sophisticated.",
+      "items": ["COHERENT RESPONSIBILITY", "Routing boundary", "Context boundary", "Trust boundary", "Evaluation boundary", "Failure boundary"],
+      "cues": [{"target":"headline","phrase":"important architectural principle"},{"target":"item-1","phrase":"It should be coherent"},{"target":"item-2","phrase":"routing boundary"},{"target":"item-3","phrase":"context boundary"},{"target":"item-4","phrase":"trust boundary"},{"target":"item-5","phrase":"evaluation boundary"},{"target":"item-6","phrase":"failure boundary"}]
+    },
+    {
+      "id": "S012", "section": "observability", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Observe intelligent behaviour", "support": "Why was this agent selected?",
+      "items": ["TRACE", "Prompt + model", "Tokens + retrieval", "Tool calls", "Routing + workflow", "Evaluation + feedback"],
+      "cues": [{"target":"item-1","phrase":"logs metrics and traces"},{"target":"item-2","phrase":"prompt versions model selection"},{"target":"item-3","phrase":"token usage retrieval quality"},{"target":"item-4","phrase":"tool calls"},{"target":"item-5","phrase":"workflow execution"},{"target":"item-6","phrase":"evaluation results and user feedback"},{"target":"support","phrase":"why a particular agent was selected"}]
+    },
+    {
+      "id": "S013", "section": "evolvability", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Stable intent. Replaceable implementation.", "support": "Architectural intent should not live only inside a prompt.",
+      "items": ["CAPABILITY / RESPONSIBILITY", "Models", "Prompts", "Agent frameworks", "Retrieval techniques"],
+      "cues": [{"target":"item-2","phrase":"Models and prompting techniques"},{"target":"item-3","phrase":"prompting techniques"},{"target":"item-4","phrase":"Agent frameworks"},{"target":"item-5","phrase":"retrieval techniques"},{"target":"item-1","phrase":"Architectural intent should survive"},{"target":"support","phrase":"Responsibilities shouldn't exist inside prompts"}]
+    },
+    {
+      "id": "S014", "section": "operability", "kind": "workspace", "transition": "cut",
+      "headline": "Operational control plane", "support": "Logical separation must remain practical to operate.",
+      "items": ["routing-policy", "model-access", "tool-policy", "workflow-control", "evaluation"],
+      "evidence": {"excerpt":["Disable model · Restrict tool · Pause workflow","Inspect reasoning · Replay execution · Replace prompt"]},
+      "cues": [{"target":"evidence-1","phrase":"Changing routing policies disabling models"},{"target":"evidence-2","phrase":"inspecting reasoning paths replaying workflows"},{"target":"support","phrase":"practical operability"}]
+    },
+    {
+      "id": "S015", "section": "quality-assurance", "kind": "whiteboard", "diagramLayout": "change-path", "transition": "section",
+      "headline": "Testing remains essential", "support": "Execution succeeded ≠ Outcome was good",
+      "items": ["Unit", "Integration", "Contract", "End-to-end", "Performance"],
+      "cues": [{"target":"item-1","phrase":"unit tests"},{"target":"item-2","phrase":"integration"},{"target":"item-3","phrase":"contract"},{"target":"item-4","phrase":"workflow may execute perfectly"},{"target":"item-5","phrase":"performance tests"},{"target":"support","phrase":"poor response"}]
+    },
+    {
+      "id": "S016", "section": "evaluation", "kind": "focus", "transition": "cut",
+      "headline": "Testing verifies implementation.", "support": "Evaluation measures behaviour.", "items": ["Correct?", "Grounded?", "Intent satisfied?", "Safe?", "Worth the cost?"],
+      "cues": [{"target":"item-1","phrase":"answer correct"},{"target":"item-2","phrase":"grounded in trusted information"},{"target":"item-3","phrase":"satisfy the user's intent"},{"target":"item-4","phrase":"behavior safe"},{"target":"item-5","phrase":"outcome worth the cost"},{"target":"headline","phrase":"Testing verifies"},{"target":"support","phrase":"evaluation measures"}]
+    },
+    {
+      "id": "S017", "section": "evaluating-agent-architectures", "kind": "whiteboard", "diagramLayout": "change-path", "transition": "cut",
+      "headline": "Evaluate the architecture that produced the answer", "support": "Did multiple agents produce measurable value?",
+      "items": ["Routing", "Agent behaviour", "Collaboration", "Final outcome"],
+      "cues": [{"target":"item-1","phrase":"router select"},{"target":"item-2","phrase":"each agent receive"},{"target":"item-3","phrase":"collaboration actually beneficial"},{"target":"item-4","phrase":"final answer"},{"target":"support","phrase":"additional complexity has to justify"}],
+      "connections": [["item-1","item-2"],["item-2","item-3"],["item-3","item-4"]]
+    },
+    {
+      "id": "S018", "section": "capabilities-and-evaluation", "kind": "diagram", "transition": "section", "diagramAssetId": "episode-0004-capability-evaluation",
+      "headline": "Capability is the semantic contract", "support": "Evaluate outcomes, not internal agent count.", "items": [],
+      "cues": [{"target":"headline","phrase":"Capabilities"},{"target":"support","phrase":"evaluate outcomes rather than"}]
+    },
+    {
+      "id": "S019", "section": "architecture-is-about-qualities", "kind": "studio", "studioLayout": "welcome", "transition": "section", "companion": true,
+      "headline": "Architecture is still about qualities.", "support": "AI amplifies familiar system characteristics.",
+      "items": ["Trust · Reliability · Performance", "Scalability · Observability", "Evolve · Operate · Evaluate"],
+      "cues": [{"target":"headline","phrase":"Architecture is still about balancing"},{"target":"item-1","phrase":"Security becomes more complex"},{"target":"item-2","phrase":"Scalability extends beyond infrastructure"},{"target":"item-3","phrase":"Testing is complemented by evaluation"}]
+    },
+    {
+      "id": "S020", "section": "closing-thoughts", "kind": "focus", "transition": "cut",
+      "headline": "What must the system do?", "support": "What properties must the system possess?",
+      "items": ["Functionality", "+", "Characteristics", "=", "Architecture"],
+      "cues": [{"target":"headline","phrase":"What must the system do"},{"target":"support","phrase":"what properties must the system possess"},{"target":"item-1","phrase":"defines functionality"},{"target":"item-3","phrase":"shapes the architecture"},{"target":"item-5","phrase":"architectural thinking"}]
+    },
+    {
+      "id": "S021", "section": "looking-ahead", "kind": "studio", "studioLayout": "closing", "transition": "fade", "companion": true,
+      "headline": "Episode 5", "support": "How I Approach Solution Design and Evolving the Architecture", "items": ["Problem", "Architectural thinking", "Evolving solution"],
+      "cues": [{"target":"headline","phrase":"next episode"},{"target":"support","phrase":"approach solution design"},{"target":"item-1","phrase":"understanding the problem"},{"target":"item-2","phrase":"architectural thinking"},{"target":"item-3","phrase":"evolving solution"}]
+    }
+  ]
+}

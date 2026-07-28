@@ -121,6 +121,37 @@
       "provider": "local"
     },
     {
+      "id": "episode-0004-narration-v1",
+      "type": "narration",
+      "episode": "0004",
+      "status": "rough-cut-recording",
+      "checksum": null,
+      "location": "production/episodes/0004/ep4-system-characteristics.wav",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-scale-up-scale-out",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0004/scale-up-scale-out.d2",
+      "location": "site/public/diagrams/episode-0004-scale-up-scale-out.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-capability-evaluation",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0004/capability-evaluation.d2",
+      "location": "site/public/diagrams/episode-0004-capability-evaluation.svg",
+      "provider": "local"
+    },
+    {
       "id": "knowledge-reasoning-flow",
       "type": "diagram",
       "format": "d2",

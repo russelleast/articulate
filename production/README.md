@@ -87,6 +87,10 @@ node production/runtime/episode-cli.mjs validate --config <episode-render-config
 node production/runtime/episode-cli.mjs render --config <episode-render-config.json>
 ```
 
+### Audio-derived rough-cut timing
+
+New rough cuts may derive their initial timeline from a timestamped transcript instead of requiring a manually authored timestamp list. `production/runtime/transcript-alignment.mjs` normalises local Whisper output, aligns ordered narrative-section anchors to the recording, and resolves phrase-level cue timing. The resulting `transcript.json`, `alignment.json`, editable `scene-plan.yaml`, and generated `timeline.json` remain visible production artefacts. Recorded audio is the timing authority; generated alignment is explicitly a first draft for human review.
+
 For new productions, `episode.storyboard` in that render config must point to the episode's `storyboard.yaml`; renderer startup then applies the same production-contract validation automatically. Existing configurations that explicitly point at their reviewed Markdown or scene-list artefacts continue under the legacy convention.
 
 ## Boundaries

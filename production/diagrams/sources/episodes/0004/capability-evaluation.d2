@@ -1,0 +1,30 @@
+direction: right
+
+capability: "CAPABILITY" {
+  shape: hexagon
+  style.fill: "#dce7eb"
+}
+
+contract: "Semantic contract" {
+  direction: down
+  intent: Intent
+  outcome: "Expected outcome"
+  policy: "Policies + constraints"
+  measures: "Measures of success"
+}
+
+agents: "IMPLEMENTATION" {
+  direction: down
+  knowledge: "Knowledge agent"
+  evidence: "Evidence agent"
+  tradeoffs: "Trade-off agent"
+}
+
+evaluation: "EVALUATE THE CAPABILITY OUTCOME" {
+  shape: oval
+  style.fill: "#ead8cd"
+}
+
+capability -> contract
+contract -> agents: "DCL describes success"
+agents -> evaluation: "collaborate"

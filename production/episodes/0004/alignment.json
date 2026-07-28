@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "narrativeSegments": [
+        "N001-N013"
+      ],
+      "start": 0,
+      "end": 56.07,
+      "confidence": 1,
+      "anchor": "recording start",
+      "matchedText": "recording start"
+    },
+    {
+      "id": "functionality-versus-characteristics",
+      "title": "Functionality Versus Characteristics",
+      "narrativeSegments": [
+        "N014-N024"
+      ],
+      "start": 56.07,
+      "end": 98.09,
+      "confidence": 1,
+      "anchor": "When architects think about software",
+      "matchedText": "When architects think about software"
+    },
+    {
+      "id": "why-architects-care",
+      "title": "Why Architects Care",
+      "narrativeSegments": [
+        "N025-N039"
+      ],
+      "start": 98.09,
+      "end": 141.07,
+      "confidence": 1,
+      "anchor": "Throughout my career one lesson",
+      "matchedText": "Throughout my career one lesson"
+    },
+    {
+      "id": "trust",
+      "title": "Trust",
+      "narrativeSegments": [
+        "N040-N054"
+      ],
+      "start": 141.07,
+      "end": 197.07,
+      "confidence": 1,
+      "anchor": "Trust is the foundation",
+      "matchedText": "Trust is the foundation"
+    },
+    {
+      "id": "reliability",
+      "title": "Reliability",
+      "narrativeSegments": [
+        "N055-N072"
+      ],
+      "start": 197.07,
+      "end": 257.1,
+      "confidence": 1,
+      "anchor": "Reliability answers a simple question",
+      "matchedText": "Reliability answers a simple question"
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "narrativeSegments": [
+        "N073-N089"
+      ],
+      "start": 257.1,
+      "end": 320.07,
+      "confidence": 1,
+      "anchor": "Performance is much more about response time",
+      "matchedText": "Performance is much more about response time"
+    },
+    {
+      "id": "scalability",
+      "title": "Scalability",
+      "narrativeSegments": [
+        "N090-N104"
+      ],
+      "start": 320.07,
+      "end": 361.07,
+      "confidence": 1,
+      "anchor": "When architects hear the word scalability",
+      "matchedText": "When architects hear the word scalability"
+    },
+    {
+      "id": "scaling-the-agent",
+      "title": "Scaling the Agent",
+      "narrativeSegments": [
+        "N105-N125"
+      ],
+      "start": 361.07,
+      "end": 418.07,
+      "confidence": 1,
+      "anchor": "One approach is to make an individual agent",
+      "matchedText": "One approach is to make an individual agent"
+    },
+    {
+      "id": "scaling-the-agent-system",
+      "title": "Scaling the Agent System",
+      "narrativeSegments": [
+        "N126-N150"
+      ],
+      "start": 418.07,
+      "end": 500.08,
+      "confidence": 1,
+      "anchor": "The alternative is to scale out",
+      "matchedText": "The alternative is to scale out"
+    },
+    {
+      "id": "scaling-up-and-scaling-out",
+      "title": "Scaling Up and Scaling Out",
+      "narrativeSegments": [
+        "N151-N162"
+      ],
+      "start": 500.08,
+      "end": 538.07,
+      "confidence": 0.714,
+      "anchor": "the architectural question isn't whether agents",
+      "matchedText": "the architectural question isn't whether agents"
+    },
+    {
+      "id": "coherence-before-size",
+      "title": "Coherence Before Size",
+      "narrativeSegments": [
+        "N163-N179"
+      ],
+      "start": 538.07,
+      "end": 603,
+      "confidence": 1,
+      "anchor": "This leads to an important architectural principle",
+      "matchedText": "This leads to an important architectural principle"
+    },
+    {
+      "id": "observability",
+      "title": "Observability",
+      "narrativeSegments": [
+        "N180-N198"
+      ],
+      "start": 603,
+      "end": 649.09,
+      "confidence": 1,
+      "anchor": "Observability has become one of the defining characteristics",
+      "matchedText": "Observability has become one of the defining characteristics"
+    },
+    {
+      "id": "evolvability",
+      "title": "Evolvability",
+      "narrativeSegments": [
+        "N199-N208"
+      ],
+      "start": 649.09,
+      "end": 684.09,
+      "confidence": 1,
+      "anchor": "Technology changes AI changes even faster",
+      "matchedText": "Technology changes AI changes even faster"
+    },
+    {
+      "id": "operability",
+      "title": "Operability",
+      "narrativeSegments": [
+        "N209-N217"
+      ],
+      "start": 684.09,
+      "end": 727.09,
+      "confidence": 1,
+      "anchor": "Building software is only part of the challenge",
+      "matchedText": "Building software is only part of the challenge"
+    },
+    {
+      "id": "quality-assurance",
+      "title": "Quality Assurance",
+      "narrativeSegments": [
+        "N218-N227"
+      ],
+      "start": 727.09,
+      "end": 755.48,
+      "confidence": 1,
+      "anchor": "Traditional software engineering gives us testing",
+      "matchedText": "Traditional software engineering gives us testing"
+    },
+    {
+      "id": "evaluation",
+      "title": "Evaluation",
+      "narrativeSegments": [
+        "N228-N236"
+      ],
+      "start": 755.48,
+      "end": 795.77,
+      "confidence": 1,
+      "anchor": "Machine learning has always relied on evaluation",
+      "matchedText": "Machine learning has always relied on evaluation"
+    },
+    {
+      "id": "evaluating-agent-architectures",
+      "title": "Evaluating Agent Architectures",
+      "narrativeSegments": [
+        "N237-N248"
+      ],
+      "start": 795.77,
+      "end": 837.07,
+      "confidence": 0.75,
+      "anchor": "Multi-agent systems introduce another level of evaluation",
+      "matchedText": "systems introduce another level of evaluation"
+    },
+    {
+      "id": "capabilities-and-evaluation",
+      "title": "Capabilities and Evaluation",
+      "narrativeSegments": [
+        "N249-N263"
+      ],
+      "start": 837.07,
+      "end": 881.07,
+      "confidence": 1,
+      "anchor": "One question sits underneath every evaluation framework",
+      "matchedText": "One question sits underneath every evaluation framework"
+    },
+    {
+      "id": "architecture-is-about-qualities",
+      "title": "Architecture Is About Qualities",
+      "narrativeSegments": [
+        "N264-N274"
+      ],
+      "start": 881.07,
+      "end": 920.07,
+      "confidence": 0.964,
+      "anchor": "One thing has become increasingly clear",
+      "matchedText": "One thing that has become increasingly clear"
+    },
+    {
+      "id": "closing-thoughts",
+      "title": "Closing Thoughts",
+      "narrativeSegments": [
+        "N275-N283"
+      ],
+      "start": 920.07,
+      "end": 948.02,
+      "confidence": 1,
+      "anchor": "Before designing any architecture",
+      "matchedText": "Before designing any architecture"
+    },
+    {
+      "id": "looking-ahead",
+      "title": "Looking Ahead to Episode 5",
+      "narrativeSegments": [
+        "N284-N285"
+      ],
+      "start": 948.02,
+      "end": 972.303,
+      "confidence": 1,
+      "anchor": "In the next episode",
+      "matchedText": "In the next episode"
+    }
+  ]
+}
