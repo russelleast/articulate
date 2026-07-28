@@ -321,6 +321,10 @@ h3 {
   margin-bottom: 0;
 }
 
+.episode-media-video {
+  grid-column: 1 / -1;
+}
+
 .episode-media-thumbnail {
   display: block;
   line-height: 0;

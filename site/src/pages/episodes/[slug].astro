@@ -3,7 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MetadataList from "@/components/MetadataList.astro";
 import RelatedContent from "@/components/RelatedContent.astro";
-import { formatDate, withBase } from "@/utils/site";
+import { formatDate, withBase, youtubeEmbedUrl } from "@/utils/site";
 
 export async function getStaticPaths() {
   const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
@@ -85,7 +85,7 @@ const relatedExperiments = experiments
           <a class="episode-media-thumbnail" href={episode.data.youtube_url} aria-label={`Watch ${episode.data.title} on YouTube`}>
             <img
               src={withBase(episode.data.thumbnail)}
-              alt={`Video thumbnail for ${episode.data.title}`}
+              alt={episode.data.thumbnail_alt ?? `Video thumbnail for ${episode.data.title}`}
               width="1280"
               height="720"
               loading="eager"
@@ -101,6 +101,15 @@ const relatedExperiments = experiments
             remains the canonical written version.
           </p>
           <p><a href={episode.data.youtube_url}>Watch this Episode on YouTube</a></p>
+        </div>
+        <div class="responsive-video episode-media-video">
+          <iframe
+            src={youtubeEmbedUrl(episode.data.youtube_url)}
+            title={`${episode.data.title} — Articulate Journal Episode ${episode.data.sequence}`}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </aside>
     )}

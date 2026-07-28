@@ -24,7 +24,10 @@ related_decisions: []
 related_experiments: []
 repository_paths:
   - docs/episodes/0004-system-characteristics-the-properties-every-system-needs.md
-featured: false
+featured: true
+thumbnail: /media/episodes/0004/episode-0004-thumbnail.png
+thumbnail_alt: "Articulate Journal Episode 4: Features Aren't Enough"
+youtube_url: https://youtu.be/OsLzgCnVEJk
 ---
 
 # Episode 4 — System Characteristics: The Properties Every System Needs

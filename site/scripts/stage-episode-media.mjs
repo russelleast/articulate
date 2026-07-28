@@ -16,7 +16,10 @@ const referencedDiagrams = new Map();
 const registry = JSON.parse(await readFile(registryPath, "utf8"));
 const diagramsByPublishedPath = new Map(
   registry.assets
-    .filter((asset) => asset.type === "diagram")
+    .filter((asset) =>
+      asset.type === "diagram"
+      && asset.location.replaceAll(path.sep, "/").startsWith("site/public/")
+    )
     .map((asset) => [publishedDiagramPath(asset), asset])
 );
 

@@ -7,7 +7,11 @@ import { formatDate, withBase, youtubeEmbedUrl } from "@/utils/site";
 
 const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
 const featuredEpisode = episodes
-  .filter((episode) => episode.data.featured)
+  .filter((episode) =>
+    episode.data.sequence > 0
+    && episode.data.youtube_url
+    && episode.data.thumbnail
+  )
   .sort((a, b) => b.data.sequence - a.data.sequence)[0]
   ?? episodes
     .filter((episode) => episode.data.sequence > 0)
@@ -103,7 +107,7 @@ const introductionEpisode = episodes.find((episode) => episode.data.sequence ===
           >
             <img
               src={withBase(featuredEpisode.data.thumbnail)}
-              alt={`Video thumbnail for ${featuredEpisode.data.title}`}
+              alt={featuredEpisode.data.thumbnail_alt ?? `Video thumbnail for ${featuredEpisode.data.title}`}
               width="1280"
               height="720"
             />
