@@ -38,6 +38,7 @@ const episodes = defineCollection({
     author: z.string().min(1).optional(),
     image: z.string().min(1).optional(),
     thumbnail: z.string().min(1).optional(),
+    thumbnail_alt: z.string().min(1).optional(),
     youtube_url: z.string().url().optional()
   }).transform((data) => {
     const publicationDate = data.published === false ? null : data.published;

@@ -1,0 +1,20 @@
+...@../../../diagrams/styles/articulate
+direction: right
+
+capability: "Capability" { class: capability }
+contract: {
+  intent: "Intent" { class: policy }
+  outcome: "Expected outcome" { class: quality }
+  constraints: "Policies + constraints" { class: constraint }
+  measures: "Success measures" { class: evidence }
+}
+implementation: {
+  agent: "Agent implementation" { class: agent }
+  workflow: "Workflow implementation" { class: workflow }
+}
+evaluation: "Evaluate outcome" { class: quality }
+
+capability -> contract: defines
+contract -> implementation: constrains
+implementation -> evaluation: produces
+evaluation -> capability: evaluates

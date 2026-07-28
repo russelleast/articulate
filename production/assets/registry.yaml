@@ -121,6 +121,147 @@
       "provider": "local"
     },
     {
+      "id": "episode-0004-narration-v1",
+      "type": "narration",
+      "episode": "0004",
+      "status": "rough-cut-recording",
+      "checksum": null,
+      "location": "production/episodes/0004/ep4-system-characteristics.wav",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-functionality-characteristics",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/functionality-versus-characteristics.d2",
+      "location": "production/episodes/0004/diagrams/functionality-versus-characteristics.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-patterns-characteristics",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/patterns-influence-characteristics.d2",
+      "location": "production/episodes/0004/diagrams/patterns-influence-characteristics.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-trust-chain",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/trust-chain.d2",
+      "location": "production/episodes/0004/diagrams/trust-chain.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-reasoning-performance",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/reasoning-performance-pipeline.d2",
+      "location": "production/episodes/0004/diagrams/reasoning-performance-pipeline.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-scaling-one-agent",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/scaling-one-agent.d2",
+      "location": "production/episodes/0004/diagrams/scaling-one-agent.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-scaling-agent-system",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/scaling-agent-system.d2",
+      "location": "production/episodes/0004/diagrams/scaling-agent-system.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-scale-up-scale-out",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/scaling-up-versus-out.d2",
+      "location": "production/episodes/0004/diagrams/scaling-up-versus-out.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-coherence-boundaries",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/coherence-boundary-costs.d2",
+      "location": "production/episodes/0004/diagrams/coherence-boundary-costs.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-ai-native-observability",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/ai-native-observability.d2",
+      "location": "production/episodes/0004/diagrams/ai-native-observability.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-testing-evaluation",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/testing-versus-evaluation.d2",
+      "location": "production/episodes/0004/diagrams/testing-versus-evaluation.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-agent-architecture-evaluation",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/agent-architecture-evaluation.d2",
+      "location": "production/episodes/0004/diagrams/agent-architecture-evaluation.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0004-capability-evaluation",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0004",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/episodes/0004/diagrams/capabilities-as-evaluation-contracts.d2",
+      "location": "production/episodes/0004/diagrams/capabilities-as-evaluation-contracts.svg",
+      "provider": "local"
+    },
+    {
       "id": "knowledge-reasoning-flow",
       "type": "diagram",
       "format": "d2",

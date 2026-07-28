@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "frame": {
+    "width": 1920,
+    "height": 1080,
+    "safeRegions": {
+      "title": { "x": 120, "y": 72, "width": 1680, "height": 138 },
+      "diagram": { "x": 120, "y": 220, "width": 1680, "height": 680 },
+      "subtitles": { "x": 180, "y": 910, "width": 1560, "height": 120 }
+    },
+    "minimumFontPixels": { "title": 48, "body": 32, "diagram": 32 }
+  },
+  "archetypes": {
+    "Narrator": { "typicalDurationSeconds": [8, 35], "companion": "primary", "maximumPrimaryTextElements": 2, "actions": ["reveal", "emphasise", "transition"] },
+    "Diagram": { "typicalDurationSeconds": [15, 75], "companion": "absent-or-secondary", "maximumPrimaryTextElements": 7, "actions": ["reveal", "hide", "emphasise", "deemphasise", "connect", "disconnect", "replace", "transition"] },
+    "Whiteboard": { "typicalDurationSeconds": [15, 60], "companion": "normally-absent", "maximumPrimaryTextElements": 7, "actions": ["reveal", "emphasise", "connect", "replace", "transition"] },
+    "Repository": { "typicalDurationSeconds": [10, 45], "companion": "optional-secondary", "maximumPrimaryTextElements": 6, "actions": ["reveal", "emphasise", "replace", "transition"] },
+    "Evidence": { "typicalDurationSeconds": [10, 45], "companion": "optional-secondary", "maximumPrimaryTextElements": 7, "actions": ["reveal", "emphasise", "replace", "transition"] },
+    "Reflection": { "typicalDurationSeconds": [8, 30], "companion": "optional", "maximumPrimaryTextElements": 2, "actions": ["reveal", "emphasise", "transition"] }
+  }
+}

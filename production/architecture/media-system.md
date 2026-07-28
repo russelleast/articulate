@@ -7,59 +7,43 @@ The system is intentionally staged. Some stages are deterministic, such as extra
 ## Conceptual Flow
 
 ```text
-Written journal
+Written episode + verbal narrative + recorded audio + style guide
       |
       v
-Production plan
+Timestamped transcript and cross-source alignment
       |
       v
-Spoken narrative (narrative.md)
-      |
-      +--> Narration segments
-      +--> Storyboard
-      +--> Scene list
-      +--> Asset register
-              |
-              +--> Companion scenes
-              +--> Slides
-              +--> Diagrams
-              +--> Whiteboard scenes
-              +--> Code demonstrations
-              +--> Screen recordings
-              +--> Supporting imagery
+Draft scene plan
       |
       v
-Recorded human voice
+Human semantic and visual review
       |
       v
-Avatar and visual generation
+D2 sources and rendered assets
       |
       v
-Video assembly
+Exact phrase-derived timeline
       |
       v
-Human editorial review
-      |
-      v
-Publication
+Deterministic video assembly -> output review -> publication
 ```
 
 ```mermaid
 flowchart TD
-    A["Written episode<br/>canonical for reading"] --> B["Narrative adaptation"]
-    B --> C["Spoken narrative<br/>canonical words for production"]
-    C --> D["Audio recording"]
-    C --> E["Narrative-aligned storyboard<br/>planning estimates"]
-    D --> F["Final scene timing<br/>audio authority"]
+    A["Written episode<br/>semantic authority"] --> E["Cross-source alignment"]
+    B["Verbal narrative<br/>delivery authority"] --> E
+    C["Recorded audio<br/>timing authority"] --> D["Timestamped transcript"]
+    D --> E
+    S["Media style guide"] --> F["Draft scene plan"]
     E --> F
-    E --> G["Visual assets"]
-    F --> H["Final video assembly"]
-    G --> H
-    D --> I["Transcript and subtitles"]
-    C --> I
-    H --> J["Human editorial review"]
+    F --> G["Human intent review"]
+    G --> H["D2 sources + SVG"]
+    G --> I["Phrase-derived timeline"]
+    D --> I
+    H --> J["Deterministic assembly"]
     I --> J
-    J --> K["Publication"]
+    C --> J
+    J --> K["Output review + publication"]
 ```
 
 ## Stage Responsibilities
@@ -85,6 +69,8 @@ Narration segment files may add timing, emphasis and delivery notes without beco
 ### Storyboard
 
 The storyboard describes how the episode becomes visual. It determines when the companion appears, when slides are useful, where diagrams or sketches clarify the argument, and where repository or website views provide evidence.
+
+For productions using the version 2 pre-render workflow, `scene-plan.yaml` is the earlier, preferred editing surface for this intent. The storyboard becomes a compatibility/summary view derived for the existing production contract; exact execution remains in `timeline.json`.
 
 The storyboard is interpretive. It maps scenes to spoken narrative segments and should exploit video as a medium rather than turn the essay into a continuous slide deck. Diagrams, animated relationships, architecture sketches, whiteboard sequences, conceptual comparisons, repository views and evidence scenes should carry the visual argument. On-screen text should be limited to short labels and exact language that genuinely needs to be read.
 

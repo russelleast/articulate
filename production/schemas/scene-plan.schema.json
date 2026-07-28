@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://articulate.dev/schemas/scene-plan.schema.json",
+  "title": "Articulate reviewable scene plan",
+  "type": "object",
+  "required": ["version", "episode", "review", "sections", "scenes"],
+  "properties": {
+    "version": { "const": 2 },
+    "generation": {
+      "type": "object",
+      "properties": {
+        "generated": { "type": "boolean" },
+        "generatorVersion": { "type": "string" },
+        "sourceHashes": {
+          "type": "object",
+          "additionalProperties": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "episode": {
+      "type": "object",
+      "required": ["id", "title", "writtenSource", "narrativeSource", "audio"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "writtenSource": { "type": "string" },
+        "narrativeSource": { "type": "string" },
+        "audio": { "type": "string" }
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "authority": { "enum": ["prescribed", "guided", "open"] },
+        "importance": { "enum": ["supporting", "important", "central"] },
+        "headlineVisibility": { "enum": ["scene-start", "beat-controlled"] },
+        "phraseAlignment": { "type": "string" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["draft", "approved", "changes-requested"] },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "narrativeSegments"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "writtenSection": { "type": "string" },
+          "narrativeSection": { "type": "string" },
+          "narrativeSegments": { "type": "array", "items": { "type": "string" } },
+          "anchor": { "type": ["string", "null"] },
+          "omission": {
+            "type": "object",
+            "required": ["reason"],
+            "properties": { "reason": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "section", "archetype", "headline"],
+        "properties": {
+          "id": { "type": "string" },
+          "section": { "type": "string" },
+          "title": { "type": "string" },
+          "archetype": { "enum": ["Narrator", "Diagram", "Whiteboard", "Repository", "Evidence", "Reflection"] },
+          "purpose": { "type": "string" },
+          "importance": { "enum": ["supporting", "important", "central"] },
+          "authority": { "enum": ["prescribed", "guided", "open"] },
+          "headline": { "type": "string" },
+          "support": { "type": "string" },
+          "labels": { "type": "array", "items": { "type": "string" } },
+          "diagram": {
+            "type": "object",
+            "required": ["id", "source", "rendered", "mode"],
+            "properties": {
+              "id": { "type": "string" },
+              "source": { "type": "string" },
+              "rendered": { "type": "string" },
+              "mode": { "enum": ["static", "progressive"] },
+              "states": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["id", "visible"],
+                  "properties": {
+                    "id": { "type": "string" },
+                    "visible": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          },
+          "beats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["target"],
+              "properties": {
+                "id": { "type": "string" },
+                "action": { "enum": ["reveal", "hide", "emphasise", "deemphasise", "connect", "disconnect", "replace", "transition"] },
+                "target": { "type": "string" },
+                "diagramTarget": { "type": "string" },
+                "alignTo": { "type": "string" },
+                "at": { "type": "number", "minimum": 0 }
+              },
+              "anyOf": [{ "required": ["alignTo"] }, { "required": ["at"] }]
+            }
+          }
+        }
+      }
+    }
+  }
+}

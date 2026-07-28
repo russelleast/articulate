@@ -20,7 +20,7 @@ related_decisions: []
 related_experiments: []
 repository_paths:
   - docs/episodes/0003-why-ai-native-systems.md
-featured: true
+featured: false
 thumbnail: /media/episodes/0003/episode-0003-thumbnail.png
 youtube_url: https://youtu.be/_ewKC3dZNbY
 ---

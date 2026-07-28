@@ -21,3 +21,5 @@ Do not add a decision merely because a template exists. Add one when a choice co
 - [0004: Separate Companion performance from scene rendering](0004-separate-companion-performance-timeline.md)
 - [0005: Declarative Shot Hierarchy](0005-declarative-shot-hierarchy.md)
 - [0006: Use D2 sources for reusable architectural diagrams](0006-d2-diagrams-as-reusable-assets.md)
+- [0007: Derive draft production timing from recorded audio](0007-recorded-audio-derived-timing.md)
+- [0008: Review semantic and visual intent before timeline generation](0008-reviewable-pre-render-production-model.md)

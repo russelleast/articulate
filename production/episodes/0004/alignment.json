@@ -1,0 +1,657 @@
+{
+  "version": 2,
+  "authority": {
+    "semantic": "written-episode",
+    "delivery": "verbal-narrative",
+    "timing": "recorded-audio"
+  },
+  "coverage": {
+    "written": {
+      "detected": 21,
+      "represented": 21,
+      "missing": []
+    },
+    "narrative": {
+      "detected": 21,
+      "represented": 21,
+      "missing": []
+    }
+  },
+  "warnings": [
+    "scaling-up-and-scaling-out: audio anchor confidence 0.714"
+  ],
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "narrativeSegments": [
+        "N001-N013"
+      ],
+      "start": 0,
+      "end": 56.07,
+      "anchor": "System Characteristics",
+      "matchedText": "recording start",
+      "written": {
+        "section": "opening",
+        "heading": "Opening"
+      },
+      "narrative": {
+        "section": "opening",
+        "heading": "Opening",
+        "segments": [
+          "N001-N013"
+        ]
+      },
+      "audio": {
+        "start": 0,
+        "end": 56.07,
+        "anchor": "System Characteristics",
+        "matchedText": "recording start"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "functionality-versus-characteristics",
+      "title": "Functionality Versus Characteristics",
+      "narrativeSegments": [
+        "N014-N024"
+      ],
+      "start": 56.07,
+      "end": 98.09,
+      "anchor": "When architects think about software",
+      "matchedText": "When architects think about software",
+      "written": {
+        "section": "functionality-versus-characteristics",
+        "heading": "Functionality Versus Characteristics"
+      },
+      "narrative": {
+        "section": "functionality-versus-characteristics",
+        "heading": "Functionality Versus Characteristics",
+        "segments": [
+          "N014-N024"
+        ]
+      },
+      "audio": {
+        "start": 56.07,
+        "end": 98.09,
+        "anchor": "When architects think about software",
+        "matchedText": "When architects think about software"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "why-architects-care",
+      "title": "Why Architects Care",
+      "narrativeSegments": [
+        "N025-N039"
+      ],
+      "start": 98.09,
+      "end": 141.07,
+      "anchor": "Throughout my career one lesson",
+      "matchedText": "Throughout my career one lesson",
+      "written": {
+        "section": "why-architects-care",
+        "heading": "Why Architects Care"
+      },
+      "narrative": {
+        "section": "why-architects-care",
+        "heading": "Why Architects Care",
+        "segments": [
+          "N025-N039"
+        ]
+      },
+      "audio": {
+        "start": 98.09,
+        "end": 141.07,
+        "anchor": "Throughout my career one lesson",
+        "matchedText": "Throughout my career one lesson"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "trust",
+      "title": "Trust",
+      "narrativeSegments": [
+        "N040-N054"
+      ],
+      "start": 141.07,
+      "end": 197.07,
+      "anchor": "Trust is the foundation",
+      "matchedText": "Trust is the foundation",
+      "written": {
+        "section": "trust",
+        "heading": "Trust"
+      },
+      "narrative": {
+        "section": "trust",
+        "heading": "Trust",
+        "segments": [
+          "N040-N054"
+        ]
+      },
+      "audio": {
+        "start": 141.07,
+        "end": 197.07,
+        "anchor": "Trust is the foundation",
+        "matchedText": "Trust is the foundation"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "reliability",
+      "title": "Reliability",
+      "narrativeSegments": [
+        "N055-N072"
+      ],
+      "start": 197.07,
+      "end": 257.1,
+      "anchor": "Reliability answers a simple question",
+      "matchedText": "Reliability answers a simple question",
+      "written": {
+        "section": "reliability",
+        "heading": "Reliability"
+      },
+      "narrative": {
+        "section": "reliability",
+        "heading": "Reliability",
+        "segments": [
+          "N055-N072"
+        ]
+      },
+      "audio": {
+        "start": 197.07,
+        "end": 257.1,
+        "anchor": "Reliability answers a simple question",
+        "matchedText": "Reliability answers a simple question"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "narrativeSegments": [
+        "N073-N089"
+      ],
+      "start": 257.1,
+      "end": 320.07,
+      "anchor": "Performance is much more about response time",
+      "matchedText": "Performance is much more about response time",
+      "written": {
+        "section": "performance",
+        "heading": "Performance"
+      },
+      "narrative": {
+        "section": "performance",
+        "heading": "Performance",
+        "segments": [
+          "N073-N089"
+        ]
+      },
+      "audio": {
+        "start": 257.1,
+        "end": 320.07,
+        "anchor": "Performance is much more about response time",
+        "matchedText": "Performance is much more about response time"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "scalability",
+      "title": "Scalability",
+      "narrativeSegments": [
+        "N090-N104"
+      ],
+      "start": 320.07,
+      "end": 361.07,
+      "anchor": "When architects hear the word scalability",
+      "matchedText": "When architects hear the word scalability",
+      "written": {
+        "section": "scalability",
+        "heading": "Scalability"
+      },
+      "narrative": {
+        "section": "scalability",
+        "heading": "Scalability",
+        "segments": [
+          "N090-N104"
+        ]
+      },
+      "audio": {
+        "start": 320.07,
+        "end": 361.07,
+        "anchor": "When architects hear the word scalability",
+        "matchedText": "When architects hear the word scalability"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "scaling-the-agent",
+      "title": "Scaling the Agent",
+      "narrativeSegments": [
+        "N105-N125"
+      ],
+      "start": 361.07,
+      "end": 418.07,
+      "anchor": "One approach is to make an individual agent",
+      "matchedText": "One approach is to make an individual agent",
+      "written": {
+        "section": "scaling-the-agent",
+        "heading": "Scaling the Agent"
+      },
+      "narrative": {
+        "section": "scaling-the-agent",
+        "heading": "Scaling the Agent",
+        "segments": [
+          "N105-N125"
+        ]
+      },
+      "audio": {
+        "start": 361.07,
+        "end": 418.07,
+        "anchor": "One approach is to make an individual agent",
+        "matchedText": "One approach is to make an individual agent"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "scaling-the-agent-system",
+      "title": "Scaling the Agent System",
+      "narrativeSegments": [
+        "N126-N150"
+      ],
+      "start": 418.07,
+      "end": 500.08,
+      "anchor": "The alternative is to scale out",
+      "matchedText": "The alternative is to scale out",
+      "written": {
+        "section": "scaling-the-agent-system",
+        "heading": "Scaling the Agent System"
+      },
+      "narrative": {
+        "section": "scaling-the-agent-system",
+        "heading": "Scaling the Agent System",
+        "segments": [
+          "N126-N150"
+        ]
+      },
+      "audio": {
+        "start": 418.07,
+        "end": 500.08,
+        "anchor": "The alternative is to scale out",
+        "matchedText": "The alternative is to scale out"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "scaling-up-and-scaling-out",
+      "title": "Scaling Up and Scaling Out",
+      "narrativeSegments": [
+        "N151-N162"
+      ],
+      "start": 500.08,
+      "end": 538.07,
+      "anchor": "the architectural question isn't whether agents",
+      "matchedText": "the architectural question isn't whether agents",
+      "written": {
+        "section": "scaling-up-and-scaling-out",
+        "heading": "Scaling Up and Scaling Out"
+      },
+      "narrative": {
+        "section": "scaling-up-and-scaling-out",
+        "heading": "Scaling Up and Scaling Out",
+        "segments": [
+          "N151-N162"
+        ]
+      },
+      "audio": {
+        "start": 500.08,
+        "end": 538.07,
+        "anchor": "the architectural question isn't whether agents",
+        "matchedText": "the architectural question isn't whether agents"
+      },
+      "confidence": 0.714,
+      "warnings": [
+        "scaling-up-and-scaling-out: audio anchor confidence 0.714"
+      ]
+    },
+    {
+      "id": "coherence-before-size",
+      "title": "Coherence Before Size",
+      "narrativeSegments": [
+        "N163-N179"
+      ],
+      "start": 538.07,
+      "end": 603,
+      "anchor": "This leads to an important architectural principle",
+      "matchedText": "This leads to an important architectural principle",
+      "written": {
+        "section": "coherence-before-size",
+        "heading": "Coherence Before Size"
+      },
+      "narrative": {
+        "section": "coherence-before-size",
+        "heading": "Coherence Before Size",
+        "segments": [
+          "N163-N179"
+        ]
+      },
+      "audio": {
+        "start": 538.07,
+        "end": 603,
+        "anchor": "This leads to an important architectural principle",
+        "matchedText": "This leads to an important architectural principle"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "observability",
+      "title": "Observability",
+      "narrativeSegments": [
+        "N180-N198"
+      ],
+      "start": 603,
+      "end": 649.09,
+      "anchor": "Observability has become one of the defining characteristics",
+      "matchedText": "Observability has become one of the defining characteristics",
+      "written": {
+        "section": "observability",
+        "heading": "Observability"
+      },
+      "narrative": {
+        "section": "observability",
+        "heading": "Observability",
+        "segments": [
+          "N180-N198"
+        ]
+      },
+      "audio": {
+        "start": 603,
+        "end": 649.09,
+        "anchor": "Observability has become one of the defining characteristics",
+        "matchedText": "Observability has become one of the defining characteristics"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "evolvability",
+      "title": "Evolvability",
+      "narrativeSegments": [
+        "N199-N208"
+      ],
+      "start": 649.09,
+      "end": 684.09,
+      "anchor": "Technology changes AI changes even faster",
+      "matchedText": "Technology changes AI changes even faster",
+      "written": {
+        "section": "evolvability",
+        "heading": "Evolvability"
+      },
+      "narrative": {
+        "section": "evolvability",
+        "heading": "Evolvability",
+        "segments": [
+          "N199-N208"
+        ]
+      },
+      "audio": {
+        "start": 649.09,
+        "end": 684.09,
+        "anchor": "Technology changes AI changes even faster",
+        "matchedText": "Technology changes AI changes even faster"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "operability",
+      "title": "Operability",
+      "narrativeSegments": [
+        "N209-N217"
+      ],
+      "start": 684.09,
+      "end": 727.09,
+      "anchor": "Building software is only part of the challenge",
+      "matchedText": "Building software is only part of the challenge",
+      "written": {
+        "section": "operability",
+        "heading": "Operability"
+      },
+      "narrative": {
+        "section": "operability",
+        "heading": "Operability",
+        "segments": [
+          "N209-N217"
+        ]
+      },
+      "audio": {
+        "start": 684.09,
+        "end": 727.09,
+        "anchor": "Building software is only part of the challenge",
+        "matchedText": "Building software is only part of the challenge"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "quality-assurance",
+      "title": "Quality Assurance",
+      "narrativeSegments": [
+        "N218-N227"
+      ],
+      "start": 727.09,
+      "end": 755.48,
+      "anchor": "Traditional software engineering gives us testing",
+      "matchedText": "Traditional software engineering gives us testing",
+      "written": {
+        "section": "quality-assurance-testing-and-evaluation",
+        "heading": "Quality Assurance: Testing and Evaluation"
+      },
+      "narrative": {
+        "section": "quality-assurance",
+        "heading": "Quality Assurance",
+        "segments": [
+          "N218-N227"
+        ]
+      },
+      "audio": {
+        "start": 727.09,
+        "end": 755.48,
+        "anchor": "Traditional software engineering gives us testing",
+        "matchedText": "Traditional software engineering gives us testing"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "evaluation",
+      "title": "Evaluation",
+      "narrativeSegments": [
+        "N228-N236"
+      ],
+      "start": 755.48,
+      "end": 795.77,
+      "anchor": "Machine learning has always relied on evaluation",
+      "matchedText": "Machine learning has always relied on evaluation",
+      "written": {
+        "section": "evaluation",
+        "heading": "Evaluation"
+      },
+      "narrative": {
+        "section": "evaluation",
+        "heading": "Evaluation",
+        "segments": [
+          "N228-N236"
+        ]
+      },
+      "audio": {
+        "start": 755.48,
+        "end": 795.77,
+        "anchor": "Machine learning has always relied on evaluation",
+        "matchedText": "Machine learning has always relied on evaluation"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "evaluating-agent-architectures",
+      "title": "Evaluating Agent Architectures",
+      "narrativeSegments": [
+        "N237-N248"
+      ],
+      "start": 795.77,
+      "end": 837.07,
+      "anchor": "Multi-agent systems introduce another level of evaluation",
+      "matchedText": "systems introduce another level of evaluation",
+      "written": {
+        "section": "evaluating-agent-architectures",
+        "heading": "Evaluating Agent Architectures"
+      },
+      "narrative": {
+        "section": "evaluating-agent-architectures",
+        "heading": "Evaluating Agent Architectures",
+        "segments": [
+          "N237-N248"
+        ]
+      },
+      "audio": {
+        "start": 795.77,
+        "end": 837.07,
+        "anchor": "Multi-agent systems introduce another level of evaluation",
+        "matchedText": "systems introduce another level of evaluation"
+      },
+      "confidence": 0.75,
+      "warnings": []
+    },
+    {
+      "id": "capabilities-and-evaluation",
+      "title": "Capabilities and Evaluation",
+      "narrativeSegments": [
+        "N249-N263"
+      ],
+      "start": 837.07,
+      "end": 881.07,
+      "anchor": "One question sits underneath every evaluation framework",
+      "matchedText": "One question sits underneath every evaluation framework",
+      "written": {
+        "section": "capabilities-and-evaluation",
+        "heading": "Capabilities and Evaluation"
+      },
+      "narrative": {
+        "section": "capabilities-and-evaluation",
+        "heading": "Capabilities and Evaluation",
+        "segments": [
+          "N249-N263"
+        ]
+      },
+      "audio": {
+        "start": 837.07,
+        "end": 881.07,
+        "anchor": "One question sits underneath every evaluation framework",
+        "matchedText": "One question sits underneath every evaluation framework"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "architecture-is-about-qualities",
+      "title": "Architecture Is About Qualities",
+      "narrativeSegments": [
+        "N264-N274"
+      ],
+      "start": 881.07,
+      "end": 920.07,
+      "anchor": "One thing has become increasingly clear",
+      "matchedText": "One thing that has become increasingly clear",
+      "written": {
+        "section": "architecture-is-about-qualities",
+        "heading": "Architecture Is About Qualities"
+      },
+      "narrative": {
+        "section": "architecture-is-about-qualities",
+        "heading": "Architecture Is About Qualities",
+        "segments": [
+          "N264-N274"
+        ]
+      },
+      "audio": {
+        "start": 881.07,
+        "end": 920.07,
+        "anchor": "One thing has become increasingly clear",
+        "matchedText": "One thing that has become increasingly clear"
+      },
+      "confidence": 0.964,
+      "warnings": []
+    },
+    {
+      "id": "closing-thoughts",
+      "title": "Closing Thoughts",
+      "narrativeSegments": [
+        "N275-N283"
+      ],
+      "start": 920.07,
+      "end": 948.02,
+      "anchor": "Before designing any architecture",
+      "matchedText": "Before designing any architecture",
+      "written": {
+        "section": "closing-thoughts",
+        "heading": "Closing Thoughts"
+      },
+      "narrative": {
+        "section": "closing-thoughts",
+        "heading": "Closing Thoughts",
+        "segments": [
+          "N275-N283"
+        ]
+      },
+      "audio": {
+        "start": 920.07,
+        "end": 948.02,
+        "anchor": "Before designing any architecture",
+        "matchedText": "Before designing any architecture"
+      },
+      "confidence": 1,
+      "warnings": []
+    },
+    {
+      "id": "looking-ahead",
+      "title": "Looking Ahead to Episode 5",
+      "narrativeSegments": [
+        "N284-N285"
+      ],
+      "start": 948.02,
+      "end": 972.303,
+      "anchor": "In the next episode",
+      "matchedText": "In the next episode",
+      "written": {
+        "section": "looking-ahead",
+        "heading": "Looking Ahead"
+      },
+      "narrative": {
+        "section": "looking-ahead",
+        "heading": "Looking Ahead",
+        "segments": [
+          "N284-N285"
+        ]
+      },
+      "audio": {
+        "start": 948.02,
+        "end": 972.303,
+        "anchor": "In the next episode",
+        "matchedText": "In the next episode"
+      },
+      "confidence": 1,
+      "warnings": []
+    }
+  ]
+}

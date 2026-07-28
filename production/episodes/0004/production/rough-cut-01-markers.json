@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "audioDurationSeconds": 972.302902,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 56.07,
+      "narrationReference": "Opening · N001-N013"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 56.07,
+      "endSeconds": 98.09,
+      "narrationReference": "Functionality Versus Characteristics · N014-N024"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 98.09,
+      "endSeconds": 141.07,
+      "narrationReference": "Why Architects Care · N025-N039"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 141.07,
+      "endSeconds": 197.07,
+      "narrationReference": "Trust · N040-N054"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 197.07,
+      "endSeconds": 257.1,
+      "narrationReference": "Reliability · N055-N072"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 257.1,
+      "endSeconds": 320.07,
+      "narrationReference": "Performance · N073-N089"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 320.07,
+      "endSeconds": 361.07,
+      "narrationReference": "Scalability · N090-N104"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 361.07,
+      "endSeconds": 418.07,
+      "narrationReference": "Scaling the Agent · N105-N125"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 418.07,
+      "endSeconds": 500.08,
+      "narrationReference": "Scaling the Agent System · N126-N150"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 500.08,
+      "endSeconds": 538.07,
+      "narrationReference": "Scaling Up and Scaling Out · N151-N162"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 538.07,
+      "endSeconds": 603,
+      "narrationReference": "Coherence Before Size · N163-N179"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 603,
+      "endSeconds": 649.09,
+      "narrationReference": "Observability · N180-N198"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 649.09,
+      "endSeconds": 684.09,
+      "narrationReference": "Evolvability · N199-N208"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 684.09,
+      "endSeconds": 727.09,
+      "narrationReference": "Operability · N209-N217"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 727.09,
+      "endSeconds": 755.48,
+      "narrationReference": "Quality Assurance · N218-N227"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 755.48,
+      "endSeconds": 795.77,
+      "narrationReference": "Evaluation · N228-N236"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 795.77,
+      "endSeconds": 837.07,
+      "narrationReference": "Evaluating Agent Architectures · N237-N248"
+    },
+    {
+      "id": "S018",
+      "startSeconds": 837.07,
+      "endSeconds": 881.07,
+      "narrationReference": "Capabilities and Evaluation · N249-N263"
+    },
+    {
+      "id": "S019",
+      "startSeconds": 881.07,
+      "endSeconds": 920.07,
+      "narrationReference": "Architecture Is About Qualities · N264-N274"
+    },
+    {
+      "id": "S020",
+      "startSeconds": 920.07,
+      "endSeconds": 948.02,
+      "narrationReference": "Closing Thoughts · N275-N283"
+    },
+    {
+      "id": "S021",
+      "startSeconds": 948.02,
+      "endSeconds": 972.303,
+      "narrationReference": "Looking Ahead to Episode 5 · N284-N285"
+    }
+  ]
+}

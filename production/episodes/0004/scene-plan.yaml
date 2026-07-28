@@ -1,0 +1,206 @@
+{
+  "$schema": "../../schemas/scene-plan.schema.json",
+  "version": 2,
+  "generation": {
+    "generated": true,
+    "generatorVersion": "pre-render-workflow-v1",
+    "sourceHashes": {
+      "writtenEpisode": "31739a60b5ba42fd7acacd6f0ad4694dbd7d8c0b030ced984679dec345e955f7",
+      "narrative": "eaa9c554c992dc7889d4952f4aa93bdf433aabffec754c39c3a233e78b93b516",
+      "audio": "b1932f5041b7719239e5f943c9f532cf067d8a87f2dd83c14ee6bc69daa77ca4"
+    }
+  },
+  "episode": {
+    "id": "0004",
+    "title": "System Characteristics: The Properties Every System Needs",
+    "writtenSource": "docs/episodes/0004-system-characteristics-the-properties-every-system-needs.md",
+    "narrativeSource": "production/episodes/0004/narrative.md",
+    "audio": "production/episodes/0004/ep4-system-characteristics.wav"
+  },
+  "styleGuide": "production/style-guide/archetypes.json",
+  "defaults": {
+    "authority": "guided",
+    "importance": "important",
+    "headlineVisibility": "scene-start",
+    "phraseAlignment": "exact-normalised-fuzzy-section-fallback"
+  },
+  "review": {
+    "status": "draft",
+    "requiredBeforeFinalRender": true,
+    "notes": [
+      "Episode 4 is the pilot migration. Timeline generation used the explicit draft-review override.",
+      "Inspect every D2 SVG at final video size before approving the plan."
+    ]
+  },
+  "sections": [
+    { "id": "opening", "title": "Opening", "narrativeSegments": ["N001-N013"], "anchor": "System Characteristics" },
+    { "id": "functionality-versus-characteristics", "title": "Functionality Versus Characteristics", "narrativeSegments": ["N014-N024"], "anchor": "When architects think about software" },
+    { "id": "why-architects-care", "title": "Why Architects Care", "narrativeSegments": ["N025-N039"], "anchor": "Throughout my career one lesson" },
+    { "id": "trust", "title": "Trust", "narrativeSegments": ["N040-N054"], "anchor": "Trust is the foundation" },
+    { "id": "reliability", "title": "Reliability", "narrativeSegments": ["N055-N072"], "anchor": "Reliability answers a simple question" },
+    { "id": "performance", "title": "Performance", "narrativeSegments": ["N073-N089"], "anchor": "Performance is much more about response time" },
+    { "id": "scalability", "title": "Scalability", "narrativeSegments": ["N090-N104"], "anchor": "When architects hear the word scalability" },
+    { "id": "scaling-the-agent", "title": "Scaling the Agent", "narrativeSegments": ["N105-N125"], "anchor": "One approach is to make an individual agent" },
+    { "id": "scaling-the-agent-system", "title": "Scaling the Agent System", "narrativeSegments": ["N126-N150"], "anchor": "The alternative is to scale out" },
+    { "id": "scaling-up-and-scaling-out", "title": "Scaling Up and Scaling Out", "narrativeSegments": ["N151-N162"], "anchor": "the architectural question isn't whether agents" },
+    { "id": "coherence-before-size", "title": "Coherence Before Size", "narrativeSegments": ["N163-N179"], "anchor": "This leads to an important architectural principle" },
+    { "id": "observability", "title": "Observability", "narrativeSegments": ["N180-N198"], "anchor": "Observability has become one of the defining characteristics" },
+    { "id": "evolvability", "title": "Evolvability", "narrativeSegments": ["N199-N208"], "anchor": "Technology changes AI changes even faster" },
+    { "id": "operability", "title": "Operability", "narrativeSegments": ["N209-N217"], "anchor": "Building software is only part of the challenge" },
+    { "id": "quality-assurance", "title": "Quality Assurance", "writtenSection": "quality-assurance-testing-and-evaluation", "narrativeSegments": ["N218-N227"], "anchor": "Traditional software engineering gives us testing" },
+    { "id": "evaluation", "title": "Evaluation", "narrativeSegments": ["N228-N236"], "anchor": "Machine learning has always relied on evaluation" },
+    { "id": "evaluating-agent-architectures", "title": "Evaluating Agent Architectures", "narrativeSegments": ["N237-N248"], "anchor": "Multi-agent systems introduce another level of evaluation" },
+    { "id": "capabilities-and-evaluation", "title": "Capabilities and Evaluation", "narrativeSegments": ["N249-N263"], "anchor": "One question sits underneath every evaluation framework" },
+    { "id": "architecture-is-about-qualities", "title": "Architecture Is About Qualities", "narrativeSegments": ["N264-N274"], "anchor": "One thing has become increasingly clear" },
+    { "id": "closing-thoughts", "title": "Closing Thoughts", "narrativeSegments": ["N275-N283"], "anchor": "Before designing any architecture" },
+    { "id": "looking-ahead", "title": "Looking Ahead to Episode 5", "narrativeSegments": ["N284-N285"], "anchor": "In the next episode" }
+  ],
+  "scenes": [
+    {
+      "id": "S001", "section": "opening", "archetype": "Narrator", "authority": "open", "purpose": "Frame system characteristics as the episode's architectural question.", "kind": "studio", "studioLayout": "welcome", "transition": "fade", "companion": true,
+      "headline": "AI-native systems are still systems.", "support": "Can people trust it?", "items": [],
+      "beats": [{ "id": "opening-system", "action": "emphasise", "target": "headline", "alignTo": "AI-native systems are still systems" }, { "id": "opening-trust", "action": "reveal", "target": "support", "alignTo": "Can people trust it" }]
+    },
+    {
+      "id": "S002", "section": "functionality-versus-characteristics", "archetype": "Diagram", "authority": "prescribed", "importance": "central", "purpose": "Separate what a system does from the qualities with which it does it.", "kind": "diagram", "diagramLayout": "hub", "transition": "section",
+      "diagram": { "id": "functionality-versus-characteristics", "source": "production/episodes/0004/diagrams/functionality-versus-characteristics.d2", "rendered": "production/episodes/0004/diagrams/functionality-versus-characteristics.svg", "mode": "progressive", "states": [{ "id": "function", "visible": ["system", "functionality"] }, { "id": "characteristics", "visible": ["system", "functionality", "characteristics"] }, { "id": "qualities", "visible": ["system", "functionality", "characteristics", "qualities"] }] },
+      "diagramAssetId": "episode-0004-functionality-characteristics",
+      "headline": "Functionality and characteristics", "support": "Features attract users. Characteristics keep them.",
+      "items": ["SYSTEM OUTPUT", "What does it do? → Functionality", "How well? → Characteristics", "Secure · Reliable", "Observable · Performant", "Trustworthy"],
+      "beats": [{"target":"item-1","alignTo":"design a solution architecture"},{"target":"item-2","alignTo":"What does the system do"},{"target":"item-3","alignTo":"How well does it do it"},{"target":"item-4","alignTo":"secure reliable"},{"target":"item-5","alignTo":"observable performant"},{"target":"item-6","alignTo":"trustworthy"},{"target":"support","action":"emphasise","alignTo":"Features attract users"}]
+    },
+    {
+      "id": "S003", "section": "why-architects-care", "archetype": "Diagram", "purpose": "Show architectural patterns as deliberate influences on system qualities.", "kind": "diagram", "diagramLayout": "hub", "transition": "cut",
+      "diagram": { "id": "patterns-influence-characteristics", "source": "production/episodes/0004/diagrams/patterns-influence-characteristics.d2", "rendered": "production/episodes/0004/diagrams/patterns-influence-characteristics.svg", "mode": "progressive", "states": [{ "id": "decisions", "visible": ["decisions"] }, { "id": "patterns", "visible": ["decisions", "patterns"] }, { "id": "qualities", "visible": ["decisions", "patterns", "qualities"] }] },
+      "diagramAssetId": "episode-0004-patterns-characteristics",
+      "headline": "Patterns improve system qualities", "support": "Architecture is about trade-offs.",
+      "items": ["ARCHITECTURAL DECISIONS", "CQRS → Scalability", "Event Sourcing → Auditability", "Workflow engines → Reliability", "Actor models → Resilience", "Caching → Performance"],
+      "beats": [{"target":"item-1","alignTo":"architectural patterns"},{"target":"item-2","alignTo":"CQRS"},{"target":"item-3","alignTo":"event sourcing"},{"target":"item-4","alignTo":"workflow engines"},{"target":"item-5","alignTo":"actor models"},{"target":"item-6","alignTo":"caching"},{"target":"support","action":"emphasise","alignTo":"Every architecture decision is really a trade-off"}]
+    },
+    {
+      "id": "S004", "section": "trust", "archetype": "Diagram", "authority": "prescribed", "importance": "central", "purpose": "Trace trust from user intent through reasoning and tool execution to outcome.", "kind": "diagram", "diagramLayout": "change-path", "transition": "section",
+      "diagram": { "id": "trust-chain", "source": "production/episodes/0004/diagrams/trust-chain.d2", "rendered": "production/episodes/0004/diagrams/trust-chain.svg", "mode": "progressive", "states": [{ "id": "intent", "visible": ["human", "reasoning"] }, { "id": "authority", "visible": ["human", "reasoning", "policy", "tools"] }, { "id": "outcome", "visible": ["human", "reasoning", "policy", "tools", "outcome", "trust"] }] },
+      "diagramAssetId": "episode-0004-trust-chain",
+      "headline": "Trust across the entire journey", "support": "Capability ≠ Authority",
+      "items": ["User intent", "Agent reasoning", "Tool execution", "Outcome"],
+      "beats": [{"target":"support","action":"emphasise","alignTo":"technically capable"},{"target":"item-1","alignTo":"user intent"},{"target":"item-2","alignTo":"reasoning"},{"target":"item-3","alignTo":"tool execution"},{"target":"item-4","alignTo":"final result"}],
+      "connections": [["item-1","item-2"],["item-2","item-3"],["item-3","item-4"]]
+    },
+    {
+      "id": "S005", "section": "reliability", "archetype": "Whiteboard", "purpose": "Develop controlled responses to AI-native failure modes.", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Reliability controls what happens when failure occurs.", "support": "Retry · Fallback · Pause · Human intervention · Degrade · Resume",
+      "items": ["FAILURE", "Model unavailable", "Rate limited", "Retrieval failure", "Tool timeout", "Controlled response"],
+      "beats": [{"target":"item-1","alignTo":"new failure modes"},{"target":"item-2","alignTo":"Models may become unavailable"},{"target":"item-3","alignTo":"rate limit"},{"target":"item-4","alignTo":"Retrieval services may fail"},{"target":"item-5","alignTo":"tools may stop responding"},{"target":"item-6","alignTo":"selecting another model retrying an operation"},{"target":"support","action":"emphasise","alignTo":"deciding what should happen when failure"}]
+    },
+    {
+      "id": "S006", "section": "performance", "archetype": "Diagram", "purpose": "Expose latency and cost across the full AI-native reasoning pipeline.", "kind": "diagram", "diagramLayout": "change-path", "transition": "section",
+      "diagram": { "id": "reasoning-performance-pipeline", "source": "production/episodes/0004/diagrams/reasoning-performance-pipeline.d2", "rendered": "production/episodes/0004/diagrams/reasoning-performance-pipeline.svg", "mode": "progressive", "states": [{ "id": "context", "visible": ["context", "retrieval"] }, { "id": "reasoning", "visible": ["context", "retrieval", "model", "tools"] }, { "id": "experience", "visible": ["context", "retrieval", "model", "tools", "coordination", "experience"] }] },
+      "diagramAssetId": "episode-0004-reasoning-performance",
+      "headline": "The reasoning pipeline", "support": "Absolute performance · Perceived performance · Cost",
+      "items": ["Context", "Retrieval", "Model", "Tools", "Coordination"],
+      "beats": [{"target":"support","action":"emphasise","alignTo":"perceived performance rather than absolute performance"},{"target":"item-1","alignTo":"building context"},{"target":"item-2","alignTo":"retrieving knowledge"},{"target":"item-3","alignTo":"entire reasoning pipeline"},{"target":"item-4","alignTo":"calling those tools"},{"target":"item-5","alignTo":"coordinating agents"}],
+      "connections": [["item-1","item-2"],["item-2","item-3"],["item-3","item-4"],["item-4","item-5"]]
+    },
+    {
+      "id": "S007", "section": "scalability", "archetype": "Narrator", "purpose": "Reframe scalability from infrastructure alone to intelligence.", "kind": "studio", "studioLayout": "welcome", "transition": "section", "companion": true,
+      "headline": "We are no longer only scaling infrastructure.", "support": "We are scaling intelligence.", "items": ["Horizontal scaling", "Queues", "Distributed processing"],
+      "beats": [{"target":"item-1","alignTo":"horizontal scaling"},{"target":"item-2","alignTo":"queues"},{"target":"item-3","alignTo":"distributed processing"},{"target":"headline","action":"emphasise","alignTo":"no longer just scaling infrastructure"},{"target":"support","action":"reveal","alignTo":"scaling intelligence"}]
+    },
+    {
+      "id": "S008", "section": "scaling-the-agent", "archetype": "Diagram", "purpose": "Show complexity accumulating inside one increasingly capable agent.", "kind": "diagram", "diagramLayout": "hub", "transition": "cut",
+      "diagram": { "id": "scaling-one-agent", "source": "production/episodes/0004/diagrams/scaling-one-agent.d2", "rendered": "production/episodes/0004/diagrams/scaling-one-agent.svg", "mode": "progressive", "states": [{ "id": "single-agent", "visible": ["agent"] }, { "id": "growing-context", "visible": ["inputs", "agent"] }, { "id": "operational-pressure", "visible": ["inputs", "agent", "pressure"] }] },
+      "diagramAssetId": "episode-0004-scaling-one-agent",
+      "headline": "Scale up: complexity inside one agent", "support": "Larger prompts and contexts drive tokens, latency, cost and dilution.",
+      "items": ["ONE AGENT", "Instructions", "Tools", "Memory", "Knowledge", "Latency · Cost · Dilution"],
+      "beats": [{"target":"item-1","alignTo":"individual agent more capable"},{"target":"item-2","alignTo":"instructions"},{"target":"item-3","alignTo":"tools"},{"target":"item-4","alignTo":"memory"},{"target":"item-5","alignTo":"knowledge"},{"target":"item-6","action":"emphasise","alignTo":"Latency increases Costs increase"}]
+    },
+    {
+      "id": "S009", "section": "scaling-the-agent-system", "archetype": "Diagram", "purpose": "Show specialisation moving complexity into coordination and boundaries.", "kind": "diagram", "diagramLayout": "hub", "transition": "cut",
+      "diagram": { "id": "scaling-agent-system", "source": "production/episodes/0004/diagrams/scaling-agent-system.d2", "rendered": "production/episodes/0004/diagrams/scaling-agent-system.svg", "mode": "progressive", "states": [{ "id": "coordination", "visible": ["router"] }, { "id": "specialists", "visible": ["router", "agents"] }, { "id": "boundary-costs", "visible": ["router", "agents", "boundaries"] }] },
+      "diagramAssetId": "episode-0004-scaling-agent-system",
+      "headline": "Scale out: complexity across the system", "support": "Complexity moved into routing, context, state, recovery and tracing.",
+      "items": ["COORDINATION", "Knowledge agent", "Evidence agent", "Principle agent", "Trade-off agent", "Routing · Context · State"],
+      "beats": [{"target":"item-2","alignTo":"retrieves knowledge"},{"target":"item-3","alignTo":"evaluates evidence"},{"target":"item-4","alignTo":"architectural principles"},{"target":"item-5","alignTo":"explores trade-offs"},{"target":"support","action":"emphasise","alignTo":"complexity doesn't disappear"},{"target":"item-1","alignTo":"architecture has to decide"},{"target":"item-6","alignTo":"workflow state"}]
+    },
+    {
+      "id": "S010", "section": "scaling-up-and-scaling-out", "archetype": "Diagram", "authority": "prescribed", "importance": "central", "purpose": "Compare where scale-up and scale-out place complexity.", "kind": "diagram", "transition": "section", "diagramAssetId": "episode-0004-scale-up-scale-out",
+      "diagram": { "id": "scaling-up-versus-out", "source": "production/episodes/0004/diagrams/scaling-up-versus-out.d2", "rendered": "production/episodes/0004/diagrams/scaling-up-versus-out.svg", "mode": "progressive", "states": [{ "id": "question", "visible": ["question"] }, { "id": "scale-up", "visible": ["question", "up"] }, { "id": "scale-out", "visible": ["question", "up", "out"] }] },
+      "headline": "Where should complexity live?", "support": "Neither approach is universally correct.", "items": [],
+      "beats": [{"target":"headline","action":"emphasise","alignTo":"where we want the complexity to live"},{"target":"support","action":"emphasise","alignTo":"Neither approach is universally correct"}]
+    },
+    {
+      "id": "S011", "section": "coherence-before-size", "archetype": "Diagram", "authority": "prescribed", "importance": "central", "purpose": "State Coherence Before Size and make every decomposition cost explicit.", "kind": "diagram", "diagramLayout": "hub", "transition": "section",
+      "diagram": { "id": "coherence-boundary-costs", "source": "production/episodes/0004/diagrams/coherence-boundary-costs.d2", "rendered": "production/episodes/0004/diagrams/coherence-boundary-costs.svg", "mode": "progressive", "states": [{ "id": "principle", "visible": ["principle", "responsibility"] }, { "id": "split-decision", "visible": ["principle", "responsibility", "decision"] }, { "id": "boundary-costs", "visible": ["principle", "responsibility", "decision", "boundary", "costs"] }] },
+      "diagramAssetId": "episode-0004-coherence-boundaries",
+      "headline": "Coherence Before Size", "support": "Split when responsibilities diverge—not because smaller looks sophisticated.",
+      "items": ["COHERENT RESPONSIBILITY", "Routing boundary", "Context boundary", "Trust boundary", "Evaluation boundary", "Failure boundary"],
+      "beats": [{"target":"headline","action":"emphasise","alignTo":"important architectural principle"},{"target":"item-1","alignTo":"It should be coherent"},{"target":"item-2","alignTo":"routing boundary"},{"target":"item-3","alignTo":"context boundary"},{"target":"item-4","alignTo":"trust boundary"},{"target":"item-5","alignTo":"evaluation boundary"},{"target":"item-6","alignTo":"failure boundary"}]
+    },
+    {
+      "id": "S012", "section": "observability", "archetype": "Diagram", "purpose": "Extend observability from infrastructure into intelligent behaviour.", "kind": "diagram", "diagramLayout": "hub", "transition": "cut",
+      "diagram": { "id": "ai-native-observability", "source": "production/episodes/0004/diagrams/ai-native-observability.d2", "rendered": "production/episodes/0004/diagrams/ai-native-observability.svg", "mode": "progressive", "states": [{ "id": "behaviour", "visible": ["behaviour"] }, { "id": "signals", "visible": ["behaviour", "signals"] }, { "id": "explanation", "visible": ["behaviour", "signals", "trace", "question"] }] },
+      "diagramAssetId": "episode-0004-ai-native-observability",
+      "headline": "Observe intelligent behaviour", "support": "Why was this agent selected?",
+      "items": ["TRACE", "Prompt + model", "Tokens + retrieval", "Tool calls", "Routing + workflow", "Evaluation + feedback"],
+      "beats": [{"target":"item-1","alignTo":"logs metrics and traces"},{"target":"item-2","alignTo":"prompt versions model selection"},{"target":"item-3","alignTo":"token usage retrieval quality"},{"target":"item-4","alignTo":"tool calls"},{"target":"item-5","alignTo":"workflow execution"},{"target":"item-6","alignTo":"evaluation results and user feedback"},{"target":"support","action":"emphasise","alignTo":"why a particular agent was selected"}]
+    },
+    {
+      "id": "S013", "section": "evolvability", "archetype": "Whiteboard", "purpose": "Separate stable architectural intent from replaceable implementation.", "kind": "whiteboard", "diagramLayout": "hub", "transition": "cut",
+      "headline": "Stable intent. Replaceable implementation.", "support": "Architectural intent should not live only inside a prompt.",
+      "items": ["CAPABILITY / RESPONSIBILITY", "Models", "Prompts", "Agent frameworks", "Retrieval techniques"],
+      "beats": [{"target":"item-2","alignTo":"Models and prompting techniques"},{"target":"item-3","alignTo":"prompting techniques"},{"target":"item-4","alignTo":"Agent frameworks"},{"target":"item-5","alignTo":"retrieval techniques"},{"target":"item-1","alignTo":"Architectural intent should survive"},{"target":"support","action":"emphasise","alignTo":"Responsibilities shouldn't exist inside prompts"}]
+    },
+    {
+      "id": "S014", "section": "operability", "archetype": "Repository", "purpose": "Ground operability in concrete control-plane actions.", "kind": "workspace", "transition": "cut",
+      "headline": "Operational control plane", "support": "Logical separation must remain practical to operate.",
+      "items": ["routing-policy", "model-access", "tool-policy", "workflow-control", "evaluation"],
+      "evidence": {"excerpt":["Disable model · Restrict tool · Pause workflow","Inspect reasoning · Replay execution · Replace prompt"]},
+      "beats": [{"target":"evidence-1","alignTo":"Changing routing policies disabling models"},{"target":"evidence-2","alignTo":"inspecting reasoning paths replaying workflows"},{"target":"support","action":"emphasise","alignTo":"practical operability"}]
+    },
+    {
+      "id": "S015", "section": "quality-assurance", "archetype": "Diagram", "purpose": "Contrast implementation testing with behavioural evaluation.", "kind": "diagram", "diagramLayout": "change-path", "transition": "section",
+      "diagram": { "id": "testing-versus-evaluation", "source": "production/episodes/0004/diagrams/testing-versus-evaluation.d2", "rendered": "production/episodes/0004/diagrams/testing-versus-evaluation.svg", "mode": "progressive", "states": [{ "id": "testing", "visible": ["system", "testing", "implementation"] }, { "id": "evaluation", "visible": ["system", "testing", "implementation", "evaluation", "behaviour"] }] },
+      "diagramAssetId": "episode-0004-testing-evaluation",
+      "headline": "Testing remains essential", "support": "Execution succeeded ≠ Outcome was good",
+      "items": ["Unit", "Integration", "Contract", "End-to-end", "Performance"],
+      "beats": [{"target":"item-1","alignTo":"unit tests"},{"target":"item-2","alignTo":"integration"},{"target":"item-3","alignTo":"contract"},{"target":"item-4","alignTo":"workflow may execute perfectly"},{"target":"item-5","alignTo":"performance tests"},{"target":"support","action":"emphasise","alignTo":"poor response"}]
+    },
+    {
+      "id": "S016", "section": "evaluation", "archetype": "Reflection", "purpose": "Hold the behavioural questions that evaluation must answer.", "kind": "focus", "transition": "cut",
+      "headline": "Testing verifies implementation.", "support": "Evaluation measures behaviour.", "items": ["Correct?", "Grounded?", "Intent satisfied?", "Safe?", "Worth the cost?"],
+      "beats": [{"target":"item-1","alignTo":"answer correct"},{"target":"item-2","alignTo":"grounded in trusted information"},{"target":"item-3","alignTo":"satisfy the user's intent"},{"target":"item-4","alignTo":"behavior safe"},{"target":"item-5","alignTo":"outcome worth the cost"},{"target":"headline","action":"emphasise","alignTo":"Testing verifies"},{"target":"support","action":"emphasise","alignTo":"evaluation measures"}]
+    },
+    {
+      "id": "S017", "section": "evaluating-agent-architectures", "archetype": "Diagram", "purpose": "Evaluate routing, specialist behaviour, collaboration and outcome as one architecture.", "kind": "diagram", "diagramLayout": "change-path", "transition": "cut",
+      "diagram": { "id": "agent-architecture-evaluation", "source": "production/episodes/0004/diagrams/agent-architecture-evaluation.d2", "rendered": "production/episodes/0004/diagrams/agent-architecture-evaluation.svg", "mode": "progressive", "states": [{ "id": "execution", "visible": ["intent", "router", "agent", "collaboration", "outcome"] }, { "id": "evaluation", "visible": ["intent", "router", "agent", "collaboration", "outcome", "evaluation"] }] },
+      "diagramAssetId": "episode-0004-agent-architecture-evaluation",
+      "headline": "Evaluate the architecture that produced the answer", "support": "Did multiple agents produce measurable value?",
+      "items": ["Routing", "Agent behaviour", "Collaboration", "Final outcome"],
+      "beats": [{"target":"item-1","alignTo":"router select"},{"target":"item-2","alignTo":"each agent receive"},{"target":"item-3","alignTo":"collaboration actually beneficial"},{"target":"item-4","alignTo":"final answer"},{"target":"support","action":"emphasise","alignTo":"additional complexity has to justify"}],
+      "connections": [["item-1","item-2"],["item-2","item-3"],["item-3","item-4"]]
+    },
+    {
+      "id": "S018", "section": "capabilities-and-evaluation", "archetype": "Diagram", "authority": "prescribed", "importance": "central", "purpose": "Make a capability the stable evaluation contract over changing implementations.", "kind": "diagram", "transition": "section", "diagramAssetId": "episode-0004-capability-evaluation",
+      "diagram": { "id": "capabilities-as-evaluation-contracts", "source": "production/episodes/0004/diagrams/capabilities-as-evaluation-contracts.d2", "rendered": "production/episodes/0004/diagrams/capabilities-as-evaluation-contracts.svg", "mode": "progressive", "states": [{ "id": "contract", "visible": ["capability", "contract"] }, { "id": "implementation", "visible": ["capability", "contract", "implementation"] }, { "id": "evaluation", "visible": ["capability", "contract", "implementation", "evaluation"] }] },
+      "headline": "Capability is the semantic contract", "support": "Evaluate outcomes, not internal agent count.", "items": [],
+      "beats": [{"target":"headline","action":"emphasise","alignTo":"Capabilities"},{"target":"support","action":"emphasise","alignTo":"evaluate outcomes rather than"}]
+    },
+    {
+      "id": "S019", "section": "architecture-is-about-qualities", "archetype": "Narrator", "authority": "prescribed", "importance": "central", "purpose": "Restate system qualities as the enduring work of architecture.", "kind": "studio", "studioLayout": "welcome", "transition": "section", "companion": true,
+      "headline": "Architecture is still about qualities.", "support": "AI amplifies familiar system characteristics.",
+      "items": ["Trust · Reliability · Performance", "Scalability · Observability", "Evolve · Operate · Evaluate"],
+      "beats": [{"target":"headline","action":"emphasise","alignTo":"Architecture is still about balancing"},{"target":"item-1","alignTo":"Security becomes more complex"},{"target":"item-2","alignTo":"Scalability extends beyond infrastructure"},{"target":"item-3","alignTo":"Testing is complemented by evaluation"}]
+    },
+    {
+      "id": "S020", "section": "closing-thoughts", "archetype": "Reflection", "authority": "prescribed", "purpose": "Close on the two questions that frame architecture.", "kind": "focus", "transition": "cut",
+      "headline": "What must the system do?", "support": "What properties must the system possess?",
+      "items": ["Functionality", "+", "Characteristics", "=", "Architecture"],
+      "beats": [{"target":"headline","action":"emphasise","alignTo":"What must the system do"},{"target":"support","action":"emphasise","alignTo":"what properties must the system possess"},{"target":"item-1","alignTo":"defines functionality"},{"target":"item-3","alignTo":"shapes the architecture"},{"target":"item-5","alignTo":"architectural thinking"}]
+    },
+    {
+      "id": "S021", "section": "looking-ahead", "archetype": "Narrator", "authority": "prescribed", "purpose": "Name the next episode and hand off to solution design.", "kind": "studio", "studioLayout": "closing", "transition": "fade", "companion": true,
+      "headline": "Episode 5", "support": "How I Approach Solution Design and Evolving the Architecture", "items": ["Problem", "Architectural thinking", "Evolving solution"],
+      "beats": [{"target":"headline","action":"emphasise","alignTo":"next episode"},{"target":"support","action":"emphasise","alignTo":"approach solution design"},{"target":"item-1","alignTo":"understanding the problem"},{"target":"item-2","alignTo":"architectural thinking"},{"target":"item-3","alignTo":"evolving solution"}]
+    }
+  ]
+}

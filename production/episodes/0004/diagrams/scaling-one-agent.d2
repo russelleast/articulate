@@ -1,0 +1,19 @@
+...@../../../diagrams/styles/articulate
+direction: right
+
+agent: "One agent" { class: agent }
+inputs: {
+  instructions: "Instructions" { class: policy }
+  tools: "Tools" { class: external }
+  memory: "Memory" { class: data }
+  knowledge: "Knowledge" { class: data }
+}
+pressure: {
+  tokens: "More tokens" { class: constraint }
+  latency: "More latency" { class: constraint }
+  cost: "More cost" { class: constraint }
+  dilution: "Intent dilution" { class: constraint }
+}
+
+inputs -> agent: expands
+agent -> pressure: concentrates

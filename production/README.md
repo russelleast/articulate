@@ -25,6 +25,8 @@ production/
 |-- branding/       # Visual and motion language for derived media
 |-- companion/      # Role and design direction for the Articulate Companion
 |-- diagrams/       # Canonical D2 diagram sources and shared styling
+|-- schemas/        # Versioned contracts for reviewable intermediate artefacts
+|-- style-guide/    # Human- and machine-readable archetypes and D2 grammar
 |-- templates/      # Reusable episode production templates
 |-- prompts/        # AI prompt templates for production assistance
 |-- runtime/        # Storage-agnostic production runtime capabilities
@@ -86,6 +88,12 @@ Rendering remains config-driven because it also needs approved audio, timing mar
 node production/runtime/episode-cli.mjs validate --config <episode-render-config.json>
 node production/runtime/episode-cli.mjs render --config <episode-render-config.json>
 ```
+
+### Audio-derived rough-cut timing
+
+New rough cuts may derive their initial timeline from a timestamped transcript instead of requiring a manually authored timestamp list. `production/runtime/transcript-alignment.mjs` normalises local Whisper output, aligns ordered narrative-section anchors to the recording, and resolves phrase-level cue timing. The resulting `transcript.json`, `alignment.json`, editable `scene-plan.yaml`, and generated `timeline.json` remain visible production artefacts. Recorded audio is the timing authority; generated alignment is explicitly a first draft for human review.
+
+Version 2 scene plans add a deliberate review boundary before exact timeline generation. The written episode owns semantics, the narrative owns delivery, the recording owns timing, the scene plan owns visual intent, D2 owns diagram structure and the timeline owns renderer execution. See [Reviewable Pre-render Production](workflow/pre-render-production.md) and [ADR 0008](architecture/decisions/0008-reviewable-pre-render-production-model.md).
 
 For new productions, `episode.storyboard` in that render config must point to the episode's `storyboard.yaml`; renderer startup then applies the same production-contract validation automatically. Existing configurations that explicitly point at their reviewed Markdown or scene-list artefacts continue under the legacy convention.
 

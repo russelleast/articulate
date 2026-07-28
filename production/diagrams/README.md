@@ -10,12 +10,15 @@ production/diagrams/
 `-- sources/
     |-- knowledge/             # Knowledge structures and examples
     |-- reasoning/             # Reasoning flows, layers and maps
-    `-- episodes/<episode>/    # Episode-owned diagrams with local meaning
+
+production/episodes/<episode>/diagrams/
+|-- <diagram>.d2               # Episode-owned semantic source
+`-- <diagram>.svg              # Deterministic review/video rendering
 
 site/public/diagrams/              # Generated, committed shared SVGs
 ```
 
-Sources are organised by enduring architectural concept rather than by the episode that first uses them. An episode-specific diagram may live below `sources/episodes/<episode>/`, but reusable diagrams should move into a conceptual area. Each diagram remains deliberately readable and can override shared classes locally.
+Shared sources are organised by enduring architectural concept rather than by the episode that first uses them. Episode-specific diagrams live with the episode's production artefacts; reusable diagrams should move into a conceptual area. Each diagram remains deliberately readable and can override shared classes locally.
 
 Every diagram is represented by a `type: diagram` entry in `production/assets/registry.yaml`. The entry binds its stable logical ID to its D2 `source` and generated SVG `location`. This extends the existing asset model rather than introducing a second manifest.
 
@@ -33,7 +36,7 @@ make diagrams-render
 make diagram-render DIAGRAM=knowledge-reasoning-flow
 ```
 
-Validation discovers all `.d2` files under `sources/`, requires each one to have exactly one registry entry, checks registry paths and renders every source to a temporary directory. Rendering creates output directories and replaces generated SVGs safely. A D2 parse or layout failure is reported with the diagram ID. Never edit an SVG in `site/public/diagrams/`; change its D2 source and regenerate it.
+Validation discovers shared `.d2` files under `sources/` and also validates every diagram source registered elsewhere, including episode-local sources. Rendering creates output directories and replaces generated SVGs safely. A D2 parse or layout failure is reported with the diagram ID. Never edit generated SVG; change its D2 source and regenerate it.
 
 ## Website use
 
@@ -49,7 +52,7 @@ VS Code Markdown Preview resolves root-relative image URLs against a preview ori
 
 When publishing an Episode with a diagram:
 
-1. author or update the registered D2 source under `production/diagrams/sources/<concept>/`, or `production/diagrams/sources/episodes/<episode>/` when its meaning is episode-specific;
+1. author or update reusable D2 under `production/diagrams/sources/<concept>/`; move an episode-local diagram there before publishing it as a shared website asset;
 2. run `make diagrams-render` from the repository root (never edit the SVG directly);
 3. reference the shared SVG as `/diagrams/<diagram-id>.svg` in the Episode;
 4. run the site check and build, which validate the reference and publish the static asset.
@@ -77,4 +80,4 @@ The episode asset register should still record the episode-local usage (`A008`) 
 
 ## Choreography boundary
 
-The D2 source describes diagram semantics: concepts and their relationships. A future storyboard capability should describe audience experience: node and edge reveals, path highlights, dimming and camera focus. That choreography belongs in scene/timeline metadata and should address stable diagram element identities; it must not be encoded by creating presentation-specific copies of the semantic source.
+The D2 source describes diagram semantics: concepts and their relationships. A version 2 scene plan describes audience experience through progressive states and phrase-aligned beats that address stable D2 element IDs. The pre-render validator checks those references. The current pilot renderer uses a deterministic full-state SVG; state SVG generation or renderer-controlled visibility can evolve behind this contract without moving choreography into the semantic D2 source.

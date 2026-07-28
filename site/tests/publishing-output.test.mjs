@@ -56,13 +56,14 @@ test("Episode 0000 publishes companion media while keeping the journal article",
   assert.match(episode, /The journal article below\s+remains the canonical written version/);
 });
 
-test("the home page features the selected Episode with separate watch and read actions", async () => {
+test("the home page features the latest published video Episode with separate watch and read actions", async () => {
   const home = await output("index.html");
 
-  assert.match(home, /<h2 id="latest-episode">Why AI-Native Systems\?<\/h2>/);
-  assert.match(home, /episode-0003-thumbnail\.png/);
-  assert.match(home, /href="https:\/\/youtu\.be\/_ewKC3dZNbY"/);
-  assert.match(home, /href="\/articulate\/episodes\/0003-why-ai-native-systems\/"/);
+  assert.match(home, /<h2 id="latest-episode">System Characteristics: The Properties Every System Needs<\/h2>/);
+  assert.match(home, /episode-0004-thumbnail\.png/);
+  assert.match(home, /alt="Articulate Journal Episode 4: Features Aren't Enough"/);
+  assert.match(home, /href="https:\/\/youtu\.be\/OsLzgCnVEJk"/);
+  assert.match(home, /href="\/articulate\/episodes\/0004-system-characteristics-the-properties-every-system-needs\/"/);
 });
 
 for (const [episode, published] of [
@@ -142,6 +143,12 @@ for (const episode of [
     slug: "0003-why-ai-native-systems",
     thumbnail: "episode-0003-thumbnail.png",
     youtubeUrl: "https://youtu.be/_ewKC3dZNbY"
+  },
+  {
+    slug: "0004-system-characteristics-the-properties-every-system-needs",
+    thumbnail: "episode-0004-thumbnail.png",
+    youtubeUrl: "https://youtu.be/OsLzgCnVEJk",
+    videoId: "OsLzgCnVEJk"
   }
 ]) {
   test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {
@@ -153,6 +160,14 @@ for (const episode of [
     assert.match(listing, new RegExp(`href="/articulate/episodes/${episode.slug}/"`));
     assert.match(page, new RegExp(episode.thumbnail));
     assert.match(page, /Watch this Episode on YouTube/);
+    assert.match(page, /class="responsive-video episode-media-video"/);
+    if (episode.videoId) {
+      assert.match(page, new RegExp(`youtube-nocookie\\.com/embed/${episode.videoId}`));
+      assert.match(
+        page,
+        /title="System Characteristics: The Properties Every System Needs — Articulate Journal Episode 4"/
+      );
+    }
     await access(new URL(`../dist/media/episodes/${episode.slug.slice(0, 4)}/${episode.thumbnail}`, import.meta.url));
   });
 }
