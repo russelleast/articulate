@@ -44,10 +44,10 @@
   "scenes": [
     {
       "id": "S001",
-      "title": "AI-native systems still need to be systems.",
+      "title": "AI-native systems are still systems.",
       "kind": "studio",
       "studioLayout": "welcome",
-      "headline": "AI-native systems still need to be systems.",
+      "headline": "AI-native systems are still systems.",
       "support": "Can people trust it?",
       "items": [],
       "companion": true,
@@ -71,14 +71,14 @@
           {
             "id": "opening-system",
             "at": 18.91,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "AI-native systems are still systems"
           },
           {
             "id": "opening-trust",
             "at": 39,
-            "action": "emphasize",
+            "action": "reveal",
             "target": "support",
             "sourcePhrase": "Can people trust it"
           }
@@ -589,16 +589,16 @@
             "sourcePhrase": "distributed processing"
           },
           {
-            "id": "s007-reveal-headline",
+            "id": "s007-emphasise-headline",
             "at": 34.45,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "no longer just scaling infrastructure"
           },
           {
-            "id": "s007-emphasise-support",
+            "id": "s007-reveal-support",
             "at": 38.57,
-            "action": "emphasize",
+            "action": "reveal",
             "target": "support",
             "sourcePhrase": "scaling intelligence"
           }
@@ -1571,9 +1571,9 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "s021-reveal-headline",
+            "id": "s021-emphasise-headline",
             "at": 0.31,
-            "action": "reveal",
+            "action": "emphasize",
             "target": "headline",
             "sourcePhrase": "next episode"
           },

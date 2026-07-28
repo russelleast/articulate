@@ -64,6 +64,23 @@ test("validation catches coverage, duplicate IDs and missing diagram sources", (
   assert.match(result.errors.join("\n"), /missing D2 source/);
 });
 
+test("scene-start headline policy rejects a reveal as the headline's first action", () => {
+  const plan = fixturePlan();
+  plan.defaults.headlineVisibility = "scene-start";
+  const result = validateScenePlan(plan);
+  assert.equal(result.valid, false);
+  assert.match(result.errors.join("\n"), /headline must be visible from scene start/);
+
+  plan.scenes[0].beats[0].action = "emphasise";
+  assert.equal(validateScenePlan(plan).valid, true);
+});
+
+test("every scene requires a headline", () => {
+  const plan = fixturePlan();
+  delete plan.scenes[0].headline;
+  assert.match(validateScenePlan(plan).errors.join("\n"), /headline is required/);
+});
+
 function fixturePlan() {
   return {
     version: 2,

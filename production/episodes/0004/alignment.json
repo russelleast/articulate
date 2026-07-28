@@ -29,7 +29,7 @@
       ],
       "start": 0,
       "end": 56.07,
-      "anchor": "recording start",
+      "anchor": "System Characteristics",
       "matchedText": "recording start",
       "written": {
         "section": "opening",
@@ -45,7 +45,7 @@
       "audio": {
         "start": 0,
         "end": 56.07,
-        "anchor": "recording start",
+        "anchor": "System Characteristics",
         "matchedText": "recording start"
       },
       "confidence": 1,

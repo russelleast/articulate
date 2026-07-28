@@ -124,6 +124,7 @@ export function validateScenePlan(plan, {
   const represented = new Set();
   const diagramIds = [];
   for (const scene of plan.scenes ?? []) {
+    if (!String(scene.headline ?? "").trim()) errors.push(`${scene.id}: headline is required`);
     if (!sections.has(scene.section)) errors.push(`${scene.id}: unknown source section '${scene.section}'`);
     else represented.add(scene.section);
     const archetype = scene.archetype ?? legacyArchetype(scene.kind);
@@ -131,6 +132,14 @@ export function validateScenePlan(plan, {
     const authority = scene.authority ?? plan.defaults?.authority ?? "guided";
     if (!SCENE_AUTHORITIES.includes(authority)) errors.push(`${scene.id}: unsupported authority '${authority}'`);
     const beats = scene.beats ?? scene.cues ?? [];
+    const firstHeadlineBeat = beats.find((beat) => beat.target === "headline");
+    if (
+      plan.defaults?.headlineVisibility === "scene-start"
+      && firstHeadlineBeat
+      && ["reveal", "type"].includes(firstHeadlineBeat.action ?? "reveal")
+    ) {
+      errors.push(`${scene.id}: headline must be visible from scene start; use emphasise or remove its beat`);
+    }
     for (const beat of beats) {
       const action = beat.action ?? "reveal";
       if (!TIMELINE_ACTIONS.includes(action)) errors.push(`${scene.id}: unsupported action '${action}'`);

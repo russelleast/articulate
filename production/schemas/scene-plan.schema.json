@@ -28,6 +28,15 @@
         "audio": { "type": "string" }
       }
     },
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "authority": { "enum": ["prescribed", "guided", "open"] },
+        "importance": { "enum": ["supporting", "important", "central"] },
+        "headlineVisibility": { "enum": ["scene-start", "beat-controlled"] },
+        "phraseAlignment": { "type": "string" }
+      }
+    },
     "review": {
       "type": "object",
       "required": ["status"],

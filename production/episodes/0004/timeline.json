@@ -11,7 +11,7 @@
     {
       "id": "S001",
       "section": "opening",
-      "title": "AI-native systems still need to be systems.",
+      "title": "AI-native systems are still systems.",
       "archetype": "Narrator",
       "start": 0,
       "end": 56.07,
@@ -23,7 +23,7 @@
         ]
       },
       "elements": {
-        "headline": "AI-native systems still need to be systems.",
+        "headline": "AI-native systems are still systems.",
         "support": "Can people trust it?",
         "labels": []
       },
@@ -32,7 +32,7 @@
         {
           "id": "opening-system",
           "at": 18.91,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
           "sourcePhrase": "AI-native systems are still systems",
           "match": {
@@ -43,7 +43,7 @@
         {
           "id": "opening-trust",
           "at": 39,
-          "action": "emphasise",
+          "action": "reveal",
           "target": "support",
           "sourcePhrase": "Can people trust it",
           "match": {
@@ -819,9 +819,9 @@
           }
         },
         {
-          "id": "s007-reveal-headline",
+          "id": "s007-emphasise-headline",
           "at": 34.45,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
           "sourcePhrase": "no longer just scaling infrastructure",
           "match": {
@@ -830,9 +830,9 @@
           }
         },
         {
-          "id": "s007-emphasise-support",
+          "id": "s007-reveal-support",
           "at": 38.57,
-          "action": "emphasise",
+          "action": "reveal",
           "target": "support",
           "sourcePhrase": "scaling intelligence",
           "match": {
@@ -2241,9 +2241,9 @@
       "transition": "fade",
       "events": [
         {
-          "id": "s021-reveal-headline",
+          "id": "s021-emphasise-headline",
           "at": 0.31,
-          "action": "reveal",
+          "action": "emphasise",
           "target": "headline",
           "sourcePhrase": "next episode",
           "match": {

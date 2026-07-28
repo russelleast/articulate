@@ -21,6 +21,7 @@
   "defaults": {
     "authority": "guided",
     "importance": "important",
+    "headlineVisibility": "scene-start",
     "phraseAlignment": "exact-normalised-fuzzy-section-fallback"
   },
   "review": {
@@ -32,7 +33,7 @@
     ]
   },
   "sections": [
-    { "id": "opening", "title": "Opening", "narrativeSegments": ["N001-N013"], "anchor": null },
+    { "id": "opening", "title": "Opening", "narrativeSegments": ["N001-N013"], "anchor": "System Characteristics" },
     { "id": "functionality-versus-characteristics", "title": "Functionality Versus Characteristics", "narrativeSegments": ["N014-N024"], "anchor": "When architects think about software" },
     { "id": "why-architects-care", "title": "Why Architects Care", "narrativeSegments": ["N025-N039"], "anchor": "Throughout my career one lesson" },
     { "id": "trust", "title": "Trust", "narrativeSegments": ["N040-N054"], "anchor": "Trust is the foundation" },
@@ -57,8 +58,8 @@
   "scenes": [
     {
       "id": "S001", "section": "opening", "archetype": "Narrator", "authority": "open", "purpose": "Frame system characteristics as the episode's architectural question.", "kind": "studio", "studioLayout": "welcome", "transition": "fade", "companion": true,
-      "headline": "AI-native systems still need to be systems.", "support": "Can people trust it?", "items": [],
-      "beats": [{ "id": "opening-system", "action": "reveal", "target": "headline", "alignTo": "AI-native systems are still systems" }, { "id": "opening-trust", "action": "emphasise", "target": "support", "alignTo": "Can people trust it" }]
+      "headline": "AI-native systems are still systems.", "support": "Can people trust it?", "items": [],
+      "beats": [{ "id": "opening-system", "action": "emphasise", "target": "headline", "alignTo": "AI-native systems are still systems" }, { "id": "opening-trust", "action": "reveal", "target": "support", "alignTo": "Can people trust it" }]
     },
     {
       "id": "S002", "section": "functionality-versus-characteristics", "archetype": "Diagram", "authority": "prescribed", "importance": "central", "purpose": "Separate what a system does from the qualities with which it does it.", "kind": "diagram", "diagramLayout": "hub", "transition": "section",
@@ -103,7 +104,7 @@
     {
       "id": "S007", "section": "scalability", "archetype": "Narrator", "purpose": "Reframe scalability from infrastructure alone to intelligence.", "kind": "studio", "studioLayout": "welcome", "transition": "section", "companion": true,
       "headline": "We are no longer only scaling infrastructure.", "support": "We are scaling intelligence.", "items": ["Horizontal scaling", "Queues", "Distributed processing"],
-      "beats": [{"target":"item-1","alignTo":"horizontal scaling"},{"target":"item-2","alignTo":"queues"},{"target":"item-3","alignTo":"distributed processing"},{"target":"headline","alignTo":"no longer just scaling infrastructure"},{"target":"support","action":"emphasise","alignTo":"scaling intelligence"}]
+      "beats": [{"target":"item-1","alignTo":"horizontal scaling"},{"target":"item-2","alignTo":"queues"},{"target":"item-3","alignTo":"distributed processing"},{"target":"headline","action":"emphasise","alignTo":"no longer just scaling infrastructure"},{"target":"support","action":"reveal","alignTo":"scaling intelligence"}]
     },
     {
       "id": "S008", "section": "scaling-the-agent", "archetype": "Diagram", "purpose": "Show complexity accumulating inside one increasingly capable agent.", "kind": "diagram", "diagramLayout": "hub", "transition": "cut",
@@ -199,7 +200,7 @@
     {
       "id": "S021", "section": "looking-ahead", "archetype": "Narrator", "authority": "prescribed", "purpose": "Name the next episode and hand off to solution design.", "kind": "studio", "studioLayout": "closing", "transition": "fade", "companion": true,
       "headline": "Episode 5", "support": "How I Approach Solution Design and Evolving the Architecture", "items": ["Problem", "Architectural thinking", "Evolving solution"],
-      "beats": [{"target":"headline","alignTo":"next episode"},{"target":"support","action":"emphasise","alignTo":"approach solution design"},{"target":"item-1","alignTo":"understanding the problem"},{"target":"item-2","alignTo":"architectural thinking"},{"target":"item-3","alignTo":"evolving solution"}]
+      "beats": [{"target":"headline","action":"emphasise","alignTo":"next episode"},{"target":"support","action":"emphasise","alignTo":"approach solution design"},{"target":"item-1","alignTo":"understanding the problem"},{"target":"item-2","alignTo":"architectural thinking"},{"target":"item-3","alignTo":"evolving solution"}]
     }
   ]
 }
