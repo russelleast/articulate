@@ -1,32 +1,139 @@
 ---
 episode: 10
-title: "ADR: Selecting an Agent Runtime"
-description: "An architecture decision that establishes the drivers for Architectural Intelligence and evaluates candidate approaches for its agent runtime."
+title: "ADR 0001 – Defining the Runtime Requirements"
+description: "Architectural Intelligence requires an execution runtime, but selecting a technology begins with understanding the problem rather than comparing products. This episode opens ADR 0001 by defining the architectural drivers that will guide the decision."
 season: 2
 status: planned
 published: false
 date: null
 topics:
-  - Architecture decisions
+  - Architecture Decision Records
   - Agent runtimes
   - Architectural drivers
-  - Durable execution
-  - Workflow orchestration
+  - Architectural Intelligence
   - Technology evaluation
 ---
 
-# Episode 10 – ADR: Selecting an Agent Runtime
+# Episode 10 – ADR 0001: Defining the Runtime Requirements
 
-**Question:** *What runtime best supports Architectural Intelligence?*
+**Question:** *What does an AI-native runtime need to provide?*
 
-The first Architecture Decision Record of the implementation journey.
+The previous episodes established the conceptual architecture for Articulate.
 
-This episode establishes the architectural drivers before evaluating candidate technologies such as Microsoft Agent Framework, LangGraph, Dapr Workflows and Temporal.
+We explored how architectural knowledge can be represented, how AI can reason over that knowledge, and how behaviour can be described declaratively through DCL.
 
-Rather than selecting a technology because it is popular, the decision is driven by the conceptual architecture developed in previous episodes.
+The next step is implementation.
 
--- notes -- 
+Not implementation of features, but implementation of Architectural Intelligence itself.
 
-Thinking ahead, I know the direction I want to take and that is dapr agents and keeping with Python in the first instance. This is a way goes against the purpose of this episode and ep11 and ep12. In that I know the answer. 
+The obvious question becomes:
 
-What I need to emphase in this episode is the candidate technologies and my language perference that should not reduce the candidate technologies much but what benefits I need for articulate
+**Where should that intelligence execute?**
+
+At first glance, this appears to be a technology choice.
+
+Should Articulate use Dapr?
+
+Temporal?
+
+LangGraph?
+
+Microsoft Agent Framework?
+
+However, asking those questions first would violate one of the architectural principles that has guided this journal from the beginning.
+
+Architecture begins with problems.
+
+Technology comes afterwards.
+
+---
+
+# The Runtime Is Part of the Architecture
+
+An execution runtime is not simply somewhere to send prompts.
+
+It becomes responsible for coordinating reasoning, invoking tools, managing collaboration between specialised capabilities and interacting with users.
+
+Unlike traditional request-response systems, Architectural Intelligence performs work that may span multiple stages and involve both humans and AI.
+
+The runtime therefore becomes an architectural component in its own right rather than an implementation detail.
+
+Selecting that component deserves the same level of architectural discipline as any other significant decision.
+
+---
+
+# Architectural Drivers
+
+Before evaluating any technology, we first need to understand what the architecture requires.
+
+Several requirements have already emerged naturally from previous episodes.
+
+The runtime should support long-running reasoning rather than assuming every interaction completes within a single request.
+
+It should coordinate specialised capabilities rather than encouraging one increasingly complex agent.
+
+It should integrate external tools and services consistently.
+
+It should provide resilience, observability and recoverability without every capability having to implement these concerns independently.
+
+Finally, it should remain flexible enough to evolve alongside an AI ecosystem that continues to change rapidly.
+
+These requirements form the architectural drivers for the decision.
+
+They do not yet identify a particular technology.
+
+---
+
+# Technology Can Wait
+
+There are already several credible approaches for implementing AI-native systems.
+
+Some focus primarily on workflow orchestration.
+
+Some emphasise autonomous agents.
+
+Others build upon actor models or durable execution.
+
+Each reflects different architectural trade-offs.
+
+At this stage, comparing products would be premature.
+
+The architecture has not yet defined enough of the problem to evaluate them fairly.
+
+---
+
+# An Unanswered Question
+
+One requirement continues to appear regardless of which technology is considered.
+
+Memory.
+
+Every runtime makes assumptions about state.
+
+Some assume stateless execution.
+
+Some persist workflow state.
+
+Some include conversational memory.
+
+Others expect memory to be managed elsewhere.
+
+Without first understanding what memory means within Articulate, it is impossible to determine which responsibilities belong inside the runtime and which belong elsewhere.
+
+Until that question is answered, the runtime decision remains incomplete.
+
+---
+
+# Looking Ahead
+
+This episode opens the investigation recorded in **ADR 0001 – Selecting an Agent Runtime**.
+
+The ADR captures the architectural drivers and candidate approaches identified so far.
+
+However, no technology has yet been selected.
+
+Before the decision can be made, we first need to understand one of the most misunderstood concepts in AI-native systems.
+
+Memory.
+
+That investigation continues in the next episode.
