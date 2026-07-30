@@ -3,15 +3,20 @@ episode: 10
 title: "ADR 0001 – Defining the Runtime Requirements"
 description: "Architectural Intelligence requires an execution runtime, but selecting a technology begins with understanding the problem rather than comparing products. This episode opens ADR 0001 by defining the architectural drivers that will guide the decision."
 season: 2
-status: planned
-published: false
-date: null
+status: current
+published: 2026-07-30
+date: 2026-07-30
 topics:
   - Architecture Decision Records
   - Agent runtimes
   - Architectural drivers
   - Architectural Intelligence
   - Technology evaluation
+related_decisions:
+  - 0001-ai-runtime
+repository_paths:
+  - docs/episodes/0010-selecting-an-agent-runtime.md
+  - docs/adrs/0001-ai-runtime.md
 ---
 
 # Episode 10 – ADR 0001: Defining the Runtime Requirements
@@ -48,7 +53,7 @@ Technology comes afterwards.
 
 ---
 
-# The Runtime Is Part of the Architecture
+## The Runtime Is Part of the Architecture
 
 An execution runtime is not simply somewhere to send prompts.
 
@@ -62,7 +67,7 @@ Selecting that component deserves the same level of architectural discipline as 
 
 ---
 
-# Architectural Drivers
+## Architectural Drivers
 
 Before evaluating any technology, we first need to understand what the architecture requires.
 
@@ -84,7 +89,7 @@ They do not yet identify a particular technology.
 
 ---
 
-# Technology Can Wait
+## Technology Can Wait
 
 There are already several credible approaches for implementing AI-native systems.
 
@@ -102,7 +107,7 @@ The architecture has not yet defined enough of the problem to evaluate them fair
 
 ---
 
-# An Unanswered Question
+## An Unanswered Question
 
 One requirement continues to appear regardless of which technology is considered.
 
@@ -124,7 +129,7 @@ Until that question is answered, the runtime decision remains incomplete.
 
 ---
 
-# Looking Ahead
+## Looking Ahead
 
 This episode opens the investigation recorded in **ADR 0001 – Selecting an Agent Runtime**.
 

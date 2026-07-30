@@ -3,9 +3,9 @@ episode: 11
 title: "Memory in AI-Native Systems"
 description: "An architectural exploration of what AI systems call memory, revealing the different state management responsibilities required to support an AI-native runtime."
 season: 2
-status: planned
-published: false
-date: null
+status: current
+published: 2026-07-30
+date: 2026-07-30
 topics:
   - AI Runtime
   - Memory
@@ -14,6 +14,11 @@ topics:
   - Agent Runtime
   - Knowledge Model
   - Retrieval
+related_decisions:
+  - 0001-ai-runtime
+repository_paths:
+  - docs/episodes/0011-agent-memory.md
+  - docs/adrs/0001-ai-runtime.md
 ---
 
 # Episode 11 – Memory in AI-Native Systems
@@ -46,7 +51,7 @@ That's exactly what we'll do in this episode.
 
 ---
 
-# Memory Through the Eyes of an Agent
+## Memory Through the Eyes of an Agent
 
 If we look purely from the perspective of an AI agent, the terminology makes perfect sense.
 
@@ -66,7 +71,7 @@ But architecture rarely stops at abstractions.
 
 ---
 
-# Looking Behind the Word
+## Looking Behind the Word
 
 As architects, our questions are usually different.
 
@@ -88,7 +93,7 @@ In fact, many of them aren't really the same kind of thing at all.
 
 ---
 
-# Different Responsibilities Hidden Behind One Word
+## Different Responsibilities Hidden Behind One Word
 
 The more we decompose the problem, the more *memory* begins to separate into several architectural responsibilities.
 
@@ -108,7 +113,7 @@ Treating them all simply as *memory* starts to hide important architectural dist
 
 ---
 
-# The Runtime Doesn't Own Everything
+## The Runtime Doesn't Own Everything
 
 One of the most useful discoveries is that the runtime itself owns surprisingly little information.
 
@@ -132,7 +137,7 @@ Rather than owning everything itself, the runtime depends upon the surrounding p
 
 ---
 
-# Retrieval Is Not Knowledge
+## Retrieval Is Not Knowledge
 
 Another distinction becomes apparent.
 
@@ -162,7 +167,7 @@ Understanding this distinction becomes increasingly important as AI systems grow
 
 ---
 
-# A Platform Supporting Intelligence
+## A Platform Supporting Intelligence
 
 By this point, something interesting has happened.
 
@@ -187,7 +192,7 @@ The platform provides the capabilities that make reasoning practical, resilient 
 
 ---
 
-# Evidence for ADR 0001
+## Evidence for ADR 0001
 
 This investigation doesn't answer the question of which runtime should be selected.
 
@@ -203,7 +208,7 @@ It is about which runtime best fits the responsibilities of the platform surroun
 
 ---
 
-# Looking Ahead
+## Looking Ahead
 
 One responsibility, however, stands apart from the others.
 

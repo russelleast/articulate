@@ -1,3 +1,15 @@
+---
+id: adr-0001
+title: AI Runtime
+status: draft
+related_episodes:
+  - 0010-selecting-an-agent-runtime
+  - 0011-agent-memory
+  - 0012-durable-execution
+repository_paths:
+  - docs/adrs/0001-ai-runtime.md
+---
+
 # ADR-0001 AI Runtime
 
 ## Status: Draft

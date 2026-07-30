@@ -1,10 +1,15 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import MetadataList from "@/components/MetadataList.astro";
 import { formatDate, withBase } from "@/utils/site";
 
-const decisions = (await getCollection("decisions")).sort((a, b) => b.data.decided.valueOf() - a.data.decided.valueOf());
+const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
+const decisions = await Promise.all(
+  (await getCollection("decisions"))
+    .sort((a, b) => (b.data.decided?.valueOf() ?? 0) - (a.data.decided?.valueOf() ?? 0))
+    .map(async (decision) => ({ ...decision, rendered: await render(decision) }))
+);
 ---
 
 <ArticleLayout
@@ -29,11 +34,23 @@ const decisions = (await getCollection("decisions")).sort((a, b) => b.data.decid
     <div class="timeline-list">
       {decisions.map((decision) => (
       <article id={decision.data.id}>
-        <p class="item-meta">{decision.data.id} / {decision.data.status} / {formatDate(decision.data.decided)}</p>
+        <p class="item-meta">
+          {decision.data.id} / {decision.data.status}
+          {decision.data.decided && ` / ${formatDate(decision.data.decided)}`}
+        </p>
         <h2>{decision.data.title}</h2>
         <MetadataList
           items={[
-            { label: "Related Episode", value: decision.data.episode?.id ?? "None yet" },
+            {
+              label: "Related Episodes",
+              value: decision.data.related_episodes.length > 0
+                ? decision.data.related_episodes
+                    .map((reference) => episodes.find((episode) => episode.id === reference.id)?.data.sequence)
+                    .filter((sequence) => sequence !== undefined)
+                    .map((sequence) => `Episode ${sequence?.toString().padStart(4, "0")}`)
+                    .join(", ")
+                : "None yet"
+            },
             { label: "Supersedes", value: decision.data.supersedes?.id ?? "None" },
             { label: "Superseded by", value: decision.data.superseded_by?.id ?? "None" }
           ]}
@@ -41,9 +58,23 @@ const decisions = (await getCollection("decisions")).sort((a, b) => b.data.decid
         <ul class="tag-list">
           {decision.data.topics.map((topic) => <li>{topic}</li>)}
         </ul>
-        {decision.data.episode && (
-          <p><a href={withBase(`/episodes/${decision.data.episode.id}/`)}>Read the related Episode</a></p>
+        {decision.data.related_episodes.length > 0 && (
+          <ul class="plain-list">
+            {decision.data.related_episodes.map((reference) => {
+              const episode = episodes.find((entry) => entry.id === reference.id);
+              return episode && (
+                <li>
+                  <a href={withBase(`/episodes/${episode.id}/`)}>
+                    Episode {episode.data.sequence.toString().padStart(4, "0")} — {episode.data.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         )}
+        <div class="decision-body">
+          <decision.rendered.Content />
+        </div>
       </article>
       ))}
     </div>

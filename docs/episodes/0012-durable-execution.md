@@ -3,15 +3,20 @@ episode: 12
 title: "Durable Execution and Long-Running Reasoning"
 description: "An architectural exploration of how AI-native systems preserve work across interruption, failure and time."
 season: 2
-status: draft
-published: false
-date: null
+status: current
+published: 2026-07-30
+date: 2026-07-30
 topics:
   - Durable execution
   - Runtime architecture
   - Long-running workflows
   - Human-in-the-loop
   - ADR
+related_decisions:
+  - 0001-ai-runtime
+repository_paths:
+  - docs/episodes/0012-durable-execution.md
+  - docs/adrs/0001-ai-runtime.md
 ---
 
 # Episode 12 – Durable Execution and Long-Running Reasoning

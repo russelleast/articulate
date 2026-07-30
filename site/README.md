@@ -23,10 +23,12 @@ The production build is written to `site/dist/`.
 
 ## Content Organisation
 
-Primary narrative content is stored in the repository documentation tree and loaded as Astro content:
+Primary narrative and decision content is stored in the repository documentation tree and loaded as
+Astro content:
 
 ```text
 ../docs/episodes/
+../docs/adrs/
 ```
 
 Reference content owned by the website is stored in Astro content collections:
@@ -35,7 +37,6 @@ Reference content owned by the website is stored in Astro content collections:
 src/content/
 ├── principles/
 ├── patterns/
-├── decisions/
 └── experiments/
 ```
 
@@ -88,6 +89,16 @@ historical
    `thumbnail` to `/media/episodes/<episode>/<same-filename>.png`. Site commands stage that production
    asset into `site/public`; do not edit the staged copy.
 8. Run `npm run check` and `npm run build`.
+
+## Adding an Architecture Decision
+
+1. Create the canonical ADR in `../docs/adrs/`.
+2. Add front matter with a stable display `id`, `title`, lifecycle `status`, related Episode
+   references, and repository paths.
+3. Add `decided` only when the ADR records a decision date; do not invent one for draft or proposed
+   records.
+4. Link related Episodes back to the ADR through `related_decisions`.
+5. Run `npm run check`, `npm run build`, and `npm run test:publishing`.
 
 ## Adding an Architectural Principle
 

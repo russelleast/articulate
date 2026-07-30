@@ -70,7 +70,10 @@ for (const [episode, published] of [
   ["0006-ai-assisted-development", "2026-07-22"],
   ["0007-the-knowledge-model", "2026-07-22"],
   ["0008-agentic-rag-and-knowledge-reasoning", "2026-07-22"],
-  ["0009-defining-architectural-behaviour-with-dcl", "2026-07-24"]
+  ["0009-defining-architectural-behaviour-with-dcl", "2026-07-24"],
+  ["0010-selecting-an-agent-runtime", "2026-07-30"],
+  ["0011-agent-memory", "2026-07-30"],
+  ["0012-durable-execution", "2026-07-30"]
 ]) {
   test(`${episode} is published in the journal`, async () => {
     const listing = await output("episodes/index.html");
@@ -105,16 +108,56 @@ const episodeDiagrams = {
   ]
 };
 
-test("Episode 0009 follows Episode 0008 without publishing planned Episode 0010", async () => {
+test("Episodes 0010–0012 publish in numeric order while Episode 0013 remains planned", async () => {
   const listing = await output("episodes/index.html");
-  const episode = await output("episodes/0009-defining-architectural-behaviour-with-dcl/index.html");
+  const episode9 = await output("episodes/0009-defining-architectural-behaviour-with-dcl/index.html");
+  const episode10 = await output("episodes/0010-selecting-an-agent-runtime/index.html");
+  const episode11 = await output("episodes/0011-agent-memory/index.html");
+  const episode12 = await output("episodes/0012-durable-execution/index.html");
 
   assert.match(
-    episode,
-    /href="\/articulate\/episodes\/0008-agentic-rag-and-knowledge-reasoning\/">Knowledge Reasoning: Beyond RAG<\/a>/
+    episode9,
+    /href="\/articulate\/episodes\/0010-selecting-an-agent-runtime\/">ADR 0001 – Defining the Runtime Requirements<\/a>/
   );
-  assert.doesNotMatch(listing, /\/episodes\/0010-selecting-an-agent-runtime\//);
-  await assert.rejects(access(new URL("../dist/episodes/0010-selecting-an-agent-runtime/index.html", import.meta.url)));
+  assert.match(
+    episode10,
+    /href="\/articulate\/episodes\/0009-defining-architectural-behaviour-with-dcl\/">Defining Architectural Behaviour with DCL<\/a>/
+  );
+  assert.match(
+    episode10,
+    /href="\/articulate\/episodes\/0011-agent-memory\/">Memory in AI-Native Systems<\/a>/
+  );
+  assert.match(
+    episode11,
+    /href="\/articulate\/episodes\/0012-durable-execution\/">Durable Execution and Long-Running Reasoning<\/a>/
+  );
+  assert.doesNotMatch(episode12, /<p class="eyebrow">Next<\/p>/);
+  assert.doesNotMatch(listing, /\/episodes\/0013-knowledge-evolution\//);
+  await assert.rejects(access(new URL("../dist/episodes/0013-knowledge-evolution/index.html", import.meta.url)));
+});
+
+test("ADR 0001 is rendered from the canonical record and linked bidirectionally", async () => {
+  const decisions = await output("decisions/index.html");
+
+  assert.match(decisions, /id="adr-0001"/);
+  assert.match(decisions, /<h2>AI Runtime<\/h2>/);
+  assert.match(decisions, /<h2 id="status-draft">Status: Draft<\/h2>/);
+  assert.match(decisions, /<h2 id="context">Context<\/h2>/);
+  assert.match(decisions, /<h2 id="decision">Decision<\/h2>/);
+  assert.match(decisions, /<h2 id="consequences">Consequences<\/h2>/);
+  assert.match(decisions, /The runtime selection remains <strong>proposed<\/strong>/);
+
+  for (const slug of [
+    "0010-selecting-an-agent-runtime",
+    "0011-agent-memory",
+    "0012-durable-execution"
+  ]) {
+    assert.match(decisions, new RegExp(`href="/articulate/episodes/${slug}/"`));
+    assert.match(
+      await output(`episodes/${slug}/index.html`),
+      /href="\/articulate\/decisions\/#adr-0001"/
+    );
+  }
 });
 
 for (const [episode, diagrams] of Object.entries(episodeDiagrams)) {
