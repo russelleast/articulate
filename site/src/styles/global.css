@@ -474,6 +474,16 @@ h3 {
   display: none;
 }
 
+.decision-body > h1:first-child {
+  display: none;
+}
+
+.decision-body {
+  border-top: 1px solid var(--line);
+  margin-top: 1.25rem;
+  padding-top: 0.25rem;
+}
+
 .prose h3 {
   font-size: 1.05rem;
   margin-top: 1.8rem;

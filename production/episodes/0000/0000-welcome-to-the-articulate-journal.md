@@ -2,7 +2,7 @@
 
 Welcome to the Articulate Journal.
 
-I'm Russell, and I've spent much of my career designing and working with software systems.
+I'm Russell, and I've spent much of my career designing and building software systems.
 
 Over the years, I've watched the way we build those systems change considerably. New technologies have appeared, architectural styles have evolved, and the systems themselves have become increasingly distributed and complex.
 

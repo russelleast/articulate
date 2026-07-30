@@ -87,3 +87,7 @@ When introducing significant behaviour consider updating:
 - Architecture diagrams
 - README
 - Reference documentation
+
+### ADRs
+
+Architecture Decision Records use headings (Status, Context, Decision and Consequences) following adr-tools approach. https://github.com/npryce/adr-tools

@@ -95,15 +95,15 @@ const patterns = defineCollection({
 });
 
 const decisions = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/decisions" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "../docs/adrs" }),
   schema: z.object({
     id: z.string().min(1),
     title: z.string(),
-    status: z.enum(["proposed", "accepted", "superseded", "rejected"]),
-    decided: z.coerce.date(),
+    status: z.enum(["draft", "proposed", "accepted", "superseded", "rejected"]),
+    decided: z.coerce.date().optional(),
     supersedes: reference("decisions").nullable().default(null),
     superseded_by: reference("decisions").nullable().default(null),
-    episode: reference("episodes").optional(),
+    related_episodes: z.array(reference("episodes")).default([]),
     topics: z.array(z.string()).default([]),
     repository_paths: z.array(repositoryPath).default([])
   })

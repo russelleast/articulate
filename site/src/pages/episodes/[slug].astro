@@ -34,7 +34,9 @@ const relatedDecisions = decisions
   .map((decision) => ({
     title: decision.data.title,
     href: withBase(`/decisions/#${decision.data.id}`),
-    meta: `${decision.data.status}, ${formatDate(decision.data.decided)}`
+    meta: decision.data.decided
+      ? `${decision.data.status}, ${formatDate(decision.data.decided)}`
+      : decision.data.status
   }));
 const relatedPatterns = patterns
   .filter((pattern) => episode.data.related_patterns.some((ref) => ref.id === pattern.id))
