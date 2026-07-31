@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071118"/>
+      <stop offset=".58" stop-color="#0d1820"/>
+      <stop offset="1" stop-color="#142a35"/>
+    </linearGradient>
+    <radialGradient id="cool" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#4d8296" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#4d8296" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warm" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#a65d3f" stop-opacity=".17"/>
+      <stop offset="1" stop-color="#a65d3f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#8fa2aa" stroke-opacity=".105"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#field)"/>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+  <ellipse cx="230" cy="550" rx="520" ry="330" fill="url(#cool)"/>
+  <ellipse cx="1060" cy="290" rx="390" ry="350" fill="url(#warm)"/>
+  <image href="episode-0000-presenter-102_000-blended.png" x="-170" y="80" width="1150" height="647" preserveAspectRatio="xMidYMid meet"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#55798b"/>
+    </marker>
+  </defs>
+  <g transform="translate(708 528)" opacity=".64"><g>
+      
+      <rect x="0" y="0" width="85" height="48" rx="10" fill="#142832" stroke="#55798b" stroke-opacity=".68"/>
+      <text x="42.5" y="29" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing=".6" fill="#dbe8eb">PROBLEM</text>
+    </g><g>
+      <line x1="87" y1="24" x2="110" y2="24" stroke="#55798b" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="115" y="0" width="104" height="48" rx="10" fill="#142832" stroke="#55798b" stroke-opacity=".68"/>
+      <text x="167" y="29" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing=".6" fill="#dbe8eb">PRINCIPLES</text>
+    </g><g>
+      <line x1="221" y1="24" x2="244" y2="24" stroke="#55798b" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="249" y="0" width="116" height="48" rx="10" fill="#142832" stroke="#55798b" stroke-opacity=".68"/>
+      <text x="307" y="29" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing=".6" fill="#dbe8eb">CAPABILITIES</text>
+    </g><g>
+      <line x1="367" y1="24" x2="390" y2="24" stroke="#55798b" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="395" y="0" width="128" height="48" rx="10" fill="#142832" stroke="#a65d3f" stroke-opacity=".68"/>
+      <text x="459" y="29" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing=".6" fill="#dbe8eb">ARCHITECTURE</text>
+    </g></g>
+  <path d="M 514 147 L 1188 147" stroke="#55798b" stroke-width="1" opacity=".42"/>
+  <g transform="translate(568 191)">
+    <rect x="0" y="-19" width="96" height="6" rx="3" fill="#a65d3f"/>
+    <text x="0" y="65" font-family="Inter,Arial,sans-serif" font-size="57" font-weight="800" letter-spacing="-2.1" fill="#f4f0e8">BUILDING AI-NATIVE</text>
+    <text x="0" y="142" font-family="Inter,Arial,sans-serif" font-size="69" font-weight="800" letter-spacing="-2.5" fill="#f4f0e8">ARCHITECTURE</text>
+  </g>
+  <g transform="translate(572 387)">
+    <circle cx="5" cy="5" r="5" fill="#a65d3f"/>
+    <text x="24" y="10" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2.2" fill="#8fa2aa">ARTICULATE JOURNAL · EP 0</text>
+  </g>
+  <g transform="translate(64 75)">
+    <text x="0" y="0" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="750" fill="#f4f0e8" letter-spacing="5.2">ARTICULATE</text>
+    <text x="1" y="23" font-family="Inter,Arial,sans-serif" font-size="9" font-weight="650" fill="#6f95a5" letter-spacing="2.1">AI-NATIVE ARCHITECTURE JOURNAL</text>
+  </g>
+  <g transform="translate(1134 60)">
+    <rect width="80" height="34" rx="17" fill="#172a34" stroke="#55798b"/>
+    <text x="40" y="22" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="750" fill="#f4f0e8" letter-spacing="1.4">EP 0</text>
+  </g>
+</svg>

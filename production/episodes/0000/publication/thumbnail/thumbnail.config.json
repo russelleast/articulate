@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "defaultFormat": "presenter-led",
+  "episode": {
+    "id": "0000",
+    "headline": [
+      "BUILDING AI-NATIVE",
+      "ARCHITECTURE"
+    ],
+    "seriesLabel": "ARTICULATE JOURNAL · EP 0"
+  },
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "safeMargin": 56
+  },
+  "presenter": {
+    "sourceMedia": "../../media/Ep0-pov1.mov",
+    "frameTimestampSeconds": 102,
+    "extractedFrame": "source/episode-0000-presenter-102_000.png",
+    "blendedFrame": "source/episode-0000-presenter-102_000-blended.png",
+    "blend": {
+      "mode": "soft-luma-key",
+      "darkThreshold": 20,
+      "softThresholdRange": 50,
+      "featherRadius": 1.6
+    },
+    "placement": {
+      "x": -170,
+      "y": 80,
+      "width": 1150,
+      "height": 647
+    }
+  },
+  "output": {
+    "file": "episode-0000-thumbnail.png",
+    "editableSource": "source/episode-0000-thumbnail.svg",
+    "preview25Percent": "previews/episode-0000-thumbnail-320.png",
+    "previewMobile": "previews/episode-0000-thumbnail-160.png",
+    "safeAreaPreview": "previews/episode-0000-thumbnail-safe-area.png",
+    "contactSheet": "episode-0000-thumbnail-contact-sheet-presenter.png"
+  },
+  "legacy": {
+    "renderer": "render-thumbnails.mjs",
+    "status": "archived-companion-variants",
+    "preserveAssets": true
+  }
+}

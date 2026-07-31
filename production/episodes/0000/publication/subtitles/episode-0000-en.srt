@@ -1,139 +1,242 @@
 1
-00:00:00,000 --> 00:00:05,840
-Welcome to the Articulate Journal. I'm
-Russell and I've spent most of my career
+00:00:00,100 --> 00:00:02,270
+Welcome to the Articulate Journal.
 
 2
-00:00:05,840 --> 00:00:12,240
-designing and building software systems.
-Over the years, I've learned that
-architecture isn't really
+00:00:03,040 --> 00:00:05,040
+I'm Russell, and I've spent most of my
 
 3
-00:00:12,240 --> 00:00:17,520
-about drawing diagrams or choosing
-technologies. It's about making decisions
-and understanding
+00:00:05,120 --> 00:00:07,750
+career designing and
+building software systems.
 
 4
-00:00:17,520 --> 00:00:23,360
-the consequences of those decisions over
-time. Today, we are at the beginning of
-another major
+00:00:07,830 --> 00:00:11,920
+Over the years, I've learned
+that architecture isn't
 
 5
-00:00:23,360 --> 00:00:29,120
-shift in our industry. Artificial
-intelligence isn't just changing how we
-write software. It's
+00:00:12,000 --> 00:00:13,380
+really about drawing diagrams
 
 6
-00:00:29,120 --> 00:00:36,000
-changing how we think about architecture
-itself. We're seeing new ideas emerge almost
-daily,
+00:00:13,460 --> 00:00:14,920
+or choosing technologies.
 
 7
-00:00:36,000 --> 00:00:42,960
-Agentic systems, AI-native applications,
-multi-agent architectures, durable
-execution,
+00:00:15,000 --> 00:00:16,390
+It's about making decisions
 
 8
-00:00:42,960 --> 00:00:49,680
-memory, reasoning and retrieval. But while
-the tools are evolving rapidly, one question
-keeps
+00:00:16,470 --> 00:00:19,600
+and understanding the consequences
+of those decisions over time.
 
 9
-00:00:49,680 --> 00:00:56,000
-coming back to me. How do we build AI-native
-systems that are reliable, understandable
-and
+00:00:19,680 --> 00:00:22,560
+Today, we are at the beginning
 
 10
-00:00:56,000 --> 00:01:03,120
-maintainable in the real world? That's the
-question behind Articulate. Articulate isn't
-a demo project
+00:00:22,640 --> 00:00:24,750
+of another major shift in our industry.
 
 11
-00:01:03,120 --> 00:01:08,560
-or a proof of concept. It's a real software
-platform that I'm designing and building in
-public,
+00:00:24,830 --> 00:00:27,480
+Artificial intelligence
+isn't just changing
 
 12
-00:01:08,560 --> 00:01:13,680
-with the goal of exploring what AI-native
-architecture looks like when you approach it
-as a systems
+00:00:27,560 --> 00:00:31,200
+how we write software. It's changing
+how we think about architecture itself.
 
 13
-00:01:13,680 --> 00:01:20,000
-architect. More importantly, this journal
-isn't a retrospective. I'm not waiting until
-everything is
+00:00:31,280 --> 00:00:35,580
+We're seeing new ideas
+emerge almost daily:
 
 14
-00:01:20,000 --> 00:01:26,080
-finished before explaining how it all works.
-Instead, I'm documenting the journey as it
-happens.
+00:00:36,010 --> 00:00:38,660
+Agentic systems. AI-native applications.
 
 15
-00:01:26,080 --> 00:01:33,440
-The ideas, research, architectural
-decisions, trade-offs and mistakes and
-sometimes discovering
+00:00:38,740 --> 00:00:42,970
+Multi-agent architectures.
+Durable execution.
 
 16
-00:01:33,440 --> 00:01:39,040
-the best decision is to change direction
-because that's part of architecture. A
-continuous
+00:00:43,050 --> 00:00:45,600
+Memory, reasoning and retrieval.
 
 17
-00:01:39,040 --> 00:01:45,840
-process of learning, questioning and
-refining. Throughout this journal, I'll
-explore the principles
+00:00:45,680 --> 00:00:48,780
+But while the tools are evolving rapidly,
 
 18
-00:01:45,840 --> 00:01:51,600
-behind AI-native systems, investigate new
-architectural patterns, evaluate
-technologies
+00:00:48,920 --> 00:00:50,960
+one question keeps coming back to me.
 
 19
-00:01:51,600 --> 00:01:57,360
-against real architectural requirements and
-gradually build Articulate into a working
-platform.
+00:00:51,040 --> 00:00:53,440
+How do we build AI-native systems
 
 20
-00:01:57,360 --> 00:02:03,600
-Some episodes will focus on concepts. Others
-will follow architectural decisions from the
+00:00:53,520 --> 00:00:55,760
+that are reliable, understandable
 
 21
-00:02:03,600 --> 00:02:08,960
-original question through to implementation.
-The software is important, but the reasoning
+00:00:55,840 --> 00:00:58,080
+and maintainable in the real world?
 
 22
-00:02:08,960 --> 00:02:14,800
-behind the software is what I really want to
-preserve. If you're interested in software
+00:00:58,160 --> 00:01:00,960
+That's the question behind Articulate.
 
 23
-00:02:14,800 --> 00:02:20,640
-architecture, AI-native systems, or simply
-want to follow the design of a complex
-system as it
+00:01:01,040 --> 00:01:02,560
+Articulate isn't a demo
 
 24
-00:02:20,640 --> 00:02:27,067
-evolves, then I hope you'll enjoy the
-journey. Welcome to the Articulate Journal.
+00:01:02,640 --> 00:01:04,240
+project or a proof of concept.
+
+25
+00:01:04,320 --> 00:01:05,740
+It's a real software platform
+
+26
+00:01:05,820 --> 00:01:08,250
+that I'm designing and building in public,
+
+27
+00:01:08,560 --> 00:01:12,320
+with the goal of exploring what
+AI-native architecture looks like
+
+28
+00:01:12,400 --> 00:01:14,450
+when you approach it
+as a systems architect.
+
+29
+00:01:14,530 --> 00:01:18,060
+More importantly, this
+journal isn't a retrospective.
+
+30
+00:01:18,140 --> 00:01:20,760
+I'm not waiting until
+everything is finished
+
+31
+00:01:20,840 --> 00:01:22,970
+before explaining how it all works.
+
+32
+00:01:23,050 --> 00:01:26,000
+Instead, I'm documenting
+the journey as it happens.
+
+33
+00:01:26,080 --> 00:01:30,160
+The ideas, research,
+architectural decisions,
+
+34
+00:01:30,240 --> 00:01:33,560
+trade-offs and mistakes,
+and sometimes discovering
+
+35
+00:01:33,640 --> 00:01:36,210
+the best decision is to change direction.
+
+36
+00:01:36,290 --> 00:01:38,120
+Because that's part of architecture:
+
+37
+00:01:38,200 --> 00:01:40,350
+a continuous process of learning,
+
+38
+00:01:40,430 --> 00:01:42,200
+questioning and refining.
+
+39
+00:01:42,280 --> 00:01:44,770
+Throughout this journal, I'll explore
+
+40
+00:01:44,850 --> 00:01:47,430
+the principles behind AI-native systems,
+
+41
+00:01:47,510 --> 00:01:50,050
+investigate new architectural patterns,
+
+42
+00:01:50,130 --> 00:01:51,940
+evaluate technologies against
+
+43
+00:01:52,020 --> 00:01:53,610
+real architectural requirements,
+
+44
+00:01:53,690 --> 00:01:55,360
+and gradually build Articulate
+
+45
+00:01:55,440 --> 00:01:56,700
+into a working platform.
+
+46
+00:01:57,360 --> 00:02:00,100
+Some episodes will focus on concepts.
+
+47
+00:02:00,410 --> 00:02:02,800
+Others will follow architectural decisions
+
+48
+00:02:02,880 --> 00:02:06,570
+from the original question
+through to implementation.
+
+49
+00:02:06,650 --> 00:02:08,200
+The software is important,
+
+50
+00:02:08,280 --> 00:02:10,220
+but the reasoning behind the software
+
+51
+00:02:10,300 --> 00:02:12,690
+is what I really want to preserve.
+
+52
+00:02:12,790 --> 00:02:15,680
+If you're interested in
+software architecture,
+
+53
+00:02:15,760 --> 00:02:18,440
+AI-native systems, or
+simply want to follow
+
+54
+00:02:18,520 --> 00:02:21,320
+the design of a complex
+system as it evolves,
+
+55
+00:02:21,400 --> 00:02:24,010
+then I hope you'll enjoy the journey.
+
+56
+00:02:24,090 --> 00:02:26,920
+Welcome to the Articulate Journal.
 
