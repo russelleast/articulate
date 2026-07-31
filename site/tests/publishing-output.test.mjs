@@ -44,14 +44,14 @@ test("episode metadata and JSON-LD come from episode front matter", async () => 
   assert.deepEqual(article.keywords, ["ai-native-architecture", "agentic-systems", "intelligent-runtime"]);
 });
 
-test("Episode 0000 publishes companion media while keeping the journal article", async () => {
+test("Episode 0000 publishes presenter media while keeping the journal article", async () => {
   const home = await output("index.html");
   const episode = await output("episodes/preface/index.html");
 
   assert.match(home, /class="responsive-video"/);
-  assert.match(home, /youtube-nocookie\.com\/embed\/2PkyWAlfS_w/);
+  assert.match(home, /youtube-nocookie\.com\/embed\/bPTnBevs3U8/);
   assert.match(home, /Read the written introduction/);
-  assert.match(episode, /episode-0000-thumbnail-a-companion-led\.png/);
+  assert.match(episode, /episode-0000-thumbnail\.png/);
   assert.match(episode, /Watch this Episode on YouTube/);
   assert.match(episode, /The journal article below\s+remains the canonical written version/);
 });
