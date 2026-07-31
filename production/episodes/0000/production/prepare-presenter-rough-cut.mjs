@@ -143,6 +143,18 @@ const renderConfig = {
     startOffsetSeconds: 0,
     endOffsetSeconds: selectedDurationSeconds,
     background: "#000000",
+    compositing: {
+      mode: "soft-luma-key",
+      applyTo: ["presenter-focus"],
+      darkThreshold: 0.12,
+      softThresholdRange: 0.14,
+      maskFeatherRadius: 3,
+      minimumRetainedOpacity: 0,
+      maskContrast: 1,
+      edgeVignetteRadius: 72,
+      darkHaloSuppression: 0.08,
+      temporalSmoothing: 2
+    },
     framing: {
       "presenter-full": { x: 0, y: 0, width: 1920, height: 1080 },
       "presenter-focus": { x: -20, y: 641, width: 780, height: 439 }

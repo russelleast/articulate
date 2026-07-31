@@ -17,6 +17,20 @@ const VISIBLE_MODES = new Set([
   "presenter-overlay"
 ]);
 
+const PRESENTER_COMPOSITING_MODES = new Set(["overlay", "soft-luma-key"]);
+
+export const DEFAULT_PRESENTER_COMPOSITING = Object.freeze({
+  mode: "overlay",
+  darkThreshold: 0.12,
+  softThresholdRange: 0.14,
+  maskFeatherRadius: 3,
+  minimumRetainedOpacity: 0,
+  maskContrast: 1,
+  edgeVignetteRadius: 72,
+  darkHaloSuppression: 0.08,
+  temporalSmoothing: 2
+});
+
 export function usesPresenterVideo(config) {
   return config.presenter?.implementation === "continuous-video";
 }
@@ -40,6 +54,7 @@ export function validatePresenterMedia({ config, asset, probe, scenes }) {
   if (presenter.audio !== "embedded") {
     errors.push("The continuous presenter pipeline currently requires embedded audio");
   }
+  errors.push(...validatePresenterCompositing(presenter.compositing));
   const sourceDuration = Number(probe.format?.duration);
   const start = presenter.startOffsetSeconds ?? 0;
   const end = presenter.endOffsetSeconds ?? sourceDuration;
@@ -77,9 +92,21 @@ export function presenterFilterGraph({ presenter, scenes, output, durationSecond
   for (const [index, scene] of visibleScenes.entries()) {
     const mode = scene.presentation.composition;
     const frame = presenter.framing?.[mode] ?? defaultFrame(mode, output);
-    filters.push(
-      `[presenter-source-${index}]scale=${frame.width}:${frame.height}:flags=lanczos[presenter-${index}]`
-    );
+    const compositing = resolvePresenterCompositing(presenter.compositing, mode);
+    const sceneWindow = `trim=start=${decimal(scene.startSeconds)}:end=${decimal(scene.endSeconds)},setpts=PTS-STARTPTS+${decimal(scene.startSeconds)}/TB`;
+    if (compositing.mode === "soft-luma-key") {
+      filters.push(...softLumaKeyFilters({
+        input: `presenter-source-${index}`,
+        output: `presenter-${index}`,
+        frame,
+        compositing,
+        sceneWindow
+      }));
+    } else {
+      filters.push(
+        `[presenter-source-${index}]${sceneWindow},scale=${frame.width}:${frame.height}:flags=lanczos[presenter-${index}]`
+      );
+    }
     const outputLabel = `composite-${index}`;
     filters.push(
       `[${current}][presenter-${index}]overlay=x=${frame.x}:y=${frame.y}:eof_action=pass:shortest=0:enable='gte(t,${decimal(scene.startSeconds)})*lt(t,${decimal(scene.endSeconds)})'[${outputLabel}]`
@@ -99,12 +126,79 @@ export function presenterManifest(presenter, scenes) {
     implementation: presenter.implementation,
     assetId: presenter.assetId,
     audio: presenter.audio,
+    compositing: presenter.compositing ?? { mode: "overlay" },
     startOffsetSeconds: presenter.startOffsetSeconds ?? 0,
     endOffsetSeconds: presenter.endOffsetSeconds,
     visibleScenes: scenes
       .filter((scene) => VISIBLE_MODES.has(scene.presentation.composition))
       .map((scene) => ({ sceneId: scene.id, composition: scene.presentation.composition }))
   };
+}
+
+function validatePresenterCompositing(config) {
+  if (!config) return [];
+  const errors = [];
+  const mode = config.mode ?? "overlay";
+  if (!PRESENTER_COMPOSITING_MODES.has(mode)) {
+    errors.push(`Unsupported presenter compositing mode '${mode}'`);
+  }
+  const unitValues = ["darkThreshold", "softThresholdRange", "minimumRetainedOpacity", "darkHaloSuppression"];
+  for (const name of unitValues) {
+    if (config[name] !== undefined && (!Number.isFinite(config[name]) || config[name] < 0 || config[name] > 1)) {
+      errors.push(`presenter.compositing.${name} must be between 0 and 1`);
+    }
+  }
+  const positiveValues = ["maskFeatherRadius", "maskContrast", "edgeVignetteRadius", "temporalSmoothing"];
+  for (const name of positiveValues) {
+    if (config[name] !== undefined && (!Number.isFinite(config[name]) || config[name] < 0)) {
+      errors.push(`presenter.compositing.${name} must be non-negative`);
+    }
+  }
+  if (config.applyTo !== undefined) {
+    if (!Array.isArray(config.applyTo) || config.applyTo.some((item) => !VISIBLE_MODES.has(item))) {
+      errors.push("presenter.compositing.applyTo must contain only visible presenter composition modes");
+    }
+  }
+  return errors;
+}
+
+function resolvePresenterCompositing(config, sceneMode) {
+  const resolved = { ...DEFAULT_PRESENTER_COMPOSITING, ...config };
+  if (config?.applyTo && !config.applyTo.includes(sceneMode)) return { ...resolved, mode: "overlay" };
+  return resolved;
+}
+
+function softLumaKeyFilters({ input, output, frame, compositing, sceneWindow }) {
+  const threshold = 255 * (
+    compositing.darkThreshold
+    + compositing.softThresholdRange * compositing.darkHaloSuppression
+  );
+  const range = Math.max(1, 255 * compositing.softThresholdRange);
+  const floor = 255 * compositing.minimumRetainedOpacity;
+  const transition = `clip((val-${number(threshold)})/${number(range)}\\,0\\,1)`;
+  const alphaExpression = `${number(floor)}+(255-${number(floor)})*${transition}*${transition}*(3-2*${transition})`;
+  const maskFilters = [
+    "scale=in_range=tv:out_range=full",
+    "format=gray",
+    `eq=contrast=${number(compositing.maskContrast)}`,
+    compositing.temporalSmoothing > 0
+      ? `hqdn3d=luma_spatial=${number(compositing.temporalSmoothing * 0.75)}:chroma_spatial=0:luma_tmp=${number(compositing.temporalSmoothing)}:chroma_tmp=0`
+      : null,
+    `lut=y='${alphaExpression}'`,
+    compositing.maskFeatherRadius > 0
+      ? `gblur=sigma=${number(compositing.maskFeatherRadius)}`
+      : null,
+    compositing.edgeVignetteRadius > 0
+      ? `format=gray,geq=lum='lum(X\\,Y)*min(1\\,min(X/${number(compositing.edgeVignetteRadius)}\\,min((W-1-X)/${number(compositing.edgeVignetteRadius)}\\,min(Y/${number(compositing.edgeVignetteRadius)}\\,(H-1-Y)/${number(compositing.edgeVignetteRadius)}))))'`
+      : null
+  ].filter(Boolean);
+
+  return [
+    `[${input}]${sceneWindow},scale=${frame.width}:${frame.height}:flags=lanczos,split=2[presenter-colour-${output}][presenter-mask-${output}]`,
+    `[presenter-colour-${output}]format=rgba[presenter-rgba-${output}]`,
+    `[presenter-mask-${output}]${maskFilters.join(",")}[presenter-alpha-${output}]`,
+    `[presenter-rgba-${output}][presenter-alpha-${output}]alphamerge[${output}]`
+  ];
 }
 
 function defaultFrame(mode, output) {
@@ -125,4 +219,8 @@ function defaultFrame(mode, output) {
 
 function decimal(value) {
   return Number(value).toFixed(6);
+}
+
+function number(value) {
+  return Number(value).toFixed(4);
 }

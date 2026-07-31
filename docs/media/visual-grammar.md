@@ -388,6 +388,8 @@ Do not use presenter picture:
 
 Presenter picture may move left, right, full-frame or into a restrained overlay, but picture and embedded audio remain one continuous source. Canvas-only scenes hide picture without restarting audio. Screen-time percentage is not a target; editorial necessity is the test.
 
+When dark-background presenter footage shares a Focus Canvas, compose it as a `Presenter` layer rather than a framed video panel. A soft, temporally stable luminance mask may dissolve very dark pixels and the outer source edges into the canvas while retaining gradual shadows, hair, glasses and clothing detail. Keep opaque composition available for full-frame presenter scenes.
+
 The Companion pipeline is retained for archived Visual Grammar v1 productions. It is deprecated for new presenter-led episodes and its viseme, blink and idle treatments must never be applied to recorded presenter footage.
 
 ## 12. Expressing editorial intent

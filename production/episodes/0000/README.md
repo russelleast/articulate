@@ -28,7 +28,7 @@ The complete 1280×720 recording is selected from `00:00.000` through `02:27.067
 
 No Companion asset, performance timeline, viseme, blink or idle-motion processing is used. No physical whiteboard composition appears.
 
-The black source background is part of the composition. Narrator scenes scale the complete frame rather than tightly cropping it, preserving gestures while keeping Focus Canvas content in a separate safe region.
+The black source background is part of the composition. Narrator scenes scale the complete frame rather than tightly cropping it, preserving gestures while keeping Focus Canvas content in a separate safe region. `presenter.compositing` applies the reusable `soft-luma-key` presenter compositor to `presenter-focus` scenes: a denoised soft luminance mask preserves the presenter and natural shadows while a feathered edge vignette dissolves the recording boundary into the Focus Canvas. Full-frame presenter footage remains opaque.
 
 Episode 0000 follows the Episode 0004 pre-render model. Visual and editorial changes belong in `scene-plan.yaml`; `prepare-presenter-rough-cut.mjs` regenerates alignment, timeline, storyboard, markers, subtitles and renderer configuration.
 

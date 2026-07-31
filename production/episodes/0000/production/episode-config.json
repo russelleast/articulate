@@ -20,6 +20,20 @@
     "startOffsetSeconds": 0,
     "endOffsetSeconds": 147.066667,
     "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
     "framing": {
       "presenter-full": {
         "x": 0,
