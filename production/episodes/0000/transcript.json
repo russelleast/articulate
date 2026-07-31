@@ -1,0 +1,2734 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "audio": "production/episodes/0000/media/Ep0-pov1.mov",
+  "engine": "whisper.cpp",
+  "model": "whisper.cpp base.en",
+  "language": "en",
+  "segments": [
+    {
+      "id": "T0001",
+      "start": 0,
+      "end": 5.84,
+      "text": "Welcome to the Articulate Journal. I'm Russell and I've spent most of my career",
+      "confidence": 0.914,
+      "words": [
+        {
+          "start": 0.1,
+          "end": 0.48,
+          "text": " Welcome",
+          "confidence": 0.923
+        },
+        {
+          "start": 0.48,
+          "end": 0.57,
+          "text": " to",
+          "confidence": 0.997
+        },
+        {
+          "start": 0.6,
+          "end": 0.81,
+          "text": " the",
+          "confidence": 0.843
+        },
+        {
+          "start": 0.81,
+          "end": 1.01,
+          "text": " Art",
+          "confidence": 0.838
+        },
+        {
+          "start": 1.01,
+          "end": 1.14,
+          "text": "ic",
+          "confidence": 0.909
+        },
+        {
+          "start": 1.14,
+          "end": 1.48,
+          "text": "ulate",
+          "confidence": 0.994
+        },
+        {
+          "start": 1.48,
+          "end": 1.99,
+          "text": " Journal",
+          "confidence": 0.847
+        },
+        {
+          "start": 1.99,
+          "end": 2.95,
+          "text": ".",
+          "confidence": 0.868
+        },
+        {
+          "start": 3.04,
+          "end": 3.04,
+          "text": " I",
+          "confidence": 0.665
+        },
+        {
+          "start": 3.05,
+          "end": 3.19,
+          "text": "'m",
+          "confidence": 0.969
+        },
+        {
+          "start": 3.19,
+          "end": 3.48,
+          "text": " Russell",
+          "confidence": 0.98
+        },
+        {
+          "start": 3.84,
+          "end": 4.07,
+          "text": " and",
+          "confidence": 0.776
+        },
+        {
+          "start": 4.13,
+          "end": 4.14,
+          "text": " I",
+          "confidence": 0.959
+        },
+        {
+          "start": 4.14,
+          "end": 4.32,
+          "text": "'ve",
+          "confidence": 0.977
+        },
+        {
+          "start": 4.32,
+          "end": 4.6,
+          "text": " spent",
+          "confidence": 0.995
+        },
+        {
+          "start": 4.68,
+          "end": 4.85,
+          "text": " most",
+          "confidence": 0.965
+        },
+        {
+          "start": 4.93,
+          "end": 4.98,
+          "text": " of",
+          "confidence": 0.976
+        },
+        {
+          "start": 4.99,
+          "end": 5.12,
+          "text": " my",
+          "confidence": 0.993
+        },
+        {
+          "start": 5.12,
+          "end": 5.54,
+          "text": " career",
+          "confidence": 0.894
+        }
+      ]
+    },
+    {
+      "id": "T0002",
+      "start": 5.84,
+      "end": 12.24,
+      "text": "designing and building software systems. Over the years, I've learned that architecture isn't really",
+      "confidence": 0.879,
+      "words": [
+        {
+          "start": 5.94,
+          "end": 6.31,
+          "text": " designing",
+          "confidence": 0.996
+        },
+        {
+          "start": 6.31,
+          "end": 6.41,
+          "text": " and",
+          "confidence": 0.996
+        },
+        {
+          "start": 6.47,
+          "end": 6.88,
+          "text": " building",
+          "confidence": 0.998
+        },
+        {
+          "start": 6.88,
+          "end": 7.3,
+          "text": " software",
+          "confidence": 0.998
+        },
+        {
+          "start": 7.3,
+          "end": 7.66,
+          "text": " systems",
+          "confidence": 0.999
+        },
+        {
+          "start": 7.66,
+          "end": 7.83,
+          "text": ".",
+          "confidence": 0.953
+        },
+        {
+          "start": 7.83,
+          "end": 8.58,
+          "text": " Over",
+          "confidence": 0.958
+        },
+        {
+          "start": 8.89,
+          "end": 9.14,
+          "text": " the",
+          "confidence": 1
+        },
+        {
+          "start": 9.14,
+          "end": 10.08,
+          "text": " years",
+          "confidence": 0.998
+        },
+        {
+          "start": 10.08,
+          "end": 10.16,
+          "text": ",",
+          "confidence": 0.376
+        },
+        {
+          "start": 10.16,
+          "end": 10.17,
+          "text": " I",
+          "confidence": 0.962
+        },
+        {
+          "start": 10.25,
+          "end": 10.32,
+          "text": "'ve",
+          "confidence": 0.992
+        },
+        {
+          "start": 10.32,
+          "end": 10.64,
+          "text": " learned",
+          "confidence": 0.854
+        },
+        {
+          "start": 10.64,
+          "end": 10.8,
+          "text": " that",
+          "confidence": 0.943
+        },
+        {
+          "start": 10.8,
+          "end": 11.38,
+          "text": " architecture",
+          "confidence": 0.572
+        },
+        {
+          "start": 11.81,
+          "end": 11.9,
+          "text": " isn",
+          "confidence": 0.656
+        },
+        {
+          "start": 11.9,
+          "end": 12,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 12,
+          "end": 12.24,
+          "text": " really",
+          "confidence": 0.567
+        }
+      ]
+    },
+    {
+      "id": "T0003",
+      "start": 12.24,
+      "end": 17.52,
+      "text": "about drawing diagrams or choosing technologies. It's about making decisions and understanding",
+      "confidence": 0.944,
+      "words": [
+        {
+          "start": 12.34,
+          "end": 12.54,
+          "text": " about",
+          "confidence": 0.989
+        },
+        {
+          "start": 12.59,
+          "end": 12.98,
+          "text": " drawing",
+          "confidence": 0.998
+        },
+        {
+          "start": 12.98,
+          "end": 13.46,
+          "text": " diagrams",
+          "confidence": 0.995
+        },
+        {
+          "start": 13.46,
+          "end": 13.59,
+          "text": " or",
+          "confidence": 0.987
+        },
+        {
+          "start": 13.59,
+          "end": 14.08,
+          "text": " choosing",
+          "confidence": 0.999
+        },
+        {
+          "start": 14.08,
+          "end": 14.81,
+          "text": " technologies",
+          "confidence": 0.997
+        },
+        {
+          "start": 14.81,
+          "end": 15,
+          "text": ".",
+          "confidence": 0.361
+        },
+        {
+          "start": 15,
+          "end": 15.12,
+          "text": " It",
+          "confidence": 0.973
+        },
+        {
+          "start": 15.17,
+          "end": 15.19,
+          "text": "'s",
+          "confidence": 0.984
+        },
+        {
+          "start": 15.29,
+          "end": 15.55,
+          "text": " about",
+          "confidence": 1
+        },
+        {
+          "start": 15.55,
+          "end": 15.73,
+          "text": " making",
+          "confidence": 0.999
+        },
+        {
+          "start": 16.08,
+          "end": 16.47,
+          "text": " decisions",
+          "confidence": 0.999
+        },
+        {
+          "start": 16.47,
+          "end": 16.56,
+          "text": " and",
+          "confidence": 0.937
+        },
+        {
+          "start": 16.65,
+          "end": 17.52,
+          "text": " understanding",
+          "confidence": 0.995
+        }
+      ]
+    },
+    {
+      "id": "T0004",
+      "start": 17.52,
+      "end": 23.36,
+      "text": "the consequences of those decisions over time. Today, we are at the beginning of another major",
+      "confidence": 0.951,
+      "words": [
+        {
+          "start": 17.61,
+          "end": 17.67,
+          "text": " the",
+          "confidence": 0.995
+        },
+        {
+          "start": 17.67,
+          "end": 18.28,
+          "text": " consequences",
+          "confidence": 0.999
+        },
+        {
+          "start": 18.28,
+          "end": 18.36,
+          "text": " of",
+          "confidence": 0.999
+        },
+        {
+          "start": 18.37,
+          "end": 18.63,
+          "text": " those",
+          "confidence": 0.983
+        },
+        {
+          "start": 18.63,
+          "end": 19.08,
+          "text": " decisions",
+          "confidence": 0.997
+        },
+        {
+          "start": 19.11,
+          "end": 19.29,
+          "text": " over",
+          "confidence": 0.982
+        },
+        {
+          "start": 19.29,
+          "end": 19.47,
+          "text": " time",
+          "confidence": 0.999
+        },
+        {
+          "start": 19.49,
+          "end": 19.66,
+          "text": ".",
+          "confidence": 0.991
+        },
+        {
+          "start": 19.68,
+          "end": 20.24,
+          "text": " Today",
+          "confidence": 0.977
+        },
+        {
+          "start": 20.24,
+          "end": 20.46,
+          "text": ",",
+          "confidence": 0.644
+        },
+        {
+          "start": 20.57,
+          "end": 20.68,
+          "text": " we",
+          "confidence": 0.995
+        },
+        {
+          "start": 20.68,
+          "end": 21,
+          "text": " are",
+          "confidence": 0.77
+        },
+        {
+          "start": 21.24,
+          "end": 21.24,
+          "text": " at",
+          "confidence": 0.993
+        },
+        {
+          "start": 21.36,
+          "end": 21.57,
+          "text": " the",
+          "confidence": 0.999
+        },
+        {
+          "start": 21.58,
+          "end": 22.64,
+          "text": " beginning",
+          "confidence": 0.995
+        },
+        {
+          "start": 22.64,
+          "end": 22.8,
+          "text": " of",
+          "confidence": 0.988
+        },
+        {
+          "start": 22.8,
+          "end": 23.04,
+          "text": " another",
+          "confidence": 0.896
+        },
+        {
+          "start": 23.04,
+          "end": 23.33,
+          "text": " major",
+          "confidence": 0.922
+        }
+      ]
+    },
+    {
+      "id": "T0005",
+      "start": 23.36,
+      "end": 29.12,
+      "text": "shift in our industry. Artificial intelligence isn't just changing how we write software. It's",
+      "confidence": 0.932,
+      "words": [
+        {
+          "start": 23.46,
+          "end": 23.66,
+          "text": " shift",
+          "confidence": 0.994
+        },
+        {
+          "start": 23.71,
+          "end": 23.85,
+          "text": " in",
+          "confidence": 0.999
+        },
+        {
+          "start": 23.85,
+          "end": 24.06,
+          "text": " our",
+          "confidence": 0.999
+        },
+        {
+          "start": 24.06,
+          "end": 24.59,
+          "text": " industry",
+          "confidence": 0.999
+        },
+        {
+          "start": 24.62,
+          "end": 24.83,
+          "text": ".",
+          "confidence": 0.971
+        },
+        {
+          "start": 24.83,
+          "end": 25.35,
+          "text": " Artificial",
+          "confidence": 0.926
+        },
+        {
+          "start": 25.53,
+          "end": 26.36,
+          "text": " intelligence",
+          "confidence": 0.932
+        },
+        {
+          "start": 26.41,
+          "end": 26.58,
+          "text": " isn",
+          "confidence": 0.974
+        },
+        {
+          "start": 26.58,
+          "end": 26.71,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 26.71,
+          "end": 26.85,
+          "text": " just",
+          "confidence": 0.998
+        },
+        {
+          "start": 27.2,
+          "end": 27.56,
+          "text": " changing",
+          "confidence": 0.996
+        },
+        {
+          "start": 27.56,
+          "end": 27.68,
+          "text": " how",
+          "confidence": 0.998
+        },
+        {
+          "start": 27.77,
+          "end": 27.91,
+          "text": " we",
+          "confidence": 0.998
+        },
+        {
+          "start": 27.91,
+          "end": 28.2,
+          "text": " write",
+          "confidence": 0.993
+        },
+        {
+          "start": 28.29,
+          "end": 28.88,
+          "text": " software",
+          "confidence": 0.997
+        },
+        {
+          "start": 28.88,
+          "end": 28.91,
+          "text": ".",
+          "confidence": 0.387
+        },
+        {
+          "start": 28.97,
+          "end": 29.03,
+          "text": " It",
+          "confidence": 0.623
+        },
+        {
+          "start": 29.03,
+          "end": 29.11,
+          "text": "'s",
+          "confidence": 0.994
+        }
+      ]
+    },
+    {
+      "id": "T0006",
+      "start": 29.12,
+      "end": 35.44,
+      "text": "changing how we think about architecture itself. We're seeing new ideas emerge almost daily,",
+      "confidence": 0.945,
+      "words": [
+        {
+          "start": 29.22,
+          "end": 29.51,
+          "text": " changing",
+          "confidence": 0.998
+        },
+        {
+          "start": 29.51,
+          "end": 29.64,
+          "text": " how",
+          "confidence": 0.999
+        },
+        {
+          "start": 29.69,
+          "end": 29.71,
+          "text": " we",
+          "confidence": 0.999
+        },
+        {
+          "start": 29.75,
+          "end": 29.98,
+          "text": " think",
+          "confidence": 0.998
+        },
+        {
+          "start": 29.98,
+          "end": 30.22,
+          "text": " about",
+          "confidence": 0.996
+        },
+        {
+          "start": 30.22,
+          "end": 30.79,
+          "text": " architecture",
+          "confidence": 0.994
+        },
+        {
+          "start": 30.79,
+          "end": 31.08,
+          "text": " itself",
+          "confidence": 0.984
+        },
+        {
+          "start": 31.09,
+          "end": 31.26,
+          "text": ".",
+          "confidence": 0.994
+        },
+        {
+          "start": 31.28,
+          "end": 31.54,
+          "text": " We",
+          "confidence": 0.981
+        },
+        {
+          "start": 31.54,
+          "end": 31.94,
+          "text": "'re",
+          "confidence": 0.75
+        },
+        {
+          "start": 32.17,
+          "end": 32.61,
+          "text": " seeing",
+          "confidence": 1
+        },
+        {
+          "start": 32.96,
+          "end": 33.14,
+          "text": " new",
+          "confidence": 0.999
+        },
+        {
+          "start": 33.14,
+          "end": 33.81,
+          "text": " ideas",
+          "confidence": 1
+        },
+        {
+          "start": 33.81,
+          "end": 34.64,
+          "text": " emerge",
+          "confidence": 0.998
+        },
+        {
+          "start": 34.64,
+          "end": 34.67,
+          "text": " almost",
+          "confidence": 0.947
+        },
+        {
+          "start": 35.09,
+          "end": 35.3,
+          "text": " daily",
+          "confidence": 0.995
+        },
+        {
+          "start": 35.3,
+          "end": 35.44,
+          "text": ",",
+          "confidence": 0.44
+        }
+      ]
+    },
+    {
+      "id": "T0007",
+      "start": 36,
+      "end": 42.96,
+      "text": "Agentic systems, AI-native applications, multi-agent architectures, durable execution,",
+      "confidence": 0.89,
+      "words": [
+        {
+          "start": 36.01,
+          "end": 36.01,
+          "text": " genetic",
+          "confidence": 0.203
+        },
+        {
+          "start": 36.1,
+          "end": 36.58,
+          "text": " systems",
+          "confidence": 0.998
+        },
+        {
+          "start": 36.58,
+          "end": 36.74,
+          "text": ",",
+          "confidence": 0.987
+        },
+        {
+          "start": 36.74,
+          "end": 36.84,
+          "text": " AI",
+          "confidence": 0.873
+        },
+        {
+          "start": 36.91,
+          "end": 36.98,
+          "text": "-",
+          "confidence": 0.56
+        },
+        {
+          "start": 36.98,
+          "end": 37.47,
+          "text": "native",
+          "confidence": 0.989
+        },
+        {
+          "start": 37.47,
+          "end": 38.45,
+          "text": " applications",
+          "confidence": 0.998
+        },
+        {
+          "start": 38.45,
+          "end": 38.61,
+          "text": ",",
+          "confidence": 0.994
+        },
+        {
+          "start": 38.74,
+          "end": 39,
+          "text": " multi",
+          "confidence": 0.993
+        },
+        {
+          "start": 39.05,
+          "end": 39.1,
+          "text": "-",
+          "confidence": 0.992
+        },
+        {
+          "start": 39.1,
+          "end": 39.48,
+          "text": "agent",
+          "confidence": 0.945
+        },
+        {
+          "start": 39.84,
+          "end": 40.58,
+          "text": " architectures",
+          "confidence": 0.987
+        },
+        {
+          "start": 40.59,
+          "end": 40.8,
+          "text": ",",
+          "confidence": 0.994
+        },
+        {
+          "start": 40.8,
+          "end": 41.54,
+          "text": " durable",
+          "confidence": 0.745
+        },
+        {
+          "start": 41.97,
+          "end": 42.72,
+          "text": " execution",
+          "confidence": 0.997
+        },
+        {
+          "start": 42.72,
+          "end": 42.94,
+          "text": ",",
+          "confidence": 0.989
+        }
+      ]
+    },
+    {
+      "id": "T0008",
+      "start": 42.96,
+      "end": 49.68,
+      "text": "memory, reasoning and retrieval. But while the tools are evolving rapidly, one question keeps",
+      "confidence": 0.908,
+      "words": [
+        {
+          "start": 43.05,
+          "end": 43.47,
+          "text": " memory",
+          "confidence": 0.999
+        },
+        {
+          "start": 43.47,
+          "end": 43.64,
+          "text": ",",
+          "confidence": 0.935
+        },
+        {
+          "start": 43.64,
+          "end": 44.41,
+          "text": " reasoning",
+          "confidence": 1
+        },
+        {
+          "start": 44.41,
+          "end": 44.63,
+          "text": " and",
+          "confidence": 0.664
+        },
+        {
+          "start": 44.65,
+          "end": 45.42,
+          "text": " retrieval",
+          "confidence": 0.999
+        },
+        {
+          "start": 45.42,
+          "end": 45.68,
+          "text": ".",
+          "confidence": 0.938
+        },
+        {
+          "start": 45.68,
+          "end": 45.93,
+          "text": " But",
+          "confidence": 0.964
+        },
+        {
+          "start": 46.01,
+          "end": 46.35,
+          "text": " while",
+          "confidence": 0.94
+        },
+        {
+          "start": 46.35,
+          "end": 46.45,
+          "text": " the",
+          "confidence": 0.998
+        },
+        {
+          "start": 46.8,
+          "end": 47.02,
+          "text": " tools",
+          "confidence": 1
+        },
+        {
+          "start": 47.02,
+          "end": 47.27,
+          "text": " are",
+          "confidence": 0.999
+        },
+        {
+          "start": 47.27,
+          "end": 47.95,
+          "text": " evolving",
+          "confidence": 0.617
+        },
+        {
+          "start": 47.95,
+          "end": 48.5,
+          "text": " rapidly",
+          "confidence": 0.998
+        },
+        {
+          "start": 48.54,
+          "end": 48.78,
+          "text": ",",
+          "confidence": 0.888
+        },
+        {
+          "start": 48.92,
+          "end": 49.04,
+          "text": " one",
+          "confidence": 0.674
+        },
+        {
+          "start": 49.04,
+          "end": 49.44,
+          "text": " question",
+          "confidence": 0.971
+        },
+        {
+          "start": 49.44,
+          "end": 49.68,
+          "text": " keeps",
+          "confidence": 0.847
+        }
+      ]
+    },
+    {
+      "id": "T0009",
+      "start": 49.68,
+      "end": 56,
+      "text": "coming back to me. How do we build AI-native systems that are reliable, understandable and",
+      "confidence": 0.975,
+      "words": [
+        {
+          "start": 49.78,
+          "end": 50.16,
+          "text": " coming",
+          "confidence": 0.986
+        },
+        {
+          "start": 50.16,
+          "end": 50.48,
+          "text": " back",
+          "confidence": 1
+        },
+        {
+          "start": 50.48,
+          "end": 50.64,
+          "text": " to",
+          "confidence": 0.999
+        },
+        {
+          "start": 50.64,
+          "end": 50.8,
+          "text": " me",
+          "confidence": 1
+        },
+        {
+          "start": 50.8,
+          "end": 51.02,
+          "text": ".",
+          "confidence": 0.891
+        },
+        {
+          "start": 51.04,
+          "end": 51.27,
+          "text": " How",
+          "confidence": 0.938
+        },
+        {
+          "start": 51.33,
+          "end": 51.44,
+          "text": " do",
+          "confidence": 0.999
+        },
+        {
+          "start": 51.44,
+          "end": 51.6,
+          "text": " we",
+          "confidence": 0.999
+        },
+        {
+          "start": 51.6,
+          "end": 52,
+          "text": " build",
+          "confidence": 0.999
+        },
+        {
+          "start": 52,
+          "end": 52.16,
+          "text": " AI",
+          "confidence": 0.984
+        },
+        {
+          "start": 52.16,
+          "end": 52.24,
+          "text": "-",
+          "confidence": 0.943
+        },
+        {
+          "start": 52.24,
+          "end": 52.72,
+          "text": "native",
+          "confidence": 0.998
+        },
+        {
+          "start": 52.73,
+          "end": 53.17,
+          "text": " systems",
+          "confidence": 0.999
+        },
+        {
+          "start": 53.52,
+          "end": 53.6,
+          "text": " that",
+          "confidence": 0.978
+        },
+        {
+          "start": 53.6,
+          "end": 53.84,
+          "text": " are",
+          "confidence": 0.995
+        },
+        {
+          "start": 53.84,
+          "end": 54.48,
+          "text": " reliable",
+          "confidence": 0.999
+        },
+        {
+          "start": 54.48,
+          "end": 54.64,
+          "text": ",",
+          "confidence": 0.975
+        },
+        {
+          "start": 54.64,
+          "end": 55.84,
+          "text": " understandable",
+          "confidence": 0.997
+        },
+        {
+          "start": 55.84,
+          "end": 56,
+          "text": " and",
+          "confidence": 0.837
+        }
+      ]
+    },
+    {
+      "id": "T0010",
+      "start": 56,
+      "end": 63.12,
+      "text": "maintainable in the real world? That's the question behind Articulate. Articulate isn't a demo project",
+      "confidence": 0.962,
+      "words": [
+        {
+          "start": 56.1,
+          "end": 56.64,
+          "text": " maintain",
+          "confidence": 0.998
+        },
+        {
+          "start": 56.64,
+          "end": 56.96,
+          "text": "able",
+          "confidence": 0.998
+        },
+        {
+          "start": 56.96,
+          "end": 57.12,
+          "text": " in",
+          "confidence": 0.989
+        },
+        {
+          "start": 57.12,
+          "end": 57.2,
+          "text": " a",
+          "confidence": 0.514
+        },
+        {
+          "start": 57.2,
+          "end": 57.52,
+          "text": " real",
+          "confidence": 0.998
+        },
+        {
+          "start": 57.52,
+          "end": 57.92,
+          "text": " world",
+          "confidence": 0.993
+        },
+        {
+          "start": 57.92,
+          "end": 58.04,
+          "text": "?",
+          "confidence": 0.9
+        },
+        {
+          "start": 58.16,
+          "end": 58.48,
+          "text": " That",
+          "confidence": 0.997
+        },
+        {
+          "start": 58.48,
+          "end": 58.64,
+          "text": "'s",
+          "confidence": 0.992
+        },
+        {
+          "start": 58.64,
+          "end": 58.86,
+          "text": " the",
+          "confidence": 0.998
+        },
+        {
+          "start": 59.05,
+          "end": 59.49,
+          "text": " question",
+          "confidence": 0.999
+        },
+        {
+          "start": 59.84,
+          "end": 60,
+          "text": " behind",
+          "confidence": 0.998
+        },
+        {
+          "start": 60,
+          "end": 60.23,
+          "text": " Art",
+          "confidence": 0.944
+        },
+        {
+          "start": 60.23,
+          "end": 60.32,
+          "text": "ic",
+          "confidence": 0.999
+        },
+        {
+          "start": 60.41,
+          "end": 60.8,
+          "text": "ulate",
+          "confidence": 1
+        },
+        {
+          "start": 60.8,
+          "end": 61.04,
+          "text": ".",
+          "confidence": 0.98
+        },
+        {
+          "start": 61.04,
+          "end": 61.28,
+          "text": " Art",
+          "confidence": 0.985
+        },
+        {
+          "start": 61.28,
+          "end": 61.44,
+          "text": "ic",
+          "confidence": 1
+        },
+        {
+          "start": 61.44,
+          "end": 61.54,
+          "text": "ulate",
+          "confidence": 0.999
+        },
+        {
+          "start": 61.97,
+          "end": 62.06,
+          "text": " isn",
+          "confidence": 0.931
+        },
+        {
+          "start": 62.06,
+          "end": 62.16,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 62.16,
+          "end": 62.25,
+          "text": " a",
+          "confidence": 0.928
+        },
+        {
+          "start": 62.25,
+          "end": 62.64,
+          "text": " demo",
+          "confidence": 0.993
+        },
+        {
+          "start": 62.64,
+          "end": 63.11,
+          "text": " project",
+          "confidence": 0.964
+        }
+      ]
+    },
+    {
+      "id": "T0011",
+      "start": 63.12,
+      "end": 68,
+      "text": "or a proof of concept. It's a real software platform that I'm designing and building in public,",
+      "confidence": 0.936,
+      "words": [
+        {
+          "start": 63.21,
+          "end": 63.24,
+          "text": " or",
+          "confidence": 0.999
+        },
+        {
+          "start": 63.24,
+          "end": 63.3,
+          "text": " a",
+          "confidence": 0.921
+        },
+        {
+          "start": 63.3,
+          "end": 63.6,
+          "text": " proof",
+          "confidence": 0.999
+        },
+        {
+          "start": 63.6,
+          "end": 63.69,
+          "text": " of",
+          "confidence": 0.737
+        },
+        {
+          "start": 63.72,
+          "end": 64.14,
+          "text": " concept",
+          "confidence": 0.999
+        },
+        {
+          "start": 64.14,
+          "end": 64.32,
+          "text": ".",
+          "confidence": 0.883
+        },
+        {
+          "start": 64.32,
+          "end": 64.42,
+          "text": " It",
+          "confidence": 0.996
+        },
+        {
+          "start": 64.46,
+          "end": 64.56,
+          "text": "'s",
+          "confidence": 0.99
+        },
+        {
+          "start": 64.56,
+          "end": 64.62,
+          "text": " a",
+          "confidence": 0.997
+        },
+        {
+          "start": 64.62,
+          "end": 64.86,
+          "text": " real",
+          "confidence": 0.997
+        },
+        {
+          "start": 64.86,
+          "end": 65.34,
+          "text": " software",
+          "confidence": 0.999
+        },
+        {
+          "start": 65.34,
+          "end": 65.82,
+          "text": " platform",
+          "confidence": 0.999
+        },
+        {
+          "start": 65.82,
+          "end": 66.06,
+          "text": " that",
+          "confidence": 0.979
+        },
+        {
+          "start": 66.06,
+          "end": 66.07,
+          "text": " I",
+          "confidence": 0.978
+        },
+        {
+          "start": 66.17,
+          "end": 66.24,
+          "text": "'m",
+          "confidence": 0.983
+        },
+        {
+          "start": 66.24,
+          "end": 66.61,
+          "text": " designing",
+          "confidence": 1
+        },
+        {
+          "start": 66.96,
+          "end": 66.96,
+          "text": " and",
+          "confidence": 0.997
+        },
+        {
+          "start": 66.96,
+          "end": 67.44,
+          "text": " building",
+          "confidence": 1
+        },
+        {
+          "start": 67.44,
+          "end": 67.6,
+          "text": " in",
+          "confidence": 0.986
+        },
+        {
+          "start": 67.6,
+          "end": 67.97,
+          "text": " public",
+          "confidence": 0.89
+        },
+        {
+          "start": 68,
+          "end": 68,
+          "text": ",",
+          "confidence": 0.334
+        }
+      ]
+    },
+    {
+      "id": "T0012",
+      "start": 68.56,
+      "end": 73.68,
+      "text": "with the goal of exploring what AI-native architecture looks like when you approach it as a systems",
+      "confidence": 0.939,
+      "words": [
+        {
+          "start": 68.56,
+          "end": 68.56,
+          "text": " with",
+          "confidence": 0.668
+        },
+        {
+          "start": 68.56,
+          "end": 68.56,
+          "text": " the",
+          "confidence": 0.997
+        },
+        {
+          "start": 68.65,
+          "end": 68.79,
+          "text": " goal",
+          "confidence": 0.999
+        },
+        {
+          "start": 68.86,
+          "end": 68.97,
+          "text": " of",
+          "confidence": 1
+        },
+        {
+          "start": 68.97,
+          "end": 69.65,
+          "text": " exploring",
+          "confidence": 1
+        },
+        {
+          "start": 69.65,
+          "end": 69.84,
+          "text": " what",
+          "confidence": 0.998
+        },
+        {
+          "start": 69.95,
+          "end": 70.1,
+          "text": " AI",
+          "confidence": 0.989
+        },
+        {
+          "start": 70.1,
+          "end": 70.15,
+          "text": "-",
+          "confidence": 0.937
+        },
+        {
+          "start": 70.17,
+          "end": 70.55,
+          "text": "native",
+          "confidence": 0.997
+        },
+        {
+          "start": 70.62,
+          "end": 71.51,
+          "text": " architecture",
+          "confidence": 1
+        },
+        {
+          "start": 71.61,
+          "end": 71.89,
+          "text": " looks",
+          "confidence": 0.998
+        },
+        {
+          "start": 71.89,
+          "end": 72.05,
+          "text": " like",
+          "confidence": 0.998
+        },
+        {
+          "start": 72.4,
+          "end": 72.4,
+          "text": " when",
+          "confidence": 0.934
+        },
+        {
+          "start": 72.4,
+          "end": 72.56,
+          "text": " you",
+          "confidence": 0.986
+        },
+        {
+          "start": 72.56,
+          "end": 72.88,
+          "text": " approach",
+          "confidence": 0.933
+        },
+        {
+          "start": 72.97,
+          "end": 73.04,
+          "text": " it",
+          "confidence": 0.839
+        },
+        {
+          "start": 73.04,
+          "end": 73.16,
+          "text": " as",
+          "confidence": 0.825
+        },
+        {
+          "start": 73.24,
+          "end": 73.25,
+          "text": " a",
+          "confidence": 0.837
+        },
+        {
+          "start": 73.25,
+          "end": 73.68,
+          "text": " systems",
+          "confidence": 0.906
+        }
+      ]
+    },
+    {
+      "id": "T0013",
+      "start": 73.68,
+      "end": 80,
+      "text": "architect. More importantly, this journal isn't a retrospective. I'm not waiting until everything is",
+      "confidence": 0.976,
+      "words": [
+        {
+          "start": 73.78,
+          "end": 74.33,
+          "text": " architect",
+          "confidence": 0.997
+        },
+        {
+          "start": 74.33,
+          "end": 74.53,
+          "text": ".",
+          "confidence": 0.996
+        },
+        {
+          "start": 74.53,
+          "end": 74.81,
+          "text": " More",
+          "confidence": 0.996
+        },
+        {
+          "start": 74.86,
+          "end": 75.63,
+          "text": " importantly",
+          "confidence": 1
+        },
+        {
+          "start": 75.63,
+          "end": 75.72,
+          "text": ",",
+          "confidence": 0.965
+        },
+        {
+          "start": 75.77,
+          "end": 76.05,
+          "text": " this",
+          "confidence": 0.997
+        },
+        {
+          "start": 76.06,
+          "end": 76.56,
+          "text": " journal",
+          "confidence": 0.994
+        },
+        {
+          "start": 76.73,
+          "end": 76.78,
+          "text": " isn",
+          "confidence": 0.991
+        },
+        {
+          "start": 76.78,
+          "end": 76.92,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 76.92,
+          "end": 76.98,
+          "text": " a",
+          "confidence": 0.985
+        },
+        {
+          "start": 76.98,
+          "end": 77.92,
+          "text": " retrospective",
+          "confidence": 0.995
+        },
+        {
+          "start": 77.95,
+          "end": 78.14,
+          "text": ".",
+          "confidence": 0.924
+        },
+        {
+          "start": 78.14,
+          "end": 78.21,
+          "text": " I",
+          "confidence": 0.999
+        },
+        {
+          "start": 78.21,
+          "end": 78.25,
+          "text": "'m",
+          "confidence": 0.996
+        },
+        {
+          "start": 78.36,
+          "end": 78.53,
+          "text": " not",
+          "confidence": 1
+        },
+        {
+          "start": 78.61,
+          "end": 79.07,
+          "text": " waiting",
+          "confidence": 0.99
+        },
+        {
+          "start": 79.07,
+          "end": 79.23,
+          "text": " until",
+          "confidence": 0.982
+        },
+        {
+          "start": 79.65,
+          "end": 79.92,
+          "text": " everything",
+          "confidence": 0.969
+        },
+        {
+          "start": 79.92,
+          "end": 80,
+          "text": "'s",
+          "confidence": 0.772
+        }
+      ]
+    },
+    {
+      "id": "T0014",
+      "start": 80,
+      "end": 85.28,
+      "text": "finished before explaining how it all works. Instead, I'm documenting the journey as it happens.",
+      "confidence": 0.941,
+      "words": [
+        {
+          "start": 80.1,
+          "end": 80.49,
+          "text": " finished",
+          "confidence": 0.754
+        },
+        {
+          "start": 80.49,
+          "end": 80.84,
+          "text": " before",
+          "confidence": 0.987
+        },
+        {
+          "start": 80.84,
+          "end": 81.48,
+          "text": " explaining",
+          "confidence": 0.999
+        },
+        {
+          "start": 81.48,
+          "end": 81.66,
+          "text": " how",
+          "confidence": 0.999
+        },
+        {
+          "start": 81.66,
+          "end": 81.78,
+          "text": " it",
+          "confidence": 0.998
+        },
+        {
+          "start": 81.78,
+          "end": 81.95,
+          "text": " all",
+          "confidence": 0.942
+        },
+        {
+          "start": 81.95,
+          "end": 82.25,
+          "text": " works",
+          "confidence": 1
+        },
+        {
+          "start": 82.27,
+          "end": 82.45,
+          "text": ".",
+          "confidence": 0.707
+        },
+        {
+          "start": 82.45,
+          "end": 82.86,
+          "text": " Instead",
+          "confidence": 0.992
+        },
+        {
+          "start": 82.93,
+          "end": 82.95,
+          "text": ",",
+          "confidence": 0.954
+        },
+        {
+          "start": 83.05,
+          "end": 83.06,
+          "text": " I",
+          "confidence": 0.998
+        },
+        {
+          "start": 83.06,
+          "end": 83.18,
+          "text": "'m",
+          "confidence": 0.994
+        },
+        {
+          "start": 83.18,
+          "end": 83.86,
+          "text": " documenting",
+          "confidence": 0.999
+        },
+        {
+          "start": 83.86,
+          "end": 84.04,
+          "text": " the",
+          "confidence": 0.997
+        },
+        {
+          "start": 84.04,
+          "end": 84.56,
+          "text": " journey",
+          "confidence": 0.999
+        },
+        {
+          "start": 84.56,
+          "end": 84.72,
+          "text": " as",
+          "confidence": 0.884
+        },
+        {
+          "start": 84.72,
+          "end": 84.85,
+          "text": " it",
+          "confidence": 0.997
+        },
+        {
+          "start": 84.93,
+          "end": 85.28,
+          "text": " happens",
+          "confidence": 0.98
+        },
+        {
+          "start": 85.28,
+          "end": 85.28,
+          "text": ".",
+          "confidence": 0.704
+        }
+      ]
+    },
+    {
+      "id": "T0015",
+      "start": 86.08,
+      "end": 93.44,
+      "text": "The ideas, research, architectural decisions, trade-offs and mistakes and sometimes discovering",
+      "confidence": 0.869,
+      "words": [
+        {
+          "start": 86.08,
+          "end": 86.08,
+          "text": " The",
+          "confidence": 0.993
+        },
+        {
+          "start": 86.08,
+          "end": 86.08,
+          "text": " ideas",
+          "confidence": 0.937
+        },
+        {
+          "start": 86.17,
+          "end": 86.19,
+          "text": ",",
+          "confidence": 0.949
+        },
+        {
+          "start": 86.19,
+          "end": 86.92,
+          "text": " research",
+          "confidence": 0.998
+        },
+        {
+          "start": 86.93,
+          "end": 87.11,
+          "text": ",",
+          "confidence": 0.986
+        },
+        {
+          "start": 87.11,
+          "end": 88.07,
+          "text": " architectural",
+          "confidence": 0.742
+        },
+        {
+          "start": 88.31,
+          "end": 89.14,
+          "text": " decisions",
+          "confidence": 0.995
+        },
+        {
+          "start": 89.14,
+          "end": 89.32,
+          "text": ",",
+          "confidence": 0.99
+        },
+        {
+          "start": 89.32,
+          "end": 89.57,
+          "text": " trade",
+          "confidence": 0.989
+        },
+        {
+          "start": 89.8,
+          "end": 89.81,
+          "text": "-",
+          "confidence": 0.757
+        },
+        {
+          "start": 89.92,
+          "end": 90.24,
+          "text": "offs",
+          "confidence": 0.997
+        },
+        {
+          "start": 90.24,
+          "end": 90.51,
+          "text": " and",
+          "confidence": 0.845
+        },
+        {
+          "start": 90.51,
+          "end": 91.24,
+          "text": " mistakes",
+          "confidence": 1
+        },
+        {
+          "start": 91.32,
+          "end": 91.52,
+          "text": " and",
+          "confidence": 0.119
+        },
+        {
+          "start": 91.52,
+          "end": 92.35,
+          "text": " sometimes",
+          "confidence": 0.867
+        },
+        {
+          "start": 92.35,
+          "end": 93.44,
+          "text": " discovering",
+          "confidence": 0.745
+        }
+      ]
+    },
+    {
+      "id": "T0016",
+      "start": 93.44,
+      "end": 99.04,
+      "text": "the best decision is to change direction because that's part of architecture. A continuous",
+      "confidence": 0.894,
+      "words": [
+        {
+          "start": 93.53,
+          "end": 93.64,
+          "text": " the",
+          "confidence": 1
+        },
+        {
+          "start": 93.64,
+          "end": 93.91,
+          "text": " best",
+          "confidence": 1
+        },
+        {
+          "start": 93.91,
+          "end": 94.45,
+          "text": " decision",
+          "confidence": 0.943
+        },
+        {
+          "start": 94.45,
+          "end": 94.58,
+          "text": " is",
+          "confidence": 0.992
+        },
+        {
+          "start": 94.58,
+          "end": 94.71,
+          "text": " to",
+          "confidence": 0.997
+        },
+        {
+          "start": 94.71,
+          "end": 95.11,
+          "text": " change",
+          "confidence": 0.999
+        },
+        {
+          "start": 95.11,
+          "end": 95.68,
+          "text": " direction",
+          "confidence": 0.952
+        },
+        {
+          "start": 95.71,
+          "end": 96.19,
+          "text": " because",
+          "confidence": 0.498
+        },
+        {
+          "start": 96.29,
+          "end": 96.39,
+          "text": " that",
+          "confidence": 0.996
+        },
+        {
+          "start": 96.49,
+          "end": 96.59,
+          "text": "'s",
+          "confidence": 0.994
+        },
+        {
+          "start": 96.59,
+          "end": 96.79,
+          "text": " all",
+          "confidence": 0.998
+        },
+        {
+          "start": 96.79,
+          "end": 96.93,
+          "text": " part",
+          "confidence": 0.998
+        },
+        {
+          "start": 97.08,
+          "end": 97.19,
+          "text": " of",
+          "confidence": 1
+        },
+        {
+          "start": 97.28,
+          "end": 98,
+          "text": " architecture",
+          "confidence": 0.993
+        },
+        {
+          "start": 98,
+          "end": 98.2,
+          "text": ".",
+          "confidence": 0.498
+        },
+        {
+          "start": 98.2,
+          "end": 98.26,
+          "text": " A",
+          "confidence": 0.487
+        },
+        {
+          "start": 98.26,
+          "end": 98.98,
+          "text": " continuous",
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "id": "T0017",
+      "start": 99.04,
+      "end": 105.84,
+      "text": "process of learning, questioning and refining. Throughout this journal, I'll explore the principles",
+      "confidence": 0.969,
+      "words": [
+        {
+          "start": 99.13,
+          "end": 99.56,
+          "text": " process",
+          "confidence": 1
+        },
+        {
+          "start": 99.61,
+          "end": 99.7,
+          "text": " of",
+          "confidence": 1
+        },
+        {
+          "start": 99.7,
+          "end": 100.27,
+          "text": " learning",
+          "confidence": 0.999
+        },
+        {
+          "start": 100.28,
+          "end": 100.4,
+          "text": ",",
+          "confidence": 0.959
+        },
+        {
+          "start": 100.43,
+          "end": 101.03,
+          "text": " questioning",
+          "confidence": 0.999
+        },
+        {
+          "start": 101.24,
+          "end": 101.46,
+          "text": " and",
+          "confidence": 0.928
+        },
+        {
+          "start": 101.48,
+          "end": 102.04,
+          "text": " defining",
+          "confidence": 0.998
+        },
+        {
+          "start": 102.09,
+          "end": 102.28,
+          "text": ".",
+          "confidence": 0.983
+        },
+        {
+          "start": 102.28,
+          "end": 103.02,
+          "text": " Throughout",
+          "confidence": 0.972
+        },
+        {
+          "start": 103.02,
+          "end": 103.28,
+          "text": " this",
+          "confidence": 0.997
+        },
+        {
+          "start": 103.31,
+          "end": 103.83,
+          "text": " journal",
+          "confidence": 0.993
+        },
+        {
+          "start": 103.83,
+          "end": 103.88,
+          "text": ",",
+          "confidence": 0.902
+        },
+        {
+          "start": 103.97,
+          "end": 104.04,
+          "text": " I",
+          "confidence": 0.975
+        },
+        {
+          "start": 104.04,
+          "end": 104.24,
+          "text": "'ll",
+          "confidence": 0.988
+        },
+        {
+          "start": 104.26,
+          "end": 104.58,
+          "text": " explore",
+          "confidence": 0.996
+        },
+        {
+          "start": 104.85,
+          "end": 104.85,
+          "text": " the",
+          "confidence": 0.965
+        },
+        {
+          "start": 105.01,
+          "end": 105.84,
+          "text": " principles",
+          "confidence": 0.825
+        }
+      ]
+    },
+    {
+      "id": "T0018",
+      "start": 105.84,
+      "end": 111.6,
+      "text": "behind AI-native systems, investigate new architectural patterns, evaluate technologies",
+      "confidence": 0.981,
+      "words": [
+        {
+          "start": 105.94,
+          "end": 106.26,
+          "text": " behind",
+          "confidence": 0.997
+        },
+        {
+          "start": 106.26,
+          "end": 106.35,
+          "text": " AI",
+          "confidence": 0.991
+        },
+        {
+          "start": 106.41,
+          "end": 106.43,
+          "text": "-",
+          "confidence": 0.973
+        },
+        {
+          "start": 106.47,
+          "end": 106.89,
+          "text": "native",
+          "confidence": 0.997
+        },
+        {
+          "start": 106.89,
+          "end": 107.38,
+          "text": " systems",
+          "confidence": 0.998
+        },
+        {
+          "start": 107.38,
+          "end": 107.51,
+          "text": ",",
+          "confidence": 0.948
+        },
+        {
+          "start": 107.51,
+          "end": 108.3,
+          "text": " investigate",
+          "confidence": 0.998
+        },
+        {
+          "start": 108.3,
+          "end": 108.51,
+          "text": " new",
+          "confidence": 1
+        },
+        {
+          "start": 108.89,
+          "end": 109.33,
+          "text": " architectural",
+          "confidence": 0.875
+        },
+        {
+          "start": 109.68,
+          "end": 109.99,
+          "text": " patterns",
+          "confidence": 0.997
+        },
+        {
+          "start": 109.99,
+          "end": 110.13,
+          "text": ",",
+          "confidence": 0.991
+        },
+        {
+          "start": 110.13,
+          "end": 110.69,
+          "text": " evaluate",
+          "confidence": 0.993
+        },
+        {
+          "start": 110.69,
+          "end": 111.38,
+          "text": " technologies",
+          "confidence": 0.994
+        }
+      ]
+    },
+    {
+      "id": "T0019",
+      "start": 111.6,
+      "end": 116.56,
+      "text": "against real architectural requirements and gradually build Articulate into a working platform.",
+      "confidence": 0.976,
+      "words": [
+        {
+          "start": 111.7,
+          "end": 112.02,
+          "text": " against",
+          "confidence": 0.999
+        },
+        {
+          "start": 112.02,
+          "end": 112.26,
+          "text": " real",
+          "confidence": 0.995
+        },
+        {
+          "start": 112.26,
+          "end": 112.88,
+          "text": " architecture",
+          "confidence": 0.967
+        },
+        {
+          "start": 112.99,
+          "end": 113.59,
+          "text": " requirements",
+          "confidence": 0.999
+        },
+        {
+          "start": 113.69,
+          "end": 113.88,
+          "text": " and",
+          "confidence": 0.897
+        },
+        {
+          "start": 113.88,
+          "end": 114.42,
+          "text": " gradually",
+          "confidence": 0.983
+        },
+        {
+          "start": 114.65,
+          "end": 114.72,
+          "text": " build",
+          "confidence": 0.992
+        },
+        {
+          "start": 114.72,
+          "end": 114.9,
+          "text": " Art",
+          "confidence": 0.945
+        },
+        {
+          "start": 114.9,
+          "end": 115.02,
+          "text": "ic",
+          "confidence": 0.999
+        },
+        {
+          "start": 115.02,
+          "end": 115.09,
+          "text": "ulate",
+          "confidence": 1
+        },
+        {
+          "start": 115.44,
+          "end": 115.56,
+          "text": " into",
+          "confidence": 0.992
+        },
+        {
+          "start": 115.56,
+          "end": 115.62,
+          "text": " a",
+          "confidence": 0.996
+        },
+        {
+          "start": 115.62,
+          "end": 116.08,
+          "text": " working",
+          "confidence": 0.89
+        },
+        {
+          "start": 116.08,
+          "end": 116.42,
+          "text": " platform",
+          "confidence": 0.988
+        },
+        {
+          "start": 116.42,
+          "end": 116.56,
+          "text": ".",
+          "confidence": 0.993
+        }
+      ]
+    },
+    {
+      "id": "T0020",
+      "start": 117.36,
+      "end": 123.6,
+      "text": "Some episodes will focus on concepts. Others will follow architectural decisions from the",
+      "confidence": 0.906,
+      "words": [
+        {
+          "start": 117.36,
+          "end": 117.36,
+          "text": " Some",
+          "confidence": 0.979
+        },
+        {
+          "start": 117.46,
+          "end": 117.83,
+          "text": " episodes",
+          "confidence": 0.978
+        },
+        {
+          "start": 117.83,
+          "end": 118.2,
+          "text": " will",
+          "confidence": 0.971
+        },
+        {
+          "start": 118.25,
+          "end": 118.78,
+          "text": " focus",
+          "confidence": 0.738
+        },
+        {
+          "start": 118.78,
+          "end": 118.95,
+          "text": " on",
+          "confidence": 0.994
+        },
+        {
+          "start": 118.99,
+          "end": 119.82,
+          "text": " concepts",
+          "confidence": 0.995
+        },
+        {
+          "start": 119.82,
+          "end": 120.15,
+          "text": ".",
+          "confidence": 0.486
+        },
+        {
+          "start": 120.41,
+          "end": 120.57,
+          "text": " Some",
+          "confidence": 0.995
+        },
+        {
+          "start": 120.57,
+          "end": 120.84,
+          "text": " will",
+          "confidence": 0.982
+        },
+        {
+          "start": 121.2,
+          "end": 121.68,
+          "text": " follow",
+          "confidence": 0.985
+        },
+        {
+          "start": 121.68,
+          "end": 122.32,
+          "text": " architecture",
+          "confidence": 0.816
+        },
+        {
+          "start": 122.32,
+          "end": 122.88,
+          "text": " decisions",
+          "confidence": 0.974
+        },
+        {
+          "start": 122.88,
+          "end": 122.91,
+          "text": " from",
+          "confidence": 0.886
+        },
+        {
+          "start": 123.32,
+          "end": 123.6,
+          "text": " the",
+          "confidence": 0.899
+        }
+      ]
+    },
+    {
+      "id": "T0021",
+      "start": 123.6,
+      "end": 128.96,
+      "text": "original question through to implementation. The software is important, but the reasoning",
+      "confidence": 0.927,
+      "words": [
+        {
+          "start": 123.7,
+          "end": 124.15,
+          "text": " original",
+          "confidence": 0.998
+        },
+        {
+          "start": 124.16,
+          "end": 124.72,
+          "text": " question",
+          "confidence": 0.983
+        },
+        {
+          "start": 124.72,
+          "end": 125.19,
+          "text": " through",
+          "confidence": 0.932
+        },
+        {
+          "start": 125.25,
+          "end": 125.35,
+          "text": " to",
+          "confidence": 0.973
+        },
+        {
+          "start": 125.35,
+          "end": 126.3,
+          "text": " implementation",
+          "confidence": 0.986
+        },
+        {
+          "start": 126.3,
+          "end": 126.54,
+          "text": ".",
+          "confidence": 0.994
+        },
+        {
+          "start": 126.65,
+          "end": 126.75,
+          "text": " The",
+          "confidence": 0.98
+        },
+        {
+          "start": 126.75,
+          "end": 127.09,
+          "text": " software",
+          "confidence": 0.999
+        },
+        {
+          "start": 127.44,
+          "end": 127.45,
+          "text": " is",
+          "confidence": 0.995
+        },
+        {
+          "start": 127.45,
+          "end": 128.08,
+          "text": " important",
+          "confidence": 0.998
+        },
+        {
+          "start": 128.08,
+          "end": 128.2,
+          "text": ",",
+          "confidence": 0.445
+        },
+        {
+          "start": 128.28,
+          "end": 128.38,
+          "text": " but",
+          "confidence": 0.912
+        },
+        {
+          "start": 128.38,
+          "end": 128.44,
+          "text": " the",
+          "confidence": 0.803
+        },
+        {
+          "start": 128.53,
+          "end": 128.96,
+          "text": " reasoning",
+          "confidence": 0.984
+        }
+      ]
+    },
+    {
+      "id": "T0022",
+      "start": 128.96,
+      "end": 134.8,
+      "text": "behind the software is what I really want to preserve. If you're interested in software",
+      "confidence": 0.941,
+      "words": [
+        {
+          "start": 129.06,
+          "end": 129.42,
+          "text": " behind",
+          "confidence": 0.999
+        },
+        {
+          "start": 129.42,
+          "end": 129.65,
+          "text": " the",
+          "confidence": 0.944
+        },
+        {
+          "start": 129.65,
+          "end": 130.24,
+          "text": " software",
+          "confidence": 0.999
+        },
+        {
+          "start": 130.3,
+          "end": 130.42,
+          "text": " is",
+          "confidence": 0.98
+        },
+        {
+          "start": 130.42,
+          "end": 130.8,
+          "text": " where",
+          "confidence": 0.871
+        },
+        {
+          "start": 130.8,
+          "end": 130.87,
+          "text": " I",
+          "confidence": 0.986
+        },
+        {
+          "start": 130.87,
+          "end": 131.32,
+          "text": " really",
+          "confidence": 0.972
+        },
+        {
+          "start": 131.32,
+          "end": 131.64,
+          "text": " want",
+          "confidence": 0.922
+        },
+        {
+          "start": 131.64,
+          "end": 131.79,
+          "text": " to",
+          "confidence": 0.979
+        },
+        {
+          "start": 132.01,
+          "end": 132.41,
+          "text": " preserve",
+          "confidence": 0.507
+        },
+        {
+          "start": 132.41,
+          "end": 132.45,
+          "text": ".",
+          "confidence": 0.951
+        },
+        {
+          "start": 132.79,
+          "end": 132.79,
+          "text": " If",
+          "confidence": 0.992
+        },
+        {
+          "start": 132.8,
+          "end": 133.01,
+          "text": " you",
+          "confidence": 0.999
+        },
+        {
+          "start": 133.02,
+          "end": 133.25,
+          "text": "'re",
+          "confidence": 0.964
+        },
+        {
+          "start": 133.25,
+          "end": 134.02,
+          "text": " interested",
+          "confidence": 0.999
+        },
+        {
+          "start": 134.02,
+          "end": 134.24,
+          "text": " in",
+          "confidence": 0.987
+        },
+        {
+          "start": 134.24,
+          "end": 134.51,
+          "text": " software",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "T0023",
+      "start": 134.8,
+      "end": 140.64,
+      "text": "architecture, AI-native systems, or simply want to follow the design of a complex system as it",
+      "confidence": 0.934,
+      "words": [
+        {
+          "start": 134.9,
+          "end": 135.63,
+          "text": " architecture",
+          "confidence": 0.796
+        },
+        {
+          "start": 135.63,
+          "end": 135.76,
+          "text": ",",
+          "confidence": 0.978
+        },
+        {
+          "start": 135.76,
+          "end": 135.9,
+          "text": " AI",
+          "confidence": 0.989
+        },
+        {
+          "start": 135.9,
+          "end": 135.94,
+          "text": "-",
+          "confidence": 0.966
+        },
+        {
+          "start": 135.98,
+          "end": 136.36,
+          "text": "native",
+          "confidence": 0.998
+        },
+        {
+          "start": 136.37,
+          "end": 136.79,
+          "text": " systems",
+          "confidence": 0.995
+        },
+        {
+          "start": 136.84,
+          "end": 137.12,
+          "text": " will",
+          "confidence": 0.959
+        },
+        {
+          "start": 137.12,
+          "end": 137.53,
+          "text": " simply",
+          "confidence": 0.89
+        },
+        {
+          "start": 137.54,
+          "end": 137.75,
+          "text": " want",
+          "confidence": 0.996
+        },
+        {
+          "start": 137.85,
+          "end": 137.94,
+          "text": " to",
+          "confidence": 0.999
+        },
+        {
+          "start": 137.94,
+          "end": 138.28,
+          "text": " follow",
+          "confidence": 0.997
+        },
+        {
+          "start": 138.52,
+          "end": 138.53,
+          "text": " the",
+          "confidence": 0.82
+        },
+        {
+          "start": 138.64,
+          "end": 138.96,
+          "text": " design",
+          "confidence": 0.999
+        },
+        {
+          "start": 138.96,
+          "end": 139.1,
+          "text": " of",
+          "confidence": 0.997
+        },
+        {
+          "start": 139.1,
+          "end": 139.12,
+          "text": " a",
+          "confidence": 0.991
+        },
+        {
+          "start": 139.21,
+          "end": 139.76,
+          "text": " complex",
+          "confidence": 0.98
+        },
+        {
+          "start": 139.76,
+          "end": 140.32,
+          "text": " system",
+          "confidence": 0.983
+        },
+        {
+          "start": 140.32,
+          "end": 140.35,
+          "text": " as",
+          "confidence": 0.505
+        },
+        {
+          "start": 140.49,
+          "end": 140.64,
+          "text": " it",
+          "confidence": 0.899
+        }
+      ]
+    },
+    {
+      "id": "T0024",
+      "start": 140.64,
+      "end": 146.64,
+      "text": "evolves, then I hope you'll enjoy the journey. Welcome to the Articulate Journal.",
+      "confidence": 0.925,
+      "words": [
+        {
+          "start": 140.74,
+          "end": 141.23,
+          "text": " evolves",
+          "confidence": 0.996
+        },
+        {
+          "start": 141.23,
+          "end": 141.4,
+          "text": ",",
+          "confidence": 0.586
+        },
+        {
+          "start": 141.4,
+          "end": 141.74,
+          "text": " then",
+          "confidence": 0.943
+        },
+        {
+          "start": 141.74,
+          "end": 141.78,
+          "text": " I",
+          "confidence": 0.991
+        },
+        {
+          "start": 141.82,
+          "end": 142.16,
+          "text": " hope",
+          "confidence": 0.999
+        },
+        {
+          "start": 142.16,
+          "end": 142.41,
+          "text": " you",
+          "confidence": 0.996
+        },
+        {
+          "start": 142.41,
+          "end": 142.94,
+          "text": " enjoyed",
+          "confidence": 0.799
+        },
+        {
+          "start": 142.98,
+          "end": 143.25,
+          "text": " the",
+          "confidence": 0.987
+        },
+        {
+          "start": 143.69,
+          "end": 143.84,
+          "text": " journey",
+          "confidence": 0.995
+        },
+        {
+          "start": 143.84,
+          "end": 144.09,
+          "text": ".",
+          "confidence": 0.969
+        },
+        {
+          "start": 144.09,
+          "end": 144.68,
+          "text": " Welcome",
+          "confidence": 0.996
+        },
+        {
+          "start": 144.68,
+          "end": 144.85,
+          "text": " to",
+          "confidence": 0.998
+        },
+        {
+          "start": 144.85,
+          "end": 145.1,
+          "text": " the",
+          "confidence": 0.959
+        },
+        {
+          "start": 145.1,
+          "end": 145.35,
+          "text": " Art",
+          "confidence": 0.992
+        },
+        {
+          "start": 145.35,
+          "end": 145.49,
+          "text": "ic",
+          "confidence": 1
+        },
+        {
+          "start": 145.57,
+          "end": 145.94,
+          "text": "ulate",
+          "confidence": 1
+        },
+        {
+          "start": 145.94,
+          "end": 146.64,
+          "text": " Journal",
+          "confidence": 0.596
+        },
+        {
+          "start": 146.64,
+          "end": 146.64,
+          "text": ".",
+          "confidence": 0.848
+        }
+      ]
+    }
+  ]
+}

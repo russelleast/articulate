@@ -29,6 +29,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0000-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0000",
+      "status": "rough-cut-recording",
+      "checksum": "sha256:b62735d6a574e896fd195759255dd147bae9d1b885841bf87d06ad8dbaf26e7b",
+      "location": "production/episodes/0000/media/Ep0-pov1.mov",
+      "provider": "local"
+    },
+    {
       "id": "episode-0000-baseline-narration-v1",
       "type": "narration-extract",
       "episode": "0000",

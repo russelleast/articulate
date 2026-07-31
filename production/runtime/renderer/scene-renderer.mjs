@@ -2,6 +2,9 @@ import { centredTextBlock, insetBox, textBlock, xml } from "./layout.mjs";
 
 export function renderSceneSvg(scene, episode, output, companionData, grammar, state = null, visualAssetData = "") {
   const { palette, frame, typography } = grammar;
+  if (scene.presentation.composition.includes("presenter") || scene.presentation.composition.endsWith("-full")) {
+    return presenterProductionSceneSvg(scene, episode, output, grammar, state, visualAssetData);
+  }
   if (scene.presentation.composition === "studio") {
     return studioSceneSvg(scene, episode, output, companionData, grammar, state);
   }
@@ -20,6 +23,203 @@ export function renderSceneSvg(scene, episode, output, companionData, grammar, s
   <defs><marker id="direction-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="${palette.blue}"/></marker></defs>
   <style>text{font-family:${typography.fontFamily}}.emphasized rect,.emphasized circle{stroke:${palette.rust};stroke-width:${grammar.motion.actions.emphasize.strokeWidth}}.emphasized text{fill:${palette.rust}}</style>
   ${header}${content}${footer}</svg>`;
+}
+
+function presenterProductionSceneSvg(scene, episode, output, grammar, state, visualAssetData) {
+  const mode = scene.presentation.composition;
+  if (mode === "presenter-focus") {
+    return presenterFocusSceneSvg(scene, episode, output, grammar, state);
+  }
+  const bounds = focusCanvasBounds(mode);
+  let content = "";
+  if (mode === "presenter-full") {
+    content = "";
+  } else if (mode === "evidence-full") {
+    content = presenterEvidenceComposition(scene, bounds, state);
+  } else if (mode === "repository-full") {
+    content = presenterRepositoryComposition(scene, bounds, state);
+  } else if (scene.diagramAssetId) {
+    content = presenterDiagramComposition(scene, bounds, state, visualAssetData);
+  } else {
+    content = focusCanvasProductionComposition(scene, bounds, state);
+  }
+  const overlayFrame = mode === "presenter-overlay"
+    ? `<rect x="1198" y="668" width="664" height="384" rx="26" fill="#020405" stroke="#55798b" stroke-width="3"/>`
+    : "";
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${output.width}" height="${output.height}" viewBox="0 0 ${output.width} ${output.height}">
+  <defs>
+    <linearGradient id="presenter-canvas" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b151a"/><stop offset="1" stop-color="#172831"/></linearGradient>
+    <radialGradient id="presenter-focus"><stop offset="0" stop-color="#527487" stop-opacity=".25"/><stop offset="1" stop-color="#527487" stop-opacity="0"/></radialGradient>
+    <pattern id="presenter-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="#8eabb8" stroke-opacity=".07"/></pattern>
+    <filter id="canvas-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#000" flood-opacity=".5"/></filter>
+    <marker id="presenter-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#6f93a4"/></marker>
+  </defs>
+  <style>text{font-family:${grammar.typography.fontFamily}}.emphasized rect,.emphasized circle{stroke:#c77a58!important;stroke-width:4}.emphasized text{fill:#e2a083!important}</style>
+  <rect width="${output.width}" height="${output.height}" fill="#000"/>
+  ${mode === "presenter-full" ? "" : '<rect width="1920" height="1080" fill="url(#presenter-grid)"/>'}
+  ${content}${overlayFrame}
+  <text x="72" y="72" font-size="21" font-weight="650" fill="#d8e1e4" letter-spacing="4">ARTICULATE</text>
+  <text x="72" y="102" font-size="14" fill="#76909d" letter-spacing="2">${xml(scene.presentation.archetype.toUpperCase())}</text>
+  <text x="1848" y="1035" text-anchor="end" font-size="17" fill="#76909d">${xml(episode.title)} · ${episodeLabel(episode.id)}</text>
+  </svg>`;
+}
+
+function presenterFocusSceneSvg(scene, episode, output, grammar, state) {
+  const headline = element("headline", textBlock(
+    elementText(scene, "headline", state),
+    { x: 650, y: 220, width: 1160 },
+    { fontSize: 64, weight: 720, maxLines: 3, lineHeight: 1.05, fill: "#f4f0e8" },
+    `${scene.id} presenter Focus Canvas headline`
+  ), state);
+  const support = element("support", textBlock(
+    elementText(scene, "support", state),
+    { x: 654, y: 420, width: 1100 },
+    { fontSize: 31, weight: 430, maxLines: 3, lineHeight: 1.15, fill: "#9bb7c4" },
+    `${scene.id} presenter Focus Canvas support`
+  ), state);
+  const positions = presenterFocusPositions(scene);
+  const connectors = [...(state?.connections?.values() ?? [])]
+    .map((connection) => focusCanvasConnector(connection, positions))
+    .join("");
+  const items = (scene.items ?? []).map((item, index) => {
+    const id = `item-${index + 1}`;
+    const box = positions.get(id);
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="22" fill="#263a45" stroke="#6f8e9d" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 24, 12), { fontSize: 25, weight: 620, maxLines: 2, lineHeight: 1.12, align: "middle", fill: "#e8eeef" }, `${scene.id} presenter Focus Canvas item ${index + 1}`)}`, state);
+  }).join("");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${output.width}" height="${output.height}" viewBox="0 0 ${output.width} ${output.height}">
+  <defs>
+    <linearGradient id="studio-background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d171d"/><stop offset="1" stop-color="#182932"/></linearGradient>
+    <radialGradient id="focus-light"><stop offset="0" stop-color="#527487" stop-opacity=".26"/><stop offset="1" stop-color="#527487" stop-opacity="0"/></radialGradient>
+    <pattern id="studio-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="#8eabb8" stroke-opacity=".08" stroke-width="1"/></pattern>
+    <marker id="presenter-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 11 6 L 1 11 Z" fill="#6f93a4"/></marker>
+  </defs>
+  <style>text{font-family:${grammar.typography.fontFamily}}.emphasized rect{stroke:#b76c4d!important;stroke-width:4}.emphasized text{fill:#d18a69!important}</style>
+  <rect width="1920" height="1080" fill="url(#studio-background)"/>
+  <rect width="1920" height="1080" fill="url(#studio-grid)"/>
+  <ellipse cx="1120" cy="560" rx="850" ry="520" fill="url(#focus-light)"/>
+  <text x="72" y="72" font-size="21" font-weight="650" fill="#d8e1e4" letter-spacing="4">ARTICULATE</text>
+  <text x="72" y="103" font-size="14" fill="#8eabb8" letter-spacing="2">FOCUS CANVAS</text>
+  ${headline}${support}${connectors}${items}
+  <text x="72" y="1030" font-size="17" fill="#8eabb8">ARTICULATE JOURNAL</text>
+  <text x="1848" y="1030" text-anchor="end" font-size="17" fill="#8eabb8">${xml(episode.title)} · ${episodeLabel(episode.id)}</text>
+  </svg>`;
+}
+
+function presenterFocusPositions(scene) {
+  const positions = new Map();
+  const items = scene.items ?? [];
+  if (items.length === 0) return positions;
+  const columns = Math.min(3, items.length);
+  const gap = 28;
+  const startX = 820;
+  const availableWidth = 1028;
+  const width = (availableWidth - gap * (columns - 1)) / columns;
+  items.forEach((_, index) => positions.set(`item-${index + 1}`, {
+    x: startX + (index % columns) * (width + gap),
+    y: 610 + Math.floor(index / columns) * 145,
+    width,
+    height: 108
+  }));
+  return positions;
+}
+
+function focusCanvasBounds(mode) {
+  if (mode === "presenter-left-canvas-right") return { x: 1010, y: 132, width: 838, height: 838 };
+  if (mode === "canvas-left-presenter-right") return { x: 72, y: 132, width: 838, height: 838 };
+  return { x: 112, y: 132, width: 1696, height: 838 };
+}
+
+function focusCanvasProductionComposition(scene, bounds, state) {
+  const compact = bounds.width < 1000;
+  const headlineBox = { x: bounds.x + 52, y: bounds.y + 92, width: bounds.width - 104 };
+  const supportBox = { x: bounds.x + 54, y: bounds.y + (compact ? 220 : 200), width: bounds.width - 108 };
+  const positions = focusCanvasPositions(scene, bounds);
+  const shell = `<rect x="${bounds.x}" y="${bounds.y}" width="${bounds.width}" height="${bounds.height}" rx="34" fill="url(#presenter-canvas)" stroke="#314650" stroke-width="2" filter="url(#canvas-shadow)"/><ellipse cx="${bounds.x + bounds.width / 2}" cy="${bounds.y + bounds.height / 2}" rx="${bounds.width * .46}" ry="${bounds.height * .42}" fill="url(#presenter-focus)"/>`;
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), headlineBox, { fontSize: compact ? 43 : 62, weight: 720, maxLines: compact ? 3 : 2, lineHeight: 1.06, fill: "#eef2f1" }, `${scene.id} Focus Canvas headline`), state);
+  const support = element("support", textBlock(elementText(scene, "support", state), supportBox, { fontSize: compact ? 23 : 29, weight: 430, maxLines: compact ? 3 : 2, lineHeight: 1.15, fill: "#92b2c0" }, `${scene.id} Focus Canvas support`), state);
+  const connectors = [...(state?.connections?.values() ?? [])].map((connection) => focusCanvasConnector(connection, positions)).join("");
+  const nodes = (scene.items ?? []).map((item, index) => {
+    const id = `item-${index + 1}`;
+    const box = positions.get(id);
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="20" fill="#1d313a" stroke="#597785" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, compact ? 14 : 24, 12), { fontSize: compact ? 20 : 25, weight: 620, maxLines: compact ? 3 : 2, lineHeight: 1.1, align: "middle", fill: "#e4ebed" }, `${scene.id} Focus Canvas item ${index + 1}`)}`, state);
+  }).join("");
+  return `${shell}${headline}${support}${connectors}${nodes}`;
+}
+
+function focusCanvasPositions(scene, bounds) {
+  const positions = new Map();
+  const items = scene.items ?? [];
+  const compact = bounds.width < 1000;
+  const top = bounds.y + (compact ? 370 : 365);
+  if (scene.canvasLayout === "flow") {
+    const gap = compact ? 24 : 42;
+    const width = (bounds.width - 104 - gap * (items.length - 1)) / Math.max(1, items.length);
+    items.forEach((_, index) => positions.set(`item-${index + 1}`, {
+      x: bounds.x + 52 + index * (width + gap),
+      y: top + (compact && items.length > 3 ? (index % 2) * 150 : 90),
+      width,
+      height: compact ? 112 : 122
+    }));
+    return positions;
+  }
+  const columns = compact ? 2 : Math.min(3, Math.max(1, items.length));
+  const gap = compact ? 22 : 34;
+  const width = (bounds.width - 104 - gap * (columns - 1)) / columns;
+  items.forEach((_, index) => positions.set(`item-${index + 1}`, {
+    x: bounds.x + 52 + (index % columns) * (width + gap),
+    y: top + Math.floor(index / columns) * (compact ? 146 : 155),
+    width,
+    height: compact ? 112 : 120
+  }));
+  return positions;
+}
+
+function focusCanvasConnector(connection, positions) {
+  const from = positions.get(connection.from);
+  const to = positions.get(connection.to);
+  if (!from || !to) return "";
+  const x1 = from.x + from.width;
+  const y1 = from.y + from.height / 2;
+  const x2 = to.x;
+  const y2 = to.y + to.height / 2;
+  return `<path data-connection="${connection.from}-${connection.to}" d="M ${x1} ${y1} C ${(x1 + x2) / 2} ${y1}, ${(x1 + x2) / 2} ${y2}, ${x2 - 8} ${y2}" fill="none" stroke="#6f93a4" stroke-width="3" marker-end="url(#presenter-arrow)"/>`;
+}
+
+function presenterEvidenceComposition(scene, bounds, state) {
+  const shell = `<rect x="${bounds.x}" y="${bounds.y}" width="${bounds.width}" height="${bounds.height}" rx="34" fill="url(#presenter-canvas)" stroke="#314650" stroke-width="2"/>`;
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: bounds.x + 100, y: bounds.y + 125, width: bounds.width - 200 }, { fontSize: 68, weight: 720, maxLines: 2, lineHeight: 1.05, fill: "#eef2f1" }, `${scene.id} evidence headline`), state);
+  const support = element("support", textBlock(elementText(scene, "support", state), { x: bounds.x + 104, y: bounds.y + 275, width: bounds.width - 208 }, { fontSize: 31, weight: 430, maxLines: 2, fill: "#92b2c0" }, `${scene.id} evidence support`), state);
+  const items = (scene.items ?? []).map((item, index) => {
+    const box = { x: bounds.x + 170, y: bounds.y + 400 + index * 125, width: bounds.width - 340, height: 88 };
+    const id = `item-${index + 1}`;
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="44" fill="${index === 2 ? "#38261f" : "#1d313a"}" stroke="${index === 2 ? "#b76c4d" : "#597785"}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 44, 10), { fontSize: 29, weight: 650, maxLines: 2, align: "middle", fill: "#edf1f0" }, `${scene.id} evidence item ${index + 1}`)}`, state);
+  }).join("");
+  return `${shell}${headline}${support}${items}`;
+}
+
+function presenterRepositoryComposition(scene, bounds, state) {
+  const excerpt = scene.evidence?.excerpt ?? [];
+  const shell = element("repository-window", `<rect x="${bounds.x}" y="${bounds.y}" width="${bounds.width}" height="${bounds.height}" rx="30" fill="#091116" stroke="#314650" stroke-width="2"/><rect x="${bounds.x}" y="${bounds.y}" width="${bounds.width}" height="70" rx="30" fill="#15242c"/><circle cx="${bounds.x + 45}" cy="${bounds.y + 35}" r="8" fill="#a65d3f"/><circle cx="${bounds.x + 73}" cy="${bounds.y + 35}" r="8" fill="#c3a36b"/><circle cx="${bounds.x + 101}" cy="${bounds.y + 35}" r="8" fill="#547064"/>`, state);
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: bounds.x + 90, y: bounds.y + 155, width: bounds.width - 180 }, { fontSize: 57, weight: 700, maxLines: 2, lineHeight: 1.08, fill: "#f4f0e8" }, `${scene.id} repository headline`), state);
+  const support = element("support", textBlock(elementText(scene, "support", state), { x: bounds.x + 94, y: bounds.y + 280, width: bounds.width - 188 }, { fontSize: 28, weight: 430, maxLines: 2, fill: "#8fb0c0" }, `${scene.id} repository support`), state);
+  const paths = (scene.items ?? []).map((item, index) => {
+    const id = `item-${index + 1}`;
+    const box = { x: bounds.x + 90, y: bounds.y + 380 + index * 92, width: 520, height: 68 };
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="12" fill="#14242c" stroke="#314650"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 22, 8), { fontSize: 22, weight: 550, maxLines: 1, fill: "#d5dfe2" }, `${scene.id} repository path`)}`, state);
+  }).join("");
+  const evidence = excerpt.map((line, index) => {
+    const id = `evidence-${index + 1}`;
+    const box = { x: bounds.x + 680, y: bounds.y + 380 + index * 92, width: bounds.width - 770, height: 68 };
+    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="12" fill="#172a33" stroke="#3c5865"/><rect x="${box.x}" y="${box.y}" width="7" height="${box.height}" rx="4" fill="#55798b"/>${centredTextBlock(elementText(scene, id, state, line), insetBox(box, 26, 8), { fontSize: 22, weight: 520, maxLines: 2, fill: "#dce5e7" }, `${scene.id} repository evidence`)}`, state);
+  }).join("");
+  return `${shell}${headline}${support}${paths}${evidence}`;
+}
+
+function presenterDiagramComposition(scene, bounds, state, visualAssetData) {
+  if (!visualAssetData) throw new Error(`${scene.id} diagram asset '${scene.diagramAssetId}' was not resolved`);
+  const shell = `<rect x="${bounds.x}" y="${bounds.y}" width="${bounds.width}" height="${bounds.height}" rx="34" fill="url(#presenter-canvas)" stroke="#314650" stroke-width="2"/>`;
+  const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: bounds.x + 60, y: bounds.y + 90, width: bounds.width - 120 }, { fontSize: bounds.width < 1000 ? 42 : 58, weight: 720, maxLines: 2, fill: "#eef2f1" }, `${scene.id} diagram headline`), state);
+  return `${shell}${headline}<image data-diagram-asset="${xml(scene.diagramAssetId)}" href="${visualAssetData}" x="${bounds.x + 45}" y="${bounds.y + 160}" width="${bounds.width - 90}" height="${bounds.height - 210}" preserveAspectRatio="xMidYMid meet"/>`;
 }
 
 function renderComposition(scene, episode, companionData, grammar, state, visualAssetData = "") {

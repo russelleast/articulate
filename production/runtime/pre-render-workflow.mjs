@@ -201,7 +201,7 @@ export function compileTimeline(plan, transcript, alignment, { allowDraft = fals
   const bySection = new Map(alignment.sections.map((section) => [section.id, section]));
   return {
     version: 2,
-    generatedFrom: "production/episodes/0004/scene-plan.yaml",
+    generatedFrom: `production/episodes/${plan.episode.id}/scene-plan.yaml`,
     authority: {
       semantic: "written-episode",
       visual: "approved-scene-plan",

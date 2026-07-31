@@ -1,0 +1,358 @@
+{
+  "version": 2,
+  "authority": {
+    "semantic": "written-episode",
+    "delivery": "verbal-narrative",
+    "timing": "recorded-audio"
+  },
+  "coverage": {
+    "written": {
+      "detected": 9,
+      "represented": 6,
+      "missing": [
+        "opening",
+        "scope",
+        "a-personal-note"
+      ]
+    },
+    "narrative": {
+      "detected": 0,
+      "represented": 0,
+      "missing": []
+    }
+  },
+  "warnings": [
+    "welcome: narrative section 'welcome' was not detected",
+    "decisions: narrative section 'decisions' was not detected",
+    "emerging-landscape: narrative section 'emerging-landscape' was not detected",
+    "central-question: narrative section 'central-question' was not detected",
+    "articulate: narrative section 'articulate' was not detected",
+    "journal-intent: narrative section 'journal-intent' was not detected",
+    "architectural-record: narrative section 'architectural-record' was not detected",
+    "working-platform: narrative section 'working-platform' was not detected",
+    "one-journey: narrative section 'one-journey' was not detected",
+    "invitation: narrative section 'invitation' was not detected"
+  ],
+  "sections": [
+    {
+      "id": "welcome",
+      "title": "Welcome",
+      "narrativeSegments": [
+        "N001-N002"
+      ],
+      "start": 0,
+      "end": 7.83,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s",
+      "written": {
+        "section": "welcome-to-the-articulate-journal",
+        "heading": "Welcome to the Articulate Journal"
+      },
+      "narrative": {
+        "section": "welcome",
+        "heading": "Welcome",
+        "segments": [
+          "N001-N002"
+        ]
+      },
+      "audio": {
+        "start": 0,
+        "end": 7.83,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 0.000s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "welcome: narrative section 'welcome' was not detected"
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions and Consequences",
+      "narrativeSegments": [
+        "N003-N005"
+      ],
+      "start": 7.83,
+      "end": 31.08,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 7.830s",
+      "written": {
+        "section": "welcome-to-the-articulate-journal",
+        "heading": "Welcome to the Articulate Journal"
+      },
+      "narrative": {
+        "section": "decisions",
+        "heading": "Decisions and Consequences",
+        "segments": [
+          "N003-N005"
+        ]
+      },
+      "audio": {
+        "start": 7.83,
+        "end": 31.08,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 7.830s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "decisions: narrative section 'decisions' was not detected"
+      ]
+    },
+    {
+      "id": "emerging-landscape",
+      "title": "Emerging AI-native Landscape",
+      "narrativeSegments": [
+        "N006"
+      ],
+      "start": 31.08,
+      "end": 45.68,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 31.080s",
+      "written": {
+        "section": "why-now",
+        "heading": "Why Now?"
+      },
+      "narrative": {
+        "section": "emerging-landscape",
+        "heading": "Emerging AI-native Landscape",
+        "segments": [
+          "N006"
+        ]
+      },
+      "audio": {
+        "start": 31.08,
+        "end": 45.68,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 31.080s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "emerging-landscape: narrative section 'emerging-landscape' was not detected"
+      ]
+    },
+    {
+      "id": "central-question",
+      "title": "The Central Question",
+      "narrativeSegments": [
+        "N007-N009"
+      ],
+      "start": 45.68,
+      "end": 61.03,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 45.680s",
+      "written": {
+        "section": "why-now",
+        "heading": "Why Now?"
+      },
+      "narrative": {
+        "section": "central-question",
+        "heading": "The Central Question",
+        "segments": [
+          "N007-N009"
+        ]
+      },
+      "audio": {
+        "start": 45.68,
+        "end": 61.03,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 45.680s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "central-question: narrative section 'central-question' was not detected"
+      ]
+    },
+    {
+      "id": "articulate",
+      "title": "Articulate",
+      "narrativeSegments": [
+        "N010-N011"
+      ],
+      "start": 61.03,
+      "end": 74.53,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 61.030s",
+      "written": {
+        "section": "what-is-articulate",
+        "heading": "What Is Articulate?"
+      },
+      "narrative": {
+        "section": "articulate",
+        "heading": "Articulate",
+        "segments": [
+          "N010-N011"
+        ]
+      },
+      "audio": {
+        "start": 61.03,
+        "end": 74.53,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 61.030s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "articulate: narrative section 'articulate' was not detected"
+      ]
+    },
+    {
+      "id": "journal-intent",
+      "title": "Journal Intent",
+      "narrativeSegments": [
+        "N012-N014"
+      ],
+      "start": 74.53,
+      "end": 86.08,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 74.530s",
+      "written": {
+        "section": "why-build-in-public",
+        "heading": "Why Build in Public?"
+      },
+      "narrative": {
+        "section": "journal-intent",
+        "heading": "Journal Intent",
+        "segments": [
+          "N012-N014"
+        ]
+      },
+      "audio": {
+        "start": 74.53,
+        "end": 86.08,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 74.530s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "journal-intent: narrative section 'journal-intent' was not detected"
+      ]
+    },
+    {
+      "id": "architectural-record",
+      "title": "The Architectural Record",
+      "narrativeSegments": [
+        "N015-N018"
+      ],
+      "start": 86.08,
+      "end": 102.28,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 86.080s",
+      "written": {
+        "section": "why-build-in-public",
+        "heading": "Why Build in Public?"
+      },
+      "narrative": {
+        "section": "architectural-record",
+        "heading": "The Architectural Record",
+        "segments": [
+          "N015-N018"
+        ]
+      },
+      "audio": {
+        "start": 86.08,
+        "end": 102.28,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 86.080s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "architectural-record: narrative section 'architectural-record' was not detected"
+      ]
+    },
+    {
+      "id": "working-platform",
+      "title": "A Working Platform",
+      "narrativeSegments": [
+        "N019"
+      ],
+      "start": 102.28,
+      "end": 117.36,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 102.280s",
+      "written": {
+        "section": "what-to-expect",
+        "heading": "What to Expect"
+      },
+      "narrative": {
+        "section": "working-platform",
+        "heading": "A Working Platform",
+        "segments": [
+          "N019"
+        ]
+      },
+      "audio": {
+        "start": 102.28,
+        "end": 117.36,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 102.280s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "working-platform: narrative section 'working-platform' was not detected"
+      ]
+    },
+    {
+      "id": "one-journey",
+      "title": "One Evolving Journey",
+      "narrativeSegments": [
+        "N020-N023"
+      ],
+      "start": 117.36,
+      "end": 132.79,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 117.360s",
+      "written": {
+        "section": "what-to-expect",
+        "heading": "What to Expect"
+      },
+      "narrative": {
+        "section": "one-journey",
+        "heading": "One Evolving Journey",
+        "segments": [
+          "N020-N023"
+        ]
+      },
+      "audio": {
+        "start": 117.36,
+        "end": 132.79,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 117.360s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "one-journey: narrative section 'one-journey' was not detected"
+      ]
+    },
+    {
+      "id": "invitation",
+      "title": "Invitation",
+      "narrativeSegments": [
+        "N024-N025"
+      ],
+      "start": 132.79,
+      "end": 147.067,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 132.790s",
+      "written": {
+        "section": "an-invitation",
+        "heading": "An Invitation"
+      },
+      "narrative": {
+        "section": "invitation",
+        "heading": "Invitation",
+        "segments": [
+          "N024-N025"
+        ]
+      },
+      "audio": {
+        "start": 132.79,
+        "end": 147.067,
+        "anchor": "reviewed-boundary",
+        "matchedText": "reviewed boundary at 132.790s"
+      },
+      "confidence": 1,
+      "warnings": [
+        "invitation: narrative section 'invitation' was not detected"
+      ]
+    }
+  ]
+}

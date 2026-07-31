@@ -1,178 +1,615 @@
 {
-  "version": 1,
+  "version": 3,
   "episode": {
     "id": "episode-0000",
     "title": "Welcome to the Articulate Journal",
     "journalSource": "docs/episodes/preface.md",
     "narrativeSource": "production/episodes/0000/0000-welcome-to-the-articulate-journal.md",
     "narrativeSourceConvention": "legacy",
-    "storyboard": "production/episodes/0000/scene-list.yaml",
-    "timingMarkers": "production/episodes/0000/production/narration-markers.json",
-    "assetRegister": "production/episodes/0000/asset-register.yaml"
+    "storyboard": "production/episodes/0000/storyboard-presenter.yaml",
+    "timingMarkers": "production/episodes/0000/production/presenter-v2-markers.json",
+    "assetRegister": "production/episodes/0000/asset-register.yaml",
+    "scenePlan": "production/episodes/0000/scene-plan.yaml"
   },
-  "narration": {
-    "assetId": "episode-0000-narration-v1",
-    "expectedSha256": "fe1983991ba3ca864d79737c3393a762ed145929c025332a0b7c4781898943f8",
-    "expectedDurationSeconds": 261.848141,
-    "preserveWholeRecording": true
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0000-presenter-v1",
+    "expectedSha256": "b62735d6a574e896fd195759255dd147bae9d1b885841bf87d06ad8dbaf26e7b",
+    "expectedDurationSeconds": 147.066667,
+    "audio": "embedded",
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 147.066667,
+    "background": "#000000",
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "The complete source frame is scaled to 780x439 and anchored lower-left. Focus Canvas content begins to its right."
+    }
   },
-  "companion": { "assetId": "companion-v1-neutral" },
-  "rendering": { "visualGrammarProfile": "articulate-visual-grammar-v1" },
-  "review": { "includeTimelineStates": false, "temporalSampleSeconds": 10 },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 10
+  },
   "output": {
     "width": 1920,
     "height": 1080,
-    "frameRate": 25,
-    "video": "production/episodes/0000/output/episode-0000-final-v1.mp4",
-    "generatedDirectory": "production/episodes/0000/generated/final-v1",
-    "reviewDirectory": "production/episodes/0000/output/review/final-v1",
-    "narrationAnalysis": "production/episodes/0000/production/narration-analysis.json"
+    "frameRate": 30,
+    "video": "production/episodes/0000/output/episode-0000-presenter-rough-cut-v2.mp4",
+    "generatedDirectory": "production/episodes/0000/generated/presenter-rough-cut-v2",
+    "reviewDirectory": "production/episodes/0000/output/review/presenter-rough-cut-v2",
+    "narrationAnalysis": "production/episodes/0000/production/presenter-v2-analysis.json"
   },
   "scenes": [
     {
-      "id": "S001", "kind": "studio", "studioLayout": "welcome", "headline": "Welcome to the Articulate Journal", "support": "An architectural programme in the making.",
-      "items": ["Experienced systems perspective", "Architecture in public"], "companion": true, "assetIds": ["A002", "A003"], "transition": "fade", "motion": { "companionIdle": true },
-      "timeline": { "events": [
-        { "id": "welcome", "at": 0.400, "action": "reveal", "target": "headline" },
-        { "id": "programme", "at": 4.700, "action": "reveal", "target": "support" },
-        { "id": "perspective", "at": 8.000, "action": "reveal", "target": "item-1" },
-        { "id": "journal", "at": 11.000, "action": "reveal", "target": "item-2" }
-      ] }
+      "id": "S001",
+      "title": "Welcome to the Articulate Journal",
+      "kind": "presenter-focus",
+      "headline": "Welcome to the Articulate Journal",
+      "support": "Russell · Systems architect",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "welcome-heading",
+            "at": 0.1,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "Welcome to the Articulate Journal"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Welcome",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S002", "kind": "whiteboard", "diagramLayout": "grid", "headline": "The systems changed", "support": "The underlying architectural challenges remain.",
-      "items": ["Knowledge fragments", "Documentation falls behind", "Decisions lose context", "Why becomes difficult"], "companion": false, "assetIds": ["A004"], "transition": "cut",
-      "timeline": { "events": [
-        { "id": "changed", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "remain", "at": 3.400, "action": "reveal", "target": "support" },
-        { "id": "knowledge", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "documentation", "at": 8.500, "action": "reveal", "target": "item-2" },
-        { "id": "decisions", "at": 12.000, "action": "reveal", "target": "item-3" }, { "id": "why", "at": 15.200, "action": "reveal", "target": "item-4" },
-        { "id": "conclusion", "at": 17.000, "duration": 2.600, "action": "emphasize", "target": "headline" }
-      ] }
+      "id": "S002",
+      "title": "Architecture is about decisions",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Architecture is about decisions",
+      "support": "Understand their consequences over time.",
+      "items": [
+        "Decision",
+        "Consequence"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "decision",
+            "at": 7.72,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "making decisions"
+          },
+          {
+            "id": "consequence",
+            "at": 9.84,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "consequences of those decisions"
+          },
+          {
+            "id": "s002-connect-1",
+            "at": 9.84,
+            "action": "connect",
+            "from": "item-1",
+            "to": "item-2"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Decisions and Consequences",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S003", "kind": "focus", "focusLayout": "flow", "headline": "A different role for AI", "support": "Rethink more than the tools.",
-      "items": ["Tools", "Architectural process", "Persistent collaboration"], "companion": false, "assetIds": ["A006"], "transition": "section",
-      "timeline": { "events": [
-        { "id": "role", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "more", "at": 5.000, "action": "reveal", "target": "support" },
-        { "id": "tools", "at": 8.000, "action": "reveal", "target": "item-1" }, { "id": "process", "at": 13.000, "action": "reveal", "target": "item-2" },
-        { "id": "collaboration", "at": 18.000, "action": "reveal", "target": "item-3" }, { "id": "territory", "at": 22.000, "duration": 3.000, "action": "emphasize", "target": "item-3" }
-      ] }
+      "id": "S003",
+      "title": "A new architectural landscape",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "A new architectural landscape",
+      "support": "Ideas are emerging almost daily.",
+      "items": [
+        "Agentic systems",
+        "AI-native applications",
+        "Multi-agent architectures",
+        "Durable execution",
+        "Memory & reasoning",
+        "Retrieval"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "agentic",
+            "at": 4.92,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "agentic systems"
+          },
+          {
+            "id": "native",
+            "at": 4.92,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "AI-native applications"
+          },
+          {
+            "id": "multi-agent",
+            "at": 4.92,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "multi-agent architectures"
+          },
+          {
+            "id": "durable",
+            "at": 9.72,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "durable execution"
+          },
+          {
+            "id": "memory",
+            "at": 11.97,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "memory reasoning"
+          },
+          {
+            "id": "retrieval",
+            "at": 13.57,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "retrieval"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Emerging AI-native Landscape",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S004", "kind": "workspace", "headline": "Real software. An open architectural record.", "support": "Document the system while it evolves.",
-      "items": ["docs/episodes/", "production/episodes/", "production/architecture/", "architecture/decisions/"],
-      "evidence": { "excerpt": ["The ideas · The decisions", "The trade-offs · The research", "Implementation and operational evidence", "Lessons captured while context is alive"] },
-      "companion": false, "assetIds": ["A005"], "transition": "cut",
-      "timeline": { "events": [
-        { "id": "software", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "record", "at": 3.000, "action": "reveal", "target": "support" },
-        { "id": "path-1", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "evidence-1", "at": 7.000, "action": "reveal", "target": "evidence-1" },
-        { "id": "path-2", "at": 9.000, "action": "reveal", "target": "item-2" }, { "id": "evidence-2", "at": 11.000, "action": "reveal", "target": "evidence-2" },
-        { "id": "path-3", "at": 13.000, "action": "reveal", "target": "item-3" }, { "id": "evidence-3", "at": 15.000, "action": "reveal", "target": "evidence-3" },
-        { "id": "path-4", "at": 17.000, "action": "reveal", "target": "item-4" }, { "id": "evidence-4", "at": 19.000, "action": "reveal", "target": "evidence-4" }
-      ] }
+      "id": "S004",
+      "title": "How do we build AI-native systems for the real world?",
+      "kind": "presenter-focus",
+      "headline": "How do we build AI-native systems for the real world?",
+      "support": "Reliable · Understandable · Maintainable",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "question",
+            "at": 5.36,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "How do we build AI-native systems"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Central Question",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S005", "kind": "whiteboard", "diagramLayout": "path", "headline": "The journey will not be linear", "support": "Ideas evolve. Decisions are revisited.",
-      "items": ["Idea", "Decision", "Evidence", "Revision"], "companion": false, "assetIds": ["A004"], "transition": "cut",
-      "timeline": { "events": [
-        { "id": "journey", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "evolves", "at": 3.000, "action": "reveal", "target": "support" },
-        { "id": "idea", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "decision", "at": 8.000, "action": "reveal", "target": "item-2" },
-        { "id": "idea-to-decision", "at": 9.000, "action": "connect", "from": "item-1", "to": "item-2" }, { "id": "evidence", "at": 12.000, "action": "reveal", "target": "item-3" },
-        { "id": "decision-to-evidence", "at": 13.000, "action": "connect", "from": "item-2", "to": "item-3" }, { "id": "revision", "at": 16.000, "action": "reveal", "target": "item-4" },
-        { "id": "evidence-to-revision", "at": 17.000, "action": "connect", "from": "item-3", "to": "item-4" }, { "id": "hold-revision", "at": 20.000, "duration": 3.000, "action": "emphasize", "target": "item-4" }
-      ] }
+      "id": "S005",
+      "title": "Articulate",
+      "kind": "presenter-focus",
+      "headline": "Articulate",
+      "support": "Exploring AI-native architecture as a systems architect.",
+      "items": [
+        "Not a demo",
+        "Not a proof of concept",
+        "Real software · Built in public"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "not-demo",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "isn't a demo project"
+          },
+          {
+            "id": "not-poc",
+            "at": 2.27,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "proof of concept"
+          },
+          {
+            "id": "real-software",
+            "at": 3.59,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "real software platform"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Articulate",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S006", "kind": "whiteboard", "diagramLayout": "hub", "headline": "Preserve what happens in between", "support": "The reasoning can be more valuable than the decision.",
-      "items": ["Architectural decision", "Alternatives", "Evidence", "Context", "Lessons carried forward"], "companion": false, "assetIds": ["A004"], "transition": "section",
-      "timeline": { "events": [
-        { "id": "preserve", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "reasoning", "at": 3.500, "action": "reveal", "target": "support" },
-        { "id": "decision", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "alternatives", "at": 8.000, "action": "reveal", "target": "item-2" },
-        { "id": "alternatives-decision", "at": 9.000, "action": "connect", "from": "item-2", "to": "item-1" }, { "id": "evidence", "at": 12.000, "action": "reveal", "target": "item-3" },
-        { "id": "evidence-decision", "at": 13.000, "action": "connect", "from": "item-3", "to": "item-1" }, { "id": "context", "at": 16.000, "action": "reveal", "target": "item-4" },
-        { "id": "context-decision", "at": 17.000, "action": "connect", "from": "item-4", "to": "item-1" }, { "id": "lessons", "at": 20.000, "action": "reveal", "target": "item-5" },
-        { "id": "decision-lessons", "at": 21.000, "action": "connect", "from": "item-1", "to": "item-5" }, { "id": "hold-decision", "at": 23.000, "duration": 3.000, "action": "emphasize", "target": "item-1" }
-      ] }
+      "id": "S006",
+      "title": "This journal is not a retrospective",
+      "kind": "workspace",
+      "headline": "This journal is not a retrospective",
+      "support": "Document the system while the context is alive.",
+      "items": [
+        "docs/episodes/",
+        "production/episodes/",
+        "architecture/decisions/",
+        "production/runtime/"
+      ],
+      "evidence": {
+        "excerpt": [
+          "Explain decisions while they are still being made",
+          "Preserve the evidence and trade-offs behind the software",
+          "Record changes in direction—not only final outcomes"
+        ]
+      },
+      "companion": false,
+      "assetIds": [
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "episodes",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "journal isn't a retrospective"
+          },
+          {
+            "id": "production",
+            "at": 3.83,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "not waiting until everything's finished"
+          },
+          {
+            "id": "decisions",
+            "at": 8.65,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "documenting the journey"
+          },
+          {
+            "id": "live-context",
+            "at": 10.03,
+            "action": "reveal",
+            "target": "evidence-1",
+            "sourcePhrase": "as it happens"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Journal Intent",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S007", "kind": "workspace", "headline": "Build it. Run it. Test it.", "support": "Architectural ideas meet implementation and operational constraints.",
-      "items": ["docs/episodes/", "production/runtime/", "production/architecture/"],
-      "evidence": { "excerpt": ["Build real software", "Run the production workflow", "Test ideas against real constraints", "Use learning to shape what comes next"] },
-      "companion": false, "assetIds": ["A005"], "transition": "cut",
-      "timeline": { "events": [
-        { "id": "build", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "constraints", "at": 3.000, "action": "reveal", "target": "support" },
-        { "id": "docs", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "build-evidence", "at": 6.500, "action": "reveal", "target": "evidence-1" },
-        { "id": "runtime", "at": 9.000, "action": "reveal", "target": "item-2" }, { "id": "run-evidence", "at": 10.500, "action": "reveal", "target": "evidence-2" },
-        { "id": "architecture", "at": 13.000, "action": "reveal", "target": "item-3" }, { "id": "test-evidence", "at": 15.500, "action": "reveal", "target": "evidence-3" },
-        { "id": "learn-evidence", "at": 20.500, "action": "reveal", "target": "evidence-4" }
-      ] }
+      "id": "S007",
+      "title": "Preserve the architectural journey",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Preserve the architectural journey",
+      "support": "Learning includes mistakes and changes in direction.",
+      "items": [
+        "Ideas",
+        "Research",
+        "Decisions",
+        "Trade-offs",
+        "Mistakes",
+        "Change direction"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "ideas",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "The ideas"
+          },
+          {
+            "id": "research",
+            "at": 0.11,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "research"
+          },
+          {
+            "id": "decisions",
+            "at": 1.03,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "architectural decisions"
+          },
+          {
+            "id": "tradeoffs",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "trade-offs"
+          },
+          {
+            "id": "mistakes",
+            "at": 4.43,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "mistakes"
+          },
+          {
+            "id": "direction",
+            "at": 8.63,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "change direction"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Architectural Record",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S008", "kind": "studio", "studioLayout": "companion-model", "headline": "The Companion", "support": "A different relationship between architect and AI",
-      "items": ["Prompt", "Answer", "Persistent collaborator", "Discover & connect", "Challenge assumptions", "Reason about trade-offs", "Preserve knowledge", "Understand over time"],
-      "companion": true, "assetIds": ["A002", "A003"], "transition": "section", "motion": { "companionIdle": true },
-      "timeline": { "events": [
-        { "id": "name-companion", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "relationship", "at": 4.680, "action": "reveal", "target": "support" },
-        { "id": "show-prompt", "at": 9.000, "action": "reveal", "target": "item-1" }, { "id": "show-answer", "at": 9.000, "action": "reveal", "target": "item-2" },
-        { "id": "emphasize-transaction", "at": 9.040, "duration": 3.200, "action": "emphasize", "target": "item-1" }, { "id": "remove-prompt", "at": 16.440, "action": "hide", "target": "item-1" },
-        { "id": "remove-answer", "at": 16.440, "action": "hide", "target": "item-2" }, { "id": "show-collaborator", "at": 16.440, "action": "reveal", "target": "item-3" },
-        { "id": "show-discovery", "at": 18.880, "action": "reveal", "target": "item-4" }, { "id": "connect-discovery", "at": 19.240, "action": "connect", "from": "item-3", "to": "item-4" },
-        { "id": "show-challenge", "at": 20.800, "action": "reveal", "target": "item-5" }, { "id": "connect-challenge", "at": 21.160, "action": "connect", "from": "item-3", "to": "item-5" },
-        { "id": "show-reason", "at": 22.680, "action": "reveal", "target": "item-6" }, { "id": "connect-reason", "at": 23.040, "action": "connect", "from": "item-3", "to": "item-6" },
-        { "id": "show-preserve", "at": 23.880, "action": "reveal", "target": "item-7" }, { "id": "connect-preserve", "at": 24.240, "action": "connect", "from": "item-3", "to": "item-7" },
-        { "id": "show-understand", "at": 28.400, "action": "reveal", "target": "item-8" }, { "id": "connect-understand", "at": 28.760, "action": "connect", "from": "item-3", "to": "item-8" },
-        { "id": "conclude", "at": 30.360, "duration": 3.200, "action": "emphasize", "target": "item-3" }
-      ] }
+      "id": "S008",
+      "title": "Architecture is continuous learning",
+      "kind": "presenter-focus",
+      "headline": "Architecture is continuous learning",
+      "support": "Question · Evaluate · Refine · Build",
+      "items": [
+        "Principles",
+        "Patterns",
+        "Technology",
+        "Working platform"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "principles",
+            "at": 3.56,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "principles behind AI-native systems"
+          },
+          {
+            "id": "patterns",
+            "at": 6.61,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "architectural patterns"
+          },
+          {
+            "id": "technology",
+            "at": 7.85,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "evaluate technologies"
+          },
+          {
+            "id": "platform",
+            "at": 13.34,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "working platform"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Working Platform",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S009", "kind": "focus", "focusLayout": "constellation", "headline": "Make the vision real", "support": "Explore the architecture required.",
-      "items": ["AI-native systems", "Agentic architectures", "Durable execution", "Knowledge & memory", "Capability-driven design", "Human + AI collaboration"],
-      "companion": false, "assetIds": ["A006"], "transition": "cut",
-      "timeline": { "events": [
-        { "id": "vision", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "architecture", "at": 2.000, "action": "reveal", "target": "support" },
-        { "id": "ai-native", "at": 3.500, "action": "reveal", "target": "item-1" }, { "id": "agentic", "at": 5.000, "action": "reveal", "target": "item-2" },
-        { "id": "durable", "at": 6.500, "action": "reveal", "target": "item-3" }, { "id": "memory", "at": 8.000, "action": "reveal", "target": "item-4" },
-        { "id": "capability", "at": 9.500, "action": "reveal", "target": "item-5" }, { "id": "collaboration", "at": 11.000, "action": "reveal", "target": "item-6" }
-      ] }
+      "id": "S009",
+      "title": "One evolving journey",
+      "kind": "workspace",
+      "headline": "One evolving journey",
+      "support": "Concepts and implementation share the same architectural record.",
+      "items": [
+        "concepts",
+        "architectural-decisions",
+        "implementation",
+        "reasoning"
+      ],
+      "evidence": {
+        "excerpt": [
+          "Concepts establish the language",
+          "Decisions carry the reasoning",
+          "Implementation tests the architecture",
+          "The record preserves what was learned"
+        ]
+      },
+      "companion": false,
+      "assetIds": [
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "concepts",
+            "at": 0.89,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "focus on concepts"
+          },
+          {
+            "id": "decisions",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "architectural decisions"
+          },
+          {
+            "id": "implementation",
+            "at": 7.36,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "through to implementation"
+          },
+          {
+            "id": "reasoning",
+            "at": 11.17,
+            "action": "reveal",
+            "target": "evidence-4",
+            "sourcePhrase": "reasoning behind the software"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "One Evolving Journey",
+          "at": 0,
+          "events": []
+        }
+      ]
     },
     {
-      "id": "S010", "kind": "workspace", "headline": "Ideas meet reality", "support": "Episodes, experiments, prototypes and working software.",
-      "items": ["docs/episodes/", "production/experiments/", "production/runtime/"],
-      "evidence": { "excerpt": ["Architectural ideas and principles", "A decision from problem to implementation", "Experiments · prototypes · working software"] },
-      "companion": false, "assetIds": ["A005"], "transition": "cut",
-      "timeline": { "events": [
-        { "id": "reality", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "forms", "at": 2.500, "action": "reveal", "target": "support" },
-        { "id": "episodes", "at": 3.000, "action": "reveal", "target": "item-1" }, { "id": "ideas", "at": 4.000, "action": "reveal", "target": "evidence-1" },
-        { "id": "experiments", "at": 7.000, "action": "reveal", "target": "item-2" }, { "id": "decision", "at": 8.000, "action": "reveal", "target": "evidence-2" },
-        { "id": "runtime", "at": 11.000, "action": "reveal", "target": "item-3" }, { "id": "software", "at": 12.000, "action": "reveal", "target": "evidence-3" },
-        { "id": "hold", "at": 15.000, "duration": 2.500, "action": "emphasize", "target": "headline" }
-      ] }
-    },
-    {
-      "id": "S011", "kind": "focus", "focusLayout": "reflection", "headline": "The architectural record of building it", "support": "Not a polished retrospective.",
-      "items": ["Sometimes the most valuable outcome is discovering a better approach", "Preserve the uncertainty as well as the answer"],
-      "companion": false, "assetIds": ["A006"], "transition": "section",
-      "timeline": { "events": [
-        { "id": "record", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "not-retrospective", "at": 3.000, "action": "reveal", "target": "support" },
-        { "id": "better", "at": 6.000, "action": "reveal", "target": "item-1" }, { "id": "uncertainty", "at": 9.000, "action": "reveal", "target": "item-2" }
-      ] }
-    },
-    {
-      "id": "S012", "kind": "studio", "studioLayout": "closing", "headline": "Welcome", "support": "Follow the decisions and discoveries as Articulate takes shape.",
-      "items": ["Software architecture", "AI-native systems", "The journey behind the system"], "companion": true, "assetIds": ["A002", "A003"], "transition": "cut", "motion": { "companionIdle": true },
-      "timeline": { "events": [
-        { "id": "welcome", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "invitation", "at": 2.800, "action": "reveal", "target": "support" },
-        { "id": "architecture", "at": 5.000, "action": "reveal", "target": "item-1" }, { "id": "ai-native", "at": 7.000, "action": "reveal", "target": "item-2" },
-        { "id": "journey", "at": 9.000, "action": "reveal", "target": "item-3" }
-      ] }
-    },
-    {
-      "id": "S013", "kind": "focus", "focusLayout": "bridge", "headline": "Why does Articulate need to exist at all?", "support": "The journey continues with the problem.",
-      "items": ["EPISODE 0001 · WHY ARTICULATE EXISTS"], "companion": false, "assetIds": ["A006"], "transition": "fade",
-      "timeline": { "events": [
-        { "id": "question", "at": 0.000, "action": "reveal", "target": "headline" }, { "id": "continues", "at": 2.500, "action": "reveal", "target": "support" },
-        { "id": "episode-0001", "at": 5.200, "action": "reveal", "target": "item-1" }
-      ] }
+      "id": "S010",
+      "title": "Follow the journey",
+      "kind": "presenter-focus",
+      "headline": "Follow the journey",
+      "support": "Software architecture · AI-native systems · Building in public",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "invitation",
+            "at": 0,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "If you're interested in software architecture"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Invitation",
+          "at": 0,
+          "events": []
+        }
+      ]
     }
   ]
 }

@@ -36,3 +36,26 @@ test("episode environments resolve without introducing scene-specific kinds", ()
   assert.equal(resolveScenePresentation({ id: "S102", kind: "workspace", companion: false, transition: "cut" }, grammar).composition, "workspace");
   assert.equal(resolveScenePresentation({ id: "S103", kind: "focus", companion: false, transition: "cut" }, grammar).composition, "focus");
 });
+
+test("presenter grammar resolves reusable human narrator and Focus Canvas modes", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const presenter = resolveScenePresentation({ id: "S200", kind: "presenter", transition: "cut" }, presenterGrammar);
+  const canvas = resolveScenePresentation({
+    id: "S201",
+    kind: "focus-canvas",
+    compositionMode: "presenter-left-canvas-right",
+    transition: "cut"
+  }, presenterGrammar);
+  assert.equal(presenter.archetype, "Presenter");
+  assert.equal(presenter.composition, "presenter-full");
+  assert.equal(canvas.archetype, "Focus Canvas");
+  assert.equal(canvas.composition, "presenter-left-canvas-right");
+});
+
+test("presenter grammar rejects legacy and incompatible composition modes", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  assert.throws(
+    () => resolveScenePresentation({ id: "S202", kind: "focus-canvas", compositionMode: "evidence-full", transition: "cut" }, presenterGrammar),
+    /unsupported composition mode/
+  );
+});

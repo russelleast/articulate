@@ -165,3 +165,71 @@ test("production treatment can suppress scene identifiers, timings and diagnosti
   assert.doesNotMatch(svg, /S004|61\.104|88\.719|Diagnostic narration reference/);
   assert.match(svg, /ARTICULATE JOURNAL/);
 });
+
+test("Focus Canvas v2 supports side-by-side presenter composition without whiteboard styling", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-PRESENTER-CANVAS",
+    kind: "focus-canvas",
+    compositionMode: "presenter-left-canvas-right",
+    transition: "cut",
+    headline: "Decisions have consequences",
+    support: "Architecture unfolds over time.",
+    items: ["Decision", "Consequence"],
+    canvasLayout: "flow",
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "", presenterGrammar, {
+    hidden: new Set(),
+    emphasized: new Set(),
+    connections: new Map(),
+    text: new Map(),
+    frame: 0
+  });
+  assert.match(svg, /FOCUS CANVAS/);
+  assert.match(svg, /x="1010" y="132" width="838" height="838"/);
+  assert.doesNotMatch(svg, /WHITEBOARD|f6f2e9/);
+});
+
+test("presenter full v2 emits a black plate for continuous source video", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-PRESENTER",
+    kind: "presenter",
+    transition: "cut",
+    headline: "",
+    support: "",
+    items: [],
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "", presenterGrammar);
+  assert.match(svg, /fill="#000"/);
+  assert.doesNotMatch(svg, /Companion|WHITEBOARD/);
+});
+
+test("presenter-focus retains the full-frame dark Focus Canvas without a light card", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-PRESENTER-FOCUS",
+    kind: "presenter-focus",
+    transition: "cut",
+    headline: "Architecture is continuous learning",
+    support: "Question · Evaluate · Refine · Build",
+    items: ["Principles", "Patterns", "Technology"],
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "", presenterGrammar);
+  assert.match(svg, /FOCUS CANVAS/);
+  assert.match(svg, /Architecture is continuous/);
+  assert.match(svg, />learning</);
+  assert.doesNotMatch(svg, /WHITEBOARD|ARCHITECTURAL STUDIO|f6f2e9|Companion/);
+});

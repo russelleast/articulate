@@ -38,7 +38,13 @@ export function normaliseWhisperTranscript(raw, { audio, model, corrections = {}
 export function alignSections(transcript, specifications, audioDurationSeconds) {
   const sections = [];
   for (const [index, section] of specifications.entries()) {
-    const match = index === 0
+    const match = Number.isFinite(section.startSeconds)
+      ? {
+        start: section.startSeconds,
+        confidence: 1,
+        matchedText: `reviewed boundary at ${section.startSeconds.toFixed(3)}s`
+      }
+      : index === 0
       ? { start: 0, confidence: 1, matchedText: "recording start" }
       : findPhrase(transcript, section.anchor, {
         after: sections.at(-1).start,
@@ -52,7 +58,7 @@ export function alignSections(transcript, specifications, audioDurationSeconds) 
       start: round(match.start),
       end: null,
       confidence: round(match.confidence),
-      anchor: section.anchor ?? "recording start",
+      anchor: Number.isFinite(section.startSeconds) ? "reviewed-boundary" : section.anchor ?? "recording start",
       matchedText: match.matchedText
     });
   }

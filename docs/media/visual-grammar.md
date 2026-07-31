@@ -119,13 +119,13 @@ Scenes are described using editorial archetypes. Archetypes express purpose and 
 
 **Typical duration:** 6–18 seconds for opening or closing; up to 25 seconds for a reflective bridge if the visual state changes once.
 
-**Visual character:** asymmetrical editorial composition, generous negative space, one short idea, clear separation between the Companion and supporting material.
+**Visual character:** human presenter against the intentional black background, asymmetrical editorial composition, generous negative space and clear separation between the presenter and supporting material.
 
 **Permitted motion:** a restrained entrance or departure, subtle settling movement, or a purposeful transition toward the next evidence surface.
 
 **Transition:** dissolve or cut into the evidence or diagram being introduced. Reuse a word, shape or spatial anchor where it creates continuity.
 
-**Companion:** permitted, but not required. The Companion must not simulate authorship or continuous delivery.
+**Presenter:** preferred for new opening, reflection and closing scenes. The archived Companion implementation remains available to earlier episodes but is deprecated for new presenter-led productions.
 
 ### 4.2 Diagram
 
@@ -141,23 +141,23 @@ Scenes are described using editorial archetypes. Archetypes express purpose and 
 
 **Transition:** preserve shared elements into the next related diagram; otherwise cut after the conclusion has had time to register.
 
-**Companion:** absent. The diagram is the teaching surface.
+**Presenter:** normally hidden while the diagram owns the frame; may appear beside or over the diagram when continuity materially improves understanding.
 
-### 4.3 Whiteboard
+### 4.3 Focus Canvas
 
-**Purpose:** make reasoning feel constructed in the moment, especially when moving from an initial condition through trade-offs to a proposed state.
+**Purpose:** provide a clean digital architectural workspace where reasoning can be constructed progressively beside or instead of the presenter.
 
 **Use when:** sequence, exploration or qualification matters more than visual finish.
 
 **Typical duration:** 20–60 seconds, broken into explicit construction stages.
 
-**Visual character:** restrained marks, imperfect but legible placement, visible causal sequence, limited written phrases.
+**Visual character:** black-background-compatible digital surface, stable geometry, restrained architectural colour, visible causal sequence and limited written phrases. It must not resemble a physical whiteboard.
 
 **Permitted motion:** drawing, connecting, grouping, revising and highlighting. The viewer must be able to follow each addition.
 
 **Transition:** finish on a simplified conclusion, then cut or transform into evidence that tests it.
 
-**Companion:** normally absent; a brief hand-off into or out of the whiteboard is acceptable.
+**Presenter:** may appear to the left, right or as a restrained overlay. The canvas may also fill the frame while presenter audio continues.
 
 ### 4.4 Repository
 
@@ -173,7 +173,7 @@ Scenes are described using editorial archetypes. Archetypes express purpose and 
 
 **Transition:** move from the source detail to its diagrammatic interpretation, or return from an interpretation to the evidence that supports it.
 
-**Companion:** absent; the source owns the frame.
+**Presenter:** normally hidden; the repository source owns the frame while presenter audio continues.
 
 ### 4.5 Evidence
 
@@ -189,7 +189,7 @@ Scenes are described using editorial archetypes. Archetypes express purpose and 
 
 **Transition:** evidence should lead into a relationship, judgement or unresolved question rather than disappear without consequence.
 
-**Companion:** absent.
+**Presenter:** normally hidden while evidence is being read; may return for the conclusion.
 
 ### 4.6 Reflection
 
@@ -205,7 +205,7 @@ Scenes are described using editorial archetypes. Archetypes express purpose and 
 
 **Transition:** use a clean cut, a short dissolve, or a shared motif that carries the unresolved idea forward.
 
-**Companion:** permitted when human presence adds accountability or warmth; otherwise omit it.
+**Presenter:** preferred when human presence adds accountability or warmth; otherwise use a quiet canvas.
 
 ## 5. Shot progression
 
@@ -310,7 +310,7 @@ Motion communicates a change in understanding. It may reveal sequence, causality
 - showing two states diverge over time;
 - transforming shared elements between related views;
 - shifting emphasis from context to conclusion;
-- gently entering or dismissing the Companion.
+- gently resizing or repositioning the presenter around a Focus Canvas.
 
 ### Inappropriate motion
 
@@ -367,26 +367,28 @@ This does not require rapid cutting. It requires a visible relationship between 
 - Use silence and stillness intentionally; document why a hold is meaningful when it exceeds the progression budget.
 - Review the complete episode in continuous playback. Contact sheets reveal repetition, but only playback reveals whether delivery and visual beats agree.
 
-## 11. Companion usage
+## 11. Presenter usage
 
-The Companion is a visual participant in the production identity, not the author, narrator or default presenter.
+Russell's recorded presenter performance is the primary human narrator for new productions. The black recording background is intentional negative space and part of the visual identity.
 
-Use the Companion when human-shaped presence adds something diagrams cannot:
+Use presenter picture when human presence adds something diagrams cannot:
 
 - welcome and orientation;
 - a personal origin or reflective bridge;
 - acknowledgement of uncertainty or responsibility;
 - closing identity and disclosure.
 
-Do not use the Companion:
+Do not use presenter picture:
 
 - as permanent picture-in-picture furniture;
 - beside a diagram merely to fill space;
 - during repository or evidence inspection;
 - to perform generic gestures for every transition;
-- in a way that implies Russell's likeness, authorship or autonomous judgement.
+- when the presenter crop would cover material the viewer needs to inspect.
 
-Companion appearances should normally be separated by substantial diagram or evidence sequences. Its screen-time percentage is not a target; editorial necessity is the test. Russell's recorded voice remains the authoritative human performance, and AI-generated presenter disclosure must remain clear.
+Presenter picture may move left, right, full-frame or into a restrained overlay, but picture and embedded audio remain one continuous source. Canvas-only scenes hide picture without restarting audio. Screen-time percentage is not a target; editorial necessity is the test.
+
+The Companion pipeline is retained for archived Visual Grammar v1 productions. It is deprecated for new presenter-led episodes and its viseme, blink and idle treatments must never be applied to recorded presenter footage.
 
 ## 12. Expressing editorial intent
 
@@ -483,7 +485,7 @@ Before approving a storyboard or rough cut, ask:
 - Does colour retain a consistent semantic meaning?
 - Does every motion or transition communicate a relationship?
 - Could an internal section card become a natural visual hand-off?
-- Does each Companion appearance add human value unavailable from the primary teaching surface?
+- Does each presenter appearance add human value unavailable from the primary teaching surface?
 - Does uncertainty remain visible?
 - Has the episode been reviewed in continuous playback as well as by contact sheet?
 

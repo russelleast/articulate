@@ -6,7 +6,7 @@ The renderer is the deterministic runtime expression of the canonical [Articulat
 Storyboard scene
       |
       v
-Compatibility vocabulary (`kind`, `transition`, `companion`)
+Visual Grammar vocabulary (`kind`, `transition`, `compositionMode`)
       |
       v
 Declarative scene timeline
@@ -34,7 +34,8 @@ Deterministic SVG frame
 
 - `visual-grammar.mjs` owns the selected runtime profile: safe area, palette, typography roles, spacing, composition grids, scene-kind mappings and transition semantics.
 - `layout.mjs` owns deterministic text wrapping, multiline block measurement, vertical centring, padding helpers and overflow failure.
-- `scene-renderer.mjs` interprets a resolved presentation plan using reusable Companion, repository, flow, grid, timeline, radial and reflection compositions.
+- `scene-renderer.mjs` interprets a resolved presentation plan using reusable Presenter, Focus Canvas, Companion, repository, flow, grid, timeline, radial and reflection compositions.
+- `presenter-media.mjs` validates continuous presenter sources and builds the single-source FFmpeg composition plan.
 - `scene-timeline.mjs` validates editorial events, resolves seconds to integer frames and produces immutable presentation state for a requested frame.
 - `scene-shots.mjs` validates editorial shot groups and flattens their relative events into the existing scene timeline while retaining shot provenance.
 - `episode-cli.mjs` remains responsible for episode input, asset resolution, timing validation, media assembly, manifests and review artefacts.
@@ -46,19 +47,58 @@ Scene frame windows are calculated from rounded global start and end frames, not
 ## Supported Visual Grammar concepts
 
 - Scene archetypes are resolved as `Narrator`, `Diagram`, `Repository`, `Evidence` or `Reflection`.
+- Visual Grammar v2 adds `Presenter` and `Focus Canvas` while Visual Grammar v1 remains available to archived Companion episodes.
 - Composition strategies are selected declaratively rather than through episode-specific branching.
 - Typography and spacing policies are shared by all compositions.
 - Fixed-height boxes use the complete multiline block height for vertical alignment.
 - Text that exceeds its allowed lines fails episode validation instead of being silently clipped.
-- A consistent title-safe area and reusable standard, reflection and Companion composition grids are defined by the profile.
+- A consistent title-safe area and reusable standard, reflection, Presenter, Focus Canvas and legacy Companion composition grids are defined by the selected profile.
 - Transition intent is resolved into semantic and runtime behaviour. Episode 0001's existing `fade` and `section` values remain compatibility inputs and still render as deterministic cuts.
 - Render manifests expose the resolved archetype, composition and transition plan for review and provenance.
 - Motion treatments and directional connector styling remain owned by `visual-grammar.mjs`; episode timelines state what changes, never opacity curves, coordinates or FFmpeg filters.
-- The Architectural Studio composition combines the approved Companion asset with a reusable working surface. `motion.companionIdle` opts a scene into deterministic frame-indexed breathing/settling motion; it does not imply lip-sync or facial animation.
-- Architectural Whiteboard, Digital Workspace and Focus Canvas compositions extend the same environment language without changing the declarative scene model. Episode data selects a small layout treatment while content and timing remain episode-owned.
+- In Visual Grammar v1, the Architectural Studio combines the approved Companion asset with a reusable working surface. `motion.companionIdle` opts a legacy scene into deterministic frame-indexed breathing/settling motion.
+- In Visual Grammar v2, Presenter and Focus Canvas compositions share the black-background-compatible environment language without changing the declarative scene model.
 - Shared box connectors terminate at calculated node boundaries. Curved fan-out connectors allocate distinct source ports and approach destinations along a stable final tangent so arrowheads align cleanly.
 - Review generation can include every authored timeline state when `review.includeTimelineStates` is enabled, allowing progression to be reviewed independently of the final hold.
 - Long-form episodes can request a fixed-interval temporal contact sheet with `review.temporalSampleSeconds`, complementing scene-final frames with evidence of pacing across the complete render.
+
+## Presenter-video productions
+
+Presenter video is a narrator implementation, not an animated visual asset. A v2 episode registers one `presenter-video` logical asset and selects a continuous source window:
+
+```json
+{
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0000-presenter-v1",
+    "audio": "embedded",
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 147.066667
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2"
+  }
+}
+```
+
+Supported `compositionMode` values are:
+
+- `presenter-full`
+- `presenter-focus`
+- `presenter-left-canvas-right`
+- `canvas-left-presenter-right`
+- `canvas-full`
+- `evidence-full`
+- `repository-full`
+- `presenter-overlay`
+
+`presenter-focus` follows the established narrator spatial grammar: a smaller presenter occupies the lower-left safe region while the original dark Focus Canvas remains the working surface. Existing `focus`, `workspace`, `diagram`, evidence and repository compositions remain valid in presenter episodes.
+
+The runtime renders deterministic canvas plates, decodes the configured presenter source once, and composes its picture only in modes that require it. Embedded audio is trimmed once from the same source and remains continuous in Focus Canvas, Digital Workspace, diagram, evidence and repository scenes. Scene boundaries are still resolved from rounded global frames, so independent clip durations cannot accumulate drift.
+
+Presenter framing belongs in episode configuration because it describes the source recording's safe crop. Scene content never supplies FFmpeg filters or pixel coordinates. The current default side treatment scales the complete source and anchors it to the lower edge to preserve gestures.
+
+The v1 Companion pipeline remains supported but is deprecated for new presenter-led episodes. Presenter configurations do not resolve Companion assets, performance timelines, visemes, blinks or idle motion.
 
 ## Declarative scene timelines
 
