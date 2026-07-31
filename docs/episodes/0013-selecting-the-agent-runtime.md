@@ -1,29 +1,27 @@
 ---
 episode: 13
 title: "Selecting the Agent Runtime"
-description: "ADR 0001 concludes by evaluating candidate runtimes against the architectural responsibilities established during the previous investigation, resulting in the selection of Articulate's execution runtime."
+description: "ADR 0001 concludes by evaluating candidate runtimes against the architectural responsibilities established during the investigation, resulting in the selection of Articulate's execution runtime."
 season: 2
-status: planned
-published: false
-date: null
+status: current
+published: 2026-07-31
+date: 2026-07-31
 topics:
   - Architecture Decisions
   - Agent Runtimes
   - Durable Execution
-  - Temporal
-  - DAPR
-  - LangChain
-  - Agent Frameworks
   - Workflow Orchestration
+  - Dapr
+  - Temporal
 ---
 
 # Episode 13 — Selecting the Agent Runtime
 
-In the previous three episodes we've been investigating one of the biggest architectural decisions facing Articulate.
+Over the previous three episodes we've been investigating one of the biggest architectural decisions facing Articulate.
 
 Not which programming language to use.
 
-Not which AI model to choose.
+Not which AI model to use.
 
 But what runtime should actually execute our agents.
 
@@ -51,7 +49,7 @@ Now we can finally evaluate the available technologies.
 
 ---
 
-## Architecture Before Technology
+# Architecture Before Technology
 
 One of the recurring themes throughout this journal has been that architecture should define the criteria before comparing solutions.
 
@@ -65,32 +63,43 @@ Instead we ask:
 
 > *Which runtime best satisfies the responsibilities identified by the architecture?*
 
-Those responsibilities became our evaluation criteria.
+The previous investigation produced the following architectural drivers.
 
 | Architectural Responsibility | Importance |
-|------------------------------|------------|
-| Durable execution | Must have |
-| Long-running workflows | Must have |
-| Pause and resume | Must have |
-| Human-in-the-loop | Must have |
-| Failure recovery | Must have |
-| Distributed execution | Should have |
-| Tool orchestration | Should have |
-| Observability | Should have |
-| AI-native programming model | Could have |
-| Runtime maturity | Could have |
+|-----------------------------|------------|
+| Durable execution | Essential |
+| Long-running workflows | Essential |
+| Pause and resume | Essential |
+| Human-in-the-loop | Essential |
+| Failure recovery | Essential |
+| Distributed execution | Important |
+| Tool orchestration | Important |
+| Observability | Important |
+| Hosting and cloud neutrality | Important |
+| AI-native programming model | Desirable |
+| Runtime maturity | Desirable |
 
-This matrix is the outcome of the previous three episodes.
+Notice what isn't listed.
+
+Programming language.
+
+Popularity.
+
+GitHub stars.
+
+Vendor.
+
+Those may influence a decision, but they should never define it.
 
 Only now does it make sense to compare technologies.
 
 ---
 
-## Shortlisting the Candidates
+# Shortlisting the Candidates
 
-There are many agent frameworks and orchestration platforms available today.
+There are dozens of AI frameworks available today.
 
-Rather than attempting to review every product on the market, I shortlisted the technologies that appeared capable of satisfying the architectural requirements established by ADR 0001.
+Rather than attempting to review every product on the market, I shortlisted the technologies that appeared capable of satisfying the architectural responsibilities identified by ADR 0001.
 
 For Articulate, those candidates were:
 
@@ -99,94 +108,96 @@ For Articulate, those candidates were:
 - Dapr Agents
 - Temporal
 
-It is important to recognise that these technologies are not solving exactly the same problem.
+These technologies are frequently discussed together, but they are not solving exactly the same problem.
 
 Some primarily focus on building intelligent agents.
 
-Others focus on orchestrating durable execution.
+Others focus on durable execution.
 
-That distinction becomes important during the evaluation.
+Some attempt to combine both.
+
+Understanding that distinction is already an important architectural insight.
 
 ---
 
-## Microsoft Agent Framework + Durable Tasks
+# Microsoft Agent Framework + Durable Tasks
 
 Microsoft Agent Framework provides an excellent programming model for building AI agents.
 
 The addition of Durable Tasks introduces persistent execution, checkpointing, pause and resume semantics and support for human interaction.
 
-For organisations already invested in the Microsoft ecosystem it offers an attractive, integrated developer experience. Built from Symantec Kernal and AutoGen. For my personally with my c# background, this appeals to me. 
+For organisations already invested in the Microsoft ecosystem it presents a compelling integrated platform.
 
-### Strengths
+## Strengths
 
 - Excellent AI-native programming model.
-- Strong integration with Microsoft's AI ecosystem.
-- Good support for multi-agent development.
-- Durable execution now available through Durable Tasks.
+- Strong multi-agent abstractions.
+- Durable execution integrated into the framework.
 - Familiar tooling for .NET developers.
+- Tight integration with Microsoft's AI ecosystem.
 
-### Trade-offs
+## Trade-offs
 
-- Durable execution is a relatively new capability.
-- Smaller community than more established workflow platforms.
-- More tightly coupled to the Microsoft ecosystem.
-- Workflow orchestration is only one aspect of a broader agent framework.
+- Durable execution is a relatively recent addition.
+- More closely aligned with the Microsoft ecosystem.
+- The wider ecosystem is still evolving.
+- Strong focus on agent development rather than general workflow orchestration.
 
 ---
 
-## LangChain / LangGraph
+# LangChain / LangGraph
 
 LangGraph approaches the problem from the perspective of AI reasoning.
 
-Its graph-based execution model naturally represents iterative reasoning, planning and conversational workflows.
+Its graph-based execution model naturally represents planning, reasoning and conversational workflows.
 
-Persistence and resumability are available, making it suitable for many AI applications.
+Persistence and resumability are available, making it well suited to many AI-native applications.
 
-### Strengths
+## Strengths
 
-- Excellent support for AI reasoning workflows.
-- Flexible graph-based execution model.
+- Excellent reasoning model.
+- Flexible graph-based execution.
 - Rich ecosystem of LLM integrations.
-- Strong focus on agent orchestration.
+- Strong support for agent orchestration.
 
-### Trade-offs
+## Trade-offs
 
-- Primarily designed around reasoning rather than durable operational workflows.
-- Long-running execution is not its primary architectural concern.
-- Enterprise operational capabilities continue to evolve.
-- Better suited to intelligent reasoning than workflow orchestration.
+- Primarily optimised for reasoning workflows.
+- Long-running operational workflows are not its primary architectural concern.
+- Enterprise operational capabilities continue to mature.
+- Better suited to orchestrating intelligence than orchestrating business processes.
 
 ---
 
-## Dapr Agents
+# Dapr Agents
 
-Dapr Agents builds upon the broader Dapr platform, combining agent abstractions with cloud-native infrastructure.
+Dapr Agents takes a different approach.
 
-For teams already using Dapr this provides natural integration with service invocation, state management, messaging and observability.
+Rather than focusing solely on agents, it builds upon the wider Dapr runtime, combining agent abstractions with durable workflows, actors and distributed application building blocks.
 
-Its architecture aligns well with distributed systems.
+This creates a broader application platform rather than simply another AI framework.
 
-### Strengths
+## Strengths
 
 - Excellent cloud-native architecture.
-- Durable execution built on Dapr Workflows.
-- Workflow engine backed by Dapr Actors for persistence and recovery.
-- Strong integration with pub/sub, state stores, bindings and service invocation.
-- Good observability through the Dapr ecosystem.
-- Vendor-neutral and Kubernetes-native.
+- Durable execution through Dapr Workflows.
+- Strong distributed systems model.
+- Infrastructure abstraction through Dapr building blocks.
+- Excellent integration with state, pub/sub, service invocation and observability.
+- Hosting model remains flexible without requiring an early commitment to Kubernetes or a specific cloud provider.
 
-### Trade-offs
+## Trade-offs
 
-- AI framework and workflow runtime are evolving together, so the ecosystem is younger than more established workflow platforms.
-- Workflow capabilities are tightly integrated into the Dapr programming model, which may be less attractive if you don't already see value in the wider Dapr platform.
-- Smaller community and fewer production references than Temporal for general-purpose workflow orchestration.
-- Long-term direction of the Agents framework is still evolving as the project matures.
+- The Agents framework is still relatively young.
+- The platform introduces a broader runtime than dedicated workflow engines.
+- Teams must understand the wider Dapr programming model to gain the full benefit.
+- The long-term evolution of the Agents framework is still emerging.
 
 ---
 
-## Temporal
+# Temporal
 
-Temporal approaches the problem from a different direction.
+Temporal approaches the problem from the opposite direction.
 
 It is not primarily an agent framework.
 
@@ -194,60 +205,63 @@ It is a durable execution platform.
 
 Everything in its architecture revolves around preserving execution state, recovering from failures, coordinating long-running workflows and safely managing external side effects.
 
-Those responsibilities align remarkably closely with the architectural responsibilities identified during our investigation.
+## Strengths
 
-### Strengths
-
-- Purpose-built for durable execution.
+- Purpose-built durable execution.
 - Excellent support for long-running workflows.
-- First-class pause and resume semantics.
-- Robust failure recovery.
+- Outstanding reliability and failure recovery.
 - Comprehensive execution history.
-- Mature operational platform.
 - Technology-agnostic programming model.
+- Highly mature workflow platform.
 
-### Trade-offs
+## Trade-offs
 
 - Not an agent framework.
-- Requires an additional framework if richer agent abstractions are required.
-- Learning curve around workflow-first thinking.
-- Additional operational infrastructure compared to lightweight agent libraries.
+- Requires a separate framework for richer AI abstractions.
+- Introduces another platform into the overall architecture.
+- Solves execution extremely well, but little beyond that.
 
 ---
 
-## Comparing the Candidates
+# Comparing the Candidates
 
 Looking at the evaluation as a whole, an interesting pattern begins to emerge.
 
 | Capability | MAF + Durable Tasks | LangGraph | Dapr Agents | Temporal |
-|------------|---------------------|------------|--------------|-----------|
-| AI-native programming model | Excellent | Excellent | Good | Limited |
-| Durable execution | Good | Good | Good | Excellent |
-| Long-running workflows | Good | Moderate | Good | Excellent |
-| Human-in-the-loop | Good | Moderate | Good | Excellent |
-| Failure recovery | Good | Moderate | Good | Excellent |
-| Distributed execution | Good | Moderate | Excellent | Excellent |
-| Operational maturity | Good | Good | Good | Excellent |
+|------------|---------------------|-----------|-------------|-----------|
+| AI programming model | ✓✓✓ | ✓✓✓ | ✓✓ | ✓ |
+| Durable execution | ✓✓✓ | ✓✓ | ✓✓✓ | ✓✓✓ |
+| Long-running workflows | ✓✓✓ | ✓✓ | ✓✓✓ | ✓✓✓ |
+| Human-in-the-loop | ✓✓✓ | ✓✓ | ✓✓✓ | ✓✓✓ |
+| Failure recovery | ✓✓✓ | ✓✓ | ✓✓✓ | ✓✓✓ |
+| Distributed execution | ✓✓ | ✓✓ | ✓✓✓ | ✓✓✓ |
+| Infrastructure capabilities | ✓ | ✓ | ✓✓✓ | ✓ |
+| Hosting flexibility | ✓✓ | ✓✓ | ✓✓✓ | ✓✓✓ |
+| Operational maturity | ✓✓ | ✓✓ | ✓✓ | ✓✓✓ |
 
-One conclusion became increasingly clear during this evaluation.
+The comparison also reveals something unexpected.
 
-The technologies are not direct competitors.
+These technologies are not direct competitors.
 
-Microsoft Agent Framework, LangGraph and Dapr Agents all begin with the problem of building intelligent agents.
+Microsoft Agent Framework begins with agents.
 
-Temporal begins with the problem of reliably executing long-running work.
+LangGraph begins with reasoning.
 
-That difference mirrors the architectural investigation from the previous episodes.
+Temporal begins with durable execution.
 
-The runtime's primary responsibility is not reasoning.
+Dapr attempts to bring these responsibilities together as part of a broader distributed application platform.
 
-It is execution.
+The question therefore becomes less about which technology has the most features...
+
+...and more about which architectural philosophy best aligns with Articulate.
 
 ---
 
-## The Decision
+# The Decision
 
-One of the most interesting outcomes of this investigation is that the architectural process changed the question.
+When this investigation began, I expected the outcome to be a straightforward comparison between agent runtimes.
+
+Instead, the investigation fundamentally changed the question.
 
 We began by asking:
 
@@ -255,45 +269,59 @@ We began by asking:
 
 We finished by asking:
 
-> **Which technology is best suited to managing durable execution?**
+> **What responsibilities should the runtime own?**
 
-Once we asked the right question, the decision became much clearer.
+That distinction matters.
 
-Temporal most closely aligns with the architectural drivers established throughout Episodes 10, 11 and 12.
+The runtime is not responsible for architectural knowledge.
 
-Its strengths directly address the responsibilities identified by the architecture rather than treating them as secondary capabilities.
+It is not responsible for conversational memory.
 
-That does not make the other technologies inferior.
+It is not responsible for retrieval.
 
-Each is solving a different problem.
+Its primary responsibility is durable execution.
 
-Agent frameworks remain valuable for implementing intelligent behaviour.
+However, Articulate is more than a workflow engine.
 
-Temporal provides the durable execution layer responsible for reliably coordinating that behaviour over time.
+It is a distributed AI-native platform.
 
-Rather than competing with one another, they have the potential to complement one another.
+As the architecture has evolved, another requirement has become increasingly important.
+
+The runtime should not force an early decision about cloud provider, hosting platform or deployment model.
+
+Those are architectural decisions that belong later in the journey.
+
+Dapr's sidecar architecture provides a consistent runtime API regardless of the eventual hosting platform, while also supplying durable workflows, distributed execution and infrastructure abstractions through a single programming model.
+
+Rather than introducing separate technologies for workflow orchestration, service invocation, state management and messaging, Dapr provides a coherent foundation that aligns naturally with the architecture Articulate is evolving towards.
+
+Temporal remains an outstanding durable workflow platform and would have been an excellent choice if durable execution were the only responsibility under consideration.
+
+For Articulate, however, the broader platform capabilities offered by Dapr provide a better overall architectural fit.
 
 ---
 
-## ADR 0001
+# ADR 0001 
+
+> this is not the real ADR, just here for brevity
 
 With the investigation complete, ADR 0001 can now move from **Proposed** to **Accepted**.
 
-### Decision
+## Decision
 
-Articulate will adopt **Temporal** as its durable execution runtime.
+Articulate will adopt **Dapr Agents** as its agent runtime, with **Dapr Workflows** providing durable execution and orchestration.
 
-### Rationale
+## Rationale
 
-The decision is based on architectural alignment rather than product popularity or ecosystem preference.
+The decision is based on architectural alignment rather than popularity or ecosystem preference.
 
-The investigation concluded that the runtime's primary responsibility is durable execution, and Temporal is purpose-built for exactly that responsibility.
+Dapr satisfies the durable execution responsibilities established during the investigation while also providing a consistent distributed application runtime that preserves future flexibility around hosting and cloud deployment.
 
-Agent frameworks remain an implementation choice that can evolve independently as the AI ecosystem matures.
+Cloud provider selection, production hosting and deployment architecture remain separate architectural decisions and will be evaluated in future episodes.
 
 ---
 
-## Closing
+# Closing
 
 This marks the completion of the first major architectural investigation in the Articulate Journal.
 
@@ -301,14 +329,10 @@ We began by asking a technology question.
 
 We ended by answering an architectural one.
 
-The runtime is not responsible for knowledge.
+Good architecture is rarely about choosing the most impressive technology.
 
-It is not responsible for memory.
+It is about understanding the problem well enough that the technology decision becomes obvious.
 
-Its primary responsibility is durable execution.
-
-Once that became clear, the technology decision became almost inevitable.
-
-The conceptual architecture is now complete.
+With ADR 0001 now accepted, the conceptual architecture is complete.
 
 From the next episode onwards, we can finally begin turning that architecture into software.
