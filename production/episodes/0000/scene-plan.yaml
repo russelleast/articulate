@@ -72,10 +72,10 @@
       "transition": "cut",
       "headline": "Architecture is about decisions",
       "support": "Understand their consequences over time.",
-      "items": ["Decision", "Consequence"],
+      "items": ["Decisions", "Consequences"],
       "beats": [
-        { "id": "decision", "target": "item-1", "alignTo": "making decisions" },
-        { "id": "consequence", "target": "item-2", "alignTo": "consequences of those decisions" }
+        { "id": "decisions", "target": "item-1", "alignTo": "making decisions" },
+        { "id": "consequences", "target": "item-2", "alignTo": "consequences of those decisions" }
       ],
       "connections": [["item-1", "item-2"]]
     },
@@ -149,10 +149,10 @@
         ]
       },
       "beats": [
-        { "id": "episodes", "target": "item-1", "alignTo": "journal isn't a retrospective" },
+        { "id": "episodes", "target": "item-1", "alignTo": "a retrospective" },
         { "id": "production", "target": "item-2", "alignTo": "not waiting until everything's finished" },
         { "id": "decisions", "target": "item-3", "alignTo": "documenting the journey" },
-        { "id": "live-context", "target": "evidence-1", "alignTo": "as it happens" }
+        { "id": "runtime", "target": "item-4", "alignTo": "as it happens" }
       ]
     },
     {
@@ -212,9 +212,9 @@
       },
       "beats": [
         { "id": "concepts", "target": "item-1", "alignTo": "focus on concepts" },
-        { "id": "decisions", "target": "item-2", "alignTo": "architectural decisions" },
+        { "id": "decisions", "target": "item-2", "alignTo": "architecture decisions" },
         { "id": "implementation", "target": "item-3", "alignTo": "through to implementation" },
-        { "id": "reasoning", "target": "evidence-4", "alignTo": "reasoning behind the software" }
+        { "id": "reasoning", "target": "item-4", "alignTo": "reasoning behind the software" }
       ]
     },
     {

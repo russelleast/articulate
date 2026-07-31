@@ -60,14 +60,14 @@
         "headline": "Architecture is about decisions",
         "support": "Understand their consequences over time.",
         "labels": [
-          "Decision",
-          "Consequence"
+          "Decisions",
+          "Consequences"
         ]
       },
       "transition": "cut",
       "events": [
         {
-          "id": "decision",
+          "id": "decisions",
           "at": 7.72,
           "action": "reveal",
           "target": "item-1",
@@ -78,7 +78,7 @@
           }
         },
         {
-          "id": "consequence",
+          "id": "consequences",
           "at": 9.84,
           "action": "reveal",
           "target": "item-2",
@@ -319,13 +319,13 @@
       "events": [
         {
           "id": "episodes",
-          "at": 0,
+          "at": 2.39,
           "action": "reveal",
           "target": "item-1",
-          "sourcePhrase": "journal isn't a retrospective",
+          "sourcePhrase": "a retrospective",
           "match": {
-            "method": "fuzzy",
-            "confidence": 0.828
+            "method": "exact-or-normalised",
+            "confidence": 1
           }
         },
         {
@@ -351,10 +351,10 @@
           }
         },
         {
-          "id": "live-context",
+          "id": "runtime",
           "at": 10.03,
           "action": "reveal",
-          "target": "evidence-1",
+          "target": "item-4",
           "sourcePhrase": "as it happens",
           "match": {
             "method": "exact-or-normalised",
@@ -570,13 +570,13 @@
         },
         {
           "id": "decisions",
-          "at": 0,
+          "at": 4.32,
           "action": "reveal",
           "target": "item-2",
-          "sourcePhrase": "architectural decisions",
+          "sourcePhrase": "architecture decisions",
           "match": {
-            "method": "fuzzy",
-            "confidence": 0.788
+            "method": "exact-or-normalised",
+            "confidence": 1
           }
         },
         {
@@ -594,7 +594,7 @@
           "id": "reasoning",
           "at": 11.17,
           "action": "reveal",
-          "target": "evidence-4",
+          "target": "item-4",
           "sourcePhrase": "reasoning behind the software",
           "match": {
             "method": "exact-or-normalised",

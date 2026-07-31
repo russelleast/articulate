@@ -117,8 +117,8 @@
       "headline": "Architecture is about decisions",
       "support": "Understand their consequences over time.",
       "items": [
-        "Decision",
-        "Consequence"
+        "Decisions",
+        "Consequences"
       ],
       "companion": false,
       "assetIds": [
@@ -129,14 +129,14 @@
         "connectorTiming": "with-destination",
         "events": [
           {
-            "id": "decision",
+            "id": "decisions",
             "at": 7.72,
             "action": "reveal",
             "target": "item-1",
             "sourcePhrase": "making decisions"
           },
           {
-            "id": "consequence",
+            "id": "consequences",
             "at": 9.84,
             "action": "reveal",
             "target": "item-2",
@@ -351,10 +351,10 @@
         "events": [
           {
             "id": "episodes",
-            "at": 0,
+            "at": 2.39,
             "action": "reveal",
             "target": "item-1",
-            "sourcePhrase": "journal isn't a retrospective"
+            "sourcePhrase": "a retrospective"
           },
           {
             "id": "production",
@@ -371,10 +371,10 @@
             "sourcePhrase": "documenting the journey"
           },
           {
-            "id": "live-context",
+            "id": "runtime",
             "at": 10.03,
             "action": "reveal",
-            "target": "evidence-1",
+            "target": "item-4",
             "sourcePhrase": "as it happens"
           }
         ]
@@ -561,10 +561,10 @@
           },
           {
             "id": "decisions",
-            "at": 0,
+            "at": 4.32,
             "action": "reveal",
             "target": "item-2",
-            "sourcePhrase": "architectural decisions"
+            "sourcePhrase": "architecture decisions"
           },
           {
             "id": "implementation",
@@ -577,7 +577,7 @@
             "id": "reasoning",
             "at": 11.17,
             "action": "reveal",
-            "target": "evidence-4",
+            "target": "item-4",
             "sourcePhrase": "reasoning behind the software"
           }
         ]
