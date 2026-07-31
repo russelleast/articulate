@@ -80,7 +80,13 @@ It establishes the conceptual runtime requirements before selecting implementati
 
 ---
 
-## Episode 13 – Knowledge Evolution
+## Episode 13 - Selecting the agent runtime
+
+Completes the ADR
+
+---
+
+## Episode 14 – Knowledge Evolution
 
 **Question:** *How does architectural knowledge safely change over time?*
 
@@ -92,7 +98,7 @@ The episode introduces architectural state, baselines, principles, maturity and 
 
 ---
 
-## Episode 14 – Derived Knowledge and Architectural Integrity
+## Episode 15 – Derived Knowledge and Architectural Integrity
 
 **Question:** *What knowledge is discovered rather than stored?*
 
@@ -104,7 +110,7 @@ This episode introduces these concepts as first-class outcomes of Architectural 
 
 ---
 
-## Episode 15 – Impact Analysis as Knowledge Reasoning
+## Episode 16 – Impact Analysis as Knowledge Reasoning
 
 **Question:** *Can AI understand the consequences of architectural change?*
 
@@ -116,11 +122,17 @@ The episode demonstrates how multiple retrieval strategies combine to answer com
 
 ---
 
+## Episode 17 - observing agents
+
+Although observbility solutions existing for cloud native systems, this explores the requirements and approach to observing agents.
+
+---
+
 # Season 3 – Implementing Architectural Intelligence
 
 ---
 
-## Episode 16 – Building the Knowledge Service
+## Episode 18 – Building the Knowledge Service
 
 **Question:** *How do we turn the conceptual architecture into software?*
 

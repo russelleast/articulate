@@ -1,5 +1,5 @@
 ---
-episode: 13
+episode: 14
 title: "Knowledge Evolution"
 description: "An introduction to safely evolving architectural knowledge through proposed changes, reconciliation, validation, baselines, principles, maturity and confidence."
 season: 2
@@ -15,7 +15,7 @@ topics:
   - Maturity and confidence
 ---
 
-# Episode 13 – Knowledge Evolution
+# Episode 14 – Knowledge Evolution
 
 **Question:** *How does architectural knowledge safely change over time?*
 
