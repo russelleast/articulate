@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "episodeId": "episode-0000",
+  "narrationAssetId": "episode-0000-presenter-v1",
+  "mediaRole": "continuous-presenter-video-with-embedded-audio",
+  "sha256": "b62735d6a574e896fd195759255dd147bae9d1b885841bf87d06ad8dbaf26e7b",
+  "media": {
+    "durationSeconds": 147.086417,
+    "sizeBytes": 145996083,
+    "bitRate": 7940696,
+    "codec": "aac",
+    "sampleRateHz": 48000,
+    "channels": 1,
+    "channelLayout": "mono"
+  },
+  "silenceAnalysis": {
+    "noiseThreshold": "-42dB",
+    "minimumSilenceSeconds": 0.35,
+    "leadingSilenceSeconds": 0,
+    "trailingSilenceSeconds": 1.28925,
+    "usableNarrationDurationSeconds": 145.797167,
+    "detectedPauseCount": 53,
+    "majorPauseMinimumSeconds": 1.3,
+    "majorPauses": [
+      {
+        "startSeconds": 31.425937,
+        "endSeconds": 33.193208,
+        "durationSeconds": 1.767271
+      },
+      {
+        "startSeconds": 45.527708,
+        "endSeconds": 46.909917,
+        "durationSeconds": 1.382209
+      }
+    ]
+  },
+  "interpretation": [
+    "The presenter source remains continuous from 0s to 147.066667s; no interior silence was removed.",
+    "Major pauses are deterministic signal evidence. Editorial scene boundaries are stored in production/episodes/0000/production/presenter-v2-markers.json.",
+    "The embedded audio remains coupled to the presenter picture and is the timing authority."
+  ]
+}

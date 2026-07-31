@@ -31,7 +31,7 @@ youtube_url: https://youtu.be/NISywkx-xW0
 
 ## Introduction
 
-After three decades building software and more than a decade working as an  architect, I've come to appreciate that architecture is rarely constrained by technology alone.
+After three decades building software and more than a decade working as an architect, I've come to appreciate that architecture is rarely constrained by technology alone.
 
 Most modern technology is remarkably capable.
 

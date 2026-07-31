@@ -1,5 +1,5 @@
 const DEFAULT_PROFILE_ID = "articulate-visual-grammar-v1";
-
+const PRESENTER_PROFILE_ID = "articulate-visual-grammar-v2";
 const profile = Object.freeze({
   id: DEFAULT_PROFILE_ID,
   source: "docs/media/visual-grammar.md",
@@ -111,22 +111,84 @@ const profile = Object.freeze({
   })
 });
 
+const presenterProfile = Object.freeze({
+  ...profile,
+  id: PRESENTER_PROFILE_ID,
+  sceneKinds: Object.freeze({
+    ...profile.sceneKinds,
+    presenter: Object.freeze({
+      archetype: "Presenter",
+      composition: "presenter-full",
+      compositions: Object.freeze(["presenter-full", "presenter-focus"])
+    }),
+    "presenter-focus": Object.freeze({
+      archetype: "Presenter",
+      composition: "presenter-focus",
+      compositions: Object.freeze(["presenter-focus"])
+    }),
+    "focus-canvas": Object.freeze({
+      archetype: "Focus Canvas",
+      composition: "canvas-full",
+      compositions: Object.freeze([
+        "presenter-left-canvas-right",
+        "canvas-left-presenter-right",
+        "canvas-full",
+        "presenter-overlay"
+      ])
+    }),
+    "presenter-diagram": Object.freeze({
+      archetype: "Diagram",
+      composition: "canvas-full",
+      compositions: Object.freeze([
+        "presenter-left-canvas-right",
+        "canvas-left-presenter-right",
+        "canvas-full",
+        "presenter-overlay"
+      ])
+    }),
+    "presenter-evidence": Object.freeze({
+      archetype: "Evidence",
+      composition: "evidence-full",
+      compositions: Object.freeze(["evidence-full"])
+    }),
+    "presenter-repository": Object.freeze({
+      archetype: "Repository",
+      composition: "repository-full",
+      compositions: Object.freeze(["repository-full"])
+    }),
+    "presenter-reflection": Object.freeze({
+      archetype: "Reflection",
+      composition: "presenter-full",
+      compositions: Object.freeze(["presenter-full"])
+    })
+  })
+});
+
 export function getVisualGrammarProfile(profileId = DEFAULT_PROFILE_ID) {
-  if (profileId !== DEFAULT_PROFILE_ID) {
-    throw new Error(`Unknown visual grammar profile: ${profileId}`);
-  }
-  return profile;
+  if (profileId === DEFAULT_PROFILE_ID) return profile;
+  if (profileId === PRESENTER_PROFILE_ID) return presenterProfile;
+  throw new Error(`Unknown visual grammar profile: ${profileId}`);
 }
 
 export function resolveScenePresentation(scene, grammar = profile) {
   const kind = grammar.sceneKinds[scene.kind];
   if (!kind) throw new Error(`${scene.id} uses unsupported visual kind: ${scene.kind}`);
-  if (scene.companion && !["companion", "studio"].includes(kind.composition)) {
+  const composition = scene.compositionMode ?? kind.composition;
+  if (scene.compositionMode && !kind.compositions?.includes(scene.compositionMode)) {
+    throw new Error(`${scene.id} uses unsupported composition mode '${scene.compositionMode}' for ${scene.kind}`);
+  }
+  if (
+    grammar.id === PRESENTER_PROFILE_ID
+    && ["whiteboard", "companion", "studio"].includes(composition)
+  ) {
+    throw new Error(`${scene.id} uses deprecated composition '${composition}' with the presenter grammar`);
+  }
+  if (scene.companion && !["companion", "studio"].includes(composition)) {
     throw new Error(`${scene.id} requests Companion placement outside a Companion composition`);
   }
   const transition = grammar.transitions[scene.transition];
   if (!transition) throw new Error(`${scene.id} uses unsupported transition: ${scene.transition}`);
-  return Object.freeze({ ...kind, transition });
+  return Object.freeze({ ...kind, composition, transition });
 }
 
-export { DEFAULT_PROFILE_ID };
+export { DEFAULT_PROFILE_ID, PRESENTER_PROFILE_ID };

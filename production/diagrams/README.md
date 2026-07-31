@@ -1,6 +1,6 @@
 # D2 Diagrams
 
-D2 is the canonical source format for reusable Articulate architectural diagrams. SVG is the shared delivery format for the journal website, video production and review artefacts.
+D2 is the canonical source format for reusable Articulate architectural diagrams. SVG is the shared interchange format for the journal website, video production and review artefacts. Publication styling is applied after notation rendering so diagram semantics do not depend on where the diagram will appear.
 
 ## Structure
 
@@ -61,7 +61,29 @@ Reusable diagrams stay in the shared namespace and can be referenced by any numb
 
 ## Video use
 
-The global registry makes each generated SVG resolvable through `AssetManager`. A static diagram scene uses the existing declarative scene configuration with the new diagram kind:
+The global registry makes each generated SVG resolvable through `AssetManager`. When that shared SVG enters the video runtime, the `video-dark` publication profile normalises it before scene composition. The committed website SVG is not modified.
+
+```text
+D2 source
+  -> D2 SVG renderer
+  -> shared standalone SVG
+  -> video-dark profile
+  -> normalised transparent SVG
+  -> Focus Canvas viewport
+```
+
+The profile contract requires a positive root `viewBox` and produces deterministic `image/svg+xml` with:
+
+- a transparent outer background;
+- `data-articulate-diagram-profile="video-dark"` and a profile version;
+- dark-video palette roles for visible nodes, labels and connectors;
+- preserved SVG masks and renderer support structures;
+- `xMidYMid meet` aspect-ratio behaviour;
+- a stable padded viewport and an 18-pixel minimum text target at 1080p.
+
+The contract is renderer-neutral. The current adapter removes D2's page rectangle; a future notation renderer can supply its own canvas-removal adapter and then use the same normalised SVG and Focus Canvas contract.
+
+A static diagram scene uses the existing declarative scene configuration:
 
 ```json
 {
@@ -76,7 +98,9 @@ The global registry makes each generated SVG resolvable through `AssetManager`. 
 }
 ```
 
-The episode asset register should still record the episode-local usage (`A008`) for provenance and review. `diagramAssetId` identifies the reusable binary input. Validation resolves it through `AssetManager`, requires its registry type to be `diagram`, and the renderer embeds the SVG in the 1920×1080 frame.
+The episode asset register should still record the episode-local usage (`A008`) for provenance and review. `diagramAssetId` identifies the reusable binary input. Validation resolves it through `AssetManager`, requires its registry type to be `diagram`, applies the same profile used during rendering, and fails malformed SVG before frame generation.
+
+The 18-pixel value is a publication target, not permission to enlarge text independently of its rendered nodes. If a dense source cannot meet it in the selected Focus Canvas viewport, simplify the diagram, split the scene or choose a more suitable D2 layout.
 
 ## Choreography boundary
 

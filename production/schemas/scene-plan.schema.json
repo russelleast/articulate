@@ -57,6 +57,7 @@
           "narrativeSection": { "type": "string" },
           "narrativeSegments": { "type": "array", "items": { "type": "string" } },
           "anchor": { "type": ["string", "null"] },
+          "startSeconds": { "type": "number", "minimum": 0 },
           "omission": {
             "type": "object",
             "required": ["reason"],

@@ -2,126 +2,50 @@
 
 Welcome to the Articulate Journal.
 
-I'm Russell, and I've spent much of my career designing and building software systems.
+I'm Russell, and I've spent most of my career designing and building software systems.
 
-Over the years, I've watched the way we build those systems change considerably. New technologies have appeared, architectural styles have evolved, and the systems themselves have become increasingly distributed and complex.
+Over the years, I've learned that architecture isn't really about drawing diagrams or choosing technologies. It's about making decisions and understanding the consequences of those decisions over time.
 
-But many of the underlying challenges of architecture haven't really changed.
+Today, we're at the beginning of another major shift in our industry.
 
-Knowledge becomes fragmented. Documentation falls behind. Decisions lose their context. And often, simply understanding why a system became the way it is can be surprisingly difficult.
+Artificial intelligence isn't just changing how we write software. It's changing how we think about architecture itself.
 
-Now AI is changing the way we design and build software once again.
+We're seeing new ideas emerge almost daily. Agentic systems. AI-native applications. Multi-agent architectures. Durable execution. Memory. Reasoning. Retrieval.
 
-And I believe it creates an opportunity to rethink not just the tools we use, but the role AI can play throughout the architectural process.
+But while the tools are evolving rapidly, one question keeps coming back to me.
 
-That's the territory Articulate is exploring.
+How do we build AI-native systems that are reliable, understandable and maintainable in the real world?
 
-Articulate is an AI-native architecture platform being built around the idea that AI can become a persistent architectural collaborator.
+That's the question behind Articulate.
 
-The ambition is to build real, production-quality software.
+Articulate isn't a demo project or a proof of concept.
 
-But just as importantly, I want to document the architectural journey behind it.
+It's a real software platform that I'm designing and building in public, with the goal of exploring what AI-native architecture looks like when you approach it as a systems architect.
 
-Not as a retrospective, once all the difficult decisions have already been made, but as the system itself evolves.
+More importantly, this journal isn't a retrospective.
 
-The ideas.
+I'm not waiting until everything is finished before explaining how it works.
 
-The decisions.
+Instead, I'm documenting the journey as it happens.
 
-The trade-offs.
+The ideas, research, architectural decisions, trade-offs and mistakes.
 
-The research.
+And sometimes, discovering that the best decision is to change direction.
 
-And the lessons we learn along the way.
+Because that's part of architecture.
 
-Because building a system like this won't be a straight road.
+A continuous process of learning, questioning and refining.
 
-Some ideas will evolve.
+Throughout this journal we'll explore the principles behind AI-native systems, investigate new architectural patterns, evaluate technologies against real architectural requirements, and gradually build Articulate into a working platform.
 
-Some decisions will need revisiting.
+Some episodes will focus on concepts.
 
-We'll encounter problems we didn't anticipate, and probably discover opportunities we can't see today.
+Others will follow architectural decisions from the original question through to implementation.
 
-That's a natural part of designing and building complex systems.
+The software is important.
 
-And it's that journey that I want this journal to capture.
+But the reasoning behind the software is what I really want to preserve.
 
-I've always found that the reasoning behind an architectural decision is often more valuable than the decision itself.
+If you're interested in software architecture, AI-native systems, or simply want to follow the design of a complex system as it evolves, then I hope you'll enjoy the journey.
 
-But much of that reasoning disappears.
-
-What remains are the diagrams, the decisions and the finished systems.
-
-With the Articulate Journal, I want to preserve more of what happens in between.
-
-The thinking that shapes the architecture.
-
-The alternatives that were considered.
-
-The evidence that changed a decision.
-
-And the lessons that can be carried forward.
-
-The software itself will be an important part of that journey.
-
-We'll build it.
-
-We'll run it.
-
-We'll test the architectural ideas against real implementation and operational constraints.
-
-And we'll use what we learn to shape what comes next.
-
-One of the central ideas within Articulate is the Companion.
-
-The Companion represents a different relationship between architect and AI.
-
-Not simply something that waits for a prompt and produces an answer, but a persistent collaborator that works alongside the architect.
-
-Helping to discover and connect information.
-
-Challenge assumptions.
-
-Reason about decisions and trade-offs.
-
-Preserve architectural knowledge.
-
-And build a deeper understanding of a system over time.
-
-The Companion you see throughout these videos is a visual representation of that idea.
-
-Throughout the journal, we'll explore the architecture required to make that vision real.
-
-AI-native systems.
-
-Agentic architectures.
-
-Durable execution.
-
-Architectural knowledge and memory.
-
-Capability-driven design.
-
-Human and AI collaboration.
-
-And many of the challenges we discover as Articulate itself evolves.
-
-Some episodes will explore architectural ideas and principles.
-
-Others will follow a decision from problem through to implementation.
-
-There will be experiments, prototypes and working software.
-
-And sometimes the most valuable outcome will be discovering that there is a better way to approach the problem.
-
-This isn't a polished retrospective about how Articulate was built.
-
-It's the architectural record of building it.
-
-So if you're interested in software architecture, AI-native systems, or simply in following the decisions and discoveries behind a complex system as it takes shape...
-
-welcome.
-
-But before we explore what Articulate is and how we're going to build it, there's a more fundamental place to begin.
-
-Why does Articulate need to exist at all?
+Welcome to the Articulate Journal.

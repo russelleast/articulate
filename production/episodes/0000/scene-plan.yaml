@@ -1,0 +1,236 @@
+{
+  "$schema": "../../schemas/scene-plan.schema.json",
+  "version": 2,
+  "generation": {
+    "generated": false,
+    "generatorVersion": "episode-0000-presenter-plan-v2",
+    "sourceHashes": {
+      "writtenEpisode": "9cf5524f7e7beafaac4786749f85e7beb6861e0e13e607e9e2f3b31a7ca68129",
+      "narrative": "0d8bf3f2fdcf1777ab0989d7377655a52e29651a66100748050099fae219878f",
+      "audio": "b62735d6a574e896fd195759255dd147bae9d1b885841bf87d06ad8dbaf26e7b"
+    }
+  },
+  "episode": {
+    "id": "0000",
+    "title": "Welcome to the Articulate Journal",
+    "writtenSource": "docs/episodes/preface.md",
+    "narrativeSource": "production/episodes/0000/0000-welcome-to-the-articulate-journal.md",
+    "audio": "production/episodes/0000/media/Ep0-pov1.mov"
+  },
+  "styleGuide": "production/style-guide/archetypes.json",
+  "defaults": {
+    "authority": "guided",
+    "importance": "important",
+    "headlineVisibility": "scene-start",
+    "phraseAlignment": "exact-normalised-fuzzy-section-fallback"
+  },
+  "review": {
+    "status": "draft",
+    "requiredBeforeFinalRender": true,
+    "notes": [
+      "Revision requested after presenter rough cut v1.",
+      "Retain the established Focus Canvas and Digital Workspace treatments.",
+      "Replace only the Companion narrator implementation with smaller continuous presenter video."
+    ]
+  },
+  "sections": [
+    { "id": "welcome", "title": "Welcome", "writtenSection": "welcome-to-the-articulate-journal", "narrativeSegments": ["N001-N002"], "anchor": "recording start", "startSeconds": 0.000 },
+    { "id": "decisions", "title": "Decisions and Consequences", "writtenSection": "welcome-to-the-articulate-journal", "narrativeSegments": ["N003-N005"], "anchor": "Over the years", "startSeconds": 7.830 },
+    { "id": "emerging-landscape", "title": "Emerging AI-native Landscape", "writtenSection": "why-now", "narrativeSegments": ["N006"], "anchor": "We're seeing new ideas emerge", "startSeconds": 31.080 },
+    { "id": "central-question", "title": "The Central Question", "writtenSection": "why-now", "narrativeSegments": ["N007-N009"], "anchor": "But while the tools are evolving", "startSeconds": 45.680 },
+    { "id": "articulate", "title": "Articulate", "writtenSection": "what-is-articulate", "narrativeSegments": ["N010-N011"], "anchor": "Articulate isn't a demo project", "startSeconds": 61.030 },
+    { "id": "journal-intent", "title": "Journal Intent", "writtenSection": "why-build-in-public", "narrativeSegments": ["N012-N014"], "anchor": "More importantly this journal isn't a retrospective", "startSeconds": 74.530 },
+    { "id": "architectural-record", "title": "The Architectural Record", "writtenSection": "why-build-in-public", "narrativeSegments": ["N015-N018"], "anchor": "The ideas research architectural decisions", "startSeconds": 86.080 },
+    { "id": "working-platform", "title": "A Working Platform", "writtenSection": "what-to-expect", "narrativeSegments": ["N019"], "anchor": "Throughout this journal I'll explore", "startSeconds": 102.280 },
+    { "id": "one-journey", "title": "One Evolving Journey", "writtenSection": "what-to-expect", "narrativeSegments": ["N020-N023"], "anchor": "Some episodes will focus on concepts", "startSeconds": 117.360 },
+    { "id": "invitation", "title": "Invitation", "writtenSection": "an-invitation", "narrativeSegments": ["N024-N025"], "anchor": "If you're interested in software architecture", "startSeconds": 132.790 }
+  ],
+  "scenes": [
+    {
+      "id": "S001",
+      "section": "welcome",
+      "archetype": "Narrator",
+      "authority": "open",
+      "purpose": "Introduce Russell and welcome the viewer without a separate title card.",
+      "kind": "presenter-focus",
+      "transition": "fade",
+      "headline": "Welcome to the Articulate Journal",
+      "support": "Russell · Systems architect",
+      "items": [],
+      "beats": [
+        { "id": "welcome-heading", "action": "emphasise", "target": "headline", "alignTo": "Welcome to the Articulate Journal" }
+      ]
+    },
+    {
+      "id": "S002",
+      "section": "decisions",
+      "archetype": "Diagram",
+      "importance": "central",
+      "purpose": "Frame architecture as decisions whose consequences unfold over time.",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "transition": "cut",
+      "headline": "Architecture is about decisions",
+      "support": "Understand their consequences over time.",
+      "items": ["Decisions", "Consequences"],
+      "beats": [
+        { "id": "decisions", "target": "item-1", "alignTo": "making decisions" },
+        { "id": "consequences", "target": "item-2", "alignTo": "consequences of those decisions" }
+      ],
+      "connections": [["item-1", "item-2"]]
+    },
+    {
+      "id": "S003",
+      "section": "emerging-landscape",
+      "archetype": "Diagram",
+      "purpose": "Reveal the emerging AI-native concepts in spoken order.",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "transition": "cut",
+      "headline": "A new architectural landscape",
+      "support": "Ideas are emerging almost daily.",
+      "items": ["Agentic systems", "AI-native applications", "Multi-agent architectures", "Durable execution", "Memory & reasoning", "Retrieval"],
+      "beats": [
+        { "id": "agentic", "target": "item-1", "alignTo": "agentic systems" },
+        { "id": "native", "target": "item-2", "alignTo": "AI-native applications" },
+        { "id": "multi-agent", "target": "item-3", "alignTo": "multi-agent architectures" },
+        { "id": "durable", "target": "item-4", "alignTo": "durable execution" },
+        { "id": "memory", "target": "item-5", "alignTo": "memory reasoning" },
+        { "id": "retrieval", "target": "item-6", "alignTo": "retrieval" }
+      ]
+    },
+    {
+      "id": "S004",
+      "section": "central-question",
+      "archetype": "Narrator",
+      "authority": "prescribed",
+      "importance": "central",
+      "purpose": "Let Russell ask the central architectural question directly.",
+      "kind": "presenter-focus",
+      "transition": "fade",
+      "headline": "How do we build AI-native systems for the real world?",
+      "support": "Reliable · Understandable · Maintainable",
+      "items": [],
+      "beats": [
+        { "id": "question", "action": "emphasise", "target": "headline", "alignTo": "How do we build AI-native systems" }
+      ]
+    },
+    {
+      "id": "S005",
+      "section": "articulate",
+      "archetype": "Narrator",
+      "purpose": "Introduce Articulate as real software designed in public.",
+      "kind": "presenter-focus",
+      "transition": "cut",
+      "headline": "Articulate",
+      "support": "Exploring AI-native architecture as a systems architect.",
+      "items": ["Not a demo", "Not a proof of concept", "Real software · Built in public"],
+      "beats": [
+        { "id": "not-demo", "target": "item-1", "alignTo": "isn't a demo project" },
+        { "id": "not-poc", "target": "item-2", "alignTo": "proof of concept" },
+        { "id": "real-software", "target": "item-3", "alignTo": "real software platform" }
+      ]
+    },
+    {
+      "id": "S006",
+      "section": "journal-intent",
+      "archetype": "Repository",
+      "purpose": "Ground the journal's live architectural record in concrete repository surfaces.",
+      "kind": "workspace",
+      "transition": "cut",
+      "headline": "This journal is not a retrospective",
+      "support": "Document the system while the context is alive.",
+      "items": ["docs/episodes/", "production/episodes/", "architecture/decisions/", "production/runtime/"],
+      "evidence": {
+        "excerpt": [
+          "Explain decisions while they are still being made",
+          "Preserve the evidence and trade-offs behind the software",
+          "Record changes in direction—not only final outcomes"
+        ]
+      },
+      "beats": [
+        { "id": "episodes", "target": "item-1", "alignTo": "a retrospective" },
+        { "id": "production", "target": "item-2", "alignTo": "not waiting until everything's finished" },
+        { "id": "decisions", "target": "item-3", "alignTo": "documenting the journey" },
+        { "id": "runtime", "target": "item-4", "alignTo": "as it happens" }
+      ]
+    },
+    {
+      "id": "S007",
+      "section": "architectural-record",
+      "archetype": "Diagram",
+      "purpose": "Build the architectural record progressively and retain uncertainty.",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "transition": "cut",
+      "headline": "Preserve the architectural journey",
+      "support": "Learning includes mistakes and changes in direction.",
+      "items": ["Ideas", "Research", "Decisions", "Trade-offs", "Mistakes", "Change direction"],
+      "beats": [
+        { "id": "ideas", "target": "item-1", "alignTo": "The ideas" },
+        { "id": "research", "target": "item-2", "alignTo": "research" },
+        { "id": "decisions", "target": "item-3", "alignTo": "architectural decisions" },
+        { "id": "tradeoffs", "target": "item-4", "alignTo": "trade-offs" },
+        { "id": "mistakes", "target": "item-5", "alignTo": "mistakes" },
+        { "id": "direction", "target": "item-6", "alignTo": "change direction" }
+      ]
+    },
+    {
+      "id": "S008",
+      "section": "working-platform",
+      "archetype": "Narrator",
+      "purpose": "Connect continuous architectural learning to a working platform.",
+      "kind": "presenter-focus",
+      "transition": "fade",
+      "headline": "Architecture is continuous learning",
+      "support": "Question · Evaluate · Refine · Build",
+      "items": ["Principles", "Patterns", "Technology", "Working platform"],
+      "beats": [
+        { "id": "principles", "target": "item-1", "alignTo": "principles behind AI-native systems" },
+        { "id": "patterns", "target": "item-2", "alignTo": "architectural patterns" },
+        { "id": "technology", "target": "item-3", "alignTo": "evaluate technologies" },
+        { "id": "platform", "target": "item-4", "alignTo": "working platform" }
+      ]
+    },
+    {
+      "id": "S009",
+      "section": "one-journey",
+      "archetype": "Repository",
+      "purpose": "Keep concepts, decisions and implementation connected in one operational record.",
+      "kind": "workspace",
+      "transition": "cut",
+      "headline": "One evolving journey",
+      "support": "Concepts and implementation share the same architectural record.",
+      "items": ["concepts", "architectural-decisions", "implementation", "reasoning"],
+      "evidence": {
+        "excerpt": [
+          "Concepts establish the language",
+          "Decisions carry the reasoning",
+          "Implementation tests the architecture",
+          "The record preserves what was learned"
+        ]
+      },
+      "beats": [
+        { "id": "concepts", "target": "item-1", "alignTo": "focus on concepts" },
+        { "id": "decisions", "target": "item-2", "alignTo": "architecture decisions" },
+        { "id": "implementation", "target": "item-3", "alignTo": "through to implementation" },
+        { "id": "reasoning", "target": "item-4", "alignTo": "reasoning behind the software" }
+      ]
+    },
+    {
+      "id": "S010",
+      "section": "invitation",
+      "archetype": "Narrator",
+      "authority": "open",
+      "purpose": "Close with Russell's invitation and a restrained final welcome.",
+      "kind": "presenter-focus",
+      "transition": "fade",
+      "headline": "Follow the journey",
+      "support": "Software architecture · AI-native systems · Building in public",
+      "items": [],
+      "beats": [
+        { "id": "invitation", "action": "emphasise", "target": "headline", "alignTo": "If you're interested in software architecture" }
+      ]
+    }
+  ]
+}

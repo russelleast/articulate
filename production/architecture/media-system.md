@@ -7,7 +7,7 @@ The system is intentionally staged. Some stages are deterministic, such as extra
 ## Conceptual Flow
 
 ```text
-Written episode + verbal narrative + recorded audio + style guide
+Written episode + verbal narrative + presenter media or recorded audio + style guide
       |
       v
 Timestamped transcript and cross-source alignment
@@ -37,10 +37,11 @@ flowchart TD
     S["Media style guide"] --> F["Draft scene plan"]
     E --> F
     F --> G["Human intent review"]
-    G --> H["D2 sources + SVG"]
+    G --> H["D2 sources + rendered SVG"]
+    H --> HP["Video-dark publication profile"]
     G --> I["Phrase-derived timeline"]
     D --> I
-    H --> J["Deterministic assembly"]
+    HP --> J["Deterministic assembly"]
     I --> J
     C --> J
     J --> K["Output review + publication"]
@@ -72,7 +73,7 @@ The storyboard describes how the episode becomes visual. It determines when the 
 
 For productions using the version 2 pre-render workflow, `scene-plan.yaml` is the earlier, preferred editing surface for this intent. The storyboard becomes a compatibility/summary view derived for the existing production contract; exact execution remains in `timeline.json`.
 
-The storyboard is interpretive. It maps scenes to spoken narrative segments and should exploit video as a medium rather than turn the essay into a continuous slide deck. Diagrams, animated relationships, architecture sketches, whiteboard sequences, conceptual comparisons, repository views and evidence scenes should carry the visual argument. On-screen text should be limited to short labels and exact language that genuinely needs to be read.
+The storyboard is interpretive. It maps scenes to spoken narrative segments and should exploit video as a medium rather than turn the essay into a continuous slide deck. Presenter compositions, Focus Canvas sequences, diagrams, animated relationships, conceptual comparisons, repository views and evidence scenes should carry the visual argument. On-screen text should be limited to short labels and exact language that genuinely needs to be read.
 
 The storyboard can estimate duration before recording, but recorded narration owns final timing. Once audio is approved, every scene boundary must align into a complete, gap-free timeline ending at the measured audio duration.
 
@@ -92,23 +93,25 @@ The asset register records visual, audio and supporting assets. Each asset shoul
 
 This register provides provenance and recovery information. If an asset must be regenerated, replaced or challenged later, the register should explain where it came from and why it was used.
 
-### Recorded Human Voice
+### Recorded Human Performance
 
-The production system uses Russell's recorded voice as the human authored narration. Voice recording is separate from narration drafting. The recording may include retakes, pauses and editorial choices that need to be reflected back into the script or scene timing.
+New presenter-led productions use Russell's continuous recorded video with embedded audio as the human-authored performance and timing authority. Scenes may compose, resize or hide the picture, but they do not restart the source clock. Audio-only productions remain supported for archived and voice-led episodes.
 
-### Avatar and Visual Generation
+### Presenter, Companion and Visual Generation
 
-Avatar and visual generation creates derived visual material from approved production artefacts. This includes companion scenes, slides, diagrams, whiteboard moments, code demonstrations, screen recordings and supporting imagery.
+Presenter media is distinct from generated visual material. It is registered as a logical media asset and composed continuously with Focus Canvas, diagrams, evidence and repository surfaces.
 
-This stage is generative and must be reviewed. The companion must be presented as an AI-created visual presenter, not as a digital clone or autonomous author.
+The Companion remains an AI-created narrator implementation for archived productions. Its lip-sync, blink and idle pipeline is not applied to presenter footage. New presenter-led productions should use Focus Canvas rather than the physical whiteboard metaphor.
 
 ### Video Assembly
 
-Video assembly combines recorded voice, scenes, visual assets, subtitles, transcripts, title cards and publication metadata into a rough cut and final cut.
+Video assembly combines continuous presenter media or recorded voice with scenes, visual assets, subtitles, transcripts, title cards and publication metadata into a rough cut and final cut.
 
 The assembly process should preserve editability. Project files, export settings and asset versions should be recorded so the episode can be revised or recovered.
 
 Rendering and assembly are separate runtime concerns. The renderer interprets Visual Grammar presentation plans into deterministic frames; assembly synchronises those approved frames with narration and produces media and review artefacts.
+
+Diagram notation rendering and publication styling are also separate. D2 produces the shared standalone SVG. Video assembly applies the renderer-neutral `video-dark` profile to create a transparent, dark-palette SVG, then Focus Canvas composition places that output in its padded viewport. This leaves diagram semantics reusable and avoids making the website asset or scene layout responsible for notation-specific styling. See [ADR 0010](decisions/0010-normalise-video-diagrams-through-a-publication-profile.md).
 
 ### Human Editorial Review
 

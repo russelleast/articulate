@@ -6,12 +6,20 @@ import { spawnSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { createLocalAssetManager } from "./assets/index.mjs";
+import { diagramVideoDataUri } from "./diagrams/video-diagram-profile.mjs";
 import { xml } from "./renderer/layout.mjs";
 import { renderSceneSvg } from "./renderer/scene-renderer.mjs";
 import { resolveSceneTimeline, sceneFrameWindow, timelineChangeFrames, timelineManifestEntry, timelineStateAtFrame } from "./renderer/scene-timeline.mjs";
 import { getVisualGrammarProfile, resolveScenePresentation } from "./renderer/visual-grammar.mjs";
 import { companionPerformanceManifest, companionPerformanceStateAtFrame, resolveCompanionPerformance } from "./renderer/companion-performance.mjs";
 import { resolveSceneShots, shotsManifestEntry } from "./renderer/scene-shots.mjs";
+import {
+  presenterDurationSeconds,
+  presenterFilterGraph,
+  presenterManifest,
+  usesPresenterVideo,
+  validatePresenterMedia
+} from "./renderer/presenter-media.mjs";
 import { resolveEpisodeSources } from "./narrative-source.mjs";
 import { validateProductionEpisode } from "./episode-production.mjs";
 
@@ -70,7 +78,7 @@ function loadContext(configPath) {
       repoRoot,
       episodeId: config.episode.id,
       journalSource: config.episode.journalSource,
-      audioDurationSeconds: config.narration?.expectedDurationSeconds
+      audioDurationSeconds: config.narration?.expectedDurationSeconds ?? config.presenter?.expectedDurationSeconds
     })
     : null;
   if (contentContract && !contentContract.valid) {
@@ -89,7 +97,9 @@ function loadContext(configPath) {
     const resolvedTimeline = resolveSceneTimeline(withPresentation, config.output.frameRate, grammar);
     const performancePath = scene.companionPerformance?.timeline ? resolvePath(scene.companionPerformance.timeline) : null;
     const performanceDocument = performancePath ? readJson(performancePath) : null;
-    const resolvedPerformance = resolveCompanionPerformance(withPresentation, performanceDocument, config.output.frameRate);
+    const resolvedPerformance = config.companion
+      ? resolveCompanionPerformance(withPresentation, performanceDocument, config.output.frameRate)
+      : null;
     return { ...withPresentation, resolvedTimeline, resolvedShots: shotResolution.shots, resolvedPerformance, performancePath };
   });
   const assetManager = createLocalAssetManager({ repoRoot });
@@ -99,7 +109,9 @@ function loadContext(configPath) {
 function analyseNarration(context) {
   const ffprobe = executable("ffprobe");
   const ffmpeg = executable("ffmpeg");
-  const audioPath = context.assetManager.fetch(context.config.narration.assetId);
+  const audioPath = context.assetManager.fetch(
+    usesPresenterVideo(context.config) ? context.config.presenter.assetId : context.config.narration.assetId
+  );
   const probe = JSON.parse(run(ffprobe, [
     "-v", "error", "-show_entries",
     "format=duration,size,bit_rate:stream=index,codec_name,codec_type,sample_rate,channels,channel_layout,duration",
@@ -118,7 +130,8 @@ function analyseNarration(context) {
   const analysis = {
     version: 1,
     episodeId: context.config.episode.id,
-    narrationAssetId: context.config.narration.assetId,
+    narrationAssetId: usesPresenterVideo(context.config) ? context.config.presenter.assetId : context.config.narration.assetId,
+    mediaRole: usesPresenterVideo(context.config) ? "continuous-presenter-video-with-embedded-audio" : "recorded-narration",
     sha256: sha256(audioPath),
     media: {
       durationSeconds: duration,
@@ -139,11 +152,17 @@ function analyseNarration(context) {
       majorPauseMinimumSeconds: 1.3,
       majorPauses
     },
-    interpretation: [
-      "The complete master recording is preserved for rough-cut timing; no silence was removed.",
-      "Major pauses are deterministic signal evidence. Editorial section markers additionally use canonical section order and are stored in narration-markers.json.",
-      "The trailing silence begins after the spoken close and remains part of the selected recording."
-    ]
+    interpretation: usesPresenterVideo(context.config)
+      ? [
+        `The presenter source remains continuous from ${context.config.presenter.startOffsetSeconds ?? 0}s to ${context.config.presenter.endOffsetSeconds}s; no interior silence was removed.`,
+        `Major pauses are deterministic signal evidence. Editorial scene boundaries are stored in ${relative(context.markersPath)}.`,
+        "The embedded audio remains coupled to the presenter picture and is the timing authority."
+      ]
+      : [
+        "The complete master recording is preserved for rough-cut timing; no silence was removed.",
+        "Major pauses are deterministic signal evidence. Editorial section markers additionally use canonical section order and are stored in narration-markers.json.",
+        "The trailing silence begins after the spoken close and remains part of the selected recording."
+      ]
   };
   const output = resolvePath(context.config.output.narrationAnalysis);
   fs.mkdirSync(path.dirname(output), { recursive: true });
@@ -182,14 +201,37 @@ function validate(context) {
   const visualAssetPaths = new Map();
   const ffprobe = executable("ffprobe");
   executable("ffmpeg");
-  const audioPath = context.assetManager.fetch(context.config.narration.assetId);
-  const companionPath = context.assetManager.fetch(context.config.companion.assetId);
-  const performancePaths = Object.fromEntries(Object.entries(context.config.companion.performanceAssets ?? {}).map(([viseme, assetId]) => [viseme, context.assetManager.fetch(assetId)]));
-  const actualHash = sha256(audioPath);
-  if (actualHash !== context.config.narration.expectedSha256) errors.push(`Narration checksum mismatch: ${actualHash}`);
-  const duration = Number(run(ffprobe, ["-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", audioPath]).stdout.trim());
-  if (Math.abs(duration - context.config.narration.expectedDurationSeconds) > 0.001) {
-    errors.push(`Narration duration ${duration} does not match expected ${context.config.narration.expectedDurationSeconds}`);
+  const presenterVideo = usesPresenterVideo(context.config);
+  const mediaPath = context.assetManager.fetch(
+    presenterVideo ? context.config.presenter.assetId : context.config.narration.assetId
+  );
+  const companionPath = context.config.companion
+    ? context.assetManager.fetch(context.config.companion.assetId)
+    : null;
+  const performancePaths = Object.fromEntries(Object.entries(context.config.companion?.performanceAssets ?? {}).map(([viseme, assetId]) => [viseme, context.assetManager.fetch(assetId)]));
+  const actualHash = sha256(mediaPath);
+  const expectedHash = presenterVideo
+    ? context.config.presenter.expectedSha256
+    : context.config.narration.expectedSha256;
+  if (actualHash !== expectedHash) errors.push(`${presenterVideo ? "Presenter media" : "Narration"} checksum mismatch: ${actualHash}`);
+  const mediaProbe = JSON.parse(run(ffprobe, [
+    "-v", "error",
+    "-show_entries", "format=duration,size,bit_rate:stream=index,codec_name,codec_type,width,height,r_frame_rate,sample_rate,channels,duration",
+    "-of", "json", mediaPath
+  ]).stdout);
+  const sourceDuration = Number(mediaProbe.format.duration);
+  const duration = presenterVideo
+    ? presenterDurationSeconds(context.config.presenter, sourceDuration)
+    : sourceDuration;
+  const expectedDuration = presenterVideo
+    ? context.config.presenter.expectedDurationSeconds
+    : context.config.narration.expectedDurationSeconds;
+  if (Math.abs(duration - expectedDuration) > 0.001) {
+    errors.push(`${presenterVideo ? "Presenter" : "Narration"} duration ${duration} does not match expected ${expectedDuration}`);
+  }
+  if (presenterVideo) {
+    const asset = context.assetManager.registry.require(context.config.presenter.assetId);
+    errors.push(...validatePresenterMedia({ config: context.config, asset, probe: mediaProbe, scenes: context.scenes }));
   }
   if (context.scenes[0]?.startSeconds !== 0) errors.push("First scene must start at 0 seconds");
   for (const [index, scene] of context.scenes.entries()) {
@@ -213,15 +255,26 @@ function validate(context) {
   const assetRegister = fs.readFileSync(resolvePath(context.config.episode.assetRegister), "utf8");
   for (const scene of context.scenes) {
     const finalFrame = Math.max(0, sceneFrameWindow(scene, context.config.output.frameRate).frameCount - 1);
-    const visualAssetData = visualAssetPaths.has(scene.id) ? `data:image/svg+xml;base64,${fs.readFileSync(visualAssetPaths.get(scene.id)).toString("base64")}` : "";
+    const visualAssetData = visualAssetPaths.has(scene.id) ? diagramVideoDataUri(visualAssetPaths.get(scene.id)) : "";
     renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar, timelineStateAtFrame(scene, scene.resolvedTimeline, finalFrame), visualAssetData);
     for (const assetId of scene.assetIds ?? []) {
       if (!assetRegister.includes(`asset_id: \"${assetId}\"`)) errors.push(`${scene.id} references unknown episode asset ${assetId}`);
     }
   }
-  if (!fs.existsSync(companionPath)) errors.push("Companion asset does not resolve");
+  if (companionPath && !fs.existsSync(companionPath)) errors.push("Companion asset does not resolve");
   if (errors.length) throw new Error(`Episode validation failed:\n- ${errors.join("\n- ")}`);
-  return { audioPath, companionPath, performancePaths, visualAssetPaths, duration, ffprobe, ffmpeg: executable("ffmpeg") };
+  return {
+    audioPath: mediaPath,
+    mediaPath,
+    mediaProbe,
+    presenterVideo,
+    companionPath,
+    performancePaths,
+    visualAssetPaths,
+    duration,
+    ffprobe,
+    ffmpeg: executable("ffmpeg")
+  };
 }
 
 async function render(context, validation) {
@@ -230,9 +283,11 @@ async function render(context, validation) {
   const segmentsDir = path.join(generatedDir, "segments");
   fs.mkdirSync(framesDir, { recursive: true });
   fs.mkdirSync(segmentsDir, { recursive: true });
-  const companionData = `data:image/png;base64,${fs.readFileSync(validation.companionPath).toString("base64")}`;
+  const companionData = validation.companionPath
+    ? `data:image/png;base64,${fs.readFileSync(validation.companionPath).toString("base64")}`
+    : "";
   const performanceData = Object.fromEntries(Object.entries(validation.performancePaths ?? {}).map(([viseme, filePath]) => [viseme, `data:image/png;base64,${fs.readFileSync(filePath).toString("base64")}`]));
-  const visualAssetData = new Map([...validation.visualAssetPaths.entries()].map(([sceneId, filePath]) => [sceneId, `data:image/svg+xml;base64,${fs.readFileSync(filePath).toString("base64")}`]));
+  const visualAssetData = new Map([...validation.visualAssetPaths.entries()].map(([sceneId, filePath]) => [sceneId, diagramVideoDataUri(filePath)]));
   const frameFiles = [];
   const segmentFiles = [];
   for (const scene of context.scenes) {
@@ -284,12 +339,34 @@ async function render(context, validation) {
   fs.writeFileSync(concatPath, `${segmentFiles.map((file) => `file '${file.replaceAll("'", "'\\''")}'`).join("\n")}\n`);
   const videoPath = resolvePath(context.config.output.video);
   fs.mkdirSync(path.dirname(videoPath), { recursive: true });
-  run(validation.ffmpeg, [
-    "-y", "-f", "concat", "-safe", "0", "-i", concatPath, "-i", validation.audioPath,
-    "-map", "0:v:0", "-map", "1:a:0", "-t", validation.duration.toFixed(6),
-    "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-pix_fmt", "yuv420p",
-    "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", videoPath
-  ]);
+  if (validation.presenterVideo) {
+    const visualTrack = path.join(generatedDir, "visual-track.mp4");
+    run(validation.ffmpeg, [
+      "-y", "-f", "concat", "-safe", "0", "-i", concatPath,
+      "-c", "copy", visualTrack
+    ]);
+    const graph = presenterFilterGraph({
+      presenter: context.config.presenter,
+      scenes: context.scenes,
+      output: context.config.output,
+      durationSeconds: validation.duration
+    });
+    run(validation.ffmpeg, [
+      "-y", "-i", visualTrack, "-i", validation.mediaPath,
+      "-filter_complex", graph,
+      "-map", "[visual]", "-map", "[audio]", "-t", validation.duration.toFixed(6),
+      "-r", String(context.config.output.frameRate),
+      "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-pix_fmt", "yuv420p",
+      "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", videoPath
+    ]);
+  } else {
+    run(validation.ffmpeg, [
+      "-y", "-f", "concat", "-safe", "0", "-i", concatPath, "-i", validation.audioPath,
+      "-map", "0:v:0", "-map", "1:a:0", "-t", validation.duration.toFixed(6),
+      "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-pix_fmt", "yuv420p",
+      "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", videoPath
+    ]);
+  }
   const media = probeMedia(validation.ffprobe, videoPath);
   const timingReport = buildTimingReport(context, validation, media);
   const timingPath = path.join(generatedDir, "timing-report.json");
@@ -318,6 +395,7 @@ async function render(context, validation) {
       timeline: timelineManifestEntry(scene.resolvedTimeline),
       companionPerformance: companionPerformanceManifest(scene.resolvedPerformance)
     })),
+    presenter: validation.presenterVideo ? presenterManifest(context.config.presenter, context.scenes) : null,
     generatedFrames: frameFiles.map(fileRecord),
     generatedSegments: segmentFiles.map(fileRecord),
     timingReport: relative(timingPath),
@@ -362,7 +440,8 @@ async function generateReviewArtifacts(context, validation) {
     : null;
   const mediaReportPath = path.join(reviewDir, "media-report.json");
   fs.writeFileSync(mediaReportPath, `${JSON.stringify({
-    inputNarration: fileRecord(validation.audioPath),
+    inputNarration: validation.presenterVideo ? null : fileRecord(validation.audioPath),
+    inputPresenterMedia: validation.presenterVideo ? fileRecord(validation.mediaPath) : null,
     outputVideo: fileRecord(videoPath),
     media: probeMedia(validation.ffprobe, videoPath),
     expectedDurationSeconds: validation.duration,
@@ -372,7 +451,9 @@ async function generateReviewArtifacts(context, validation) {
     temporalContactSheet: temporalContactSheet ? relative(temporalContactSheet) : null,
     warnings: [
       "Timeline motion is deterministic and editorially authored.",
-      context.scenes.some((scene) => scene.resolvedPerformance?.layers.includes("lip-sync"))
+      validation.presenterVideo
+        ? "Presenter picture and embedded audio use one continuous source window; canvas-only scenes suppress picture without interrupting audio."
+        : context.scenes.some((scene) => scene.resolvedPerformance?.layers.includes("lip-sync"))
         ? "Companion performance includes deterministic idle motion, authored facial motion and audio-derived simplified visemes."
         : context.scenes.some((scene) => scene.motion?.companionIdle || scene.resolvedPerformance)
         ? "Companion character motion is limited to deterministic idle, blink and posture treatments; no lip-sync is present."
@@ -451,8 +532,11 @@ function contactSheetSvg(frames, grammar) {
 
 function buildTimingReport(context, validation, media) {
   const companionSeconds = context.scenes.filter((scene) => scene.companion).reduce((sum, scene) => sum + scene.durationSeconds, 0);
+  const presenterSeconds = context.scenes
+    .filter((scene) => scene.presentation.composition.includes("presenter"))
+    .reduce((sum, scene) => sum + scene.durationSeconds, 0);
   return {
-    timingAuthority: "recorded-narration",
+    timingAuthority: validation.presenterVideo ? "continuous-presenter-media" : "recorded-narration",
     sourceDurationSeconds: validation.duration,
     renderedDurationSeconds: Number(media.format.duration),
     sceneCount: context.scenes.length,
@@ -462,6 +546,8 @@ function buildTimingReport(context, validation, media) {
     coveredEndSeconds: context.scenes.at(-1).endSeconds,
     companionScreenTimeSeconds: round(companionSeconds),
     companionScreenTimePercent: round(companionSeconds / validation.duration * 100),
+    presenterScreenTimeSeconds: round(presenterSeconds),
+    presenterScreenTimePercent: round(presenterSeconds / validation.duration * 100),
     placeholders: 0,
     scenes: context.scenes.map((scene) => ({ id: scene.id, startSeconds: scene.startSeconds, endSeconds: scene.endSeconds, durationSeconds: round(scene.durationSeconds), narrationReference: scene.narrationReference }))
   };
@@ -487,6 +573,18 @@ function buildTimelineReport(context) {
 }
 
 function buildAssetManifest(context, validation) {
+  if (validation.presenterVideo) {
+    return {
+      presenter: {
+        assetId: context.config.presenter.assetId,
+        ...fileRecord(validation.mediaPath),
+        model: presenterManifest(context.config.presenter, context.scenes)
+      },
+      authoredVisuals: [...new Set(context.scenes.flatMap((scene) => scene.assetIds ?? []))].map((assetId) => ({ assetId, source: context.config.episode.assetRegister })),
+      unresolvedAssets: [],
+      placeholderCount: 0
+    };
+  }
   return {
     narration: { assetId: context.config.narration.assetId, ...fileRecord(validation.audioPath) },
     companion: { assetId: context.config.companion.assetId, ...fileRecord(validation.companionPath) },
@@ -503,6 +601,30 @@ function buildAssetManifest(context, validation) {
 }
 
 function buildProvenance(context, validation, videoPath) {
+  if (validation.presenterVideo) {
+    return {
+      writtenJournal: fileRecord(context.sources.journalPath),
+      spokenNarrative: {
+        ...fileRecord(context.sources.narrativePath),
+        convention: context.sources.narrativeConvention
+      },
+      storyboard: {
+        ...fileRecord(context.storyboardPath),
+        convention: context.contentContract ? "narrative-aligned-storyboard.yaml" : "legacy"
+      },
+      sceneConfiguration: fileRecord(context.configPath),
+      timingMarkers: fileRecord(context.markersPath),
+      presenter: {
+        assetId: context.config.presenter.assetId,
+        ...fileRecord(validation.mediaPath),
+        model: presenterManifest(context.config.presenter, context.scenes),
+        treatment: "One continuous video and embedded-audio source window; scenes position, scale or suppress picture without restarting media."
+      },
+      output: fileRecord(videoPath),
+      renderer: "production/runtime/episode-cli.mjs",
+      deterministicBoundary: "Focus Canvas frames and presenter composition are resolved from integer-frame scene windows; presenter audio and picture share one continuous source clock."
+    };
+  }
   const narrationSource = context.config.narration.source;
   return {
     writtenJournal: fileRecord(context.sources.journalPath),

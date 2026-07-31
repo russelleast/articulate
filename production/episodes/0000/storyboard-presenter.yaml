@@ -1,0 +1,127 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0000",
+    "title": "Welcome to the Articulate Journal",
+    "written_source": "docs/episodes/preface.md",
+    "narrative_source": "production/episodes/0000/0000-welcome-to-the-articulate-journal.md",
+    "scene_plan": "production/episodes/0000/scene-plan.yaml",
+    "production_status": "presenter-rough-cut-v2"
+  },
+  "timing": {
+    "authority": "continuous-presenter-media",
+    "media_duration_seconds": 147.066667
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Welcome to the Articulate Journal",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N002"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 7.83
+    },
+    {
+      "id": "S002",
+      "title": "Architecture is about decisions",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N003-N005"
+      ],
+      "start_seconds": 7.83,
+      "end_seconds": 31.08
+    },
+    {
+      "id": "S003",
+      "title": "A new architectural landscape",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N006"
+      ],
+      "start_seconds": 31.08,
+      "end_seconds": 45.68
+    },
+    {
+      "id": "S004",
+      "title": "How do we build AI-native systems for the real world?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N007-N009"
+      ],
+      "start_seconds": 45.68,
+      "end_seconds": 61.03
+    },
+    {
+      "id": "S005",
+      "title": "Articulate",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N010-N011"
+      ],
+      "start_seconds": 61.03,
+      "end_seconds": 74.53
+    },
+    {
+      "id": "S006",
+      "title": "This journal is not a retrospective",
+      "archetype": "Repository",
+      "kind": "workspace",
+      "narrative_segments": [
+        "N012-N014"
+      ],
+      "start_seconds": 74.53,
+      "end_seconds": 86.08
+    },
+    {
+      "id": "S007",
+      "title": "Preserve the architectural journey",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N015-N018"
+      ],
+      "start_seconds": 86.08,
+      "end_seconds": 102.28
+    },
+    {
+      "id": "S008",
+      "title": "Architecture is continuous learning",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N019"
+      ],
+      "start_seconds": 102.28,
+      "end_seconds": 117.36
+    },
+    {
+      "id": "S009",
+      "title": "One evolving journey",
+      "archetype": "Repository",
+      "kind": "workspace",
+      "narrative_segments": [
+        "N020-N023"
+      ],
+      "start_seconds": 117.36,
+      "end_seconds": 132.79
+    },
+    {
+      "id": "S010",
+      "title": "Follow the journey",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N024-N025"
+      ],
+      "start_seconds": 132.79,
+      "end_seconds": 147.067
+    }
+  ]
+}

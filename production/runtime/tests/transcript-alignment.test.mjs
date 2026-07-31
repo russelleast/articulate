@@ -27,6 +27,23 @@ test("normalises Whisper timing and aligns ordered narrative anchors", () => {
   assert.equal(cueTime(transcript, "section begins", alignment.sections[1]), 0.4);
 });
 
+test("reviewed scene-plan boundaries override uncertain phrase alignment", () => {
+  const transcript = normaliseWhisperTranscript({
+    result: { language: "en" },
+    transcription: [
+      segment(0, 1.5, "Opening.", [[" Opening", 0.1, 0.8]]),
+      segment(1.5, 3, "Decision.", [[" Decision", 1.6, 2.4]])
+    ]
+  }, { audio: "audio.wav", model: "test" });
+  const result = alignSections(transcript, [
+    { id: "opening", title: "Opening", narrativeSegments: ["N001"], anchor: "recording start", startSeconds: 0 },
+    { id: "decision", title: "Decision", narrativeSegments: ["N002"], anchor: "uncertain phrase", startSeconds: 1.25 }
+  ], 3);
+  assert.equal(result.sections[1].start, 1.25);
+  assert.equal(result.sections[1].anchor, "reviewed-boundary");
+  assert.match(result.sections[1].matchedText, /reviewed boundary/);
+});
+
 function segment(from, to, text, words) {
   return {
     offsets: { from: from * 1000, to: to * 1000 },

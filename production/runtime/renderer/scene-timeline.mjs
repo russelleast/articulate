@@ -14,7 +14,7 @@ export function sceneFrameWindow(scene, frameRate) {
 export function sceneElementIds(scene) {
   const ids = ["headline", "support", ...(scene.items ?? []).map((_, index) => `item-${index + 1}`)];
   if (scene.presentation?.composition?.startsWith("radial-") || scene.focusLayout === "radial" || scene.diagramLayout === "radial" || scene.centre) ids.push("centre");
-  if (["repository", "workspace"].includes(scene.presentation?.composition)) {
+  if (["repository", "repository-full", "workspace"].includes(scene.presentation?.composition)) {
     ids.push(scene.presentation.composition === "workspace" ? "workspace-window" : "repository-window", ...(scene.evidence?.excerpt ?? []).map((_, index) => `evidence-${index + 1}`));
   }
   if (scene.presentation?.composition === "studio" && scene.studioLayout === "workspace") {

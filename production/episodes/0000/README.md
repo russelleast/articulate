@@ -1,57 +1,61 @@
-# Episode 0000 Production
+# Episode 0000 — Welcome to the Articulate Journal
 
-Written journal: [`docs/episodes/preface.md`](../../../docs/episodes/preface.md)
+Episode 0000 is the reference production for the presenter-video model.
 
-Legacy spoken narrative: [`0000-welcome-to-the-articulate-journal.md`](0000-welcome-to-the-articulate-journal.md). This episode predates the `narrative.md` convention; render configurations mark the exception explicitly and do not fall back to the journal article.
+## Authorities
 
-This is the production working area for Episode 0000, "Welcome to the Articulate Journal".
+- Written journal: `docs/episodes/preface.md`
+- Spoken narrative: `production/episodes/0000/0000-welcome-to-the-articulate-journal.md`
+- Presenter picture and timing audio: `episode-0000-presenter-v1`
+- Editable scene intent: `production/episodes/0000/scene-plan.yaml`
+- Timestamped transcript: `production/episodes/0000/transcript.json`
+- Cross-source alignment: `production/episodes/0000/alignment.json`
+- Derived execution timeline: `production/episodes/0000/timeline.json`
+- Exact render timing: `production/episodes/0000/production/presenter-v2-markers.json`
+- Executable configuration: `production/episodes/0000/production/episode-config.json`
 
-Canonical editorial source: [`0000-welcome-to-the-articulate-journal.md`](0000-welcome-to-the-articulate-journal.md)
+The local presenter source is expected at:
 
-Timing authority: the final recorded narration, registered as `episode-0000-narration-v1` and held in the ignored production cache.
+```text
+production/episodes/0000/media/Ep0-pov1.mov
+```
 
-Production Quality Baseline v1 established and received approval for the Architectural Studio, Companion presence, restrained idle motion, working visual surface, progressive reveals and directional relationships. The approved language is now applied across the complete episode through the Architectural Studio, Architectural Whiteboard, Digital Workspace and Focus Canvas.
+The MOV is intentionally ignored by Git. Its logical registry entry and SHA-256 checksum preserve identity and provenance.
 
-Publication artwork is maintained as a first-class episode artefact under [`publication/thumbnail/`](publication/thumbnail/). The Episode 0000 thumbnail source produces three related 1280 × 720 candidates, reduced-size previews and a comparison contact sheet without modifying the approved video assets.
+## Production model
+
+The complete 1280×720 recording is selected from `00:00.000` through `02:27.067`. Embedded mono audio remains attached to that continuous source. The presenter replaces the Companion in narrator scenes at a smaller 780×439 lower-left scale. Focus Canvas and Digital Workspace scenes hide the picture while embedded audio continues.
+
+No Companion asset, performance timeline, viseme, blink or idle-motion processing is used. No physical whiteboard composition appears.
+
+The black source background is part of the composition. Narrator scenes scale the complete frame rather than tightly cropping it, preserving gestures while keeping Focus Canvas content in a separate safe region. `presenter.compositing` applies the reusable `soft-luma-key` presenter compositor to `presenter-focus` scenes: a denoised soft luminance mask preserves the presenter and natural shadows while a feathered edge vignette dissolves the recording boundary into the Focus Canvas. Full-frame presenter footage remains opaque.
+
+Episode 0000 follows the Episode 0004 pre-render model. Visual and editorial changes belong in `scene-plan.yaml`; `prepare-presenter-rough-cut.mjs` regenerates alignment, timeline, storyboard, markers, subtitles and renderer configuration.
 
 ## Commands
 
 ```sh
-make assets-validate
-make episode-0000-analyse
-make episode-0000-validate
-make episode-0000-render
-make episode-0000-review
-make episode-0000-companion-performance-prepare
-make episode-0000-companion-performance-validate
-make episode-0000-companion-performance-render
-make episode-0000-companion-performance-review
-make episode-0000-final-cut-prepare
-make episode-0000-final-cut-validate
-make episode-0000-final-cut-render
-make episode-0000-final-cut-review
-make episode-0000-baseline-validate
-make episode-0000-baseline-render
-make episode-0000-baseline-review
+make episode-0000-presenter-analyse
+make episode-0000-presenter-validate
+make episode-0000-presenter-render
+make episode-0000-presenter-review
 ```
 
-Generated media remains outside Git:
+Prepare and render:
 
-- complete episode: `production/episodes/0000/output/episode-0000-final-v1.mp4`;
-- complete review frames/contact sheet: `production/episodes/0000/output/review/final-v1/`;
-- complete manifests/provenance/timing reports: `production/episodes/0000/generated/final-v1/`;
-- Companion performance candidate: `production/episodes/0000/output/episode-0000-companion-performance-v1.mp4`;
-- Companion performance review frames/contact sheet: `production/episodes/0000/output/review/companion-performance-v1/`;
-- Companion performance manifests/provenance/timing reports: `production/episodes/0000/generated/companion-performance-v1/`;
-- final-cut candidate v2: `production/episodes/0000/output/episode-0000-final-cut-candidate-v2.mp4`;
-- final-cut candidate review frames/contact sheet: `production/episodes/0000/output/review/final-cut-candidate-v2/`;
-- final-cut candidate manifests/provenance/timing reports: `production/episodes/0000/generated/final-cut-candidate-v2/`;
-- video: `production/episodes/0000/output/episode-0000-production-quality-baseline-v1.mp4`;
-- review frames/contact sheet: `production/episodes/0000/output/review/production-quality-baseline-v1/`;
-- manifests/provenance/timing reports: `production/episodes/0000/generated/production-quality-baseline-v1/`.
+```text
+node production/episodes/0000/production/prepare-presenter-rough-cut.mjs
+make episode-0000-presenter-render
+```
 
-The complete narration treatment is recorded in [`storyboard.md`](storyboard.md). The full render remains narration-authoritative and preserves the 261.848141-second master without trimming.
+Expected rough cut:
 
-The Companion performance candidate extends the human-reviewed Revision 004 facial treatment only to the scenes where the Companion is already present (`S001`, `S008`, `S012`). The other ten scenes remain pixel-identical to `final-v1` at sampled review points. Scene-relative performance timelines are derived offline from lossless narration extracts with fixed seeds; the candidate does not replace `final-v1` until full-video human review is complete. See [`reviews/companion-performance-v1.md`](reviews/companion-performance-v1.md).
+```text
+production/episodes/0000/output/episode-0000-presenter-rough-cut-v2.mp4
+```
 
-Final-cut candidate v2 applies the subsequent full-episode review: spoken-word reveal corrections, a 02:18 boundary correction, synchronized box-and-connector reveals, removal of unsupported copy/emphasis, and a clean Companion capability hierarchy. See [`reviews/final-cut-candidate-v2.md`](reviews/final-cut-candidate-v2.md).
+Review frames, contact sheets, timing reports, asset manifests and provenance are generated beneath the ignored `output/review/presenter-rough-cut-v2/` and `generated/presenter-rough-cut-v2/` directories.
+
+## Archived Companion productions
+
+The earlier Companion configurations and rendered candidates remain in the episode directory and Git history as archived production evidence. They still use Visual Grammar v1 and remain renderable when their original local assets are present, but they are no longer the default Episode 0000 model.

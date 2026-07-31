@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 147.086417,
+  "selectedDurationSeconds": 147.066667,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 7.83,
+      "narrationReference": "Welcome · N001-N002"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 7.83,
+      "endSeconds": 31.08,
+      "narrationReference": "Decisions and Consequences · N003-N005"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 31.08,
+      "endSeconds": 45.68,
+      "narrationReference": "Emerging AI-native Landscape · N006"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 45.68,
+      "endSeconds": 61.03,
+      "narrationReference": "The Central Question · N007-N009"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 61.03,
+      "endSeconds": 74.53,
+      "narrationReference": "Articulate · N010-N011"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 74.53,
+      "endSeconds": 86.08,
+      "narrationReference": "Journal Intent · N012-N014"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 86.08,
+      "endSeconds": 102.28,
+      "narrationReference": "The Architectural Record · N015-N018"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 102.28,
+      "endSeconds": 117.36,
+      "narrationReference": "A Working Platform · N019"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 117.36,
+      "endSeconds": 132.79,
+      "narrationReference": "One Evolving Journey · N020-N023"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 132.79,
+      "endSeconds": 147.067,
+      "narrationReference": "Invitation · N024-N025"
+    }
+  ]
+}

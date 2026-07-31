@@ -1,0 +1,644 @@
+{
+  "version": 2,
+  "generatedFrom": "production/episodes/0000/scene-plan.yaml",
+  "authority": {
+    "semantic": "written-episode",
+    "visual": "approved-scene-plan",
+    "timing": "recorded-audio"
+  },
+  "reviewOverride": "draft scene plan explicitly compiled for review",
+  "scenes": [
+    {
+      "id": "S001",
+      "section": "welcome",
+      "title": "Welcome to the Articulate Journal",
+      "archetype": "Narrator",
+      "start": 0,
+      "end": 7.83,
+      "sources": {
+        "writtenSection": "welcome-to-the-articulate-journal",
+        "narrativeSection": "welcome",
+        "narrativeSegments": [
+          "N001-N002"
+        ]
+      },
+      "elements": {
+        "headline": "Welcome to the Articulate Journal",
+        "support": "Russell · Systems architect",
+        "labels": []
+      },
+      "transition": "fade",
+      "events": [
+        {
+          "id": "welcome-heading",
+          "at": 0.1,
+          "action": "emphasise",
+          "target": "headline",
+          "sourcePhrase": "Welcome to the Articulate Journal",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "section": "decisions",
+      "title": "Architecture is about decisions",
+      "archetype": "Diagram",
+      "start": 7.83,
+      "end": 31.08,
+      "sources": {
+        "writtenSection": "welcome-to-the-articulate-journal",
+        "narrativeSection": "decisions",
+        "narrativeSegments": [
+          "N003-N005"
+        ]
+      },
+      "elements": {
+        "headline": "Architecture is about decisions",
+        "support": "Understand their consequences over time.",
+        "labels": [
+          "Decisions",
+          "Consequences"
+        ]
+      },
+      "transition": "cut",
+      "events": [
+        {
+          "id": "decisions",
+          "at": 7.72,
+          "action": "reveal",
+          "target": "item-1",
+          "sourcePhrase": "making decisions",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "consequences",
+          "at": 9.84,
+          "action": "reveal",
+          "target": "item-2",
+          "sourcePhrase": "consequences of those decisions",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "s002-connect-1",
+          "at": 9.84,
+          "action": "connect",
+          "from": "item-1",
+          "to": "item-2",
+          "match": {
+            "method": "dependent",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "section": "emerging-landscape",
+      "title": "A new architectural landscape",
+      "archetype": "Diagram",
+      "start": 31.08,
+      "end": 45.68,
+      "sources": {
+        "writtenSection": "why-now",
+        "narrativeSection": "emerging-landscape",
+        "narrativeSegments": [
+          "N006"
+        ]
+      },
+      "elements": {
+        "headline": "A new architectural landscape",
+        "support": "Ideas are emerging almost daily.",
+        "labels": [
+          "Agentic systems",
+          "AI-native applications",
+          "Multi-agent architectures",
+          "Durable execution",
+          "Memory & reasoning",
+          "Retrieval"
+        ]
+      },
+      "transition": "cut",
+      "events": [
+        {
+          "id": "agentic",
+          "at": 4.92,
+          "action": "reveal",
+          "target": "item-1",
+          "sourcePhrase": "agentic systems",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.8
+          }
+        },
+        {
+          "id": "native",
+          "at": 4.92,
+          "action": "reveal",
+          "target": "item-2",
+          "sourcePhrase": "AI-native applications",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.825
+          }
+        },
+        {
+          "id": "multi-agent",
+          "at": 4.92,
+          "action": "reveal",
+          "target": "item-3",
+          "sourcePhrase": "multi-agent architectures",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.825
+          }
+        },
+        {
+          "id": "durable",
+          "at": 9.72,
+          "action": "reveal",
+          "target": "item-4",
+          "sourcePhrase": "durable execution",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "memory",
+          "at": 11.97,
+          "action": "reveal",
+          "target": "item-5",
+          "sourcePhrase": "memory reasoning",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "retrieval",
+          "at": 13.57,
+          "action": "reveal",
+          "target": "item-6",
+          "sourcePhrase": "retrieval",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "section": "central-question",
+      "title": "How do we build AI-native systems for the real world?",
+      "archetype": "Narrator",
+      "start": 45.68,
+      "end": 61.03,
+      "sources": {
+        "writtenSection": "why-now",
+        "narrativeSection": "central-question",
+        "narrativeSegments": [
+          "N007-N009"
+        ]
+      },
+      "elements": {
+        "headline": "How do we build AI-native systems for the real world?",
+        "support": "Reliable · Understandable · Maintainable",
+        "labels": []
+      },
+      "transition": "fade",
+      "events": [
+        {
+          "id": "question",
+          "at": 5.36,
+          "action": "emphasise",
+          "target": "headline",
+          "sourcePhrase": "How do we build AI-native systems",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.714
+          }
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "section": "articulate",
+      "title": "Articulate",
+      "archetype": "Narrator",
+      "start": 61.03,
+      "end": 74.53,
+      "sources": {
+        "writtenSection": "what-is-articulate",
+        "narrativeSection": "articulate",
+        "narrativeSegments": [
+          "N010-N011"
+        ]
+      },
+      "elements": {
+        "headline": "Articulate",
+        "support": "Exploring AI-native architecture as a systems architect.",
+        "labels": [
+          "Not a demo",
+          "Not a proof of concept",
+          "Real software · Built in public"
+        ]
+      },
+      "transition": "cut",
+      "events": [
+        {
+          "id": "not-demo",
+          "at": 0,
+          "action": "reveal",
+          "target": "item-1",
+          "sourcePhrase": "isn't a demo project",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.824
+          }
+        },
+        {
+          "id": "not-poc",
+          "at": 2.27,
+          "action": "reveal",
+          "target": "item-2",
+          "sourcePhrase": "proof of concept",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "real-software",
+          "at": 3.59,
+          "action": "reveal",
+          "target": "item-3",
+          "sourcePhrase": "real software platform",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "section": "journal-intent",
+      "title": "This journal is not a retrospective",
+      "archetype": "Repository",
+      "start": 74.53,
+      "end": 86.08,
+      "sources": {
+        "writtenSection": "why-build-in-public",
+        "narrativeSection": "journal-intent",
+        "narrativeSegments": [
+          "N012-N014"
+        ]
+      },
+      "elements": {
+        "headline": "This journal is not a retrospective",
+        "support": "Document the system while the context is alive.",
+        "labels": [
+          "docs/episodes/",
+          "production/episodes/",
+          "architecture/decisions/",
+          "production/runtime/"
+        ]
+      },
+      "transition": "cut",
+      "events": [
+        {
+          "id": "episodes",
+          "at": 2.39,
+          "action": "reveal",
+          "target": "item-1",
+          "sourcePhrase": "a retrospective",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "production",
+          "at": 3.83,
+          "action": "reveal",
+          "target": "item-2",
+          "sourcePhrase": "not waiting until everything's finished",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.667
+          }
+        },
+        {
+          "id": "decisions",
+          "at": 8.65,
+          "action": "reveal",
+          "target": "item-3",
+          "sourcePhrase": "documenting the journey",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "runtime",
+          "at": 10.03,
+          "action": "reveal",
+          "target": "item-4",
+          "sourcePhrase": "as it happens",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "section": "architectural-record",
+      "title": "Preserve the architectural journey",
+      "archetype": "Diagram",
+      "start": 86.08,
+      "end": 102.28,
+      "sources": {
+        "writtenSection": "why-build-in-public",
+        "narrativeSection": "architectural-record",
+        "narrativeSegments": [
+          "N015-N018"
+        ]
+      },
+      "elements": {
+        "headline": "Preserve the architectural journey",
+        "support": "Learning includes mistakes and changes in direction.",
+        "labels": [
+          "Ideas",
+          "Research",
+          "Decisions",
+          "Trade-offs",
+          "Mistakes",
+          "Change direction"
+        ]
+      },
+      "transition": "cut",
+      "events": [
+        {
+          "id": "ideas",
+          "at": 0,
+          "action": "reveal",
+          "target": "item-1",
+          "sourcePhrase": "The ideas",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "research",
+          "at": 0.11,
+          "action": "reveal",
+          "target": "item-2",
+          "sourcePhrase": "research",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "decisions",
+          "at": 1.03,
+          "action": "reveal",
+          "target": "item-3",
+          "sourcePhrase": "architectural decisions",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "tradeoffs",
+          "at": 0,
+          "action": "reveal",
+          "target": "item-4",
+          "sourcePhrase": "trade-offs",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.792
+          }
+        },
+        {
+          "id": "mistakes",
+          "at": 4.43,
+          "action": "reveal",
+          "target": "item-5",
+          "sourcePhrase": "mistakes",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "direction",
+          "at": 8.63,
+          "action": "reveal",
+          "target": "item-6",
+          "sourcePhrase": "change direction",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "section": "working-platform",
+      "title": "Architecture is continuous learning",
+      "archetype": "Narrator",
+      "start": 102.28,
+      "end": 117.36,
+      "sources": {
+        "writtenSection": "what-to-expect",
+        "narrativeSection": "working-platform",
+        "narrativeSegments": [
+          "N019"
+        ]
+      },
+      "elements": {
+        "headline": "Architecture is continuous learning",
+        "support": "Question · Evaluate · Refine · Build",
+        "labels": [
+          "Principles",
+          "Patterns",
+          "Technology",
+          "Working platform"
+        ]
+      },
+      "transition": "fade",
+      "events": [
+        {
+          "id": "principles",
+          "at": 3.56,
+          "action": "reveal",
+          "target": "item-1",
+          "sourcePhrase": "principles behind AI-native systems",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.7
+          }
+        },
+        {
+          "id": "patterns",
+          "at": 6.61,
+          "action": "reveal",
+          "target": "item-2",
+          "sourcePhrase": "architectural patterns",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "technology",
+          "at": 7.85,
+          "action": "reveal",
+          "target": "item-3",
+          "sourcePhrase": "evaluate technologies",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "platform",
+          "at": 13.34,
+          "action": "reveal",
+          "target": "item-4",
+          "sourcePhrase": "working platform",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "section": "one-journey",
+      "title": "One evolving journey",
+      "archetype": "Repository",
+      "start": 117.36,
+      "end": 132.79,
+      "sources": {
+        "writtenSection": "what-to-expect",
+        "narrativeSection": "one-journey",
+        "narrativeSegments": [
+          "N020-N023"
+        ]
+      },
+      "elements": {
+        "headline": "One evolving journey",
+        "support": "Concepts and implementation share the same architectural record.",
+        "labels": [
+          "concepts",
+          "architectural-decisions",
+          "implementation",
+          "reasoning"
+        ]
+      },
+      "transition": "cut",
+      "events": [
+        {
+          "id": "concepts",
+          "at": 0.89,
+          "action": "reveal",
+          "target": "item-1",
+          "sourcePhrase": "focus on concepts",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "decisions",
+          "at": 4.32,
+          "action": "reveal",
+          "target": "item-2",
+          "sourcePhrase": "architecture decisions",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "implementation",
+          "at": 7.36,
+          "action": "reveal",
+          "target": "item-3",
+          "sourcePhrase": "through to implementation",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        },
+        {
+          "id": "reasoning",
+          "at": 11.17,
+          "action": "reveal",
+          "target": "item-4",
+          "sourcePhrase": "reasoning behind the software",
+          "match": {
+            "method": "exact-or-normalised",
+            "confidence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "section": "invitation",
+      "title": "Follow the journey",
+      "archetype": "Narrator",
+      "start": 132.79,
+      "end": 147.067,
+      "sources": {
+        "writtenSection": "an-invitation",
+        "narrativeSection": "invitation",
+        "narrativeSegments": [
+          "N024-N025"
+        ]
+      },
+      "elements": {
+        "headline": "Follow the journey",
+        "support": "Software architecture · AI-native systems · Building in public",
+        "labels": []
+      },
+      "transition": "fade",
+      "events": [
+        {
+          "id": "invitation",
+          "at": 0,
+          "action": "emphasise",
+          "target": "headline",
+          "sourcePhrase": "If you're interested in software architecture",
+          "match": {
+            "method": "fuzzy",
+            "confidence": 0.714
+          }
+        }
+      ]
+    }
+  ],
+  "transcript": "production/episodes/0000/transcript.json",
+  "alignment": "production/episodes/0000/alignment.json",
+  "scenePlan": "production/episodes/0000/scene-plan.yaml"
+}
