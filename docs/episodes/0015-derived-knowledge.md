@@ -1,5 +1,5 @@
 ---
-episode: 14
+episode: 15
 title: "Derived Knowledge and Architectural Integrity"
 description: "An exploration of contradictions, unsupported claims, principle violations, ambiguity, drift and knowledge gaps as derived architectural knowledge."
 season: 2
@@ -15,7 +15,7 @@ topics:
   - Knowledge gaps
 ---
 
-# Episode 14 – Derived Knowledge and Architectural Integrity
+# Episode 15 – Derived Knowledge and Architectural Integrity
 
 **Question:** *What knowledge is discovered rather than stored?*
 
