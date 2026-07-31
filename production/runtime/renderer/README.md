@@ -35,6 +35,7 @@ Deterministic SVG frame
 - `visual-grammar.mjs` owns the selected runtime profile: safe area, palette, typography roles, spacing, composition grids, scene-kind mappings and transition semantics.
 - `layout.mjs` owns deterministic text wrapping, multiline block measurement, vertical centring, padding helpers and overflow failure.
 - `scene-renderer.mjs` interprets a resolved presentation plan using reusable Presenter, Focus Canvas, Companion, repository, flow, grid, timeline, radial and reflection compositions.
+- `diagrams/video-diagram-profile.mjs` converts a standalone renderer SVG into the transparent, dark `video-dark` publication contract before `scene-renderer.mjs` places it in a stable Focus Canvas viewport.
 - `presenter-media.mjs` validates continuous presenter sources and builds the single-source FFmpeg composition plan.
 - `scene-timeline.mjs` validates editorial events, resolves seconds to integer frames and produces immutable presentation state for a requested frame.
 - `scene-shots.mjs` validates editorial shot groups and flattens their relative events into the existing scene timeline while retaining shot provenance.
@@ -58,6 +59,7 @@ Scene frame windows are calculated from rounded global start and end frames, not
 - Motion treatments and directional connector styling remain owned by `visual-grammar.mjs`; episode timelines state what changes, never opacity curves, coordinates or FFmpeg filters.
 - In Visual Grammar v1, the Architectural Studio combines the approved Companion asset with a reusable working surface. `motion.companionIdle` opts a legacy scene into deterministic frame-indexed breathing/settling motion.
 - In Visual Grammar v2, Presenter and Focus Canvas compositions share the black-background-compatible environment language without changing the declarative scene model.
+- Registered diagram SVGs are normalised for video at the asset-to-renderer boundary. The profile removes the D2 page, preserves structural mask semantics, applies the dark-video palette and declares deterministic aspect-ratio behaviour; Focus Canvas remains responsible only for placement.
 - Shared box connectors terminate at calculated node boundaries. Curved fan-out connectors allocate distinct source ports and approach destinations along a stable final tangent so arrowheads align cleanly.
 - Review generation can include every authored timeline state when `review.includeTimelineStates` is enabled, allowing progression to be reviewed independently of the final hold.
 - Long-form episodes can request a fixed-interval temporal contact sheet with `review.temporalSampleSeconds`, complementing scene-final frames with evidence of pacing across the complete render.

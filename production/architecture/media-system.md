@@ -37,10 +37,11 @@ flowchart TD
     S["Media style guide"] --> F["Draft scene plan"]
     E --> F
     F --> G["Human intent review"]
-    G --> H["D2 sources + SVG"]
+    G --> H["D2 sources + rendered SVG"]
+    H --> HP["Video-dark publication profile"]
     G --> I["Phrase-derived timeline"]
     D --> I
-    H --> J["Deterministic assembly"]
+    HP --> J["Deterministic assembly"]
     I --> J
     C --> J
     J --> K["Output review + publication"]
@@ -109,6 +110,8 @@ Video assembly combines continuous presenter media or recorded voice with scenes
 The assembly process should preserve editability. Project files, export settings and asset versions should be recorded so the episode can be revised or recovered.
 
 Rendering and assembly are separate runtime concerns. The renderer interprets Visual Grammar presentation plans into deterministic frames; assembly synchronises those approved frames with narration and produces media and review artefacts.
+
+Diagram notation rendering and publication styling are also separate. D2 produces the shared standalone SVG. Video assembly applies the renderer-neutral `video-dark` profile to create a transparent, dark-palette SVG, then Focus Canvas composition places that output in its padded viewport. This leaves diagram semantics reusable and avoids making the website asset or scene layout responsible for notation-specific styling. See [ADR 0010](decisions/0010-normalise-video-diagrams-through-a-publication-profile.md).
 
 ### Human Editorial Review
 

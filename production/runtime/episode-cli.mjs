@@ -6,6 +6,7 @@ import { spawnSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { createLocalAssetManager } from "./assets/index.mjs";
+import { diagramVideoDataUri } from "./diagrams/video-diagram-profile.mjs";
 import { xml } from "./renderer/layout.mjs";
 import { renderSceneSvg } from "./renderer/scene-renderer.mjs";
 import { resolveSceneTimeline, sceneFrameWindow, timelineChangeFrames, timelineManifestEntry, timelineStateAtFrame } from "./renderer/scene-timeline.mjs";
@@ -254,7 +255,7 @@ function validate(context) {
   const assetRegister = fs.readFileSync(resolvePath(context.config.episode.assetRegister), "utf8");
   for (const scene of context.scenes) {
     const finalFrame = Math.max(0, sceneFrameWindow(scene, context.config.output.frameRate).frameCount - 1);
-    const visualAssetData = visualAssetPaths.has(scene.id) ? `data:image/svg+xml;base64,${fs.readFileSync(visualAssetPaths.get(scene.id)).toString("base64")}` : "";
+    const visualAssetData = visualAssetPaths.has(scene.id) ? diagramVideoDataUri(visualAssetPaths.get(scene.id)) : "";
     renderSceneSvg(scene, context.config.episode, context.config.output, "", context.grammar, timelineStateAtFrame(scene, scene.resolvedTimeline, finalFrame), visualAssetData);
     for (const assetId of scene.assetIds ?? []) {
       if (!assetRegister.includes(`asset_id: \"${assetId}\"`)) errors.push(`${scene.id} references unknown episode asset ${assetId}`);
@@ -286,7 +287,7 @@ async function render(context, validation) {
     ? `data:image/png;base64,${fs.readFileSync(validation.companionPath).toString("base64")}`
     : "";
   const performanceData = Object.fromEntries(Object.entries(validation.performancePaths ?? {}).map(([viseme, filePath]) => [viseme, `data:image/png;base64,${fs.readFileSync(filePath).toString("base64")}`]));
-  const visualAssetData = new Map([...validation.visualAssetPaths.entries()].map(([sceneId, filePath]) => [sceneId, `data:image/svg+xml;base64,${fs.readFileSync(filePath).toString("base64")}`]));
+  const visualAssetData = new Map([...validation.visualAssetPaths.entries()].map(([sceneId, filePath]) => [sceneId, diagramVideoDataUri(filePath)]));
   const frameFiles = [];
   const segmentFiles = [];
   for (const scene of context.scenes) {

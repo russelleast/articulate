@@ -24,3 +24,4 @@ Do not add a decision merely because a template exists. Add one when a choice co
 - [0007: Derive draft production timing from recorded audio](0007-recorded-audio-derived-timing.md)
 - [0008: Review semantic and visual intent before timeline generation](0008-reviewable-pre-render-production-model.md)
 - [0009: Compose episodes from continuous presenter media](0009-continuous-presenter-media.md)
+- [0010: Normalise video diagrams through a publication profile](0010-normalise-video-diagrams-through-a-publication-profile.md)

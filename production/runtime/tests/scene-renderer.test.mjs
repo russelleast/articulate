@@ -122,6 +122,7 @@ test("diagram scenes embed a resolved reusable SVG asset", () => {
   const data = "data:image/svg+xml;base64,PHN2Zy8+";
   const svg = renderSceneSvg(scene, { id: "episode-0008", title: "Knowledge Reasoning" }, { width: 1920, height: 1080 }, "", grammar, null, data);
   assert.match(svg, /data-diagram-asset="knowledge-reasoning-flow"/);
+  assert.match(svg, /data-diagram-profile="video-dark"/);
   assert.match(svg, /href="data:image\/svg\+xml;base64,PHN2Zy8\+"/);
 });
 

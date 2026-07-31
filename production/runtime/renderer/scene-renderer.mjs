@@ -1,4 +1,5 @@
 import { centredTextBlock, insetBox, textBlock, xml } from "./layout.mjs";
+import { diagramViewport, VIDEO_DIAGRAM_PROFILE_ID } from "../diagrams/video-diagram-profile.mjs";
 
 export function renderSceneSvg(scene, episode, output, companionData, grammar, state = null, visualAssetData = "") {
   const { palette, frame, typography } = grammar;
@@ -219,7 +220,8 @@ function presenterDiagramComposition(scene, bounds, state, visualAssetData) {
   if (!visualAssetData) throw new Error(`${scene.id} diagram asset '${scene.diagramAssetId}' was not resolved`);
   const shell = `<rect x="${bounds.x}" y="${bounds.y}" width="${bounds.width}" height="${bounds.height}" rx="34" fill="url(#presenter-canvas)" stroke="#314650" stroke-width="2"/>`;
   const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: bounds.x + 60, y: bounds.y + 90, width: bounds.width - 120 }, { fontSize: bounds.width < 1000 ? 42 : 58, weight: 720, maxLines: 2, fill: "#eef2f1" }, `${scene.id} diagram headline`), state);
-  return `${shell}${headline}<image data-diagram-asset="${xml(scene.diagramAssetId)}" href="${visualAssetData}" x="${bounds.x + 45}" y="${bounds.y + 160}" width="${bounds.width - 90}" height="${bounds.height - 210}" preserveAspectRatio="xMidYMid meet"/>`;
+  const viewport = diagramViewport(bounds);
+  return `${shell}${headline}<image data-diagram-asset="${xml(scene.diagramAssetId)}" data-diagram-profile="${VIDEO_DIAGRAM_PROFILE_ID}" href="${visualAssetData}" x="${viewport.x}" y="${viewport.y}" width="${viewport.width}" height="${viewport.height}" preserveAspectRatio="xMidYMid meet"/>`;
 }
 
 function renderComposition(scene, episode, companionData, grammar, state, visualAssetData = "") {
@@ -706,7 +708,7 @@ function visualComposition(scene, grammar, state, graphic) {
 function diagramAsset(scene, y, visualAssetData) {
   if (!scene.diagramAssetId) throw new Error(`${scene.id} diagram scene requires diagramAssetId`);
   if (!visualAssetData) throw new Error(`${scene.id} diagram asset '${scene.diagramAssetId}' was not resolved`);
-  return `<image data-diagram-asset="${xml(scene.diagramAssetId)}" href="${visualAssetData}" x="112" y="${y - 55}" width="1696" height="500" preserveAspectRatio="xMidYMid meet"/>`;
+  return `<image data-diagram-asset="${xml(scene.diagramAssetId)}" data-diagram-profile="${VIDEO_DIAGRAM_PROFILE_ID}" href="${visualAssetData}" x="112" y="${y - 55}" width="1696" height="500" preserveAspectRatio="xMidYMid meet"/>`;
 }
 
 function grid(scene, y, fill, grammar, state) {
