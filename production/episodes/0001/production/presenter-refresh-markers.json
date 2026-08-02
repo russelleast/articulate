@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 307.562458,
+  "selectedDurationSeconds": 306,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 24.18,
+      "narrationReference": "Opening Question · N001-N008"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 24.18,
+      "endSeconds": 50.4,
+      "narrationReference": "The Apparent Record · N009-N016"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 50.4,
+      "endSeconds": 73.78,
+      "narrationReference": "The Record Decays · N017-N023"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 73.78,
+      "endSeconds": 101.12,
+      "narrationReference": "Connecting Fragments · N024-N035"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 101.12,
+      "endSeconds": 124.52,
+      "narrationReference": "The Work of Architecture · N036-N043"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 124.52,
+      "endSeconds": 142.64,
+      "narrationReference": "Distributed Evidence · N044-N052"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 142.64,
+      "endSeconds": 175.96,
+      "narrationReference": "The Fog · N053-N065"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 175.96,
+      "endSeconds": 207.04,
+      "narrationReference": "A Different Question · N066-N072"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 207.04,
+      "endSeconds": 224.8,
+      "narrationReference": "Current Understanding · N073-N077"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 224.8,
+      "endSeconds": 256.84,
+      "narrationReference": "AI Changes the Possibility · N078-N090"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 256.84,
+      "endSeconds": 275.08,
+      "narrationReference": "The Articulate Question · N091-N094"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 275.08,
+      "endSeconds": 284.68,
+      "narrationReference": "The Experiment · N095-N098"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 284.68,
+      "endSeconds": 306,
+      "narrationReference": "The Journal · N099-N109"
+    }
+  ]
+}
