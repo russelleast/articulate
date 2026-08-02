@@ -113,30 +113,7 @@ The purpose is to surface concerns, trade-offs, gaps and consequences while ther
 
 Conceptually, this extends the knowledge-evolution process introduced in the previous episode.
 
-```text
-Proposed Knowledge
-        │
-        ▼
-Interpretation
-        │
-        ▼
-Reconciliation
-        │
-        ▼
-Validation
-        │
-        ▼
-Architectural Assurance
-        │
-        ▼
-Findings and Calls to Action
-        │
-        ▼
-Human Judgement
-        │
-        ▼
-Merge, Revise, Reject or Defer
-```
+![Architectural Assurance within the governed knowledge-evolution process, before proposed knowledge can enter the authoritative model](/diagrams/episode-0015-knowledge-evolution-assurance.svg)
 
 The proposal itself remains proposed architectural knowledge.
 
@@ -187,19 +164,11 @@ If a capability exists without any implementation or ownership, the Knowledge Mo
 
 For example:
 
-```text
-Loyalty Service
-    │
-    └── depends upon ──► Legacy CRM
+![Loyalty Service dependency on Legacy CRM, which is planned for decommission, producing an architectural assurance finding](/diagrams/episode-0015-dependency-on-retiring-system.svg)
 
-Legacy CRM
-    │
-    └── lifecycle ──► Planned for Decommission
+Derived finding:
 
-Derived Finding:
-The proposed Loyalty Service introduces a new dependency on a system
-that is scheduled for retirement.
-```
+> The proposed Loyalty Service introduces a new dependency on a system that is scheduled for retirement.
 
 This is more than dependency discovery.
 
@@ -274,15 +243,7 @@ Suppose an architecture principle states:
 
 The Knowledge Model may contain:
 
-```text
-Order Service
-    │
-    └── owns ──► Order Database
-
-Reporting Service
-    │
-    └── reads from ──► Order Database
-```
+![Reporting Service directly reading the Order Database across the Order Service ownership boundary, raising an exclusive ownership principle concern](/diagrams/episode-0015-database-ownership-principle-conflict.svg)
 
 The relationship is structurally valid.
 
@@ -432,21 +393,7 @@ This is different from evaluating a proposed technical design.
 
 Capability Assurance asks whether the intended behaviour is sufficiently complete, coherent and governable before implementation decisions are made.
 
-```text
-Capability Intent
-        │
-        ▼
-DCL Definition
-        │
-        ▼
-Capability Assurance
-        │
-        ▼
-Findings and Discovery Questions
-        │
-        ▼
-Refined Capability Intent
-```
+![Capability Assurance refinement loop from capability intent through DCL, findings and discovery questions to refined intent](/diagrams/episode-0015-capability-assurance-refinement.svg)
 
 DCL therefore becomes more than machine-readable documentation.
 
@@ -785,22 +732,9 @@ Examples include:
 
 A robust assurance architecture should combine both approaches.
 
-```text
-Knowledge Model and DCL
-          │
-          ├── Deterministic Evaluation
-          │       ├── structural checks
-          │       ├── rule validation
-          │       ├── lifecycle validation
-          │       └── relationship analysis
-          │
-          └── Contextual Reasoning
-                  ├── interpretation
-                  ├── trade-off analysis
-                  ├── risk explanation
-                  ├── evidence assessment
-                  └── calls to action
-```
+![Knowledge Model and DCL feeding complementary deterministic evaluation and contextual reasoning approaches that contribute to Architectural Assurance findings](/diagrams/episode-0015-deterministic-and-contextual-assurance.svg)
+
+> Deterministic mechanisms establish what can be identified reliably. Contextual reasoning interprets why it matters.
 
 The LLM should not be asked to rediscover relationships that the Knowledge Model can establish reliably.
 
@@ -828,41 +762,7 @@ Architectural Assurance continuously evaluates whether architectural knowledge a
 
 Conceptually, Architectural Assurance contains several related concerns:
 
-```text
-Architectural Assurance
-│
-├── Model Integrity
-│   ├── disconnected structures
-│   ├── invalid relationships
-│   ├── missing ownership
-│   └── unresolved references
-│
-├── Capability Assurance
-│   ├── completeness
-│   ├── behavioural coherence
-│   ├── outcome observability
-│   ├── policy coverage
-│   └── capability relationships
-│
-├── Intent Conformance
-│   ├── architecture principles
-│   ├── accepted decisions
-│   ├── target architecture
-│   ├── application lifecycle
-│   └── technology strategy
-│
-├── Quality Assessment
-│   ├── characteristics
-│   ├── maturity
-│   ├── trade-offs
-│   └── architectural risks
-│
-└── External Assurance
-    ├── organisational policies
-    ├── regulatory obligations
-    ├── industry standards
-    └── evidence requirements
-```
+![Architectural Assurance capability model decomposed into Model Integrity, Capability Assurance, Intent Conformance, Quality Assessment and External Assurance](/diagrams/episode-0015-architectural-assurance-capability-model.svg)
 
 These concerns may eventually be implemented using different mechanisms.
 
@@ -1024,4 +924,3 @@ Answering those questions requires more than following relationships.
 It requires interpreting what those relationships mean within the architectural context.
 
 In the next episode, I will explore **Impact Analysis** as the first practical demonstration of Architectural Intelligence in action.
-

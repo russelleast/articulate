@@ -1,0 +1,12 @@
+...@../../../styles/articulate
+direction: right
+
+loyalty: Loyalty Service {class: service}
+crm: Legacy CRM\nPlanned for decommission {class: evidence}
+finding: Architectural conflict\nNew dependency on a retiring system {class: warning}
+
+loyalty -> crm: depends upon
+crm -> finding: assurance finding {
+  style.stroke: "#984E43"
+  style.stroke-width: 3
+}

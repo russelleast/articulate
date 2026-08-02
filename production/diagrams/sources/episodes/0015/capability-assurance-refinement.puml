@@ -1,0 +1,27 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontColor #17232D
+skinparam activity {
+  BackgroundColor #F7F4ED
+  BorderColor #263746
+  FontColor #17232D
+  DiamondBackgroundColor #E8EDF2
+  DiamondBorderColor #49677C
+  StartColor #176B62
+  EndColor #176B62
+}
+skinparam ArrowColor #0D32B2
+
+start
+:Capability Intent;
+repeat
+  :DCL Definition;
+  :Capability Assurance; <<#DCEBE7>>
+  :Findings and Discovery Questions;
+  :Refined Capability Intent;
+repeat while (Further clarification needed?) is (yes)
+->no;
+stop
+@enduml

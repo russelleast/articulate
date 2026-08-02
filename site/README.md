@@ -160,9 +160,9 @@ the site emits a summary card and does not invent an image URL.
 it before development, checking, and building. This keeps production artwork as the single editable
 source while satisfying Astro's requirement that static assets exist under `site/public`.
 
-The same publication step validates registered D2 diagram references in published Episodes. Authors use
+The same publication step validates registered diagram references in published Episodes. Authors use
 `/diagrams/<diagram-id>.svg`; the Markdown pipeline adds Astro's configured base path, and the build
-publishes the registered generated SVG from `site/public/diagrams/`. The D2 source and authoring
+publishes the registered generated SVG from `site/public/diagrams/`. The D2 and PlantUML source and authoring
 workflow are documented in [`production/diagrams/README.md`](../production/diagrams/README.md).
 
 The official `@astrojs/sitemap` integration generates `sitemap-index.xml` and `sitemap-0.xml` during

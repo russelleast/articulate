@@ -1,6 +1,6 @@
 # 0006: Use D2 Sources for Reusable Architectural Diagrams
 
-Status: accepted
+Status: superseded by 0011
 
 ## Context
 

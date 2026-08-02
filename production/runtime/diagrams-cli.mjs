@@ -3,27 +3,28 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadDiagrams, renderDiagram, requireD2, validateDiagramConfiguration } from "./diagrams/diagram-runtime.mjs";
+import { loadDiagrams, renderDiagram, requireDiagramRenderers, validateDiagramConfiguration } from "./diagrams/diagram-runtime.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const [command, diagramId] = process.argv.slice(2);
 const diagrams = validateDiagramConfiguration({ repoRoot, diagrams: loadDiagrams({ repoRoot }) });
 
 if (command === "render") {
-  requireD2();
-  for (const diagram of select(diagrams, diagramId)) {
+  const selected = select(diagrams, diagramId);
+  requireDiagramRenderers(selected);
+  for (const diagram of selected) {
     renderDiagram(diagram);
     console.log(`Rendered ${diagram.id} -> ${path.relative(repoRoot, diagram.outputPath)}`);
   }
 } else if (command === "validate") {
-  requireD2();
-  const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "articulate-d2-"));
+  requireDiagramRenderers(diagrams);
+  const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "articulate-diagrams-"));
   try {
     for (const diagram of diagrams) renderDiagram(diagram, { outputPath: path.join(temporaryDirectory, `${diagram.id}.svg`) });
   } finally {
     fs.rmSync(temporaryDirectory, { recursive: true, force: true });
   }
-  console.log(`Diagram validation passed for ${diagrams.length} D2 sources.`);
+  console.log(`Diagram validation passed for ${diagrams.length} registered sources.`);
 } else {
   console.error("Usage: node production/runtime/diagrams-cli.mjs <validate|render> [diagram-id]");
   process.exitCode = 2;

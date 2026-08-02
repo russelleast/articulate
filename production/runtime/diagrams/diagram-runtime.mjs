@@ -4,6 +4,8 @@ import { spawnSync } from "node:child_process";
 import { AssetRegistry } from "../assets/asset-registry.mjs";
 
 export const D2_RENDER_ARGUMENTS = Object.freeze(["--layout", "elk", "--theme", "0", "--pad", "64"]);
+export const PLANTUML_RENDER_ARGUMENTS = Object.freeze(["-tsvg", "-pipe", "-charset", "UTF-8"]);
+const SOURCE_FORMATS = Object.freeze({ ".d2": "d2", ".puml": "plantuml" });
 
 export function discoverDiagramSources(sourceRoot) {
   if (!fs.existsSync(sourceRoot)) return [];
@@ -12,7 +14,7 @@ export function discoverDiagramSources(sourceRoot) {
     for (const entry of fs.readdirSync(directory, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
       const candidate = path.join(directory, entry.name);
       if (entry.isDirectory()) visit(candidate);
-      else if (entry.isFile() && entry.name.endsWith(".d2")) discovered.push(candidate);
+      else if (entry.isFile() && SOURCE_FORMATS[path.extname(entry.name)]) discovered.push(candidate);
     }
   };
   visit(sourceRoot);
@@ -38,7 +40,7 @@ export function validateDiagramConfiguration({ repoRoot, diagrams, sourceRoot = 
     configuredSources.add(canonical);
   }
   for (const source of discoverDiagramSources(sourceRoot)) {
-    if (!configuredSources.has(path.resolve(source))) errors.push(`unregistered D2 source: ${path.relative(repoRoot, source)}`);
+    if (!configuredSources.has(path.resolve(source))) errors.push(`unregistered diagram source: ${path.relative(repoRoot, source)}`);
   }
   if (errors.length) throw new Error(`Diagram validation failed:\n- ${errors.join("\n- ")}`);
   return diagrams;
@@ -54,17 +56,56 @@ export function requireD2({ command = "d2", run = spawnSync } = {}) {
   return (result.stdout || result.stderr).trim();
 }
 
+export function requirePlantUML({ command = "plantuml", run = spawnSync } = {}) {
+  const result = run(command, ["-version"], { encoding: "utf8" });
+  if (result.error?.code === "ENOENT") {
+    throw new Error("PlantUML CLI is required but was not found. Install PlantUML from https://plantuml.com/starting, then ensure 'plantuml' is on PATH.");
+  }
+  if (result.error) throw new Error(`Unable to execute PlantUML CLI: ${result.error.message}`);
+  const output = (result.stdout || result.stderr || "").trim();
+  if (result.status !== 0 && !output.includes("PlantUML version")) {
+    throw new Error(`PlantUML CLI availability check failed: ${output || "unknown error"}`);
+  }
+  return output;
+}
+
+export function requireDiagramRenderers(diagrams, options = {}) {
+  const formats = new Set(diagrams.map((diagram) => diagram.format));
+  if (formats.has("d2")) requireD2(options.d2);
+  if (formats.has("plantuml")) requirePlantUML(options.plantuml);
+}
+
 export function d2Command(diagram, { command = "d2" } = {}) {
   return { command, args: [...D2_RENDER_ARGUMENTS, diagram.sourcePath, diagram.outputPath] };
 }
 
-export function renderDiagram(diagram, { command = "d2", run = spawnSync, outputPath = diagram.outputPath } = {}) {
+export function plantUmlCommand({ command = "plantuml" } = {}) {
+  return { command, args: [...PLANTUML_RENDER_ARGUMENTS] };
+}
+
+export function renderDiagram(diagram, { command, run = spawnSync, outputPath = diagram.outputPath } = {}) {
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  if (diagram.format === "plantuml") return renderPlantUml(diagram, { command, run, outputPath });
+  return renderD2(diagram, { command, run, outputPath });
+}
+
+function renderD2(diagram, { command = "d2", run, outputPath }) {
   const result = run(command, [...D2_RENDER_ARGUMENTS, diagram.sourcePath, outputPath], { encoding: "utf8" });
   if (result.error?.code === "ENOENT") throw new Error("D2 CLI is required but was not found. Install D2 from https://d2lang.com/tour/install, then ensure 'd2' is on PATH.");
   if (result.error) throw new Error(`Unable to render diagram '${diagram.id}': ${result.error.message}`);
   if (result.status !== 0) throw new Error(`D2 failed to render '${diagram.id}': ${(result.stderr || result.stdout || "unknown error").trim()}`);
   if (!fs.existsSync(outputPath)) throw new Error(`D2 reported success for '${diagram.id}' but did not create ${outputPath}`);
+  return outputPath;
+}
+
+function renderPlantUml(diagram, { command = "plantuml", run, outputPath }) {
+  const source = fs.readFileSync(diagram.sourcePath, "utf8");
+  const result = run(command, [...PLANTUML_RENDER_ARGUMENTS], { encoding: "utf8", input: source, maxBuffer: 10 * 1024 * 1024 });
+  if (result.error?.code === "ENOENT") throw new Error("PlantUML CLI is required but was not found. Install PlantUML from https://plantuml.com/starting, then ensure 'plantuml' is on PATH.");
+  if (result.error) throw new Error(`Unable to render diagram '${diagram.id}': ${result.error.message}`);
+  if (result.status !== 0) throw new Error(`PlantUML failed to render '${diagram.id}': ${(result.stderr || result.stdout || "unknown error").trim()}`);
+  if (!result.stdout?.includes("<svg")) throw new Error(`PlantUML reported success for '${diagram.id}' but did not produce SVG output`);
+  fs.writeFileSync(outputPath, result.stdout);
   return outputPath;
 }
 

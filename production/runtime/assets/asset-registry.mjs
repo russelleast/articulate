@@ -63,9 +63,14 @@ export function validateRegistryDocument(document) {
     if (!asset.provider) errors.push(`${label} requires provider`);
     if (!asset.location) errors.push(`${label} requires location`);
     if (asset.type === "diagram") {
-      if (asset.format !== "d2") errors.push(`${label} diagram format must be d2`);
+      if (!["d2", "plantuml"].includes(asset.format)) errors.push(`${label} diagram format must be d2 or plantuml`);
       if (!asset.source) errors.push(`${label} diagram requires source`);
-      else if (!asset.source.endsWith(".d2")) errors.push(`${label} diagram source must end in .d2`);
+      else {
+        const expectedExtension = asset.format === "plantuml" ? ".puml" : ".d2";
+        if (!asset.source.endsWith(expectedExtension)) {
+          errors.push(`${label} ${asset.format} diagram source must end in ${expectedExtension}`);
+        }
+      }
       if (asset.location && !asset.location.endsWith(".svg")) errors.push(`${label} diagram location must end in .svg`);
     }
     if (asset.checksum != null && typeof asset.checksum !== "string") {

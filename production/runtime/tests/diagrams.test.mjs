@@ -5,10 +5,13 @@ import path from "node:path";
 import test from "node:test";
 import {
   D2_RENDER_ARGUMENTS,
+  PLANTUML_RENDER_ARGUMENTS,
   d2Command,
   discoverDiagramSources,
+  plantUmlCommand,
   renderDiagram,
   requireD2,
+  requirePlantUML,
   validateDiagramConfiguration
 } from "../diagrams/diagram-runtime.mjs";
 import {
@@ -26,16 +29,17 @@ function temporaryRepository(t) {
   return root;
 }
 
-test("D2 sources are discovered recursively in stable order", (t) => {
+test("supported diagram sources are discovered recursively in stable order", (t) => {
   const root = temporaryRepository(t);
   fs.mkdirSync(path.join(root, "sources", "reasoning"), { recursive: true });
   fs.mkdirSync(path.join(root, "sources", "knowledge"), { recursive: true });
   fs.writeFileSync(path.join(root, "sources", "reasoning", "z.d2"), "z");
   fs.writeFileSync(path.join(root, "sources", "knowledge", "a.d2"), "a");
+  fs.writeFileSync(path.join(root, "sources", "knowledge", "flow.puml"), "flow");
   fs.writeFileSync(path.join(root, "sources", "ignored.txt"), "ignored");
 
   assert.deepEqual(discoverDiagramSources(path.join(root, "sources")).map((file) => path.relative(root, file)), [
-    "sources/knowledge/a.d2", "sources/reasoning/z.d2"
+    "sources/knowledge/a.d2", "sources/knowledge/flow.puml", "sources/reasoning/z.d2"
   ]);
 });
 
@@ -48,7 +52,7 @@ test("configuration validation rejects missing and unregistered sources", (t) =>
 
   assert.throws(
     () => validateDiagramConfiguration({ repoRoot: root, sourceRoot, diagrams: [{ id: "missing", sourcePath: missing }] }),
-    /source does not exist:[\s\S]*unregistered D2 source/
+    /source does not exist:[\s\S]*unregistered diagram source/
   );
 });
 
@@ -74,12 +78,29 @@ test("the shared asset registry rejects duplicate diagram IDs", () => {
   assert.throws(() => validateRegistryDocument({ version: 1, assets: [diagram, { ...diagram }] }), /duplicate asset ID: shared-diagram/);
 });
 
+test("the shared asset registry accepts PlantUML and enforces notation extensions", () => {
+  const diagram = {
+    id: "shared-flow", type: "diagram", format: "plantuml", episode: null,
+    status: "generated", checksum: null, source: "production/diagrams/sources/shared.puml",
+    location: "site/public/diagrams/shared.svg", provider: "local"
+  };
+  assert.deepEqual(validateRegistryDocument({ version: 1, assets: [diagram] }), [diagram]);
+  assert.throws(
+    () => validateRegistryDocument({ version: 1, assets: [{ ...diagram, source: "shared.d2" }] }),
+    /plantuml diagram source must end in \.puml/
+  );
+});
+
 test("D2 command construction fixes layout, theme and padding", () => {
   const diagram = { sourcePath: "/repo/source.d2", outputPath: "/repo/source.svg" };
   assert.deepEqual(d2Command(diagram), {
     command: "d2",
     args: [...D2_RENDER_ARGUMENTS, "/repo/source.d2", "/repo/source.svg"]
   });
+});
+
+test("PlantUML command construction fixes SVG pipe output and encoding", () => {
+  assert.deepEqual(plantUmlCommand(), { command: "plantuml", args: [...PLANTUML_RENDER_ARGUMENTS] });
 });
 
 test("render creates output directories and requires the expected SVG", (t) => {
@@ -99,6 +120,22 @@ test("render creates output directories and requires the expected SVG", (t) => {
   assert.deepEqual(calls[0], { command: "d2", args: [...D2_RENDER_ARGUMENTS, diagram.sourcePath, outputPath] });
 });
 
+test("PlantUML rendering pipes semantic source to a shared SVG", (t) => {
+  const root = temporaryRepository(t);
+  const sourcePath = path.join(root, "flow.puml");
+  const outputPath = path.join(root, "published", "flow.svg");
+  fs.writeFileSync(sourcePath, "@startuml\nstart\nstop\n@enduml\n");
+  const calls = [];
+  const run = (command, args, options) => {
+    calls.push({ command, args, input: options.input });
+    return { status: 0, stdout: '<svg viewBox="0 0 10 10"/>', stderr: "" };
+  };
+
+  assert.equal(renderDiagram({ id: "flow", format: "plantuml", sourcePath, outputPath }, { run }), outputPath);
+  assert.equal(fs.readFileSync(outputPath, "utf8"), '<svg viewBox="0 0 10 10"/>');
+  assert.deepEqual(calls[0], { command: "plantuml", args: [...PLANTUML_RENDER_ARGUMENTS], input: fs.readFileSync(sourcePath, "utf8") });
+});
+
 test("rendering failures and false success are surfaced", (t) => {
   const root = temporaryRepository(t);
   const diagram = { id: "broken", sourcePath: path.join(root, "broken.d2"), outputPath: path.join(root, "broken.svg") };
@@ -109,6 +146,11 @@ test("rendering failures and false success are surfaced", (t) => {
 test("missing D2 dependency produces installation guidance", () => {
   const missing = Object.assign(new Error("spawn d2 ENOENT"), { code: "ENOENT" });
   assert.throws(() => requireD2({ run: () => ({ error: missing }) }), /D2 CLI is required[\s\S]*d2lang\.com/);
+});
+
+test("missing PlantUML dependency produces installation guidance", () => {
+  const missing = Object.assign(new Error("spawn plantuml ENOENT"), { code: "ENOENT" });
+  assert.throws(() => requirePlantUML({ run: () => ({ error: missing }) }), /PlantUML CLI is required[\s\S]*plantuml\.com/);
 });
 
 test("video-dark normalisation removes only the D2 page and maps presentation colours", () => {
