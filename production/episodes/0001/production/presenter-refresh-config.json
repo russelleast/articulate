@@ -1,0 +1,947 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0001",
+    "title": "Why Articulate Exists",
+    "journalSource": "docs/episodes/0001-why-articulate-exists.md",
+    "narrativeSource": "production/episodes/0001/narrative.md",
+    "narrativeSourceConvention": "legacy",
+    "storyboard": "production/episodes/0001/storyboard-presenter.yaml",
+    "timingMarkers": "production/episodes/0001/production/presenter-refresh-markers.json",
+    "assetRegister": "production/episodes/0001/asset-register.yaml",
+    "scenePlan": "production/episodes/0001/scene-plan.yaml"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0001-presenter-v2",
+    "expectedSha256": "66702e99cbbe06257a0552cc538ebc814d0cf42be7a3290c59de33741bf84d16",
+    "expectedDurationSeconds": 306,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 306,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Episode 0000 framing: complete source scaled to 780x439, anchored lower-left, with Focus Canvas content reserved to the right."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 5
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/output/episode-0001.mp4",
+    "generatedDirectory": "production/episodes/0001/generated/presenter-refresh-v1",
+    "reviewDirectory": "production/episodes/0001/output/review/presenter-refresh-v1",
+    "narrationAnalysis": "production/episodes/0001/production/presenter-refresh-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Why does Articulate exist?",
+      "kind": "presenter-focus",
+      "headline": "Why does Articulate exist?",
+      "support": "The question behind the architecture.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A017",
+        "A018"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "opening-question",
+            "at": 9.3,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "Why does it exist at all"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Opening Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "Everything appears to be there",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Everything appears to be there",
+      "support": "The organisation has an architectural record.",
+      "items": [
+        "Wiki pages",
+        "Architecture diagrams",
+        "Decision records",
+        "Slide decks",
+        "Review recordings"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "wiki",
+            "at": 1.4,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "company wiki"
+          },
+          {
+            "id": "diagrams",
+            "at": 4.67,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "architecture diagrams"
+          },
+          {
+            "id": "records",
+            "at": 7.57,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "architecture decision records"
+          },
+          {
+            "id": "slides",
+            "at": 10.33,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "PowerPoint presentations"
+          },
+          {
+            "id": "recordings",
+            "at": 12.8,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "recordings of previous architecture reviews"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Apparent Record",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "The record is not the understanding",
+      "kind": "focus",
+      "headline": "The record is not the understanding",
+      "support": "Fragments drift, conflict and lose context.",
+      "items": [
+        "Old diagrams",
+        "Inconsistent systems",
+        "Unexplained acronyms",
+        "Contradictions",
+        "Broken links"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "old",
+            "at": 0.51,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "diagrams are a couple years old"
+          },
+          {
+            "id": "inconsistent",
+            "at": 3.78,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "one diagram but not another"
+          },
+          {
+            "id": "acronyms",
+            "at": 5.9,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "three letter acronyms"
+          },
+          {
+            "id": "contradictions",
+            "at": 10.12,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "pages contradict each other"
+          },
+          {
+            "id": "links",
+            "at": 12.32,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "links no longer work"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Record Decays",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Understanding emerges from connection",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Understanding emerges from connection",
+      "support": "No single source explains the whole system.",
+      "items": [
+        "Architect",
+        "Developer",
+        "Operations",
+        "Facts & opinions",
+        "Questions",
+        "A working picture"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "architect",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "another architect"
+          },
+          {
+            "id": "developer",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "a developer"
+          },
+          {
+            "id": "operations",
+            "at": 0.5,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "someone in operations"
+          },
+          {
+            "id": "picture",
+            "at": 6.9,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "picture begins to emerge"
+          },
+          {
+            "id": "fragments",
+            "at": 16.74,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "pieces were facts"
+          },
+          {
+            "id": "questions",
+            "at": 21.03,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "raised even more questions"
+          },
+          {
+            "id": "decisions",
+            "at": 25.66,
+            "action": "emphasize",
+            "target": "item-6",
+            "sourcePhrase": "begin making architectural decisions"
+          },
+          {
+            "id": "s004-connect-1",
+            "at": 25.66,
+            "action": "connect",
+            "from": "item-1",
+            "to": "item-6"
+          },
+          {
+            "id": "s004-connect-2",
+            "at": 25.66,
+            "action": "connect",
+            "from": "item-2",
+            "to": "item-6"
+          },
+          {
+            "id": "s004-connect-3",
+            "at": 25.66,
+            "action": "connect",
+            "from": "item-3",
+            "to": "item-6"
+          },
+          {
+            "id": "s004-connect-4",
+            "at": 25.66,
+            "action": "connect",
+            "from": "item-4",
+            "to": "item-6"
+          },
+          {
+            "id": "s004-connect-5",
+            "at": 25.66,
+            "action": "connect",
+            "from": "item-5",
+            "to": "item-6"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Connecting Fragments",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Architects spend their time understanding",
+      "kind": "presenter-focus",
+      "headline": "Architects spend their time understanding",
+      "support": "What exists · Why · What changed · What can change next",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A017",
+        "A018"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "understanding",
+            "at": 8.51,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "trying to understand it"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Work of Architecture",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "Architecture does not exist in one place",
+      "kind": "focus",
+      "headline": "Architecture does not exist in one place",
+      "support": "Each source tells part of the story.",
+      "items": [
+        "Diagrams",
+        "Documents",
+        "Source code",
+        "Decision records",
+        "Monitoring",
+        "Conversations"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "diagrams",
+            "at": 3.75,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "exists in diagrams"
+          },
+          {
+            "id": "documents",
+            "at": 5.65,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "documents"
+          },
+          {
+            "id": "code",
+            "at": 6.45,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "source code"
+          },
+          {
+            "id": "decisions",
+            "at": 7.71,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "decision records"
+          },
+          {
+            "id": "monitoring",
+            "at": 8.82,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "monitoring systems"
+          },
+          {
+            "id": "conversations",
+            "at": 10.19,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "conversations with people"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Distributed Evidence",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "Understanding is a landscape in fog",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Understanding is a landscape in fog",
+      "support": "Evidence clears the view—temporarily.",
+      "items": [
+        "Conversation",
+        "Document",
+        "Decision",
+        "Clearer view",
+        "System changes",
+        "Fog returns"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "conversation",
+            "at": 3.88,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Each conversation clears"
+          },
+          {
+            "id": "document",
+            "at": 8.34,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Every document reveals"
+          },
+          {
+            "id": "decision",
+            "at": 11.57,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "Every decision helps"
+          },
+          {
+            "id": "view",
+            "at": 13.41,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "why the landscape looks"
+          },
+          {
+            "id": "change",
+            "at": 19.05,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "system keeps changing"
+          },
+          {
+            "id": "returns",
+            "at": 30.52,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "becomes unclear again"
+          },
+          {
+            "id": "s007-connect-1",
+            "at": 13.41,
+            "action": "connect",
+            "from": "item-1",
+            "to": "item-4"
+          },
+          {
+            "id": "s007-connect-2",
+            "at": 13.41,
+            "action": "connect",
+            "from": "item-2",
+            "to": "item-4"
+          },
+          {
+            "id": "s007-connect-3",
+            "at": 13.41,
+            "action": "connect",
+            "from": "item-3",
+            "to": "item-4"
+          },
+          {
+            "id": "s007-connect-4",
+            "at": 19.05,
+            "action": "connect",
+            "from": "item-4",
+            "to": "item-5"
+          },
+          {
+            "id": "s007-connect-5",
+            "at": 30.52,
+            "action": "connect",
+            "from": "item-5",
+            "to": "item-6"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Fog",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "What if documentation is not the problem?",
+      "kind": "presenter-focus",
+      "headline": "What if documentation is not the problem?",
+      "support": "We are reasoning from disconnected fragments of evidence.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A017",
+        "A018"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "different-question",
+            "at": 6.4,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "problem isn't that we don't have enough documentation"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Different Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Architecture is current understanding",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Architecture is current understanding",
+      "support": "Built from evidence and revised through learning.",
+      "items": [
+        "Evidence",
+        "Discover",
+        "Test assumptions",
+        "Confidence",
+        "Preserve reasons"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "evidence",
+            "at": 3.85,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "built from evidence"
+          },
+          {
+            "id": "discover",
+            "at": 6.56,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "discover new information"
+          },
+          {
+            "id": "test",
+            "at": 10.07,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "assumptions are tested"
+          },
+          {
+            "id": "confidence",
+            "at": 8.63,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "becomes more confident"
+          },
+          {
+            "id": "reasons",
+            "at": 15.23,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "reasons behind them"
+          },
+          {
+            "id": "s009-connect-1",
+            "at": 6.56,
+            "action": "connect",
+            "from": "item-1",
+            "to": "item-2"
+          },
+          {
+            "id": "s009-connect-2",
+            "at": 10.07,
+            "action": "connect",
+            "from": "item-2",
+            "to": "item-3"
+          },
+          {
+            "id": "s009-connect-3",
+            "at": 10.07,
+            "action": "connect",
+            "from": "item-3",
+            "to": "item-4"
+          },
+          {
+            "id": "s009-connect-4",
+            "at": 15.23,
+            "action": "connect",
+            "from": "item-4",
+            "to": "item-5"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Current Understanding",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "AI can help build understanding",
+      "kind": "focus",
+      "headline": "AI can help build understanding",
+      "support": "Not just store or search information.",
+      "items": [
+        "Store & search",
+        "Connect information",
+        "Highlight contradictions",
+        "Ask questions",
+        "Challenge assumptions",
+        "Incomplete knowledge → understanding"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "store-search",
+            "at": 2.91,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "storing information"
+          },
+          {
+            "id": "connect",
+            "at": 19.37,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "help connect information"
+          },
+          {
+            "id": "contradictions",
+            "at": 20.97,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "highlight contradictions"
+          },
+          {
+            "id": "questions",
+            "at": 22.66,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "ask questions"
+          },
+          {
+            "id": "assumptions",
+            "at": 23.85,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "challenge assumptions"
+          },
+          {
+            "id": "understanding",
+            "at": 26.77,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "build understanding from incomplete knowledge"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "AI Changes the Possibility",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Can we help architects understand architecture?",
+      "kind": "presenter-focus",
+      "headline": "Can we help architects understand architecture?",
+      "support": "Augment the way architects already reason.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A017",
+        "A018"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "central-question",
+            "at": 1.55,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "helps architects understand architecture"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Articulate Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Articulate is an experiment",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Articulate is an experiment",
+      "support": "Can AI help us evolve complex software systems?",
+      "items": [
+        "Discover",
+        "Understand",
+        "Reason about",
+        "Evolve"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A018"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "discover",
+            "at": 2.42,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "discover"
+          },
+          {
+            "id": "understand",
+            "at": 2.62,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "understand"
+          },
+          {
+            "id": "reason",
+            "at": 3.37,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "reason about"
+          },
+          {
+            "id": "evolve",
+            "at": 4.86,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "evolve complex software systems"
+          },
+          {
+            "id": "s012-connect-1",
+            "at": 2.62,
+            "action": "connect",
+            "from": "item-1",
+            "to": "item-2"
+          },
+          {
+            "id": "s012-connect-2",
+            "at": 3.37,
+            "action": "connect",
+            "from": "item-2",
+            "to": "item-3"
+          },
+          {
+            "id": "s012-connect-3",
+            "at": 4.86,
+            "action": "connect",
+            "from": "item-3",
+            "to": "item-4"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Experiment",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "A journal of architectural learning",
+      "kind": "presenter-focus",
+      "headline": "A journal of architectural learning",
+      "support": "Ideas · Decisions · Trade-offs · Experiments · Mistakes",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A017",
+        "A018"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "journal",
+            "at": 0.01,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "why this is a journal"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Journal",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

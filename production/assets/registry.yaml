@@ -38,6 +38,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0001-presenter-v2",
+      "type": "presenter-video",
+      "episode": "0001",
+      "status": "approved-refresh-recording",
+      "checksum": "sha256:66702e99cbbe06257a0552cc538ebc814d0cf42be7a3290c59de33741bf84d16",
+      "location": "production/episodes/0001/ep01-narrator.mov",
+      "provider": "local"
+    },
+    {
       "id": "episode-0000-baseline-narration-v1",
       "type": "narration-extract",
       "episode": "0000",

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening Question",
+      "narrativeSegments": [
+        "N001-N008"
+      ],
+      "start": 0,
+      "end": 24.18,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "apparent-record",
+      "title": "The Apparent Record",
+      "narrativeSegments": [
+        "N009-N016"
+      ],
+      "start": 24.18,
+      "end": 50.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 24.180s"
+    },
+    {
+      "id": "record-decays",
+      "title": "The Record Decays",
+      "narrativeSegments": [
+        "N017-N023"
+      ],
+      "start": 50.4,
+      "end": 73.78,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 50.400s"
+    },
+    {
+      "id": "connecting-fragments",
+      "title": "Connecting Fragments",
+      "narrativeSegments": [
+        "N024-N035"
+      ],
+      "start": 73.78,
+      "end": 101.12,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 73.780s"
+    },
+    {
+      "id": "architectural-work",
+      "title": "The Work of Architecture",
+      "narrativeSegments": [
+        "N036-N043"
+      ],
+      "start": 101.12,
+      "end": 124.52,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 101.120s"
+    },
+    {
+      "id": "distributed-evidence",
+      "title": "Distributed Evidence",
+      "narrativeSegments": [
+        "N044-N052"
+      ],
+      "start": 124.52,
+      "end": 142.64,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 124.520s"
+    },
+    {
+      "id": "fog",
+      "title": "The Fog",
+      "narrativeSegments": [
+        "N053-N065"
+      ],
+      "start": 142.64,
+      "end": 175.96,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 142.640s"
+    },
+    {
+      "id": "different-question",
+      "title": "A Different Question",
+      "narrativeSegments": [
+        "N066-N072"
+      ],
+      "start": 175.96,
+      "end": 207.04,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 175.960s"
+    },
+    {
+      "id": "current-understanding",
+      "title": "Current Understanding",
+      "narrativeSegments": [
+        "N073-N077"
+      ],
+      "start": 207.04,
+      "end": 224.8,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 207.040s"
+    },
+    {
+      "id": "ai-changes",
+      "title": "AI Changes the Possibility",
+      "narrativeSegments": [
+        "N078-N090"
+      ],
+      "start": 224.8,
+      "end": 256.84,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 224.800s"
+    },
+    {
+      "id": "central-question",
+      "title": "The Articulate Question",
+      "narrativeSegments": [
+        "N091-N094"
+      ],
+      "start": 256.84,
+      "end": 275.08,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 256.840s"
+    },
+    {
+      "id": "experiment",
+      "title": "The Experiment",
+      "narrativeSegments": [
+        "N095-N098"
+      ],
+      "start": 275.08,
+      "end": 284.68,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 275.080s"
+    },
+    {
+      "id": "journal",
+      "title": "The Journal",
+      "narrativeSegments": [
+        "N099-N109"
+      ],
+      "start": 284.68,
+      "end": 306,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 284.680s"
+    }
+  ]
+}

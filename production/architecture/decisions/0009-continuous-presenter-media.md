@@ -19,6 +19,7 @@ Add a `continuous-video` presenter implementation alongside the retained Compani
 - Scene composition modes determine whether presenter picture is full, left, right, overlaid or hidden.
 - Presenter picture is a scene-graph layer rather than a framed video panel. Dark-background recordings may use a configurable soft luminance compositor that derives a temporally stabilised, feathered alpha mask and gently fades the source edges into the underlying canvas.
 - Hiding presenter picture never interrupts or restarts its embedded audio.
+- Embedded audio may declare an EBU R128 normalisation profile in presenter configuration. Normalisation happens inside the same continuous mux, so the source recording remains immutable and picture/audio timing remains coupled.
 - The renderer builds deterministic Focus Canvas plates first, then performs one continuous presenter composition pass.
 - Presenter episodes select Visual Grammar v2. Companion episodes remain on Visual Grammar v1 and keep their existing performance pipeline.
 - The established full-frame Focus Canvas replaces the light physical whiteboard surface for new productions. Existing Digital Workspace, Diagram, Evidence and Repository scene types remain available.
@@ -29,6 +30,7 @@ Add a `continuous-video` presenter implementation alongside the retained Compani
 - Future episodes can replace the recording and scene plan without changing renderer code.
 - Archived Companion episodes remain renderable.
 - Presenter sources currently require embedded audio; an independently cleaned track needs an explicit synchronisation decision before support is added.
+- Per-recording loudness targets are explicit render metadata. Omitting the profile preserves the embedded track unchanged for archived configurations.
 - Composition changes are deterministic cuts in v2. Crossfaded crop interpolation remains a possible later capability, not an Episode 0000 special case.
 - Large presenter recordings remain local, ignored media assets with checksums and logical registry entries rather than Git-managed binaries.
 - Soft luminance compositing requires per-recording tuning when lighting, wardrobe or background levels differ substantially. The opaque overlay mode remains available for full-frame footage and sources that do not suit dark-background blending.

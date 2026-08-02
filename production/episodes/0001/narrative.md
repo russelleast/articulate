@@ -2,158 +2,218 @@
 
 Hello, and welcome.
 
-In the previous episode I briefly introduced Articulate.
+In the previous episode I introduced Articulate.
 
 Today I want to answer a much more important question.
 
-## Why does it exist at all?
+**Why does it exist at all?**
 
-To answer that, let's start with a simple observation.
+Imagine you've just joined a new company as an architect.
 
-Modern software systems have become incredibly sophisticated.
+After the introductions, your first question is probably something like this.
 
-We have specialists in cloud platforms, databases, networking, security, data engineering, front-end development, platform engineering and countless other disciplines.
+*"Can someone show me the current architecture?"*
 
-Each of those people understands an important part of the system.
+It's a simple question.
 
-But who understands the whole thing?
+So someone points you towards the company wiki.
 
-That's the role architecture has traditionally tried to fulfil.
+There are hundreds of pages.
 
-Not by knowing every implementation detail, but by understanding how all of those parts fit together into a coherent system.
+A few architecture diagrams.
 
-The challenge is that our systems have continued to grow in scale and complexity.
+Some Architecture Decision Records.
 
-Understanding the whole system is becoming harder than ever.
+A collection of PowerPoint presentations.
 
-Yet we're expected to make architectural decisions as though somebody does.
+Maybe a few recordings of previous architecture reviews.
 
-The reality is that modern systems have become too large, too interconnected and too fast moving for any individual to hold the entire architecture in their head.
+At first glance, it looks like everything you need is there.
 
-That's the problem.
+But after a few hours, something doesn't feel right.
 
-And it's only getting worse.
+Some of the diagrams are a couple of years old.
 
-So how do we try to solve it today?
+Some systems appear in one diagram but not another.
 
-We create diagrams.
+The documentation is full of three-letter acronyms that nobody has explained.
 
-We write documentation.
+Some pages contradict each other.
 
-We record Architecture Decision Records.
+Some links no longer work.
 
-We produce slide decks.
+And before long someone says...
 
-We build wikis.
+*"Don't trust that diagram. We've changed it since then."*
 
-We create enterprise architecture repositories.
+So you ask another architect.
 
-All of these things are valuable.
+Then a developer.
 
-But they have something in common.
+Then someone in operations.
 
-They're all representations of the architecture.
+Each person gives you another piece of the puzzle.
 
-They are not the architecture itself.
+Slowly, a picture begins to emerge.
 
-A diagram captures one perspective.
+Not because you found one document that explained everything.
 
-An ADR captures one decision.
+But because you started connecting lots of small pieces of information together.
 
-Documentation explains one concept.
+Some of those pieces were facts.
 
-Source code describes one implementation.
+Some were opinions.
 
-Each tells part of the story.
+Some turned out to be wrong.
 
-None tells the whole story.
+Some raised even more questions.
 
-I think we've accidentally started treating architecture as a collection of documents.
+Eventually you build enough understanding to begin making architectural decisions.
 
-But architecture isn't documentation.
+And that's when I realised something.
 
-Architecture is knowledge.
+Architects don't spend most of their time creating architecture.
 
-Knowledge about systems, decisions, constraints, risks. 
+They spend most of their time trying to understand it.
 
-Knowledge about trade-offs abd about why things are the way they are.
+Understanding what exists today.
 
-And unlike documentation, knowledge evolves.
+Understanding why it ended up that way.
 
-Our confidence changes.
+Understanding what changed.
 
-New evidence appears.
+Understanding what can safely change next.
 
-Assumptions are challenged.
+That's much harder than it sounds.
 
-Decisions are revisited.
+Because architecture doesn't exist in one place.
 
-Systems change.
+It exists across diagrams...
 
-Architecture isn't static.
+documents...
 
-It's alive.
+source code...
 
-That changes how I think about architecture tools.
+decision records...
 
-Perhaps the goal isn't to create better diagrams.
+monitoring systems...
 
-Or write more documentation.
+and in conversations with the people who know the system best.
 
-Perhaps the goal is to build a living body of architectural knowledge.
+Every one of those sources tells part of the story.
 
-One that continuously evolves as our understanding evolves.
+None of them tells the whole story.
 
-One that preserves evidence, not just conclusions.
+It's like trying to navigate through a landscape covered in fog.
 
-One that understands uncertainty rather than pretending everything is known.
+Every conversation clears a little more of the view.
 
-One that can generate diagrams, documents and reports whenever they're needed, instead of treating them as the source of truth.
+Every document reveals another landmark.
 
-For a long time, that felt impossible.
+Every decision helps explain why the landscape looks the way it does.
 
-But AI changes something important.
+But the fog never completely disappears.
+
+The system keeps changing.
+
+New projects begin.
+
+Old assumptions become invalid.
+
+People leave.
+
+Knowledge fades.
+
+And the picture you worked so hard to build slowly becomes unclear again.
+
+For years, I assumed this was simply the nature of architecture.
+
+Then I started asking myself a different question.
+
+What if the problem isn't that we don't have enough documentation?
+
+What if the problem is that we're trying to understand architecture from disconnected fragments of evidence?
+
+What if architecture isn't really the diagrams...
+
+or the documents...
+
+or the decision records?
+
+What if those are simply evidence?
+
+Perhaps architecture is something else entirely.
+
+Perhaps architecture is our current understanding of a system.
+
+An understanding built from evidence.
+
+One that evolves as we discover new information.
+
+One that becomes more confident as assumptions are tested.
+
+One that preserves not just decisions, but the reasons behind them.
+
+For a long time, I didn't think software could help with that.
+
+Software is very good at storing information.
+
+It's very good at searching information.
+
+But understanding is something we've always had to build ourselves.
+
+I think AI changes that.
 
 Not because it can generate code.
 
 That's useful, but it isn't what excites me.
 
-What's exciting is that AI can reason across large bodies of information.
-
-It can connect ideas.
+For the first time, we have technology that can help connect information.
 
 Highlight contradictions.
 
 Ask questions.
 
-Identify missing knowledge.
+Challenge assumptions.
 
-And help us build understanding instead of simply storing documents.
+And help us gradually build understanding from incomplete knowledge.
 
-For the first time, I think we have technology that can help architects understand architecture itself.
+That led me to a simple question.
+
+Could we build something that helps architects understand architecture in the same way that architects already do?
+
+Not by replacing architects.
+
+Not by replacing diagrams.
+
+But by helping us clear a little more of the fog.
 
 That's what Articulate is exploring.
 
-Not another diagramming tool or another documentation repository or another chatbot.
+It's an experiment.
 
-An attempt to build a living, evolving model of architectural knowledge that helps architects discover, understand, reason about and evolve complex systems.
+An exploration into whether AI can help us discover, understand, reason about and evolve complex software systems.
 
-Whether that's possible, I honestly don't know.
+I don't know whether that vision is achievable.
 
 That's why this is a journal.
 
-You'll see the successes.
+You'll see the ideas that work.
 
-The mistakes.
+The ones that don't.
 
 The architectural decisions.
 
-And probably a few dead ends along the way.
+The trade-offs.
 
-Because if we're going to rethink architecture for the age of AI, I think it's worth doing it in the open.
+The experiments.
 
-If you'd like to dive deeper into these ideas, every video has a full written episode on the Articulate website.
+And, inevitably, the mistakes.
 
-The written version goes into much more architectural depth than I can cover here, and you'll find a link in the video description.
+Because if AI is going to change the way we build software...
 
-Thanks for watching, and I'll see you in the next episode.
+I think it's worth exploring whether it can also change the way we understand it.
+
+Thanks for watching.
+
+I'll see you in the next episode.

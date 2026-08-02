@@ -4,7 +4,7 @@ This is the production working area for Episode 0001, "Why Articulate Exists".
 
 Written journal: [`docs/episodes/0001-why-articulate-exists.md`](../../../docs/episodes/0001-why-articulate-exists.md)
 
-Legacy spoken narrative: [`narration-script.md`](narration-script.md). This episode predates the `narrative.md` convention; render configurations mark the exception explicitly and do not fall back to the written journal.
+Approved spoken narrative: [`narrative.md`](narrative.md). The archived productions retain [`narration-script.md`](narration-script.md) as their explicit legacy source.
 
 Episode 0001 opens the Articulate series. The production treatment should therefore introduce the journal, the architectural problem and the role of AI-native exploration without overstating the maturity of the project.
 
@@ -20,10 +20,38 @@ Episode 0001 opens the Articulate series. The production treatment should theref
 - [`reviews/production-baseline-delta.md`](reviews/production-baseline-delta.md) — Episode 0001 Rough Cut 02 versus the published Episode 0000 production baseline
 - [`reviews/rough-cut-03.md`](reviews/rough-cut-03.md) — three-way editorial assessment of the baseline upgrade
 - [`reviews/rough-cut-04.md`](reviews/rough-cut-04.md) — targeted response to continuous-playback editorial feedback
+- [`reviews/presenter-refresh-v1.md`](reviews/presenter-refresh-v1.md) — Episode 0-style presenter refresh and publication validation evidence
 
 ## Production Position
 
-The episode is essay-like, but it still needs video because it establishes the series. The video should combine companion-led opening and closing, restrained title and section slides, visual storytelling, architectural sketches, repository or journal views, and carefully selected text fragments.
+The current production is a presenter-led architectural essay. Russell's continuous camera recording anchors key questions and conclusions; the dark Focus Canvas carries staged evidence and reasoning between presenter returns. Archived Companion cuts remain reproducible but are no longer the publication candidate.
+
+## Presenter Refresh v1
+
+The publication candidate reworks Episode 0001 through the presenter system established by Episode 0000. The 5:06 selected source window in `ep01-narrator.mov` supplies both picture and embedded audio without scene-local restarts. Thirteen topic-aligned scenes use the Visual Grammar v2 dark canvas, Episode 0000 presenter framing and soft-luminance edge treatment, with progressive disclosure throughout the diagram scenes.
+
+The embedded track is normalised during the final continuous mux to the declared EBU R128 profile: −16 LUFS integrated, 7 LU loudness range target and −1.5 dBTP ceiling. The master recording remains unchanged.
+
+Run from the repository root:
+
+```sh
+make assets-validate
+make episode-0001-presenter-prepare
+make episode-0001-presenter-analyse
+make episode-0001-presenter-render
+make episode-0001-presenter-review
+make episode-0001-thumbnail
+```
+
+Publication outputs:
+
+- video: `production/output/episode-0001.mp4`;
+- subtitles: `production/output/episode-0001.srt`;
+- thumbnail: `publication/thumbnail/episode-0001-thumbnail.png`;
+- manifests and validation: `generated/presenter-refresh-v1/`;
+- encoded-frame review package: `output/review/presenter-refresh-v1/`.
+
+The committed timing authority is `production/presenter-refresh-markers.json`; the render model is `production/presenter-refresh-config.json`; the narration-aligned editorial model is `scene-plan.yaml`.
 
 ## Rough Cut 01
 

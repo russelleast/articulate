@@ -1,0 +1,160 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0001",
+    "title": "Why Articulate Exists",
+    "written_source": "docs/episodes/0001-why-articulate-exists.md",
+    "narrative_source": "production/episodes/0001/narrative.md",
+    "scene_plan": "production/episodes/0001/scene-plan.yaml",
+    "production_status": "presenter-refresh-v1"
+  },
+  "timing": {
+    "authority": "continuous-presenter-media",
+    "media_duration_seconds": 306
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Why does Articulate exist?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N008"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 24.18
+    },
+    {
+      "id": "S002",
+      "title": "Everything appears to be there",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N009-N016"
+      ],
+      "start_seconds": 24.18,
+      "end_seconds": 50.4
+    },
+    {
+      "id": "S003",
+      "title": "The record is not the understanding",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N017-N023"
+      ],
+      "start_seconds": 50.4,
+      "end_seconds": 73.78
+    },
+    {
+      "id": "S004",
+      "title": "Understanding emerges from connection",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N024-N035"
+      ],
+      "start_seconds": 73.78,
+      "end_seconds": 101.12
+    },
+    {
+      "id": "S005",
+      "title": "Architects spend their time understanding",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N036-N043"
+      ],
+      "start_seconds": 101.12,
+      "end_seconds": 124.52
+    },
+    {
+      "id": "S006",
+      "title": "Architecture does not exist in one place",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N044-N052"
+      ],
+      "start_seconds": 124.52,
+      "end_seconds": 142.64
+    },
+    {
+      "id": "S007",
+      "title": "Understanding is a landscape in fog",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N053-N065"
+      ],
+      "start_seconds": 142.64,
+      "end_seconds": 175.96
+    },
+    {
+      "id": "S008",
+      "title": "What if documentation is not the problem?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N066-N072"
+      ],
+      "start_seconds": 175.96,
+      "end_seconds": 207.04
+    },
+    {
+      "id": "S009",
+      "title": "Architecture is current understanding",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N073-N077"
+      ],
+      "start_seconds": 207.04,
+      "end_seconds": 224.8
+    },
+    {
+      "id": "S010",
+      "title": "AI can help build understanding",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N078-N090"
+      ],
+      "start_seconds": 224.8,
+      "end_seconds": 256.84
+    },
+    {
+      "id": "S011",
+      "title": "Can we help architects understand architecture?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N091-N094"
+      ],
+      "start_seconds": 256.84,
+      "end_seconds": 275.08
+    },
+    {
+      "id": "S012",
+      "title": "Articulate is an experiment",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "N095-N098"
+      ],
+      "start_seconds": 275.08,
+      "end_seconds": 284.68
+    },
+    {
+      "id": "S013",
+      "title": "A journal of architectural learning",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N099-N109"
+      ],
+      "start_seconds": 284.68,
+      "end_seconds": 306
+    }
+  ]
+}
