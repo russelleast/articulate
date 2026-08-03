@@ -2,8 +2,10 @@
 episode: 15
 title: "Architectural Assurance"
 description: "An exploration of how Articulate can continuously evaluate architectural knowledge, capability intent and proposed change against principles, characteristics, maturity, target-state decisions and external obligations."
+published: 2026-08-03
+date: 2026-08-03
 season: 2
-status: draft
+status: current
 topics:
   - Architectural assurance
   - Capability assurance
@@ -16,7 +18,7 @@ topics:
   - Derived findings
   - Continuous architecture
 repository_paths:
-  - docs/episodes/0015-architectural-assurance.md
+  - docs/episodes/0015-derived-knowledge.md
 ---
 
 # Episode 15 – Architectural Assurance
