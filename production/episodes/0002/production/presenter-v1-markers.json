@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 358.823771,
+  "selectedDurationSeconds": 358.6,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 21.867,
+      "narrationReference": "Opening · Introduction"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 21.867,
+      "endSeconds": 44.133,
+      "narrationReference": "Incomplete Definitions · Introduction"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 44.133,
+      "endSeconds": 61.6,
+      "narrationReference": "The Real Objective · Introduction"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 61.6,
+      "endSeconds": 106.233,
+      "narrationReference": "Artefacts and Understanding · We've Been Modelling the Wrong Thing"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 106.233,
+      "endSeconds": 138.833,
+      "narrationReference": "Architecture Evolves · Architecture Is Always Evolving"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 138.833,
+      "endSeconds": 158.533,
+      "narrationReference": "Knowledge Comes First · Architecture Is Always Evolving"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 158.533,
+      "endSeconds": 179.933,
+      "narrationReference": "AI Works With Knowledge · Where AI Fits"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 179.933,
+      "endSeconds": 215.667,
+      "narrationReference": "Judgement Stays Human · Where AI Fits"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 215.667,
+      "endSeconds": 254.367,
+      "narrationReference": "Conversation as Interface · Conversation Changes Everything"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 254.367,
+      "endSeconds": 290.6,
+      "narrationReference": "The Joining Experience · The Vision"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 290.6,
+      "endSeconds": 312.367,
+      "narrationReference": "Architectural Intelligence · Architectural Intelligence"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 312.367,
+      "endSeconds": 331.8,
+      "narrationReference": "An Exploration · Architectural Intelligence"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 331.8,
+      "endSeconds": 358.6,
+      "narrationReference": "What Articulate Is · Looking Ahead"
+    }
+  ]
+}

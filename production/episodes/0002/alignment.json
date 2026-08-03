@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "narrativeSegments": [
+        "Introduction"
+      ],
+      "start": 0,
+      "end": 21.867,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "definitions",
+      "title": "Incomplete Definitions",
+      "narrativeSegments": [
+        "Introduction"
+      ],
+      "start": 21.867,
+      "end": 44.133,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 21.867s"
+    },
+    {
+      "id": "wrong-objective",
+      "title": "The Real Objective",
+      "narrativeSegments": [
+        "Introduction"
+      ],
+      "start": 44.133,
+      "end": 61.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 44.133s"
+    },
+    {
+      "id": "artefacts",
+      "title": "Artefacts and Understanding",
+      "narrativeSegments": [
+        "We've Been Modelling the Wrong Thing"
+      ],
+      "start": 61.6,
+      "end": 106.233,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 61.600s"
+    },
+    {
+      "id": "evolution",
+      "title": "Architecture Evolves",
+      "narrativeSegments": [
+        "Architecture Is Always Evolving"
+      ],
+      "start": 106.233,
+      "end": 138.833,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 106.233s"
+    },
+    {
+      "id": "knowledge-first",
+      "title": "Knowledge Comes First",
+      "narrativeSegments": [
+        "Architecture Is Always Evolving"
+      ],
+      "start": 138.833,
+      "end": 158.533,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 138.833s"
+    },
+    {
+      "id": "ai-capability",
+      "title": "AI Works With Knowledge",
+      "narrativeSegments": [
+        "Where AI Fits"
+      ],
+      "start": 158.533,
+      "end": 179.933,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 158.533s"
+    },
+    {
+      "id": "judgement",
+      "title": "Judgement Stays Human",
+      "narrativeSegments": [
+        "Where AI Fits"
+      ],
+      "start": 179.933,
+      "end": 215.667,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 179.933s"
+    },
+    {
+      "id": "conversation",
+      "title": "Conversation as Interface",
+      "narrativeSegments": [
+        "Conversation Changes Everything"
+      ],
+      "start": 215.667,
+      "end": 254.367,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 215.667s"
+    },
+    {
+      "id": "vision",
+      "title": "The Joining Experience",
+      "narrativeSegments": [
+        "The Vision"
+      ],
+      "start": 254.367,
+      "end": 290.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 254.367s"
+    },
+    {
+      "id": "architectural-intelligence",
+      "title": "Architectural Intelligence",
+      "narrativeSegments": [
+        "Architectural Intelligence"
+      ],
+      "start": 290.6,
+      "end": 312.367,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 290.600s"
+    },
+    {
+      "id": "reflection",
+      "title": "An Exploration",
+      "narrativeSegments": [
+        "Architectural Intelligence"
+      ],
+      "start": 312.367,
+      "end": 331.8,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 312.367s"
+    },
+    {
+      "id": "closing",
+      "title": "What Articulate Is",
+      "narrativeSegments": [
+        "Looking Ahead"
+      ],
+      "start": 331.8,
+      "end": 358.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 331.800s"
+    }
+  ]
+}

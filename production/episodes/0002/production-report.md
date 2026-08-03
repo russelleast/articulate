@@ -1,52 +1,47 @@
-# Episode 0002 Final Cut Production Report
+# Episode 0002 Presenter Production Report
 
-Production target: publication-ready final cut.
+## Result
 
-## Source and timing
+Episode 0002 was rebuilt as a 5:58.600 presenter-led architectural essay using the new direct-to-camera recording and the Visual Grammar v2 production system established by Episodes 0000 and 0001.
 
-- Narration: `production/episodes/0002/ep2-what-is-articulate.wav`
-- Logical asset: `episode-0002-narration-v1`
-- SHA-256: `4f6c0f30e45690df7314f3c9be257e79880c61356f219d14d3dc58fbea08edda`
-- Narration duration: 396.845782 seconds
-- Final container duration: 396.846009 seconds
-- Video: 1920×1080 H.264, 25 fps
-- Audio: continuous mono AAC derived from the unchanged 44.1 kHz mono PCM narration
+The episode progresses from incomplete definitions of Articulate, through the distinction between architectural artefacts and understanding, to evolving knowledge, accountable AI collaboration, conversation as an interface and the emerging idea of Architectural Intelligence.
 
-## Editorial structure
+## Visual decisions
 
-- Scene count: 17
-- Companion scenes: S001, S005, S008, S013, S015 and S017
-- Companion screen time: approximately 118.956 seconds
-- Lip sync: yes; the established deterministic audio-derived simplified-viseme pipeline is used in every Companion scene
-- Subtitles: `publication/subtitles/episode-0002-en.srt` (114 cues; not burned in)
+- Russell remains the human anchor in five scenes: the opening question, central reframing, judgement boundary, reflective uncertainty and closing definition.
+- Focus Canvas scenes use progressive disclosure only where the audience needs to accumulate concepts or questions.
+- Three reusable D2 diagrams carry the enduring semantic models: architectural artefacts connected by understanding, knowledge as the primary asset, and conversation as an interface to connected knowledge.
+- All D2 assets use the presenter-era dark canvas and video-dark SVG profile. A first-pass pale legacy diagram surface was rejected during encoded-frame review and corrected before delivery.
+- The thumbnail uses **Architectural Intelligence** because it is the episode's most distinctive and legible idea; a small artefacts-to-understanding sequence preserves the episode's core transition.
 
-## Validation
+## Narration and captions
 
-- Full narration coverage with zero scene gaps and zero overlaps: passed
-- Narration checksum and duration: passed
-- Asset resolution and placeholder count: passed; zero placeholders
-- Layout/text overflow validation: passed
-- Lip-sync timeline and source-offset validation: passed
-- Subtitle full-timeline coverage and 42-character line limit: passed
-- Shared runtime tests: 33/33 passed
-- Asset registry validation: passed
-- Media probe: 1920×1080, 25 fps, H.264/AAC; passed
-- Visual review: complete temporal contact sheet and representative scene-state sheets reviewed; final S009 source treatment and YouTube thumbnail reviewed at full, 320 px and 160 px sizes
+The source recording contains one clean take with no false starts or teleprompter resets. The selected window retains 00:00.000–05:58.600 and removes only unused trailing room tone. Embedded mono audio remains continuous across every visual cut.
 
-## Artefacts
+Captions are derived from the reviewed recording rather than copied from `narrative.md`. Spoken variations such as “over the recent year”, “payment system” and “complex systems” are preserved. Obvious speech-recognition errors were corrected, terminology was standardised and long Whisper segments were reflowed into balanced punctuation-aware cues.
 
-- Final cut: `output/episode-0002-final-cut.mp4`
-- YouTube thumbnail: `publication/thumbnail/episode-0002-thumbnail.png`
-- English subtitles: `publication/subtitles/episode-0002-en.srt`
-- Storyboard: `storyboard.md`
-- Scene manifest: `scene-list.yaml`
-- Render manifest and provenance: `generated/rough-cut-01/`
-- Contact sheet: `output/review/rough-cut-01/contact-sheet.png`
-- Temporal contact sheet: `output/review/rough-cut-01/temporal-contact-sheet.png`
-- Review frames: `output/review/rough-cut-01/frames/`
-- Media report: `output/review/rough-cut-01/media-report.json`
-- Editorial review: `reviews/rough-cut-01.md`
+## Verification
 
-## Publication status
+- output: 1920×1080, H.264, 30 fps
+- duration: 358.600 seconds
+- audio: AAC mono, 48 kHz, duration aligned exactly with video
+- integrated programme loudness: −16.3 LUFS
+- measured loudness range: 4.2 LU
+- true peak: −1.3 dBFS
+- scene boundaries: contiguous integer frames, no gaps or overlaps
+- runtime tests: 76 passed
+- subtitles: no overlaps, maximum two lines, maximum 42 characters per line
+- review: timeline-state contact sheet and 5-second encoded temporal contact sheet generated
 
-Final editorial notes are incorporated. The video, external English subtitle file and YouTube thumbnail are ready for publication.
+## Reproduction
+
+```sh
+make episode-runtime-test
+make episode-0002-presenter-prepare
+make episode-0002-presenter-validate
+make episode-0002-presenter-render
+make episode-0002-presenter-review
+make episode-0002-thumbnail
+```
+
+Generated render intermediates, validation manifests and review frames remain outside Git under `generated/presenter-v1/` and `output/review/presenter-v1/`. The final video and convenient matching SRT are in `output/`; the publication SRT and thumbnail remain committed production artefacts.

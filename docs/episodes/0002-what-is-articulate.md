@@ -22,7 +22,7 @@ repository_paths:
   - docs/episodes/0002-what-is-articulate.md
 featured: false
 thumbnail: /media/episodes/0002/episode-0002-thumbnail.png
-youtube_url: https://youtu.be/sZ4VwMCKIlA
+youtube_url: https://youtu.be/58jjv0g6Ojo
 ---
 
 # Episode 0002 – What is Articulate?

@@ -47,6 +47,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0002-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0002",
+      "status": "approved-recording",
+      "checksum": "sha256:5ccdca1c47c2aeccd1aacd61fa1fe42696a2347bea08c6b2fe8d0d912a42c9c0",
+      "location": "production/episodes/0002/ep02-narrator.mov",
+      "provider": "local"
+    },
+    {
       "id": "episode-0000-baseline-narration-v1",
       "type": "narration-extract",
       "episode": "0000",
@@ -107,15 +116,6 @@
       "status": "approved",
       "checksum": "sha256:61cebeeba07b42285a3b130a9484f1452e8163ee0ebee92e2f2bdf32fa9207fa",
       "location": "production/narrator/Articulate-Ep1.wav",
-      "provider": "local"
-    },
-    {
-      "id": "episode-0002-narration-v1",
-      "type": "narration",
-      "episode": "0002",
-      "status": "approved",
-      "checksum": "sha256:4f6c0f30e45690df7314f3c9be257e79880c61356f219d14d3dc58fbea08edda",
-      "location": "production/episodes/0002/ep2-what-is-articulate.wav",
       "provider": "local"
     },
     {
@@ -288,6 +288,39 @@
       "checksum": null,
       "source": "production/diagrams/sources/reasoning/knowledge-reasoning-flow.d2",
       "location": "site/public/diagrams/knowledge-reasoning-flow.svg",
+      "provider": "local"
+    },
+    {
+      "id": "architectural-understanding",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/knowledge/architectural-understanding.d2",
+      "location": "site/public/diagrams/architectural-understanding.svg",
+      "provider": "local"
+    },
+    {
+      "id": "knowledge-as-primary-asset",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/knowledge/knowledge-as-primary-asset.d2",
+      "location": "site/public/diagrams/knowledge-as-primary-asset.svg",
+      "provider": "local"
+    },
+    {
+      "id": "conversation-knowledge-interface",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/knowledge/conversation-knowledge-interface.d2",
+      "location": "site/public/diagrams/conversation-knowledge-interface.svg",
       "provider": "local"
     },
     {

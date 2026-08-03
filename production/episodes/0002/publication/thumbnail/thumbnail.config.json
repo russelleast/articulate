@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0002",
+    "eyebrow": "WHAT IS ARTICULATE?",
+    "headline": ["ARCHITECTURAL", "INTELLIGENCE"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep02-narrator.mov",
+    "frameTimestampSeconds": 317,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}
