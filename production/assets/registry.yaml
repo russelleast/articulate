@@ -119,23 +119,56 @@
       "provider": "local"
     },
     {
-      "id": "episode-0003-narration-v1",
-      "type": "narration",
+      "id": "episode-0003-presenter-v2",
+      "type": "presenter-video",
       "episode": "0003",
-      "status": "approved",
-      "checksum": "sha256:13b91ef29b72ed6d0896ee2745888812600ec78e5498683dd9d937b51f94787c",
-      "location": "production/episodes/0003/audio/ep3-what-is-ai-native.wav",
+      "status": "approved-refresh-recording",
+      "checksum": "sha256:e7219c6cbee8f94e9d682288c2ca4b15c129f36a05ca63e2b304c11d72112136",
+      "location": "production/episodes/0003/ep3-narrator.mov",
       "provider": "local"
     },
     {
-      "id": "episode-0003-agent-capability",
+      "id": "episode-0003-problem-to-technology",
       "type": "diagram",
       "format": "d2",
       "episode": "0003",
       "status": "generated",
       "checksum": null,
-      "source": "production/episodes/0003/agent.d2",
-      "location": "site/public/diagrams/episode-0003-agent-capability.svg",
+      "source": "production/diagrams/sources/episodes/0003/problem-to-technology.d2",
+      "location": "site/public/diagrams/episode-0003-problem-to-technology.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0003-deterministic-or-intelligent",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0003",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0003/deterministic-or-intelligent.d2",
+      "location": "site/public/diagrams/episode-0003-deterministic-or-intelligent.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0003-intelligent-responsibilities",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0003",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0003/intelligent-responsibilities.d2",
+      "location": "site/public/diagrams/episode-0003-intelligent-responsibilities.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0003-intelligence-runtime-capability",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0003",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0003/intelligence-runtime-capability.d2",
+      "location": "site/public/diagrams/episode-0003-intelligence-runtime-capability.svg",
       "provider": "local"
     },
     {

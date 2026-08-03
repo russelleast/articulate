@@ -1,140 +1,147 @@
-episode:
-  id: "0003"
-  title: "Why AI-Native Systems?"
-  journal_source: "docs/episodes/0003-why-ai-native-systems.md"
-  narrative_source: "production/episodes/0003/narrative.md"
-  production_status: "rough-cut-01"
-scenes:
-  - scene_id: "S001"
-    title: "Why AI-Native Systems?"
-    narration_reference: "N001-N004"
-    visual_type: "opening title"
-    companion_mode: "opening"
-    assets: ["A001", "A002"]
-    status: "ready for review"
-  - scene_id: "S002"
-    title: "A real product creates a real question"
-    narration_reference: "N005-N010"
-    visual_type: "repository evidence"
-    companion_mode: "none"
-    assets: ["A003"]
-    status: "ready for review"
-  - scene_id: "S003"
-    title: "A working definition"
-    narration_reference: "N011-N019"
-    visual_type: "reflection"
-    companion_mode: "none"
-    assets: ["A004"]
-    status: "ready for review"
-  - scene_id: "S004"
-    title: "AI-powered leaves the architecture intact"
-    narration_reference: "N020-N030"
-    visual_type: "whiteboard"
-    companion_mode: "none"
-    assets: ["A005"]
-    status: "ready for review"
-  - scene_id: "S005"
-    title: "Built around intelligence"
-    narration_reference: "N031-N044"
-    visual_type: "progressive whiteboard"
-    companion_mode: "none"
-    assets: ["A006"]
-    status: "ready for review"
-  - scene_id: "S006"
-    title: "A new set of runtime concerns"
-    narration_reference: "N045-N061"
-    visual_type: "capability diagram"
-    companion_mode: "none"
-    assets: ["A007"]
-    status: "ready for review"
-  - scene_id: "S007"
-    title: "Intelligence becomes infrastructure"
-    narration_reference: "N062-N071"
-    visual_type: "progressive diagram"
-    companion_mode: "none"
-    assets: ["A008"]
-    status: "ready for review"
-  - scene_id: "S008"
-    title: "Architecture and pattern"
-    narration_reference: "N072-N075"
-    visual_type: "transition"
-    companion_mode: "transition"
-    assets: ["A002", "A009"]
-    status: "ready for review"
-  - scene_id: "S009"
-    title: "Agent capability path"
-    narration_reference: "N076-N079"
-    visual_type: "progressive diagram"
-    companion_mode: "none"
-    assets: ["A010"]
-    status: "ready for review"
-  - scene_id: "S010"
-    title: "Agent capability loop"
-    narration_reference: "N080-N081"
-    visual_type: "D2 diagram"
-    companion_mode: "none"
-    assets: ["A011"]
-    status: "ready for review"
-  - scene_id: "S011"
-    title: "A useful pattern, not the definition"
-    narration_reference: "N082-N086"
-    visual_type: "agent decision path"
-    companion_mode: "none"
-    assets: ["A012"]
-    status: "ready for review"
-  - scene_id: "S012"
-    title: "Why Articulate is AI-native"
-    narration_reference: "N087-N100"
-    visual_type: "capability map"
-    companion_mode: "none"
-    assets: ["A013"]
-    status: "ready for review"
-  - scene_id: "S013"
-    title: "Conversation is part of the runtime"
-    narration_reference: "N101-N111"
-    visual_type: "progressive diagram"
-    companion_mode: "none"
-    assets: ["A014"]
-    status: "ready for review"
-  - scene_id: "S014"
-    title: "Architectural principles"
-    narration_reference: "N112-N120"
-    visual_type: "principles map"
-    companion_mode: "none"
-    assets: ["A015"]
-    status: "ready for review"
-  - scene_id: "S015"
-    title: "Technology decisions come later"
-    narration_reference: "N121-N130"
-    visual_type: "repository evidence"
-    companion_mode: "none"
-    assets: ["A016"]
-    status: "ready for review"
-  - scene_id: "S016"
-    title: "Questions for the runtime"
-    narration_reference: "N131-N141"
-    visual_type: "reflection"
-    companion_mode: "none"
-    assets: ["A017"]
-    status: "ready for review"
-  - scene_id: "S017"
-    title: "Looking Ahead"
-    narration_reference: "N142-N145"
-    visual_type: "recap"
-    companion_mode: "reflection"
-    assets: ["A002", "A018"]
-    status: "ready for review"
-  - scene_id: "S018"
-    title: "The removal test"
-    narration_reference: "N146-N149"
-    visual_type: "architectural comparison"
-    companion_mode: "none"
-    assets: ["A019"]
-    status: "ready for review"
-  - scene_id: "S019"
-    title: "The next architectural question"
-    narration_reference: "N150-N153"
-    visual_type: "closing title"
-    companion_mode: "closing"
-    assets: ["A002", "A020"]
-    status: "ready for review"
+{
+  "episode": {
+    "id": "episode-0003",
+    "title": "Why AI-Native Systems?",
+    "production_status": "presenter-v2",
+    "timing_authority": "episode-0003-presenter-v2",
+    "narration_duration_seconds": 456.333333
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 8.72,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 8.72,
+      "end_seconds": 40.48,
+      "visual_type": "Repository",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 40.48,
+      "end_seconds": 65.44,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 65.44,
+      "end_seconds": 90,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0003-problem-to-technology"
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 90,
+      "end_seconds": 103.12,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 103.12,
+      "end_seconds": 138.96,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0003-deterministic-or-intelligent"
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 138.96,
+      "end_seconds": 160.16,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 160.16,
+      "end_seconds": 200.16,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0003-intelligent-responsibilities"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 200.16,
+      "end_seconds": 218,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 218,
+      "end_seconds": 241.44,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 241.44,
+      "end_seconds": 278.24,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 278.24,
+      "end_seconds": 317.12,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0003-intelligence-runtime-capability"
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 317.12,
+      "end_seconds": 342.96,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 342.96,
+      "end_seconds": 365.04,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 365.04,
+      "end_seconds": 411.6,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 411.6,
+      "end_seconds": 444.16,
+      "visual_type": "Reflection",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S017",
+      "start_seconds": 444.16,
+      "end_seconds": 456.333,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible-soft-luma",
+      "diagram_asset": null
+    }
+  ]
+}

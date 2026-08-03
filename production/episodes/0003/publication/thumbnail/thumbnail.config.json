@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0003",
+    "eyebrow": "WHY AI-NATIVE SYSTEMS?",
+    "headline": ["AI-NATIVE", "HYPOTHESIS"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep3-narrator.mov",
+    "frameTimestampSeconds": 420,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}

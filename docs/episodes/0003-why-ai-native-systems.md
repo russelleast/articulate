@@ -21,8 +21,8 @@ related_experiments: []
 repository_paths:
   - docs/episodes/0003-why-ai-native-systems.md
 featured: false
-thumbnail: /media/episodes/0003/episode-0003-thumbnail.png
-youtube_url: https://youtu.be/_ewKC3dZNbY
+thumbnail: /media/episodes/0003/episode-0003-thumbnail-v2.png
+youtube_url: https://youtu.be/1V6ziCqZ4tw
 ---
 
 # Episode 3 – Why AI-Native Systems?

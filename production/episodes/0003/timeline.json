@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "authority": "recorded-presenter",
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 8.72,
+      "narrationReference": "Opening · Introduction"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 8.72,
+      "endSeconds": 40.48,
+      "narrationReference": "Earlier Experiments · Introduction"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 40.48,
+      "endSeconds": 65.44,
+      "narrationReference": "An Emerging Question · Introduction"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 65.44,
+      "endSeconds": 90,
+      "narrationReference": "Start With the Problem · Starting With the Problem"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 90,
+      "endSeconds": 103.12,
+      "narrationReference": "The Articulate Problem · Starting With the Problem"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 103.12,
+      "endSeconds": 138.96,
+      "narrationReference": "Two Architectural Approaches · An Unexpected Pattern"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 138.96,
+      "endSeconds": 160.16,
+      "narrationReference": "The Pattern Repeats · An Unexpected Pattern"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 160.16,
+      "endSeconds": 200.16,
+      "narrationReference": "Architectural Responsibilities · When AI Stops Being a Feature"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 200.16,
+      "endSeconds": 218,
+      "narrationReference": "Greater Architectural Significance · When AI Stops Being a Feature"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 218,
+      "endSeconds": 241.44,
+      "narrationReference": "AI-Powered Is Often Right · AI-Powered Versus AI-Native"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 241.44,
+      "endSeconds": 278.24,
+      "narrationReference": "Architectural Significance · AI-Powered Versus AI-Native"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 278.24,
+      "endSeconds": 317.12,
+      "narrationReference": "Intelligence in the Runtime · Intelligence as a Runtime Capability"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 317.12,
+      "endSeconds": 342.96,
+      "narrationReference": "Agents Are Related, Not Equivalent · What About Agents?"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 342.96,
+      "endSeconds": 365.04,
+      "narrationReference": "Architecture Before Pattern · What About Agents?"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 365.04,
+      "endSeconds": 411.6,
+      "narrationReference": "Choose the Appropriate Approach · Why This Matters for Articulate"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 411.6,
+      "endSeconds": 444.16,
+      "narrationReference": "Questions the Journal Must Test · Looking Ahead"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 444.16,
+      "endSeconds": 456.333,
+      "narrationReference": "A Hypothesis, Not a Conclusion · Looking Ahead"
+    }
+  ]
+}

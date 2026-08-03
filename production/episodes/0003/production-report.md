@@ -1,62 +1,60 @@
-# Episode 0003 Rough Cut 01 Production Report
+# Episode 0003 production report
 
-Production target: editorially coherent first rough cut.
+## Result
 
-## Source and timing
+The presenter-v2 production completed successfully using `ep3-narrator.mov` as one continuous picture and embedded-audio source. The selected programme window is 456.333 seconds (13,690 frames at 30 fps).
 
-- Narration: `production/episodes/0003/audio/ep3-what-is-ai-native.wav`
-- Logical asset: `episode-0003-narration-v1`
-- SHA-256: `13b91ef29b72ed6d0896ee2745888812600ec78e5498683dd9d937b51f94787c`
-- Authoritative narration duration: 716.762540 seconds
-- Rendered container duration: 716.761995 seconds
-- Video: 1920×1080 H.264, 25 fps, 17,919 frames
-- Audio: continuous mono AAC derived from the unchanged 44.1 kHz mono PCM narration
+## Visual structure
 
-## Requested production metrics
+The episode uses 17 scenes. Presenter-led passages open the episode, interpret the prior experiments, restate the Articulate problem, qualify AI-powered systems, distinguish agents from architecture, preserve deterministic choices and close on the hypothesis. Full-screen Repository, Diagram and Focus Canvas scenes carry ideas that need visual space. The final question canvas deliberately becomes quieter before returning to the presenter.
 
-1. Total duration: 11:56.763.
-2. Scene count: 19.
-3. Companion screen time: 100.334540 seconds, or 13.998%.
-4. Diagrams rendered: one episode-owned D2 source rendered to SVG (`episode-0003-agent-capability`), with eight diagram-led scenes in the cut. The narrated agent capability construction progressively reveals Goal, Plan, Retrieve information, Use tools, Delegate work, Collaborate, Reflect, Maintain memory and Feedback before handing off to the completed D2 diagram.
-5. Storyboard adjustments: replaced the empty planning scaffold with a recorded-audio-authoritative storyboard covering all 153 narrative segments; introduced a completed-diagram hold after the progressive agent path; concentrated Companion use in four editorial beats; separated Looking Ahead into recap, removal test and closing question; incorporated the editorial review timestamps as exact global scene boundaries and reveal cues.
-6. Editorial improvements: converted narration lists into progressive diagrams; used repository evidence for the architectural journal and technology-decision sequence; removed the Companion from diagram-heavy explanations; replaced the balance-scale treatment in S011 with a problem-shaped agent decision path; placed Workflow beneath Decisions in S013; replaced the initial inherited balance metaphor in S018 with a direct four-state removal test.
-7. Remaining observations before Final Cut: confirm scene boundaries against a normal-speed listening pass; perform word-level subtitle alignment if publication-grade cue precision is required; review the D2 default-theme treatment against the wider Articulate palette; consider whether S003 needs one additional camera/emphasis beat during its longest reflective hold.
+The progression is gradual:
+
+```text
+Earlier experiments
+  → repeated architectural alternative
+  → recurring intelligent capabilities
+  → architectural responsibilities
+  → intelligence beside established runtime capabilities
+  → AI-native as a hypothesis
+```
+
+## New reusable diagrams
+
+- `problem-to-technology.d2`
+- `deterministic-or-intelligent.d2`
+- `intelligent-responsibilities.d2`
+- `intelligence-runtime-capability.d2`
+
+Each source is registered globally, rendered to `site/public/diagrams/` and normalised through the existing video-dark diagram publication profile.
+
+## Material retained
+
+Only the Episode 3 identity and topic were retained. The new `narrative.md` and `ep3-narrator.mov` are authoritative. Former Companion timelines, timing markers, narration assumptions, agent-capability scene structure and thumbnail production were not reused.
 
 ## Validation
 
-- Complete narration coverage with zero scene gaps and zero overlaps: passed.
-- Narrative storyboard coverage: 153/153 segments across 19 scenes.
-- Narration checksum and duration: passed.
-- Asset resolution and placeholder count: passed; zero placeholders.
-- D2 render and logical asset resolution: passed.
-- Agent capability order, progressive reveal order and non-crossing layout: passed.
-- Editorial review timing assertions: passed for every supplied global timestamp.
-- Conversation Workflow-under-Decisions layout: passed.
-- Agent-usage decision-path treatment: passed.
-- Layout and text overflow validation: passed.
-- Companion lip-sync timeline and source-offset validation: passed for all four Companion scenes.
-- Subtitle full-timeline coverage and 42-character line limit: passed.
-- Shared runtime tests: 48/48 passed.
-- Asset registry validation: passed for 25 assets.
-- Media probe: 1920×1080, 25 fps, H.264/AAC; passed.
-- Visual review: complete temporal contact sheet and all 19 scene-state sheets reviewed.
+- All 76 production runtime tests passed.
+- Declarative episode validation passed with 17 scenes and no gaps or overlaps.
+- Final media is 1920×1080, 30 fps, H.264 with 48 kHz mono AAC audio.
+- Video and audio durations differ by less than one frame.
+- Integrated loudness validation passed at the Episode 0002-aligned -16 LUFS target.
+- The complete 13,690-frame output decoded without errors and produced no black-run or silence-run warnings.
+- Captions contain corrected Articulate, AI-native and LLM terminology, stay within two 42-character lines and contain no stale former Episode 3 copy.
+- Review contact sheets confirm presenter edge integration, dark canvas treatment, typography, transitions and diagram legibility at 1080p.
+- The final scene explicitly states that AI-native architecture is the hypothesis the journal will test.
 
-## Standard outputs
+## Compromises and limitations
 
-- Rough cut: `output/episode-0003-rough-cut-01.mp4`
-- English subtitles: `publication/subtitles/episode-0003-en.srt`
-- Transcript: `publication/subtitles/episode-0003-transcript.txt`
-- Storyboard: `storyboard.yaml`
-- Operational scene list: `scene-list.yaml`
-- Asset register: `asset-register.yaml`
-- Render manifest and provenance: `generated/rough-cut-01/`
-- Contact sheet: `output/review/rough-cut-01/contact-sheet.png`
-- Temporal contact sheet: `output/review/rough-cut-01/temporal-contact-sheet.png`
-- Review frames: `output/review/rough-cut-01/frames/`
-- Scene contact sheets: `output/review/rough-cut-01/scene-contact-sheets/`
-- Media report: `output/review/rough-cut-01/media-report.json`
-- Editorial review: `reviews/rough-cut-01.md`
+The captions use Whisper segment timing with word timing interpolated inside each segment; they are faithful to the delivered speech but are not phoneme-level forced alignment. The early proof-of-concepts are represented as restrained repository evidence because the supplied brief did not identify canonical screenshots or artefacts suitable for publication. Repository-wide diagram validation remains unavailable because PlantUML is not installed; this does not affect the four Episode 3 D2 sources, which all rendered and passed episode-level review.
 
-## Status
+## Outputs
 
-Rough Cut 01 is complete and ready for human editorial review. It is not a publication candidate.
+- Final video: `production/episodes/0003/output/episode-0003-final.mp4`
+- Final subtitles: `production/episodes/0003/output/episode-0003-final.srt`
+- Publication subtitles: `production/episodes/0003/publication/subtitles/episode-0003-en.srt`
+- YouTube thumbnail: `production/episodes/0003/publication/thumbnail/episode-0003-thumbnail.png`
+- Thumbnail contact sheet: `production/episodes/0003/publication/thumbnail/episode-0003-thumbnail-contact-sheet.png`
+- Review contact sheet: `production/episodes/0003/output/review/presenter-v2/contact-sheet.png`
+- Temporal review: `production/episodes/0003/output/review/presenter-v2/temporal-contact-sheet.png`
+- Validation report: `production/episodes/0003/generated/presenter-v2/presenter-v2-validation-report.json`

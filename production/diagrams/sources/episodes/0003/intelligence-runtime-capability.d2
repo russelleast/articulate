@@ -1,0 +1,34 @@
+...@../../../styles/articulate
+direction: down
+
+runtime: {
+  label: "Runtime capabilities"
+  direction: right
+  persistence: "Persistence" {class: service}
+  messaging: "Messaging" {class: service}
+  security: "Security" {class: service}
+  reliability: "Reliability" {class: service}
+  observability: "Observability" {class: service}
+  intelligence: "Intelligence" {class: emphasis}
+}
+
+intelligence: {
+  label: "Intelligence capability"
+  direction: right
+  intent: "Intent" {class: capability}
+  context: "Context" {class: capability}
+  knowledge: "Knowledge" {class: capability}
+  reasoning: "Reasoning" {class: capability}
+  tools: "Tools" {class: capability}
+  evaluation: "Evaluation" {class: capability}
+  humans: "Human collaboration" {class: human}
+}
+
+runtime.intelligence -> intelligence.intent
+runtime.intelligence -> intelligence.context
+runtime.intelligence -> intelligence.knowledge
+runtime.intelligence -> intelligence.reasoning
+runtime.intelligence -> intelligence.tools
+runtime.intelligence -> intelligence.evaluation
+runtime.intelligence -> intelligence.humans
+
