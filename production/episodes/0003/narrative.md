@@ -1,312 +1,260 @@
 # Episode 3 – Why AI-Native Systems?
 
-## Introduction
+# Introduction
 
-Welcome back to the Articulate Journal.
+Hello, Welcome to episode 3 of the articulate journey
 
-In the previous episode, I introduced Articulate: a product intended to help architects discover, understand, design and evolve complex systems through collaboration with AI.
+Before starting this journal, I'd already built a couple of proof-of-concepts.
 
-I also introduced the journal surrounding it.
+They explored different ideas.
 
-The journal makes the architectural thinking visible: the problems being explored, the principles guiding the design, the decisions being made, and the implementation that emerges from them.
+One experimented with conversational interfaces.
 
-But Articulate itself is not intended to be a temporary proof of concept.
+Another looked at architectural discovery.
 
-The aim is to build a real product.
+Others explored RAG, Knowledge graphs and speech services
 
-The architecture will evolve, and some decisions will change, but the software is being built with long-term use, maintainability and evolution in mind.
+None of them became the system you'll see throughout this journal.
 
-That creates an important question.
+But they were valuable because they taught me something.
 
-Why should a product like Articulate be designed as an AI-native system rather than as a conventional application with AI features added to it?
+Every prototype answered a few questions and raised even more.
 
-Before exploring the architecture in more detail, I want to explain what I currently mean by AI-native, how it differs from AI-powered, and why that distinction shapes the system I am building.
+This journal begins after those early experiments.
 
-Because AI-native is one of those terms that is being used more and more, but it doesn't necessarily mean the same thing to everyone.
+It isn't starting from a blank sheet of paper.
 
-Terms like AI-native, agentic systems, AI agents, multi-agent system, and even reasoning models are still evolving. Different organisations, vendors and researchers use them in slightly different ways, and I fully expect the language to continue changing as the technology matures.
+It's starting from a collection of ideas, observations and architectural questions that I now want to explore properly.
 
-So what I'm describing here isn't intended to be the definitive definition of AI-native architecture.
+One of the biggest questions to emerge from those experiments was this:
 
-It's my current understanding with the research I've been doing.
+**Am I building software that happens to use AI, or am I building something fundamentally different?**
 
-And that distinction is important for this journal.
+I don't think I have the complete answer yet.
 
-Some of the ideas I describe today will almost certainly be refined later. Some might be challenged. Some may eventually be replaced completely.
+But I do think it's worth exploring.
 
-I don't see that as a problem.
+---
 
-I see it as part of the process of learning how to architect systems around a technology that is itself still evolving.
+# Starting With the Problem
 
-So, with that context, what do I actually mean by an AI-native system?
+One principle you'll hear repeatedly throughout this journal is that I try to begin with the problem rather than the technology.
 
-Over the last few years, lots of software products seems to have become AI-powered.
+I don't start by asking:
 
-And in many cases, what that really means is that an existing application has had an LLM added to it.
+*"Should I use agents?"*
 
-Perhaps there's now a chatbot.
+*"Should I use this framework?"*
 
-Perhaps a feature generates some text.
+*"Which model should I call?"*
 
-Or perhaps the application sends a prompt to a model, receives a response, and displays the result.
+Instead, I ask:
 
-There's nothing inherently wrong with that.
+*"What problem am I actually trying to solve?"*
 
-But architecturally, the application is still fundamentally the same system.
+The technologies come later.
 
-If you removed the AI capability, most of the architecture would remain intact.
+When I began designing Articulate, I wasn't trying to build an AI-native platform.
 
-That isn't the approach I'm taking with Articulate.
+I was trying to build something that could help architects discover, understand and reason about architecture.
 
-Articulate is being designed as an AI-native system (AI first).
+That problem led me down some interesting paths.
 
-The distinction is relatively simple.
+---
 
-An AI-powered system uses AI.
+# An Unexpected Pattern
 
-An AI-native system is built around it.
+As I explored different approaches, I kept finding myself facing the same architectural decision.
 
-In an AI-native system, intelligence participates in the runtime itself.
+I could build another deterministic workflow.
 
-It isn't simply waiting for somebody to send it a prompt.
+Or I could allow a language model to tackle the problem instead.
 
-It might be helping to understand intent.
+At first, those decisions seemed isolated.
 
-Building and maintaining context.
+A language model could interpret unstructured information more naturally than code.
 
-Retrieving relevant knowledge.
+It could ask follow-up questions instead of forcing users through a rigid sequence of screens.
 
-Reasoning about a problem.
+It could reason across incomplete information instead of expecting every input to fit a predefined structure.
 
-Deciding what should happen next.
+In those situations, using an LLM wasn't simply more interesting.
 
-Invoking tools.
+It often felt like the better architectural choice.
 
-Coordinating work.
+The surprising part was that this kept happening.
 
-Evaluating the confidence it has in a result.
+Not once.
 
-And, importantly, knowing when a human needs to be involved.
+Not twice.
 
-That changes the architecture of the system.
+But across completely different parts of the system.
 
-Traditional applications are often designed around things like CRUD operations, APIs, transactions and deterministic workflows.
+---
 
-We know the inputs.
+# When AI Stops Being a Feature
 
-We define the process.
+As more of those decisions accumulated, I noticed something else changing.
 
-And, generally, we expect a predictable output.
+I was no longer thinking about AI as another integration.
 
-AI-native systems introduce a different set of architectural concerns.
+Instead, I found myself thinking about questions that architects don't normally ask.
 
-Now we have to think about context.
+How should prompts be versioned?
 
-Memory.
+How do I replace one model with another without affecting the rest of the architecture?
 
-Knowledge.
+How do I know whether a newer model is actually producing better outcomes?
 
-Reasoning.
+How do I detect when behaviour starts to drift?
 
-Orchestration.
+How should intelligent behaviour be evaluated?
 
-Conversation.
+How should I observe and govern reasoning in production?
 
-And uncertainty.
+These weren't implementation details.
 
-That doesn't mean the traditional concerns disappear.
+They were architectural concerns.
 
-We still need APIs and databases.
+That was an important shift.
 
-We still need transactions, messaging, security, observability and all of the other things that make production systems work.
+I wasn't yet concluding that Articulate was AI-native.
 
-But intelligence becomes another fundamental part of the runtime.
+But I was beginning to suspect that intelligence deserved much greater architectural significance than I'd originally expected.
 
-And I think that's one of the most important architectural shifts taking place.
+This journal is, in many ways, an exploration of that idea.
 
-As systems became distributed, we added messaging, networking and distributed coordination.
+---
 
-Cloud computing introduced another generation of runtime capabilities.
+# AI-Powered Versus AI-Native
 
-AI-native systems introduce something else.
+Over the past few years almost every product has become *AI-powered*.
 
-Intelligence itself starts to become infrastructure.
+Usually that means an existing application has been enhanced with a language model.
 
-Instead of every part of the application making isolated calls to an LLM, the system begins to need shared capabilities for reasoning, memory, semantic retrieval, tool invocation, evaluation and orchestration.
+There's nothing wrong with that.
 
-And once those capabilities become part of the runtime, we have to architect them deliberately.
+In many cases it's exactly the right architectural decision.
 
-We have to think about how they're governed.
+The application remains fundamentally the same.
 
-How they're observed, how they fail.
+AI simply makes one part of it better.
 
-How state is maintained and how decisions are explained.
+But I'm increasingly interested in a different question.
 
-And how humans remain involved when the system cannot, or should not, act independently.
+What happens when intelligence is no longer just another feature?
 
-This is also where agentic systems enter the conversation.
+What happens when it starts influencing the architecture itself?
 
-The terms AI-native and agentic are sometimes used almost interchangeably, but I don't think they're the same thing.
+That's the distinction I currently make.
 
-I see AI-native as an architectural philosophy.
+An AI-powered application **uses** AI.
 
-Agentic systems are one possible pattern for organising intelligence within that architecture.
+An AI-native application is **designed around** intelligence as one of its architectural capabilities.
 
-An agent might have a goal.
+Whether Articulate truly deserves that label is something I expect this journal to test rather than simply assume.
 
-It might plan how to achieve that goal.
+---
 
-It might retrieve information, use tools, delegate work, collaborate with other agents, reflect on its own results, and maintain some form of memory.
+# Intelligence as a Runtime Capability
 
-Those are useful capabilities.
+If intelligence is becoming architecturally significant, then it begins to introduce capabilities that traditional software rarely considers.
 
-But adding an agent to an existing application doesn't automatically make that application AI-native.
+The runtime may need to:
 
-And an AI-native system doesn't necessarily need to consist of dozens of autonomous agents talking to each other.
+- Understand intent.
+- Build and maintain context.
+- Retrieve relevant knowledge.
+- Reason across incomplete information.
+- Plan work.
+- Invoke tools.
+- Evaluate confidence.
+- Collaborate with people.
 
-That's something I want to be careful about as Articulate evolves.
+Those capabilities don't replace traditional software engineering.
 
-The goal isn't to add agents everywhere simply because agents are interesting.
+The system still needs APIs.
 
-The architecture should use agentic behaviour where that behaviour genuinely helps solve the problem.
+Persistence.
 
-Agents are one architectural pattern available to an AI-native system.
+Security.
 
-They aren't the definition of one.
+Messaging.
 
-So why does Articulate need to be AI-native?
+Reliability.
 
-Because the problem I'm trying to explore isn't simply how to generate architecture documents using an LLM.
+Observability.
 
-AI needs to participate throughout the architectural process.
+The difference is that intelligence begins to sit alongside those capabilities rather than on top of them.
 
-Articulate needs to understand architectural intent.
+That's a very different way of thinking about architecture.
 
-It needs to conduct guided discovery.
+---
 
-It needs to ask useful questions and identify where important information is missing.
+# What About Agents?
 
-It needs to build contextual understanding over time.
+Another term that appears constantly is *agentic systems*.
 
-It needs to retrieve and reason over architectural knowledge.
+Although the two ideas are related, I don't think they're the same thing.
 
-It needs to help produce capability models and other architectural artefacts.
+Agentic systems describe one way of organising intelligent behaviour.
 
-It needs to evaluate confidence and uncertainty.
+An AI-native system may contain one agent, many specialised agents or perhaps no explicit agents at all.
 
-And ultimately, it needs to collaborate with a human architect throughout the process of understanding and designing systems.
+The number of agents isn't what interests me.
 
-If I removed AI from Articulate, I wouldn't simply lose a feature.
+The architectural question is much simpler.
 
-I would have to fundamentally redesign the system.
+**Which responsibilities belong to intelligence, and which remain deterministic?**
 
-And for me, that's probably the clearest test of whether something is genuinely AI-native.
+That's the question I want to explore throughout this project.
 
-Another important consequence of this is the role of conversation.
+We'll return to agents later in the series when we've established enough architectural foundations to discuss them properly.
 
-One of the ideas throughout Articulate is that AI-native systems can become conversation-driven systems.
+---
 
-And I don't mean simply putting a chat window on top of an application.
+# Why This Matters for Articulate
 
-Conversation can become part of the runtime itself.
+Articulate isn't intended to use AI simply because AI is fashionable.
 
-It's how a human expresses intent, how thesystem asks for missing information.
+Every significant architectural decision should solve a real problem.
 
-It's how context develops over time and how knowledge is discovered.
+If a deterministic solution is simpler, more reliable and easier to understand, that's probably the right choice.
 
-It's how decisions can be explored.
+But where the problem involves interpretation, uncertainty, incomplete knowledge or architectural reasoning, my early experiments consistently suggested that intelligence offered a better architectural approach.
 
-And it's how workflows can be initiated, paused, redirected and continued.
+Whether that observation continues to hold true is something this journal will test openly.
 
-In Articulate, architectural artefacts should emerge from that collaboration.
+Some ideas may survive.
 
-The conversation isn't separate from the work.
+Others may not.
 
-The conversation is part of how the work happens.
+The important thing is that the architectural reasoning remains visible.
 
-That leads to a set of principles that I expect to return to throughout this journal.
+---
 
-Intelligence should be treated as a runtime capability.
+# Looking Ahead
 
-Conversation should be treated as a primary interface.
+If intelligence really is becoming an architectural capability, then it raises an entirely new set of questions.
 
-Context becomes a form of state.
+What is context?
 
-Memory needs to extend beyond a single request.
+What is memory?
 
-Knowledge should be retrieved and evolved rather than simply embedded into prompts.
+Where should knowledge live?
 
-Humans remain an essential part of the system.
+How should reasoning be coordinated?
 
-Uncertainty has to be represented rather than hidden.
+How should long-running work be managed?
 
-And evaluation is just as important as execution.
+How do humans remain part of important decisions?
 
-These aren't implementation decisions yet.
+How do we evaluate intelligent behaviour?
 
-They're architectural principles.
+Those questions don't have obvious answers.
 
-And that distinction matters.
+They're exactly the questions I want to investigate as Articulate evolves.
 
-I haven't decided that Articulate needs a particular agent framework, workflow engine, vector database or model provider.
+So rather than treating AI-native architecture as a conclusion, I'd like to treat it as a hypothesis.
 
-Those decisions should come later.
-
-First, I want to understand the problem.
-
-Then establish the principles.
-
-Then identify the capabilities the system actually needs.
-
-And only then start making decisions about architecture, runtime and technology.
-
-That is really what this episode establishes.
-
-If intelligence becomes a first-class part of a system, then we need to think differently about the runtime that supports it.
-
-What does context actually mean?
-
-What forms of memory does an AI-native system need?
-
-How should architectural knowledge be represented?
-
-How should AI retrieve and reason over that knowledge?
-
-Where should we use agents?
-
-How do we coordinate long-running work?
-
-How do humans participate in the runtime?
-
-How do we observe decisions that may and may not be deterministic?
-
-And how do we build systems that can evolve as both our understanding and the underlying technology change?
-
-Those are the questions that the rest of this journal will explore.
-
-
-## Looking Ahead
-
-So in this episode, I've established what I currently mean when I describe Articulate as an AI-native system.
-
-It isn't simply an existing application with an LLM attached to it.
-
-Intelligence participates in the runtime itself.
-
-It helps the system understand intent, build context, retrieve knowledge, reason about problems, coordinate work and collaborate with humans.
-
-I've also distinguished AI-native architecture from agentic architecture.
-
-Agents may become important building blocks within Articulate, but adding agents is not the objective. They are one possible way of organising intelligent behaviour where the problem genuinely requires it.
-
-And perhaps the clearest test is this:
-
-If AI were removed from Articulate, the system would not merely lose a feature. Its architecture would have to change fundamentally.
-
-But recognising that Articulate is AI-native doesn't tell me how to design it.
-
-It introduces a much larger architectural question.
-
-How should I approach the design of a system where intelligence, conversation, context, knowledge and uncertainty are all part of the runtime?
-
-That is the question I will begin exploring in the next episode.
+One that we'll explore together throughout the rest of this journal.

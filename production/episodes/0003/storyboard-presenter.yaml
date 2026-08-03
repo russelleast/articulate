@@ -1,0 +1,204 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0003",
+    "title": "Why AI-Native Systems?",
+    "written_source": "docs/episodes/0003-why-ai-native-systems.md",
+    "narrative_source": "production/episodes/0003/narrative.md",
+    "scene_plan": "production/episodes/0003/scene-plan.yaml",
+    "production_status": "presenter-v2"
+  },
+  "timing": {
+    "authority": "continuous-presenter-media",
+    "media_duration_seconds": 456.333333
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Why AI-Native Systems?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Introduction"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 8.72
+    },
+    {
+      "id": "S002",
+      "title": "Earlier experiments",
+      "archetype": "Repository",
+      "kind": "presenter-repository",
+      "narrative_segments": [
+        "Introduction"
+      ],
+      "start_seconds": 8.72,
+      "end_seconds": 40.48
+    },
+    {
+      "id": "S003",
+      "title": "AI added to software—or something different?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Introduction"
+      ],
+      "start_seconds": 40.48,
+      "end_seconds": 65.44
+    },
+    {
+      "id": "S004",
+      "title": "Start with the problem",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "Starting With the Problem"
+      ],
+      "start_seconds": 65.44,
+      "end_seconds": 90
+    },
+    {
+      "id": "S005",
+      "title": "Discover · Understand · Reason",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Starting With the Problem"
+      ],
+      "start_seconds": 90,
+      "end_seconds": 103.12
+    },
+    {
+      "id": "S006",
+      "title": "The same problem, two valid approaches",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "An Unexpected Pattern"
+      ],
+      "start_seconds": 103.12,
+      "end_seconds": 138.96
+    },
+    {
+      "id": "S007",
+      "title": "The LLM branch kept appearing",
+      "archetype": "Focus Canvas",
+      "kind": "focus-canvas",
+      "narrative_segments": [
+        "An Unexpected Pattern"
+      ],
+      "start_seconds": 138.96,
+      "end_seconds": 160.16
+    },
+    {
+      "id": "S008",
+      "title": "These are architectural concerns",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "When AI Stops Being a Feature"
+      ],
+      "start_seconds": 160.16,
+      "end_seconds": 200.16
+    },
+    {
+      "id": "S009",
+      "title": "Greater significance—not a conclusion",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "When AI Stops Being a Feature"
+      ],
+      "start_seconds": 200.16,
+      "end_seconds": 218
+    },
+    {
+      "id": "S010",
+      "title": "AI-powered can be exactly right",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "AI-Powered Versus AI-Native"
+      ],
+      "start_seconds": 218,
+      "end_seconds": 241.44
+    },
+    {
+      "id": "S011",
+      "title": "Architectural significance is the distinction",
+      "archetype": "Focus Canvas",
+      "kind": "focus-canvas",
+      "narrative_segments": [
+        "AI-Powered Versus AI-Native"
+      ],
+      "start_seconds": 241.44,
+      "end_seconds": 278.24
+    },
+    {
+      "id": "S012",
+      "title": "Intelligence becomes a runtime capability",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "Intelligence as a Runtime Capability"
+      ],
+      "start_seconds": 278.24,
+      "end_seconds": 317.12
+    },
+    {
+      "id": "S013",
+      "title": "Agents are not the architecture",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "What About Agents?"
+      ],
+      "start_seconds": 317.12,
+      "end_seconds": 342.96
+    },
+    {
+      "id": "S014",
+      "title": "Architecture before implementation pattern",
+      "archetype": "Focus Canvas",
+      "kind": "focus-canvas",
+      "narrative_segments": [
+        "What About Agents?"
+      ],
+      "start_seconds": 342.96,
+      "end_seconds": 365.04
+    },
+    {
+      "id": "S015",
+      "title": "Use the approach the problem deserves",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Why This Matters for Articulate"
+      ],
+      "start_seconds": 365.04,
+      "end_seconds": 411.6
+    },
+    {
+      "id": "S016",
+      "title": "Questions, not settled answers",
+      "archetype": "Reflection",
+      "kind": "focus-canvas",
+      "narrative_segments": [
+        "Looking Ahead"
+      ],
+      "start_seconds": 411.6,
+      "end_seconds": 444.16
+    },
+    {
+      "id": "S017",
+      "title": "AI-native architecture is the hypothesis",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Looking Ahead"
+      ],
+      "start_seconds": 444.16,
+      "end_seconds": 456.333
+    }
+  ]
+}

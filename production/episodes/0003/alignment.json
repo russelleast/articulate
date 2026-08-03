@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "narrativeSegments": [
+        "Introduction"
+      ],
+      "start": 0,
+      "end": 8.72,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "experiments",
+      "title": "Earlier Experiments",
+      "narrativeSegments": [
+        "Introduction"
+      ],
+      "start": 8.72,
+      "end": 40.48,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 8.720s"
+    },
+    {
+      "id": "question",
+      "title": "An Emerging Question",
+      "narrativeSegments": [
+        "Introduction"
+      ],
+      "start": 40.48,
+      "end": 65.44,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 40.480s"
+    },
+    {
+      "id": "principle",
+      "title": "Start With the Problem",
+      "narrativeSegments": [
+        "Starting With the Problem"
+      ],
+      "start": 65.44,
+      "end": 90,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 65.440s"
+    },
+    {
+      "id": "articulate-problem",
+      "title": "The Articulate Problem",
+      "narrativeSegments": [
+        "Starting With the Problem"
+      ],
+      "start": 90,
+      "end": 103.12,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 90.000s"
+    },
+    {
+      "id": "alternative",
+      "title": "Two Architectural Approaches",
+      "narrativeSegments": [
+        "An Unexpected Pattern"
+      ],
+      "start": 103.12,
+      "end": 138.96,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 103.120s"
+    },
+    {
+      "id": "recurrence",
+      "title": "The Pattern Repeats",
+      "narrativeSegments": [
+        "An Unexpected Pattern"
+      ],
+      "start": 138.96,
+      "end": 160.16,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 138.960s"
+    },
+    {
+      "id": "responsibilities",
+      "title": "Architectural Responsibilities",
+      "narrativeSegments": [
+        "When AI Stops Being a Feature"
+      ],
+      "start": 160.16,
+      "end": 200.16,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 160.160s"
+    },
+    {
+      "id": "significance",
+      "title": "Greater Architectural Significance",
+      "narrativeSegments": [
+        "When AI Stops Being a Feature"
+      ],
+      "start": 200.16,
+      "end": 218,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 200.160s"
+    },
+    {
+      "id": "powered",
+      "title": "AI-Powered Is Often Right",
+      "narrativeSegments": [
+        "AI-Powered Versus AI-Native"
+      ],
+      "start": 218,
+      "end": 241.44,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 218.000s"
+    },
+    {
+      "id": "native",
+      "title": "Architectural Significance",
+      "narrativeSegments": [
+        "AI-Powered Versus AI-Native"
+      ],
+      "start": 241.44,
+      "end": 278.24,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 241.440s"
+    },
+    {
+      "id": "runtime",
+      "title": "Intelligence in the Runtime",
+      "narrativeSegments": [
+        "Intelligence as a Runtime Capability"
+      ],
+      "start": 278.24,
+      "end": 317.12,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 278.240s"
+    },
+    {
+      "id": "agents",
+      "title": "Agents Are Related, Not Equivalent",
+      "narrativeSegments": [
+        "What About Agents?"
+      ],
+      "start": 317.12,
+      "end": 342.96,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 317.120s"
+    },
+    {
+      "id": "responsibility-boundary",
+      "title": "Architecture Before Pattern",
+      "narrativeSegments": [
+        "What About Agents?"
+      ],
+      "start": 342.96,
+      "end": 365.04,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 342.960s"
+    },
+    {
+      "id": "balance",
+      "title": "Choose the Appropriate Approach",
+      "narrativeSegments": [
+        "Why This Matters for Articulate"
+      ],
+      "start": 365.04,
+      "end": 411.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 365.040s"
+    },
+    {
+      "id": "questions",
+      "title": "Questions the Journal Must Test",
+      "narrativeSegments": [
+        "Looking Ahead"
+      ],
+      "start": 411.6,
+      "end": 444.16,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 411.600s"
+    },
+    {
+      "id": "hypothesis",
+      "title": "A Hypothesis, Not a Conclusion",
+      "narrativeSegments": [
+        "Looking Ahead"
+      ],
+      "start": 444.16,
+      "end": 456.333,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 444.160s"
+    }
+  ]
+}

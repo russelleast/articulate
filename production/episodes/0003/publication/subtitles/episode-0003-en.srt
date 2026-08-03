@@ -1,1007 +1,556 @@
 1
-00:00:00,000 --> 00:00:02,672
-Welcome back to the Articulate Journal.
+00:00:00,000 --> 00:00:05,410
+Hello and welcome to episode
+three of the Articulate Journal.
 
 2
-00:00:02,672 --> 00:00:06,931
-In the previous episode, I introduced
-Articulate: a product intended
+00:00:05,450 --> 00:00:10,705
+Before starting this journal, I'd
+already built a couple of proof
 
 3
-00:00:06,931 --> 00:00:11,190
-to help architects discover, understand,
-design and evolve complex systems
+00:00:10,745 --> 00:00:13,135
+of concepts. They
+explored different ideas.
 
 4
-00:00:11,190 --> 00:00:13,069
-through collaboration with AI.
+00:00:13,175 --> 00:00:16,440
+One, I experimented with different
+conversational interfaces.
 
 5
-00:00:13,069 --> 00:00:16,138
-I also introduced the journal surrounding
-it.
+00:00:16,480 --> 00:00:19,640
+Another looked at architectural discovery.
 
 6
-00:00:16,138 --> 00:00:20,397
-The journal makes the architectural
-thinking visible: the problems being
+00:00:19,680 --> 00:00:23,905
+Others explored RAG, knowledge
+graphs and speech services.
 
 7
-00:00:20,397 --> 00:00:24,656
-explored, the principles guiding the
-design, the decisions being made,
+00:00:23,945 --> 00:00:27,480
+None of them became the system
+that you'll see throughout this
 
 8
-00:00:24,656 --> 00:00:27,725
-and the implementation that emerges from
-them.
+00:00:27,520 --> 00:00:31,911
+journal. But they were valuable
+because they taught me something.
 
 9
-00:00:27,725 --> 00:00:31,984
-But Articulate itself is not intended to
-be a temporary
+00:00:31,951 --> 00:00:36,320
+Every prototype answered a few
+questions and raised even more.
 
 10
-00:00:31,984 --> 00:00:33,466
-proof of concept.
+00:00:36,360 --> 00:00:39,440
+This journal begins after
+those early experiments.
 
 11
-00:00:33,466 --> 00:00:36,932
-The aim is to build a real product.
+00:00:40,480 --> 00:00:42,960
+It isn't starting from
+a blank piece of paper.
 
 12
-00:00:36,932 --> 00:00:41,191
-The architecture will evolve, and some
-decisions will change, but
+00:00:43,000 --> 00:00:45,924
+It's starting from a collection of
+ideas, observations and architectural
 
 13
-00:00:41,191 --> 00:00:45,450
-the software is being built with long-term
-use, maintainability and
+00:00:45,964 --> 00:00:48,640
+questions that I now
+want to explore properly.
 
 14
-00:00:45,450 --> 00:00:46,932
-evolution in mind.
+00:00:49,760 --> 00:00:52,926
+One of the biggest questions
+started to emerge from all those
 
 15
-00:00:46,932 --> 00:00:49,207
-That creates an important question.
+00:00:52,966 --> 00:00:56,880
+experiments was this. Am I building
+software that happens to use
 
 16
-00:00:49,207 --> 00:00:53,467
-Why should a product like Articulate be
-designed as an
+00:00:56,920 --> 00:00:59,440
+AI or am I building something
+fundamentally different?
 
 17
-00:00:53,467 --> 00:00:57,726
-AI-native system rather than as a
-conventional application with AI
+00:01:00,160 --> 00:01:02,760
+I don't think I've got the
+complete answer yet, but I
 
 18
-00:00:57,726 --> 00:00:59,604
-features added to it?
+00:01:02,800 --> 00:01:04,000
+do think it's worth exploring.
 
 19
-00:00:59,604 --> 00:01:03,863
-Before exploring the architecture in more
-detail, I want to
+00:01:05,440 --> 00:01:09,250
+One principle you'll hear repeatedly
+throughout this journal is that I
 
 20
-00:01:03,863 --> 00:01:08,122
-explain what I currently mean by
-AI-native, how it differs
+00:01:09,290 --> 00:01:13,171
+tried to begin with a problem
+rather than the technology.
 
 21
-00:01:08,122 --> 00:01:12,381
-from AI-powered, and why that distinction
-shapes the system I
+00:01:13,211 --> 00:01:17,756
+I don't start by asking
+should I use agents, should I
 
 22
-00:01:12,381 --> 00:01:13,750
-am building.
+00:01:17,796 --> 00:01:20,796
+use this framework or
+what model should I call?
 
 23
-00:01:13,750 --> 00:01:18,009
-Because AI-native is one of those terms
-that is being
+00:01:20,836 --> 00:01:24,067
+Instead, what problem am I
+actually trying to solve?
 
 24
-00:01:18,009 --> 00:01:22,268
-used more and more, but it doesn't
-necessarily mean the
+00:01:24,107 --> 00:01:29,053
+The technologies come later. When I
+began designing Articulate, I wasn't
 
 25
-00:01:22,268 --> 00:01:24,147
-same thing to everyone.
+00:01:29,093 --> 00:01:31,539
+trying to build an AI-native platform.
 
 26
-00:01:24,147 --> 00:01:28,406
-Terms like AI-native, agentic systems, AI
-agents, multi-agent system, and
+00:01:31,579 --> 00:01:35,880
+I was trying to build something
+that could help architects discover,
 
 27
-00:01:28,406 --> 00:01:31,078
-even reasoning models are still evolving.
+00:01:35,920 --> 00:01:37,994
+understand and reason about architecture.
 
 28
-00:01:31,078 --> 00:01:35,337
-Different organisations, vendors and
-researchers use them in slightly different
+00:01:38,034 --> 00:01:41,840
+That problem led me down
+to some interesting paths.
 
 29
-00:01:35,337 --> 00:01:39,596
-ways, and I fully expect the language to
-continue changing
+00:01:43,120 --> 00:01:47,069
+As I explored the different approaches,
+I kept finding myself facing
 
 30
-00:01:39,596 --> 00:01:41,475
-as the technology matures.
+00:01:47,109 --> 00:01:51,752
+the same architectural decision. I could
+build another deterministic workflow,
 
 31
-00:01:41,475 --> 00:01:45,734
-So what I'm describing here isn't intended
-to be the
+00:01:51,792 --> 00:01:55,583
+or I could allow a language
+model to tackle the problem
 
 32
-00:01:45,734 --> 00:01:48,010
-definitive definition of AI-native
-architecture.
+00:01:55,623 --> 00:01:58,743
+instead. At first, those
+decisions seemed isolated.
 
 33
-00:01:48,010 --> 00:01:52,269
-It's my current understanding with the
-research I've been doing.
+00:01:58,783 --> 00:02:02,989
+A language model could interpret
+unstructured information more naturally
 
 34
-00:01:52,269 --> 00:01:55,734
-And that distinction is important for this
-journal.
+00:02:03,029 --> 00:02:08,339
+than I could code. It could also
+ask follow-up questions instead
 
 35
-00:01:55,734 --> 00:01:59,993
-Some of the ideas I describe today will
-almost certainly
+00:02:08,379 --> 00:02:11,747
+of forcing users through a
+rigid sequence of screens.
 
 36
-00:01:59,993 --> 00:02:01,476
-be refined later.
+00:02:11,787 --> 00:02:15,340
+It could reason across incomplete
+information instead of expecting every
 
 37
-00:02:01,476 --> 00:02:03,354
-Some might be challenged.
+00:02:15,380 --> 00:02:17,760
+input to fit into a predefined structure.
 
 38
-00:02:03,354 --> 00:02:06,027
-Some may eventually be replaced
-completely.
+00:02:18,960 --> 00:02:22,870
+In those situations, using an LLM
+wasn't simply more interesting.
 
 39
-00:02:06,027 --> 00:02:09,095
-I don't see that as a problem.
+00:02:22,910 --> 00:02:26,051
+It often felt like a better
+architectural choice.
 
 40
-00:02:09,095 --> 00:02:13,354
-I see it as part of the process of
-learning
+00:02:26,091 --> 00:02:30,509
+The surprising part was is it
+just kept happening, not once
 
 41
-00:02:13,354 --> 00:02:17,614
-how to architect systems around a
-technology that is itself
+00:02:30,549 --> 00:02:33,680
+or twice, but across completely
+different parts of the system.
 
 42
-00:02:17,614 --> 00:02:18,982
-still evolving.
+00:02:35,600 --> 00:02:39,575
+As more of those decisions accumulated,
+I noticed something else changing.
 
 43
-00:02:18,982 --> 00:02:23,241
-So, with that context, what do I actually
-mean by
+00:02:39,615 --> 00:02:43,650
+I was no longer thinking about
+AI as another integration.
 
 44
-00:02:23,241 --> 00:02:24,723
-an AI-native system?
+00:02:43,690 --> 00:02:48,600
+Instead, I found myself thinking
+about questions that as an architect,
 
 45
-00:02:24,723 --> 00:02:28,982
-Over the last few years, lots of software
-products seems
+00:02:48,640 --> 00:02:52,176
+I wouldn't normally ask. Like,
+how should prompts be versioned?
 
 46
-00:02:28,982 --> 00:02:30,861
-to have become AI-powered.
+00:02:52,216 --> 00:02:55,907
+How do I replace one model with
+another without affecting the
 
 47
-00:02:30,861 --> 00:02:35,120
-And in many cases, what that really means
-is that
+00:02:55,947 --> 00:02:59,280
+rest of the architecture?
+How do I know whether a newer
 
 48
-00:02:35,120 --> 00:02:39,379
-an existing application has had an LLM
-added to it.
+00:02:59,320 --> 00:03:01,370
+model is actually
+producing better outcomes?
 
 49
-00:02:39,379 --> 00:02:41,655
-Perhaps there's now a chatbot.
+00:03:01,410 --> 00:03:04,880
+How do I detect when
+behaviour starts to drift?
 
 50
-00:02:41,655 --> 00:02:44,327
-Perhaps a feature generates some text.
+00:03:04,920 --> 00:03:07,949
+And how should intelligent
+behaviour be evaluated?
 
 51
-00:02:44,327 --> 00:02:48,586
-Or perhaps the application sends a prompt
-to a model,
+00:03:07,989 --> 00:03:12,474
+How could I observe and govern
+reasoning in production?
 
 52
-00:02:48,586 --> 00:02:51,655
-receives a response, and displays the
-result.
+00:03:12,514 --> 00:03:16,535
+These weren't implementation details.
+They were architectural concerns.
 
 53
-00:02:51,655 --> 00:02:54,327
-There's nothing inherently wrong with
-that.
+00:03:16,575 --> 00:03:19,120
+That was an important shift.
 
 54
-00:02:54,327 --> 00:02:58,586
-But architecturally, the application is
-still fundamentally the same system.
+00:03:20,160 --> 00:03:24,646
+I wasn't yet concluding that
+Articulate was AI-native, but I was
 
 55
-00:02:58,586 --> 00:03:02,845
-If you removed the AI capability, most of
-the architecture
+00:03:24,686 --> 00:03:28,498
+beginning to suspect that intelligence
+deserved much greater architectural
 
 56
-00:03:02,845 --> 00:03:04,327
-would remain intact.
+00:03:28,538 --> 00:03:30,720
+significance than I originally expected.
 
 57
-00:03:04,327 --> 00:03:07,793
-That isn't the approach I'm taking with
-Articulate.
+00:03:31,440 --> 00:03:35,680
+This journal is, in many ways,
+an exploration into that idea.
 
 58
-00:03:07,793 --> 00:03:12,052
-Articulate is being designed as an
-AI-native system (AI first).
+00:03:38,000 --> 00:03:42,360
+Over the past few years,
+almost lots of products on the
 
 59
-00:03:12,052 --> 00:03:14,327
-The distinction is relatively simple.
+00:03:42,400 --> 00:03:46,800
+market have become AI-powered. Usually
+that meant by an existing application
 
 60
-00:03:14,327 --> 00:03:16,603
-An AI-powered system uses AI.
+00:03:46,840 --> 00:03:48,960
+that's been enhanced
+with a language model.
 
 61
-00:03:16,603 --> 00:03:19,672
-An AI-native system is built around it.
+00:03:49,680 --> 00:03:51,469
+Absolutely nothing wrong with that.
 
 62
-00:03:19,672 --> 00:03:23,931
-In an AI-native system, intelligence
-participates in the runtime itself.
+00:03:51,509 --> 00:03:54,760
+In many cases, it's exactly the
+right architectural decision.
 
 63
-00:03:23,931 --> 00:03:28,587
-It isn't simply waiting for somebody to
-send it a prompt.
+00:03:54,800 --> 00:03:57,194
+The application remains
+fundamentally the same.
 
 64
-00:03:28,587 --> 00:03:31,656
-It might be helping to understand intent.
+00:03:57,234 --> 00:04:00,480
+AI simply makes one part of it better.
 
 65
-00:03:31,656 --> 00:03:33,534
-Building and maintaining context.
+00:04:01,440 --> 00:04:04,320
+But I'm increasingly interested
+in a different question.
 
 66
-00:03:33,534 --> 00:03:35,017
-Retrieving relevant knowledge.
+00:04:05,680 --> 00:04:08,880
+What happens when intelligence is
+no longer just another feature?
 
 67
-00:03:35,017 --> 00:03:36,895
-Reasoning about a problem.
+00:04:09,600 --> 00:04:12,640
+What happens when it starts to
+influence the architecture itself?
 
 68
-00:03:36,895 --> 00:03:39,171
-Deciding what should happen next.
+00:04:13,840 --> 00:04:17,492
+That's the distinction I currently make.
 
 69
-00:03:39,171 --> 00:03:40,539
-Invoking tools.
+00:04:17,532 --> 00:04:20,569
+An AI-powered application uses AI.
 
 70
-00:03:40,539 --> 00:03:41,908
-Coordinating work.
+00:04:20,609 --> 00:04:25,924
+An AI-native application is designed
+around intelligence as one of its
 
 71
-00:03:41,908 --> 00:03:45,374
-Evaluating the confidence it has in a
-result.
+00:04:25,964 --> 00:04:30,301
+architectural capabilities. Whether
+Articulate truly deserves that label is
 
 72
-00:03:45,374 --> 00:03:49,633
-And, importantly, knowing when a human
-needs to be involved.
+00:04:30,341 --> 00:04:34,840
+something I expect this journal
+to test rather than simply assume.
 
 73
-00:03:49,633 --> 00:03:52,702
-That changes the architecture of the
-system.
+00:04:34,880 --> 00:04:38,913
+If intelligence is becoming
+architecturally significant, then it
 
 74
-00:03:52,702 --> 00:03:56,961
-Traditional applications are often
-designed around things like CRUD
-operations,
+00:04:38,953 --> 00:04:42,160
+begins to introduce capabilities that
+traditional software rarely considers.
 
 75
-00:03:56,961 --> 00:03:59,236
-APIs, transactions and deterministic
-workflows.
+00:04:42,960 --> 00:04:48,280
+The runtime may need to understand
+intent, build and maintain context,
 
 76
-00:03:59,236 --> 00:04:01,115
-We know the inputs.
+00:04:48,320 --> 00:04:53,713
+retrieve relevant knowledge, reason
+across incomplete information, plan work,
 
 77
-00:04:01,115 --> 00:04:02,994
-We define the process.
+00:04:53,753 --> 00:04:58,376
+invoke tools, evaluate confidence,
+and collaborate with people.
 
 78
-00:04:02,994 --> 00:04:06,063
-And, generally, we expect a predictable
-output.
+00:04:58,416 --> 00:05:02,653
+Those capabilities don't replace
+traditional software engineering.
 
 79
-00:04:06,063 --> 00:04:09,925
-AI-native systems introduce a different
-set of architectural concerns.
+00:05:02,693 --> 00:05:08,088
+The system needs APIs, persistence,
+security, messaging, reliability, and
 
 80
-00:04:09,925 --> 00:04:12,994
-Now we have to think about context.
+00:05:08,128 --> 00:05:12,595
+observability. The difference is that
+intelligence begins to sit alongside
 
 81
-00:04:12,994 --> 00:04:14,363
-Memory.
+00:05:12,635 --> 00:05:14,665
+those capabilities rather than on top.
 
 82
-00:04:14,363 --> 00:04:15,731
-Knowledge.
+00:05:14,705 --> 00:05:18,433
+That's a very different way of
+thinking about architecture.
 
 83
-00:04:15,731 --> 00:04:17,100
-Reasoning.
+00:05:18,473 --> 00:05:24,560
+Another term that keeps constantly
+appearing is agentic systems.
 
 84
-00:04:17,100 --> 00:04:18,469
-Orchestration.
+00:05:25,280 --> 00:05:28,069
+And although these two ideas are
+related, I don't actually think
 
 85
-00:04:18,469 --> 00:04:19,837
-Conversation.
+00:05:28,109 --> 00:05:33,468
+they're the same. Agentic systems
+describe one way of organising intelligent
 
 86
-00:04:19,837 --> 00:04:21,206
-And uncertainty.
+00:05:33,508 --> 00:05:38,766
+behaviour. An AI-native system may contain
+one agent, many specialised agents,
 
 87
-00:04:21,206 --> 00:04:24,275
-That doesn't mean the traditional concerns
-disappear.
+00:05:38,806 --> 00:05:42,080
+or perhaps no explicit agents at all.
 
 88
-00:04:24,275 --> 00:04:26,947
-We still need APIs and databases.
+00:05:42,960 --> 00:05:45,754
+The number of agents
+isn't what interests me.
 
 89
-00:04:26,947 --> 00:04:31,206
-We still need transactions, messaging,
-security, observability and all of
+00:05:45,794 --> 00:05:47,920
+The architectural
+question is much simpler.
 
 90
-00:04:31,206 --> 00:04:34,672
-the other things that make production
-systems work.
+00:05:48,880 --> 00:05:53,145
+Which responsibilities belong
+to intelligence and which remain
 
 91
-00:04:34,672 --> 00:04:38,534
-But intelligence becomes another
-fundamental part of the runtime.
+00:05:53,185 --> 00:05:57,440
+deterministic? That's the question I
+want to explore throughout this project.
 
 92
-00:04:38,534 --> 00:04:42,793
-And I think that's one of the most
-important architectural
+00:05:57,480 --> 00:06:01,224
+I'll return to agents later in
+a series when I've established
 
 93
-00:04:42,793 --> 00:04:44,275
-shifts taking place.
+00:06:01,264 --> 00:06:03,840
+enough architectural foundations
+to discuss them properly.
 
 94
-00:04:44,275 --> 00:04:48,931
-As systems became distributed, we added
-messaging, networking and distributed
-coordination.
+00:06:05,040 --> 00:06:08,994
+Articulate isn't intended to use
+AI simply because it's because AI
 
 95
-00:04:48,931 --> 00:04:52,397
-Cloud computing introduced another
-generation of runtime capabilities.
+00:06:09,034 --> 00:06:14,126
+is fashionable. Every significant
+architectural decision should solve a real
 
 96
-00:04:52,397 --> 00:04:54,672
-AI-native systems introduce something
-else.
+00:06:14,166 --> 00:06:18,274
+problem. If a deterministic solution
+is simpler, more reliable, and easier
 
 97
-00:04:54,672 --> 00:04:57,344
-Intelligence itself starts to become
-infrastructure.
+00:06:18,314 --> 00:06:20,640
+to understand, that's
+probably the right choice.
 
 98
-00:04:57,344 --> 00:05:01,603
-Instead of every part of the application
-making isolated calls
+00:06:21,280 --> 00:06:25,313
+But where the problem involves
+interpretation, uncertainty, incomplete
 
 99
-00:05:01,603 --> 00:05:05,862
-to an LLM, the system begins to need
-shared capabilities
+00:06:25,353 --> 00:06:29,422
+knowledge, or architectural reasoning,
+my early experiments consistently
 
 100
-00:05:05,862 --> 00:05:10,121
-for reasoning, memory, semantic retrieval,
-tool invocation, evaluation and
-orchestration.
+00:06:29,462 --> 00:06:33,406
+suggested that intelligence offered
+a better architectural approach.
 
 101
-00:05:10,121 --> 00:05:14,380
-And once those capabilities become part of
-the runtime, we
+00:06:33,446 --> 00:06:38,280
+Whether that observation continues to
+hold true is something this journal
 
 102
-00:05:14,380 --> 00:05:16,656
-have to architect them deliberately.
+00:06:38,320 --> 00:06:42,867
+will test openly. Some ideas
+may survive, others may not.
 
 103
-00:05:16,656 --> 00:05:20,122
-We have to think about how they're
-governed.
+00:06:42,907 --> 00:06:47,827
+The important thing is that the
+architectural reasoning remains visible.
 
 104
-00:05:20,122 --> 00:05:22,794
-How they're observed, how they fail.
+00:06:47,867 --> 00:06:53,300
+If intelligence really is becoming an
+architectural capability, then it raises
 
 105
-00:05:22,794 --> 00:05:26,656
-How state is maintained and how decisions
-are explained.
+00:06:53,340 --> 00:06:55,910
+an entirely new set of questions.
 
 106
-00:05:26,656 --> 00:05:30,915
-And how humans remain involved when the
-system cannot, or
+00:06:55,950 --> 00:06:58,560
+What is context? What is memory?
 
 107
-00:05:30,915 --> 00:05:32,794
-should not, act independently.
+00:06:59,360 --> 00:07:03,949
+Where should knowledge live? How
+should reasoning be coordinated?
 
 108
-00:05:32,794 --> 00:05:36,656
-This is also where agentic systems enter
-the conversation.
+00:07:03,989 --> 00:07:06,945
+How should long-running work be managed?
 
 109
-00:05:36,656 --> 00:05:40,915
-The terms AI-native and agentic are
-sometimes used almost interchangeably,
+00:07:06,985 --> 00:07:10,770
+How do humans remain part of
+those important decisions?
 
 110
-00:05:40,915 --> 00:05:44,381
-but I don't think they're the same thing.
+00:07:10,810 --> 00:07:13,360
+How do we evaluate intelligent behaviour?
 
 111
-00:05:44,381 --> 00:05:47,450
-I see AI-native as an architectural
-philosophy.
+00:07:14,560 --> 00:07:18,160
+Those questions don't have
+obvious answers right now.
 
 112
-00:05:47,450 --> 00:05:52,502
-Agentic systems are one possible pattern
-for organising intelligence within that
-architecture.
+00:07:19,120 --> 00:07:23,360
+They're exactly the questions I want
+to investigate as Articulate evolves.
 
 113
-00:05:52,502 --> 00:05:55,175
-An agent might have a goal.
+00:07:24,160 --> 00:07:27,588
+So rather than treating AI-native
+architecture as a conclusion, I would
 
 114
-00:05:55,175 --> 00:05:58,640
-It might plan how to achieve that goal.
+00:07:27,628 --> 00:07:30,047
+like to treat it as a hypothesis.
 
 115
-00:05:58,640 --> 00:06:02,899
-It might retrieve information, use tools,
-delegate work, collaborate with
-
-116
-00:06:02,899 --> 00:06:07,158
-other agents, reflect on its own results,
-and maintain some
-
-117
-00:06:07,158 --> 00:06:08,640
-form of memory.
-
-118
-00:06:08,640 --> 00:06:10,519
-Those are useful capabilities.
-
-119
-00:06:10,519 --> 00:06:14,778
-But adding an agent to an existing
-application doesn't automatically
-
-120
-00:06:14,778 --> 00:06:16,657
-make that application AI-native.
-
-121
-00:06:16,657 --> 00:06:20,916
-And an AI-native system doesn't
-necessarily need to consist of
-
-122
-00:06:20,916 --> 00:06:24,382
-dozens of autonomous agents talking to
-each other.
-
-123
-00:06:24,382 --> 00:06:29,037
-That's something I want to be careful
-about as Articulate evolves.
-
-124
-00:06:29,037 --> 00:06:34,090
-The goal isn't to add agents everywhere
-simply because agents are interesting.
-
-125
-00:06:34,090 --> 00:06:38,349
-The architecture should use agentic
-behaviour where that behaviour genuinely
-
-126
-00:06:38,349 --> 00:06:40,228
-helps solve the problem.
-
-127
-00:06:40,228 --> 00:06:44,487
-Agents are one architectural pattern
-available to an AI-native system.
-
-128
-00:06:44,487 --> 00:06:47,159
-They aren't the definition of one.
-
-129
-00:06:47,159 --> 00:06:50,625
-So why does Articulate need to be
-AI-native?
-
-130
-00:06:50,625 --> 00:06:54,884
-Because the problem I'm trying to explore
-isn't simply how
-
-131
-00:06:54,884 --> 00:06:57,953
-to generate architecture documents using
-an LLM.
-
-132
-00:06:57,953 --> 00:07:01,418
-AI needs to participate throughout the
-architectural process.
-
-133
-00:07:01,418 --> 00:07:04,090
-Articulate needs to understand
-architectural intent.
-
-134
-00:07:04,090 --> 00:07:06,763
-It needs to conduct guided discovery.
-
-135
-00:07:06,763 --> 00:07:11,022
-It needs to ask useful questions and
-identify where important
-
-136
-00:07:11,022 --> 00:07:12,504
-information is missing.
-
-137
-00:07:12,504 --> 00:07:15,969
-It needs to build contextual understanding
-over time.
-
-138
-00:07:15,969 --> 00:07:19,832
-It needs to retrieve and reason over
-architectural knowledge.
-
-139
-00:07:19,832 --> 00:07:24,487
-It needs to help produce capability models
-and other architectural artefacts.
-
-140
-00:07:24,487 --> 00:07:27,556
-It needs to evaluate confidence and
-uncertainty.
-
-141
-00:07:27,556 --> 00:07:31,815
-And ultimately, it needs to collaborate
-with a human architect
-
-142
-00:07:31,815 --> 00:07:35,281
-throughout the process of understanding
-and designing systems.
-
-143
-00:07:35,281 --> 00:07:40,333
-If I removed AI from Articulate, I
-wouldn't simply lose a feature.
-
-144
-00:07:40,333 --> 00:07:43,799
-I would have to fundamentally redesign the
-system.
-
-145
-00:07:43,799 --> 00:07:48,058
-And for me, that's probably the clearest
-test of whether
-
-146
-00:07:48,058 --> 00:07:49,937
-something is genuinely AI-native.
-
-147
-00:07:49,937 --> 00:07:54,196
-Another important consequence of this is
-the role of conversation.
-
-148
-00:07:54,196 --> 00:07:58,455
-One of the ideas throughout Articulate is
-that AI-native systems
-
-149
-00:07:58,455 --> 00:08:00,334
-can become conversation-driven systems.
-
-150
-00:08:00,334 --> 00:08:04,593
-And I don't mean simply putting a chat
-window on
-
-151
-00:08:04,593 --> 00:08:06,472
-top of an application.
-
-152
-00:08:06,472 --> 00:08:09,937
-Conversation can become part of the
-runtime itself.
-
-153
-00:08:09,937 --> 00:08:14,990
-It's how a human expresses intent, how
-thesystem asks for missing information.
-
-154
-00:08:14,990 --> 00:08:19,646
-It's how context develops over time and
-how knowledge is discovered.
-
-155
-00:08:19,646 --> 00:08:22,318
-It's how decisions can be explored.
-
-156
-00:08:22,318 --> 00:08:26,973
-And it's how workflows can be initiated,
-paused, redirected and continued.
-
-157
-00:08:26,973 --> 00:08:30,836
-In Articulate, architectural artefacts
-should emerge from that collaboration.
-
-158
-00:08:30,836 --> 00:08:33,905
-The conversation isn't separate from the
-work.
-
-159
-00:08:33,905 --> 00:08:37,767
-The conversation is part of how the work
-happens.
-
-160
-00:08:37,767 --> 00:08:42,026
-That leads to a set of principles that I
-expect
-
-161
-00:08:42,026 --> 00:08:44,698
-to return to throughout this journal.
-
-162
-00:08:44,698 --> 00:08:48,164
-Intelligence should be treated as a
-runtime capability.
-
-163
-00:08:48,164 --> 00:08:51,630
-Conversation should be treated as a
-primary interface.
-
-164
-00:08:51,630 --> 00:08:54,302
-Context becomes a form of state.
-
-165
-00:08:54,302 --> 00:08:57,767
-Memory needs to extend beyond a single
-request.
-
-166
-00:08:57,767 --> 00:09:02,820
-Knowledge should be retrieved and evolved
-rather than simply embedded into prompts.
-
-167
-00:09:02,820 --> 00:09:06,286
-Humans remain an essential part of the
-system.
-
-168
-00:09:06,286 --> 00:09:09,751
-Uncertainty has to be represented rather
-than hidden.
-
-169
-00:09:09,751 --> 00:09:13,217
-And evaluation is just as important as
-execution.
-
-170
-00:09:13,217 --> 00:09:15,492
-These aren't implementation decisions yet.
-
-171
-00:09:15,492 --> 00:09:16,974
-They're architectural principles.
-
-172
-00:09:16,974 --> 00:09:18,853
-And that distinction matters.
-
-173
-00:09:18,853 --> 00:09:23,112
-I haven't decided that Articulate needs a
-particular agent framework,
-
-174
-00:09:23,112 --> 00:09:26,181
-workflow engine, vector database or model
-provider.
-
-175
-00:09:26,181 --> 00:09:28,457
-Those decisions should come later.
-
-176
-00:09:28,457 --> 00:09:31,526
-First, I want to understand the problem.
-
-177
-00:09:31,526 --> 00:09:33,404
-Then establish the principles.
-
-178
-00:09:33,404 --> 00:09:36,870
-Then identify the capabilities the system
-actually needs.
-
-179
-00:09:36,870 --> 00:09:41,526
-And only then start making decisions about
-architecture, runtime and technology.
-
-180
-00:09:41,526 --> 00:09:44,595
-That is really what this episode
-establishes.
-
-181
-00:09:44,595 --> 00:09:48,854
-If intelligence becomes a first-class part
-of a system, then
-
-182
-00:09:48,854 --> 00:09:53,113
-we need to think differently about the
-runtime that supports
-
-183
-00:09:53,113 --> 00:09:54,481
-it.
-
-184
-00:09:54,481 --> 00:09:56,757
-What does context actually mean?
-
-185
-00:09:56,757 --> 00:10:00,619
-What forms of memory does an AI-native
-system need?
-
-186
-00:10:00,619 --> 00:10:03,291
-How should architectural knowledge be
-represented?
-
-187
-00:10:03,291 --> 00:10:07,154
-How should AI retrieve and reason over
-that knowledge?
-
-188
-00:10:07,154 --> 00:10:09,429
-Where should we use agents?
-
-189
-00:10:09,429 --> 00:10:12,102
-How do we coordinate long-running work?
-
-190
-00:10:12,102 --> 00:10:15,170
-How do humans participate in the runtime?
-
-191
-00:10:15,170 --> 00:10:20,223
-How do we observe decisions that may and
-may not be deterministic?
-
-192
-00:10:20,223 --> 00:10:24,482
-And how do we build systems that can
-evolve as
-
-193
-00:10:24,482 --> 00:10:27,948
-both our understanding and the underlying
-technology change?
-
-194
-00:10:27,948 --> 00:10:33,000
-Those are the questions that the rest of
-this journal will explore.
-
-195
-00:10:33,000 --> 00:10:37,645
-So in this episode, I've established what
-I currently mean
-
-196
-00:10:37,645 --> 00:10:41,424
-when I describe Articulate as an AI-native
-system.
-
-197
-00:10:41,424 --> 00:10:46,934
-It isn't simply an existing application
-with an LLM attached to it.
-
-198
-00:10:46,934 --> 00:10:49,848
-Intelligence participates in the runtime
-itself.
-
-199
-00:10:49,848 --> 00:10:54,492
-It helps the system understand intent,
-build context, retrieve knowledge,
-
-200
-00:10:54,492 --> 00:10:58,704
-reason about problems, coordinate work and
-collaborate with humans.
-
-201
-00:10:58,704 --> 00:11:02,483
-I've also distinguished AI-native
-architecture from agentic architecture.
-
-202
-00:11:02,483 --> 00:11:07,128
-Agents may become important building
-blocks within Articulate, but adding
-
-203
-00:11:07,128 --> 00:11:09,609
-agents is not the objective.
-
-204
-00:11:09,609 --> 00:11:14,254
-They are one possible way of organising
-intelligent behaviour where
-
-205
-00:11:14,254 --> 00:11:16,735
-the problem genuinely requires it.
-
-206
-00:11:16,735 --> 00:11:21,380
-And perhaps the clearest test is this: If
-AI were
-
-207
-00:11:21,380 --> 00:11:26,025
-removed from Articulate, the system would
-not merely lose a
-
-208
-00:11:26,025 --> 00:11:27,517
-feature.
-
-209
-00:11:27,517 --> 00:11:30,864
-Its architecture would have to change
-fundamentally.
-
-210
-00:11:30,864 --> 00:11:35,508
-But recognising that Articulate is
-AI-native doesn't tell me how
-
-211
-00:11:35,508 --> 00:11:37,125
-to design it.
-
-212
-00:11:37,125 --> 00:11:40,471
-It introduces a much larger architectural
-question.
-
-213
-00:11:40,471 --> 00:11:45,116
-How should I approach the design of a
-system where
-
-214
-00:11:45,116 --> 00:11:49,760
-intelligence, conversation, context,
-knowledge and uncertainty are all part of
-
-215
-00:11:49,760 --> 00:11:51,253
-the runtime?
-
-216
-00:11:51,253 --> 00:11:56,763
-That is the question I will begin
-exploring in the next episode.
+00:07:30,087 --> 00:07:36,320
+One that I'll explore further
+throughout the rest of this journal.

@@ -1,0 +1,165 @@
+{
+  "$schema": "../../schemas/scene-plan.schema.json",
+  "version": 2,
+  "generation": {
+    "generated": false,
+    "generatorVersion": "episode-0003-presenter-v2"
+  },
+  "episode": {
+    "id": "0003",
+    "title": "Why AI-Native Systems?",
+    "writtenSource": "docs/episodes/0003-why-ai-native-systems.md",
+    "narrativeSource": "production/episodes/0003/narrative.md",
+    "audio": "production/episodes/0003/ep3-narrator.mov"
+  },
+  "styleGuide": "production/style-guide/archetypes.json",
+  "defaults": {
+    "authority": "guided",
+    "importance": "important",
+    "headlineVisibility": "scene-start",
+    "phraseAlignment": "exact-normalised-fuzzy-section-fallback"
+  },
+  "review": {
+    "status": "approved-for-render",
+    "requiredBeforeFinalRender": true,
+    "notes": [
+      "Use refreshed Episodes 0000–0002 and visual grammar v2 as the style authority.",
+      "Show AI-native as a gradually forming hypothesis, never a solved architecture.",
+      "Keep deterministic and intelligent approaches context-dependent rather than hierarchical.",
+      "Return to the presenter between long visual arguments."
+    ]
+  },
+  "sections": [
+    { "id": "opening", "title": "Opening", "narrativeSegments": ["Introduction"], "startSeconds": 0.000 },
+    { "id": "experiments", "title": "Earlier Experiments", "narrativeSegments": ["Introduction"], "startSeconds": 8.720 },
+    { "id": "question", "title": "An Emerging Question", "narrativeSegments": ["Introduction"], "startSeconds": 40.480 },
+    { "id": "principle", "title": "Start With the Problem", "narrativeSegments": ["Starting With the Problem"], "startSeconds": 65.440 },
+    { "id": "articulate-problem", "title": "The Articulate Problem", "narrativeSegments": ["Starting With the Problem"], "startSeconds": 90.000 },
+    { "id": "alternative", "title": "Two Architectural Approaches", "narrativeSegments": ["An Unexpected Pattern"], "startSeconds": 103.120 },
+    { "id": "recurrence", "title": "The Pattern Repeats", "narrativeSegments": ["An Unexpected Pattern"], "startSeconds": 138.960 },
+    { "id": "responsibilities", "title": "Architectural Responsibilities", "narrativeSegments": ["When AI Stops Being a Feature"], "startSeconds": 160.160 },
+    { "id": "significance", "title": "Greater Architectural Significance", "narrativeSegments": ["When AI Stops Being a Feature"], "startSeconds": 200.160 },
+    { "id": "powered", "title": "AI-Powered Is Often Right", "narrativeSegments": ["AI-Powered Versus AI-Native"], "startSeconds": 218.000 },
+    { "id": "native", "title": "Architectural Significance", "narrativeSegments": ["AI-Powered Versus AI-Native"], "startSeconds": 241.440 },
+    { "id": "runtime", "title": "Intelligence in the Runtime", "narrativeSegments": ["Intelligence as a Runtime Capability"], "startSeconds": 278.240 },
+    { "id": "agents", "title": "Agents Are Related, Not Equivalent", "narrativeSegments": ["What About Agents?"], "startSeconds": 317.120 },
+    { "id": "responsibility-boundary", "title": "Architecture Before Pattern", "narrativeSegments": ["What About Agents?"], "startSeconds": 342.960 },
+    { "id": "balance", "title": "Choose the Appropriate Approach", "narrativeSegments": ["Why This Matters for Articulate"], "startSeconds": 365.040 },
+    { "id": "questions", "title": "Questions the Journal Must Test", "narrativeSegments": ["Looking Ahead"], "startSeconds": 411.600 },
+    { "id": "hypothesis", "title": "A Hypothesis, Not a Conclusion", "narrativeSegments": ["Looking Ahead"], "startSeconds": 444.160 }
+  ],
+  "scenes": [
+    {
+      "id": "S001", "section": "opening", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Why AI-Native Systems?", "support": "Episode 3 · Articulate Journal", "items": []
+    },
+    {
+      "id": "S002", "section": "experiments", "archetype": "Repository", "kind": "presenter-repository", "transition": "cut",
+      "headline": "Earlier experiments", "support": "Useful evidence—not finished products.",
+      "items": ["conversational-interfaces/", "architectural-discovery/", "rag-and-knowledge/", "speech-services/"],
+      "evidence": { "excerpt": ["interpretation", "discovery", "connected knowledge", "natural interaction"] },
+      "beats": [
+        { "id": "conversation", "target": "item-1", "alignTo": "conversational interfaces" },
+        { "id": "discovery", "target": "item-2", "alignTo": "architectural discovery" },
+        { "id": "knowledge", "target": "item-3", "alignTo": "knowledge graphs" },
+        { "id": "speech", "target": "item-4", "alignTo": "speech services" }
+      ]
+    },
+    {
+      "id": "S003", "section": "question", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
+      "headline": "AI added to software—or something different?", "support": "The question emerged gradually from repeated experiments.", "items": [],
+      "beats": [{ "id": "question", "action": "emphasise", "target": "headline", "alignTo": "something fundamentally different" }]
+    },
+    {
+      "id": "S004", "section": "principle", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "headline": "Start with the problem", "support": "Technology comes last.", "items": [],
+      "diagramAssetId": "episode-0003-problem-to-technology"
+    },
+    {
+      "id": "S005", "section": "articulate-problem", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Discover · Understand · Reason", "support": "The problem shaped the architecture—not an AI-native label.", "items": []
+    },
+    {
+      "id": "S006", "section": "alternative", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "headline": "The same problem, two valid approaches", "support": "Appropriateness depends on the nature of the problem.", "items": [],
+      "diagramAssetId": "episode-0003-deterministic-or-intelligent"
+    },
+    {
+      "id": "S007", "section": "recurrence", "archetype": "Focus Canvas", "kind": "focus-canvas", "compositionMode": "canvas-full", "canvasLayout": "flow", "transition": "cut",
+      "headline": "The LLM branch kept appearing", "support": "Isolated choices began to form a pattern.",
+      "items": ["Interpretation", "Follow-up questions", "Incomplete knowledge", "Contextual reasoning", "Architectural discovery"],
+      "beats": [
+        { "id": "interpretation", "target": "item-1", "alignTo": "interpret unstructured information" },
+        { "id": "follow-up", "target": "item-2", "alignTo": "ask follow-up questions" },
+        { "id": "incomplete", "target": "item-3", "alignTo": "incomplete information" },
+        { "id": "reasoning", "target": "item-4", "alignTo": "better architectural choice" },
+        { "id": "pattern", "target": "item-5", "alignTo": "different parts of the system" }
+      ],
+      "connections": [["item-1", "item-2"], ["item-2", "item-3"], ["item-3", "item-4"], ["item-4", "item-5"]]
+    },
+    {
+      "id": "S008", "section": "responsibilities", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "section",
+      "headline": "These are architectural concerns", "support": "Intelligent behaviour creates enduring responsibilities.", "items": [],
+      "diagramAssetId": "episode-0003-intelligent-responsibilities"
+    },
+    {
+      "id": "S009", "section": "significance", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Greater significance—not a conclusion", "support": "AI-native is beginning to deserve investigation.", "items": []
+    },
+    {
+      "id": "S010", "section": "powered", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "AI-powered can be exactly right", "support": "Adding an AI capability does not make the underlying architecture inferior.", "items": []
+    },
+    {
+      "id": "S011", "section": "native", "archetype": "Focus Canvas", "kind": "focus-canvas", "compositionMode": "canvas-full", "transition": "cut",
+      "headline": "Architectural significance is the distinction", "support": "Not maturity. Not quality. Not automatic superiority.",
+      "items": ["AI-powered\nAI improves one part", "AI-native\nIntelligence shapes capabilities + runtime"],
+      "beats": [
+        { "id": "powered", "target": "item-1", "alignTo": "AI-powered application uses AI" },
+        { "id": "native", "target": "item-2", "alignTo": "designed around intelligence" }
+      ]
+    },
+    {
+      "id": "S012", "section": "runtime", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "section",
+      "headline": "Intelligence becomes a runtime capability", "support": "Traditional engineering concerns remain beside it.", "items": [],
+      "diagramAssetId": "episode-0003-intelligence-runtime-capability"
+    },
+    {
+      "id": "S013", "section": "agents", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Agents are not the architecture", "support": "They are one way to organise intelligent behaviour.", "items": []
+    },
+    {
+      "id": "S014", "section": "responsibility-boundary", "archetype": "Focus Canvas", "kind": "focus-canvas", "compositionMode": "canvas-full", "transition": "cut",
+      "headline": "Architecture before implementation pattern", "support": "First decide where each responsibility belongs.",
+      "items": ["AI-native\nArchitectural philosophy", "Agents\nOne implementation pattern"],
+      "beats": [
+        { "id": "intelligence", "target": "item-1", "alignTo": "responsibilities belong to intelligence" },
+        { "id": "deterministic", "target": "item-2", "alignTo": "remain deterministic" }
+      ]
+    },
+    {
+      "id": "S015", "section": "balance", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Use the approach the problem deserves", "support": "Simpler deterministic solutions remain the right choice when they fit.", "items": []
+    },
+    {
+      "id": "S016", "section": "questions", "archetype": "Reflection", "kind": "focus-canvas", "compositionMode": "canvas-full", "transition": "section",
+      "headline": "Questions, not settled answers", "support": "The journal will keep the architectural reasoning visible.",
+      "items": ["What is context?", "What is memory?", "Where does knowledge live?", "How is reasoning coordinated?", "How is behaviour evaluated?", "How do humans remain involved?", "How is long-running work managed?"],
+      "beats": [
+        { "id": "context", "target": "item-1", "alignTo": "What is context" },
+        { "id": "memory", "target": "item-2", "alignTo": "What is memory" },
+        { "id": "knowledge", "target": "item-3", "alignTo": "knowledge live" },
+        { "id": "coordination", "target": "item-4", "alignTo": "reasoning be coordinated" },
+        { "id": "evaluation", "target": "item-5", "alignTo": "evaluate intelligent behaviour" },
+        { "id": "humans", "target": "item-6", "alignTo": "humans remain" },
+        { "id": "long-running", "target": "item-7", "alignTo": "long-running work" }
+      ]
+    },
+    {
+      "id": "S017", "section": "hypothesis", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
+      "headline": "AI-native architecture is the hypothesis", "support": "The rest of the journal will test it.", "items": [],
+      "beats": [{ "id": "hypothesis", "action": "emphasise", "target": "headline", "alignTo": "treat it as a hypothesis" }]
+    }
+  ]
+}
+

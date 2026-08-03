@@ -1,0 +1,23 @@
+...@../../../styles/articulate
+direction: right
+
+behaviour: "Intelligent behaviour" {class: emphasis}
+
+responsibilities: {
+  label: "Architectural responsibilities"
+  direction: down
+  prompts: "Prompt versioning" {class: capability}
+  models: "Model portability" {class: capability}
+  evaluation: "Evaluation" {class: capability}
+  regression: "Regression + drift" {class: capability}
+  observability: "Observability" {class: capability}
+  governance: "Governance" {class: capability}
+}
+
+behaviour -> responsibilities.prompts
+behaviour -> responsibilities.models
+behaviour -> responsibilities.evaluation
+behaviour -> responsibilities.regression
+behaviour -> responsibilities.observability
+behaviour -> responsibilities.governance
+

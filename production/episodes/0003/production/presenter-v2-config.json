@@ -1,0 +1,754 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0003",
+    "title": "Why AI-Native Systems?",
+    "journalSource": "docs/episodes/0003-why-ai-native-systems.md",
+    "narrativeSource": "production/episodes/0003/narrative.md",
+    "storyboard": "production/episodes/0003/storyboard-presenter.yaml",
+    "timingMarkers": "production/episodes/0003/production/presenter-v2-markers.json",
+    "assetRegister": "production/episodes/0003/asset-register.yaml",
+    "scenePlan": "production/episodes/0003/scene-plan.yaml"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0003-presenter-v2",
+    "expectedSha256": "e7219c6cbee8f94e9d682288c2ca4b15c129f36a05ca63e2b304c11d72112136",
+    "expectedDurationSeconds": 456.333333,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 456.333333,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Refreshed Episodes 0001–0002 framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 8
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0003/output/episode-0003-final.mp4",
+    "generatedDirectory": "production/episodes/0003/generated/presenter-v2",
+    "reviewDirectory": "production/episodes/0003/output/review/presenter-v2",
+    "narrationAnalysis": "production/episodes/0003/production/presenter-v2-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Why AI-Native Systems?",
+      "kind": "presenter-focus",
+      "headline": "Why AI-Native Systems?",
+      "support": "Episode 3 · Articulate Journal",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Opening",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "Earlier experiments",
+      "kind": "presenter-repository",
+      "headline": "Earlier experiments",
+      "support": "Useful evidence—not finished products.",
+      "items": [
+        "conversational-interfaces/",
+        "architectural-discovery/",
+        "rag-and-knowledge/",
+        "speech-services/"
+      ],
+      "evidence": {
+        "excerpt": [
+          "interpretation",
+          "discovery",
+          "connected knowledge",
+          "natural interaction"
+        ]
+      },
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "conversation",
+            "at": 6.96,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "conversational interfaces"
+          },
+          {
+            "id": "discovery",
+            "at": 9.62,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "architectural discovery"
+          },
+          {
+            "id": "knowledge",
+            "at": 13.6,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "knowledge graphs"
+          },
+          {
+            "id": "speech",
+            "at": 14.21,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "speech services"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Earlier Experiments",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "AI added to software—or something different?",
+      "kind": "presenter-focus",
+      "headline": "AI added to software—or something different?",
+      "support": "The question emerged gradually from repeated experiments.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "question",
+            "at": 17.57,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "something fundamentally different"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "An Emerging Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Start with the problem",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0003-problem-to-technology",
+      "headline": "Start with the problem",
+      "support": "Technology comes last.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Start With the Problem",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Discover · Understand · Reason",
+      "kind": "presenter-focus",
+      "headline": "Discover · Understand · Reason",
+      "support": "The problem shaped the architecture—not an AI-native label.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Articulate Problem",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "The same problem, two valid approaches",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0003-deterministic-or-intelligent",
+      "headline": "The same problem, two valid approaches",
+      "support": "Appropriateness depends on the nature of the problem.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Two Architectural Approaches",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "The LLM branch kept appearing",
+      "kind": "focus-canvas",
+      "compositionMode": "canvas-full",
+      "canvasLayout": "flow",
+      "headline": "The LLM branch kept appearing",
+      "support": "Isolated choices began to form a pattern.",
+      "items": [
+        "Interpretation",
+        "Follow-up questions",
+        "Incomplete knowledge",
+        "Contextual reasoning",
+        "Architectural discovery"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "interpretation",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "interpret unstructured information"
+          },
+          {
+            "id": "follow-up",
+            "at": 1.6,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "ask follow-up questions"
+          },
+          {
+            "id": "incomplete",
+            "at": 3.2,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "incomplete information"
+          },
+          {
+            "id": "reasoning",
+            "at": 5.92,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "better architectural choice"
+          },
+          {
+            "id": "pattern",
+            "at": 13.41,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "different parts of the system"
+          },
+          {
+            "id": "s007-connect-1",
+            "at": 1.6,
+            "action": "connect",
+            "from": "item-1",
+            "to": "item-2"
+          },
+          {
+            "id": "s007-connect-2",
+            "at": 3.2,
+            "action": "connect",
+            "from": "item-2",
+            "to": "item-3"
+          },
+          {
+            "id": "s007-connect-3",
+            "at": 5.92,
+            "action": "connect",
+            "from": "item-3",
+            "to": "item-4"
+          },
+          {
+            "id": "s007-connect-4",
+            "at": 13.41,
+            "action": "connect",
+            "from": "item-4",
+            "to": "item-5"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Pattern Repeats",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "These are architectural concerns",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0003-intelligent-responsibilities",
+      "headline": "These are architectural concerns",
+      "support": "Intelligent behaviour creates enduring responsibilities.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "section",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Responsibilities",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Greater significance—not a conclusion",
+      "kind": "presenter-focus",
+      "headline": "Greater significance—not a conclusion",
+      "support": "AI-native is beginning to deserve investigation.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Greater Architectural Significance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "AI-powered can be exactly right",
+      "kind": "presenter-focus",
+      "headline": "AI-powered can be exactly right",
+      "support": "Adding an AI capability does not make the underlying architecture inferior.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "AI-Powered Is Often Right",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Architectural significance is the distinction",
+      "kind": "focus-canvas",
+      "compositionMode": "canvas-full",
+      "headline": "Architectural significance is the distinction",
+      "support": "Not maturity. Not quality. Not automatic superiority.",
+      "items": [
+        "AI-powered\nAI improves one part",
+        "AI-native\nIntelligence shapes capabilities + runtime"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "powered",
+            "at": 12.4,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "AI-powered application uses AI"
+          },
+          {
+            "id": "native",
+            "at": 21.41,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "designed around intelligence"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Significance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Intelligence becomes a runtime capability",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0003-intelligence-runtime-capability",
+      "headline": "Intelligence becomes a runtime capability",
+      "support": "Traditional engineering concerns remain beside it.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "section",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Intelligence in the Runtime",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Agents are not the architecture",
+      "kind": "presenter-focus",
+      "headline": "Agents are not the architecture",
+      "support": "They are one way to organise intelligent behaviour.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Agents Are Related, Not Equivalent",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "Architecture before implementation pattern",
+      "kind": "focus-canvas",
+      "compositionMode": "canvas-full",
+      "headline": "Architecture before implementation pattern",
+      "support": "First decide where each responsibility belongs.",
+      "items": [
+        "AI-native\nArchitectural philosophy",
+        "Agents\nOne implementation pattern"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "intelligence",
+            "at": 6.41,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "responsibilities belong to intelligence"
+          },
+          {
+            "id": "deterministic",
+            "at": 8.68,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "remain deterministic"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architecture Before Pattern",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "Use the approach the problem deserves",
+      "kind": "presenter-focus",
+      "headline": "Use the approach the problem deserves",
+      "support": "Simpler deterministic solutions remain the right choice when they fit.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Choose the Appropriate Approach",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "Questions, not settled answers",
+      "kind": "focus-canvas",
+      "compositionMode": "canvas-full",
+      "headline": "Questions, not settled answers",
+      "support": "The journal will keep the architectural reasoning visible.",
+      "items": [
+        "What is context?",
+        "What is memory?",
+        "Where does knowledge live?",
+        "How is reasoning coordinated?",
+        "How is behaviour evaluated?",
+        "How do humans remain involved?",
+        "How is long-running work managed?"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "section",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "context",
+            "at": 4.65,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "What is context"
+          },
+          {
+            "id": "memory",
+            "at": 6.15,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "What is memory"
+          },
+          {
+            "id": "knowledge",
+            "at": 8.25,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "knowledge live"
+          },
+          {
+            "id": "coordination",
+            "at": 10.36,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "reasoning be coordinated"
+          },
+          {
+            "id": "evaluation",
+            "at": 19.6,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "evaluate intelligent behaviour"
+          },
+          {
+            "id": "humans",
+            "at": 16.01,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "humans remain"
+          },
+          {
+            "id": "long-running",
+            "at": 7.76,
+            "action": "reveal",
+            "target": "item-7",
+            "sourcePhrase": "long-running work"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Questions the Journal Must Test",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "title": "AI-native architecture is the hypothesis",
+      "kind": "presenter-focus",
+      "headline": "AI-native architecture is the hypothesis",
+      "support": "The rest of the journal will test it.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "hypothesis",
+            "at": 4.72,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "treat it as a hypothesis"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Hypothesis, Not a Conclusion",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

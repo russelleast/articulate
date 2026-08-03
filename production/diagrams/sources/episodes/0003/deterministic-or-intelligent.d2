@@ -1,0 +1,25 @@
+...@../../../styles/articulate
+direction: right
+
+problem: "Architectural problem" {class: evidence}
+
+deterministic: {
+  label: "Deterministic approach"
+  direction: down
+  rules: "Rules + forms" {class: service}
+  workflows: "Predefined workflows" {class: service}
+  structure: "Structured inputs" {class: service}
+}
+
+intelligent: {
+  label: "LLM-assisted approach"
+  direction: down
+  interpretation: "Interpretation" {class: capability}
+  questions: "Contextual questions" {class: capability}
+  incomplete: "Incomplete information" {class: capability}
+  reasoning: "Contextual reasoning" {class: capability}
+}
+
+problem -> deterministic.rules: "when certainty is known"
+problem -> intelligent.interpretation: "when meaning is uncertain"
+
