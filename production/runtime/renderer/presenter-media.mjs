@@ -18,6 +18,7 @@ const VISIBLE_MODES = new Set([
 ]);
 
 const PRESENTER_COMPOSITING_MODES = new Set(["overlay", "soft-luma-key"]);
+const PRESENTER_AUDIO_NORMALIZATION_MODES = new Set(["none", "ebu-r128"]);
 
 export const DEFAULT_PRESENTER_COMPOSITING = Object.freeze({
   mode: "overlay",
@@ -55,6 +56,7 @@ export function validatePresenterMedia({ config, asset, probe, scenes }) {
     errors.push("The continuous presenter pipeline currently requires embedded audio");
   }
   errors.push(...validatePresenterCompositing(presenter.compositing));
+  errors.push(...validatePresenterAudioNormalization(presenter.audioNormalization));
   const sourceDuration = Number(probe.format?.duration);
   const start = presenter.startOffsetSeconds ?? 0;
   const end = presenter.endOffsetSeconds ?? sourceDuration;
@@ -115,8 +117,9 @@ export function presenterFilterGraph({ presenter, scenes, output, durationSecond
   }
   if (visibleScenes.length === 0) filters.push("[0:v]null[visual]");
   else filters.push(`[${current}]null[visual]`);
+  const audioNormalization = presenterAudioNormalizationFilter(presenter.audioNormalization);
   filters.push(
-    `[1:a]atrim=start=${decimal(start)}:end=${decimal(end)},asetpts=PTS-STARTPTS,apad=pad_dur=${decimal(durationSeconds)}[audio]`
+    `[1:a]atrim=start=${decimal(start)}:end=${decimal(end)},asetpts=PTS-STARTPTS,${audioNormalization}apad=pad_dur=${decimal(durationSeconds)}[audio]`
   );
   return `${filters.join(";")}`;
 }
@@ -126,6 +129,7 @@ export function presenterManifest(presenter, scenes) {
     implementation: presenter.implementation,
     assetId: presenter.assetId,
     audio: presenter.audio,
+    audioNormalization: presenter.audioNormalization ?? { mode: "none" },
     compositing: presenter.compositing ?? { mode: "overlay" },
     startOffsetSeconds: presenter.startOffsetSeconds ?? 0,
     endOffsetSeconds: presenter.endOffsetSeconds,
@@ -133,6 +137,36 @@ export function presenterManifest(presenter, scenes) {
       .filter((scene) => VISIBLE_MODES.has(scene.presentation.composition))
       .map((scene) => ({ sceneId: scene.id, composition: scene.presentation.composition }))
   };
+}
+
+function validatePresenterAudioNormalization(config) {
+  if (!config) return [];
+  const errors = [];
+  const mode = config.mode ?? "none";
+  if (!PRESENTER_AUDIO_NORMALIZATION_MODES.has(mode)) {
+    errors.push(`Unsupported presenter audio normalization mode '${mode}'`);
+  }
+  if (mode === "ebu-r128") {
+    const values = [
+      ["integratedLoudness", config.integratedLoudness, -70, -5],
+      ["loudnessRange", config.loudnessRange, 1, 50],
+      ["truePeak", config.truePeak, -9, 0]
+    ];
+    for (const [name, value, minimum, maximum] of values) {
+      if (!Number.isFinite(value) || value < minimum || value > maximum) {
+        errors.push(`presenter.audioNormalization.${name} must be between ${minimum} and ${maximum}`);
+      }
+    }
+    if (!Number.isInteger(config.sampleRateHz) || config.sampleRateHz < 8000 || config.sampleRateHz > 192000) {
+      errors.push("presenter.audioNormalization.sampleRateHz must be an integer between 8000 and 192000");
+    }
+  }
+  return errors;
+}
+
+function presenterAudioNormalizationFilter(config) {
+  if (!config || (config.mode ?? "none") === "none") return "";
+  return `loudnorm=I=${number(config.integratedLoudness)}:LRA=${number(config.loudnessRange)}:TP=${number(config.truePeak)},aresample=${config.sampleRateHz},`;
 }
 
 function validatePresenterCompositing(config) {

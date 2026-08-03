@@ -33,6 +33,25 @@ test("presenter composition keeps one continuous audio and video source", () => 
   assert.doesNotMatch(graph, /gte\(t,4\.000000\).*lt\(t,7\.000000\)/);
 });
 
+test("presenter composition applies declared EBU R128 audio normalization", () => {
+  const graph = presenterFilterGraph({
+    presenter: {
+      ...presenter,
+      audioNormalization: {
+        mode: "ebu-r128",
+        integratedLoudness: -16,
+        loudnessRange: 7,
+        truePeak: -1.5,
+        sampleRateHz: 48000
+      }
+    },
+    scenes: [],
+    output,
+    durationSeconds: 10
+  });
+  assert.match(graph, /loudnorm=I=-16\.0000:LRA=7\.0000:TP=-1\.5000,aresample=48000/);
+});
+
 test("soft luminance compositing derives and feathers a stable alpha mask", () => {
   const blendedPresenter = {
     ...presenter,
@@ -105,6 +124,33 @@ test("presenter validation rejects invalid compositing controls", () => {
   assert.match(errors.join("\n"), /Unsupported presenter compositing mode/);
   assert.match(errors.join("\n"), /minimumRetainedOpacity/);
   assert.match(errors.join("\n"), /applyTo/);
+});
+
+test("presenter validation rejects invalid audio normalization controls", () => {
+  const errors = validatePresenterMedia({
+    config: {
+      presenter: {
+        ...presenter,
+        audioNormalization: {
+          mode: "ebu-r128",
+          integratedLoudness: -90,
+          loudnessRange: 0,
+          truePeak: 2,
+          sampleRateHz: 0
+        }
+      }
+    },
+    asset: { id: "episode-presenter", type: "presenter-video" },
+    probe: {
+      format: { duration: 20 },
+      streams: [{ codec_type: "video" }, { codec_type: "audio" }]
+    },
+    scenes: [scene("S001", "presenter-full", 0, 10)]
+  });
+  assert.match(errors.join("\n"), /integratedLoudness/);
+  assert.match(errors.join("\n"), /loudnessRange/);
+  assert.match(errors.join("\n"), /truePeak/);
+  assert.match(errors.join("\n"), /sampleRateHz/);
 });
 
 function scene(id, composition, startSeconds, endSeconds) {

@@ -1,0 +1,443 @@
+1
+00:00:00,000 --> 00:00:05,531
+Hello and welcome. In the previous
+episode, I introduced Articulate. Today, I
+
+2
+00:00:05,571 --> 00:00:06,460
+want to
+
+3
+00:00:06,500 --> 00:00:12,508
+answer a much more important question.
+Why does it exist at all? Imagine you've
+
+4
+00:00:12,548 --> 00:00:12,940
+joined
+
+5
+00:00:12,980 --> 00:00:17,273
+a new company as an architect. After the
+introductions, your first question is
+
+6
+00:00:17,313 --> 00:00:17,940
+probably something
+
+7
+00:00:17,980 --> 00:00:23,727
+like this. Can someone show me the current
+architecture? It's a simple question. So
+
+8
+00:00:23,767 --> 00:00:24,140
+someone
+
+9
+00:00:24,180 --> 00:00:30,729
+points you towards the company wiki. There
+are hundreds of pages. A few architecture
+
+10
+00:00:30,769 --> 00:00:31,200
+diagrams,
+
+11
+00:00:31,240 --> 00:00:35,575
+some architecture decision records, a
+collection of PowerPoint presentations,
+
+12
+00:00:35,615 --> 00:00:37,520
+maybe a few recordings
+
+13
+00:00:37,560 --> 00:00:42,920
+of previous architecture reviews. At first
+glance, it looks like everything you need
+
+14
+00:00:42,960 --> 00:00:49,864
+is there. But after a few hours, few days,
+sometimes something doesn't feel right.
+
+15
+00:00:49,904 --> 00:00:50,360
+Some
+
+16
+00:00:50,400 --> 00:00:55,566
+of the diagrams are a couple years old.
+Some systems appear in one diagram, but
+
+17
+00:00:55,606 --> 00:00:56,260
+not another.
+
+18
+00:00:56,300 --> 00:01:00,749
+The documentation is full of three-letter
+acronyms that no one has explained. Some
+
+19
+00:01:00,789 --> 00:01:01,440
+pages contradict
+
+20
+00:01:01,480 --> 00:01:07,077
+each other. Some links no longer work. And
+before long, someone says, "Don't trust
+
+21
+00:01:07,117 --> 00:01:07,480
+that
+
+22
+00:01:07,520 --> 00:01:13,293
+diagram. We've changed it since then."
+So you ask another architect, then a
+
+23
+00:01:13,333 --> 00:01:13,740
+developer,
+
+24
+00:01:13,780 --> 00:01:19,701
+and someone in operations. Each person
+gives you another piece of that puzzle.
+
+25
+00:01:19,741 --> 00:01:20,160
+Slowly,
+
+26
+00:01:20,200 --> 00:01:24,469
+a picture begins to emerge. Not because
+you found one document that explained
+
+27
+00:01:24,509 --> 00:01:24,800
+everything,
+
+28
+00:01:24,840 --> 00:01:29,960
+but because you started connecting lots of
+small pieces of information together. Some
+
+29
+00:01:30,000 --> 00:01:34,605
+of those pieces were facts, some were
+opinions, some turned out to be wrong,
+
+30
+00:01:34,645 --> 00:01:35,600
+some raised even
+
+31
+00:01:35,640 --> 00:01:40,582
+more questions. Eventually, you build
+enough understanding to begin making
+
+32
+00:01:40,622 --> 00:01:41,080
+architectural
+
+33
+00:01:41,120 --> 00:01:45,944
+decisions. And that's when I realized
+something. Architects don't spend most of
+
+34
+00:01:45,984 --> 00:01:47,160
+their time creating
+
+35
+00:01:47,200 --> 00:01:51,255
+architecture. They spend most of
+their time trying to understand it.
+
+36
+00:01:51,295 --> 00:01:52,000
+Understanding what
+
+37
+00:01:52,040 --> 00:01:58,314
+exists today, understanding why it ended
+up that way, understanding what changed,
+
+38
+00:01:58,354 --> 00:01:58,840
+and
+
+39
+00:01:58,880 --> 00:02:04,480
+understanding what can safely change next.
+That's much harder than it sounds, because
+
+40
+00:02:04,520 --> 00:02:11,063
+architecture doesn't exist in one place.
+It exists in diagrams, documents, in
+
+41
+00:02:11,103 --> 00:02:12,160
+source code,
+
+42
+00:02:12,200 --> 00:02:16,295
+decision records, and monitoring systems,
+and in conversations with people who know
+
+43
+00:02:16,335 --> 00:02:16,640
+the
+
+44
+00:02:16,680 --> 00:02:21,607
+system best. Every one of those sources
+tells part of the story. None of them
+
+45
+00:02:21,647 --> 00:02:22,600
+tells the whole
+
+46
+00:02:22,640 --> 00:02:27,336
+story. It's like trying to navigate
+a landscape covered in fog. Each
+
+47
+00:02:27,376 --> 00:02:28,520
+conversation clears a
+
+48
+00:02:28,560 --> 00:02:34,931
+little more of the view. Every document
+reveals another landmark. Every decision
+
+49
+00:02:34,971 --> 00:02:36,000
+helps explain
+
+50
+00:02:36,040 --> 00:02:41,040
+why the landscape looks the way it does.
+But the fog never completely disappears.
+
+51
+00:02:41,080 --> 00:02:41,760
+The system
+
+52
+00:02:41,800 --> 00:02:48,800
+keeps changing. New projects begin. Old
+assumptions become invalid. People leave.
+
+53
+00:02:48,840 --> 00:02:50,080
+Knowledge fades.
+
+54
+00:02:50,120 --> 00:02:55,920
+And the picture you work so hard to build
+slowly becomes unclear again. For years, I
+
+55
+00:02:55,960 --> 00:03:01,120
+assumed this was simply the nature of
+architecture. Then I started asking myself
+
+56
+00:03:01,160 --> 00:03:02,320
+a different question.
+
+57
+00:03:02,360 --> 00:03:09,040
+What if the problem isn't that we don't
+have enough documentation? What if the
+
+58
+00:03:09,080 --> 00:03:09,520
+problem
+
+59
+00:03:09,560 --> 00:03:13,612
+is that we're trying to understand
+architecture from disconnected fragments
+
+60
+00:03:13,652 --> 00:03:14,840
+of evidence? What
+
+61
+00:03:14,880 --> 00:03:20,783
+if the architecture isn't really diagrams
+or documents or decision records? What if
+
+62
+00:03:20,823 --> 00:03:21,240
+those
+
+63
+00:03:21,280 --> 00:03:26,040
+are just simply evidence? Perhaps
+architecture is something else entirely.
+
+64
+00:03:26,080 --> 00:03:27,000
+Perhaps architecture
+
+65
+00:03:27,040 --> 00:03:31,672
+is our own current understanding of
+the system. An understanding built from
+
+66
+00:03:31,712 --> 00:03:32,840
+evidence. One that
+
+67
+00:03:32,880 --> 00:03:37,455
+evolves as we discover new information.
+One that becomes more confident as
+
+68
+00:03:37,495 --> 00:03:37,840
+assumptions
+
+69
+00:03:37,880 --> 00:03:43,132
+are tested. One that preserves not just
+decisions, but the reasons behind them.
+
+70
+00:03:43,172 --> 00:03:44,760
+For a long time,
+
+71
+00:03:44,800 --> 00:03:48,747
+I didn't think software could help
+with that. Software is good at storing
+
+72
+00:03:48,787 --> 00:03:49,360
+information. It's
+
+73
+00:03:49,400 --> 00:03:53,995
+very good at searching information. But
+understanding is something we've always
+
+74
+00:03:54,035 --> 00:03:55,680
+had to build ourselves.
+
+75
+00:03:55,720 --> 00:04:00,860
+I think AI changes that. Not because it
+can generate code. That's useful, but it
+
+76
+00:04:00,900 --> 00:04:04,760
+isn't what excites me. For the first time,
+we have a technology that can help connect
+
+77
+00:04:04,800 --> 00:04:09,980
+information, highlight contradictions, ask
+questions, and challenge assumptions. And
+
+78
+00:04:10,020 --> 00:04:10,560
+help
+
+79
+00:04:10,600 --> 00:04:15,909
+us gradually build understanding from
+incomplete knowledge. That led me to a
+
+80
+00:04:15,949 --> 00:04:16,800
+simple question.
+
+81
+00:04:16,840 --> 00:04:20,917
+Could we build something that helps
+architects understand architecture in the
+
+82
+00:04:20,957 --> 00:04:22,040
+same way that
+
+83
+00:04:22,080 --> 00:04:27,512
+architects already do? Not by replacing
+architects. Not by replacing diagrams. But
+
+84
+00:04:27,552 --> 00:04:28,880
+by helping us
+
+85
+00:04:28,920 --> 00:04:34,629
+clear a little more of that fog. That's
+what Articulate is exploring. It's an
+
+86
+00:04:34,669 --> 00:04:35,040
+experiment.
+
+87
+00:04:35,080 --> 00:04:38,903
+It's an exploration into whether AI can
+help us discover, understand and reason
+
+88
+00:04:38,943 --> 00:04:39,200
+about
+
+89
+00:04:39,240 --> 00:04:43,863
+and evolve complex software systems.
+I don't know whether that vision is
+
+90
+00:04:43,903 --> 00:04:44,640
+achievable. That's
+
+91
+00:04:44,680 --> 00:04:50,240
+why this is a journal. You'll see the
+ideas that work, the ones that don't,
+
+92
+00:04:50,280 --> 00:04:54,109
+the architecture decisions, the
+trade-offs, the experiments, and
+
+93
+00:04:54,149 --> 00:04:55,560
+inevitably the mistakes.
+
+94
+00:04:55,600 --> 00:04:59,776
+Because if AI is going to change the way
+we build software, I think it's worth
+
+95
+00:04:59,816 --> 00:05:00,040
+exploring,
+
+96
+00:05:00,080 --> 00:05:03,940
+whether it can also change the way we
+understand it. Thank you for watching. See
+
+97
+00:05:03,980 --> 00:05:04,720
+you on the
+
+98
+00:05:04,760 --> 00:05:05,560
+next episode.

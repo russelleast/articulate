@@ -1,0 +1,181 @@
+{
+  "$schema": "../../schemas/scene-plan.schema.json",
+  "version": 2,
+  "generation": {
+    "generated": false,
+    "generatorVersion": "episode-0001-presenter-refresh-v1",
+    "sourceHashes": {
+      "narrative": "4003710ba8e76a9031eee8926904d68421c8739071d66aac3f41c6cd4d971f58",
+      "presenterMedia": "66702e99cbbe06257a0552cc538ebc814d0cf42be7a3290c59de33741bf84d16"
+    }
+  },
+  "episode": {
+    "id": "0001",
+    "title": "Why Articulate Exists",
+    "writtenSource": "docs/episodes/0001-why-articulate-exists.md",
+    "narrativeSource": "production/episodes/0001/narrative.md",
+    "audio": "production/episodes/0001/ep01-narrator.mov"
+  },
+  "styleGuide": "production/style-guide/archetypes.json",
+  "defaults": {
+    "authority": "guided",
+    "importance": "important",
+    "headlineVisibility": "scene-start",
+    "phraseAlignment": "exact-normalised-fuzzy-section-fallback"
+  },
+  "review": {
+    "status": "approved-for-render",
+    "requiredBeforeFinalRender": true,
+    "notes": [
+      "Refresh Episode 0001 through the Episode 0000 continuous-presenter production system.",
+      "Retain presenter framing, soft-luma edge treatment, Focus Canvas styling and restrained cut/fade vocabulary.",
+      "Use progressive disclosure instead of static diagram holds."
+    ]
+  },
+  "sections": [
+    { "id": "opening", "title": "Opening Question", "narrativeSegments": ["N001-N008"], "startSeconds": 0.000 },
+    { "id": "apparent-record", "title": "The Apparent Record", "narrativeSegments": ["N009-N016"], "startSeconds": 24.180 },
+    { "id": "record-decays", "title": "The Record Decays", "narrativeSegments": ["N017-N023"], "startSeconds": 50.400 },
+    { "id": "connecting-fragments", "title": "Connecting Fragments", "narrativeSegments": ["N024-N035"], "startSeconds": 73.780 },
+    { "id": "architectural-work", "title": "The Work of Architecture", "narrativeSegments": ["N036-N043"], "startSeconds": 101.120 },
+    { "id": "distributed-evidence", "title": "Distributed Evidence", "narrativeSegments": ["N044-N052"], "startSeconds": 124.520 },
+    { "id": "fog", "title": "The Fog", "narrativeSegments": ["N053-N065"], "startSeconds": 142.640 },
+    { "id": "different-question", "title": "A Different Question", "narrativeSegments": ["N066-N072"], "startSeconds": 175.960 },
+    { "id": "current-understanding", "title": "Current Understanding", "narrativeSegments": ["N073-N077"], "startSeconds": 207.040 },
+    { "id": "ai-changes", "title": "AI Changes the Possibility", "narrativeSegments": ["N078-N090"], "startSeconds": 224.800 },
+    { "id": "central-question", "title": "The Articulate Question", "narrativeSegments": ["N091-N094"], "startSeconds": 256.840 },
+    { "id": "experiment", "title": "The Experiment", "narrativeSegments": ["N095-N098"], "startSeconds": 275.080 },
+    { "id": "journal", "title": "The Journal", "narrativeSegments": ["N099-N109"], "startSeconds": 284.680 }
+  ],
+  "scenes": [
+    {
+      "id": "S001", "section": "opening", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Why does Articulate exist?", "support": "The question behind the architecture.", "items": [],
+      "beats": [{ "id": "opening-question", "action": "emphasise", "target": "headline", "alignTo": "Why does it exist at all" }]
+    },
+    {
+      "id": "S002", "section": "apparent-record", "archetype": "Diagram", "kind": "focus", "focusLayout": "flow", "transition": "cut",
+      "headline": "Everything appears to be there", "support": "The organisation has an architectural record.",
+      "items": ["Wiki pages", "Architecture diagrams", "Decision records", "Slide decks", "Review recordings"],
+      "beats": [
+        { "id": "wiki", "target": "item-1", "alignTo": "company wiki" },
+        { "id": "diagrams", "target": "item-2", "alignTo": "architecture diagrams" },
+        { "id": "records", "target": "item-3", "alignTo": "architecture decision records" },
+        { "id": "slides", "target": "item-4", "alignTo": "PowerPoint presentations" },
+        { "id": "recordings", "target": "item-5", "alignTo": "recordings of previous architecture reviews" }
+      ]
+    },
+    {
+      "id": "S003", "section": "record-decays", "archetype": "Diagram", "kind": "focus", "transition": "cut",
+      "headline": "The record is not the understanding", "support": "Fragments drift, conflict and lose context.",
+      "items": ["Old diagrams", "Inconsistent systems", "Unexplained acronyms", "Contradictions", "Broken links"],
+      "beats": [
+        { "id": "old", "target": "item-1", "alignTo": "diagrams are a couple years old" },
+        { "id": "inconsistent", "target": "item-2", "alignTo": "one diagram but not another" },
+        { "id": "acronyms", "target": "item-3", "alignTo": "three letter acronyms" },
+        { "id": "contradictions", "target": "item-4", "alignTo": "pages contradict each other" },
+        { "id": "links", "target": "item-5", "alignTo": "links no longer work" }
+      ]
+    },
+    {
+      "id": "S004", "section": "connecting-fragments", "archetype": "Diagram", "kind": "focus", "focusLayout": "flow", "transition": "cut",
+      "headline": "Understanding emerges from connection", "support": "No single source explains the whole system.",
+      "items": ["Architect", "Developer", "Operations", "Facts & opinions", "Questions", "A working picture"],
+      "beats": [
+        { "id": "architect", "target": "item-1", "alignTo": "another architect" },
+        { "id": "developer", "target": "item-2", "alignTo": "a developer" },
+        { "id": "operations", "target": "item-3", "alignTo": "someone in operations" },
+        { "id": "picture", "target": "item-6", "alignTo": "picture begins to emerge" },
+        { "id": "fragments", "target": "item-4", "alignTo": "pieces were facts" },
+        { "id": "questions", "target": "item-5", "alignTo": "raised even more questions" },
+        { "id": "decisions", "action": "emphasise", "target": "item-6", "alignTo": "begin making architectural decisions" }
+      ],
+      "connections": [["item-1", "item-6"], ["item-2", "item-6"], ["item-3", "item-6"], ["item-4", "item-6"], ["item-5", "item-6"]]
+    },
+    {
+      "id": "S005", "section": "architectural-work", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Architects spend their time understanding", "support": "What exists · Why · What changed · What can change next", "items": [],
+      "beats": [{ "id": "understanding", "action": "emphasise", "target": "headline", "alignTo": "trying to understand it" }]
+    },
+    {
+      "id": "S006", "section": "distributed-evidence", "archetype": "Diagram", "kind": "focus", "transition": "cut",
+      "headline": "Architecture does not exist in one place", "support": "Each source tells part of the story.",
+      "items": ["Diagrams", "Documents", "Source code", "Decision records", "Monitoring", "Conversations"],
+      "beats": [
+        { "id": "diagrams", "target": "item-1", "alignTo": "exists in diagrams" },
+        { "id": "documents", "target": "item-2", "alignTo": "documents" },
+        { "id": "code", "target": "item-3", "alignTo": "source code" },
+        { "id": "decisions", "target": "item-4", "alignTo": "decision records" },
+        { "id": "monitoring", "target": "item-5", "alignTo": "monitoring systems" },
+        { "id": "conversations", "target": "item-6", "alignTo": "conversations with people" }
+      ]
+    },
+    {
+      "id": "S007", "section": "fog", "archetype": "Diagram", "kind": "focus", "focusLayout": "flow", "transition": "cut",
+      "headline": "Understanding is a landscape in fog", "support": "Evidence clears the view—temporarily.",
+      "items": ["Conversation", "Document", "Decision", "Clearer view", "System changes", "Fog returns"],
+      "beats": [
+        { "id": "conversation", "target": "item-1", "alignTo": "Each conversation clears" },
+        { "id": "document", "target": "item-2", "alignTo": "Every document reveals" },
+        { "id": "decision", "target": "item-3", "alignTo": "Every decision helps" },
+        { "id": "view", "target": "item-4", "alignTo": "why the landscape looks" },
+        { "id": "change", "target": "item-5", "alignTo": "system keeps changing" },
+        { "id": "returns", "target": "item-6", "alignTo": "becomes unclear again" }
+      ],
+      "connections": [["item-1", "item-4"], ["item-2", "item-4"], ["item-3", "item-4"], ["item-4", "item-5"], ["item-5", "item-6"]]
+    },
+    {
+      "id": "S008", "section": "different-question", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "What if documentation is not the problem?", "support": "We are reasoning from disconnected fragments of evidence.", "items": [],
+      "beats": [{ "id": "different-question", "action": "emphasise", "target": "headline", "alignTo": "problem isn't that we don't have enough documentation" }]
+    },
+    {
+      "id": "S009", "section": "current-understanding", "archetype": "Diagram", "kind": "focus", "focusLayout": "flow", "transition": "cut",
+      "headline": "Architecture is current understanding", "support": "Built from evidence and revised through learning.",
+      "items": ["Evidence", "Discover", "Test assumptions", "Confidence", "Preserve reasons"],
+      "beats": [
+        { "id": "evidence", "target": "item-1", "alignTo": "built from evidence" },
+        { "id": "discover", "target": "item-2", "alignTo": "discover new information" },
+        { "id": "test", "target": "item-3", "alignTo": "assumptions are tested" },
+        { "id": "confidence", "target": "item-4", "alignTo": "becomes more confident" },
+        { "id": "reasons", "target": "item-5", "alignTo": "reasons behind them" }
+      ],
+      "connections": [["item-1", "item-2"], ["item-2", "item-3"], ["item-3", "item-4"], ["item-4", "item-5"]]
+    },
+    {
+      "id": "S010", "section": "ai-changes", "archetype": "Diagram", "kind": "focus", "transition": "cut",
+      "headline": "AI can help build understanding", "support": "Not just store or search information.",
+      "items": ["Store & search", "Connect information", "Highlight contradictions", "Ask questions", "Challenge assumptions", "Incomplete knowledge → understanding"],
+      "beats": [
+        { "id": "store-search", "target": "item-1", "alignTo": "storing information" },
+        { "id": "connect", "target": "item-2", "alignTo": "help connect information" },
+        { "id": "contradictions", "target": "item-3", "alignTo": "highlight contradictions" },
+        { "id": "questions", "target": "item-4", "alignTo": "ask questions" },
+        { "id": "assumptions", "target": "item-5", "alignTo": "challenge assumptions" },
+        { "id": "understanding", "target": "item-6", "alignTo": "build understanding from incomplete knowledge" }
+      ]
+    },
+    {
+      "id": "S011", "section": "central-question", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Can we help architects understand architecture?", "support": "Augment the way architects already reason.", "items": [],
+      "beats": [{ "id": "central-question", "action": "emphasise", "target": "headline", "alignTo": "helps architects understand architecture" }]
+    },
+    {
+      "id": "S012", "section": "experiment", "archetype": "Diagram", "kind": "focus", "focusLayout": "flow", "transition": "cut",
+      "headline": "Articulate is an experiment", "support": "Can AI help us evolve complex software systems?",
+      "items": ["Discover", "Understand", "Reason about", "Evolve"],
+      "beats": [
+        { "id": "discover", "target": "item-1", "alignTo": "discover" },
+        { "id": "understand", "target": "item-2", "alignTo": "understand" },
+        { "id": "reason", "target": "item-3", "alignTo": "reason about" },
+        { "id": "evolve", "target": "item-4", "alignTo": "evolve complex software systems" }
+      ],
+      "connections": [["item-1", "item-2"], ["item-2", "item-3"], ["item-3", "item-4"]]
+    },
+    {
+      "id": "S013", "section": "journal", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "A journal of architectural learning", "support": "Ideas · Decisions · Trade-offs · Experiments · Mistakes", "items": [],
+      "beats": [{ "id": "journal", "action": "emphasise", "target": "headline", "alignTo": "why this is a journal" }]
+    }
+  ]
+}

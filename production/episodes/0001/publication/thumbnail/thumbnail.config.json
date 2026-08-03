@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "defaultFormat": "presenter-led",
+  "episode": {
+    "id": "0001",
+    "eyebrow": "WHY ARTICULATE EXISTS",
+    "headline": ["UNDERSTAND", "ARCHITECTURE"],
+    "seriesLabel": "ARTICULATE JOURNAL · EP 1"
+  },
+  "canvas": { "width": 1280, "height": 720, "safeMargin": 56 },
+  "presenter": {
+    "sourceMedia": "../../ep01-narrator.mov",
+    "frameTimestampSeconds": 250,
+    "extractedFrame": "source/episode-0001-presenter-250_000.png",
+    "blendedFrame": "source/episode-0001-presenter-250_000-blended.png",
+    "blend": { "mode": "soft-luma-key", "darkThreshold": 20, "softThresholdRange": 50, "featherRadius": 1.6 },
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  },
+  "output": {
+    "file": "episode-0001-thumbnail.png",
+    "editableSource": "source/episode-0001-thumbnail.svg",
+    "preview25Percent": "previews/episode-0001-thumbnail-320.png",
+    "previewMobile": "previews/episode-0001-thumbnail-160.png",
+    "safeAreaPreview": "previews/episode-0001-thumbnail-safe-area.png",
+    "contactSheet": "episode-0001-thumbnail-contact-sheet-presenter.png"
+  }
+}
