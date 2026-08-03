@@ -1,0 +1,160 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0002",
+    "title": "What is Articulate?",
+    "written_source": "docs/episodes/0002-what-is-articulate.md",
+    "narrative_source": "production/episodes/0002/narrative.md",
+    "scene_plan": "production/episodes/0002/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "continuous-presenter-media",
+    "media_duration_seconds": 358.6
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "What exactly is Articulate?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Introduction"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 21.867
+    },
+    {
+      "id": "S002",
+      "title": "Five partial definitions",
+      "archetype": "Focus Canvas",
+      "kind": "focus",
+      "narrative_segments": [
+        "Introduction"
+      ],
+      "start_seconds": 21.867,
+      "end_seconds": 44.133
+    },
+    {
+      "id": "S003",
+      "title": "We’ve been modelling the wrong thing.",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Introduction"
+      ],
+      "start_seconds": 44.133,
+      "end_seconds": 61.6
+    },
+    {
+      "id": "S004",
+      "title": "Artefacts are views and evidence",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "We've Been Modelling the Wrong Thing"
+      ],
+      "start_seconds": 61.6,
+      "end_seconds": 106.233
+    },
+    {
+      "id": "S005",
+      "title": "Architecture never stands still",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "Architecture Is Always Evolving"
+      ],
+      "start_seconds": 106.233,
+      "end_seconds": 138.833
+    },
+    {
+      "id": "S006",
+      "title": "Knowledge becomes the primary asset",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "Architecture Is Always Evolving"
+      ],
+      "start_seconds": 138.833,
+      "end_seconds": 158.533
+    },
+    {
+      "id": "S007",
+      "title": "AI can work with architectural knowledge",
+      "archetype": "Diagram",
+      "kind": "focus",
+      "narrative_segments": [
+        "Where AI Fits"
+      ],
+      "start_seconds": 158.533,
+      "end_seconds": 179.933
+    },
+    {
+      "id": "S008",
+      "title": "AI collaborates. Architects remain accountable.",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Where AI Fits"
+      ],
+      "start_seconds": 179.933,
+      "end_seconds": 215.667
+    },
+    {
+      "id": "S009",
+      "title": "Conversation is the interface",
+      "archetype": "Focus Canvas",
+      "kind": "focus",
+      "narrative_segments": [
+        "Conversation Changes Everything"
+      ],
+      "start_seconds": 215.667,
+      "end_seconds": 254.367
+    },
+    {
+      "id": "S010",
+      "title": "You’re having a conversation with architecture",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "The Vision"
+      ],
+      "start_seconds": 254.367,
+      "end_seconds": 290.6
+    },
+    {
+      "id": "S011",
+      "title": "Architectural Intelligence",
+      "archetype": "Focus Canvas",
+      "kind": "focus",
+      "narrative_segments": [
+        "Architectural Intelligence"
+      ],
+      "start_seconds": 290.6,
+      "end_seconds": 312.367
+    },
+    {
+      "id": "S012",
+      "title": "An exploration in public",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Architectural Intelligence"
+      ],
+      "start_seconds": 312.367,
+      "end_seconds": 331.8
+    },
+    {
+      "id": "S013",
+      "title": "Understand · Reason · Evolve",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "Looking Ahead"
+      ],
+      "start_seconds": 331.8,
+      "end_seconds": 358.6
+    }
+  ]
+}

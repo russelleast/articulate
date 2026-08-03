@@ -1,43 +1,39 @@
 # Episode 0002 Production
 
-Written journal: [`docs/episodes/0002-what-is-articulate.md`](../../../docs/episodes/0002-what-is-articulate.md)
+This is the presenter-led production area for Episode 0002, **What is Articulate?**
 
-Canonical spoken narrative: [`narrative.md`](narrative.md)
+The episode follows Episode 0001's problem statement with the Articulate vision: architecture as evolving knowledge, AI as an accountable collaborator and conversation as an interface to architectural understanding.
 
-Storyboard, narration segmentation, recording, subtitle preparation and video production must use `narrative.md`. The journal article remains the canonical written representation and is not a narration fallback.
+## Production authority
 
-Validate source resolution from the repository root:
+- spoken narrative: [`narrative.md`](narrative.md)
+- recorded performance: `ep02-narrator.mov`
+- editorial plan: [`production-plan.md`](production-plan.md)
+- narration-aligned scene model: [`scene-plan.yaml`](scene-plan.yaml)
+- complete render timeline: [`production/presenter-v1-config.json`](production/presenter-v1-config.json)
+- integer-frame scene boundaries: [`production/presenter-v1-markers.json`](production/presenter-v1-markers.json)
+- reusable diagram sources: [`../../diagrams/sources/knowledge/`](../../diagrams/sources/knowledge/)
 
-```sh
-node production/runtime/narrative-source-cli.mjs \
-  --episode 0002 \
-  --journal docs/episodes/0002-what-is-articulate.md
-```
+The clean source performance is retained continuously from 00:00.000 to 05:58.600. Picture may give way to a Focus Canvas or semantic diagram, but embedded audio never restarts. The final mux applies the same EBU R128 target and presenter soft-edge treatment as the Episode 0001 refresh.
 
-## Rough Cut 01
+## Reproduce
 
-The first narration-synchronised rough cut reuses the shared Episode renderer, Articulate visual grammar and Companion performance pipeline.
-
-```sh
-make episode-0002-rough-cut-01-analyse
-make episode-0002-rough-cut-01-validate
-make episode-0002-rough-cut-01-render
-make episode-0002-rough-cut-01-review
-```
-
-The authoritative recording remains unchanged at `ep2-what-is-articulate.wav`. Generated media, manifests and review artefacts are written under `generated/rough-cut-01/` and `output/` using the same conventions as Episodes 0000 and 0001.
-
-## Final cut and publication assets
-
-The reviewed rough-cut configuration is the final editorial authority. The final-cut target validates and renders it, then creates the publication copy without re-encoding:
+Run from the repository root:
 
 ```sh
-make episode-0002-final-cut-render
+make episode-0002-presenter-prepare
+make episode-0002-presenter-validate
+make episode-0002-presenter-render
+make episode-0002-presenter-review
 make episode-0002-thumbnail
 ```
 
-Publication assets:
+Publication outputs:
 
-- `output/episode-0002-final-cut.mp4`
-- `publication/subtitles/episode-0002-en.srt`
-- `publication/thumbnail/episode-0002-thumbnail.png`
+- video: `production/episodes/0002/output/episode-0002-final.mp4`
+- subtitles: `production/episodes/0002/publication/subtitles/episode-0002-en.srt`
+- thumbnail: `production/episodes/0002/publication/thumbnail/episode-0002-thumbnail.png`
+- render and validation manifests: `production/episodes/0002/generated/presenter-v1/`
+- encoded-frame review: `production/episodes/0002/output/review/presenter-v1/`
+
+The previous Episode 0002 production remains available through version-control history; this presenter production does not depend on its narration or Companion timeline.

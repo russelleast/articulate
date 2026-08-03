@@ -1,0 +1,29 @@
+...@../../styles/articulate
+direction: right
+
+events: {
+  label: Architecture evolves
+  direction: down
+  decision: Decision made {class: event}
+  problem: Problem discovered {class: event}
+  service: Service replaced {class: event}
+  principle: Principle emerges {class: event}
+}
+
+knowledge: Evolving Architectural Knowledge {class: emphasis}
+
+views: {
+  label: Derived views
+  direction: down
+  documents: Documents {class: evidence}
+  diagrams: Diagrams {class: evidence}
+  reports: Reports {class: evidence}
+}
+
+events.decision -> knowledge
+events.problem -> knowledge
+events.service -> knowledge
+events.principle -> knowledge
+knowledge -> views.documents
+knowledge -> views.diagrams
+knowledge -> views.reports

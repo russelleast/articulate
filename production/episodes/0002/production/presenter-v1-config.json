@@ -1,0 +1,690 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0002",
+    "title": "What is Articulate?",
+    "journalSource": "docs/episodes/0002-what-is-articulate.md",
+    "narrativeSource": "production/episodes/0002/narrative.md",
+    "storyboard": "production/episodes/0002/storyboard-presenter.yaml",
+    "timingMarkers": "production/episodes/0002/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0002/asset-register.yaml",
+    "scenePlan": "production/episodes/0002/scene-plan.yaml"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0002-presenter-v1",
+    "expectedSha256": "5ccdca1c47c2aeccd1aacd61fa1fe42696a2347bea08c6b2fe8d0d912a42c9c0",
+    "expectedDurationSeconds": 358.6,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 358.6,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Episode 0001 presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 5
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0002/output/episode-0002-final.mp4",
+    "generatedDirectory": "production/episodes/0002/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0002/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0002/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "What exactly is Articulate?",
+      "kind": "presenter-focus",
+      "headline": "What exactly is Articulate?",
+      "support": "A vision shaped by the problem of architectural understanding.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "question",
+            "at": 17.74,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "What exactly is Articulate"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Opening",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "Five partial definitions",
+      "kind": "focus",
+      "headline": "Five partial definitions",
+      "support": "Each described a fragment—not the whole.",
+      "items": [
+        "Documentation Tool",
+        "Knowledge Graph",
+        "Conversational Assistant",
+        "Architecture Modelling Tool",
+        "Discovery Platform"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "documentation",
+            "at": 4.743,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "documentation tool"
+          },
+          {
+            "id": "graph",
+            "at": 7.063,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "knowledge graph"
+          },
+          {
+            "id": "assistant",
+            "at": 7.653,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "conversational assistant"
+          },
+          {
+            "id": "modelling",
+            "at": 9.343,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "architecture modeling tool"
+          },
+          {
+            "id": "discovery",
+            "at": 11.033,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "discovery platform"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Incomplete Definitions",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "We’ve been modelling the wrong thing.",
+      "kind": "presenter-focus",
+      "headline": "We’ve been modelling the wrong thing.",
+      "support": "The objective is architectural understanding—not another tool category.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "wrong-thing",
+            "at": 5.417,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "solve the problem we talked about"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Real Objective",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Artefacts are views and evidence",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "architectural-understanding",
+      "headline": "Artefacts are views and evidence",
+      "support": "Architecture is the understanding that connects them.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Artefacts and Understanding",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Architecture never stands still",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Architecture never stands still",
+      "support": "Each event changes what the organisation understands.",
+      "items": [
+        "Decision made",
+        "Problem discovered",
+        "Service replaced",
+        "Principle emerges",
+        "Understanding evolves"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "decision",
+            "at": 7.627,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Decision gets made"
+          },
+          {
+            "id": "problem",
+            "at": 10.157,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "discovers a problem"
+          },
+          {
+            "id": "service",
+            "at": 11.327,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "service is replaced"
+          },
+          {
+            "id": "principle",
+            "at": 13.137,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "principle emerges"
+          },
+          {
+            "id": "evolves",
+            "at": 17.317,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "understanding of the architecture changes"
+          },
+          {
+            "id": "s005-connect-1",
+            "at": 17.317,
+            "action": "connect",
+            "from": "item-1",
+            "to": "item-5"
+          },
+          {
+            "id": "s005-connect-2",
+            "at": 17.317,
+            "action": "connect",
+            "from": "item-2",
+            "to": "item-5"
+          },
+          {
+            "id": "s005-connect-3",
+            "at": 17.317,
+            "action": "connect",
+            "from": "item-3",
+            "to": "item-5"
+          },
+          {
+            "id": "s005-connect-4",
+            "at": 17.317,
+            "action": "connect",
+            "from": "item-4",
+            "to": "item-5"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architecture Evolves",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "Knowledge becomes the primary asset",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-as-primary-asset",
+      "headline": "Knowledge becomes the primary asset",
+      "support": "Documents, diagrams and reports become derived views.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge Comes First",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "AI can work with architectural knowledge",
+      "kind": "focus",
+      "headline": "AI can work with architectural knowledge",
+      "support": "Useful capabilities in service of understanding.",
+      "items": [
+        "Connect ideas",
+        "Explain relationships",
+        "Highlight inconsistencies",
+        "Challenge assumptions",
+        "Discover information"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "connect",
+            "at": 9.327,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "connect ideas"
+          },
+          {
+            "id": "explain",
+            "at": 10.617,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "explain relationships"
+          },
+          {
+            "id": "inconsistencies",
+            "at": 12.787,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "highlight inconsistencies"
+          },
+          {
+            "id": "challenge",
+            "at": 15.637,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "Changing assumptions"
+          },
+          {
+            "id": "discover",
+            "at": 19.207,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "discover manually"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "AI Works With Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "AI collaborates. Architects remain accountable.",
+      "kind": "presenter-focus",
+      "headline": "AI collaborates. Architects remain accountable.",
+      "support": "Judgement · Experience · Trade-offs · Accountability",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "accountability",
+            "at": 13.937,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "responsibilities stay with the architect"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Judgement Stays Human",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Conversation is the interface",
+      "kind": "focus",
+      "headline": "Conversation is the interface",
+      "support": "The connected knowledge remains the architectural record.",
+      "items": [
+        "Why was this designed this way?",
+        "What depends on this service?",
+        "Have we solved this before?",
+        "What happens if this changes?"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "why",
+            "at": 0.023,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "why was this design this way"
+          },
+          {
+            "id": "depends",
+            "at": 1.913,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "What depends on this service"
+          },
+          {
+            "id": "before",
+            "at": 4.323,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "solved this problem before"
+          },
+          {
+            "id": "change",
+            "at": 7.513,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "change this component"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Conversation as Interface",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "You’re having a conversation with architecture",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "conversation-knowledge-interface",
+      "headline": "You’re having a conversation with architecture",
+      "support": "Questions gather decisions, systems, dependencies and evidence into a coherent view.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Joining Experience",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Architectural Intelligence",
+      "kind": "focus",
+      "focusLayout": "flow",
+      "headline": "Architectural Intelligence",
+      "support": "An emerging idea—not a product-logo reveal.",
+      "items": [
+        "Preserve knowledge",
+        "Understand relationships",
+        "Reason about change",
+        "Explain decisions",
+        "Learn from evidence"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "preserve",
+            "at": 8.05,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "preserve architectural knowledge"
+          },
+          {
+            "id": "relationships",
+            "at": 10.75,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "understanding relationships"
+          },
+          {
+            "id": "reason",
+            "at": 13.11,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "reason about change"
+          },
+          {
+            "id": "explain",
+            "at": 14.8,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "Explain decisions"
+          },
+          {
+            "id": "learn",
+            "at": 18.61,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "new evidence becomes available"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Intelligence",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "An exploration in public",
+      "kind": "presenter-focus",
+      "headline": "An exploration in public",
+      "support": "The ideas and the software evolve together.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "exploration",
+            "at": 7.873,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "why this project exists"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "An Exploration",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Understand · Reason · Evolve",
+      "kind": "presenter-focus",
+      "headline": "Understand · Reason · Evolve",
+      "support": "An AI-native platform for complex software systems.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "definition",
+            "at": 10.67,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "help architects understand"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "What Articulate Is",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

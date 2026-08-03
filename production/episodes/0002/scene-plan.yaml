@@ -1,0 +1,153 @@
+{
+  "$schema": "../../schemas/scene-plan.schema.json",
+  "version": 2,
+  "generation": {
+    "generated": false,
+    "generatorVersion": "episode-0002-presenter-v1",
+    "sourceHashes": {
+      "narrative": "2cd47a9e98e7e9e137f1b9f9168366db6ee2f0029059ac902f7955d5c2bc711b",
+      "presenterMedia": "5ccdca1c47c2aeccd1aacd61fa1fe42696a2347bea08c6b2fe8d0d912a42c9c0"
+    }
+  },
+  "episode": {
+    "id": "0002",
+    "title": "What is Articulate?",
+    "writtenSource": "docs/episodes/0002-what-is-articulate.md",
+    "narrativeSource": "production/episodes/0002/narrative.md",
+    "audio": "production/episodes/0002/ep02-narrator.mov"
+  },
+  "styleGuide": "production/style-guide/archetypes.json",
+  "defaults": {
+    "authority": "guided",
+    "importance": "important",
+    "headlineVisibility": "scene-start",
+    "phraseAlignment": "exact-normalised-fuzzy-section-fallback"
+  },
+  "review": {
+    "status": "approved-for-render",
+    "requiredBeforeFinalRender": true,
+    "notes": [
+      "Use Episode 0001 as the primary presenter and visual-grammar reference.",
+      "Treat artefacts as valuable evidence and views, never as failed architecture.",
+      "Keep the architect visibly accountable wherever AI collaboration is discussed.",
+      "Use conversation as an interface to knowledge, never as the system of record."
+    ]
+  },
+  "sections": [
+    { "id": "opening", "title": "Opening", "narrativeSegments": ["Introduction"], "startSeconds": 0.000 },
+    { "id": "definitions", "title": "Incomplete Definitions", "narrativeSegments": ["Introduction"], "startSeconds": 21.867 },
+    { "id": "wrong-objective", "title": "The Real Objective", "narrativeSegments": ["Introduction"], "startSeconds": 44.133 },
+    { "id": "artefacts", "title": "Artefacts and Understanding", "narrativeSegments": ["We've Been Modelling the Wrong Thing"], "startSeconds": 61.600 },
+    { "id": "evolution", "title": "Architecture Evolves", "narrativeSegments": ["Architecture Is Always Evolving"], "startSeconds": 106.233 },
+    { "id": "knowledge-first", "title": "Knowledge Comes First", "narrativeSegments": ["Architecture Is Always Evolving"], "startSeconds": 138.833 },
+    { "id": "ai-capability", "title": "AI Works With Knowledge", "narrativeSegments": ["Where AI Fits"], "startSeconds": 158.533 },
+    { "id": "judgement", "title": "Judgement Stays Human", "narrativeSegments": ["Where AI Fits"], "startSeconds": 179.933 },
+    { "id": "conversation", "title": "Conversation as Interface", "narrativeSegments": ["Conversation Changes Everything"], "startSeconds": 215.667 },
+    { "id": "vision", "title": "The Joining Experience", "narrativeSegments": ["The Vision"], "startSeconds": 254.367 },
+    { "id": "architectural-intelligence", "title": "Architectural Intelligence", "narrativeSegments": ["Architectural Intelligence"], "startSeconds": 290.600 },
+    { "id": "reflection", "title": "An Exploration", "narrativeSegments": ["Architectural Intelligence"], "startSeconds": 312.367 },
+    { "id": "closing", "title": "What Articulate Is", "narrativeSegments": ["Looking Ahead"], "startSeconds": 331.800 }
+  ],
+  "scenes": [
+    {
+      "id": "S001", "section": "opening", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "What exactly is Articulate?", "support": "A vision shaped by the problem of architectural understanding.", "items": [],
+      "beats": [{ "id": "question", "action": "emphasise", "target": "headline", "alignTo": "What exactly is Articulate" }]
+    },
+    {
+      "id": "S002", "section": "definitions", "archetype": "Focus Canvas", "kind": "focus", "transition": "cut",
+      "headline": "Five partial definitions", "support": "Each described a fragment—not the whole.",
+      "items": ["Documentation Tool", "Knowledge Graph", "Conversational Assistant", "Architecture Modelling Tool", "Discovery Platform"],
+      "beats": [
+        { "id": "documentation", "target": "item-1", "alignTo": "documentation tool" },
+        { "id": "graph", "target": "item-2", "alignTo": "knowledge graph" },
+        { "id": "assistant", "target": "item-3", "alignTo": "conversational assistant" },
+        { "id": "modelling", "target": "item-4", "alignTo": "architecture modeling tool" },
+        { "id": "discovery", "target": "item-5", "alignTo": "discovery platform" }
+      ]
+    },
+    {
+      "id": "S003", "section": "wrong-objective", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "We’ve been modelling the wrong thing.", "support": "The objective is architectural understanding—not another tool category.", "items": [],
+      "beats": [{ "id": "wrong-thing", "action": "emphasise", "target": "headline", "alignTo": "solve the problem we talked about" }]
+    },
+    {
+      "id": "S004", "section": "artefacts", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "headline": "Artefacts are views and evidence", "support": "Architecture is the understanding that connects them.", "items": [],
+      "diagramAssetId": "architectural-understanding"
+    },
+    {
+      "id": "S005", "section": "evolution", "archetype": "Diagram", "kind": "focus", "focusLayout": "flow", "transition": "cut",
+      "headline": "Architecture never stands still", "support": "Each event changes what the organisation understands.",
+      "items": ["Decision made", "Problem discovered", "Service replaced", "Principle emerges", "Understanding evolves"],
+      "beats": [
+        { "id": "decision", "target": "item-1", "alignTo": "Decision gets made" },
+        { "id": "problem", "target": "item-2", "alignTo": "discovers a problem" },
+        { "id": "service", "target": "item-3", "alignTo": "service is replaced" },
+        { "id": "principle", "target": "item-4", "alignTo": "principle emerges" },
+        { "id": "evolves", "target": "item-5", "alignTo": "understanding of the architecture changes" }
+      ],
+      "connections": [["item-1", "item-5"], ["item-2", "item-5"], ["item-3", "item-5"], ["item-4", "item-5"]]
+    },
+    {
+      "id": "S006", "section": "knowledge-first", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "headline": "Knowledge becomes the primary asset", "support": "Documents, diagrams and reports become derived views.", "items": [],
+      "diagramAssetId": "knowledge-as-primary-asset"
+    },
+    {
+      "id": "S007", "section": "ai-capability", "archetype": "Diagram", "kind": "focus", "transition": "cut",
+      "headline": "AI can work with architectural knowledge", "support": "Useful capabilities in service of understanding.",
+      "items": ["Connect ideas", "Explain relationships", "Highlight inconsistencies", "Challenge assumptions", "Discover information"],
+      "beats": [
+        { "id": "connect", "target": "item-1", "alignTo": "connect ideas" },
+        { "id": "explain", "target": "item-2", "alignTo": "explain relationships" },
+        { "id": "inconsistencies", "target": "item-3", "alignTo": "highlight inconsistencies" },
+        { "id": "challenge", "target": "item-4", "alignTo": "Changing assumptions" },
+        { "id": "discover", "target": "item-5", "alignTo": "discover manually" }
+      ]
+    },
+    {
+      "id": "S008", "section": "judgement", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "AI collaborates. Architects remain accountable.", "support": "Judgement · Experience · Trade-offs · Accountability", "items": [],
+      "beats": [{ "id": "accountability", "action": "emphasise", "target": "headline", "alignTo": "responsibilities stay with the architect" }]
+    },
+    {
+      "id": "S009", "section": "conversation", "archetype": "Focus Canvas", "kind": "focus", "transition": "cut",
+      "headline": "Conversation is the interface", "support": "The connected knowledge remains the architectural record.",
+      "items": ["Why was this designed this way?", "What depends on this service?", "Have we solved this before?", "What happens if this changes?"],
+      "beats": [
+        { "id": "why", "target": "item-1", "alignTo": "why was this design this way" },
+        { "id": "depends", "target": "item-2", "alignTo": "What depends on this service" },
+        { "id": "before", "target": "item-3", "alignTo": "solved this problem before" },
+        { "id": "change", "target": "item-4", "alignTo": "change this component" }
+      ]
+    },
+    {
+      "id": "S010", "section": "vision", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "headline": "You’re having a conversation with architecture", "support": "Questions gather decisions, systems, dependencies and evidence into a coherent view.", "items": [],
+      "diagramAssetId": "conversation-knowledge-interface"
+    },
+    {
+      "id": "S011", "section": "architectural-intelligence", "archetype": "Focus Canvas", "kind": "focus", "focusLayout": "flow", "transition": "fade",
+      "headline": "Architectural Intelligence", "support": "An emerging idea—not a product-logo reveal.",
+      "items": ["Preserve knowledge", "Understand relationships", "Reason about change", "Explain decisions", "Learn from evidence"],
+      "beats": [
+        { "id": "preserve", "target": "item-1", "alignTo": "preserve architectural knowledge" },
+        { "id": "relationships", "target": "item-2", "alignTo": "understanding relationships" },
+        { "id": "reason", "target": "item-3", "alignTo": "reason about change" },
+        { "id": "explain", "target": "item-4", "alignTo": "Explain decisions" },
+        { "id": "learn", "target": "item-5", "alignTo": "new evidence becomes available" }
+      ]
+    },
+    {
+      "id": "S012", "section": "reflection", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
+      "headline": "An exploration in public", "support": "The ideas and the software evolve together.", "items": [],
+      "beats": [{ "id": "exploration", "action": "emphasise", "target": "headline", "alignTo": "why this project exists" }]
+    },
+    {
+      "id": "S013", "section": "closing", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Understand · Reason · Evolve", "support": "An AI-native platform for complex software systems.", "items": [],
+      "beats": [{ "id": "definition", "action": "emphasise", "target": "headline", "alignTo": "help architects understand" }]
+    }
+  ]
+}

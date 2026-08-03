@@ -1,539 +1,428 @@
 1
-00:00:00,000 --> 00:00:03,854
-In the previous episode, I explored why
-Articulate exists.
+00:00:00,000 --> 00:00:05,397
+Hello. In the previous episode,
+I talked about why I started
 
 2
-00:00:03,854 --> 00:00:08,104
-This time, I want to answer what should be
-a
+00:00:05,437 --> 00:00:09,095
+Articulate. The problem of trying to
+understand an architecture when the
 
 3
-00:00:08,104 --> 00:00:09,621
-much simpler question.
+00:00:09,135 --> 00:00:12,280
+knowledge is scattered across documents,
+diagrams, repositories and in the
 
 4
-00:00:09,621 --> 00:00:11,492
-What exactly is Articulate?
+00:00:12,320 --> 00:00:16,251
+heads of different people. So
+today, I want to answer the
 
 5
-00:00:11,492 --> 00:00:16,535
-The problem is that the answer has changed
-quite a few times.
+00:00:16,291 --> 00:00:18,479
+obvious question. What
+exactly is Articulate?
 
 6
-00:00:16,535 --> 00:00:20,786
-At different points, Articulate has been a
-documentation tool, a
+00:00:18,519 --> 00:00:22,708
+And the honest answer is,
+it depends on when you ask
 
 7
-00:00:20,786 --> 00:00:25,036
-knowledge graph, a conversational
-assistant, a discovery platform and an
+00:00:22,748 --> 00:00:27,592
+me. So over the recent year,
+I've described Articulate as a
 
 8
-00:00:25,036 --> 00:00:26,554
-architecture modelling tool.
+00:00:27,632 --> 00:00:31,218
+documentation tool, knowledge graph,
+conversational assistant, an architecture
 
 9
-00:00:26,554 --> 00:00:29,614
-Each idea solved part of the problem.
+00:00:31,258 --> 00:00:33,879
+modeling tool on a discovery platform.
 
 10
-00:00:29,614 --> 00:00:33,468
-But none of them really captured the
-bigger picture.
+00:00:33,919 --> 00:00:38,043
+Every one of those descriptions captured
+something I thought was important,
 
 11
-00:00:33,468 --> 00:00:37,718
-Today, I see Articulate as an exploration
-into something I
+00:00:38,083 --> 00:00:42,194
+but none of them captured
+what I was really trying to
 
 12
-00:00:37,718 --> 00:00:39,235
-call architectural intelligence.
+00:00:42,234 --> 00:00:44,080
+build. Eventually, I realised something.
 
 13
-00:00:39,235 --> 00:00:43,486
-But to explain what I mean by that, I
-first
+00:00:44,120 --> 00:00:46,555
+I wasn't trying to build a
+better documentation tool.
 
 14
-00:00:43,486 --> 00:00:46,149
-need to talk about architectural
-knowledge.
+00:00:46,595 --> 00:00:48,786
+I wasn't trying to build
+another modeling tool.
 
 15
-00:00:46,149 --> 00:00:49,272
-Most architecture tools are built around
-artefacts.
+00:00:48,826 --> 00:00:52,151
+I was trying to solve the
+problem we talked about in
 
 16
-00:00:49,272 --> 00:00:52,800
-We create documents, diagrams, decision
-records and models.
+00:00:52,191 --> 00:00:55,498
+the last episode, helping architects
+understand complex systems.
 
 17
-00:00:52,800 --> 00:00:55,518
-All of those things are useful.
+00:00:55,538 --> 00:01:00,954
+That changed how I started
+to think about Articulate.
 
 18
-00:00:55,518 --> 00:00:59,451
-But each one only represents part of the
-architecture.
+00:01:00,994 --> 00:01:06,389
+Most architecture tools are built
+around artefacts: documents, diagrams,
 
 19
-00:00:59,451 --> 00:01:03,789
-The architecture itself is much more than
-any individual artefact.
+00:01:06,429 --> 00:01:09,064
+decision records, source
+code, infrastructure.
 
 20
-00:01:03,789 --> 00:01:06,102
-It includes facts and assumptions.
+00:01:09,104 --> 00:01:11,224
+All those things are valuable.
 
 21
-00:01:06,102 --> 00:01:07,651
-Evidence and decisions.
+00:01:11,264 --> 00:01:13,384
+I use them every day.
 
 22
-00:01:07,651 --> 00:01:09,559
-Capabilities, constraints and
-relationships.
+00:01:13,424 --> 00:01:16,883
+But none of them are
+actually architecture.
 
 23
-00:01:09,559 --> 00:01:13,897
-It includes why decisions were made, what
-alternatives were considered
+00:01:16,923 --> 00:01:20,188
+They're just different views of it.
 
 24
-00:01:13,897 --> 00:01:17,425
-and how the architecture has changed over
-time.
+00:01:20,228 --> 00:01:25,200
+The architecture is the understanding
+that connects all of those things
 
 25
-00:01:17,425 --> 00:01:21,762
-Together, all of this forms a body of
-architectural knowledge.
+00:01:25,240 --> 00:01:29,495
+together. Why decisions were made,
+why assumptions were true at the
 
 26
-00:01:21,762 --> 00:01:26,100
-And unlike a document, that knowledge
-never really stops changing.
+00:01:29,535 --> 00:01:33,400
+time, and which systems depend on
+each other, and what constraints
 
 27
-00:01:26,100 --> 00:01:30,438
-So one of the central ideas behind
-Articulate is to
+00:01:33,440 --> 00:01:37,080
+shape the design, and how
+architecture has changed over time.
 
 28
-00:01:30,438 --> 00:01:33,966
-treat that architectural knowledge as the
-primary asset.
+00:01:37,120 --> 00:01:40,040
+That's the thing I became interested in.
 
 29
-00:01:33,966 --> 00:01:36,684
-Documents, diagrams and models still
-exist.
+00:01:40,080 --> 00:01:45,080
+Not the documents themselves,
+but the knowledge they represent.
 
 30
-00:01:36,684 --> 00:01:41,021
-But instead of being isolated sources of
-information, they contribute
+00:01:45,120 --> 00:01:50,064
+One thing I've learned over the
+years is that architecture never
 
 31
-00:01:41,021 --> 00:01:44,549
-to a continuously evolving understanding
-of the architecture.
+00:01:50,104 --> 00:01:53,535
+really stands still. Every
+project teaches us something.
 
 32
-00:01:44,549 --> 00:01:48,705
-This is where AI starts to become
-interesting.
+00:01:53,575 --> 00:01:57,115
+Decision gets made. A
+team discovers a problem.
 
 33
-00:01:48,705 --> 00:01:53,814
-Articulate is designed from the outset as
-an AI-native system.
+00:01:57,155 --> 00:02:02,015
+A service is replaced. A principle
+emerges because something failed.
 
 34
-00:01:53,814 --> 00:01:57,969
-But that does not mean replacing the
-architect.
+00:02:02,055 --> 00:02:07,000
+Bit by bit, our understanding
+of the architecture changes.
 
 35
-00:01:57,969 --> 00:02:04,032
-The architect still owns the decisions,
-the judgement and ultimately the
-accountability.
+00:02:07,040 --> 00:02:10,138
+That's what architecture is really about.
 
 36
-00:02:04,032 --> 00:02:07,234
-I see AI as a collaborator.
+00:02:10,178 --> 00:02:12,754
+Not a collection of documents.
 
 37
-00:02:07,234 --> 00:02:12,343
-It can help discover information, identify
-inconsistencies and challenge assumptions.
+00:02:12,794 --> 00:02:16,415
+A body of knowledge that's
+constantly evolving.
 
 38
-00:02:12,343 --> 00:02:17,452
-It can help explain relationships, reason
-about change and surface
+00:02:16,455 --> 00:02:21,680
+And if that's true, perhaps we've
+been treating the wrong thing
 
 39
-00:02:17,452 --> 00:02:21,608
-information that might otherwise be
-difficult to find.
+00:02:21,720 --> 00:02:25,640
+as the primary asset. Maybe the
+knowledge should come first, and
 
 40
-00:02:21,608 --> 00:02:24,809
-The objective isn't to automate
-architecture.
+00:02:25,680 --> 00:02:30,089
+the documents and diagrams and
+reports just become different views of
 
 41
-00:02:24,809 --> 00:02:27,534
-It's to augment the architect.
+00:02:30,129 --> 00:02:34,793
+that knowledge. That single idea
+completely changed the direction of
 
 42
-00:02:27,534 --> 00:02:31,269
-And that leads to another important part
-of Articulate.
+00:02:34,833 --> 00:02:40,077
+Articulate. Once I started thinking
+about architecture as knowledge, instead
 
 43
-00:02:31,269 --> 00:02:32,740
-Conversation.
+00:02:40,117 --> 00:02:42,738
+of documentation,
+something became obvious.
 
 44
-00:02:32,740 --> 00:02:36,090
-Architects spend a lot of time asking
-questions.
+00:02:42,778 --> 00:02:47,480
+AI is remarkably good at
+working with knowledge.
 
 45
-00:02:36,090 --> 00:02:38,287
-Why was this decision made?
+00:02:47,520 --> 00:02:53,027
+It can connect ideas, explain
+relationships, and highlight
 
 46
-00:02:38,287 --> 00:02:40,484
-What depends on this system?
+00:02:53,067 --> 00:02:57,511
+inconsistencies. Challenge assumptions.
+Find information that would have taken
 
 47
-00:02:40,484 --> 00:02:43,450
-What happens if we change this service?
+00:02:57,551 --> 00:02:59,880
+me hours to discover manually.
 
 48
-00:02:43,450 --> 00:02:46,801
-Have we solved this problem somewhere else
-before?
+00:02:59,920 --> 00:03:03,292
+But that's not the role I want AI to play.
 
 49
-00:02:46,801 --> 00:02:50,920
-Today, answering those questions often
-means searching through documents,
-diagrams,
+00:03:03,332 --> 00:03:07,224
+I don't want AI making
+architecture decisions for me.
 
 50
-00:02:50,920 --> 00:02:53,502
-repositories and speaking to different
-people.
+00:03:07,264 --> 00:03:12,628
+Architecture still requires
+judgement, experience, trade-offs and
 
 51
-00:02:53,502 --> 00:02:57,621
-If architectural knowledge can be
-represented in a form that
+00:03:12,668 --> 00:03:16,366
+accountability. Those responsibilities
+stay with the architect.
 
 52
-00:02:57,621 --> 00:03:01,741
-AI can reason about, then conversation
-becomes a natural way
+00:03:16,406 --> 00:03:21,580
+Instead, I see AI as a
+collaborator asking me think more
 
 53
-00:03:01,741 --> 00:03:03,211
-of exploring it.
+00:03:21,620 --> 00:03:26,200
+clearly, helping me discover more
+quickly, helping me see things I
 
 54
-00:03:03,211 --> 00:03:07,331
-I should be able to ask Articulate a
-question about
+00:03:26,240 --> 00:03:32,773
+might have otherwise missed. As
+architects, we already work through
 
 55
-00:03:07,331 --> 00:03:11,450
-the architecture and have it gather the
-relevant knowledge, understand
+00:03:32,813 --> 00:03:37,635
+conversation. We ask questions,
+why was this designed this way?
 
 56
-00:03:11,450 --> 00:03:15,185
-the relationships and help me reason about
-the answer.
+00:03:37,675 --> 00:03:39,298
+What depends on this service?
 
 57
-00:03:15,185 --> 00:03:16,998
-Conversation isn't the architecture.
+00:03:39,338 --> 00:03:41,463
+Have we solved this problem before?
 
 58
-00:03:16,998 --> 00:03:19,579
-And it isn't the knowledge model.
+00:03:41,503 --> 00:03:44,983
+What happens if we change this component?
 
 59
-00:03:19,579 --> 00:03:23,698
-It's the interface through which I
-collaborate with the system.
+00:03:45,023 --> 00:03:49,929
+Today, answering those questions usually
+means searching through half a dozen
 
 60
-00:03:23,698 --> 00:03:28,821
-Behind that conversation is a continuously
-evolving model of the architecture.
+00:03:49,969 --> 00:03:53,400
+different systems and hoping the
+information is still accurate.
 
 61
-00:03:28,821 --> 00:03:30,494
-Discovery contributes knowledge.
+00:03:53,440 --> 00:03:58,077
+But if architecture becomes a connected
+body of knowledge, conversation
 
 62
-00:03:30,494 --> 00:03:32,555
-Architecture decisions contribute
-knowledge.
+00:03:58,117 --> 00:04:02,000
+becomes the most natural
+way to explore it.
 
 63
-00:03:32,555 --> 00:03:34,617
-Solution designs contribute knowledge.
+00:04:02,040 --> 00:04:07,040
+Not because conversational AI is
+fashionable, but because asking questions
 
 64
-00:03:34,617 --> 00:03:38,865
-So do source code, infrastructure and
-eventually operational information.
+00:04:07,080 --> 00:04:09,640
+is already how architects work.
 
 65
-00:03:38,865 --> 00:03:43,551
-None of those sources necessarily tells us
-the complete truth
+00:04:09,680 --> 00:04:15,380
+So imagine joining a new organization
+and instead of spending weeks
 
 66
-00:03:43,551 --> 00:03:45,223
-on its own.
+00:04:15,420 --> 00:04:19,090
+reading outdated documentation,
+you simply ask questions.
 
 67
-00:03:45,223 --> 00:03:47,285
-Instead, they provide evidence.
+00:04:19,130 --> 00:04:23,709
+Explain the payment system. Show
+me everything that depends on this
 
 68
-00:03:47,285 --> 00:03:52,845
-As new evidence becomes available, our
-understanding of the architecture can
-evolve.
+00:04:23,749 --> 00:04:25,981
+service. Why did we choose Kafka?
 
 69
-00:03:52,845 --> 00:03:56,656
-That means the model is never really
-finished.
+00:04:26,021 --> 00:04:28,925
+What changed over the last 12 months?
 
 70
-00:03:56,656 --> 00:04:01,778
-And I think that's a much more realistic
-representation of architecture.
+00:04:28,965 --> 00:04:33,200
+What systems could be affected
+if we retired this application?
 
 71
-00:04:01,778 --> 00:04:06,464
-Architecture isn't something we document
-once and then periodically update.
+00:04:33,240 --> 00:04:35,582
+You're no longer searching
+for architecture.
 
 72
-00:04:06,464 --> 00:04:09,837
-It's something we are continuously
-learning about.
+00:04:35,622 --> 00:04:37,963
+You're having a conversation with it.
 
 73
-00:04:09,837 --> 00:04:13,883
-This idea leads to a number of
-capabilities that I
+00:04:38,003 --> 00:04:40,758
+And that's the future I want to explore.
 
 74
-00:04:13,883 --> 00:04:16,418
-want to explore throughout the project.
+00:04:40,798 --> 00:04:44,874
+Not replacing architects, but giving
+architects a better way to understand
 
 75
-00:04:16,418 --> 00:04:20,086
-Articulate needs to discover architectural
-knowledge from different sources.
+00:04:44,914 --> 00:04:47,458
+the systems they're responsible for.
 
 76
-00:04:20,086 --> 00:04:24,132
-It needs to preserve that knowledge and
-understand how it
+00:04:47,498 --> 00:04:53,493
+The phrase I've gradually started
+using for this is Architectural
 
 77
-00:04:24,132 --> 00:04:25,576
-changes over time.
+00:04:53,533 --> 00:04:59,360
+Intelligence. Not Artificial
+Intelligence. The ability to preserve
 
 78
-00:04:25,576 --> 00:04:29,622
-It needs to let architects explore what is
-known through
+00:04:59,400 --> 00:05:05,136
+architectural knowledge, understand
+relationships and reason about change,
 
 79
-00:04:29,622 --> 00:04:31,066
-conversation and visualisation.
+00:05:05,176 --> 00:05:10,420
+explain decisions and continuously
+improve our understanding as new evidence
 
 80
-00:04:31,066 --> 00:04:35,112
-It should help us reason about the impact
-of change.
+00:05:10,460 --> 00:05:14,506
+becomes available. I don't know whether
+that vision is completely achievable.
 
 81
-00:04:35,112 --> 00:04:39,158
-It should support the solution design
-process by challenging assumptions,
+00:05:14,546 --> 00:05:18,040
+In fact, I expect many
+of my ideas to change as
 
 82
-00:04:39,158 --> 00:04:42,448
-identifying constraints and preserving the
-reasoning behind decisions.
+00:05:18,080 --> 00:05:22,000
+I build Articulate. That's
+exactly why this project exists.
 
 83
-00:04:42,448 --> 00:04:46,494
-And it should help us understand what
-capabilities and solutions
+00:05:22,040 --> 00:05:27,760
+It's an exploration. A public engineering
+journal documenting my understanding
 
 84
-00:04:46,494 --> 00:04:49,406
-already exist before we create something
-new.
+00:05:27,800 --> 00:05:31,760
+as it evolves alongside the software.
 
 85
-00:04:49,406 --> 00:04:53,074
-These aren't intended to be a fixed
-feature list.
+00:05:31,800 --> 00:05:37,568
+So what is Articulate? Today,
+I would describe it as an
 
 86
-00:04:53,074 --> 00:04:57,498
-They are architectural capabilities that
-will evolve as the project evolves.
+00:05:37,608 --> 00:05:41,420
+exploration into architectural
+intelligence. An AI-native platform
 
 87
-00:04:57,498 --> 00:05:01,543
-And importantly, I don't yet know exactly
-what all of
+00:05:41,460 --> 00:05:47,220
+designed to help architects understand,
+reason about and evolve complex
 
 88
-00:05:01,543 --> 00:05:03,323
-them will look like.
+00:05:47,260 --> 00:05:51,587
+systems. In the next episode,
+we'll build on that vision by
 
 89
-00:05:03,323 --> 00:05:07,369
-That's part of what this journal is here
-to discover.
+00:05:51,627 --> 00:05:55,587
+asking another important question.
+What does it actually mean to build
 
 90
-00:05:07,369 --> 00:05:12,119
-All of this brings me back to the phrase I
-
-91
-00:05:12,119 --> 00:05:14,209
-used at the beginning.
-
-92
-00:05:14,209 --> 00:05:15,905
-Architectural intelligence.
-
-93
-00:05:15,905 --> 00:05:20,655
-For me, architectural intelligence is the
-ability to understand architecture,
-
-94
-00:05:20,655 --> 00:05:25,405
-preserve what we know about it, reason
-about relationships and
-
-95
-00:05:25,405 --> 00:05:28,825
-decisions, and explore the consequences of
-change.
-
-96
-00:05:28,825 --> 00:05:32,688
-That is the idea Articulate is ultimately
-exploring.
-
-97
-00:05:32,688 --> 00:05:37,438
-Can we build systems that don't simply
-store architecture documentation,
-
-98
-00:05:37,438 --> 00:05:40,858
-but actually help us reason about
-architecture?
-
-99
-00:05:40,858 --> 00:05:46,052
-Can AI work alongside architects without
-attempting to replace their judgement?
-
-100
-00:05:46,052 --> 00:05:50,802
-And can architectural knowledge become
-something that continuously evolves rather
-
-101
-00:05:50,802 --> 00:05:54,222
-than something we periodically try to
-document?
-
-102
-00:05:54,222 --> 00:05:58,085
-I don't know all of the answers yet.
-
-103
-00:05:58,085 --> 00:06:02,835
-And I expect some of the ideas behind
-Articulate to
-
-104
-00:06:02,835 --> 00:06:05,812
-change considerably as I build it.
-
-105
-00:06:05,812 --> 00:06:09,232
-That's really the point of the project.
-
-106
-00:06:09,232 --> 00:06:10,933
-So, what is Articulate?
-
-107
-00:06:10,933 --> 00:06:14,798
-At this point in the journey, I would
-describe it
-
-108
-00:06:14,798 --> 00:06:17,220
-as an exploration into architectural
-intelligence.
-
-109
-00:06:17,220 --> 00:06:21,086
-An AI-native platform designed to help
-architects understand, evolve and
-
-110
-00:06:21,086 --> 00:06:23,148
-reason about complex software systems.
-
-111
-00:06:23,148 --> 00:06:27,735
-The next step is to start turning that
-ambition into an architecture.
-
-112
-00:06:27,735 --> 00:06:31,600
-And that means understanding the
-principles, requirements and constraints
-that
-
-113
-00:06:31,600 --> 00:06:35,466
-should shape the system before making
-decisions about how to
-
-114
-00:06:35,466 --> 00:06:36,846
-build it.
+00:05:55,627 --> 00:05:56,680
+an AI-native system?

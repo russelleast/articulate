@@ -2,182 +2,260 @@
 
 ## Introduction
 
-In the previous episode, I explored why Articulate exists.
+In the previous episode, I talked about why I started Articulate.
 
-This time, I want to answer what should be a much simpler question.
+The problem of trying to understand an architecture when the knowledge is scattered across documents, diagrams, repositories and the heads of different people.
 
-What exactly is Articulate?
+So today I want to answer the obvious follow-up.
 
-The problem is that the answer has changed quite a few times.
+**What exactly is Articulate?**
 
-At different points, Articulate has been a documentation tool, a knowledge graph, a conversational assistant, a discovery platform and an architecture modelling tool.
+The honest answer is...
 
-Each idea solved part of the problem.
+...it depends on when you asked me.
 
-But none of them really captured the bigger picture.
+Over the last couple of years I've described Articulate as a documentation tool.
 
-Today, I see Articulate as an exploration into something I call **architectural intelligence**.
+A knowledge graph.
 
-But to explain what I mean by that, I first need to talk about architectural knowledge.
+A conversational assistant.
 
-## Architectural Knowledge
+An architecture modelling tool.
+
+A discovery platform.
+
+Every one of those descriptions captured something I thought was important.
+
+But none of them captured what I was really trying to build.
+
+Eventually I realised something.
+
+I wasn't trying to build a better documentation tool.
+
+I wasn't trying to build another modelling tool.
+
+I was trying to solve the problem we talked about in the last episode.
+
+Helping architects understand complex software systems.
+
+That changed how I started thinking about Articulate.
+
+---
+
+## We've Been Modelling the Wrong Thing
 
 Most architecture tools are built around artefacts.
 
-We create documents, diagrams, decision records and models.
+Documents.
 
-All of those things are useful.
+Diagrams.
 
-But each one only represents part of the architecture.
+Decision records.
 
-The architecture itself is much more than any individual artefact.
+Source code.
 
-It includes facts and assumptions.
+Infrastructure.
 
-Evidence and decisions.
+Those things are all valuable.
 
-Capabilities, constraints and relationships.
+I use them every day.
 
-It includes why decisions were made, what alternatives were considered and how the architecture has changed over time.
+But none of them are actually the architecture.
 
-Together, all of this forms a body of architectural knowledge.
+They're different views of it.
 
-And unlike a document, that knowledge never really stops changing.
+The architecture is the understanding that connects all of those things together.
 
-So one of the central ideas behind Articulate is to treat that architectural knowledge as the primary asset.
+Why decisions were made.
 
-Documents, diagrams and models still exist.
+What assumptions were true at the time.
 
-But instead of being isolated sources of information, they contribute to a continuously evolving understanding of the architecture.
+Which systems depend on each other.
+
+What constraints shaped the design.
+
+How the architecture has changed over time.
+
+That's the thing I became interested in.
+
+Not the documents themselves...
+
+...but the knowledge they represent.
+
+---
+
+## Architecture Is Always Evolving
+
+One thing I've learned over the years is that architecture never really stands still.
+
+Every project teaches us something.
+
+A decision gets made.
+
+A team discovers a problem.
+
+A service is replaced.
+
+A principle emerges because something failed.
+
+Bit by bit, our understanding of the architecture changes.
+
+That's what architecture really is.
+
+Not a collection of documents.
+
+A body of knowledge that's constantly evolving.
+
+And if that's true...
+
+...perhaps we've been treating the wrong thing as the primary asset.
+
+Maybe the knowledge should come first.
+
+And the documents, diagrams and reports become different ways of viewing that knowledge.
+
+That single idea completely changed the direction of Articulate.
+
+---
 
 ## Where AI Fits
 
-This is where AI starts to become interesting.
+Once I started thinking about architecture as knowledge instead of documentation...
 
-Articulate is designed from the outset as an AI-native system.
+...something became obvious.
 
-But that does not mean replacing the architect.
+AI is remarkably good at working with knowledge.
 
-The architect still owns the decisions, the judgement and ultimately the accountability.
+It can connect ideas.
 
-I see AI as a collaborator.
+Explain relationships.
 
-It can help discover information, identify inconsistencies and challenge assumptions.
+Highlight inconsistencies.
 
-It can help explain relationships, reason about change and surface information that might otherwise be difficult to find.
+Challenge assumptions.
 
-The objective isn't to automate architecture.
+Find information that would have taken me hours to discover manually.
 
-It's to augment the architect.
+But that's not the role I want AI to play.
 
-## Conversation
+I don't want AI making architectural decisions for me.
 
-And that leads to another important part of Articulate.
+Architecture still requires judgement.
 
-Conversation.
+Experience.
 
-Architects spend a lot of time asking questions.
+Trade-offs.
 
-Why was this decision made?
+Accountability.
 
-What depends on this system?
+Those responsibilities stay with the architect.
 
-What happens if we change this service?
+Instead, I see AI as a collaborator.
 
-Have we solved this problem somewhere else before?
+Helping me think more clearly.
 
-Today, answering those questions often means searching through documents, diagrams, repositories and speaking to different people.
+Helping me discover more quickly.
 
-If architectural knowledge can be represented in a form that AI can reason about, then conversation becomes a natural way of exploring it.
+Helping me see things I might otherwise have missed.
 
-I should be able to ask Articulate a question about the architecture and have it gather the relevant knowledge, understand the relationships and help me reason about the answer.
+---
 
-Conversation isn't the architecture.
+## Conversation Changes Everything
 
-And it isn't the knowledge model.
+As architects, we already work through conversation.
 
-It's the interface through which I collaborate with the system.
+We ask questions.
 
-## A Living Architectural Model
+Why was this designed this way?
 
-Behind that conversation is a continuously evolving model of the architecture.
+What depends on this service?
 
-Discovery contributes knowledge.
+Have we solved this problem before?
 
-Architecture decisions contribute knowledge.
+What happens if we change this component?
 
-Solution designs contribute knowledge.
+Today, answering those questions usually means searching through half a dozen different systems and hoping the information is still accurate.
 
-So do source code, infrastructure and eventually operational information.
+But if architecture becomes a connected body of knowledge...
 
-None of those sources necessarily tells us the complete truth on its own.
+...conversation becomes the most natural way to explore it.
 
-Instead, they provide evidence.
+Not because conversation is fashionable.
 
-As new evidence becomes available, our understanding of the architecture can evolve.
+Because asking questions is already how architects work.
 
-That means the model is never really finished.
+---
 
-And I think that's a much more realistic representation of architecture.
+## The Vision
 
-Architecture isn't something we document once and then periodically update.
+Imagine joining a new organisation.
 
-It's something we are continuously learning about.
+Instead of spending weeks reading outdated documentation...
 
-## What Articulate Actually Does
+...you simply start asking questions.
 
-This idea leads to a number of capabilities that I want to explore throughout the project.
+Explain the payments platform.
 
-Articulate needs to discover architectural knowledge from different sources.
+Show me everything that depends on this service.
 
-It needs to preserve that knowledge and understand how it changes over time.
+Why did we choose Kafka?
 
-It needs to let architects explore what is known through conversation and visualisation.
+What changed over the last twelve months?
 
-It should help us reason about the impact of change.
+What systems would be affected if we retired this application?
 
-It should support the solution design process by challenging assumptions, identifying constraints and preserving the reasoning behind decisions.
+You're no longer searching for architecture.
 
-And it should help us understand what capabilities and solutions already exist before we create something new.
+You're having a conversation with it.
 
-These aren't intended to be a fixed feature list.
+That's the future I want to explore.
 
-They are architectural capabilities that will evolve as the project evolves.
+Not replacing architects.
 
-And importantly, I don't yet know exactly what all of them will look like.
+Giving architects a better way to understand the systems they're responsible for.
 
-That's part of what this journal is here to discover.
+---
 
 ## Architectural Intelligence
 
-All of this brings me back to the phrase I used at the beginning.
+The phrase I've gradually started using for this is...
 
-**Architectural intelligence.**
+**Architectural Intelligence.**
 
-For me, architectural intelligence is the ability to understand architecture, preserve what we know about it, reason about relationships and decisions, and explore the consequences of change.
+Not Artificial Intelligence.
 
-That is the idea Articulate is ultimately exploring.
+Architectural Intelligence.
 
-Can we build systems that don't simply store architecture documentation, but actually help us reason about architecture?
+The ability to preserve architectural knowledge.
 
-Can AI work alongside architects without attempting to replace their judgement?
+Understand relationships.
 
-And can architectural knowledge become something that continuously evolves rather than something we periodically try to document?
+Reason about change.
 
-I don't know all of the answers yet.
+Explain decisions.
 
-And I expect some of the ideas behind Articulate to change considerably as I build it.
+Continuously improve our understanding as new evidence becomes available.
 
-That's really the point of the project.
+I don't know whether that vision is completely achievable.
+
+In fact, I expect many of my ideas to change as I build Articulate.
+
+That's exactly why this project exists.
+
+It's an exploration.
+
+A public engineering journal documenting how my understanding evolves alongside the software.
+
+---
 
 ## Looking Ahead
 
 So, what is Articulate?
 
-At this point in the journey, I would describe it as an exploration into architectural intelligence.
+Today, I would describe it as an exploration into Architectural Intelligence.
 
-An AI-native platform designed to help architects understand, evolve and reason about complex software systems.
+An AI-native platform designed to help architects understand, reason about and evolve complex software systems.
 
-The next step is to start turning that ambition into an architecture.
+In the next episode, we'll build on that vision by asking another important question.
 
-And that means understanding the principles, requirements and constraints that should shape the system before making decisions about how to build it.
+**What does it actually mean to build an AI-native system?**

@@ -1,15 +1,56 @@
-In the previous episode, I explored why Articulate exists. This time, I want to answer what should be a much simpler question. What exactly is Articulate? The problem is that the answer has changed quite a few times. At different points, Articulate has been a documentation tool, a knowledge graph, a conversational assistant, a discovery platform and an architecture modelling tool. Each idea solved part of the problem. But none of them really captured the bigger picture. Today, I see Articulate as an exploration into something I call architectural intelligence. But to explain what I mean by that, I first need to talk about architectural knowledge.
-
-Most architecture tools are built around artefacts. We create documents, diagrams, decision records and models. All of those things are useful. But each one only represents part of the architecture. The architecture itself is much more than any individual artefact. It includes facts and assumptions. Evidence and decisions. Capabilities, constraints and relationships. It includes why decisions were made, what alternatives were considered and how the architecture has changed over time. Together, all of this forms a body of architectural knowledge. And unlike a document, that knowledge never really stops changing. So one of the central ideas behind Articulate is to treat that architectural knowledge as the primary asset. Documents, diagrams and models still exist. But instead of being isolated sources of information, they contribute to a continuously evolving understanding of the architecture.
-
-This is where AI starts to become interesting. Articulate is designed from the outset as an AI-native system. But that does not mean replacing the architect. The architect still owns the decisions, the judgement and ultimately the accountability. I see AI as a collaborator. It can help discover information, identify inconsistencies and challenge assumptions. It can help explain relationships, reason about change and surface information that might otherwise be difficult to find. The objective isn't to automate architecture. It's to augment the architect.
-
-And that leads to another important part of Articulate. Conversation. Architects spend a lot of time asking questions. Why was this decision made? What depends on this system? What happens if we change this service? Have we solved this problem somewhere else before? Today, answering those questions often means searching through documents, diagrams, repositories and speaking to different people. If architectural knowledge can be represented in a form that AI can reason about, then conversation becomes a natural way of exploring it. I should be able to ask Articulate a question about the architecture and have it gather the relevant knowledge, understand the relationships and help me reason about the answer. Conversation isn't the architecture. And it isn't the knowledge model. It's the interface through which I collaborate with the system.
-
-Behind that conversation is a continuously evolving model of the architecture. Discovery contributes knowledge. Architecture decisions contribute knowledge. Solution designs contribute knowledge. So do source code, infrastructure and eventually operational information. None of those sources necessarily tells us the complete truth on its own. Instead, they provide evidence. As new evidence becomes available, our understanding of the architecture can evolve. That means the model is never really finished. And I think that's a much more realistic representation of architecture. Architecture isn't something we document once and then periodically update. It's something we are continuously learning about.
-
-This idea leads to a number of capabilities that I want to explore throughout the project. Articulate needs to discover architectural knowledge from different sources. It needs to preserve that knowledge and understand how it changes over time. It needs to let architects explore what is known through conversation and visualisation. It should help us reason about the impact of change. It should support the solution design process by challenging assumptions, identifying constraints and preserving the reasoning behind decisions. And it should help us understand what capabilities and solutions already exist before we create something new. These aren't intended to be a fixed feature list. They are architectural capabilities that will evolve as the project evolves. And importantly, I don't yet know exactly what all of them will look like. That's part of what this journal is here to discover.
-
-All of this brings me back to the phrase I used at the beginning. Architectural intelligence. For me, architectural intelligence is the ability to understand architecture, preserve what we know about it, reason about relationships and decisions, and explore the consequences of change. That is the idea Articulate is ultimately exploring. Can we build systems that don't simply store architecture documentation, but actually help us reason about architecture? Can AI work alongside architects without attempting to replace their judgement? And can architectural knowledge become something that continuously evolves rather than something we periodically try to document? I don't know all of the answers yet. And I expect some of the ideas behind Articulate to change considerably as I build it. That's really the point of the project.
-
-So, what is Articulate? At this point in the journey, I would describe it as an exploration into architectural intelligence. An AI-native platform designed to help architects understand, evolve and reason about complex software systems. The next step is to start turning that ambition into an architecture. And that means understanding the principles, requirements and constraints that should shape the system before making decisions about how to build it.
+[00:00.000–00:06.920] Hello. In the previous episode, I talked about why I started Articulate. The problem
+[00:06.920–00:10.520] of trying to understand an architecture when the knowledge is scattered across documents,
+[00:10.520–00:15.920] diagrams, repositories and in the heads of different people. So today, I want to answer
+[00:15.920–00:21.860] the obvious question. What exactly is Articulate? And the honest answer is, it depends on when
+[00:21.860–00:28.520] you ask me. So over the recent year, I've described Articulate as a documentation tool,
+[00:28.520–00:33.540] knowledge graph, conversational assistant, an architecture modeling tool on a discovery
+[00:33.540–00:38.840] platform. Every one of those descriptions captured something I thought was important, but none
+[00:38.840–00:44.120] of them captured what I was really trying to build. Eventually, I realised something.
+[00:44.120–00:48.520] I wasn't trying to build a better documentation tool. I wasn't trying to build another modeling
+[00:48.520–00:53.720] tool. I was trying to solve the problem we talked about in the last episode, helping architects
+[00:53.720–01:01.600] understand complex systems. That changed how I started to think about Articulate. Most
+[01:01.600–01:08.240] architecture tools are built around artefacts: documents, diagrams, decision records, source
+[01:08.240–01:14.720] code, infrastructure. All those things are valuable. I use them every day. But none of
+[01:14.720–01:21.880] them are actually architecture. They're just different views of it. The architecture is
+[01:21.880–01:27.760] the understanding that connects all of those things together. Why decisions were made, why
+[01:27.760–01:33.440] assumptions were true at the time, and which systems depend on each other, and what constraints
+[01:33.440–01:38.960] shape the design, and how architecture has changed over time. That's the thing I became
+[01:38.960–01:46.240] interested in. Not the documents themselves, but the knowledge they represent. One thing
+[01:46.240–01:52.680] I've learned over the years is that architecture never really stands still. Every project teaches
+[01:52.680–01:59.840] us something. Decision gets made. A team discovers a problem. A service is replaced. A principle
+[01:59.840–02:07.040] emerges because something failed. Bit by bit, our understanding of the architecture changes.
+[02:07.040–02:13.840] That's what architecture is really about. Not a collection of documents. A body
+[02:13.840–02:20.640] of knowledge that's constantly evolving. And if that's true, perhaps we've been treating
+[02:20.640–02:26.400] the wrong thing as the primary asset. Maybe the knowledge should come first, and the documents
+[02:26.400–02:32.200] and diagrams and reports just become different views of that knowledge. That single idea
+[02:32.200–02:38.520] completely changed the direction of Articulate. Once I started thinking about architecture
+[02:38.520–02:45.440] as knowledge, instead of documentation, something became obvious. AI is remarkably good at
+[02:45.440–02:53.760] working with knowledge. It can connect ideas, explain relationships, and highlight inconsistencies.
+[02:53.760–02:59.920] Challenge assumptions. Find information that would have taken me hours to discover manually.
+[02:59.920–03:05.720] But that's not the role I want AI to play. I don't want AI making architecture decisions
+[03:05.720–03:13.440] for me. Architecture still requires judgement, experience, trade-offs and accountability.
+[03:13.440–03:20.360] Those responsibilities stay with the architect. Instead, I see AI as a collaborator asking
+[03:20.360–03:27.080] me think more clearly, helping me discover more quickly, helping me see things I might have
+[03:27.080–03:35.680] otherwise missed. As architects, we already work through conversation. We ask questions,
+[03:35.680–03:41.000] why was this designed this way? What depends on this service? Have we solved this problem
+[03:41.000–03:48.040] before? What happens if we change this component? Today, answering those questions usually means
+[03:48.040–03:53.440] searching through half a dozen different systems and hoping the information is still accurate.
+[03:53.440–03:59.520] But if architecture becomes a connected body of knowledge, conversation becomes the most
+[03:59.520–04:07.080] natural way to explore it. Not because conversational AI is fashionable, but because asking questions
+[04:07.080–04:14.360] is already how architects work. So imagine joining a new organization and instead of
+[04:14.360–04:20.720] spending weeks reading outdated documentation, you simply ask questions. Explain the payment
+[04:20.720–04:26.400] system. Show me everything that depends on this service. Why did we choose Kafka? What
+[04:26.400–04:33.240] changed over the last 12 months? What systems could be affected if we retired this application?
+[04:33.240–04:38.400] You're no longer searching for architecture. You're having a conversation with it. And
+[04:38.400–04:43.880] that's the future I want to explore. Not replacing architects, but giving architects a better way
+[04:43.880–04:50.600] to understand the systems they're responsible for. The phrase I've gradually started using
+[04:50.600–04:59.400] for this is Architectural Intelligence. Not Artificial Intelligence. The ability to preserve
+[04:59.400–05:06.620] architectural knowledge, understand relationships and reason about change, explain decisions
+[05:06.620–05:12.380] and continuously improve our understanding as new evidence becomes available. I don't
+[05:12.380–05:17.640] know whether that vision is completely achievable. In fact, I expect many of my ideas to change
+[05:17.640–05:23.800] as I build Articulate. That's exactly why this project exists. It's an exploration. A
+[05:23.800–05:31.800] public engineering journal documenting my understanding as it evolves alongside the software.
+[05:31.800–05:39.720] So what is Articulate? Today, I would describe it as an exploration into architectural intelligence.
+[05:39.720–05:47.840] An AI-native platform designed to help architects understand, reason about and evolve complex systems.
+[05:47.840–05:53.520] In the next episode, we'll build on that vision by asking another important question. What
+[05:53.520–05:56.680] does it actually mean to build an AI-native system?

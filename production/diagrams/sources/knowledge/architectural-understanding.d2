@@ -1,0 +1,33 @@
+...@../../styles/articulate
+direction: right
+
+artefacts: {
+  label: Architectural artefacts
+  direction: down
+  documents: Documents {class: evidence}
+  diagrams: Diagrams {class: evidence}
+  decisions: Decision records {class: decision}
+  code: Source code {class: service}
+  infrastructure: Infrastructure {class: service}
+}
+
+understanding: Architectural Understanding {class: emphasis}
+
+context: {
+  label: Connected meaning
+  direction: down
+  reasons: Why decisions were made {class: capability}
+  assumptions: Assumptions and constraints {class: capability}
+  dependencies: System dependencies {class: capability}
+  evolution: Change over time {class: capability}
+}
+
+artefacts.documents -> understanding
+artefacts.diagrams -> understanding
+artefacts.decisions -> understanding
+artefacts.code -> understanding
+artefacts.infrastructure -> understanding
+understanding -> context.reasons
+understanding -> context.assumptions
+understanding -> context.dependencies
+understanding -> context.evolution

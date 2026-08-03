@@ -1,0 +1,29 @@
+...@../../styles/articulate
+direction: right
+
+architect: Architect {class: human}
+conversation: Architectural Conversation {class: capability}
+knowledge: Connected Architectural Knowledge {class: emphasis}
+
+evidence: {
+  label: Grounded evidence
+  direction: down
+  decisions: Decisions {class: decision}
+  systems: Systems {class: service}
+  dependencies: Dependencies {class: capability}
+  documents: Documents {class: evidence}
+}
+
+view: Coherent Architectural View {class: emphasis}
+
+architect -> conversation: asks
+conversation -> knowledge: explores
+knowledge -> evidence.decisions
+knowledge -> evidence.systems
+knowledge -> evidence.dependencies
+knowledge -> evidence.documents
+evidence.decisions -> view
+evidence.systems -> view
+evidence.dependencies -> view
+evidence.documents -> view
+view -> architect: explains
