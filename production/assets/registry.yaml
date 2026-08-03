@@ -410,6 +410,72 @@
       "source": "production/diagrams/sources/episodes/0009/discovery-to-dcl.d2",
       "location": "site/public/diagrams/episode-0009-discovery-to-dcl.svg",
       "provider": "local"
+    },
+    {
+      "id": "episode-0015-knowledge-evolution-assurance",
+      "type": "diagram",
+      "format": "plantuml",
+      "episode": "0015",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0015/knowledge-evolution-assurance.puml",
+      "location": "site/public/diagrams/episode-0015-knowledge-evolution-assurance.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0015-dependency-on-retiring-system",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0015",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0015/dependency-on-retiring-system.d2",
+      "location": "site/public/diagrams/episode-0015-dependency-on-retiring-system.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0015-database-ownership-principle-conflict",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0015",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0015/database-ownership-principle-conflict.d2",
+      "location": "site/public/diagrams/episode-0015-database-ownership-principle-conflict.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0015-capability-assurance-refinement",
+      "type": "diagram",
+      "format": "plantuml",
+      "episode": "0015",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0015/capability-assurance-refinement.puml",
+      "location": "site/public/diagrams/episode-0015-capability-assurance-refinement.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0015-deterministic-and-contextual-assurance",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0015",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0015/deterministic-and-contextual-assurance.d2",
+      "location": "site/public/diagrams/episode-0015-deterministic-and-contextual-assurance.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0015-architectural-assurance-capability-model",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0015",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0015/architectural-assurance-capability-model.d2",
+      "location": "site/public/diagrams/episode-0015-architectural-assurance-capability-model.svg",
+      "provider": "local"
     }
   ]
 }

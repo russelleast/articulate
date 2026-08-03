@@ -1,0 +1,86 @@
+...@../../../styles/articulate
+
+assurance: Architectural Assurance {
+  grid-columns: 3
+  style: {
+    fill: "#DCEBE7"
+    stroke: "#176B62"
+    stroke-width: 4
+    border-radius: 14
+    font-color: "#103D39"
+    font-size: 28
+    bold: true
+  }
+
+  a_model: Model Integrity {
+    grid-columns: 1
+    style: {
+      fill: "#F7F4ED"
+      stroke: "#263746"
+      stroke-width: 2
+      border-radius: 10
+    }
+    disconnected: disconnected structures {class: capability}
+    invalid: invalid relationships {class: capability}
+    ownership: missing ownership {class: capability}
+    references: unresolved references {class: capability}
+  }
+
+  b_capability: Capability Assurance {
+    grid-columns: 1
+    style: {
+      fill: "#F7F4ED"
+      stroke: "#263746"
+      stroke-width: 2
+      border-radius: 10
+    }
+    completeness: completeness {class: capability}
+    coherence: behavioural coherence {class: capability}
+    observability: outcome observability {class: capability}
+    policy: policy coverage {class: capability}
+    relationships: capability relationships {class: capability}
+  }
+
+  c_intent: Intent Conformance {
+    grid-columns: 1
+    style: {
+      fill: "#F7F4ED"
+      stroke: "#263746"
+      stroke-width: 2
+      border-radius: 10
+    }
+    principles: architecture principles {class: capability}
+    decisions: accepted decisions {class: capability}
+    target: target architecture {class: capability}
+    lifecycle: application lifecycle {class: capability}
+    technology: technology strategy {class: capability}
+  }
+
+  d_quality: Quality Assessment {
+    grid-columns: 1
+    style: {
+      fill: "#F7F4ED"
+      stroke: "#263746"
+      stroke-width: 2
+      border-radius: 10
+    }
+    characteristics: characteristics {class: capability}
+    maturity: maturity {class: capability}
+    tradeoffs: trade-offs {class: capability}
+    risks: architectural risks {class: capability}
+  }
+
+  e_external: External Assurance {
+    grid-columns: 1
+    style: {
+      fill: "#F7F4ED"
+      stroke: "#263746"
+      stroke-width: 2
+      border-radius: 10
+    }
+    policies: organisational policies {class: capability}
+    regulatory: regulatory obligations {class: capability}
+    standards: industry standards {class: capability}
+    evidence: evidence requirements {class: capability}
+  }
+}

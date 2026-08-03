@@ -1,0 +1,27 @@
+...@../../../styles/articulate
+direction: right
+
+ownership_boundary: Order Service ownership boundary {
+  style: {
+    fill: "#F7F4ED"
+    stroke: "#176B62"
+    stroke-width: 3
+    border-radius: 12
+  }
+  order_service: Order Service {class: service}
+  order_database: Order Database {class: data}
+  order_service -> order_database: owns
+}
+
+reporting: Reporting Service {class: service}
+conflict: Exclusive ownership\nprinciple concern {class: warning}
+
+reporting -> ownership_boundary.order_database: reads directly {
+  style.stroke: "#984E43"
+  style.stroke-width: 4
+  style.stroke-dash: 6
+}
+reporting -> conflict: assurance finding {
+  style.stroke: "#984E43"
+  style.stroke-width: 3
+}

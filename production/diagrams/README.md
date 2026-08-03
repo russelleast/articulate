@@ -1,6 +1,6 @@
-# D2 Diagrams
+# Reusable Architectural Diagrams
 
-D2 is the canonical source format for reusable Articulate architectural diagrams. SVG is the shared interchange format for the journal website, video production and review artefacts. Publication styling is applied after notation rendering so diagram semantics do not depend on where the diagram will appear.
+D2 is the canonical source format for architectural relationships, conceptual decomposition and capability models. PlantUML activity diagrams are used for governed flows, decisions and feedback loops. SVG is the shared interchange format for the journal website, video production and review artefacts. Publication styling is applied after notation rendering so diagram semantics do not depend on where the diagram will appear.
 
 ## Structure
 
@@ -12,7 +12,7 @@ production/diagrams/
     |-- reasoning/             # Reasoning flows, layers and maps
 
 production/episodes/<episode>/diagrams/
-|-- <diagram>.d2               # Episode-owned semantic source
+|-- <diagram>.{d2,puml}        # Episode-owned semantic source
 `-- <diagram>.svg              # Deterministic review/video rendering
 
 site/public/diagrams/              # Generated, committed shared SVGs
@@ -20,13 +20,15 @@ site/public/diagrams/              # Generated, committed shared SVGs
 
 Shared sources are organised by enduring architectural concept rather than by the episode that first uses them. Episode-specific diagrams live with the episode's production artefacts; reusable diagrams should move into a conceptual area. Each diagram remains deliberately readable and can override shared classes locally.
 
-Every diagram is represented by a `type: diagram` entry in `production/assets/registry.yaml`. The entry binds its stable logical ID to its D2 `source` and generated SVG `location`. This extends the existing asset model rather than introducing a second manifest.
+Every diagram is represented by a `type: diagram` entry in `production/assets/registry.yaml`. The entry binds its stable logical ID and `format` (`d2` or `plantuml`) to its semantic `source` and generated SVG `location`. This extends the existing asset model rather than introducing a second manifest.
 
-## Install D2
+## Install the notation renderers
 
 Install the official D2 CLI using the instructions at <https://d2lang.com/tour/install>. Production commands never install system dependencies. Confirm that `d2 --version` succeeds on `PATH`.
 
-The renderer fixes the ELK layout engine, D2 theme ID, padding and non-sketch rendering convention. Pin the D2 CLI version in CI or a production environment when byte-for-byte output stability across machines is required.
+Install PlantUML using the instructions at <https://plantuml.com/starting> when the registry contains PlantUML sources. Confirm that `plantuml -version` succeeds on `PATH`.
+
+The renderer fixes the ELK layout engine, D2 theme ID, padding and non-sketch rendering convention for D2, and SVG pipe output with UTF-8 input for PlantUML. Pin both CLI versions in CI or a production environment when byte-for-byte output stability across machines is required.
 
 ## Render and validate
 
@@ -36,7 +38,7 @@ make diagrams-render
 make diagram-render DIAGRAM=knowledge-reasoning-flow
 ```
 
-Validation discovers shared `.d2` files under `sources/` and also validates every diagram source registered elsewhere, including episode-local sources. Rendering creates output directories and replaces generated SVGs safely. A D2 parse or layout failure is reported with the diagram ID. Never edit generated SVG; change its D2 source and regenerate it.
+Validation discovers shared `.d2` and `.puml` files under `sources/` and also validates every diagram source registered elsewhere, including episode-local sources. Rendering creates output directories and replaces generated SVGs safely. A notation parse or layout failure is reported with the diagram ID. Never edit generated SVG; change its semantic source and regenerate it.
 
 ## Website use
 
@@ -52,7 +54,7 @@ VS Code Markdown Preview resolves root-relative image URLs against a preview ori
 
 When publishing an Episode with a diagram:
 
-1. author or update reusable D2 under `production/diagrams/sources/<concept>/`; move an episode-local diagram there before publishing it as a shared website asset;
+1. author or update reusable D2 or PlantUML under `production/diagrams/sources/<concept>/`; move an episode-local diagram there before publishing it as a shared website asset;
 2. run `make diagrams-render` from the repository root (never edit the SVG directly);
 3. reference the shared SVG as `/diagrams/<diagram-id>.svg` in the Episode;
 4. run the site check and build, which validate the reference and publish the static asset.
@@ -64,8 +66,8 @@ Reusable diagrams stay in the shared namespace and can be referenced by any numb
 The global registry makes each generated SVG resolvable through `AssetManager`. When that shared SVG enters the video runtime, the `video-dark` publication profile normalises it before scene composition. The committed website SVG is not modified.
 
 ```text
-D2 source
-  -> D2 SVG renderer
+Diagram source
+  -> notation SVG renderer
   -> shared standalone SVG
   -> video-dark profile
   -> normalised transparent SVG
@@ -104,4 +106,4 @@ The 18-pixel value is a publication target, not permission to enlarge text indep
 
 ## Choreography boundary
 
-The D2 source describes diagram semantics: concepts and their relationships. A version 2 scene plan describes audience experience through progressive states and phrase-aligned beats that address stable D2 element IDs. The pre-render validator checks those references. The current pilot renderer uses a deterministic full-state SVG; state SVG generation or renderer-controlled visibility can evolve behind this contract without moving choreography into the semantic D2 source.
+The notation source describes diagram semantics: concepts, relationships or process flow. A version 2 scene plan describes audience experience through progressive states and phrase-aligned beats that address stable renderer element IDs where supported. The pre-render validator checks those references. The current pilot renderer uses a deterministic full-state SVG; state SVG generation or renderer-controlled visibility can evolve behind this contract without moving choreography into the semantic source.

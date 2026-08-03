@@ -73,7 +73,7 @@ for (const [diagramPath, episode] of referencedDiagrams) {
     throw new Error(`${episode}: ${diagramPath} has no diagram entry in production/assets/registry.yaml`);
   }
 
-  await requireFile(path.join(repositoryRoot, asset.source), `${episode}: D2 source for ${diagramPath}`);
+  await requireFile(path.join(repositoryRoot, asset.source), `${episode}: diagram source for ${diagramPath}`);
   await requireFile(path.join(repositoryRoot, asset.location), `${episode}: generated asset for ${diagramPath}`);
 }
 

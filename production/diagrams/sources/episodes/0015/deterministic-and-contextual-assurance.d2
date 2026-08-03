@@ -1,0 +1,42 @@
+...@../../../styles/articulate
+direction: down
+
+knowledge: Knowledge Model and DCL {class: emphasis}
+
+approaches: Evaluation approaches {
+  grid-columns: 2
+
+  deterministic: Deterministic Evaluation {
+    grid-columns: 1
+    style: {
+      fill: "#F7F4ED"
+      stroke: "#263746"
+      stroke-width: 2
+      border-radius: 10
+    }
+    structural: structural checks {class: capability}
+    rules: rule validation {class: capability}
+    lifecycle: lifecycle validation {class: capability}
+    relationships: relationship analysis {class: capability}
+  }
+
+  contextual: Contextual Reasoning {
+    grid-columns: 1
+    style: {
+      fill: "#F7F4ED"
+      stroke: "#263746"
+      stroke-width: 2
+      border-radius: 10
+    }
+    interpretation: interpretation {class: capability}
+    tradeoffs: trade-off analysis {class: capability}
+    risk: risk explanation {class: capability}
+    evidence: evidence assessment {class: capability}
+    actions: calls to action {class: capability}
+  }
+}
+
+findings: Architectural Assurance Findings {class: emphasis}
+
+knowledge -> approaches: feeds both approaches
+approaches -> findings: both contribute
