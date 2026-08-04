@@ -22,6 +22,7 @@ repository_paths:
   - docs/episodes/0003-why-ai-native-systems.md
 featured: false
 thumbnail: /media/episodes/0003/episode-0003-thumbnail-v2.png
+thumbnail_alt: "Presenter beside the words AI-Native Hypothesis and a flow from alternative through pattern to responsibility."
 youtube_url: https://youtu.be/1V6ziCqZ4tw
 ---
 

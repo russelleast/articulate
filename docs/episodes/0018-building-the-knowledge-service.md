@@ -1,5 +1,5 @@
 ---
-episode: 16
+episode: 18
 title: "Building the Knowledge Service"
 description: "The transition from conceptual architecture to software through the Knowledge Service, its boundaries, APIs, project structure and foundational abstractions."
 season: 3

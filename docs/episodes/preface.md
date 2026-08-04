@@ -21,6 +21,7 @@ repository_paths:
   - docs/episodes/preface.md
 featured: false
 thumbnail: /media/episodes/0000/episode-0000-thumbnail.png
+thumbnail_alt: "Presenter beside the words Building AI-Native Architecture and a flow from problem through principles and capabilities to architecture."
 youtube_url: https://youtu.be/bPTnBevs3U8
 ---
 
