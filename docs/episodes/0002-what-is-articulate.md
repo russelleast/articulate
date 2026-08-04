@@ -22,6 +22,7 @@ repository_paths:
   - docs/episodes/0002-what-is-articulate.md
 featured: false
 thumbnail: /media/episodes/0002/episode-0002-thumbnail.png
+thumbnail_alt: "Presenter beside the words Architectural Intelligence and a flow from artefacts through knowledge to understanding."
 youtube_url: https://youtu.be/58jjv0g6Ojo
 ---
 

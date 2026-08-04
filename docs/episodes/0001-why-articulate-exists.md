@@ -22,6 +22,7 @@ repository_paths:
   - docs/episodes/0001-why-articulate-exists.md
 featured: false
 thumbnail: /media/episodes/0001/episode-0001-thumbnail.png
+thumbnail_alt: "Presenter beside the words Understand Architecture and a flow from evidence through connection and reasoning to understanding."
 youtube_url: https://youtu.be/CaV96lZXLjY
 ---
 
