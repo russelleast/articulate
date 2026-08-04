@@ -58,7 +58,7 @@ Scene frame windows are calculated from rounded global start and end frames, not
 - Render manifests expose the resolved archetype, composition and transition plan for review and provenance.
 - Motion treatments and directional connector styling remain owned by `visual-grammar.mjs`; episode timelines state what changes, never opacity curves, coordinates or FFmpeg filters.
 - In Visual Grammar v1, the Architectural Studio combines the approved Companion asset with a reusable working surface. `motion.companionIdle` opts a legacy scene into deterministic frame-indexed breathing/settling motion.
-- In Visual Grammar v2, Presenter and Focus Canvas compositions share the black-background-compatible environment language without changing the declarative scene model.
+- In Visual Grammar v2, Narrator and Diagram compositions share the black-background-compatible environment language without changing the declarative scene model. Focus Canvas remains a retained compatibility mode and is not used by refreshed presenter-led productions.
 - Registered diagram SVGs are normalised for video at the asset-to-renderer boundary. The profile removes the D2 page, preserves structural mask semantics, applies the dark-video palette and declares deterministic aspect-ratio behaviour; Focus Canvas remains responsible only for placement.
 - Shared box connectors terminate at calculated node boundaries. Curved fan-out connectors allocate distinct source ports and approach destinations along a stable final tangent so arrowheads align cleanly.
 - Review generation can include every authored timeline state when `review.includeTimelineStates` is enabled, allowing progression to be reviewed independently of the final hold.

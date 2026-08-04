@@ -1,0 +1,21 @@
+...@../../../styles/articulate
+direction: right
+
+agent: "One capable agent" { class: agent }
+growth: {
+  grid-columns: 2
+  tools: "More tools" { class: capability }
+  memory: "More memory" { class: data }
+  context: "Larger context" { class: data }
+  model: "Larger model" { class: external }
+}
+pressure: {
+  grid-columns: 2
+  prompt: "Prompt complexity" { class: constraint }
+  selection: "Tool selection" { class: constraint }
+  knowledge: "Knowledge management" { class: constraint }
+  coherence: "Lost coherence" { class: constraint }
+}
+
+growth -> agent: expands
+agent -> pressure: accumulates

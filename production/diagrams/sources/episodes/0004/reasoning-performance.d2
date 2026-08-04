@@ -1,0 +1,17 @@
+...@../../../styles/articulate
+direction: right
+
+request: "Request" { class: human }
+retrieval: "Retrieval" { class: capability }
+reasoning: "Model reasoning" { class: agent }
+tools: "Tool calls" { class: external }
+validation: "Validation" { class: quality }
+response: "Perceived response" { class: emphasis }
+cost: "Cost" { class: constraint }
+
+request -> retrieval
+retrieval -> reasoning
+reasoning -> tools
+tools -> validation
+validation -> response
+reasoning -> cost: consumes

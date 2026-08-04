@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "narrativeSegments": [
+        "N001-N008"
+      ],
+      "start": 0,
+      "end": 30.72,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "trustworthy-production",
+      "title": "Trustworthy Production",
+      "narrativeSegments": [
+        "N009-N023"
+      ],
+      "start": 30.72,
+      "end": 76.16,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 30.720s"
+    },
+    {
+      "id": "functionality-characteristics",
+      "title": "Functionality and Characteristics",
+      "narrativeSegments": [
+        "N024-N026"
+      ],
+      "start": 76.16,
+      "end": 101.36,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 76.160s"
+    },
+    {
+      "id": "architecture-tradeoffs",
+      "title": "Architecture Is Trade-offs",
+      "narrativeSegments": [
+        "N027-N041"
+      ],
+      "start": 101.36,
+      "end": 162.16,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 101.360s"
+    },
+    {
+      "id": "trust",
+      "title": "Trust",
+      "narrativeSegments": [
+        "N042-N054"
+      ],
+      "start": 162.16,
+      "end": 213.52,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 162.160s"
+    },
+    {
+      "id": "reliability",
+      "title": "Reliability",
+      "narrativeSegments": [
+        "N055-N066"
+      ],
+      "start": 213.52,
+      "end": 256.08,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 213.520s"
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "narrativeSegments": [
+        "N067-N079"
+      ],
+      "start": 256.08,
+      "end": 305.64,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 256.080s"
+    },
+    {
+      "id": "scale-up",
+      "title": "Scaling Intelligence Up",
+      "narrativeSegments": [
+        "N080-N088"
+      ],
+      "start": 305.64,
+      "end": 342.76,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 305.640s"
+    },
+    {
+      "id": "scale-out",
+      "title": "Scaling Intelligence Out",
+      "narrativeSegments": [
+        "N089-N097"
+      ],
+      "start": 342.76,
+      "end": 381.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 342.760s"
+    },
+    {
+      "id": "coherence",
+      "title": "Coherence Before Size",
+      "narrativeSegments": [
+        "N098-N106"
+      ],
+      "start": 381.4,
+      "end": 417.36,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 381.400s"
+    },
+    {
+      "id": "observability",
+      "title": "Observability",
+      "narrativeSegments": [
+        "N107-N112"
+      ],
+      "start": 417.36,
+      "end": 447.64,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 417.360s"
+    },
+    {
+      "id": "evolution-operations",
+      "title": "Evolvability and Operability",
+      "narrativeSegments": [
+        "N113-N124"
+      ],
+      "start": 447.64,
+      "end": 489.04,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 447.640s"
+    },
+    {
+      "id": "testing",
+      "title": "Testing Remains Essential",
+      "narrativeSegments": [
+        "N125-N131"
+      ],
+      "start": 489.04,
+      "end": 521.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 489.040s"
+    },
+    {
+      "id": "evaluation",
+      "title": "Evaluation",
+      "narrativeSegments": [
+        "N132-N136"
+      ],
+      "start": 521.6,
+      "end": 546.68,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 521.600s"
+    },
+    {
+      "id": "reflection",
+      "title": "Still Systems",
+      "narrativeSegments": [
+        "N137-N144"
+      ],
+      "start": 546.68,
+      "end": 582.76,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 546.680s"
+    },
+    {
+      "id": "looking-ahead",
+      "title": "Looking Ahead",
+      "narrativeSegments": [
+        "N145-N147"
+      ],
+      "start": 582.76,
+      "end": 598.333,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 582.760s"
+    }
+  ]
+}

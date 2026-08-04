@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0004",
+    "title": "AI-Native Systems Are Still Systems",
+    "written_source": "docs/episodes/0004-system-characteristics-the-properties-every-system-needs.md",
+    "narrative_source": "production/episodes/0004/narrative.md",
+    "scene_plan": "production/episodes/0004/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "continuous-presenter-media",
+    "media_duration_seconds": 598.333333
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "AI-Native Systems Are Still Systems",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N008"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 30.72
+    },
+    {
+      "id": "S002",
+      "title": "Production changes the question",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N009-N023"
+      ],
+      "start_seconds": 30.72,
+      "end_seconds": 76.16
+    },
+    {
+      "id": "S003",
+      "title": "Two dimensions of architecture",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N024-N026"
+      ],
+      "start_seconds": 76.16,
+      "end_seconds": 101.36
+    },
+    {
+      "id": "S004",
+      "title": "Every decision is a trade-off",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N027-N041"
+      ],
+      "start_seconds": 101.36,
+      "end_seconds": 162.16
+    },
+    {
+      "id": "S005",
+      "title": "Protect the intelligence inside the system",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N042-N054"
+      ],
+      "start_seconds": 162.16,
+      "end_seconds": 213.52
+    },
+    {
+      "id": "S006",
+      "title": "Reliability is a recovery decision",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N055-N066"
+      ],
+      "start_seconds": 213.52,
+      "end_seconds": 256.08
+    },
+    {
+      "id": "S007",
+      "title": "Reasoning is now on the execution path",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N067-N079"
+      ],
+      "start_seconds": 256.08,
+      "end_seconds": 305.64
+    },
+    {
+      "id": "S008",
+      "title": "Scale up: complexity inside one agent",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N080-N088"
+      ],
+      "start_seconds": 305.64,
+      "end_seconds": 342.76
+    },
+    {
+      "id": "S009",
+      "title": "Scale out: complexity enters the architecture",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N089-N097"
+      ],
+      "start_seconds": 342.76,
+      "end_seconds": 381.4
+    },
+    {
+      "id": "S010",
+      "title": "Coherence Before Size",
+      "archetype": "Repository",
+      "kind": "presenter-repository",
+      "narrative_segments": [
+        "N098-N106"
+      ],
+      "start_seconds": 381.4,
+      "end_seconds": 417.36
+    },
+    {
+      "id": "S011",
+      "title": "Observe intelligent behaviour",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N107-N112"
+      ],
+      "start_seconds": 417.36,
+      "end_seconds": 447.64
+    },
+    {
+      "id": "S012",
+      "title": "Stable intent. Replaceable runtime.",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N113-N124"
+      ],
+      "start_seconds": 447.64,
+      "end_seconds": 489.04
+    },
+    {
+      "id": "S013",
+      "title": "Testing remains essential",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N125-N131"
+      ],
+      "start_seconds": 489.04,
+      "end_seconds": 521.6
+    },
+    {
+      "id": "S014",
+      "title": "The software worked. The behaviour didn't.",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N132-N136"
+      ],
+      "start_seconds": 521.6,
+      "end_seconds": 546.68
+    },
+    {
+      "id": "S015",
+      "title": "AI-native systems are still systems.",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N137-N144"
+      ],
+      "start_seconds": 546.68,
+      "end_seconds": 582.76
+    },
+    {
+      "id": "S016",
+      "title": "Capabilities before components",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N145-N147"
+      ],
+      "start_seconds": 582.76,
+      "end_seconds": 598.333
+    }
+  ]
+}

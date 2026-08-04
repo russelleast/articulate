@@ -37,7 +37,7 @@ test("episode environments resolve without introducing scene-specific kinds", ()
   assert.equal(resolveScenePresentation({ id: "S103", kind: "focus", companion: false, transition: "cut" }, grammar).composition, "focus");
 });
 
-test("presenter grammar resolves reusable human narrator and Focus Canvas modes", () => {
+test("presenter grammar resolves the canonical Narrator and retained Focus Canvas modes", () => {
   const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
   const presenter = resolveScenePresentation({ id: "S200", kind: "presenter", transition: "cut" }, presenterGrammar);
   const canvas = resolveScenePresentation({
@@ -46,7 +46,7 @@ test("presenter grammar resolves reusable human narrator and Focus Canvas modes"
     compositionMode: "presenter-left-canvas-right",
     transition: "cut"
   }, presenterGrammar);
-  assert.equal(presenter.archetype, "Presenter");
+  assert.equal(presenter.archetype, "Narrator");
   assert.equal(presenter.composition, "presenter-full");
   assert.equal(canvas.archetype, "Focus Canvas");
   assert.equal(canvas.composition, "presenter-left-canvas-right");

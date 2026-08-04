@@ -1,0 +1,44 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam defaultFontColor #17232D
+skinparam ArrowColor #49677C
+skinparam ArrowThickness 2
+skinparam componentStyle rectangle
+skinparam component {
+  BackgroundColor #E8EDF2
+  BorderColor #49677C
+  FontColor #17232D
+}
+skinparam rectangle {
+  BackgroundColor #F7F4ED
+  BorderColor #263746
+  FontColor #17232D
+}
+skinparam actor {
+  BackgroundColor #F2E8D8
+  BorderColor #8A6235
+  FontColor #49321E
+}
+
+left to right direction
+
+actor User as user
+rectangle "Trust boundary" as trust {
+  component "Permissions" as permissions
+  component "Model access" as model
+  component "Retrieved knowledge" as knowledge
+  component "Tool policy" as tools
+  component "Human approval" as approval
+}
+rectangle "Safe action" as outcome #DCEBE7
+
+user --> permissions
+permissions --> model
+model --> knowledge
+knowledge --> tools
+tools --> approval
+approval --> outcome
+@enduml

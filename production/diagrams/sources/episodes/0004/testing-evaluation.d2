@@ -1,0 +1,21 @@
+...@../../../styles/articulate
+direction: right
+
+system: "AI-native system" { class: service }
+
+testing: {
+  label: "Testing"
+  implementation: "Did execution work?" { class: capability }
+  result: "Correct execution" { class: quality }
+  implementation -> result
+}
+
+evaluation: {
+  label: "Evaluation"
+  behaviour: "Was the outcome good?" { class: capability }
+  result: "Trustworthy behaviour" { class: emphasis }
+  behaviour -> result
+}
+
+system -> testing
+system -> evaluation

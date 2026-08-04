@@ -1,0 +1,136 @@
+{
+  "version": 2,
+  "status": "approved",
+  "episode": {
+    "id": "0004",
+    "title": "AI-Native Systems Are Still Systems",
+    "writtenSource": "docs/episodes/0004-system-characteristics-the-properties-every-system-needs.md",
+    "narrativeSource": "production/episodes/0004/narrative.md",
+    "presenterMedia": "production/episodes/0004/ep4-narrator.mov"
+  },
+  "sections": [
+    { "id": "opening", "title": "Opening", "narrativeSegments": ["N001-N008"], "startSeconds": 0 },
+    { "id": "trustworthy-production", "title": "Trustworthy Production", "narrativeSegments": ["N009-N023"], "startSeconds": 30.72 },
+    { "id": "functionality-characteristics", "title": "Functionality and Characteristics", "narrativeSegments": ["N024-N026"], "startSeconds": 76.16 },
+    { "id": "architecture-tradeoffs", "title": "Architecture Is Trade-offs", "narrativeSegments": ["N027-N041"], "startSeconds": 101.36 },
+    { "id": "trust", "title": "Trust", "narrativeSegments": ["N042-N054"], "startSeconds": 162.16 },
+    { "id": "reliability", "title": "Reliability", "narrativeSegments": ["N055-N066"], "startSeconds": 213.52 },
+    { "id": "performance", "title": "Performance", "narrativeSegments": ["N067-N079"], "startSeconds": 256.08 },
+    { "id": "scale-up", "title": "Scaling Intelligence Up", "narrativeSegments": ["N080-N088"], "startSeconds": 305.64 },
+    { "id": "scale-out", "title": "Scaling Intelligence Out", "narrativeSegments": ["N089-N097"], "startSeconds": 342.76 },
+    { "id": "coherence", "title": "Coherence Before Size", "narrativeSegments": ["N098-N106"], "startSeconds": 381.4 },
+    { "id": "observability", "title": "Observability", "narrativeSegments": ["N107-N112"], "startSeconds": 417.36 },
+    { "id": "evolution-operations", "title": "Evolvability and Operability", "narrativeSegments": ["N113-N124"], "startSeconds": 447.64 },
+    { "id": "testing", "title": "Testing Remains Essential", "narrativeSegments": ["N125-N131"], "startSeconds": 489.04 },
+    { "id": "evaluation", "title": "Evaluation", "narrativeSegments": ["N132-N136"], "startSeconds": 521.6 },
+    { "id": "reflection", "title": "Still Systems", "narrativeSegments": ["N137-N144"], "startSeconds": 546.68 },
+    { "id": "looking-ahead", "title": "Looking Ahead", "narrativeSegments": ["N145-N147"], "startSeconds": 582.76 }
+  ],
+  "scenes": [
+    {
+      "id": "S001", "section": "opening", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "AI-Native Systems Are Still Systems", "support": "Can people trust it?", "items": [],
+      "beats": [
+        { "id": "still-systems", "target": "headline", "action": "emphasise", "alignTo": "AI-native systems are still systems" },
+        { "id": "trust-question", "target": "support", "action": "emphasise", "alignTo": "Can people trust it" }
+      ]
+    },
+    {
+      "id": "S002", "section": "trustworthy-production", "archetype": "Evidence", "kind": "presenter-evidence", "transition": "cut",
+      "headline": "Production changes the question", "support": "Features make a system useful. Characteristics make it trustworthy.",
+      "items": ["Available", "Secure", "Performant", "Explainable", "Trustworthy"],
+      "beats": [
+        { "id": "available", "target": "item-1", "alignTo": "whether it's available" },
+        { "id": "secure", "target": "item-2", "alignTo": "whether it's secure" },
+        { "id": "performant", "target": "item-3", "alignTo": "whether it performs well" },
+        { "id": "explainable", "target": "item-4", "alignTo": "understand what happened" },
+        { "id": "trustworthy", "target": "item-5", "alignTo": "Characteristics make it trustworthy" }
+      ]
+    },
+    {
+      "id": "S003", "section": "functionality-characteristics", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-functionality-characteristics", "headline": "Two dimensions of architecture", "support": "What does it do? · How well does it do it?", "items": []
+    },
+    {
+      "id": "S004", "section": "architecture-tradeoffs", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-architecture-tradeoffs", "headline": "Every decision is a trade-off", "support": "Place complexity where it can be understood.", "items": []
+    },
+    {
+      "id": "S005", "section": "trust", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-trust-boundaries", "headline": "Protect the intelligence inside the system", "support": "Capability is not authority.", "items": []
+    },
+    {
+      "id": "S006", "section": "reliability", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-reliability-recovery", "headline": "Reliability is a recovery decision", "support": "Failures are inevitable. Unsafe continuation is not.", "items": []
+    },
+    {
+      "id": "S007", "section": "performance", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-reasoning-performance", "headline": "Reasoning is now on the execution path", "support": "Latency, perceived speed and cost must be considered together.", "items": []
+    },
+    {
+      "id": "S008", "section": "scale-up", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-scaling-intelligence-up", "headline": "Scale up: complexity inside one agent", "support": "More capability can eventually reduce coherence.", "items": []
+    },
+    {
+      "id": "S009", "section": "scale-out", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-scaling-intelligence-out", "headline": "Scale out: complexity enters the architecture", "support": "Specialisation adds routing, context transfer and recovery.", "items": []
+    },
+    {
+      "id": "S010", "section": "coherence", "archetype": "Repository", "kind": "presenter-repository", "transition": "cut",
+      "headline": "Coherence Before Size", "support": "Split only when responsibilities stop belonging together.",
+      "items": ["site/src/content/principles/coherence-before-size.md", "Architectural principle"],
+      "evidence": { "excerpt": ["Responsibilities · tools · context", "Boundaries introduce routing · trust · failure"] },
+      "beats": [
+        { "id": "principle-source", "target": "item-1", "alignTo": "principle I've started using" },
+        { "id": "coherent-responsibility", "target": "evidence-1", "alignTo": "responsibilities tools and context" },
+        { "id": "boundary-cost", "target": "evidence-2", "alignTo": "more problems than it solves" }
+      ]
+    },
+    {
+      "id": "S011", "section": "observability", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-ai-native-observability", "headline": "Observe intelligent behaviour", "support": "A service trace cannot explain a reasoning decision.", "items": []
+    },
+    {
+      "id": "S012", "section": "evolution-operations", "archetype": "Evidence", "kind": "presenter-evidence", "transition": "cut",
+      "headline": "Stable intent. Replaceable runtime.", "support": "An elegant architecture must remain understandable and operable.",
+      "items": ["Replace model", "Change routing", "Inspect reasoning", "Replay execution"],
+      "beats": [
+        { "id": "replace-model", "target": "item-1", "alignTo": "Models will change" },
+        { "id": "change-routing", "target": "item-2", "alignTo": "change routing policies" },
+        { "id": "inspect-reasoning", "target": "item-3", "alignTo": "inspect a reasoning path" },
+        { "id": "replay-execution", "target": "item-4", "alignTo": "replay a failed execution" }
+      ]
+    },
+    {
+      "id": "S013", "section": "testing", "archetype": "Evidence", "kind": "presenter-evidence", "transition": "cut",
+      "headline": "Testing remains essential", "support": "Correct execution is necessary—but no longer sufficient.",
+      "items": ["Unit", "Integration", "Performance", "Probabilistic behaviour"],
+      "beats": [
+        { "id": "unit", "target": "item-1", "alignTo": "Unit tests" },
+        { "id": "integration", "target": "item-2", "alignTo": "Integration tests" },
+        { "id": "performance-test", "target": "item-3", "alignTo": "Performance tests" },
+        { "id": "probabilistic", "target": "item-4", "alignTo": "probabilistic behaviour" }
+      ]
+    },
+    {
+      "id": "S014", "section": "evaluation", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0004-testing-evaluation", "headline": "The software worked. The behaviour didn't.", "support": "Evaluation measures whether the intended outcome was achieved.", "items": []
+    },
+    {
+      "id": "S015", "section": "reflection", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
+      "headline": "AI-native systems are still systems.", "support": "Intelligence makes trustworthy characteristics more important.",
+      "items": ["Reliable", "Secure", "Scalable", "Observable", "Trustworthy"],
+      "beats": [
+        { "id": "reliable", "target": "item-1", "alignTo": "their reliability" },
+        { "id": "secure", "target": "item-2", "alignTo": "their security" },
+        { "id": "scalable", "target": "item-3", "alignTo": "their scalability" },
+        { "id": "observable", "target": "item-4", "alignTo": "their observability" },
+        { "id": "trustworthy", "target": "item-5", "alignTo": "whether people can trust them" }
+      ]
+    },
+    {
+      "id": "S016", "section": "looking-ahead", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Capabilities before components", "support": "Next · Architectural principles shaping Articulate", "items": []
+    }
+  ]
+}

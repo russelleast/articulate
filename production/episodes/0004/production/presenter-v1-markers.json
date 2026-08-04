@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 599.879854,
+  "selectedDurationSeconds": 598.333333,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 30.72,
+      "narrationReference": "Opening · N001-N008"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 30.72,
+      "endSeconds": 76.16,
+      "narrationReference": "Trustworthy Production · N009-N023"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 76.16,
+      "endSeconds": 101.36,
+      "narrationReference": "Functionality and Characteristics · N024-N026"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 101.36,
+      "endSeconds": 162.16,
+      "narrationReference": "Architecture Is Trade-offs · N027-N041"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 162.16,
+      "endSeconds": 213.52,
+      "narrationReference": "Trust · N042-N054"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 213.52,
+      "endSeconds": 256.08,
+      "narrationReference": "Reliability · N055-N066"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 256.08,
+      "endSeconds": 305.64,
+      "narrationReference": "Performance · N067-N079"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 305.64,
+      "endSeconds": 342.76,
+      "narrationReference": "Scaling Intelligence Up · N080-N088"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 342.76,
+      "endSeconds": 381.4,
+      "narrationReference": "Scaling Intelligence Out · N089-N097"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 381.4,
+      "endSeconds": 417.36,
+      "narrationReference": "Coherence Before Size · N098-N106"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 417.36,
+      "endSeconds": 447.64,
+      "narrationReference": "Observability · N107-N112"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 447.64,
+      "endSeconds": 489.04,
+      "narrationReference": "Evolvability and Operability · N113-N124"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 489.04,
+      "endSeconds": 521.6,
+      "narrationReference": "Testing Remains Essential · N125-N131"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 521.6,
+      "endSeconds": 546.68,
+      "narrationReference": "Evaluation · N132-N136"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 546.68,
+      "endSeconds": 582.76,
+      "narrationReference": "Still Systems · N137-N144"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 582.76,
+      "endSeconds": 598.333,
+      "narrationReference": "Looking Ahead · N145-N147"
+    }
+  ]
+}

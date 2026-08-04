@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "episodeId": "episode-0004",
+  "narrationAssetId": "episode-0004-presenter-v1",
+  "mediaRole": "continuous-presenter-video-with-embedded-audio",
+  "sha256": "072693d6822599d4791f370b6eb48aa3a1845f9e9c90d87374df19af4bb08b7a",
+  "media": {
+    "durationSeconds": 599.879854,
+    "sizeBytes": 783799319,
+    "bitRate": 10452750,
+    "codec": "aac",
+    "sampleRateHz": 48000,
+    "channels": 1,
+    "channelLayout": "mono"
+  },
+  "silenceAnalysis": {
+    "noiseThreshold": "-42dB",
+    "minimumSilenceSeconds": 0.35,
+    "leadingSilenceSeconds": 0,
+    "trailingSilenceSeconds": 2.140021,
+    "usableNarrationDurationSeconds": 597.739833,
+    "detectedPauseCount": 189,
+    "majorPauseMinimumSeconds": 1.3,
+    "majorPauses": [
+      {
+        "startSeconds": 69.138958,
+        "endSeconds": 70.786229,
+        "durationSeconds": 1.647271
+      },
+      {
+        "startSeconds": 138.033521,
+        "endSeconds": 139.365521,
+        "durationSeconds": 1.332
+      },
+      {
+        "startSeconds": 177.093271,
+        "endSeconds": 178.439354,
+        "durationSeconds": 1.346083
+      },
+      {
+        "startSeconds": 206.630542,
+        "endSeconds": 208.356458,
+        "durationSeconds": 1.725916
+      },
+      {
+        "startSeconds": 270.268,
+        "endSeconds": 271.572854,
+        "durationSeconds": 1.304854
+      },
+      {
+        "startSeconds": 297.577729,
+        "endSeconds": 298.908396,
+        "durationSeconds": 1.330667
+      },
+      {
+        "startSeconds": 303.466958,
+        "endSeconds": 305.137792,
+        "durationSeconds": 1.670834
+      },
+      {
+        "startSeconds": 437.495937,
+        "endSeconds": 439.085875,
+        "durationSeconds": 1.589938
+      },
+      {
+        "startSeconds": 468.528479,
+        "endSeconds": 470.326792,
+        "durationSeconds": 1.798312
+      },
+      {
+        "startSeconds": 561.629375,
+        "endSeconds": 563.220042,
+        "durationSeconds": 1.590667
+      },
+      {
+        "startSeconds": 597.739833,
+        "endSeconds": 599.837188,
+        "durationSeconds": 2.097355
+      }
+    ]
+  },
+  "interpretation": [
+    "The presenter source remains continuous from 0s to 598.333333s; no interior silence was removed.",
+    "Major pauses are deterministic signal evidence. Editorial scene boundaries are stored in production/episodes/0004/production/presenter-v1-markers.json.",
+    "The embedded audio remains coupled to the presenter picture and is the timing authority."
+  ]
+}

@@ -1,0 +1,704 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0004",
+    "title": "AI-Native Systems Are Still Systems",
+    "journalSource": "docs/episodes/0004-system-characteristics-the-properties-every-system-needs.md",
+    "narrativeSource": "production/episodes/0004/narrative.md",
+    "storyboard": "production/episodes/0004/storyboard-presenter.yaml",
+    "timingMarkers": "production/episodes/0004/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0004/asset-register.yaml",
+    "scenePlan": "production/episodes/0004/scene-plan.yaml",
+    "timeline": "production/episodes/0004/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0004-presenter-v1",
+    "expectedSha256": "072693d6822599d4791f370b6eb48aa3a1845f9e9c90d87374df19af4bb08b7a",
+    "expectedDurationSeconds": 598.333333,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 598.333333,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Refreshed Episodes 0001–0003 framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 8
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0004/output/episode-0004-final.mp4",
+    "generatedDirectory": "production/episodes/0004/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0004/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0004/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "AI-Native Systems Are Still Systems",
+      "kind": "presenter-focus",
+      "headline": "AI-Native Systems Are Still Systems",
+      "support": "Can people trust it?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "still-systems",
+            "at": 18.48,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "AI-native systems are still systems"
+          },
+          {
+            "id": "trust-question",
+            "at": 25.48,
+            "action": "emphasize",
+            "target": "support",
+            "sourcePhrase": "Can people trust it"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Opening",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "Production changes the question",
+      "kind": "presenter-evidence",
+      "headline": "Production changes the question",
+      "support": "Features make a system useful. Characteristics make it trustworthy.",
+      "items": [
+        "Available",
+        "Secure",
+        "Performant",
+        "Explainable",
+        "Trustworthy"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "available",
+            "at": 22.08,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "whether it's available"
+          },
+          {
+            "id": "secure",
+            "at": 22.08,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "whether it's secure"
+          },
+          {
+            "id": "performant",
+            "at": 25.25,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "whether it performs well"
+          },
+          {
+            "id": "explainable",
+            "at": 31.16,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "understand what happened"
+          },
+          {
+            "id": "trustworthy",
+            "at": 42.52,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "Characteristics make it trustworthy"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Trustworthy Production",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "Two dimensions of architecture",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-functionality-characteristics",
+      "headline": "Two dimensions of architecture",
+      "support": "What does it do? · How well does it do it?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Functionality and Characteristics",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Every decision is a trade-off",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-architecture-tradeoffs",
+      "headline": "Every decision is a trade-off",
+      "support": "Place complexity where it can be understood.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architecture Is Trade-offs",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Protect the intelligence inside the system",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-trust-boundaries",
+      "headline": "Protect the intelligence inside the system",
+      "support": "Capability is not authority.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Trust",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "Reliability is a recovery decision",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-reliability-recovery",
+      "headline": "Reliability is a recovery decision",
+      "support": "Failures are inevitable. Unsafe continuation is not.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reliability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "Reasoning is now on the execution path",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-reasoning-performance",
+      "headline": "Reasoning is now on the execution path",
+      "support": "Latency, perceived speed and cost must be considered together.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Performance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "Scale up: complexity inside one agent",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-scaling-intelligence-up",
+      "headline": "Scale up: complexity inside one agent",
+      "support": "More capability can eventually reduce coherence.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Scaling Intelligence Up",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Scale out: complexity enters the architecture",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-scaling-intelligence-out",
+      "headline": "Scale out: complexity enters the architecture",
+      "support": "Specialisation adds routing, context transfer and recovery.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Scaling Intelligence Out",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "Coherence Before Size",
+      "kind": "presenter-repository",
+      "headline": "Coherence Before Size",
+      "support": "Split only when responsibilities stop belonging together.",
+      "items": [
+        "site/src/content/principles/coherence-before-size.md",
+        "Architectural principle"
+      ],
+      "evidence": {
+        "excerpt": [
+          "Responsibilities · tools · context",
+          "Boundaries introduce routing · trust · failure"
+        ]
+      },
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "principle-source",
+            "at": 15.14,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "principle I've started using"
+          },
+          {
+            "id": "coherent-responsibility",
+            "at": 24.1,
+            "action": "reveal",
+            "target": "evidence-1",
+            "sourcePhrase": "responsibilities tools and context"
+          },
+          {
+            "id": "boundary-cost",
+            "at": 33.56,
+            "action": "reveal",
+            "target": "evidence-2",
+            "sourcePhrase": "more problems than it solves"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Coherence Before Size",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Observe intelligent behaviour",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-ai-native-observability",
+      "headline": "Observe intelligent behaviour",
+      "support": "A service trace cannot explain a reasoning decision.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Observability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Stable intent. Replaceable runtime.",
+      "kind": "presenter-evidence",
+      "headline": "Stable intent. Replaceable runtime.",
+      "support": "An elegant architecture must remain understandable and operable.",
+      "items": [
+        "Replace model",
+        "Change routing",
+        "Inspect reasoning",
+        "Replay execution"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "replace-model",
+            "at": 5.8,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Models will change"
+          },
+          {
+            "id": "change-routing",
+            "at": 30.07,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "change routing policies"
+          },
+          {
+            "id": "inspect-reasoning",
+            "at": 31.82,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "inspect a reasoning path"
+          },
+          {
+            "id": "replay-execution",
+            "at": 33.23,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "replay a failed execution"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Evolvability and Operability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Testing remains essential",
+      "kind": "presenter-evidence",
+      "headline": "Testing remains essential",
+      "support": "Correct execution is necessary—but no longer sufficient.",
+      "items": [
+        "Unit",
+        "Integration",
+        "Performance",
+        "Probabilistic behaviour"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "unit",
+            "at": 12.74,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Unit tests"
+          },
+          {
+            "id": "integration",
+            "at": 13.51,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Integration tests"
+          },
+          {
+            "id": "performance-test",
+            "at": 14.67,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "Performance tests"
+          },
+          {
+            "id": "probabilistic",
+            "at": 21.91,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "probabilistic behaviour"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Testing Remains Essential",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "The software worked. The behaviour didn't.",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0004-testing-evaluation",
+      "headline": "The software worked. The behaviour didn't.",
+      "support": "Evaluation measures whether the intended outcome was achieved.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Evaluation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "AI-native systems are still systems.",
+      "kind": "presenter-focus",
+      "headline": "AI-native systems are still systems.",
+      "support": "Intelligence makes trustworthy characteristics more important.",
+      "items": [
+        "Reliable",
+        "Secure",
+        "Scalable",
+        "Observable",
+        "Trustworthy"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "reliable",
+            "at": 20.81,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "their reliability"
+          },
+          {
+            "id": "secure",
+            "at": 22.07,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "their security"
+          },
+          {
+            "id": "scalable",
+            "at": 23.13,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "their scalability"
+          },
+          {
+            "id": "observable",
+            "at": 24.39,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "their observability"
+          },
+          {
+            "id": "trustworthy",
+            "at": 26.71,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "whether people can trust them"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Still Systems",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "Capabilities before components",
+      "kind": "presenter-focus",
+      "headline": "Capabilities before components",
+      "support": "Next · Architectural principles shaping Articulate",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Looking Ahead",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

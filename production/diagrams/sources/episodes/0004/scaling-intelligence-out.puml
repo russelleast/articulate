@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam defaultFontColor #17232D
+skinparam ArrowColor #49677C
+skinparam ArrowThickness 2
+skinparam componentStyle rectangle
+skinparam component {
+  BackgroundColor #E8EDF2
+  BorderColor #49677C
+  FontColor #17232D
+}
+skinparam queue {
+  BackgroundColor #F2E8D8
+  BorderColor #8A6235
+  FontColor #49321E
+}
+skinparam database {
+  BackgroundColor #EDE7F2
+  BorderColor #665278
+  FontColor #30243A
+}
+
+left to right direction
+
+queue "Coordination" as router
+component "Knowledge\nagent" as knowledge
+component "Evidence\nagent" as evidence
+component "Principles\nagent" as principles
+component "Trade-off\nagent" as tradeoffs
+database "Shared state" as state
+
+router --> knowledge : focused context
+router --> evidence : focused context
+router --> principles : focused context
+router --> tradeoffs : focused context
+knowledge --> state
+evidence --> state
+principles --> state
+tradeoffs --> state
+@enduml

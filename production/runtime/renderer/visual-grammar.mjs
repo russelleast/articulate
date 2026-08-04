@@ -117,12 +117,12 @@ const presenterProfile = Object.freeze({
   sceneKinds: Object.freeze({
     ...profile.sceneKinds,
     presenter: Object.freeze({
-      archetype: "Presenter",
+      archetype: "Narrator",
       composition: "presenter-full",
       compositions: Object.freeze(["presenter-full", "presenter-focus"])
     }),
     "presenter-focus": Object.freeze({
-      archetype: "Presenter",
+      archetype: "Narrator",
       composition: "presenter-focus",
       compositions: Object.freeze(["presenter-focus"])
     }),

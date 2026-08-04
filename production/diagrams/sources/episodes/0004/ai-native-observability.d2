@@ -1,0 +1,19 @@
+...@../../../styles/articulate
+direction: right
+
+execution: "Intelligent execution" { class: agent }
+signals: {
+  grid-columns: 3
+  prompt: "Prompt + model" { class: event }
+  retrieval: "Retrieved knowledge" { class: event }
+  routing: "Routing decision" { class: event }
+  tools: "Tool calls" { class: event }
+  confidence: "Confidence" { class: event }
+  evaluation: "Evaluation result" { class: evidence }
+}
+trace: "Reasoning trace" { class: data }
+question: "Why this outcome?" { class: emphasis }
+
+execution -> signals: emits
+signals -> trace: correlates
+trace -> question: explains

@@ -1,0 +1,834 @@
+1
+00:00:00,000 --> 00:00:03,760
+Hello and welcome back to
+the Articulate Journal.
+
+2
+00:00:03,800 --> 00:00:06,785
+In the last episode, I
+explained why Articulate
+
+3
+00:00:06,825 --> 00:00:09,433
+is being designed as an AI-native system
+
+4
+00:00:09,473 --> 00:00:12,080
+and what I meant by
+AI-native architecture.
+
+5
+00:00:12,120 --> 00:00:15,427
+In this episode, I want
+to take a step back
+
+6
+00:00:15,467 --> 00:00:18,440
+for a moment and look at
+something more fundamental.
+
+7
+00:00:18,480 --> 00:00:22,200
+AI-native systems are still systems.
+
+8
+00:00:22,240 --> 00:00:25,440
+Every production system is ultimately
+judged by the same question.
+
+9
+00:00:25,480 --> 00:00:27,640
+Can people trust it?
+
+10
+00:00:27,680 --> 00:00:30,680
+That's where system
+characteristics become important.
+
+11
+00:00:30,720 --> 00:00:32,382
+There's a huge amount of excitement
+
+12
+00:00:32,422 --> 00:00:33,800
+around AI at the moment.
+
+13
+00:00:33,840 --> 00:00:36,120
+Every week there's a new model, a
+
+14
+00:00:36,160 --> 00:00:38,440
+new framework or another
+agent platform promising
+
+15
+00:00:38,480 --> 00:00:40,760
+to change the way we build software.
+
+16
+00:00:40,800 --> 00:00:43,760
+Those advances are genuinely
+exciting, but we must not
+
+17
+00:00:43,800 --> 00:00:46,760
+forget the fundamentals of
+software engineering because once a
+
+18
+00:00:46,800 --> 00:00:49,760
+system is in production,
+no one really cares how
+
+19
+00:00:49,800 --> 00:00:52,760
+clever it is if they can't rely on it.
+
+20
+00:00:52,800 --> 00:00:56,893
+They care whether it's available,
+whether it's secure, whether it
+
+21
+00:00:56,933 --> 00:01:01,027
+performs well, whether they can
+trust the answers it produces,
+
+22
+00:01:01,067 --> 00:01:05,160
+whether someone can understand what
+happened when something goes wrong.
+
+23
+00:01:05,200 --> 00:01:08,258
+In other words, they care about
+
+24
+00:01:08,298 --> 00:01:10,840
+the characteristics of the system.
+
+25
+00:01:10,880 --> 00:01:13,200
+Features make a system useful.
+
+26
+00:01:13,240 --> 00:01:16,120
+Characteristics make it trustworthy.
+
+27
+00:01:16,160 --> 00:01:19,334
+Before we start exploring
+runtimes, workflows and multi-agent
+
+28
+00:01:19,374 --> 00:01:22,548
+systems, I think it's worth taking a step
+
+29
+00:01:22,588 --> 00:01:25,360
+back and asking a much simpler question.
+
+30
+00:01:25,400 --> 00:01:29,400
+What qualities does every
+production system need to possess?
+
+31
+00:01:29,440 --> 00:01:31,516
+As architects, we tend to think
+
+32
+00:01:31,556 --> 00:01:33,280
+about software in two dimensions.
+
+33
+00:01:33,320 --> 00:01:36,240
+The first is functionality,
+as in what does
+
+34
+00:01:36,280 --> 00:01:39,200
+a system do, and the
+second is characteristics.
+
+35
+00:01:39,240 --> 00:01:41,320
+How well does it do it?
+
+36
+00:01:41,360 --> 00:01:44,440
+One thing that's always fascinated
+me about architecture is
+
+37
+00:01:44,480 --> 00:01:47,560
+that we rarely choose
+patterns for our own sake.
+
+38
+00:01:47,600 --> 00:01:50,640
+We don't choose CQRS
+because it's fashionable.
+
+39
+00:01:50,680 --> 00:01:53,760
+We don't choose event-sourcing
+because it's interesting.
+
+40
+00:01:53,800 --> 00:01:56,340
+We don't introduce durable workflows,
+
+41
+00:01:56,380 --> 00:01:58,920
+simply because the technology exists.
+
+42
+00:01:58,960 --> 00:02:02,562
+We choose architecture approaches
+because they improve characteristics that
+
+43
+00:02:02,602 --> 00:02:05,800
+matter for the problem
+we're trying to solve.
+
+44
+00:02:05,840 --> 00:02:09,640
+Every architectural decision
+is really a trade-off.
+
+45
+00:02:09,680 --> 00:02:13,880
+Improve one characteristic and
+another may become more difficult.
+
+46
+00:02:13,920 --> 00:02:19,560
+Caching improves performance, but
+introduces consistency challenges.
+
+47
+00:02:19,600 --> 00:02:23,204
+Creating a system
+improves scalability while
+
+48
+00:02:23,244 --> 00:02:26,240
+making observability
+and reliability harder.
+
+49
+00:02:26,280 --> 00:02:29,551
+Adding autonomous agents may increase
+
+50
+00:02:29,591 --> 00:02:32,200
+flexibility, but reduce predictability.
+
+51
+00:02:32,240 --> 00:02:35,560
+Architecture has never been
+about finding the perfect design.
+
+52
+00:02:35,600 --> 00:02:38,960
+It's about deciding which
+trade-offs are appropriate.
+
+53
+00:02:39,000 --> 00:02:42,120
+So let's look at some of those
+characteristics that matter.
+
+54
+00:02:42,160 --> 00:02:45,120
+The first is trust.
+
+55
+00:02:45,160 --> 00:02:48,600
+Trust has always been
+fundamental to software.
+
+56
+00:02:48,640 --> 00:02:53,549
+Users expect systems to protect
+their information, respect
+
+57
+00:02:53,589 --> 00:02:57,880
+permissions, record important
+actions and behave safely.
+
+58
+00:02:57,920 --> 00:03:01,600
+AI-native systems introduce new questions.
+
+59
+00:03:01,640 --> 00:03:04,800
+Which models are allowed
+to access this information?
+
+60
+00:03:04,840 --> 00:03:07,720
+Which tools can an agent invoke?
+
+61
+00:03:07,760 --> 00:03:11,440
+Can retrieved information
+cross security boundaries?
+
+62
+00:03:11,480 --> 00:03:14,880
+Can we explain why a
+particular answer was produced?
+
+63
+00:03:14,920 --> 00:03:19,680
+Can an agent perform an
+action without human approval?
+
+64
+00:03:19,720 --> 00:03:23,960
+Security is no longer about
+protecting APIs and databases,
+
+65
+00:03:24,000 --> 00:03:28,240
+it's about protecting the intelligence
+operating inside the system.
+
+66
+00:03:28,280 --> 00:03:31,035
+Being capable of doing
+something is not the
+
+67
+00:03:31,075 --> 00:03:33,480
+same as being authorised to do it.
+
+68
+00:03:33,520 --> 00:03:35,360
+Next comes reliability.
+
+69
+00:03:35,400 --> 00:03:39,440
+Eventually, every production
+system experiences failure.
+
+70
+00:03:39,480 --> 00:03:43,382
+A model provider becomes
+unavailable. A retrieval
+
+71
+00:03:43,422 --> 00:03:46,760
+service times out. A tool fails.
+
+72
+00:03:46,800 --> 00:03:49,720
+A workflow is interrupted.
+
+73
+00:03:49,760 --> 00:03:53,640
+Reliability isn't about pretending
+those failures won't happen, it's about
+
+74
+00:03:53,680 --> 00:03:57,560
+deciding what the system should
+do when they inevitably do.
+
+75
+00:03:57,600 --> 00:03:58,560
+Can we retry?
+
+76
+00:03:58,600 --> 00:04:01,640
+Can we continue using another model?
+
+77
+00:04:01,680 --> 00:04:04,240
+Can it pause safely and resume later?
+
+78
+00:04:04,280 --> 00:04:06,280
+Can it ask a human for help?
+
+79
+00:04:06,320 --> 00:04:08,462
+Or can it preserve enough state
+
+80
+00:04:08,502 --> 00:04:10,280
+to continue without starting again?
+
+81
+00:04:10,320 --> 00:04:16,040
+That's what users
+experience as reliability.
+
+82
+00:04:16,080 --> 00:04:18,840
+Performance is another
+characteristic that becomes
+
+83
+00:04:18,880 --> 00:04:21,640
+increasingly interesting
+in AI native systems.
+
+84
+00:04:21,680 --> 00:04:24,760
+Traditionally, we measured things
+like latency and throughput.
+
+85
+00:04:24,800 --> 00:04:31,800
+Those still matter, but AI systems
+also introduce perceived performance.
+
+86
+00:04:31,840 --> 00:04:34,360
+Streaming a response
+often feels much faster
+
+87
+00:04:34,400 --> 00:04:36,920
+than waiting several seconds
+before anything appears.
+
+88
+00:04:36,960 --> 00:04:39,914
+At the same time, reasoning itself has
+
+89
+00:04:39,954 --> 00:04:42,480
+become part of the execution path.
+
+90
+00:04:42,520 --> 00:04:46,508
+Retrieval, calling tools,
+validation and model inference
+
+91
+00:04:46,548 --> 00:04:49,960
+all contribute to the overall experience.
+
+92
+00:04:50,000 --> 00:04:54,802
+Optimizing one stage doesn't
+necessarily make the system feel faster,
+
+93
+00:04:54,842 --> 00:04:59,160
+and performance always needs to
+be considered alongside cost.
+
+94
+00:04:59,200 --> 00:05:02,380
+Sometimes a larger model
+is worth using, sometimes
+
+95
+00:05:02,420 --> 00:05:05,600
+a smaller model is more than good enough.
+
+96
+00:05:05,640 --> 00:05:07,680
+Scalability has also changed.
+
+97
+00:05:07,720 --> 00:05:11,120
+Cloud native systems taught us
+how to scale infrastructure.
+
+98
+00:05:11,160 --> 00:05:14,440
+AI-native systems
+introduce another question.
+
+99
+00:05:14,480 --> 00:05:16,920
+How do we scale intelligence?
+
+100
+00:05:16,960 --> 00:05:21,040
+One option is to build a single
+increasingly capable agent.
+
+101
+00:05:21,080 --> 00:05:24,142
+Give it more tools, more memory, a
+
+102
+00:05:24,182 --> 00:05:26,800
+larger context, a more capable model.
+
+103
+00:05:26,840 --> 00:05:30,882
+At first, this seems attractive
+because everything happens in one
+
+104
+00:05:30,922 --> 00:05:34,964
+place, but eventually the context
+grows, the prompt becomes more
+
+105
+00:05:35,004 --> 00:05:39,046
+complicated, tool selection becomes
+harder, and the agent spends more
+
+106
+00:05:39,086 --> 00:05:42,720
+effort managing its own knowledge
+than solving the problem.
+
+107
+00:05:42,760 --> 00:05:45,000
+The alternative is to scale out.
+
+108
+00:05:45,040 --> 00:05:49,560
+Instead of one larger agent, we
+create several specialized ones.
+
+109
+00:05:49,600 --> 00:05:52,060
+Each has a focused responsibility, a
+
+110
+00:05:52,100 --> 00:05:54,560
+smaller context and a clearer purpose.
+
+111
+00:05:54,600 --> 00:05:57,769
+That often improves
+clarity and isolation, but
+
+112
+00:05:57,809 --> 00:06:00,520
+it introduces another kind of complexity.
+
+113
+00:06:00,560 --> 00:06:02,900
+Now the architecture has to decide
+
+114
+00:06:02,940 --> 00:06:05,280
+which agent should receive the request.
+
+115
+00:06:05,320 --> 00:06:09,590
+How context is transferred, how
+work is coordinated, how failures
+
+116
+00:06:09,630 --> 00:06:13,900
+are recovered, and how reasoning
+is observed across multiple agents.
+
+117
+00:06:13,940 --> 00:06:17,879
+In other words, scale
+out moves complexity from
+
+118
+00:06:17,919 --> 00:06:21,360
+inside the agent into
+the architecture itself.
+
+119
+00:06:21,400 --> 00:06:23,840
+Neither approach is automatically right.
+
+120
+00:06:23,880 --> 00:06:26,940
+Just as with microservices,
+the goal isn't to create
+
+121
+00:06:26,980 --> 00:06:30,040
+the biggest component or the
+greatest number of components.
+
+122
+00:06:30,080 --> 00:06:33,518
+The goal is to place complexity where
+
+123
+00:06:33,558 --> 00:06:36,500
+it can be understood and managed.
+
+124
+00:06:36,540 --> 00:06:39,892
+That leads to a principle I've started
+
+125
+00:06:39,932 --> 00:06:42,800
+using throughout Articulate,
+coherence before size.
+
+126
+00:06:42,840 --> 00:06:45,260
+An agent should remain coherent.
+
+127
+00:06:45,300 --> 00:06:48,004
+Its responsibilities, tools, and contexts
+
+128
+00:06:48,044 --> 00:06:50,200
+should naturally belong together.
+
+129
+00:06:50,240 --> 00:06:53,969
+Splitting an agent simply because
+smaller agents appear more
+
+130
+00:06:54,009 --> 00:06:57,320
+sophisticated usually creates
+more problems than it solves.
+
+131
+00:06:57,360 --> 00:07:00,160
+Observability becomes
+even more important once
+
+132
+00:07:00,200 --> 00:07:03,000
+intelligence becomes part of the runtime.
+
+133
+00:07:03,040 --> 00:07:05,840
+Traditional systems give us
+logs, metrics and traces.
+
+134
+00:07:05,880 --> 00:07:10,397
+AI-native systems also need
+us to understand prompts,
+
+135
+00:07:10,437 --> 00:07:14,953
+retrieved knowledge, routing
+decisions, tools that have been
+
+136
+00:07:14,993 --> 00:07:18,940
+called, reasoning paths,
+confidence, and evaluation results.
+
+137
+00:07:18,980 --> 00:07:21,342
+When an answer is wrong, knowing that
+
+138
+00:07:21,382 --> 00:07:23,400
+one service called another isn't enough.
+
+139
+00:07:23,440 --> 00:07:27,600
+We also need to understand
+why that decision was made.
+
+140
+00:07:27,640 --> 00:07:30,500
+Another characteristic that becomes
+
+141
+00:07:30,540 --> 00:07:33,400
+increasingly important is evolvability.
+
+142
+00:07:33,440 --> 00:07:34,960
+Models will change.
+
+143
+00:07:35,000 --> 00:07:37,040
+Prompt strategies will change.
+
+144
+00:07:37,080 --> 00:07:38,680
+Frameworks will change.
+
+145
+00:07:38,720 --> 00:07:43,800
+The architecture shouldn't depend
+on today's implementation choices.
+
+146
+00:07:43,840 --> 00:07:47,553
+Responsibilities should
+remain understandable even if
+
+147
+00:07:47,593 --> 00:07:50,680
+tomorrow's runtime looks
+completely different.
+
+148
+00:07:50,720 --> 00:07:53,080
+Operability matters for the same reason.
+
+149
+00:07:53,120 --> 00:07:55,640
+Someone has to support these systems.
+
+150
+00:07:55,680 --> 00:07:59,640
+Operators may need to disable a
+model, change routing policies,
+
+151
+00:07:59,680 --> 00:08:03,240
+inspect a reasoning path, or
+replay a failed execution.
+
+152
+00:08:03,280 --> 00:08:06,120
+An elegant architecture that can't
+
+153
+00:08:06,160 --> 00:08:09,000
+be operated effectively rarely succeeds.
+
+154
+00:08:09,040 --> 00:08:14,146
+Finally, there's one characteristic
+that I think AI-native systems
+
+155
+00:08:14,186 --> 00:08:18,720
+have brought much more clearly
+into focus, evaluation.
+
+156
+00:08:18,760 --> 00:08:22,720
+Traditional software engineering
+gives us testing: unit
+
+157
+00:08:22,760 --> 00:08:26,720
+tests, integration tests
+and performance tests, etc.
+
+158
+00:08:26,760 --> 00:08:33,320
+Those remain essential, but AI systems
+introduce probabilistic behavior.
+
+159
+00:08:33,360 --> 00:08:35,960
+A workflow can complete successfully and
+
+160
+00:08:36,000 --> 00:08:38,160
+still produce a poor answer.
+
+161
+00:08:38,200 --> 00:08:41,560
+The software worked, the behavior didn't.
+
+162
+00:08:41,600 --> 00:08:47,400
+Testing tells us whether the
+implementation functions correctly.
+
+163
+00:08:47,440 --> 00:08:50,389
+Evaluation tells us whether the system
+
+164
+00:08:50,429 --> 00:08:52,880
+actually achieved its intended outcome.
+
+165
+00:08:52,920 --> 00:08:57,467
+I think evaluation will become one
+of the defining characteristics
+
+166
+00:08:57,507 --> 00:09:02,053
+for AI-native systems, not because
+testing becomes less important, but
+
+167
+00:09:02,093 --> 00:09:06,640
+because trustworthy behavior becomes
+just as important as correct execution.
+
+168
+00:09:06,680 --> 00:09:11,000
+Ultimately, that's what this
+episode is really about.
+
+169
+00:09:11,040 --> 00:09:13,860
+AI-native systems
+introduce new technologies,
+
+170
+00:09:13,900 --> 00:09:16,720
+new runtimes, and new patterns.
+
+171
+00:09:16,760 --> 00:09:20,274
+But they don't replace the foundations of
+
+172
+00:09:20,314 --> 00:09:23,320
+software architecture.
+They build upon them.
+
+173
+00:09:23,360 --> 00:09:26,400
+Remember: AI-native
+systems are still systems.
+
+174
+00:09:26,440 --> 00:09:30,644
+They're judged by their reliability,
+their security, their scalability,
+
+175
+00:09:30,684 --> 00:09:35,360
+their observability, and above
+all, whether people can trust them.
+
+176
+00:09:35,400 --> 00:09:37,900
+Those characteristics
+don't become less important
+
+177
+00:09:37,940 --> 00:09:40,440
+because intelligence has
+entered the architecture.
+
+178
+00:09:40,480 --> 00:09:42,720
+They become even more important.
+
+179
+00:09:42,760 --> 00:09:46,443
+In the next episode, we'll
+build on these ideas by
+
+180
+00:09:46,483 --> 00:09:50,166
+looking at the architectural
+principles that are beginning to shape
+
+181
+00:09:50,206 --> 00:09:53,889
+Articulate, and why thinking in
+terms of capabilities rather than
+
+182
+00:09:53,929 --> 00:09:57,280
+components provides a stronger foundation
+for building AI-native systems.
