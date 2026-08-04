@@ -40,6 +40,38 @@ Inspect these build outputs directly:
 
 Run `npm run test:publishing` after the build to verify the key routes and production URLs.
 
+## Automated validation and reports
+
+From `site/`, run:
+
+```sh
+npm run check
+npm run validate:seo:source
+npm run build
+npm run validate:seo:build
+npm test
+```
+
+The source command validates content and frontmatter. The generated-output command validates the
+actual deployment structure: metadata, JSON-LD, canonical/base paths, sitemap, robots, internal
+links, fragments, assets, image alt text, and duplicate analytics scripts. It writes
+`site/reports/seo-report.md` and `site/reports/seo-report.json`.
+
+Missing or invalid deterministic metadata, duplicate titles, broken references, missing local
+files, bad generated metadata, broken internal links, sitemap/robots errors, and duplicate GA4 or
+Clarity scripts are blocking. Exact duplicate descriptions and description-length guidance are
+warnings. External availability and Lighthouse scores are deliberately non-blocking baselines.
+
+The existing Pages workflow runs these checks for pull requests and `main`, adds the Markdown report
+to the Actions summary, and uploads `site/reports/` as an `seo-report-<run id>` artifact before
+enforcing the gate. Lighthouse audits a locally served production build, never the live site during
+a pull request.
+
+For failed canonical checks, verify the URL begins with
+`https://russelleast.github.io/articulate/` and includes `articulate` exactly once. New content uses
+the schemas and conventions in `site/README.md`; thumbnail-bearing Episodes require editorial
+`thumbnail_alt` text rather than filename-derived text.
+
 ## Validate structured data and social previews
 
 After deployment, submit representative public Episode and architectural-record URLs to Google's
@@ -68,33 +100,16 @@ states can be established from repository source or a successful local build.
 
 ## Analytics and website traffic
 
-The existing optional analytics provider is Plausible. `site/src/components/Analytics.astro` emits
-the Plausible script only when both of these public build variables are set:
-
-```text
-PUBLIC_ANALYTICS_PROVIDER=plausible
-PUBLIC_ANALYTICS_DOMAIN=<the site configured in Plausible>
-```
-
-`PUBLIC_ANALYTICS_SCRIPT_URL` is an optional override for self-hosted or proxied Plausible. These
-values are public configuration, not secrets. The GitHub Pages workflow passes them from GitHub
-Actions repository variables. With no provider or domain, the production HTML contains no tracking
-script and local development continues normally.
-
-To see traffic, first add the deployed domain to a Plausible account and set the matching repository
-variables. After deployment, confirm the script request in browser developer tools, then use that
-site's Plausible dashboard for page views, visitors, referrers, entry pages, countries, and devices.
-Episode context is exposed to intentional future custom events, but no custom interaction events are
-currently sent.
-
-Plausible configuration and received events cannot be verified from source alone. Likewise, GitHub
-Pages' repository Traffic view is separate, limited repository traffic; it is not website analytics.
+Google Analytics 4 and Microsoft Clarity are installed in the shared page head. The generated-site
+validator confirms whether their scripts appear and treats more than one inclusion per page as a
+deterministic error. It does not call provider APIs, verify received events, introduce analytics
+configuration, or change consent behaviour. Provider dashboards remain the authority for received
+traffic data.
 
 ## External configuration checklist
 
-- Plausible account and site entry, plus GitHub Actions variables, for website traffic analytics.
+- GA4 and Clarity properties for website traffic reporting.
 - Google Search Console property, verification variable, and sitemap submission for index and search
   reporting.
 - A deployed, publicly reachable build before social-preview crawlers can fetch metadata and images.
 - Time and crawler activity before discovery, indexing, impressions, or analytics events appear.
-

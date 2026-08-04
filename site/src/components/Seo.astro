@@ -2,7 +2,7 @@
 import { absoluteUrl, siteDescription, siteTitle, socialImage, withBase } from "@/utils/site";
 
 interface ArticleMetadata {
-  published: Date;
+  published?: Date;
   updated?: Date;
   tags?: string[];
 }
@@ -15,6 +15,7 @@ interface Props {
   image?: string;
   author?: string;
   article?: ArticleMetadata;
+  structuredType?: "Article" | "TechArticle" | "CreativeWork";
   breadcrumbs?: Array<{ name: string; path: string }>;
 }
 
@@ -26,6 +27,7 @@ const {
   image = socialImage,
   author,
   article,
+  structuredType = "Article",
   breadcrumbs = []
 } = Astro.props;
 
@@ -42,19 +44,19 @@ const structuredData = [
     url: absoluteUrl("/", Astro.site),
     description: siteDescription
   },
-  ...(article
+  ...(type === "article"
     ? [{
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": structuredType,
         headline: pageTitle,
         description,
         url: canonical,
         mainEntityOfPage: canonical,
-        datePublished: article.published.toISOString(),
-        ...(article.updated ? { dateModified: article.updated.toISOString() } : {}),
+        ...(article?.published ? { datePublished: article.published.toISOString() } : {}),
+        ...(article?.updated ? { dateModified: article.updated.toISOString() } : {}),
         ...(author ? { author: { "@type": "Person", name: author } } : {}),
         ...(imageUrl ? { image: imageUrl } : {}),
-        ...(article.tags?.length ? { keywords: article.tags } : {})
+        ...(article?.tags?.length ? { keywords: article.tags } : {})
       }]
     : []),
   ...(breadcrumbs.length
@@ -88,7 +90,7 @@ const jsonLd = JSON.stringify(structuredData).replaceAll("<", "\\u003c");
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={imageUrl} />
 <meta property="og:image:alt" content={`${pageTitle ?? siteTitle} — ${siteTitle}`} />
-{article && <meta property="article:published_time" content={article.published.toISOString()} />}
+{article?.published && <meta property="article:published_time" content={article.published.toISOString()} />}
 {article?.updated && <meta property="article:modified_time" content={article.updated.toISOString()} />}
 {article?.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
 

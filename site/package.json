@@ -11,7 +11,13 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "validate:seo:source": "node scripts/seo/validate-source.mjs",
+    "validate:seo:build": "node scripts/seo/validate-build.mjs",
+    "validate:seo": "npm run validate:seo:source && npm run build && npm run validate:seo:build",
     "test:publishing": "node --test tests/publishing-output.test.mjs",
+    "test:seo": "node --test tests/seo-validation.test.mjs",
+    "test": "npm run test:seo && npm run test:publishing",
+    "lighthouse:seo": "lhci autorun --config=./lighthouserc.json",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview"
   },
   "dependencies": {
@@ -21,5 +27,9 @@
     "astro": "^5.0.0",
     "typescript": "^5.5.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "cheerio": "^1.2.0",
+    "yaml": "^2.9.0"
+  }
 }

@@ -15,11 +15,21 @@ Useful checks:
 
 ```sh
 npm run check
+npm run validate:seo:source
 npm run build
+npm run validate:seo:build
+npm test
 npm run test:publishing
+npm run lighthouse:seo
 ```
 
 The production build is written to `site/dist/`.
+
+`validate:seo:source` checks authoring metadata and writes `reports/seo-source.json`.
+`validate:seo:build` checks the generated site and merges those findings into
+`reports/seo-report.md` and `reports/seo-report.json`. Run the source command before building so the
+merged report is complete. `validate:seo` is a fail-fast local convenience; CI deliberately
+continues far enough to upload a complete report before enforcing the gate.
 
 ## Content Organisation
 
@@ -179,39 +189,32 @@ the production build. `src/pages/robots.txt.ts` permits normal crawling and poin
 sitemap index. `src/pages/rss.xml.ts` generates `/articulate/rss.xml` from the same published Episode
 collection and excludes drafts.
 
-## Privacy-first Analytics
+### Automated SEO validation
 
-Analytics is centralized in `src/components/Analytics.astro` and included by `BaseLayout.astro`.
-It is disabled by default and emits no analytics network script or event API unless a supported
-provider and domain are configured at build time. Plausible is the initial supported provider.
+Source errors cover missing or blank metadata, invalid dates, invalid or duplicate Episode
+sequences, duplicate titles, unresolved relationships, invalid repository paths, missing local
+media, and missing image or thumbnail alt text. Exact duplicate descriptions and description-length
+guidance are warnings; length is never a semantic quality gate.
 
-Copy `.env.example` to `.env` for local testing, or define these GitHub Actions repository variables
-for production:
+Generated-output errors cover title/description/canonical/Open Graph/Twitter metadata, JSON-LD,
+internal routes and fragments, local assets, image accessibility, sitemap completeness, robots
+rules, base-path mistakes, and duplicate GA4 or Clarity inclusion. External URLs are not fetched, so
+transient third-party failures cannot block deployment.
 
-```text
-PUBLIC_ANALYTICS_PROVIDER=plausible
-PUBLIC_ANALYTICS_DOMAIN=russelleast.github.io
-PUBLIC_ANALYTICS_SCRIPT_URL=https://plausible.io/js/script.js  # optional override
-```
+GitHub Actions writes the main findings to the workflow summary and uploads `site/reports/` as an
+`seo-report-<run id>` artifact. Deterministic errors block Pages deployment. Warnings and Lighthouse
+scores remain non-blocking. If a canonical check fails, confirm the generated URL starts with
+`https://russelleast.github.io/articulate/` and contains the `articulate` segment exactly once.
 
-All variables are deliberately `PUBLIC_` values because Astro embeds them into the generated HTML.
-They must not contain secrets. Remove `PUBLIC_ANALYTICS_PROVIDER` or `PUBLIC_ANALYTICS_DOMAIN` to
-disable analytics completely.
+Submit `https://russelleast.github.io/articulate/sitemap-index.xml` to Google Search Console.
 
-Plausible captures its normal privacy-focused page view data, including page URL and referrer.
-No advertising identifier, fingerprinting code, or user profile is added by Articulate. Episode
-pages also expose provider-neutral context (`content_type`, zero-padded Episode number, and series)
-through body data attributes. The integration installs a small provider-neutral API for meaningful
-future events:
+## Analytics
 
-```js
-window.articulateAnalytics?.trackEvent("Next Episode", { destination: "0004" });
-```
-
-The API merges Episode context into custom-event properties without putting Plausible calls into UI
-components. No interaction events are instrumented yet; add only a small number of intentional
-engagement events when their owning components and measurement questions are established. A future
-provider can replace `Analytics.astro` while preserving that boundary.
+Google Analytics 4 and Microsoft Clarity are installed in the shared `BaseLayout.astro` head. SEO
+validation only reports whether they appear and fails on duplicate inclusion, which could duplicate
+page views or sessions. It does not configure analytics, add events, or alter consent behaviour. The
+optional legacy provider boundary in `src/components/Analytics.astro` remains unchanged and outside
+this SEO-validation capability.
 
 ## Google Search Console
 

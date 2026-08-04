@@ -14,10 +14,11 @@ interface Props {
   image?: string;
   author?: string;
   article?: {
-    published: Date;
+    published?: Date;
     updated?: Date;
     tags?: string[];
   };
+  structuredType?: "Article" | "TechArticle" | "CreativeWork";
   breadcrumbs?: Array<{ name: string; path: string }>;
   analytics?: {
     contentType: "page" | "episode";
@@ -33,8 +34,8 @@ const { analytics = { contentType: "page" }, ...seo } = Astro.props;
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9ZZ7JCZR2"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-H9ZZ7JCZR2"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -42,7 +43,7 @@ const { analytics = { contentType: "page" }, ...seo } = Astro.props;
       gtag('config', 'G-H9ZZ7JCZR2');
     </script>
 
-    <script type="text/javascript">
+    <script is:inline type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
