@@ -5,9 +5,10 @@ interface Props {
   title: string;
   description: string;
   eyebrow?: string;
+  wide?: boolean;
 }
 
-const { title, description, eyebrow } = Astro.props;
+const { title, description, eyebrow, wide = false } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -17,7 +18,7 @@ const { title, description, eyebrow } = Astro.props;
       <h1>{title}</h1>
       <p class="lede">{description}</p>
     </header>
-    <div class="prose">
+    <div class:list={["prose", { "prose-wide": wide }]}>
       <slot />
     </div>
   </article>

@@ -1,6 +1,7 @@
 ---
 id: adr-0002
 title: accepted architectural history is immutable
+summary: Accepted architectural knowledge is preserved so that later understanding can supersede it without erasing the history needed for explanation and audit.
 status: accepted
 related_episodes:
   - 0014-knowledge-evolution
@@ -43,3 +44,22 @@ Historical architectural viewpoints can be reconstructed using baselines and tem
 Knowledge evolution becomes fully traceable, allowing reasoning agents and users to understand not only the current architecture but also how and why it changed.
 
 Storage requirements will increase over time because accepted knowledge is retained rather than deleted, but this provides complete architectural provenance and supports explainability, auditability and historical reasoning.
+
+## Rationale
+
+Architectural intelligence must be able to explain what was understood at a particular point in
+time and why that understanding changed. Preserving accepted history makes that reconstruction
+possible and prevents a later interpretation from silently rewriting the evidence used by an
+earlier decision.
+
+## Alternatives Considered
+
+### Keep only the current architectural state
+
+Replacing previous knowledge with the latest state would simplify storage, but would remove the
+provenance needed for historical reasoning, audit, and explanation.
+
+### Maintain separate manual snapshots
+
+Periodic snapshots could preserve selected states, but they would make history dependent on a
+separate process and could not explain every accepted change between snapshots.

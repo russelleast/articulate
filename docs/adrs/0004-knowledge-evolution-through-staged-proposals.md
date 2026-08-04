@@ -1,6 +1,7 @@
 ---
 id: adr-0004
 title: knowledge evolution through staged proposals
+summary: Incoming knowledge is staged, reconciled, validated, and assessed before it can change the authoritative Knowledge Model.
 status: accepted
 related_episodes:
   - 0014-knowledge-evolution
@@ -41,3 +42,26 @@ Long-running reviews and human approval workflows become first-class architectur
 Revalidation before merge prevents proposals from being accepted against an outdated understanding of the architecture, reducing the risk of introducing inconsistent or conflicting knowledge.
 
 The Knowledge Service becomes responsible for orchestrating the knowledge evolution process, ensuring that the authoritative Knowledge Model can only evolve through controlled, validated and auditable operations.
+
+## Rationale
+
+New architectural information may be incomplete, contradictory or based on an outdated baseline.
+A durable proposal boundary gives automated reasoning and human review a shared place to reconcile
+those conditions before authoritative knowledge changes.
+
+## Alternatives Considered
+
+### Write directly to the Knowledge Model
+
+Direct writes would reduce workflow steps, but would allow unvalidated or conflicting information
+to become authoritative and make partial failures difficult to recover safely.
+
+### Keep proposals only in workflow memory
+
+Ephemeral proposals would simplify persistence, but long-running review, interruption and human
+approval could lose the evidence and context needed to resume safely.
+
+### Validate only when a proposal is created
+
+One-time validation would not detect conflicts introduced while a proposal waits for review. The
+selected approach therefore revalidates against the current baseline immediately before merge.

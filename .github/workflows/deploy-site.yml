@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "docs/adrs/**"
       - "docs/episodes/**"
       - "production/assets/registry.yaml"
       - "production/diagrams/**"

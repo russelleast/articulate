@@ -29,7 +29,7 @@ const relatedDecisions = decisions
   .filter((decision) => principle.data.related_decisions.some((ref) => ref.id === decision.id))
   .map((decision) => ({
     title: decision.data.title,
-    href: withBase(`/decisions/#${decision.data.id}`),
+    href: withBase(`/decisions/${decision.data.id}/`),
     meta: decision.data.status
   }));
 const relatedPatterns = patterns
@@ -54,6 +54,10 @@ const relatedArchitecture = principle.data.related_architecture.map((item) => ({
     updated: principle.data.updated,
     tags: principle.data.applies_to
   }}
+  breadcrumbs={[
+    { name: "Principles", path: "/principles/" },
+    { name: principle.data.title, path: `/principles/${principle.id}/` }
+  ]}
 >
   <article class="article-shell">
     <header class="article-header">

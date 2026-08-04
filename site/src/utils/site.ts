@@ -1,7 +1,8 @@
 export const repositoryName = "articulate";
 export const siteTitle = "Articulate";
 export const siteDescription =
-  "A production-oriented reference architecture for AI-native systems, documented as a living architectural narrative.";
+  "A public architecture journal and working reference implementation exploring how AI-native systems are understood, designed, and evolved.";
+export const socialImage = "/media/episodes/0000/episode-0000-thumbnail.png";
 
 export const productionOrigin = "https://russelleast.github.io";
 

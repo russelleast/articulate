@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MetadataList from "@/components/MetadataList.astro";
+import RelatedContent from "@/components/RelatedContent.astro";
+import { formatDate, withBase } from "@/utils/site";
+
+export async function getStaticPaths() {
+  const decisions = await getCollection("decisions");
+  return decisions.map((decision) => ({
+    params: { slug: decision.data.id },
+    props: { decision }
+  }));
+}
+
+const { decision } = Astro.props;
+const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
+const { Content } = await render(decision);
+const relatedEpisodes = episodes
+  .filter((episode) => decision.data.related_episodes.some((reference) => reference.id === episode.id))
+  .map((episode) => ({
+    title: episode.data.title,
+    href: withBase(`/episodes/${episode.id}/`),
+    meta: `Episode ${episode.data.sequence.toString().padStart(4, "0")}`
+  }));
+---
+
+<BaseLayout
+  title={`${decision.data.id.toUpperCase()} — ${decision.data.title}`}
+  description={decision.data.summary}
+  type="article"
+  article={decision.data.decided ? { published: decision.data.decided, tags: decision.data.topics } : undefined}
+  breadcrumbs={[
+    { name: "Decisions", path: "/decisions/" },
+    { name: decision.data.id.toUpperCase(), path: `/decisions/${decision.data.id}/` }
+  ]}
+>
+  <article class="article-shell">
+    <header class="article-header">
+      <p class="eyebrow">Architecture decision {decision.data.id.replace("adr-", "")}</p>
+      <h1>{decision.data.title}</h1>
+      <p class="lede">{decision.data.summary}</p>
+      <MetadataList items={[
+        { label: "Status", value: decision.data.status },
+        { label: "Decided", value: decision.data.decided ? formatDate(decision.data.decided) : "Not recorded" },
+        { label: "Supersedes", value: decision.data.supersedes?.id ?? "None" },
+        { label: "Superseded by", value: decision.data.superseded_by?.id ?? "None" }
+      ]} />
+    </header>
+
+    <div class="prose decision-detail"><Content /></div>
+
+    <section class="section-block" aria-labelledby="decision-relationships">
+      <div class="section-heading">
+        <p class="eyebrow">Relationships and evidence</p>
+        <h2 id="decision-relationships">Related Material</h2>
+      </div>
+      <div class="two-column">
+        <RelatedContent title="Episodes" items={relatedEpisodes} />
+        <RelatedContent
+          title="Repository Paths"
+          items={decision.data.repository_paths.map((path) => ({ title: path, href: `https://github.com/russelleast/articulate/blob/main/${path}` }))}
+        />
+      </div>
+    </section>
+  </article>
+</BaseLayout>

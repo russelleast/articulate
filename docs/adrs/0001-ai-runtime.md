@@ -1,6 +1,7 @@
 ---
 id: adr-0001
 title: AI Runtime
+summary: Articulate needs a runtime that can coordinate long-running, recoverable agent work without taking ownership of authoritative knowledge or application state.
 status: accepted
 related_episodes:
   - 0010-selecting-an-agent-runtime

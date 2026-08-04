@@ -112,8 +112,13 @@ historical
 5. Add the reciprocal `related_principles` reference to related Episodes.
 6. Run `npm run check`, `npm run build`, and `npm run test:publishing`.
 
-Episodes with `status: draft` are authoring content only. They are excluded from generated Episode
-routes, navigation, the home page, the sitemap, and RSS. Other lifecycle statuses are public.
+Episodes with `published: false`, `status: draft`, or `status: planned` are authoring content only.
+They are excluded from generated Episode routes, navigation, the home page, the sitemap, and RSS.
+
+The Episode query boundary normalises legacy `description` to `summary`, `episode` to `sequence`,
+numeric season values to strings, and missing stable IDs. For new content, prefer `id`, `sequence`,
+`summary`, and a numeric season. The Episodes index maps the existing `foundations` and `1` values to
+Season 1, and `2` to Season 2, without requiring a risky migration of canonical Episodes.
 
 ## Discoverability and SEO
 
@@ -136,6 +141,10 @@ Every page receives:
 - a production canonical URL that includes the GitHub Pages base path and trailing slash;
 - Open Graph and Twitter/X card metadata;
 - `WebSite` JSON-LD.
+- a default Open Graph/Twitter image when the content has no specific artwork.
+
+Episode, decision, and principle detail pages add breadcrumb structured data. Episode pages use the
+Episode thumbnail as their social image where available.
 
 Episode pages additionally receive `article` Open Graph metadata and `Article` JSON-LD. The values
 come from the Episode's canonical front matter:
@@ -214,6 +223,11 @@ provider can replace `Analytics.astro` while preserving that boundary.
 
 Do not commit a live verification value. As with analytics configuration, this public value is
 passed into the build by `.github/workflows/deploy-site.yml`.
+
+The complete source, output, social-preview, Search Console, and analytics verification workflow is
+documented in [`../docs/website/seo-and-insights.md`](../docs/website/seo-and-insights.md). A valid
+build proves output is present; it does not prove external configuration, discovery, indexing,
+search impressions, or received analytics events.
 
 ## GitHub Pages Deployment
 

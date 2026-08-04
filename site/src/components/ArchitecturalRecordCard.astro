@@ -1,0 +1,35 @@
+---
+import StatusPill from "@/components/StatusPill.astro";
+
+interface RelatedItem {
+  title: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  status: string;
+  href: string;
+  linkLabel: string;
+  related?: RelatedItem[];
+}
+
+const { eyebrow, title, summary, status, href, linkLabel, related = [] } = Astro.props;
+---
+
+<article class="architectural-record-card">
+  <p class="item-meta">{eyebrow} / <StatusPill status={status} /></p>
+  <h2><a href={href}>{title}</a></h2>
+  <p>{summary}</p>
+  {related.length > 0 && (
+    <div class="record-relationships">
+      <p class="eyebrow">Related Episodes</p>
+      <ul class="inline-link-list">
+        {related.map((item) => <li><a href={item.href}>{item.title}</a></li>)}
+      </ul>
+    </div>
+  )}
+  <p class="record-action"><a href={href}>{linkLabel}</a></p>
+</article>

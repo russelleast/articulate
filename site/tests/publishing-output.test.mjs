@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const productionBase = "https://russelleast.github.io/articulate";
@@ -25,6 +25,7 @@ for (const [label, path, canonical] of [
     assert.match(html, /<meta name="description" content="[^"]+"/);
     assert.match(html, new RegExp(`<link rel="canonical" href="${canonical}"`));
     assert.match(html, /<meta property="og:title"/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/russelleast\.github\.io\/articulate\//);
     assert.match(html, /<meta name="twitter:card"/);
     assert.doesNotThrow(() => jsonLdFrom(html));
   });
@@ -56,14 +57,16 @@ test("Episode 0000 publishes presenter media while keeping the journal article",
   assert.match(episode, /The journal article below\s+remains the canonical written version/);
 });
 
-test("the home page features the latest published video Episode with separate watch and read actions", async () => {
+test("the home page exposes recent Episodes beside the hero with detailed previews", async () => {
   const home = await output("index.html");
 
-  assert.match(home, /<h2 id="latest-episode">System Characteristics: The Properties Every System Needs<\/h2>/);
-  assert.match(home, /episode-0004-thumbnail\.png/);
-  assert.match(home, /alt="Articulate Journal Episode 4: Features Aren't Enough"/);
-  assert.match(home, /href="https:\/\/youtu\.be\/OsLzgCnVEJk"/);
-  assert.match(home, /href="\/articulate\/episodes\/0004-system-characteristics-the-properties-every-system-needs\/"/);
+  assert.match(home, /<h2 id="latest-episodes-heading">Latest Episodes<\/h2>/);
+  assert.match(home, /class="latest-episode-preview"/);
+  assert.match(home, /href="\/articulate\/episodes\/0015-derived-knowledge\/"/);
+  assert.match(home, /Latest video/);
+  assert.match(home, /href="https:\/\/youtu\.be\/vk369gRbVnc"/);
+  assert.doesNotMatch(home, /Current Architectural Question|>Start Here<|Architecture at a Glance/);
+  assert.match(home, /An architecture journal built through evidence/);
 });
 
 for (const [episode, published] of [
@@ -108,44 +111,48 @@ const episodeDiagrams = {
   ]
 };
 
-test("Episodes 0010–0012 publish in numeric order while Episode 0013 remains planned", async () => {
+test("published Episodes are grouped by season and ordered while future Episodes stay private", async () => {
   const listing = await output("episodes/index.html");
-  const episode9 = await output("episodes/0009-defining-architectural-behaviour-with-dcl/index.html");
-  const episode10 = await output("episodes/0010-selecting-an-agent-runtime/index.html");
-  const episode11 = await output("episodes/0011-agent-memory/index.html");
-  const episode12 = await output("episodes/0012-durable-execution/index.html");
+  const seasonListing = listing.slice(listing.indexOf('<div class="season-list">'));
 
-  assert.match(
-    episode9,
-    /href="\/articulate\/episodes\/0010-selecting-an-agent-runtime\/">ADR 0001 – Defining the Runtime Requirements<\/a>/
-  );
-  assert.match(
-    episode10,
-    /href="\/articulate\/episodes\/0009-defining-architectural-behaviour-with-dcl\/">Defining Architectural Behaviour with DCL<\/a>/
-  );
-  assert.match(
-    episode10,
-    /href="\/articulate\/episodes\/0011-agent-memory\/">Memory in AI-Native Systems<\/a>/
-  );
-  assert.match(
-    episode11,
-    /href="\/articulate\/episodes\/0012-durable-execution\/">Durable Execution and Long-Running Reasoning<\/a>/
-  );
-  assert.doesNotMatch(episode12, /<p class="eyebrow">Next<\/p>/);
-  assert.doesNotMatch(listing, /\/episodes\/0013-knowledge-evolution\//);
-  await assert.rejects(access(new URL("../dist/episodes/0013-knowledge-evolution/index.html", import.meta.url)));
+  assert.match(listing, /Season 1 — Foundations/);
+  assert.match(listing, /Season 2 — Architectural Intelligence/);
+  assert.ok(seasonListing.indexOf("0006-ai-assisted-development") < seasonListing.indexOf("0007-the-knowledge-model"));
+  assert.ok(seasonListing.indexOf("0014-knowledge-evolution") < seasonListing.indexOf("0015-derived-knowledge"));
+  assert.doesNotMatch(listing, /0016-impact-analysis|0017-observing-agents|0018-building-the-knowledge-service/);
+  for (const slug of [
+    "0016-impact-analysis-and-knowledge-reasoning",
+    "0017-observing-agents",
+    "0018-building-the-knowledge-service"
+  ]) {
+    await assert.rejects(access(new URL(`../dist/episodes/${slug}/index.html`, import.meta.url)));
+  }
 });
 
-test("ADR 0001 is rendered from the canonical record and linked bidirectionally", async () => {
-  const decisions = await output("decisions/index.html");
+test("the Episodes index identifies the latest entry and exposes search and topic filters", async () => {
+  const listing = await output("episodes/index.html");
 
-  assert.match(decisions, /id="adr-0001"/);
-  assert.match(decisions, /<h2>AI Runtime<\/h2>/);
-  assert.match(decisions, /<h2 id="status-draft">Status: Draft<\/h2>/);
-  assert.match(decisions, /<h2 id="context">Context<\/h2>/);
-  assert.match(decisions, /<h2 id="decision">Decision<\/h2>/);
-  assert.match(decisions, /<h2 id="consequences">Consequences<\/h2>/);
-  assert.match(decisions, /The runtime selection remains <strong>proposed<\/strong>/);
+  assert.match(listing, /<p class="eyebrow">Latest Episode<\/p>/);
+  assert.match(listing, /Episode 0015 \/\s*Season 2 — Architectural Intelligence/);
+  assert.match(listing, /data-episode-search/);
+  assert.match(listing, /data-episode-topic/);
+  assert.match(listing, /data-episode-card/);
+  assert.match(listing, /No Episodes match these filters/);
+});
+
+test("decision index is concise and full ADRs publish on detail routes", async () => {
+  const decisions = await output("decisions/index.html");
+  const detail = await output("decisions/adr-0001/index.html");
+
+  assert.match(decisions, /href="\/articulate\/decisions\/adr-0001\/"/);
+  assert.match(decisions, /coordinate long-running, recoverable agent work/);
+  assert.doesNotMatch(decisions, /id="context"|id="decision"|id="consequences"/);
+  assert.match(detail, /<h2 id="context">Context<\/h2>/);
+  assert.match(detail, /<h2 id="decision">Decision<\/h2>/);
+  assert.match(detail, /<h2 id="consequences">Consequences<\/h2>/);
+  assert.match(detail, /<h3 id="rationale">Rationale<\/h3>/);
+  assert.match(detail, /<h2 id="alternatives-considered">Alternatives Considered<\/h2>/);
+  assert.match(detail, /"@type":"BreadcrumbList"/);
 
   for (const slug of [
     "0010-selecting-an-agent-runtime",
@@ -155,7 +162,7 @@ test("ADR 0001 is rendered from the canonical record and linked bidirectionally"
     assert.match(decisions, new RegExp(`href="/articulate/episodes/${slug}/"`));
     assert.match(
       await output(`episodes/${slug}/index.html`),
-      /href="\/articulate\/decisions\/#adr-0001"/
+      /href="\/articulate\/decisions\/adr-0001\/"/
     );
   }
 });
@@ -174,24 +181,24 @@ for (const [episode, diagrams] of Object.entries(episodeDiagrams)) {
 for (const episode of [
   {
     slug: "0001-why-articulate-exists",
-    thumbnail: "episode-0001-thumbnail-a-fragmented-architecture.png",
-    youtubeUrl: "https://youtu.be/NISywkx-xW0"
+    thumbnail: "episode-0001-thumbnail.png",
+    youtubeUrl: "https://youtu.be/CaV96lZXLjY"
   },
   {
     slug: "0002-what-is-articulate",
     thumbnail: "episode-0002-thumbnail.png",
-    youtubeUrl: "https://youtu.be/sZ4VwMCKIlA"
+    youtubeUrl: "https://youtu.be/58jjv0g6Ojo"
   },
   {
     slug: "0003-why-ai-native-systems",
-    thumbnail: "episode-0003-thumbnail.png",
-    youtubeUrl: "https://youtu.be/_ewKC3dZNbY"
+    thumbnail: "episode-0003-thumbnail-v2.png",
+    youtubeUrl: "https://youtu.be/1V6ziCqZ4tw"
   },
   {
     slug: "0004-system-characteristics-the-properties-every-system-needs",
     thumbnail: "episode-0004-thumbnail.png",
-    youtubeUrl: "https://youtu.be/OsLzgCnVEJk",
-    videoId: "OsLzgCnVEJk"
+    youtubeUrl: "https://youtu.be/vk369gRbVnc",
+    videoId: "vk369gRbVnc"
   }
 ]) {
   test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {
@@ -257,7 +264,7 @@ test("architectural principles publish as a first-class, bidirectionally related
 
   assert.match(index, /Architectural Principles/);
   assert.match(index, /href="\/articulate\/principles\/coherence-before-size\/"/);
-  assert.match(await output("index.html"), /href="\/articulate\/principles\/">Principles<\/a>/);
+  assert.match(await output("index.html"), /href="\/articulate\/principles\/"[^>]*>\s*Principles\s*<\/a>/);
   assert.match(principle, /Coherence Before Size/);
   assert.match(principle, /Keep responsibilities coherent/);
   assert.match(
@@ -266,4 +273,42 @@ test("architectural principles publish as a first-class, bidirectionally related
   );
   assert.match(episode, /Related Material/);
   assert.match(episode, /href="\/articulate\/principles\/coherence-before-size\/"/);
+});
+
+test("all architectural record detail routes have unique metadata and breadcrumbs", async () => {
+  for (const path of [
+    "decisions/adr-0001/index.html",
+    "decisions/adr-0002/index.html",
+    "decisions/adr-0003/index.html",
+    "decisions/adr-0004/index.html",
+    "principles/coherence-before-size/index.html"
+  ]) {
+    const html = await output(path);
+    assert.match(html, /<title>[^<]+ \| Articulate<\/title>/);
+    assert.match(html, /<meta name="description" content="[^\"]+"/);
+    assert.match(html, /"@type":"BreadcrumbList"/);
+  }
+});
+
+test("primary navigation is durable and marks the active information space", async () => {
+  const decisions = await output("decisions/adr-0001/index.html");
+  assert.match(decisions, /href="\/articulate\/decisions\/" aria-current="page"/);
+  assert.doesNotMatch(decisions, />Start Here<|>Patterns<|>Experiments</);
+});
+
+test("generated HTML contains no broken internal page links", async () => {
+  const dist = new URL("../dist/", import.meta.url);
+  const files = (await readdir(dist, { recursive: true }))
+    .filter((path) => path.endsWith(".html"));
+
+  for (const file of files) {
+    const html = await output(file);
+    for (const match of html.matchAll(/href="([^"]+)"/g)) {
+      const href = match[1];
+      if (!href.startsWith("/articulate/")) continue;
+      const pathname = new URL(href, productionBase).pathname.replace(/^\/articulate\//, "");
+      const target = pathname === "" ? "index.html" : pathname.endsWith("/") ? `${pathname}index.html` : pathname;
+      await assert.doesNotReject(access(new URL(target, dist)), `${file} links to missing ${href}`);
+    }
+  }
 });

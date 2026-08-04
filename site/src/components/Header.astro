@@ -2,15 +2,19 @@
 import { withBase } from "@/utils/site";
 
 const nav = [
-  { href: "/start-here/", label: "Start Here" },
   { href: "/episodes/", label: "Episodes" },
   { href: "/architecture/", label: "Architecture" },
-  { href: "/principles/", label: "Principles" },
   { href: "/decisions/", label: "Decisions" },
-  { href: "/patterns/", label: "Patterns" },
-  { href: "/experiments/", label: "Experiments" },
-  { href: "/evolution/", label: "Evolution" }
+  { href: "/principles/", label: "Principles" },
+  { href: "/evolution/", label: "Evolution" },
+  { href: "/about/", label: "About" }
 ];
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => {
+  const path = withBase(href);
+  return currentPath === path || currentPath.startsWith(path);
+};
 ---
 
 <header class="site-header">
@@ -21,7 +25,11 @@ const nav = [
       <span>Articulate</span>
     </a>
     <div class="nav-links">
-      {nav.map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
+      {nav.map((item) => (
+        <a href={withBase(item.href)} aria-current={isActive(item.href) ? "page" : undefined}>
+          {item.label}
+        </a>
+      ))}
     </div>
   </nav>
 </header>

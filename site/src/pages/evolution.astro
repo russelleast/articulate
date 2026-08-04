@@ -1,6 +1,7 @@
 ---
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import { withBase } from "@/utils/site";
+import { evolutionMilestones } from "@/data/evolution";
 ---
 
 <ArticleLayout
@@ -9,25 +10,23 @@ import { withBase } from "@/utils/site";
   eyebrow="Evolution"
 >
   <p>
-    This is an architecture timeline, not a Git commit log. It will track phases, problems
-    discovered, changes introduced, related Episodes, decisions, diagrams, and releases.
+    This is an architecture timeline, not a release log or a second Episode index. It traces the
+    moments when the project’s understanding changed: the problems reframed, responsibilities
+    separated, and durable architectural commitments that followed.
   </p>
 
   <div class="timeline-list">
-    <article>
-      <p class="item-meta">11 Jul 2026 / Foundation</p>
-      <h2>Articulate is established as a public architectural journal</h2>
-      <p>
-        The project begins as a production-oriented reference architecture for AI-native systems.
-        The initial architectural move is to separate evidence from interpretation: the repository
-        remains the canonical record while the website provides a navigable narrative surface.
-      </p>
-      <p>
-        Related material:
-        <a href={withBase("/episodes/preface/")}>Preface</a>,
-        <a href={withBase("/episodes/0001-why-articulate-exists/")}>Episode 0001</a>,
-        <a href={withBase("/episodes/0002-what-is-articulate/")}>Episode 0002</a>.
-      </p>
-    </article>
+    {evolutionMilestones.map((milestone) => (
+      <article class="evolution-milestone">
+        <p class="item-meta">{milestone.period}</p>
+        <h2>{milestone.title}</h2>
+        <p>{milestone.description}</p>
+        <ul class="evolution-links" aria-label={`Evidence for ${milestone.title}`}>
+          {milestone.links.map((link) => (
+            <li><span>{link.type}</span><a href={withBase(link.href)}>{link.label}</a></li>
+          ))}
+        </ul>
+      </article>
+    ))}
   </div>
 </ArticleLayout>

@@ -1,5 +1,5 @@
 ---
-import { absoluteUrl, siteDescription, siteTitle, withBase } from "@/utils/site";
+import { absoluteUrl, siteDescription, siteTitle, socialImage, withBase } from "@/utils/site";
 
 interface ArticleMetadata {
   published: Date;
@@ -15,6 +15,7 @@ interface Props {
   image?: string;
   author?: string;
   article?: ArticleMetadata;
+  breadcrumbs?: Array<{ name: string; path: string }>;
 }
 
 const {
@@ -22,9 +23,10 @@ const {
   description = siteDescription,
   canonicalPath = Astro.url.pathname,
   type = "website",
-  image,
+  image = socialImage,
   author,
-  article
+  article,
+  breadcrumbs = []
 } = Astro.props;
 
 const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
@@ -54,6 +56,18 @@ const structuredData = [
         ...(imageUrl ? { image: imageUrl } : {}),
         ...(article.tags?.length ? { keywords: article.tags } : {})
       }]
+    : []),
+  ...(breadcrumbs.length
+    ? [{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: absoluteUrl(item.path, Astro.site)
+        }))
+      }]
     : [])
 ];
 
@@ -72,14 +86,16 @@ const jsonLd = JSON.stringify(structuredData).replaceAll("<", "\\u003c");
 <meta property="og:description" content={description} />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonical} />
-{imageUrl && <meta property="og:image" content={imageUrl} />}
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={`${pageTitle ?? siteTitle} — ${siteTitle}`} />
 {article && <meta property="article:published_time" content={article.published.toISOString()} />}
 {article?.updated && <meta property="article:modified_time" content={article.updated.toISOString()} />}
 {article?.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
 
-<meta name="twitter:card" content={imageUrl ? "summary_large_image" : "summary"} />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-{imageUrl && <meta name="twitter:image" content={imageUrl} />}
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={`${pageTitle ?? siteTitle} — ${siteTitle}`} />
 
 <script is:inline type="application/ld+json" set:html={jsonLd} />

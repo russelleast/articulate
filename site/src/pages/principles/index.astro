@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import ArchitecturalRecordCard from "@/components/ArchitecturalRecordCard.astro";
 import { formatDate, withBase } from "@/utils/site";
 
 const principles = (await getCollection("principles"))
@@ -27,18 +28,16 @@ const principles = (await getCollection("principles"))
       </p>
     </div>
   ) : (
-    <div class="timeline-list">
+    <div class="record-list">
       {principles.map((principle) => (
-        <article id={principle.data.id}>
-          <p class="item-meta">
-            {principle.data.status} / Updated {formatDate(principle.data.updated)}
-          </p>
-          <h2>
-            <a href={withBase(`/principles/${principle.id}/`)}>{principle.data.title}</a>
-          </h2>
-          <p>{principle.data.summary}</p>
-          <p><a href={withBase(`/principles/${principle.id}/`)}>Read the principle</a></p>
-        </article>
+        <ArchitecturalRecordCard
+          eyebrow={`Updated ${formatDate(principle.data.updated)}`}
+          title={principle.data.title}
+          summary={principle.data.summary}
+          status={principle.data.status}
+          href={withBase(`/principles/${principle.id}/`)}
+          linkLabel="Read the principle"
+        />
       ))}
     </div>
   )}
