@@ -18,6 +18,7 @@ interface Props {
     updated?: Date;
     tags?: string[];
   };
+  breadcrumbs?: Array<{ name: string; path: string }>;
   analytics?: {
     contentType: "page" | "episode";
     episode?: string;

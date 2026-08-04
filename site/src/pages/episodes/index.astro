@@ -1,21 +1,94 @@
 ---
 import { getCollection } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
-import StatusPill from "@/components/StatusPill.astro";
 import { formatDate, withBase } from "@/utils/site";
+import { groupEpisodesBySeason } from "@/utils/episodes";
 
 const episodes = (await getCollection("episodes", ({ data }) => data.isPublished))
   .sort((a, b) => a.data.sequence - b.data.sequence);
+const seasons = groupEpisodesBySeason(episodes);
+const latestEpisode = [...episodes].sort((a, b) => b.data.sequence - a.data.sequence)[0];
+const latestSeason = seasons.find((season) =>
+  season.episodes.some((episode) => episode.id === latestEpisode.id)
+);
+const topicsByKey = new Map<string, { label: string; count: number }>();
+for (const topic of episodes.flatMap((episode) => episode.data.topics)) {
+  const key = topic.toLocaleLowerCase();
+  const existing = topicsByKey.get(key);
+  topicsByKey.set(key, {
+    label: existing?.label ?? topic,
+    count: (existing?.count ?? 0) + 1
+  });
+}
+const topics = [...topicsByKey]
+  .filter(([, topic]) => topic.count > 1)
+  .map(([value, topic]) => ({ value, label: topic.label }))
+  .sort((a, b) => a.label.localeCompare(b.label, "en", { sensitivity: "base" }));
 ---
 
 <ArticleLayout
   title="Episodes"
   description="Narrative investigations into the architectural questions that shape Articulate."
   eyebrow="Narrative navigation"
+  wide
 >
-  <div class="timeline-list">
-    {episodes.map((episode) => (
-      <article class:list={["episode-card", { "episode-card-with-thumbnail": episode.data.thumbnail }]}>
+  <section class="episode-discovery" aria-labelledby="episode-discovery-heading">
+    <div class="latest-episode-callout">
+      <p class="eyebrow">Latest Episode</p>
+      <h2 id="episode-discovery-heading">
+        <a href={withBase(`/episodes/${latestEpisode.id}/`)}>{latestEpisode.data.title}</a>
+      </h2>
+      <p class="item-meta">
+        Episode {latestEpisode.data.sequence.toString().padStart(4, "0")} /
+        {latestSeason?.name ?? `Season ${latestEpisode.data.season}`}
+      </p>
+    </div>
+
+    <form class="episode-filters" data-episode-filters role="search">
+      <div class="filter-field filter-search">
+        <label for="episode-search">Search Episodes</label>
+        <input
+          id="episode-search"
+          name="episode-search"
+          type="search"
+          placeholder="Title, summary, or topic"
+          autocomplete="off"
+          data-episode-search
+        />
+      </div>
+      <div class="filter-field">
+        <label for="episode-topic">Topic</label>
+        <select id="episode-topic" name="episode-topic" data-episode-topic>
+          <option value="">All topics</option>
+          {topics.map((topic) => <option value={topic.value}>{topic.label}</option>)}
+        </select>
+      </div>
+      <button class="filter-clear" type="reset" data-filter-clear>Clear</button>
+      <p class="filter-status" aria-live="polite" data-filter-status>{episodes.length} Episodes</p>
+    </form>
+  </section>
+
+  <div class="season-list">
+    {seasons.map((season) => (
+      <section class="season-group" aria-labelledby={`${season.id}-heading`} data-season-group>
+        <header class="season-heading">
+          <p class="eyebrow">{season.episodes.length} {season.episodes.length === 1 ? "Episode" : "Episodes"}</p>
+          <h2 id={`${season.id}-heading`}>{season.name}</h2>
+          <p>{season.description}</p>
+        </header>
+        <div class="episode-grid">
+          {season.episodes.map((episode) => (
+      <article
+        class="episode-card"
+        data-episode-card
+        data-topics={episode.data.topics.map((topic) => topic.toLocaleLowerCase()).join("|")}
+        data-search={[
+          episode.data.sequence.toString().padStart(4, "0"),
+          episode.data.title,
+          episode.data.summary,
+          ...episode.data.topics
+        ].join(" ").toLocaleLowerCase()}
+      >
         {episode.data.thumbnail && (
           <a
             class="episode-card-thumbnail"
@@ -37,20 +110,62 @@ const episodes = (await getCollection("episodes", ({ data }) => data.isPublished
         <div class="episode-card-content">
           <p class="item-meta">
             Episode {episode.data.sequence.toString().padStart(4, "0")} /
-            {formatDate(episode.data.published)} /
-            <StatusPill status={episode.data.status} />
+            {formatDate(episode.data.published)}
           </p>
-          <h2><a href={withBase(`/episodes/${episode.id}/`)}>{episode.data.title}</a></h2>
+          <h3><a href={withBase(`/episodes/${episode.id}/`)}>{episode.data.title}</a></h3>
           <p>{episode.data.summary}</p>
           <p class="episode-card-actions">
             <a href={withBase(`/episodes/${episode.id}/`)}>Read Episode</a>
             {episode.data.youtube_url && <a href={episode.data.youtube_url}>Watch on YouTube</a>}
           </p>
           <ul class="tag-list">
-            {episode.data.topics.map((topic) => <li>{topic}</li>)}
+            {episode.data.topics.slice(0, 3).map((topic) => <li>{topic}</li>)}
           </ul>
         </div>
       </article>
+          ))}
+        </div>
+      </section>
     ))}
   </div>
+
+  <div class="empty-state episode-filter-empty" data-filter-empty hidden>
+    <h2>No Episodes match these filters</h2>
+    <p>Try a broader search or clear the selected topic.</p>
+  </div>
 </ArticleLayout>
+
+<script>
+  const filters = document.querySelector<HTMLElement>("[data-episode-filters]");
+  const search = filters?.querySelector<HTMLInputElement>("[data-episode-search]");
+  const topic = filters?.querySelector<HTMLSelectElement>("[data-episode-topic]");
+  const status = filters?.querySelector<HTMLElement>("[data-filter-status]");
+  const empty = document.querySelector<HTMLElement>("[data-filter-empty]");
+  const cards = [...document.querySelectorAll<HTMLElement>("[data-episode-card]")];
+  const seasonGroups = [...document.querySelectorAll<HTMLElement>("[data-season-group]")];
+
+  function applyFilters() {
+    const query = search?.value.trim().toLocaleLowerCase() ?? "";
+    const selectedTopic = topic?.value ?? "";
+    let visible = 0;
+
+    for (const card of cards) {
+      const matchesSearch = !query || card.dataset.search?.includes(query);
+      const matchesTopic = !selectedTopic || card.dataset.topics?.split("|").includes(selectedTopic);
+      const matches = Boolean(matchesSearch && matchesTopic);
+      card.hidden = !matches;
+      if (matches) visible += 1;
+    }
+
+    for (const season of seasonGroups) {
+      season.hidden = !season.querySelector("[data-episode-card]:not([hidden])");
+    }
+
+    if (status) status.textContent = `${visible} ${visible === 1 ? "Episode" : "Episodes"}`;
+    if (empty) empty.hidden = visible !== 0;
+  }
+
+  filters?.addEventListener("input", applyFilters);
+  filters?.addEventListener("change", applyFilters);
+  filters?.addEventListener("reset", () => requestAnimationFrame(applyFilters));
+</script>

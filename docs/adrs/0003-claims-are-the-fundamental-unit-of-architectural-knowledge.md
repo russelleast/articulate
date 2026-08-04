@@ -1,6 +1,7 @@
 ---
 id: adr-0003
 title: claims are the fundamental unit of architectural knowledge
+summary: Architectural knowledge is represented as claims with provenance, confidence, temporal applicability, and evidence so different architectural views share one source of truth.
 status: accepted
 related_episodes:
   - 0014-knowledge-evolution
@@ -42,3 +43,26 @@ Architectural projections such as graphs, inventories and reports become derived
 Reasoning agents can operate against a common knowledge representation, allowing confidence, evidence, temporal applicability and provenance to be considered consistently regardless of where the knowledge originated.
 
 The Knowledge Service becomes responsible for interpreting, validating and projecting claims into specialised architectural views while preserving claims as the authoritative source of architectural knowledge.
+
+## Rationale
+
+A common unit allows provenance, evidence, confidence and temporal meaning to travel with every
+architectural assertion. Reasoning can then compare knowledge from different sources without first
+reconciling several incompatible representations of truth.
+
+## Alternatives Considered
+
+### Treat documents as the fundamental unit
+
+Documents preserve useful narrative context, but their assertions are too coarse-grained for
+consistent relationship, confidence, temporal and provenance reasoning.
+
+### Give each architectural concept an independent canonical model
+
+Separate canonical models for decisions, discoveries and designs would preserve familiar document
+boundaries, but would duplicate reasoning rules and make cross-model consistency harder to maintain.
+
+### Make projections authoritative
+
+Graphs, inventories and reports are valuable views, but treating them as additional sources of
+truth would allow derived representations to diverge from the knowledge that produced them.

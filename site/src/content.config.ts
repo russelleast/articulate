@@ -53,7 +53,7 @@ const episodes = defineCollection({
       updated: data.updated ?? frontMatterDate ?? publicationDate ?? new Date(0),
       sequence,
       season: data.season.toString(),
-      isPublished: publicationDate !== null
+      isPublished: publicationDate !== null && data.status !== "draft" && data.status !== "planned"
     };
   })
 });
@@ -99,6 +99,7 @@ const decisions = defineCollection({
   schema: z.object({
     id: z.string().min(1),
     title: z.string(),
+    summary: z.string().min(1),
     status: z.enum(["draft", "proposed", "accepted", "superseded", "rejected"]),
     decided: z.coerce.date().optional(),
     supersedes: reference("decisions").nullable().default(null),

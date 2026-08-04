@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate, withBase } from "@/utils/site";
+
+type Episode = CollectionEntry<"episodes">;
+
+interface Props {
+  episodes: Episode[];
+}
+
+const { episodes } = Astro.props;
+const latest = [...episodes]
+  .filter((episode) => episode.data.sequence > 0)
+  .sort((a, b) => b.data.sequence - a.data.sequence)
+  .slice(0, 4);
+const latestVideo = [...episodes]
+  .filter((episode) => episode.data.youtube_url && episode.data.thumbnail)
+  .sort((a, b) => b.data.sequence - a.data.sequence)[0];
+const items = latestVideo && !latest.some((episode) => episode.id === latestVideo.id)
+  ? [...latest, latestVideo]
+  : latest;
+---
+
+<aside class="latest-episodes-panel" aria-labelledby="latest-episodes-heading">
+  <div class="latest-episodes-heading">
+    <p class="eyebrow">Continue exploring</p>
+    <h2 id="latest-episodes-heading">Latest Episodes</h2>
+  </div>
+  <ol class="latest-episode-list">
+    {items.map((episode) => {
+      const isVideoPick = episode.id === latestVideo?.id && !latest.some((item) => item.id === episode.id);
+      const episodeNumber = episode.data.sequence.toString().padStart(4, "0");
+      const detailId = `episode-preview-${episodeNumber}`;
+
+      return (
+        <li class="latest-episode-item">
+          <a
+            class="latest-episode-link"
+            href={withBase(`/episodes/${episode.id}/`)}
+            aria-describedby={detailId}
+          >
+            <span>{isVideoPick ? "Latest video" : `Episode ${episodeNumber}`}</span>
+            <strong>{episode.data.title}</strong>
+          </a>
+          <article class="latest-episode-preview" id={detailId}>
+            {episode.data.thumbnail && (
+              <a
+                class="latest-episode-preview-image"
+                href={episode.data.youtube_url ?? withBase(`/episodes/${episode.id}/`)}
+                aria-label={episode.data.youtube_url
+                  ? `Watch ${episode.data.title} on YouTube`
+                  : `Read ${episode.data.title}`}
+              >
+                <img
+                  src={withBase(episode.data.thumbnail)}
+                  alt={episode.data.thumbnail_alt ?? `Thumbnail for ${episode.data.title}`}
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                />
+                {episode.data.youtube_url && <span aria-hidden="true">Play</span>}
+              </a>
+            )}
+            <p class="item-meta">Episode {episodeNumber} / {formatDate(episode.data.published)}</p>
+            <h3>{episode.data.title}</h3>
+            <p>{episode.data.summary}</p>
+            <p class="episode-card-actions">
+              <a href={withBase(`/episodes/${episode.id}/`)}>Read Episode</a>
+              {episode.data.youtube_url && <a href={episode.data.youtube_url}>Watch on YouTube</a>}
+            </p>
+          </article>
+        </li>
+      );
+    })}
+  </ol>
+  <p class="latest-episodes-all"><a href={withBase("/episodes/")}>View all Episodes</a></p>
+</aside>

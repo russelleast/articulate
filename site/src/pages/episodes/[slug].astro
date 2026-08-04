@@ -33,7 +33,7 @@ const relatedDecisions = decisions
   .filter((decision) => episode.data.related_decisions.some((ref) => ref.id === decision.id))
   .map((decision) => ({
     title: decision.data.title,
-    href: withBase(`/decisions/#${decision.data.id}`),
+    href: withBase(`/decisions/${decision.data.id}/`),
     meta: decision.data.decided
       ? `${decision.data.status}, ${formatDate(decision.data.decided)}`
       : decision.data.status
@@ -62,6 +62,10 @@ const relatedExperiments = experiments
     episode: episode.data.sequence.toString().padStart(4, "0"),
     series: episode.data.season
   }}
+  breadcrumbs={[
+    { name: "Episodes", path: "/episodes/" },
+    { name: episode.data.title, path: `/episodes/${episode.id}/` }
+  ]}
 >
   <article class="article-shell">
     <header class="article-header">

@@ -1,29 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import RecentlyChanged from "@/components/RecentlyChanged.astro";
-import StatusPill from "@/components/StatusPill.astro";
-import { formatDate, withBase, youtubeEmbedUrl } from "@/utils/site";
+import LatestEpisodes from "@/components/LatestEpisodes.astro";
+import { withBase, youtubeEmbedUrl } from "@/utils/site";
 
 const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
-const featuredEpisode = episodes
-  .filter((episode) =>
-    episode.data.sequence > 0
-    && episode.data.youtube_url
-    && episode.data.thumbnail
-  )
-  .sort((a, b) => b.data.sequence - a.data.sequence)[0]
-  ?? episodes
-    .filter((episode) => episode.data.sequence > 0)
-    .sort((a, b) => b.data.sequence - a.data.sequence)[0]
-  ?? episodes[0];
 const introductionEpisode = episodes.find((episode) => episode.data.sequence === 0);
 ---
 
 <BaseLayout>
-  <div class="page-shell">
+  <div class="page-shell home-page">
     <section class="hero" aria-labelledby="home-title">
-      <div>
+      <div class="hero-introduction">
         <p class="eyebrow">Reference architecture / public journal</p>
         <h1 id="home-title">Articulate</h1>
         <p class="lede">
@@ -35,14 +23,7 @@ const introductionEpisode = episodes.find((episode) => episode.data.sequence ===
           principles, patterns, and Episodes that explain not only what was built, but why.
         </p>
       </div>
-      <aside class="hero-note" aria-labelledby="current-question">
-        <p class="eyebrow">Current Architectural Question</p>
-        <h2 id="current-question">How should the project record its own architectural evolution?</h2>
-        <p>
-          The first phase establishes the repository, website, and narrative model before detailed
-          runtime architecture is claimed.
-        </p>
-      </aside>
+      <LatestEpisodes episodes={episodes} />
     </section>
 
     {introductionEpisode?.data.youtube_url && (
@@ -73,92 +54,20 @@ const introductionEpisode = episodes.find((episode) => episode.data.sequence ===
       </section>
     )}
 
-    <section class="section-block" aria-labelledby="start-here">
-      <div class="section-heading">
-        <p class="eyebrow">New visitors</p>
-        <h2 id="start-here">Start Here</h2>
-      </div>
-      <div class="two-column">
-        <p>
-          Begin with the orientation if you want the project frame: what Articulate is, what the
-          repository records, and how Episodes, principles, decisions, patterns, experiments, and code relate.
-        </p>
-        <p>
-          The site will grow reference navigation as Episodes produce enduring principles, real
-          decisions, patterns, experiments, and architecture views.
-        </p>
-      </div>
-      <p><a href={withBase("/start-here/")}>Read the orientation</a></p>
-    </section>
-
-    <section class="section-block" aria-labelledby="latest-episode">
-      <div class="section-heading">
-        <p class="eyebrow">Latest Episode</p>
-        <h2 id="latest-episode">{featuredEpisode.data.title}</h2>
-      </div>
-      <article class:list={["journal-card", { "episode-card-with-thumbnail": featuredEpisode.data.thumbnail }]}>
-        {featuredEpisode.data.thumbnail && (
-          <a
-            class="episode-card-thumbnail"
-            href={featuredEpisode.data.youtube_url ?? withBase(`/episodes/${featuredEpisode.id}/`)}
-            aria-label={featuredEpisode.data.youtube_url
-              ? `Watch ${featuredEpisode.data.title} on YouTube`
-              : `Read ${featuredEpisode.data.title}`}
-          >
-            <img
-              src={withBase(featuredEpisode.data.thumbnail)}
-              alt={featuredEpisode.data.thumbnail_alt ?? `Video thumbnail for ${featuredEpisode.data.title}`}
-              width="1280"
-              height="720"
-            />
-            {featuredEpisode.data.youtube_url && <span aria-hidden="true">Play</span>}
-          </a>
-        )}
-        <div class="episode-card-content">
-          <p class="item-meta">
-            Episode {featuredEpisode.data.sequence.toString().padStart(4, "0")} /
-            {formatDate(featuredEpisode.data.published)} /
-            <StatusPill status={featuredEpisode.data.status} />
-          </p>
-          <p>{featuredEpisode.data.summary}</p>
-          <p class="episode-card-actions">
-            <a href={withBase(`/episodes/${featuredEpisode.id}/`)}>Read the latest Episode</a>
-            {featuredEpisode.data.youtube_url && (
-              <a href={featuredEpisode.data.youtube_url}>Watch on YouTube</a>
-            )}
-          </p>
-        </div>
-      </article>
-    </section>
-
-    <section class="section-block" aria-labelledby="architecture-glance">
-      <div class="section-heading">
-        <p class="eyebrow">Current state</p>
-        <h2 id="architecture-glance">Architecture at a Glance</h2>
-      </div>
-      <div class="two-column">
-        <p>
-          The current architecture view is intentionally early: Articulate has defined its purpose,
-          principles, and narrative model, but not a detailed implementation architecture.
-        </p>
-        <p>
-          Future architecture views will describe system context, capabilities, runtime concerns,
-          memory, workflows, security, governance, and operations as decisions are made.
-        </p>
-      </div>
-      <p><a href={withBase("/architecture/")}>View current architecture placeholders</a></p>
-    </section>
-
-    <RecentlyChanged episodes={episodes} />
-
-    <section class="section-block" aria-labelledby="about-brief">
+    <section class="section-block home-about" aria-labelledby="about-brief">
       <div class="section-heading">
         <p class="eyebrow">About</p>
-        <h2 id="about-brief">A repository with a narrative surface</h2>
+        <h2 id="about-brief">An architecture journal built through evidence</h2>
       </div>
       <p>
-        The repository provides the evidence. The website provides the narrative and interpretation.
-        Both should remain understandable, composable, observable, evolvable, and production-oriented.
+        Articulate is a public exploration of AI-native systems architecture. Each Episode investigates
+        an architectural question, records the reasoning and decisions that follow, and gradually turns
+        those ideas into a working reference implementation.
+      </p>
+      <p>
+        The website explains the journey. The repository preserves the evidence: decisions, principles,
+        diagrams, experiments, and code. Together they form a transparent record of an architecture as
+        it is understood, challenged, and evolved.
       </p>
     </section>
   </div>
