@@ -1,0 +1,139 @@
+{
+  "episode": {
+    "id": "episode-0004",
+    "title": "AI-Native Systems Are Still Systems",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0004-presenter-v1",
+    "narration_duration_seconds": 598.333333
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 30.72,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 30.72,
+      "end_seconds": 76.16,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 76.16,
+      "end_seconds": 101.36,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-functionality-characteristics"
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 101.36,
+      "end_seconds": 162.16,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-architecture-tradeoffs"
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 162.16,
+      "end_seconds": 213.52,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-trust-boundaries"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 213.52,
+      "end_seconds": 256.08,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-reliability-recovery"
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 256.08,
+      "end_seconds": 305.64,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-reasoning-performance"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 305.64,
+      "end_seconds": 342.76,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-scaling-intelligence-up"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 342.76,
+      "end_seconds": 381.4,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-scaling-intelligence-out"
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 381.4,
+      "end_seconds": 417.36,
+      "visual_type": "Repository",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 417.36,
+      "end_seconds": 447.64,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-ai-native-observability"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 447.64,
+      "end_seconds": 489.04,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 489.04,
+      "end_seconds": 521.6,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 521.6,
+      "end_seconds": 546.68,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0004-testing-evaluation"
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 546.68,
+      "end_seconds": 582.76,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 582.76,
+      "end_seconds": 598.333,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

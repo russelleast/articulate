@@ -27,7 +27,7 @@ repository_paths:
 featured: true
 thumbnail: /media/episodes/0004/episode-0004-thumbnail.png
 thumbnail_alt: "Articulate Journal Episode 4: Features Aren't Enough"
-youtube_url: https://youtu.be/OsLzgCnVEJk
+youtube_url: https://youtu.be/vk369gRbVnc
 ---
 
 # Episode 4 — System Characteristics: The Properties Every System Needs

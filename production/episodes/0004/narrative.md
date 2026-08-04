@@ -1,631 +1,297 @@
-# Episode 4 – The Properties Every System Needs
+# Episode 4 – System Characteristics
 
-## Opening
+Hello, and welcome back to the Articulate Journal.
 
-In the previous episode, we explored what makes AI-native systems different.
+In the last episode, I explained why Articulate is being designed as an AI-native system and what I mean by AI-native architecture.
 
-We looked at agents, reasoning, conversations and workflows, and began to see how intelligence is becoming another architectural building block.
+In this episode, I want to step back for a moment and look at something more fundamental.
 
-But before we continue that journey, I want to pause for a moment.
+**AI-native systems are still systems.**
 
-Because AI-native systems are still systems.
-
-It's easy to become fascinated by language models, prompts and agents, but none of those replace the fundamentals of software engineering.
-
-Whatever system, application or an AI assistant you are building, every production system is ultimately judged by the same question.
+Every production system is ultimately judged by the same question.
 
 Can people trust it?
 
-That's what this episode is about.
+That's where system characteristics become important.
 
-The characteristics that make systems successful.
+There's a huge amount of excitement around AI at the moment. Every week there's a new model, a new framework or another agent platform promising to change the way we build software.
 
-Many of these qualities have always been part of good architecture.
+Those advances are genuinely exciting.
 
-AI doesn't replace them.
+But we must not forget the fundamentals of software engineering.
 
-It amplifies them.
+Because once a system is in production, nobody really cares how clever it is if they can't rely on it.
 
----
+They care whether it's available.
 
-## Functionality Versus Characteristics
+Whether it's secure.
 
-When architects think about software, we tend to think in two dimensions.
+Whether it performs well.
+
+Whether they can trust the answers it produces.
+
+Whether somebody can understand what happened when something goes wrong.
+
+In other words, they care about the characteristics of the system.
+
+Features make a system useful.
+
+Characteristics make it trustworthy.
+
+Before we start exploring runtimes, workflows and multi-agent systems, I think it's worth taking a step back and asking a much simpler question.
+
+**What qualities does every production system need to possess?**
+
+As architects we tend to think about software in two dimensions.
 
 The first is functionality.
 
-What does the system actually do?
+What does the system do?
 
-The second most importantly is characteristics
+The second is characteristics.
 
 How well does it do it?
 
-Imagine asking an AI assistant to design a solution architecture.
-
-Producing that architecture is functionality.
-
-Whether the response is secure, reliable, observable, performant and trustworthy describes the characteristics of the system delivering it.
-
-These qualities determine whether a system succeeds in production far more than its features.
-
-Features attract users. Characteristics keep them.
-
----
-
-## Why Architects Care
-
-Throughout my career, one lesson has remained remarkably consistent.
-
-Architectural patterns don't exist for their own sake.
+One thing that's always fascinated me about architecture is that we rarely choose patterns for their own sake.
 
 We don't choose CQRS because it's fashionable.
 
-We don't adopt Event Sourcing because it's interesting.
+We don't choose Event Sourcing because it's interesting.
 
-We choose these patterns because they improve one or more qualities of the system we're building.
+We don't introduce durable workflows simply because the technology exists.
 
-Caching improves performance.
-
-Workflow engines improve reliability.
-
-Actor models improve scalability and resilience.
-
-Observability platforms improve operability.
+We choose architectural approaches because they improve characteristics that matter for the problem we're trying to solve.
 
 Every architectural decision is really a trade-off.
 
-Improving one characteristic often makes another more difficult.
+Improve one characteristic and another may become more difficult.
 
-Architecture is the art of deciding which qualities matter most for the problem you're trying to solve.
+Caching improves performance but introduces consistency challenges.
 
-That hasn't changed because AI arrived.
+Distributing a system improves scalability while making observability and reliability harder.
 
-If anything, it has become even more important.
+Adding autonomous agents may increase flexibility but reduce predictability.
 
----
+Architecture has never been about finding a perfect design.
 
-## Trust
+It's about deciding which trade-offs are appropriate.
 
-Trust is the foundation of every production system.
+So let's look at some of the characteristics that matter.
 
-Traditionally, that means authentication, authorisation, security, privacy, auditability and compliance.
+The first is trust.
 
-AI-native systems introduce another layer of questions.
+Trust has always been fundamental to software.
 
-Which models should this user be allowed to access?
+Users expect systems to protect their information, respect permissions, record important actions and behave safely.
 
-What information is safe to include in prompts?
+AI-native systems introduce new questions.
 
-Can sensitive information leak into a model?
+Which models are allowed to access this information?
 
-Should an agent be allowed to call this tool?
+Which tools can an agent invoke?
 
-Can every decision be audited?
+Can retrieved information cross security boundaries?
 
-Security is no longer just about protecting APIs.
+Can we explain why a particular answer was produced?
 
-It's also about protecting intelligence.
+Can an agent perform an action without human approval?
 
-An agent might be technically capable of performing an action.
+Security is no longer only about protecting APIs and databases.
 
-That doesn't mean it's authorised to perform it.
+It's also about protecting the intelligence operating inside the system.
 
-The architecture must make that distinction.
+Being capable of doing something is not the same as being authorised to do it.
 
-Trust has to exist across the entire journey, from user intent through reasoning and tool execution to the final result.
+Next comes reliability.
 
----
+Eventually, every production system experiences failure.
 
-## Reliability
+A model provider becomes unavailable.
 
-Reliability answers a simple question.
+A retrieval service times out.
 
-Can users depend on the system?
+A tool fails.
 
-Traditionally that means availability, resilience, fault tolerance and recovery.
+A workflow is interrupted.
 
-AI-native systems introduce new failure modes.
+Reliability isn't about pretending those failures won't happen.
 
-- Models may become unavailable.
+It's about deciding what the system should do when they inevitably do.
 
-- Providers may rate limit requests.
+Can it retry?
 
-- Retrieval services may fail.
+Can it continue using another model?
 
-- External tools may stop responding.
+Can it pause safely and resume later?
 
-Sometimes every technical component succeeds, yet the answer itself is still poor.
+Can it ask a human for help?
 
-A reliable AI-native system should continue operating even when parts of its intelligence become unavailable.
+Or Can it preserve enough state to continue without starting again?
 
-That may mean selecting another model.
+That's what users experience as reliability.
 
-Retrying an operation.
+Performance is another characteristic that's becoming increasingly interesting in AI-native systems.
 
-Pausing a workflow.
+Traditionally we measured things like latency and throughput.
 
-Requesting human intervention.
+Those still matter.
 
-Or continuing with deterministic functionality instead.
+But AI systems also introduce perceived performance.
 
-Reliability isn't about preventing failure.
+Streaming a response often feels much faster than waiting several seconds before anything appears.
 
-It's about deciding what should happen when failure inevitably occurs.
+At the same time, reasoning itself has become part of the execution path.
 
----
+Retrieval, calling tools, validation and model inference all contribute to the overall experience.
 
-## Performance
+Optimising one stage doesn't necessarily make the system feel faster.
 
-Performance is about much more than response time.
+And performance always needs to be considered alongside cost.
 
-It's about latency, throughput, resource utilisation and cost.
+Sometimes a larger model is worth using.
 
-One interesting characteristic of AI-native systems is that they often optimise perceived performance rather than absolute performance.
+Sometimes a smaller model is more than good enough.
 
-A streamed response that starts immediately usually feels much faster than waiting several seconds for a complete answer.
+Scalability has also changed.
 
-But streaming doesn't remove latency.
+Cloud-native systems taught us how to scale infrastructure.
 
-It simply changes how users experience it.
+AI-native systems introduce another question.
 
-Performance also has to consider the entire reasoning pipeline.
+**How do we scale intelligence?**
 
-Building context.
-
-Retrieving knowledge.
-
-Selecting tools.
-
-Calling those tools.
-
-Coordinating agents.
-
-Running evaluations.
-
-Every stage contributes to the overall experience.
-
-And every stage has a cost.
-
-Architecture determines where expensive reasoning is worthwhile and where deterministic software can do the job more efficiently.
-
----
-
-## Scalability
-
-When architects hear the word scalability, we usually think about infrastructure.
-
-Horizontal scaling.
-
-Queues.
-
-Distributed processing.
-
-Background workers.
-
-Partitioning.
-
-Those ideas remain just as important in AI-native systems.
-
-Inference is expensive.
-
-Retrieval consumes resources.
-
-Long-running workflows occupy capacity.
-
-Designing systems that scale economically is now just as important as designing systems that scale technically.
-
-But AI introduces another dimension.
-
-We're no longer just scaling infrastructure.
-
-We're scaling intelligence itself.
-
----
-
-## Scaling the Agent
-
-One approach is to make an individual agent more capable.
+One option is to build a single increasingly capable agent.
 
 Give it more tools.
 
 More memory.
 
-More knowledge.
+A larger context.
 
-More instructions.
+A more capable model.
 
-A larger context window.
+At first this seems attractive because everything happens in one place.
 
-Initially this feels attractive.
-
-The architecture appears simple.
-
-One agent understands the request, makes the decisions and completes the work.
-
-But eventually that simplicity starts working against us.
-
-The context becomes enormous.
-
-The prompt grows.
-
-The tool catalogue expands.
-
-The model has to work harder simply to understand everything we've given it.
-
-Latency increases.
-
-Costs increase.
-
-Reasoning becomes less focused.
-
-Important information becomes diluted amongst everything else.
-
-A larger context window doesn't automatically produce better reasoning.
-
-An agent can become more capable while becoming harder to understand, harder to evaluate and harder to operate.
-
----
-
-## Scaling the Agent System
+But eventually the context grows, the prompt becomes more complicated, tool selection becomes harder and the agent spends more effort managing its own knowledge than solving the problem.
 
 The alternative is to scale out.
 
-Instead of creating one increasingly capable agent, we create several specialised agents.
+Instead of one large agent, we create several specialised ones.
 
-One retrieves knowledge.
+Each has a focused responsibility, a smaller context and a clearer purpose.
 
-Another evaluates evidence.
+That often improves clarity and isolation.
 
-Another checks architectural principles.
-
-Another explores trade-offs.
-
-Each agent has a narrower responsibility.
-
-A smaller context.
-
-A more focused purpose.
-
-This often improves clarity, isolation and evaluation.
-
-But scaling out isn't free.
-
-The complexity doesn't disappear.
-
-It simply moves somewhere else.
+But it introduces another kind of complexity.
 
 Now the architecture has to decide which agent should receive the request.
 
-Whether several agents are needed.
+How context is transferred.
 
-How context should be transferred.
+How work is coordinated.
 
-How results should be combined.
+How failures are recovered.
 
-Where workflow state should live.
+How reasoning is observed across multiple agents.
 
-How failures should be recovered.
+In other words, scaling out moves complexity from inside the agent into the architecture itself.
 
-How the entire reasoning process should be observed.
+Neither approach is automatically right.
 
-This should sound familiar.
+Just as with microservices, the goal isn't to create the biggest component or the greatest number of components.
 
-It's exactly the trade-off we encountered when software evolved from monoliths to distributed systems.
+The goal is to place complexity where it can be understood and managed.
 
-We've exchanged complexity inside one component for complexity across many components.
+That leads to a principle I've started using throughout Articulate.
 
-The same thing happens with agents.
+**Coherence before size.**
 
----
+An agent should remain coherent.
 
-## Scaling Up and Scaling Out
+Its responsibilities, tools and context should naturally belong together.
 
-So the architectural question isn't whether agents should be large or small.
+Splitting an agent simply because smaller agents appear more sophisticated usually creates more problems than it solves.
 
-It's where we want complexity to live.
+Observability becomes even more important once intelligence becomes part of the runtime.
 
-Scaling up concentrates complexity inside the reasoning of one agent.
+Traditional systems give us logs, metrics and traces.
 
-Scaling out distributes complexity across the architecture.
+AI-native systems also need us to understand prompts, retrieved knowledge, routing decisions, tools that have been called, reasoning paths, confidence and evaluation results.
 
-Neither approach is universally correct.
+When an answer is wrong, knowing that one service called another isn't enough.
 
-Some problems benefit from richer reasoning inside a single coherent agent.
+We also need to understand why that decision was made.
 
-Others benefit from collaboration between several specialised agents.
+Another characteristic that becomes increasingly important is evolvability.
 
-Many systems will combine both.
+Models will change.
 
-The goal isn't to build the largest possible agent.
+Prompt strategies will change.
 
-Nor is it to build the greatest number of agents.
+Frameworks will change.
 
-The goal is to place complexity where it can be understood, controlled and operated.
+The architecture shouldn't depend on today's implementation choices.
 
----
+Responsibilities should remain understandable even if tomorrow's runtime looks completely different.
 
-## Coherence Before Size
+Operability matters for the same reason.
 
-That leads to an important architectural principle.
+Somebody has to support these systems.
 
-An agent shouldn't be small for the sake of being small.
+Operators may need to disable a model, change routing policies, inspect a reasoning path or replay a failed execution.
 
-It should be coherent.
+An elegant architecture that can't be operated effectively rarely succeeds.
 
-Its responsibilities, context and tools should naturally belong together.
+Finally, there's one characteristic that I think AI-native systems have brought much more clearly into focus.
 
-Splitting a coherent responsibility across many tiny agents can create more complexity than it removes.
-
-It's very similar to prematurely decomposing a system into microservices.
-
-Each service becomes smaller.
-
-But the overall system becomes harder to understand because communication and coordination dominate the design.
-
-Every agent boundary also becomes a routing boundary.
-
-A context boundary.
-
-A trust boundary.
-
-An evaluation boundary.
-
-And a failure boundary.
-
-Agents should be split when additional responsibility makes them harder to understand, secure, evaluate, observe or evolve.
-
-The important characteristic isn't size.
-
-It's clarity.
-
----
-
-## Observability
-
-Observability has become one of the defining characteristics of modern software.
-
-Traditionally we think about logs, metrics and traces.
-
-AI-native systems require much richer visibility.
-
-We need to understand prompt versions.
-
-Model selection.
-
-Token usage.
-
-Retrieval quality.
-
-Tool calls.
-
-Workflow execution.
-
-Confidence scores.
-
-Evaluation results.
-
-User feedback.
-
-In a multi-agent system we also need to understand why a particular agent was selected.
-
-What context it received.
-
-What information it ignored.
-
-How it reached its conclusion.
-
-Observability is no longer just about understanding software execution.
-
-It's about understanding intelligent behaviour.
-
----
-
-## Evolvability
-
-Technology changes.
-
-AI changes even faster.
-
-Good architecture should make change easier rather than harder.
-
-Models and Prompting techniques will evolve.
-
-Agent frameworks and Retrieval techniques will evolve.
-
-Architectural intent should survive all of those implementation changes.
-
-Responsibilities shouldn't exist only inside prompts.
-
-They should exist independently of the models that implement them.
-
-Architecture should make replacement possible rather than expensive.
-
----
-
-## Operability
-
-Building software is only part of the challenge.
-
-Someone still has to operate it.
-
-- Configuration.
-- Monitoring.
-- Diagnostics.
-- Deployments.
-- Rollback.
-- Incident response.
-
-These all remain essential.
-
-AI-native systems introduce new operational concerns.
-
-- Changing routing policies.
-- Disabling models.
-- Inspecting reasoning paths.
-- Replaying workflows.
-- Replacing prompts.
-- Comparing evaluation results.
-
-As systems scale out, operational complexity increases.
-
-Architecture has to balance logical separation with practical operability.
-
----
-
-## Quality Assurance
+Evaluation.
 
 Traditional software engineering gives us testing.
 
-- Unit tests.
-- Integration tests.
-- Contract tests.
-- Performance tests.
+Unit tests.
 
-These tell us whether the software behaves correctly.
+Integration tests.
 
-Large language models introduce something different.
+Performance tests etc
 
-They are probabilistic.
+Those remain essential.
 
-The same prompt may produce different but equally valid answers.
+But AI systems introduce probabilistic behaviour.
 
-A workflow may execute perfectly while producing a poor response.
+A workflow can complete successfully and still produce a poor answer.
 
-Testing is still essential.
+The software worked.
 
-But it is no longer sufficient.
+The behaviour didn't.
 
----
+Testing tells us whether the implementation functions correctly.
 
-## Evaluation
+Evaluation tells us whether the system actually achieved its intended outcome.
 
-Machine learning has always relied on evaluation.
+I think evaluation will become one of the defining characteristics of AI-native systems.
 
-Rather than asking whether software works, it asks how well the model performs.
+Not because testing becomes less important.
 
-AI-native systems inherit that mindset.
+But because trustworthy behaviour becomes just as important as correct execution.
 
-We need to ask questions like:
+Ultimately, that's what this episode is really about.
 
-- Was the answer correct?
-- Was it grounded in trusted information?
-- Did the agent choose the right tools?
-- Did it satisfy the user's intent?
-- Was the behaviour safe?
-- Was the outcome worth the cost?
+AI-native systems introduce new technologies.
 
-Testing verifies implementation.
+New runtimes.
 
-Evaluation measures behaviour.
+New patterns.
 
-Both are equally important.
+But they don't replace the foundations of software architecture.
 
----
+They build upon them.
 
-## Evaluating Agent Architectures
+**AI-native systems are still systems.**
 
-Multi-agent systems introduce another level of evaluation.
+They're still judged by their reliability, their security, their scalability, their observability and, above all, whether people can trust them.
 
-We're no longer evaluating just the final answer.
+Those characteristics don't become less important because intelligence has entered the architecture.
 
-We're evaluating the architecture that produced it.
+They become even more important.
 
-Did the router select the correct agent?
-
-Did each agent receive the right context?
-
-Did agents duplicate work?
-
-Did one introduce incorrect information?
-
-Was collaboration actually beneficial?
-
-More agents don't automatically produce a better system.
-
-The additional complexity has to justify itself.
-
-The quality of collaboration matters far more than the number of agents involved.
-
----
-
-## Capabilities and Evaluation
-
-One question sits underneath every evaluation framework.
-
-What does success actually look like?
-
-Traditional software answers that with assertions.
-
-Machine learning uses metrics.
-
-I believe AI-native systems need another layer.
-
-Capabilities.
-
-A capability describes intent.
-
-Expected outcomes.
-
-Policies.
-
-Constraints.
-
-Measures of success.
-
-Instead of evaluating whether an agent produced a particular sentence, we evaluate whether the capability was successfully delivered.
-
-This is one of the motivations behind the Declarative Capability Language, or DCL.
-
-By explicitly describing success, we can evaluate outcomes rather than implementation details.
-
----
-
-## Architecture Is About Qualities
-
-One thing has become increasingly clear to me while researching AI-native systems.
-
-The fundamentals haven't changed.
-
-Architecture is still about balancing competing system qualities.
-
-Security becomes more complex.
-
-Observability becomes richer.
-
-Reliability becomes more challenging.
-
-Scalability extends beyond infrastructure into the architecture of intelligence itself.
-
-Testing is complemented by evaluation.
-
-We're still solving the same architectural problems.
-
-We're simply solving them in systems that can now reason, collaborate and make decisions.
-
----
-
-## Closing Thoughts
-
-Before designing any architecture, it's worth asking two simple questions.
-
-What must the system do?
-
-And what properties must the system possess?
-
-The first defines functionality.
-
-The second shapes the architecture.
-
-AI-native systems introduce remarkable new capabilities.
-
-But they don't remove the need for careful architectural thinking.
-
-If anything, they make it even more important.
-
----
-
-## Looking Ahead
-
-In the next episode, I'll step away from discussing system characteristics and explain how I personally approach solution design and how I evolve an architecture over time.
-
-Rather than presenting a fixed methodology, I'll share the process I follow to move from understanding a problem, through architectural thinking, to an evolving solution that can adapt as our understanding grows.
+In the next episode, we'll build on these ideas by looking at the architectural principles that are beginning to shape Articulate, and why thinking in terms of capabilities rather than components provides a stronger foundation for building AI-native systems.

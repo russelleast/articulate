@@ -1,227 +1,147 @@
-[00:00.000–00:04.880] In the previous episode, we explored what makes AI-native systems
-[00:04.880–00:10.000] different. We looked at agents, reasoning, conversations and workflows,
-[00:10.000–00:13.850] and began to see how intelligence is becoming another architecture
-[00:13.850–00:15.000] building block.
-[00:15.000–00:18.910] But before we continue that journey, I want to pause for a moment
-[00:18.910–00:22.000] because AI-native systems are still systems.
-[00:22.000–00:26.600] It's easy to become fascinated by large language models, prompts,
-[00:26.600–00:30.760] agents, but none of them replace the fundamentals of software
-[00:30.760–00:32.000] engineering.
-[00:32.000–00:35.650] Whatever system application or AI assistant you're building, every
-[00:35.650–00:39.940] production system is ultimately judged by the same question. Can people
-[00:39.940–00:41.000] trust it?
-[00:41.000–00:45.860] And that's what this episode is about, the characteristics that make
-[00:45.860–00:50.630] systems successful. Many of these qualities have been part of good
-[00:50.630–00:52.000] architecture.
-[00:52.000–00:56.000] AI doesn't replace them, it amplifies them.
-[00:56.000–00:59.950] When architects think about software, they tend to think in two
-[00:59.950–01:04.000] dimensions. The first is functionality, what does the system do?
-[01:04.000–01:09.310] And the second, most importantly, is characteristics. How well does it
-[01:09.310–01:14.000] do it? Imagine asking an AI assistant to design a solution architecture.
-[01:14.000–01:19.340] Producing that architecture is functionality. Whether the response is
-[01:19.340–01:23.890] secure, reliable, observable, performant and trustworthy describes the
-[01:23.890–01:27.000] characteristics of the system delivering it.
-[01:27.000–01:31.320] These qualities determine whether a system succeeds in production far
-[01:31.320–01:37.300] more than its features. Features attract users, characteristics keep
-[01:37.300–01:38.000] them.
-[01:38.000–01:43.100] Throughout my career, one lesson has remained remarkably consistent.
-[01:43.100–01:46.000] Architectural patterns don't exist for their own sake.
-[01:46.000–01:54.190] We don't choose CQRS because it's fashionable, we don't adopt event
-[01:54.190–01:59.310] sourcing because it's interesting. We choose these patterns because
-[01:59.310–02:00.000] they improve one or more qualities of the system we're building.
-[02:00.000–02:04.250] Every architecture decision is really a trade-off. Improving one
-[02:04.250–02:08.000] characteristic often makes another one more difficult.
-[02:08.000–02:12.470] Architecture is the art of deciding which qualities matter most for the
-[02:12.470–02:15.000] problem that you're trying to solve.
-[02:15.000–02:19.430] That hasn't changed because AI has arrived, if anything, it makes it
-[02:19.430–02:21.000] even more important.
-[02:21.000–02:26.750] Trust is the foundation of every production system. Traditionally, that
-[02:26.750–02:33.000] meant authentication, authorization, security, privacy and compliance.
-[02:33.000–02:37.930] AI native systems introduce another layer of questions. Which models
-[02:37.930–02:42.360] should the user be allowed to access? What information is safe to
-[02:42.360–02:44.000] include in prompts?
-[02:44.000–02:48.670] Can sensitive information leak into a model? Should an agent be allowed
-[02:48.670–02:52.000] to call this tool? Can every decision be audited?
-[02:52.000–02:57.100] Security is no longer about protecting APIs. It's about protecting the
-[02:57.100–03:02.110] intelligence. An agent might be technically capable of performing an
-[03:02.110–03:03.000] action. It doesn't mean it's authorized to perform it.
-[03:03.000–03:09.620] The architecture might make that distinction. Trust has to exist across
-[03:09.620–03:14.300] the entire journey. From user intent, through to reasoning, to tool
-[03:14.300–03:17.000] execution, to the final result.
-[03:17.000–03:23.000] Reliability answers a simple question. Can users depend on a system?
-[03:23.000–03:27.680] Traditionally, that means availability, resilience, fault tolerance and
-[03:27.680–03:28.000] recovery.
-[03:28.000–03:33.500] AI native systems introduce new failure modes. Models may become
-[03:33.500–03:39.890] unavailable. Providers may rate limit request. Retrieval services may
-[03:39.890–03:44.000] fail. External tools might stop responding.
-[03:44.000–03:48.440] Sometimes every technical component succeeds, yet the answer is still
-[03:48.440–03:53.460] poor. A reliable AI native system should continue operating even when
-[03:53.460–03:57.000] parts of its intelligence become unavailable.
-[03:57.000–04:01.930] That may mean selecting another model, retrying an operation, pausing a
-[04:01.930–04:07.030] workflow, requesting human intervention or continuing with deterministic
-[04:07.030–04:09.000] functionality instead.
-[04:09.000–04:13.710] Reliability isn't about preventing failure. It's about deciding what
-[04:13.710–04:17.000] should happen when failure inevitably occurs.
-[04:17.000–04:23.000] Performance is much more about response time. It's about latency,
-[04:23.000–04:27.680] throughput, resource utilization and cost. One interesting
-[04:27.680–04:31.490] characteristic of AI-native systems is that they often optimise
-[04:31.490–04:35.000] perceived performance rather than absolute performance.
-[04:35.000–04:43.170] A streamed response that starts immediately usually feels faster than
-[04:43.170–04:49.000] waiting several seconds for a complete answer. But streaming doesn't
-[04:49.000–04:49.000] remove latency. It simply changes how users experience it.
-[04:49.000–04:54.100] Performance also has to consider the entire reasoning pipeline. From
-[04:54.100–04:59.680] building context, retrieving knowledge, selecting tools, calling those
-[04:59.680–05:04.950] tools and coordinating agents, then running the evaluations. Each stage
-[05:04.950–05:10.000] contributes to the overall experience, and each stage has a cost.
-[05:10.000–05:15.150] Architecture determines whether expensive reasoning is worthwhile and
-[05:15.150–05:20.000] whether deterministic software can do the job more efficiently.
-[05:20.000–05:24.300] When architects hear the word scalability, we usually think about
-[05:24.300–05:29.460] infrastructure with horizontal scaling, queues, distributed processing,
-[05:29.460–05:33.650] background workers and partitioning. Those ideas remain just as
-[05:33.650–05:36.000] important in AI native systems.
-[05:36.000–05:42.640] Inference is expensive. Retrieval consumes resources. Long running workflows
-[05:42.640–05:47.680] occupy capacity. Designing systems at scale economically is now just as
-[05:47.680–05:52.000] important as designing systems at scale technically.
-[05:52.000–05:56.230] But AI introduces another dimension. We're no longer just scaling
-[05:56.230–06:01.000] infrastructure. We're scaling intelligence itself.
-[06:01.000–06:04.990] One approach is to make an individual agent more capable, give it more
-[06:04.990–06:09.150] tools and memory and knowledge, more instructions and a larger context
-[06:09.150–06:10.000] window.
-[06:10.000–06:15.260] Initially, this feels attractive. The architecture appears simple. One
-[06:15.260–06:20.680] agent understands the requests and makes decisions and completes the
-[06:20.680–06:21.000] work.
-[06:21.000–06:25.600] Eventually, that simplicity starts working against us. The context
-[06:25.600–06:30.590] becomes enormous. The prompt grows. The tool catalog expands. The model
-[06:30.590–06:35.000] has to work harder simply to understand everything we've given it.
-[06:35.000–06:43.920] Latency increases. Costs increase. Reasoning becomes less focused.
-[06:43.920–06:52.050] Important information becomes diluted amongst everything else. A larger
-[06:52.050–06:52.590] context window doesn't automatically produce better reasoning. An agent
-[06:52.590–06:54.850] can become more capable while becoming harder to understand, harder to
-[06:54.850–06:58.000] evaluate and harder to operate.
-[06:58.000–07:03.490] The alternative is to scale out. Instead of creating one increasingly
-[07:03.490–07:09.040] capable agent, we create several specialized agents. One retrieves
-[07:09.040–07:12.800] knowledge, another evaluates the evidence, another one checks
-[07:12.800–07:14.000] architectural principles,
-[07:14.000–07:20.660] another one explores trade-offs, each agent has a narrower
-[07:20.660–07:29.000] responsibility, a smaller context window, and more focused purpose.
-[07:29.000–07:30.640] This often improves clarity, isolation and evaluation. But scaling out
-[07:30.640–07:31.000] isn't free.
-[07:31.000–07:37.000] The complexity doesn't disappear. It simply moves elsewhere. Now the
-[07:37.000–07:42.000] architecture has to decide which agent should receive the request.
-[07:42.000–07:46.000] Whether several agents are needed, how context should be transferred,
-[07:46.000–07:49.000] how results should be combined,
-[07:49.000–07:53.280] where workflow state should live, how failures should be recovered, and
-[07:53.280–07:57.360] how the entire reasoning process should be observed. Does this sound
-[07:57.360–08:01.740] familiar? It should. It's exactly the trade-off we encountered when
-[08:01.740–08:05.000] software evolved from monoliths to distributed systems.
-[08:05.000–08:13.170] We exchanged complexity inside one component for complexity across many
-[08:13.170–08:20.140] components, and the same thing's happening with agents. So, the
-[08:20.140–08:21.400] architectural question isn't whether agents should be large or small.
-[08:21.400–08:22.000] It's where we want the complexity to live.
-[08:22.000–08:27.230] Scaling up concentrates complexity inside the reasoning of one agent.
-[08:27.230–08:32.680] Scaling out distributes complexity across the architecture. Neither
-[08:32.680–08:36.300] approach is universally correct. Some problems benefit from richer
-[08:36.300–08:39.000] reasoning inside a single coherent agent.
-[08:39.000–08:43.500] Others benefit from collaboration between several specialized agents.
-[08:43.500–08:47.770] Many systems will combine both. But the goal isn't to build the biggest
-[08:47.770–08:52.230] possible agent, nor is it to build the greatest number of agents. The
-[08:52.230–08:57.210] goal is to place complexity where it is understood, controlled and
-[08:57.210–08:58.000] operated.
-[08:58.000–09:03.150] This leads to an important architectural principle. An agent shouldn't
-[09:03.150–09:07.570] be small for the sake of being small. It should be coherent. Its
-[09:07.570–09:13.000] responsibilities, context and tools should naturally belong together.
-[09:13.000–09:18.300] Splitting a coherent responsibility across many tiny agents can create
-[09:18.300–09:21.000] more complexity than it removes.
-[09:21.000–09:26.610] It's a very similar to prematurely decomposing the system into microservices.
-[09:26.610–09:31.680] Each service becomes smaller. But the overall system becomes harder to
-[09:31.680–09:36.000] understand because communication and coordination dominate the design.
-[09:36.000–09:43.860] Every agent boundary also becomes a routing boundary, a context
-[09:43.860–09:52.340] boundary, a trust boundary, an evaluation boundary and also a failure
-[09:52.340–09:54.860] boundary. Agents should be split when the additional responsibility
-[09:54.860–09:56.000] makes them harder to understand, secure, evaluate, observe and evolve.
-[09:56.000–10:03.860] The important characteristic isn't size, it's clarity. Observability
-[10:03.860–10:08.030] has become one of the defining characteristics of modern software. Traditionally
-[10:08.030–10:11.000] we think about logs, metrics and traces.
-[10:11.000–10:16.920] AI-native systems require much richer visibility. We need to understand
-[10:16.920–10:22.920] prompt versions, model selections and token usage, retrieval quality,
-[10:22.920–10:28.250] tool calls and workflow execution, confidence scores and evaluation
-[10:28.250–10:30.000] results and user feedback.
-[10:30.000–10:33.990] In a multi-agent system we also need to understand why a particular
-[10:33.990–10:38.110] agent was selected, what context it received, what information it
-[10:38.110–10:42.100] ignored and how it reached its conclusion. Observability is no longer
-[10:42.100–10:46.000] just about understanding software execution. It's about understanding
-[10:46.000–10:49.000] intelligent behaviour.
-[10:49.000–10:54.380] Technology changes, AI changes even faster. Good architecture should
-[10:54.380–10:59.740] make change easier rather than harder. Models and prompting techniques
-[10:59.740–11:01.000] will evolve.
-[11:01.000–11:07.950] Agent frameworks and retrieval techniques will evolve. Architectural
-[11:07.950–11:15.550] intent should survive all of those implementation changes. Responsibilities
-[11:15.550–11:19.660] shouldn't exist inside prompts. They should exist independently of the
-[11:19.660–11:21.000] models that implement them. Architecture should make replacement possible
-[11:21.000–11:24.000] rather than expensive.
-[11:24.000–11:29.100] Building software is only part of the challenge. Someone has to operate
-[11:29.100–11:34.680] it, whether it's configuration, monitoring, diagnostics, deployments,
-[11:34.680–11:37.000] rollback and incident response.
-[11:37.000–11:42.150] These all remain essential. AI native systems introduce new operational
-[11:42.150–11:47.680] concerns. Changing routing policies, disabling models, inspecting
-[11:47.680–11:52.300] reasoning paths, replaying workflows, replacing prompts and comparing
-[11:52.300–11:54.000] evaluation results.
-[11:54.000–12:00.940] As systems scale out, operational complexity increases. Architecture
-[12:00.940–12:07.000] has to balance logical separation with practical operability.
-[12:07.000–12:10.940] Traditional software engineering gives us testing, unit tests,
-[12:10.940–12:14.000] integration, contract and performance tests.
-[12:14.000–12:18.510] These tell us whether the software behaves correctly. Large language
-[12:18.510–12:23.490] models introduce something different. They are probabilistic. The same
-[12:23.490–12:28.150] prompt may produce different but equally valid answers. A workflow may
-[12:28.150–12:31.000] execute perfectly while producing a poor response.
-[12:31.000–12:36.960] Testing is essential but it's no longer sufficient. Machine learning
-[12:36.960–12:42.630] has always relied on evaluation. Rather than asking whether software
-[12:42.630–12:46.000] works, it asks how well the model performs.
-[12:46.000–12:51.610] AI native systems inherit that mindset. We need to ask questions like,
-[12:51.610–12:57.420] was the answer correct? Was it grounded in trusted information? Did the
-[12:57.420–13:02.000] agent choose the right tools? Did it satisfy the user's intent?
-[13:02.000–13:07.960] Was the behavior safe? Was the outcome worth the cost? Testing verifies
-[13:07.960–13:13.760] the implementation, evaluation measures behavior. Both are equally
-[13:13.760–13:15.000] important.
-[13:15.000–13:19.310] Multi-agent systems introduce another level of evaluation. We're no
-[13:19.310–13:23.130] longer evaluating just the final answer. We're evaluating the
-[13:23.130–13:25.000] architecture that produced it.
-[13:25.000–13:29.660] Did the router select the correct agent? Did each agent receive the
-[13:29.660–13:34.250] right context? Did agents duplicate work? Did one introduce incorrect
-[13:34.250–13:39.000] information? Was collaboration actually beneficial?
-[13:39.000–13:47.700] More agents don't automatically produce a better system. They
-[13:47.700–13:57.000] additionally, their additional complexity has to justify as well. The
-[13:57.000–13:57.000] quality of collaboration matters far more than the number of agents
-[13:57.000–13:57.000] involved.
-[13:57.000–14:06.020] One question sits underneath every evaluation framework. What does
-[14:06.020–14:10.000] success actually look like? Traditional software answers that with
-[14:10.000–14:10.000] assertions. Machine learning uses metrics.
-[14:10.000–14:17.500] I believe AI native systems need another layer. Capabilities. A
-[14:17.500–14:25.950] capability describes intent, expected outcomes, policies, constraints
-[14:25.950–14:29.000] and measures of success. Instead of evaluating whether an agent
-[14:29.000–14:29.000] produced a particular sentence, we evaluate whether the capability was
-[14:29.000–14:29.000] successfully delivered.
-[14:29.000–14:33.010] This is one of the motivations behind the declarative capability
-[14:33.010–14:37.700] language, or DCL. By explicitly describing success, we can evaluate
-[14:37.700–14:41.000] outcomes rather than the implementation details.
-[14:41.000–14:46.440] One thing that has become increasingly clear to me while researching AI
-[14:46.440–14:52.510] native systems, the fundamentals haven't changed. Architecture is still
-[14:52.510–14:57.900] about balancing competing system qualities. Security becomes more
-[14:57.900–15:00.740] complex. Observability becomes richer. Reliability becomes more
-[15:00.740–15:01.000] challenging.
-[15:01.000–15:06.040] Scalability extends beyond infrastructure into the architecture of
-[15:06.040–15:11.680] intelligence itself. Testing is complemented by evaluation. We're still
-[15:11.680–15:15.860] solving the same architectural problems. We're simply solving them in
-[15:15.860–15:20.000] systems that can now reason, collaborate and make decisions.
-[15:20.000–15:25.100] Before designing any architecture is worth asking two simple questions.
-[15:25.100–15:29.990] What must the system do? And what properties must the system possess?
-[15:29.990–15:34.000] The first defines functionality, the second shapes the architecture.
-[15:34.000–15:39.100] AI native systems introduce remarkably new capabilities, but they
-[15:39.100–15:44.680] simply don't remove the need for careful architectural thinking. If
-[15:44.680–15:49.460] anything, they make it even more important. In the next episode, I'll
-[15:49.460–15:53.090] step away from discussing system characteristics and explain how I
-[15:53.090–15:56.880] personally approach solution design and how I evolve architecture over
-[15:56.880–15:57.000] time.
-[15:57.000–16:01.620] Rather than presenting a fixed methodology, I'll share the process I
-[16:01.620–16:06.570] follow from understanding the problem through architectural thinking to
-[16:06.570–16:11.000] evolving solution that can adapt as our understanding grows.
+[00:00.000–00:03.800] Hello and welcome back to the Articulate Journal.
+[00:03.800–00:09.360] In the last episode, I explained why Articulate is being designed as an AI-native system
+[00:09.360–00:12.120] and what I meant by AI-native architecture.
+[00:12.120–00:18.480] In this episode, I want to take a step back for a moment and look at something more fundamental.
+[00:18.480–00:22.240] AI-native systems are still systems.
+[00:22.240–00:25.480] Every production system is ultimately judged by the same question.
+[00:25.480–00:27.680] Can people trust it?
+[00:27.680–00:30.720] That's where system characteristics become important.
+[00:30.720–00:33.840] There's a huge amount of excitement around AI at the moment.
+[00:33.840–00:38.440] Every week there's a new model, a new framework or another agent platform promising to change
+[00:38.440–00:40.800] the way we build software.
+[00:40.800–00:46.200] Those advances are genuinely exciting, but we must not forget the fundamentals of software
+[00:46.200–00:50.960] engineering because once a system is in production, no one really cares how clever it is if they
+[00:50.960–00:52.800] can't rely on it.
+[00:52.800–00:57.960] They care whether it's available, whether it's secure, whether it performs well, whether
+[00:57.960–01:03.840] they can trust the answers it produces, whether someone can understand what happened when
+[01:03.840–01:05.200] something goes wrong.
+[01:05.200–01:10.880] In other words, they care about the characteristics of the system.
+[01:10.880–01:13.240] Features make a system useful.
+[01:13.240–01:16.160] Characteristics make it trustworthy.
+[01:16.160–01:21.400] Before we start exploring runtimes, workflows and multi-agent systems, I think it's worth
+[01:21.400–01:25.400] taking a step back and asking a much simpler question.
+[01:25.400–01:29.440] What qualities does every production system need to possess?
+[01:29.440–01:33.320] As architects, we tend to think about software in two dimensions.
+[01:33.320–01:39.240] The first is functionality, as in what does a system do, and the second is characteristics.
+[01:39.240–01:41.360] How well does it do it?
+[01:41.360–01:46.080] One thing that's always fascinated me about architecture is that we rarely choose patterns
+[01:46.080–01:47.600] for our own sake.
+[01:47.600–01:50.680] We don't choose CQRS because it's fashionable.
+[01:50.680–01:53.800] We don't choose event-sourcing because it's interesting.
+[01:53.800–01:58.960] We don't introduce durable workflows, simply because the technology exists.
+[01:58.960–02:03.200] We choose architecture approaches because they improve characteristics that matter for
+[02:03.200–02:05.840] the problem we're trying to solve.
+[02:05.840–02:09.680] Every architectural decision is really a trade-off.
+[02:09.680–02:13.920] Improve one characteristic and another may become more difficult.
+[02:13.920–02:19.600] Caching improves performance, but introduces consistency challenges.
+[02:19.600–02:26.280] Creating a system improves scalability while making observability and reliability harder.
+[02:26.280–02:32.240] Adding autonomous agents may increase flexibility, but reduce predictability.
+[02:32.240–02:35.600] Architecture has never been about finding the perfect design.
+[02:35.600–02:39.000] It's about deciding which trade-offs are appropriate.
+[02:39.000–02:42.160] So let's look at some of those characteristics that matter.
+[02:42.160–02:45.160] The first is trust.
+[02:45.160–02:48.640] Trust has always been fundamental to software.
+[02:48.640–02:55.080] Users expect systems to protect their information, respect permissions, record important
+[02:55.080–02:57.920] actions and behave safely.
+[02:57.920–03:01.640] AI-native systems introduce new questions.
+[03:01.640–03:04.840] Which models are allowed to access this information?
+[03:04.840–03:07.760] Which tools can an agent invoke?
+[03:07.760–03:11.480] Can retrieved information cross security boundaries?
+[03:11.480–03:14.920] Can we explain why a particular answer was produced?
+[03:14.920–03:19.720] Can an agent perform an action without human approval?
+[03:19.720–03:24.920] Security is no longer about protecting APIs and databases, it's about protecting the intelligence
+[03:24.920–03:28.280] operating inside the system.
+[03:28.280–03:33.520] Being capable of doing something is not the same as being authorised to do it.
+[03:33.520–03:35.400] Next comes reliability.
+[03:35.400–03:39.480] Eventually, every production system experiences failure.
+[03:39.480–03:46.800] A model provider becomes unavailable. A retrieval service times out. A tool fails.
+[03:46.800–03:49.760] A workflow is interrupted.
+[03:49.760–03:54.320] Reliability isn't about pretending those failures won't happen, it's about deciding
+[03:54.320–03:57.600] what the system should do when they inevitably do.
+[03:57.600–03:58.600] Can we retry?
+[03:58.600–04:01.680] Can we continue using another model?
+[04:01.680–04:04.280] Can it pause safely and resume later?
+[04:04.280–04:06.320] Can it ask a human for help?
+[04:06.320–04:10.320] Or can it preserve enough state to continue without starting again?
+[04:10.320–04:16.080] That's what users experience as reliability.
+[04:16.080–04:20.680] Performance is another characteristic that becomes increasingly interesting in AI native
+[04:20.680–04:21.680] systems.
+[04:21.680–04:24.800] Traditionally, we measured things like latency and throughput.
+[04:24.800–04:31.840] Those still matter, but AI systems also introduce perceived performance.
+[04:31.840–04:35.960] Streaming a response often feels much faster than waiting several seconds before anything
+[04:35.960–04:36.960] appears.
+[04:36.960–04:42.520] At the same time, reasoning itself has become part of the execution path.
+[04:42.520–04:47.960] Retrieval, calling tools, validation and model inference all contribute to the overall
+[04:47.960–04:50.000] experience.
+[04:50.000–04:55.400] Optimizing one stage doesn't necessarily make the system feel faster, and performance always
+[04:55.400–04:59.200] needs to be considered alongside cost.
+[04:59.200–05:03.040] Sometimes a larger model is worth using, sometimes a smaller model is more than good
+[05:03.040–05:05.640] enough.
+[05:05.640–05:07.720] Scalability has also changed.
+[05:07.720–05:11.160] Cloud native systems taught us how to scale infrastructure.
+[05:11.160–05:14.480] AI-native systems introduce another question.
+[05:14.480–05:16.960] How do we scale intelligence?
+[05:16.960–05:21.080] One option is to build a single increasingly capable agent.
+[05:21.080–05:26.840] Give it more tools, more memory, a larger context, a more capable model.
+[05:26.840–05:32.520] At first, this seems attractive because everything happens in one place, but eventually the context
+[05:32.520–05:37.800] grows, the prompt becomes more complicated, tool selection becomes harder, and the agent
+[05:37.800–05:42.760] spends more effort managing its own knowledge than solving the problem.
+[05:42.760–05:45.040] The alternative is to scale out.
+[05:45.040–05:49.600] Instead of one larger agent, we create several specialized ones.
+[05:49.600–05:54.600] Each has a focused responsibility, a smaller context and a clearer purpose.
+[05:54.600–06:00.560] That often improves clarity and isolation, but it introduces another kind of complexity.
+[06:00.560–06:05.320] Now the architecture has to decide which agent should receive the request.
+[06:05.320–06:11.720] How context is transferred, how work is coordinated, how failures are recovered, and how reasoning
+[06:11.720–06:13.940] is observed across multiple agents.
+[06:13.940–06:19.840] In other words, scale out moves complexity from inside the agent into the architecture
+[06:19.840–06:21.400] itself.
+[06:21.400–06:23.880] Neither approach is automatically right.
+[06:23.880–06:28.280] Just as with microservices, the goal isn't to create the biggest component or the greatest
+[06:28.280–06:30.080] number of components.
+[06:30.080–06:36.540] The goal is to place complexity where it can be understood and managed.
+[06:36.540–06:42.840] That leads to a principle I've started using throughout Articulate, coherence before size.
+[06:42.840–06:45.300] An agent should remain coherent.
+[06:45.300–06:50.240] Its responsibilities, tools, and contexts should naturally belong together.
+[06:50.240–06:54.960] Splitting an agent simply because smaller agents appear more sophisticated usually creates
+[06:54.960–06:57.360] more problems than it solves.
+[06:57.360–07:03.040] Observability becomes even more important once intelligence becomes part of the runtime.
+[07:03.040–07:05.880] Traditional systems give us logs, metrics and traces.
+[07:05.880–07:12.360] AI-native systems also need us to understand prompts, retrieved knowledge, routing decisions, tools
+[07:12.360–07:18.980] that have been called, reasoning paths, confidence, and evaluation results.
+[07:18.980–07:23.440] When an answer is wrong, knowing that one service called another isn't enough.
+[07:23.440–07:27.640] We also need to understand why that decision was made.
+[07:27.640–07:33.440] Another characteristic that becomes increasingly important is evolvability.
+[07:33.440–07:35.000] Models will change.
+[07:35.000–07:37.080] Prompt strategies will change.
+[07:37.080–07:38.720] Frameworks will change.
+[07:38.720–07:43.840] The architecture shouldn't depend on today's implementation choices.
+[07:43.840–07:48.120] Responsibilities should remain understandable even if tomorrow's runtime looks completely
+[07:48.120–07:50.720] different.
+[07:50.720–07:53.120] Operability matters for the same reason.
+[07:53.120–07:55.680] Someone has to support these systems.
+[07:55.680–08:00.680] Operators may need to disable a model, change routing policies, inspect a reasoning path,
+[08:00.680–08:03.280] or replay a failed execution.
+[08:03.280–08:09.040] An elegant architecture that can't be operated effectively rarely succeeds.
+[08:09.040–08:14.440] Finally, there's one characteristic that I think AI-native systems have brought much
+[08:14.440–08:18.760] more clearly into focus, evaluation.
+[08:18.760–08:25.760] Traditional software engineering gives us testing: unit tests, integration tests and performance tests,
+[08:25.760–08:26.760] etc.
+[08:26.760–08:33.360] Those remain essential, but AI systems introduce probabilistic behavior.
+[08:33.360–08:38.200] A workflow can complete successfully and still produce a poor answer.
+[08:38.200–08:41.600] The software worked, the behavior didn't.
+[08:41.600–08:47.440] Testing tells us whether the implementation functions correctly.
+[08:47.440–08:52.920] Evaluation tells us whether the system actually achieved its intended outcome.
+[08:52.920–08:58.640] I think evaluation will become one of the defining characteristics for AI-native systems,
+[08:58.640–09:03.640] not because testing becomes less important, but because trustworthy behavior becomes just
+[09:03.640–09:06.680] as important as correct execution.
+[09:06.680–09:11.040] Ultimately, that's what this episode is really about.
+[09:11.040–09:16.760] AI-native systems introduce new technologies, new runtimes, and new patterns.
+[09:16.760–09:23.360] But they don't replace the foundations of software architecture. They build upon them.
+[09:23.360–09:26.440] Remember: AI-native systems are still systems.
+[09:26.440–09:32.480] They're judged by their reliability, their security, their scalability, their observability,
+[09:32.480–09:35.400] and above all, whether people can trust them.
+[09:35.400–09:40.480] Those characteristics don't become less important because intelligence has entered the architecture.
+[09:40.480–09:42.760] They become even more important.
+[09:42.760–09:48.080] In the next episode, we'll build on these ideas by looking at the architectural principles
+[09:48.080–09:52.680] that are beginning to shape Articulate, and why thinking in terms of capabilities rather
+[09:52.680–09:57.280] than components provides a stronger foundation for building AI-native systems.

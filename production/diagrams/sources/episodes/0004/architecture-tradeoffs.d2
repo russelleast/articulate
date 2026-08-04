@@ -1,0 +1,35 @@
+...@../../../styles/articulate
+direction: right
+
+decision: "Architecture decision" { class: decision }
+
+cache: {
+  direction: down
+  choice: "Caching" { class: service }
+  gain: "Performance" { class: quality }
+  cost: "Consistency" { class: constraint }
+  choice -> gain: improves
+  choice -> cost: complicates
+}
+
+distribution: {
+  direction: down
+  choice: "Distribution" { class: service }
+  gain: "Scalability" { class: quality }
+  cost: "Reliability + observability" { class: constraint }
+  choice -> gain: improves
+  choice -> cost: complicates
+}
+
+agents: {
+  direction: down
+  choice: "Autonomous agents" { class: agent }
+  gain: "Flexibility" { class: quality }
+  cost: "Predictability" { class: constraint }
+  choice -> gain: improves
+  choice -> cost: reduces
+}
+
+decision -> cache.choice: selects
+decision -> distribution.choice: selects
+decision -> agents.choice: selects

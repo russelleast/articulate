@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0004",
+    "eyebrow": "FEATURES AREN'T ENOUGH",
+    "headline": ["AI-NATIVE SYSTEMS", "ARE STILL SYSTEMS"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep4-narrator.mov",
+    "frameTimestampSeconds": 390,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}

@@ -99,7 +99,7 @@ function presenterFocusSceneSvg(scene, episode, output, grammar, state) {
   <rect width="1920" height="1080" fill="url(#studio-grid)"/>
   <ellipse cx="1120" cy="560" rx="850" ry="520" fill="url(#focus-light)"/>
   <text x="72" y="72" font-size="21" font-weight="650" fill="#d8e1e4" letter-spacing="4">ARTICULATE</text>
-  <text x="72" y="103" font-size="14" fill="#8eabb8" letter-spacing="2">FOCUS CANVAS</text>
+  <text x="72" y="103" font-size="14" fill="#8eabb8" letter-spacing="2">NARRATOR</text>
   ${headline}${support}${connectors}${items}
   <text x="72" y="1030" font-size="17" fill="#8eabb8">ARTICULATE JOURNAL</text>
   <text x="1848" y="1030" text-anchor="end" font-size="17" fill="#8eabb8">${xml(episode.title)} · ${episodeLabel(episode.id)}</text>
@@ -190,10 +190,19 @@ function presenterEvidenceComposition(scene, bounds, state) {
   const shell = `<rect x="${bounds.x}" y="${bounds.y}" width="${bounds.width}" height="${bounds.height}" rx="34" fill="url(#presenter-canvas)" stroke="#314650" stroke-width="2"/>`;
   const headline = element("headline", textBlock(elementText(scene, "headline", state), { x: bounds.x + 100, y: bounds.y + 125, width: bounds.width - 200 }, { fontSize: 68, weight: 720, maxLines: 2, lineHeight: 1.05, fill: "#eef2f1" }, `${scene.id} evidence headline`), state);
   const support = element("support", textBlock(elementText(scene, "support", state), { x: bounds.x + 104, y: bounds.y + 275, width: bounds.width - 208 }, { fontSize: 31, weight: 430, maxLines: 2, fill: "#92b2c0" }, `${scene.id} evidence support`), state);
+  const itemCount = Math.max(1, scene.items?.length ?? 0);
+  const itemRegion = {
+    top: bounds.y + 360,
+    bottom: bounds.y + bounds.height - 36
+  };
+  const gap = itemCount >= 5 ? 12 : 14;
+  const itemHeight = Math.min(88, (itemRegion.bottom - itemRegion.top - gap * (itemCount - 1)) / itemCount);
+  const groupHeight = itemHeight * itemCount + gap * (itemCount - 1);
+  const groupTop = itemRegion.top + (itemRegion.bottom - itemRegion.top - groupHeight) / 2;
   const items = (scene.items ?? []).map((item, index) => {
-    const box = { x: bounds.x + 170, y: bounds.y + 400 + index * 125, width: bounds.width - 340, height: 88 };
+    const box = { x: bounds.x + 170, y: groupTop + index * (itemHeight + gap), width: bounds.width - 340, height: itemHeight };
     const id = `item-${index + 1}`;
-    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="44" fill="${index === 2 ? "#38261f" : "#1d313a"}" stroke="${index === 2 ? "#b76c4d" : "#597785"}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 44, 10), { fontSize: 29, weight: 650, maxLines: 2, align: "middle", fill: "#edf1f0" }, `${scene.id} evidence item ${index + 1}`)}`, state);
+    return element(id, `<rect data-evidence-option="${index + 1}" x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="${box.height / 2}" fill="${index === 2 ? "#38261f" : "#1d313a"}" stroke="${index === 2 ? "#b76c4d" : "#597785"}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 44, 8), { fontSize: itemCount >= 5 ? 25 : 29, weight: 650, maxLines: 2, align: "middle", fill: "#edf1f0" }, `${scene.id} evidence item ${index + 1}`)}`, state);
   }).join("");
   return `${shell}${headline}${support}${items}`;
 }
@@ -205,12 +214,12 @@ function presenterRepositoryComposition(scene, bounds, state) {
   const support = element("support", textBlock(elementText(scene, "support", state), { x: bounds.x + 94, y: bounds.y + 280, width: bounds.width - 188 }, { fontSize: 28, weight: 430, maxLines: 2, fill: "#8fb0c0" }, `${scene.id} repository support`), state);
   const paths = (scene.items ?? []).map((item, index) => {
     const id = `item-${index + 1}`;
-    const box = { x: bounds.x + 90, y: bounds.y + 380 + index * 92, width: 520, height: 68 };
-    return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="12" fill="#14242c" stroke="#314650"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 22, 8), { fontSize: 22, weight: 550, maxLines: 1, fill: "#d5dfe2" }, `${scene.id} repository path`)}`, state);
+    const box = { x: bounds.x + 90, y: bounds.y + 380 + index * 92, width: 650, height: 68 };
+    return element(id, `<rect data-repository-path="${index + 1}" x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="12" fill="#14242c" stroke="#314650"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 22, 8), { fontSize: 20, weight: 550, maxLines: 1, fill: "#d5dfe2" }, `${scene.id} repository path`)}`, state);
   }).join("");
   const evidence = excerpt.map((line, index) => {
     const id = `evidence-${index + 1}`;
-    const box = { x: bounds.x + 680, y: bounds.y + 380 + index * 92, width: bounds.width - 770, height: 68 };
+    const box = { x: bounds.x + 780, y: bounds.y + 380 + index * 92, width: bounds.width - 870, height: 68 };
     return element(id, `<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="12" fill="#172a33" stroke="#3c5865"/><rect x="${box.x}" y="${box.y}" width="7" height="${box.height}" rx="4" fill="#55798b"/>${centredTextBlock(elementText(scene, id, state, line), insetBox(box, 26, 8), { fontSize: 22, weight: 520, maxLines: 2, fill: "#dce5e7" }, `${scene.id} repository evidence`)}`, state);
   }).join("");
   return `${shell}${headline}${support}${paths}${evidence}`;

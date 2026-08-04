@@ -1,0 +1,34 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam defaultFontColor #17232D
+skinparam ArrowColor #49677C
+skinparam ActivityStartColor #49677C
+skinparam ActivityEndColor #49677C
+skinparam activity {
+  BackgroundColor #E8EDF2
+  BorderColor #49677C
+  FontColor #17232D
+  DiamondBackgroundColor #EAD8CD
+  DiamondBorderColor #85543B
+}
+
+start
+:Model, retrieval, tool\nor workflow fails;
+if (Can execution continue safely?) then (yes)
+  fork
+    :Retry;
+  fork again
+    :Use another model;
+  fork again
+    :Resume from state;
+  end fork
+else (no)
+  :Pause safely;
+  :Ask a human;
+endif
+:Preserve a trustworthy outcome;
+stop
+@enduml

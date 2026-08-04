@@ -229,8 +229,49 @@ test("presenter-focus retains the full-frame dark Focus Canvas without a light c
   };
   scene.presentation = resolveScenePresentation(scene, presenterGrammar);
   const svg = renderSceneSvg(scene, { id: "episode-0000", title: "Welcome" }, { width: 1920, height: 1080 }, "", presenterGrammar);
-  assert.match(svg, /FOCUS CANVAS/);
+  assert.match(svg, /NARRATOR/);
   assert.match(svg, /Architecture is continuous/);
   assert.match(svg, />learning</);
   assert.doesNotMatch(svg, /WHITEBOARD|ARCHITECTURAL STUDIO|f6f2e9|Companion/);
+});
+
+test("presenter Evidence options adapt to the available canvas height", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-PRESENTER-EVIDENCE",
+    kind: "presenter-evidence",
+    transition: "cut",
+    headline: "Production changes the question",
+    support: "Features make a system useful. Characteristics make it trustworthy.",
+    items: ["Available", "Secure", "Performant", "Explainable", "Trustworthy"],
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0004", title: "AI-Native Systems Are Still Systems" }, { width: 1920, height: 1080 }, "", presenterGrammar);
+  const options = [...svg.matchAll(/data-evidence-option="\d+" x="[^"]+" y="([^"]+)" width="[^"]+" height="([^"]+)"/g)];
+  assert.equal(options.length, 5);
+  const lastBottom = Number(options.at(-1)[1]) + Number(options.at(-1)[2]);
+  assert.ok(lastBottom <= 934, `last Evidence option ends at ${lastBottom}`);
+});
+
+test("presenter Repository gives long source paths enough horizontal space", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-PRESENTER-REPOSITORY",
+    kind: "presenter-repository",
+    transition: "cut",
+    headline: "Coherence Before Size",
+    support: "Split only when responsibilities stop belonging together.",
+    items: ["site/src/content/principles/coherence-before-size.md", "Architectural principle"],
+    evidence: { excerpt: ["Responsibilities · tools · context", "Boundaries introduce routing · trust · failure"] },
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0004", title: "AI-Native Systems Are Still Systems" }, { width: 1920, height: 1080 }, "", presenterGrammar);
+  assert.match(svg, /data-repository-path="1" x="202" y="512" width="650"/);
+  assert.match(svg, /site\/src\/content\/principles\/coherence-before-size\.md/);
 });

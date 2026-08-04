@@ -1,0 +1,11 @@
+...@../../../styles/articulate
+direction: right
+
+system: "Production system" { class: service }
+functionality: "What it does" { class: capability }
+characteristics: "How well it does it" { class: quality }
+trust: "Can people trust it?" { class: principle }
+
+system -> functionality: useful
+system -> characteristics: trustworthy
+characteristics -> trust: determines
