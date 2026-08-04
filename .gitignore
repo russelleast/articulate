@@ -49,6 +49,8 @@ site/node_modules/
 site/dist/
 site/.astro/
 site/.playwright-cli/
+site/.lighthouseci/
+site/reports/
 # Episode thumbnails are staged from canonical production assets before site commands.
 site/public/media/episodes/*/
 

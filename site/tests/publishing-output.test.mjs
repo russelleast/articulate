@@ -40,7 +40,7 @@ test("episode metadata and JSON-LD come from episode front matter", async () => 
   assert.match(html, /data-series="foundations"/);
 
   const data = jsonLdFrom(html);
-  const article = data.find((entry) => entry["@type"] === "Article");
+  const article = data.find((entry) => ["Article", "TechArticle"].includes(entry["@type"]));
   assert.equal(article.headline, "Why AI-Native Systems?");
   assert.deepEqual(article.keywords, ["ai-native-architecture", "agentic-systems", "intelligent-runtime"]);
 });

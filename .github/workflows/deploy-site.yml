@@ -1,6 +1,16 @@
 name: Deploy site to GitHub Pages
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "docs/adrs/**"
+      - "docs/episodes/**"
+      - "production/assets/registry.yaml"
+      - "production/diagrams/**"
+      - "production/episodes/*/publication/thumbnail/*.png"
+      - ".github/workflows/deploy-site.yml"
   push:
     branches: [main]
     paths:
@@ -45,6 +55,11 @@ jobs:
       - name: Check
         run: npm run check
 
+      - name: Validate source SEO metadata
+        id: source-seo
+        continue-on-error: true
+        run: npm run validate:seo:source
+
       - name: Build
         run: npm run build
         env:
@@ -53,7 +68,50 @@ jobs:
           PUBLIC_ANALYTICS_SCRIPT_URL: ${{ vars.PUBLIC_ANALYTICS_SCRIPT_URL }}
           PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
 
-      - name: Upload artifact
+      - name: Validate generated SEO, sitemap, robots, links and assets
+        id: output-seo
+        if: always()
+        continue-on-error: true
+        run: npm run validate:seo:build
+
+      - name: Test
+        if: ${{ success() || steps.output-seo.outcome == 'failure' }}
+        run: npm test
+
+      - name: Lighthouse baseline
+        if: always()
+        continue-on-error: true
+        run: npm run lighthouse:seo
+
+      - name: Publish SEO workflow summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f reports/seo-report.md ]]; then
+            cat reports/seo-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "# SEO validation report unavailable" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload SEO and Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-report-${{ github.run_id }}
+          path: site/reports
+          if-no-files-found: warn
+
+      - name: Enforce deterministic SEO validation
+        if: always()
+        shell: bash
+        run: |
+          if [[ "${{ steps.source-seo.outcome }}" != "success" || "${{ steps.output-seo.outcome }}" != "success" ]]; then
+            echo "Deterministic SEO validation failed. Review the SEO report artifact and workflow summary."
+            exit 1
+          fi
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
@@ -64,6 +122,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    if: github.event_name != 'pull_request'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

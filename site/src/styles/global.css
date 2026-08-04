@@ -165,19 +165,18 @@ main {
 h1,
 h2,
 h3 {
+  font-family: inherit;
   line-height: 1.1;
   margin: 0;
 }
 
 h1 {
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.1rem, 5vw, 3.6rem);
   font-weight: 520;
   max-width: 16ch;
 }
 
 h2 {
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.45rem, 3vw, 2.25rem);
   font-weight: 520;
 }
@@ -307,7 +306,6 @@ h3 {
 }
 
 .latest-episode-preview h3 {
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.25rem;
   font-weight: 520;
   margin-top: 0.65rem;
@@ -584,7 +582,6 @@ h3 {
 }
 
 .episode-card h3 {
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.35rem;
   font-weight: 520;
   line-height: 1.2;

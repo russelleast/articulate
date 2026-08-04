@@ -29,6 +29,7 @@ const relatedEpisodes = episodes
   title={`${decision.data.id.toUpperCase()} — ${decision.data.title}`}
   description={decision.data.summary}
   type="article"
+  structuredType="TechArticle"
   article={decision.data.decided ? { published: decision.data.decided, tags: decision.data.topics } : undefined}
   breadcrumbs={[
     { name: "Decisions", path: "/decisions/" },
