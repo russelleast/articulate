@@ -1,0 +1,15 @@
+...@../../../styles/articulate
+direction: right
+
+discovery: "Discovery" { class: capability }
+conversation: "Conversation" { class: capability }
+impact: "Impact analysis" { class: capability }
+decisions: "Architecture decisions" { class: decision }
+agents: "Future agents" { class: agent }
+model: "Knowledge Model\nOne shared understanding" { class: system }
+
+discovery -> model: contributes
+conversation -> model: retrieves
+impact -> model: reasons over
+decisions -> model: becomes part of
+agents -> model: uses as context

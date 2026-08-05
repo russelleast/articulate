@@ -1,0 +1,27 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam defaultFontColor #17232D
+skinparam ArrowColor #49677C
+skinparam activity {
+  BackgroundColor #E8EDF2
+  BorderColor #49677C
+  FontColor #17232D
+  DiamondBackgroundColor #EAD8CD
+  DiamondBorderColor #85543B
+}
+
+start
+:Claim;
+:Evaluate new evidence;
+if (Evidence agrees?) then (yes)
+  :Strengthen confidence;
+else (no)
+  :Challenge the claim;
+endif
+:Update temporal status;
+:Understanding evolves;
+stop
+@enduml

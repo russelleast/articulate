@@ -1,0 +1,187 @@
+{
+  "episode": {
+    "id": "episode-0007",
+    "title": "The Knowledge Model",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0007-presenter-v1",
+    "narration_duration_seconds": 1023.139312
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 50,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 50,
+      "end_seconds": 79.25,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 79.25,
+      "end_seconds": 103.25,
+      "visual_type": "Repository",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 103.25,
+      "end_seconds": 165.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-architectural-knowledge-journey"
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 165.25,
+      "end_seconds": 239.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-architectural-information"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 239.25,
+      "end_seconds": 296.03,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-information-vs-knowledge"
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 296.03,
+      "end_seconds": 332.19,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 332.19,
+      "end_seconds": 380.25,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 380.25,
+      "end_seconds": 417.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-claim-anatomy"
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 417.25,
+      "end_seconds": 451.19,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-claim-evolution"
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 451.19,
+      "end_seconds": 496,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-information-to-knowledge"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 496,
+      "end_seconds": 568.01,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-reasoning-context"
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 568.01,
+      "end_seconds": 634.24,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-model-vs-graph"
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 634.24,
+      "end_seconds": 663.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-knowledge-model"
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 663.25,
+      "end_seconds": 687.36,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-knowledge-model-evolution"
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 687.36,
+      "end_seconds": 741.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-shared-knowledge-model"
+    },
+    {
+      "scene_id": "S017",
+      "start_seconds": 741.25,
+      "end_seconds": 824.19,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-knowledge-api"
+    },
+    {
+      "scene_id": "S018",
+      "start_seconds": 824.19,
+      "end_seconds": 848.19,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S019",
+      "start_seconds": 848.19,
+      "end_seconds": 904,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-architectural-intelligence"
+    },
+    {
+      "scene_id": "S020",
+      "start_seconds": 904,
+      "end_seconds": 954.25,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S021",
+      "start_seconds": 954.25,
+      "end_seconds": 977.2,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S022",
+      "start_seconds": 977.2,
+      "end_seconds": 1023.139,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

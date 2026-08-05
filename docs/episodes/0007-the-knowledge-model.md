@@ -19,6 +19,9 @@ repository_paths:
 - docs/episodes/0007-the-knowledge-model.md
 - production/diagrams/sources/episodes/0007/architectural-domains.d2
 - production/diagrams/sources/knowledge/knowledge-graph-example.d2
+thumbnail: /media/episodes/0007/episode-0007-thumbnail.png
+thumbnail_alt: "Presenter beside the words The Knowledge Model and a diagram connecting structure, principles, decisions and claims to shared architectural understanding."
+youtube_url: https://youtu.be/Eac5D5SdHCA
 ---
 
 # Episode 7 – The Knowledge Model: What Is Architectural Knowledge?

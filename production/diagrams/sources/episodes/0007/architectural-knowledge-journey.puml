@@ -1,0 +1,18 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 22
+skinparam defaultFontColor #17232D
+skinparam ArrowColor #49677C
+skinparam activity {
+  BackgroundColor #E8EDF2
+  BorderColor #49677C
+  FontColor #17232D
+}
+
+:Documents;
+:Information;
+:Understanding;
+:Knowledge;
+@enduml

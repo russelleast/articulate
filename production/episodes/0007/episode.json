@@ -1,0 +1,913 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0007",
+    "title": "The Knowledge Model",
+    "journalSource": "docs/episodes/0007-the-knowledge-model.md",
+    "narrativeSource": "production/episodes/0007/narrative.md",
+    "storyboard": "production/episodes/0007/storyboard.yaml",
+    "timingMarkers": "production/episodes/0007/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0007/asset-register.yaml",
+    "scenePlan": "production/episodes/0007/scene-plan.yaml",
+    "timeline": "production/episodes/0007/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0007-presenter-v1",
+    "expectedSha256": "9dd811460c2a90f797eb64b5798da5ae7c866a254c183b4ad4a698600d68699c",
+    "expectedDurationSeconds": 1023.139312,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 1023.139312,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 12
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0007/output/episode-0007-final.mp4",
+    "generatedDirectory": "production/episodes/0007/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0007/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0007/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "The Knowledge Model",
+      "kind": "presenter-focus",
+      "headline": "The Knowledge Model",
+      "support": "Representing architecture as knowledge",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "title",
+            "at": 40.36,
+            "action": "emphasize",
+            "target": "headline",
+            "sourcePhrase": "conceptual data model"
+          },
+          {
+            "id": "question",
+            "at": 42.46,
+            "action": "emphasize",
+            "target": "support",
+            "sourcePhrase": "architectural knowledge"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Opening",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "What is architectural knowledge?",
+      "kind": "presenter-focus",
+      "headline": "What is architectural knowledge?",
+      "support": "The artefacts are not the understanding.",
+      "items": [
+        "Diagrams",
+        "Documents",
+        "ADRs",
+        "Source code"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "diagram",
+            "at": 8.28,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "diagrams"
+          },
+          {
+            "id": "documents",
+            "at": 8.55,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "documents"
+          },
+          {
+            "id": "adrs",
+            "at": 10.03,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "Architecture Decision Records"
+          },
+          {
+            "id": "source",
+            "at": 12.07,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "source code"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "What Is Architectural Knowledge?",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "Access is not understanding",
+      "kind": "presenter-repository",
+      "headline": "Access is not understanding",
+      "support": "A repository gives us information—not knowledge.",
+      "items": [
+        "production/episodes/0007/narrative.md",
+        "production/diagrams/sources/episodes/0007/knowledge-model.d2",
+        "production/diagrams/sources/episodes/0007/knowledge-model.svg"
+      ],
+      "evidence": {
+        "excerpt": [
+          "Dozens of diagrams · hundreds of pages",
+          "ADRs · wikis · slide decks · design reviews"
+        ]
+      },
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "narrative-source",
+            "at": 4.36,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "architecture repository"
+          },
+          {
+            "id": "diagram-source",
+            "at": 7.78,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "diagrams"
+          },
+          {
+            "id": "generated-svg",
+            "at": 9.59,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "documentation"
+          },
+          {
+            "id": "repository-volume",
+            "at": 17.78,
+            "action": "reveal",
+            "target": "evidence-1",
+            "sourcePhrase": "huge amount of information"
+          },
+          {
+            "id": "understanding-question",
+            "at": 20.18,
+            "action": "reveal",
+            "target": "evidence-2",
+            "sourcePhrase": "understand the architecture"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Repository Is Information",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Understanding connects the artefacts",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-architectural-knowledge-journey",
+      "headline": "Understanding connects the artefacts",
+      "support": "Documents → Information → Understanding → Knowledge",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Connecting Understanding",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Architecture contains many kinds of information",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-architectural-information",
+      "headline": "Architecture contains many kinds of information",
+      "support": "Structure is only part of the picture.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Information Within an Architecture",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "Connections create context",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-information-vs-knowledge",
+      "headline": "Connections create context",
+      "support": "Isolated facts become a connected understanding.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Information Versus Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "Knowledge is information combined with thinking.",
+      "kind": "presenter-focus",
+      "headline": "Knowledge is information combined with thinking.",
+      "support": "The goal is a model that captures understanding.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge Is Information Combined With Thinking",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "Claims are first-class architectural objects",
+      "kind": "presenter-evidence",
+      "headline": "Claims are first-class architectural objects",
+      "support": "A claim is an assertion about the architecture.",
+      "items": [
+        "Order service uses PostgreSQL",
+        "Checkout requires high availability",
+        "Product API has three consumers",
+        "ADR 0016 improves resilience"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "claim-postgres",
+            "at": 17.42,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Order service uses PostgreSQL"
+          },
+          {
+            "id": "claim-availability",
+            "at": 20.82,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Checkout capability requires high availability"
+          },
+          {
+            "id": "claim-consumers",
+            "at": 25.86,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "three downstream systems"
+          },
+          {
+            "id": "claim-adr",
+            "at": 31.74,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "decision 16 was made to improve resilience"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Claims",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "A claim carries its context",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-claim-anatomy",
+      "headline": "A claim carries its context",
+      "support": "Source · confidence · evidence · temporal status",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Claim Context",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "Evidence changes what we understand",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-claim-evolution",
+      "headline": "Evidence changes what we understand",
+      "support": "Strengthen, challenge and evolve—without hiding uncertainty.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Claims Evolve",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Connected claims still need reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-information-to-knowledge",
+      "headline": "Connected claims still need reasoning",
+      "support": "Information → Connected claims → Reasoning → Knowledge",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "From Information to Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Reasoning interprets significance",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-reasoning-context",
+      "headline": "Reasoning interprets significance",
+      "support": "Context turns observations into architectural understanding.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reasoning Creates Understanding",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Knowledge Model ≠ Knowledge Graph",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-model-vs-graph",
+      "headline": "Knowledge Model ≠ Knowledge Graph",
+      "support": "Conceptual architecture first. Implementation options later.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge Model, Not Knowledge Graph",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "The Knowledge Model",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-knowledge-model",
+      "headline": "The Knowledge Model",
+      "support": "The central model of architectural understanding.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Knowledge Model",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "Understanding evolves with the architecture",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-knowledge-model-evolution",
+      "headline": "Understanding evolves with the architecture",
+      "support": "New information makes the shared model richer over time.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Model Evolves",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "One shared understanding",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-shared-knowledge-model",
+      "headline": "One shared understanding",
+      "support": "Every capability contributes to or reasons over the same model.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "One Shared Understanding",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "title": "The Knowledge API is the gateway",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-knowledge-api",
+      "headline": "The Knowledge API is the gateway",
+      "support": "Capabilities interact with knowledge—not storage technology.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Knowledge API",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S018",
+      "title": "One model. One consistent interface.",
+      "kind": "presenter-focus",
+      "headline": "One model. One consistent interface.",
+      "support": "The implementation can evolve without changing the architecture above it.",
+      "items": [
+        "New queries",
+        "New reasoning",
+        "Richer model"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "queries",
+            "at": 5.04,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "New ways of querying knowledge"
+          },
+          {
+            "id": "reasoning",
+            "at": 8.01,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "New reasoning capabilities"
+          },
+          {
+            "id": "richer",
+            "at": 11.06,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "model itself will become richer"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "One Consistent Interface",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S019",
+      "title": "Towards Architectural Intelligence",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-architectural-intelligence",
+      "headline": "Towards Architectural Intelligence",
+      "support": "Information → Knowledge Model → Reasoning → Intelligence",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Intelligence",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S020",
+      "title": "AI supports judgement. Architects remain accountable.",
+      "kind": "presenter-evidence",
+      "headline": "AI supports judgement. Architects remain accountable.",
+      "support": "The role of AI is to help build understanding.",
+      "items": [
+        "Connect ideas",
+        "Surface relationships",
+        "Identify contradictions",
+        "Explain consequences"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "connect-ideas",
+            "at": 16.25,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "connect ideas"
+          },
+          {
+            "id": "surface",
+            "at": 21.03,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "surface relationships"
+          },
+          {
+            "id": "contradictions",
+            "at": 22.03,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "identify contradictions"
+          },
+          {
+            "id": "consequences",
+            "at": 24.55,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "consequences of change"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "AI Supports Architectural Judgement",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S021",
+      "title": "From information to Architectural Intelligence",
+      "kind": "presenter-focus",
+      "headline": "From information to Architectural Intelligence",
+      "support": "The Knowledge Model is the conceptual foundation.",
+      "items": [
+        "Information",
+        "Connected claims",
+        "Knowledge Model",
+        "Architectural Intelligence"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "information",
+            "at": 11.09,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "architectural information"
+          },
+          {
+            "id": "claims",
+            "at": 17.16,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "connected claims"
+          },
+          {
+            "id": "model",
+            "at": 18.42,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "Knowledge Model"
+          },
+          {
+            "id": "intelligence",
+            "at": 11.09,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "Architectural Intelligence"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Conceptual Journey",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S022",
+      "title": "How does AI reason over the Knowledge Model?",
+      "kind": "presenter-focus",
+      "headline": "How does AI reason over the Knowledge Model?",
+      "support": "Next · Retrieval, relationships and structured reasoning",
+      "items": [
+        "Semantic search",
+        "Relationship traversal",
+        "Structured queries"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "semantic",
+            "at": 12.54,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "semantic search"
+          },
+          {
+            "id": "relationships",
+            "at": 15.24,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "traversing relationships"
+          },
+          {
+            "id": "structured",
+            "at": 18.37,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "structured queries"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Looking Ahead",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

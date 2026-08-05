@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 1023.139312,
+  "selectedDurationSeconds": 1023.139312,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 50,
+      "narrationReference": "Opening · N001-N006"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 50,
+      "endSeconds": 79.25,
+      "narrationReference": "What Is Architectural Knowledge? · N007-N012"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 79.25,
+      "endSeconds": 103.25,
+      "narrationReference": "A Repository Is Information · N013-N023"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 103.25,
+      "endSeconds": 165.25,
+      "narrationReference": "Connecting Understanding · N024-N038"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 165.25,
+      "endSeconds": 239.25,
+      "narrationReference": "Information Within an Architecture · N039-N065"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 239.25,
+      "endSeconds": 296.03,
+      "narrationReference": "Information Versus Knowledge · N066-N077"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 296.03,
+      "endSeconds": 332.19,
+      "narrationReference": "Knowledge Is Information Combined With Thinking · N078-N084"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 332.19,
+      "endSeconds": 380.25,
+      "narrationReference": "Claims · N085-N096"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 380.25,
+      "endSeconds": 417.25,
+      "narrationReference": "Claim Context · N097-N106"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 417.25,
+      "endSeconds": 451.19,
+      "narrationReference": "Claims Evolve · N107-N116"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 451.19,
+      "endSeconds": 496,
+      "narrationReference": "From Information to Knowledge · N117-N128"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 496,
+      "endSeconds": 568.01,
+      "narrationReference": "Reasoning Creates Understanding · N129-N142"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 568.01,
+      "endSeconds": 634.24,
+      "narrationReference": "Knowledge Model, Not Knowledge Graph · N143-N159"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 634.24,
+      "endSeconds": 663.25,
+      "narrationReference": "The Knowledge Model · N160-N168"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 663.25,
+      "endSeconds": 687.36,
+      "narrationReference": "The Model Evolves · N169-N176"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 687.36,
+      "endSeconds": 741.25,
+      "narrationReference": "One Shared Understanding · N177-N187"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 741.25,
+      "endSeconds": 824.19,
+      "narrationReference": "The Knowledge API · N188-N206"
+    },
+    {
+      "id": "S018",
+      "startSeconds": 824.19,
+      "endSeconds": 848.19,
+      "narrationReference": "One Consistent Interface · N207-N213"
+    },
+    {
+      "id": "S019",
+      "startSeconds": 848.19,
+      "endSeconds": 904,
+      "narrationReference": "Architectural Intelligence · N214-N225"
+    },
+    {
+      "id": "S020",
+      "startSeconds": 904,
+      "endSeconds": 954.25,
+      "narrationReference": "AI Supports Architectural Judgement · N226-N239"
+    },
+    {
+      "id": "S021",
+      "startSeconds": 954.25,
+      "endSeconds": 977.2,
+      "narrationReference": "The Conceptual Journey · N240-N245"
+    },
+    {
+      "id": "S022",
+      "startSeconds": 977.2,
+      "endSeconds": 1023.139,
+      "narrationReference": "Looking Ahead · N246-N255"
+    }
+  ]
+}

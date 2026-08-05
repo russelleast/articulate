@@ -1,0 +1,13 @@
+...@../../../styles/articulate
+direction: right
+
+claim: "CLAIM\nOrder service uses PostgreSQL" { class: system }
+source: "Source\nADR 0016" { class: decision }
+confidence: "Confidence\nHigh" { class: quality }
+evidence: "Evidence\nRepository + runtime" { class: evidence }
+temporal: "Temporal status\nValid now" { class: capability }
+
+source -> claim: provenance
+confidence -> claim: certainty
+evidence -> claim: support
+temporal -> claim: time

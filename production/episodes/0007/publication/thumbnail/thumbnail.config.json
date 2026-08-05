@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0007",
+    "eyebrow": "ARCHITECTURE AS KNOWLEDGE",
+    "headline": ["THE KNOWLEDGE", "MODEL"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep07-narrator.mov",
+    "frameTimestampSeconds": 646,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}

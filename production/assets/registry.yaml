@@ -401,6 +401,158 @@
       "provider": "local"
     },
     {
+      "id": "episode-0007-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0007",
+      "status": "approved-recording",
+      "checksum": "sha256:9dd811460c2a90f797eb64b5798da5ae7c866a254c183b4ad4a698600d68699c",
+      "location": "production/episodes/0007/ep07-narrator.mov",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-architectural-knowledge-journey",
+      "type": "diagram",
+      "format": "plantuml",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/architectural-knowledge-journey.puml",
+      "location": "production/diagrams/sources/episodes/0007/architectural-knowledge-journey.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-architectural-information",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/architectural-information.d2",
+      "location": "production/diagrams/sources/episodes/0007/architectural-information.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-information-vs-knowledge",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/information-vs-knowledge.d2",
+      "location": "production/diagrams/sources/episodes/0007/information-vs-knowledge.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-claim-anatomy",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/claim-anatomy.d2",
+      "location": "production/diagrams/sources/episodes/0007/claim-anatomy.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-claim-evolution",
+      "type": "diagram",
+      "format": "plantuml",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/claim-evolution.puml",
+      "location": "production/diagrams/sources/episodes/0007/claim-evolution.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-information-to-knowledge",
+      "type": "diagram",
+      "format": "plantuml",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/information-to-knowledge.puml",
+      "location": "production/diagrams/sources/episodes/0007/information-to-knowledge.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-reasoning-context",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/reasoning-context.d2",
+      "location": "production/diagrams/sources/episodes/0007/reasoning-context.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-model-vs-graph",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/model-vs-graph.d2",
+      "location": "production/diagrams/sources/episodes/0007/model-vs-graph.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-knowledge-model",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/knowledge-model.d2",
+      "location": "production/diagrams/sources/episodes/0007/knowledge-model.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-knowledge-model-evolution",
+      "type": "diagram",
+      "format": "plantuml",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/knowledge-model-evolution.puml",
+      "location": "production/diagrams/sources/episodes/0007/knowledge-model-evolution.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-shared-knowledge-model",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/shared-knowledge-model.d2",
+      "location": "production/diagrams/sources/episodes/0007/shared-knowledge-model.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-knowledge-api",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/knowledge-api.d2",
+      "location": "production/diagrams/sources/episodes/0007/knowledge-api.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0007-architectural-intelligence",
+      "type": "diagram",
+      "format": "plantuml",
+      "episode": "0007",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0007/architectural-intelligence.puml",
+      "location": "production/diagrams/sources/episodes/0007/architectural-intelligence.svg",
+      "provider": "local"
+    },
+    {
       "id": "episode-0009-conversation-to-dcl",
       "type": "diagram",
       "format": "d2",

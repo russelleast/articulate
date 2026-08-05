@@ -1,0 +1,156 @@
+ Hello, and welcome back to the Articulate Journal. Articulate is a public engineering journal documenting the design and implementation of an AI-native architecture platform. Every episode explores another architectural question, and together they'll explain how the system evolves. In the previous video episode, I talked about the characteristics every production system needs, whether it's AI-native or not. Qualities like reliability,
+ scalability, security, and observability don't disappear, just because we introduce AI. They become even more important. In this episode, I'd like to turn our attention to the conceptual data model that will hold architectural knowledge. Before I can build AI that helps architects understand architecture, I first need to understand a question. What is architectural knowledge? At first, I thought the answer would be obvious. Architecture is made up of diagrams, documents, architecture, and architecture.
+ Performance, architecture decision records, source code, all the things we create throughout the lifetime of a system.
+ But the more I thought about it, the more I realized that these things aren't knowledge at all, just information, useful certainly, but information.
+ Imagine joining a new organization as an architect, and your first day you'll give an access to an architecture repository.
+ Thousands of diagrams, hundreds of pages of documentation, collection of ADRs, wikis, slide decks, maybe recording from the previous design review.
+ Now you have a huge amount of information. But do you understand the architecture? Probably not.
+ Understanding doesn't come from reading one document. It comes from gradually connecting all those pieces together.
+ You begin to see how the systems relate to one another. Why particular decisions were made?
+ Which principles shape the architecture? Where the risks are? Which assumptions are still valid?
+ And which parts of the architecture have evolved over time?
+ That's when information starts to become knowledge.
+ That distinction became one of the most important ideas in the design of Articulate. Because if I simply build a platform that just stores documents, then all I've really created is just another document repository.
+ What I want to do is to model the understanding that emerges from those documents. Not just how architecture says, but what the architecture means.
+ That becomes the foundation of everything that follows in this episode. Once I start thinking about the architectural knowledge, another question naturally followed.
+ What information actually exists in an architecture? Again, this seemed obvious. We have systems, applications, services, databases and infrastructure.
+ Those are certainly part of the architecture, but they're only part of the picture. Architecture also includes the principles that guide decisions.
+ The characteristics that the system needs to exhibit. The decisions that have been made over time.
+ The relationships between different parts of the estate. The assumptions people are working with and the constraints they have to operate within.
+ And the evidence that supports those decisions. Taken together, that's a huge amount of information.
+ Some of it is highly structured. Some of it is buried inside documents. Some of it only exists because someone remembers where a decision was made three years ago.
+ The challenge isn't finding places to store that information. The challenge is bringing it together in a way that allows us to reason about it.
+ That brought me to yet another important distinction. The difference between information and knowledge.
+ Suppose articulate knows that a payment services uses Postgres SQL.
+ On its own, that's simply a piece of information. Now suppose it also knows that the service processes financial transactions.
+ That high availability is a characteristic. That an architecture decision record explains why Postgres SQL was selected.
+ That another proposal to move to a different database was rejected. And that recent operational issues suggest that the original assumptions may longer hold.
+ Individually, all of these are just pieces of information. But once they're connected together, something interesting happens.
+ The platform doesn't just know isolated facts. It begins to understand the context surrounding them.
+ That's much closer to what I think as knowledge. After thinking about this for quite a while, I eventually arrived at a very simple definition.
+ Knowledge is information combined with thinking. That almost sounds too simple. But that single idea shaped how I thought about the entire platform.
+ The goal isn't to collect as much information as possible. The goal is to build a model that captures understanding.
+ Because that's what architects actually work with every day.
+ Once they reach that conclusion, that knowledge is information combined with thinking, another question emerged.
+ How should that knowledge actually be represented? The more I explored the problem, the more I realized that almost everything we know about architecture can be expressed as a claim.
+ A claim is simply an assertion about the architecture. For example, order service uses Postgres SQL. Checkout capability requires high availability.
+ Product API is consumed by three downstream search systems.
+ Architectural decision number 16 was made to improve resilience. Each of those statements tells us something about the architecture. But on their own, they just isolated assertions.
+ What makes them useful is the context that surrounds them.
+ Where did this claim come from? Was it discovered in source code? Was it taken from an architecture decision record? Was it suggested during a conversation with an architect?
+ Or generated by AI during discovery? How confident are we that that's correct and what evidence supports it? Has it always been true?
+ Or has the architecture evolved over time? Those questions become just as important as the claim itself.
+ Rather than storing disconnected facts, the knowledge model stores claims together with the information needed to understand and evaluate them.
+ That allows the model to grow over time. New evidence can strengthen existing claims.
+ Conflicting evidence can challenge it. And as the architecture evolves, the understanding can evolve with it.
+ I think that's a much better reflection of how architects work in the real world.
+ We rarely have perfect knowledge. Instead, we gradually build confidence as more information becomes available.
+ The knowledge model isn't trying to eliminate uncertainty. It's trying to make uncertainty explicit, and I think that's much more honest representation of architecture.
+ By this point, I had the beginnings of a model. I had the architecture information, and I had the relationships between the information.
+ I had claims that represented what the system currently understood about the architecture.
+ Something still didn't feel quite right. A collection of connected claims is certainly more useful than a collection of disconnected documents.
+ But it still isn't knowledge. Knowledge comes from interpreting those claims.
+ It comes from understanding how they relate to one another, and how they support and contradict each other, and how confidence we are in them.
+ And what they actually mean in the context of the wider architecture.
+ For example, imagine articulate discovers that a service has suffered several operational incidents.
+ On its own, that's just another claim. But it also understands that the service supports a business critical capability.
+ That reliability is one of those architectural principles that an earlier ADR accepted a trade-off in favor of performance.
+ And that the current maturity of that area is relatively low.
+ Then the platform can begin to reason about the significance of those observations.
+ It isn't simply retrieving information, it's building understanding.
+ That to me is the difference between an information model and a knowledge model.
+ The purpose of the knowledge model isn't to replace architectural judgment.
+ It's to provide enough connected understanding that both humans and AI can reason about the architecture more effectively.
+ That's the point where architecture starts to become more than just a collection of documents.
+ It becomes a body of knowledge that can grow, evolve, and support better architectural decisions over time.
+ By this point, I felt like I had enough understanding to describe what the knowledge model actually is.
+ It's important to remember that I'm not thinking about databases or implementation.
+ There's one piece of terminology that I'd like to explain.
+ Throughout this episode, I've deliberately referred to it as a knowledge model and not as a knowledge graph.
+ That choice was intentional.
+ It may well turn out that a graph is the best way to implement it, but at this stage, I didn't want to introduce an implementation bias into the architectural thinking.
+ Right now, I'm trying to understand the concepts that it needed to represent.
+ The structure of the knowledge, the relationships, and the behaviour.
+ Only once I understand a conceptual model do I want to start thinking about how it should be implemented.
+ That implementation might involve a graph database.
+ It might evolve to use several different technologies working together.
+ I simply just don't know yet, and that's perfectly fine.
+ I'm thinking about the conceptual model.
+ The knowledge model is the way Articulate represents architectural understanding.
+ It brings together the architectural concepts we've explored throughout this episode.
+ Structure, characteristics, principles, and decisions.
+ And the claims that connect them.
+ Each claim captures something the platform currently understands about the architecture.
+ Together, those claims form a connected body of knowledge rather than a collection of disconnected facts.
+ What I particularly like about this approach is that the model can evolve as new information is discovered, as decisions are made,
+ as the system changes, and as more evidence becomes available.
+ The model evolves alongside the architecture itself.
+ Nothing needs to be treated as permanently fixed.
+ The understanding simply becomes richer over time.
+ That also means that the knowledge model becomes much more than somewhere just to store architecture information.
+ It becomes the foundation that every other capability in Articulate builds upon.
+ Discovery adds to it.
+ Conversations retrieve knowledge from it.
+ Impact analysis reasons over it.
+ Architecture decisions become part of it.
+ Future AI agents use it as context for their own reasoning.
+ Instead of every capability maintaining its own understanding of the architecture, they all work from the same shared model.
+ And for me, that's one of the most important architectural ideas in Articulate.
+ The knowledge model becomes the system's shared understanding of the architecture.
+ Everything else is simply another way of contributing to that understanding, reasoning, and presenting it to the user.
+ Once I have the knowledge model, another question naturally followed.
+ How does the rest of the platform interpret or interact with it?
+ My answer was to introduce a knowledge API.
+ The purpose of the API isn't simply to read and write data.
+ Its purpose is to provide a consistent way for every part of the platform to work with architectural knowledge.
+ Discovery can add new claims.
+ Conversations can retrieve architectural context.
+ Reasoning services can explore the relationships and impact analysis can understand dependencies.
+ Future agents can query the model without needing to know how it's stored internally.
+ And that separation is important.
+ The rest of the platform shouldn't care whether the knowledge model was backed by a graph database, document database, or relational database, or something else entirely.
+ Those are implementation details.
+ The capabilities of the platform interact with the knowledge API.
+ And the knowledge API interacts with the knowledge model.
+ That gives me the freedom to evolve and the implementation without changing the architecture built on top of it.
+ More importantly, it establishes the knowledge model as a first-class architectural capability.
+ It isn't just another database hidden behind a service.
+ It's a shared understanding of the architecture exposed through a well-defined interface that other capabilities can build upon.
+ As the platform evolves, I expect the API to evolve as well.
+ New ways of querying knowledge will emerge.
+ New reasoning capabilities will be introduced.
+ The model itself will become richer.
+ But the architectural idea remains the same.
+ There is one knowledge model.
+ And there is one consistent way for the rest of the platform to understand and contribute to it.
+ Stepping back from the details of the knowledge model, I realize something interesting.
+ What I'm really trying to do is to build not just another architecture repository, and it isn't another modeling tool.
+ And it certainly isn't another AI chatbot that happens to know something about software architecture.
+ What I'm exploring is something that I'd like to think of as architectural intelligence.
+ The ability for a system to understand architecture in much the same way as an architect gradually builds understanding over time.
+ Not by memorizing the documents or by indexing diagrams, but by connecting information, evaluating evidence, understanding relationships and the reasoning about change.
+ That's why the knowledge model is so important.
+ Without it, AI is simply generating responses to whatever information just happens to be available.
+ With it, the platform has a shared understanding that it can reason over.
+ That doesn't mean that AI replaces the architect far from it.
+ The architect still makes the decisions.
+ The architect still applies judgment.
+ The architect is still accountable for the outcome.
+ The role of AI is to help build understanding.
+ To connect the ideas that might otherwise remain disconnected.
+ To service the relationships and to identify contradictions and to explain the consequences of change.
+ And to help architects navigate increasingly complex systems.
+ Whether that vision is achievable is something this journal will continue to explore.
+ But I do believe it starts with the knowledge model, because before an AI can help us reason about architecture, it first needs a meaningful representation of what the architecture is.
+ This episode has been less about technology, more about the understanding of the problem I'm trying to solve.
+ Before I can build an AI native architecture platform, I first need a way of representing the architectural knowledge.
+ That journey led me from architecture information to connected claims to a knowledge model and ultimately to the idea of architecture intelligence.
+ Now that I have a conceptual model for the architectural knowledge, another question naturally follows.
+ How does AI actually reason over it?
+ Some questions might be answered throughout semantic search.
+ Others might require traversing relationships and some might need structured queries.
+ And some may require several different approaches working together.
+ In the next episode, we'll begin exploring how AI retrieves, reasons over and makes use of the knowledge model.
+ Because building a model is only half of the challenge.
+ The real value comes from helping both humans and AI use that knowledge to make better architectural decisions.
+ I'll see you on the next episode.

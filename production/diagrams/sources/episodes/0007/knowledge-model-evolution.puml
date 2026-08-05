@@ -1,0 +1,27 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam defaultFontColor #17232D
+skinparam ArrowColor #49677C
+skinparam activity {
+  BackgroundColor #E8EDF2
+  BorderColor #49677C
+  FontColor #17232D
+}
+
+start
+fork
+  :Discover information;
+fork again
+  :Make decisions;
+fork again
+  :Observe system change;
+fork again
+  :Gather evidence;
+end fork
+:Evolve Knowledge Model;
+:Richer understanding;
+stop
+@enduml

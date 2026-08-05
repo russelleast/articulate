@@ -1,0 +1,624 @@
+1
+00:00:00,000 --> 00:00:29,940
+ Hello, and welcome back to the Articulate Journal. Articulate is a public engineering journal documenting the design and implementation of an AI-native architecture platform. Every episode explores another architectural question, and together they'll explain how the system evolves. In the previous video episode, I talked about the characteristics every production system needs, whether it's AI-native or not. Qualities like reliability,
+
+2
+00:00:30,000 --> 00:00:59,000
+ scalability, security, and observability don't disappear, just because we introduce AI. They become even more important. In this episode, I'd like to turn our attention to the conceptual data model that will hold architectural knowledge. Before I can build AI that helps architects understand architecture, I first need to understand a question. What is architectural knowledge? At first, I thought the answer would be obvious. Architecture is made up of diagrams, documents, architecture, and architecture.
+
+3
+00:00:59,000 --> 00:01:08,000
+ Performance, architecture decision records, source code, all the things we create throughout the lifetime of a system.
+
+4
+00:01:08,000 --> 00:01:19,000
+ But the more I thought about it, the more I realized that these things aren't knowledge at all, just information, useful certainly, but information.
+
+5
+00:01:19,000 --> 00:01:26,000
+ Imagine joining a new organization as an architect, and your first day you'll give an access to an architecture repository.
+
+6
+00:01:26,000 --> 00:01:36,000
+ Thousands of diagrams, hundreds of pages of documentation, collection of ADRs, wikis, slide decks, maybe recording from the previous design review.
+
+7
+00:01:36,000 --> 00:01:43,000
+ Now you have a huge amount of information. But do you understand the architecture? Probably not.
+
+8
+00:01:43,000 --> 00:01:50,000
+ Understanding doesn't come from reading one document. It comes from gradually connecting all those pieces together.
+
+9
+00:01:50,000 --> 00:01:56,000
+ You begin to see how the systems relate to one another. Why particular decisions were made?
+
+10
+00:01:56,000 --> 00:02:03,000
+ Which principles shape the architecture? Where the risks are? Which assumptions are still valid?
+
+11
+00:02:03,000 --> 00:02:07,000
+ And which parts of the architecture have evolved over time?
+
+12
+00:02:07,000 --> 00:02:11,000
+ That's when information starts to become knowledge.
+
+13
+00:02:11,000 --> 00:02:24,000
+ That distinction became one of the most important ideas in the design of Articulate. Because if I simply build a platform that just stores documents, then all I've really created is just another document repository.
+
+14
+00:02:24,000 --> 00:02:36,000
+ What I want to do is to model the understanding that emerges from those documents. Not just how architecture says, but what the architecture means.
+
+15
+00:02:36,000 --> 00:02:45,000
+ That becomes the foundation of everything that follows in this episode. Once I start thinking about the architectural knowledge, another question naturally followed.
+
+16
+00:02:45,000 --> 00:02:56,000
+ What information actually exists in an architecture? Again, this seemed obvious. We have systems, applications, services, databases and infrastructure.
+
+17
+00:02:56,000 --> 00:03:07,000
+ Those are certainly part of the architecture, but they're only part of the picture. Architecture also includes the principles that guide decisions.
+
+18
+00:03:07,000 --> 00:03:13,000
+ The characteristics that the system needs to exhibit. The decisions that have been made over time.
+
+19
+00:03:13,000 --> 00:03:23,000
+ The relationships between different parts of the estate. The assumptions people are working with and the constraints they have to operate within.
+
+20
+00:03:23,000 --> 00:03:31,000
+ And the evidence that supports those decisions. Taken together, that's a huge amount of information.
+
+21
+00:03:31,000 --> 00:03:42,000
+ Some of it is highly structured. Some of it is buried inside documents. Some of it only exists because someone remembers where a decision was made three years ago.
+
+22
+00:03:42,000 --> 00:03:51,000
+ The challenge isn't finding places to store that information. The challenge is bringing it together in a way that allows us to reason about it.
+
+23
+00:03:51,000 --> 00:03:59,000
+ That brought me to yet another important distinction. The difference between information and knowledge.
+
+24
+00:03:59,000 --> 00:04:06,000
+ Suppose articulate knows that a payment services uses Postgres SQL.
+
+25
+00:04:06,000 --> 00:04:15,000
+ On its own, that's simply a piece of information. Now suppose it also knows that the service processes financial transactions.
+
+26
+00:04:15,000 --> 00:04:25,000
+ That high availability is a characteristic. That an architecture decision record explains why Postgres SQL was selected.
+
+27
+00:04:25,000 --> 00:04:36,000
+ That another proposal to move to a different database was rejected. And that recent operational issues suggest that the original assumptions may longer hold.
+
+28
+00:04:36,000 --> 00:04:45,000
+ Individually, all of these are just pieces of information. But once they're connected together, something interesting happens.
+
+29
+00:04:45,000 --> 00:04:52,000
+ The platform doesn't just know isolated facts. It begins to understand the context surrounding them.
+
+30
+00:04:52,000 --> 00:05:02,000
+ That's much closer to what I think as knowledge. After thinking about this for quite a while, I eventually arrived at a very simple definition.
+
+31
+00:05:02,000 --> 00:05:13,000
+ Knowledge is information combined with thinking. That almost sounds too simple. But that single idea shaped how I thought about the entire platform.
+
+32
+00:05:13,000 --> 00:05:20,000
+ The goal isn't to collect as much information as possible. The goal is to build a model that captures understanding.
+
+33
+00:05:20,000 --> 00:05:24,000
+ Because that's what architects actually work with every day.
+
+34
+00:05:24,000 --> 00:05:32,000
+ Once they reach that conclusion, that knowledge is information combined with thinking, another question emerged.
+
+35
+00:05:32,000 --> 00:05:43,000
+ How should that knowledge actually be represented? The more I explored the problem, the more I realized that almost everything we know about architecture can be expressed as a claim.
+
+36
+00:05:43,000 --> 00:05:56,000
+ A claim is simply an assertion about the architecture. For example, order service uses Postgres SQL. Checkout capability requires high availability.
+
+37
+00:05:56,000 --> 00:06:01,000
+ Product API is consumed by three downstream search systems.
+
+38
+00:06:01,000 --> 00:06:15,000
+ Architectural decision number 16 was made to improve resilience. Each of those statements tells us something about the architecture. But on their own, they just isolated assertions.
+
+39
+00:06:15,000 --> 00:06:20,000
+ What makes them useful is the context that surrounds them.
+
+40
+00:06:20,000 --> 00:06:30,000
+ Where did this claim come from? Was it discovered in source code? Was it taken from an architecture decision record? Was it suggested during a conversation with an architect?
+
+41
+00:06:30,000 --> 00:06:41,000
+ Or generated by AI during discovery? How confident are we that that's correct and what evidence supports it? Has it always been true?
+
+42
+00:06:41,000 --> 00:06:48,000
+ Or has the architecture evolved over time? Those questions become just as important as the claim itself.
+
+43
+00:06:48,000 --> 00:06:57,000
+ Rather than storing disconnected facts, the knowledge model stores claims together with the information needed to understand and evaluate them.
+
+44
+00:06:57,000 --> 00:07:04,000
+ That allows the model to grow over time. New evidence can strengthen existing claims.
+
+45
+00:07:04,000 --> 00:07:11,000
+ Conflicting evidence can challenge it. And as the architecture evolves, the understanding can evolve with it.
+
+46
+00:07:11,000 --> 00:07:15,000
+ I think that's a much better reflection of how architects work in the real world.
+
+47
+00:07:15,000 --> 00:07:21,000
+ We rarely have perfect knowledge. Instead, we gradually build confidence as more information becomes available.
+
+48
+00:07:21,000 --> 00:07:31,000
+ The knowledge model isn't trying to eliminate uncertainty. It's trying to make uncertainty explicit, and I think that's much more honest representation of architecture.
+
+49
+00:07:31,000 --> 00:07:39,000
+ By this point, I had the beginnings of a model. I had the architecture information, and I had the relationships between the information.
+
+50
+00:07:39,000 --> 00:07:45,000
+ I had claims that represented what the system currently understood about the architecture.
+
+51
+00:07:45,000 --> 00:07:54,000
+ Something still didn't feel quite right. A collection of connected claims is certainly more useful than a collection of disconnected documents.
+
+52
+00:07:54,000 --> 00:08:00,000
+ But it still isn't knowledge. Knowledge comes from interpreting those claims.
+
+53
+00:08:00,000 --> 00:08:09,000
+ It comes from understanding how they relate to one another, and how they support and contradict each other, and how confidence we are in them.
+
+54
+00:08:09,000 --> 00:08:14,000
+ And what they actually mean in the context of the wider architecture.
+
+55
+00:08:14,000 --> 00:08:24,000
+ For example, imagine articulate discovers that a service has suffered several operational incidents.
+
+56
+00:08:24,000 --> 00:08:32,000
+ On its own, that's just another claim. But it also understands that the service supports a business critical capability.
+
+57
+00:08:32,000 --> 00:08:41,000
+ That reliability is one of those architectural principles that an earlier ADR accepted a trade-off in favor of performance.
+
+58
+00:08:41,000 --> 00:08:45,000
+ And that the current maturity of that area is relatively low.
+
+59
+00:08:45,000 --> 00:08:50,000
+ Then the platform can begin to reason about the significance of those observations.
+
+60
+00:08:50,000 --> 00:08:55,000
+ It isn't simply retrieving information, it's building understanding.
+
+61
+00:08:55,000 --> 00:09:01,000
+ That to me is the difference between an information model and a knowledge model.
+
+62
+00:09:01,000 --> 00:09:06,000
+ The purpose of the knowledge model isn't to replace architectural judgment.
+
+63
+00:09:06,000 --> 00:09:15,000
+ It's to provide enough connected understanding that both humans and AI can reason about the architecture more effectively.
+
+64
+00:09:15,000 --> 00:09:21,000
+ That's the point where architecture starts to become more than just a collection of documents.
+
+65
+00:09:21,000 --> 00:09:28,000
+ It becomes a body of knowledge that can grow, evolve, and support better architectural decisions over time.
+
+66
+00:09:28,000 --> 00:09:35,000
+ By this point, I felt like I had enough understanding to describe what the knowledge model actually is.
+
+67
+00:09:35,000 --> 00:09:40,000
+ It's important to remember that I'm not thinking about databases or implementation.
+
+68
+00:09:40,000 --> 00:09:43,000
+ There's one piece of terminology that I'd like to explain.
+
+69
+00:09:43,000 --> 00:09:50,000
+ Throughout this episode, I've deliberately referred to it as a knowledge model and not as a knowledge graph.
+
+70
+00:09:50,000 --> 00:09:52,000
+ That choice was intentional.
+
+71
+00:09:52,000 --> 00:10:02,000
+ It may well turn out that a graph is the best way to implement it, but at this stage, I didn't want to introduce an implementation bias into the architectural thinking.
+
+72
+00:10:02,000 --> 00:10:07,000
+ Right now, I'm trying to understand the concepts that it needed to represent.
+
+73
+00:10:07,000 --> 00:10:12,000
+ The structure of the knowledge, the relationships, and the behaviour.
+
+74
+00:10:12,000 --> 00:10:19,000
+ Only once I understand a conceptual model do I want to start thinking about how it should be implemented.
+
+75
+00:10:19,000 --> 00:10:23,000
+ That implementation might involve a graph database.
+
+76
+00:10:23,000 --> 00:10:27,000
+ It might evolve to use several different technologies working together.
+
+77
+00:10:27,000 --> 00:10:31,000
+ I simply just don't know yet, and that's perfectly fine.
+
+78
+00:10:31,000 --> 00:10:34,000
+ I'm thinking about the conceptual model.
+
+79
+00:10:34,000 --> 00:10:40,000
+ The knowledge model is the way Articulate represents architectural understanding.
+
+80
+00:10:40,000 --> 00:10:45,000
+ It brings together the architectural concepts we've explored throughout this episode.
+
+81
+00:10:45,000 --> 00:10:49,000
+ Structure, characteristics, principles, and decisions.
+
+82
+00:10:49,000 --> 00:10:51,000
+ And the claims that connect them.
+
+83
+00:10:51,000 --> 00:10:57,000
+ Each claim captures something the platform currently understands about the architecture.
+
+84
+00:10:57,000 --> 00:11:03,000
+ Together, those claims form a connected body of knowledge rather than a collection of disconnected facts.
+
+85
+00:11:03,000 --> 00:11:10,000
+ What I particularly like about this approach is that the model can evolve as new information is discovered, as decisions are made,
+
+86
+00:11:10,000 --> 00:11:15,000
+ as the system changes, and as more evidence becomes available.
+
+87
+00:11:15,000 --> 00:11:18,000
+ The model evolves alongside the architecture itself.
+
+88
+00:11:18,000 --> 00:11:22,000
+ Nothing needs to be treated as permanently fixed.
+
+89
+00:11:22,000 --> 00:11:26,000
+ The understanding simply becomes richer over time.
+
+90
+00:11:26,000 --> 00:11:33,000
+ That also means that the knowledge model becomes much more than somewhere just to store architecture information.
+
+91
+00:11:33,000 --> 00:11:38,000
+ It becomes the foundation that every other capability in Articulate builds upon.
+
+92
+00:11:38,000 --> 00:11:41,000
+ Discovery adds to it.
+
+93
+00:11:41,000 --> 00:11:43,000
+ Conversations retrieve knowledge from it.
+
+94
+00:11:43,000 --> 00:11:46,000
+ Impact analysis reasons over it.
+
+95
+00:11:46,000 --> 00:11:49,000
+ Architecture decisions become part of it.
+
+96
+00:11:49,000 --> 00:11:53,000
+ Future AI agents use it as context for their own reasoning.
+
+97
+00:11:53,000 --> 00:12:00,000
+ Instead of every capability maintaining its own understanding of the architecture, they all work from the same shared model.
+
+98
+00:12:00,000 --> 00:12:04,000
+ And for me, that's one of the most important architectural ideas in Articulate.
+
+99
+00:12:04,000 --> 00:12:09,000
+ The knowledge model becomes the system's shared understanding of the architecture.
+
+100
+00:12:09,000 --> 00:12:17,000
+ Everything else is simply another way of contributing to that understanding, reasoning, and presenting it to the user.
+
+101
+00:12:17,000 --> 00:12:21,000
+ Once I have the knowledge model, another question naturally followed.
+
+102
+00:12:21,000 --> 00:12:26,000
+ How does the rest of the platform interpret or interact with it?
+
+103
+00:12:26,000 --> 00:12:29,000
+ My answer was to introduce a knowledge API.
+
+104
+00:12:29,000 --> 00:12:33,000
+ The purpose of the API isn't simply to read and write data.
+
+105
+00:12:33,000 --> 00:12:39,000
+ Its purpose is to provide a consistent way for every part of the platform to work with architectural knowledge.
+
+106
+00:12:39,000 --> 00:12:41,000
+ Discovery can add new claims.
+
+107
+00:12:41,000 --> 00:12:45,000
+ Conversations can retrieve architectural context.
+
+108
+00:12:45,000 --> 00:12:52,000
+ Reasoning services can explore the relationships and impact analysis can understand dependencies.
+
+109
+00:12:52,000 --> 00:12:58,000
+ Future agents can query the model without needing to know how it's stored internally.
+
+110
+00:12:58,000 --> 00:13:00,000
+ And that separation is important.
+
+111
+00:13:00,000 --> 00:13:08,000
+ The rest of the platform shouldn't care whether the knowledge model was backed by a graph database, document database, or relational database, or something else entirely.
+
+112
+00:13:08,000 --> 00:13:11,000
+ Those are implementation details.
+
+113
+00:13:11,000 --> 00:13:16,000
+ The capabilities of the platform interact with the knowledge API.
+
+114
+00:13:16,000 --> 00:13:20,000
+ And the knowledge API interacts with the knowledge model.
+
+115
+00:13:20,000 --> 00:13:26,000
+ That gives me the freedom to evolve and the implementation without changing the architecture built on top of it.
+
+116
+00:13:26,000 --> 00:13:32,000
+ More importantly, it establishes the knowledge model as a first-class architectural capability.
+
+117
+00:13:32,000 --> 00:13:36,000
+ It isn't just another database hidden behind a service.
+
+118
+00:13:36,000 --> 00:13:44,000
+ It's a shared understanding of the architecture exposed through a well-defined interface that other capabilities can build upon.
+
+119
+00:13:44,000 --> 00:13:49,000
+ As the platform evolves, I expect the API to evolve as well.
+
+120
+00:13:49,000 --> 00:13:52,000
+ New ways of querying knowledge will emerge.
+
+121
+00:13:52,000 --> 00:13:55,000
+ New reasoning capabilities will be introduced.
+
+122
+00:13:55,000 --> 00:13:57,000
+ The model itself will become richer.
+
+123
+00:13:57,000 --> 00:14:00,000
+ But the architectural idea remains the same.
+
+124
+00:14:00,000 --> 00:14:03,000
+ There is one knowledge model.
+
+125
+00:14:03,000 --> 00:14:08,000
+ And there is one consistent way for the rest of the platform to understand and contribute to it.
+
+126
+00:14:08,000 --> 00:14:13,000
+ Stepping back from the details of the knowledge model, I realize something interesting.
+
+127
+00:14:13,000 --> 00:14:20,000
+ What I'm really trying to do is to build not just another architecture repository, and it isn't another modeling tool.
+
+128
+00:14:20,000 --> 00:14:26,000
+ And it certainly isn't another AI chatbot that happens to know something about software architecture.
+
+129
+00:14:26,000 --> 00:14:30,000
+ What I'm exploring is something that I'd like to think of as architectural intelligence.
+
+130
+00:14:30,000 --> 00:14:39,000
+ The ability for a system to understand architecture in much the same way as an architect gradually builds understanding over time.
+
+131
+00:14:39,000 --> 00:14:49,000
+ Not by memorizing the documents or by indexing diagrams, but by connecting information, evaluating evidence, understanding relationships and the reasoning about change.
+
+132
+00:14:49,000 --> 00:14:53,000
+ That's why the knowledge model is so important.
+
+133
+00:14:53,000 --> 00:14:59,000
+ Without it, AI is simply generating responses to whatever information just happens to be available.
+
+134
+00:14:59,000 --> 00:15:04,000
+ With it, the platform has a shared understanding that it can reason over.
+
+135
+00:15:04,000 --> 00:15:08,000
+ That doesn't mean that AI replaces the architect far from it.
+
+136
+00:15:08,000 --> 00:15:11,000
+ The architect still makes the decisions.
+
+137
+00:15:11,000 --> 00:15:14,000
+ The architect still applies judgment.
+
+138
+00:15:14,000 --> 00:15:17,000
+ The architect is still accountable for the outcome.
+
+139
+00:15:17,000 --> 00:15:20,000
+ The role of AI is to help build understanding.
+
+140
+00:15:20,000 --> 00:15:24,000
+ To connect the ideas that might otherwise remain disconnected.
+
+141
+00:15:24,000 --> 00:15:30,000
+ To service the relationships and to identify contradictions and to explain the consequences of change.
+
+142
+00:15:30,000 --> 00:15:37,000
+ And to help architects navigate increasingly complex systems.
+
+143
+00:15:37,000 --> 00:15:42,000
+ Whether that vision is achievable is something this journal will continue to explore.
+
+144
+00:15:42,000 --> 00:15:54,000
+ But I do believe it starts with the knowledge model, because before an AI can help us reason about architecture, it first needs a meaningful representation of what the architecture is.
+
+145
+00:15:54,000 --> 00:16:00,000
+ This episode has been less about technology, more about the understanding of the problem I'm trying to solve.
+
+146
+00:16:00,000 --> 00:16:07,000
+ Before I can build an AI native architecture platform, I first need a way of representing the architectural knowledge.
+
+147
+00:16:07,000 --> 00:16:17,000
+ That journey led me from architecture information to connected claims to a knowledge model and ultimately to the idea of architecture intelligence.
+
+148
+00:16:17,000 --> 00:16:24,000
+ Now that I have a conceptual model for the architectural knowledge, another question naturally follows.
+
+149
+00:16:24,000 --> 00:16:27,000
+ How does AI actually reason over it?
+
+150
+00:16:27,000 --> 00:16:31,000
+ Some questions might be answered throughout semantic search.
+
+151
+00:16:31,000 --> 00:16:37,000
+ Others might require traversing relationships and some might need structured queries.
+
+152
+00:16:37,000 --> 00:16:41,000
+ And some may require several different approaches working together.
+
+153
+00:16:41,000 --> 00:16:49,000
+ In the next episode, we'll begin exploring how AI retrieves, reasons over and makes use of the knowledge model.
+
+154
+00:16:49,000 --> 00:16:52,000
+ Because building a model is only half of the challenge.
+
+155
+00:16:52,000 --> 00:16:59,000
+ The real value comes from helping both humans and AI use that knowledge to make better architectural decisions.
+
+156
+00:16:59,000 --> 00:17:01,440
+ I'll see you on the next episode.
+

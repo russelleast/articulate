@@ -1,0 +1,20 @@
+...@../../../styles/articulate
+direction: down
+
+capabilities: "Platform capabilities" {
+  discovery: "Discovery" { class: capability }
+  conversation: "Conversation" { class: capability }
+  reasoning: "Reasoning" { class: capability }
+  impact: "Impact analysis" { class: capability }
+  agents: "Future agents" { class: agent }
+}
+
+api: "KNOWLEDGE API\nConsistent architectural interface" { class: service }
+model: "KNOWLEDGE MODEL\nShared understanding" { class: system }
+
+capabilities.discovery -> api
+capabilities.conversation -> api
+capabilities.reasoning -> api
+capabilities.impact -> api
+capabilities.agents -> api
+api -> model

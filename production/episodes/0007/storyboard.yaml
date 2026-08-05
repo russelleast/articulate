@@ -1,0 +1,259 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0007",
+    "title": "The Knowledge Model",
+    "written_source": "docs/episodes/0007-the-knowledge-model.md",
+    "narrative_source": "production/episodes/0007/narrative.md",
+    "scene_plan": "production/episodes/0007/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 1023.139312
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "The Knowledge Model",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N006"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 50
+    },
+    {
+      "id": "S002",
+      "title": "What is architectural knowledge?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N007-N012"
+      ],
+      "start_seconds": 50,
+      "end_seconds": 79.25
+    },
+    {
+      "id": "S003",
+      "title": "Access is not understanding",
+      "archetype": "Repository",
+      "kind": "presenter-repository",
+      "narrative_segments": [
+        "N013-N023"
+      ],
+      "start_seconds": 79.25,
+      "end_seconds": 103.25
+    },
+    {
+      "id": "S004",
+      "title": "Understanding connects the artefacts",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N024-N038"
+      ],
+      "start_seconds": 103.25,
+      "end_seconds": 165.25
+    },
+    {
+      "id": "S005",
+      "title": "Architecture contains many kinds of information",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N039-N065"
+      ],
+      "start_seconds": 165.25,
+      "end_seconds": 239.25
+    },
+    {
+      "id": "S006",
+      "title": "Connections create context",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N066-N077"
+      ],
+      "start_seconds": 239.25,
+      "end_seconds": 296.03
+    },
+    {
+      "id": "S007",
+      "title": "Knowledge is information combined with thinking.",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N078-N084"
+      ],
+      "start_seconds": 296.03,
+      "end_seconds": 332.19
+    },
+    {
+      "id": "S008",
+      "title": "Claims are first-class architectural objects",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N085-N096"
+      ],
+      "start_seconds": 332.19,
+      "end_seconds": 380.25
+    },
+    {
+      "id": "S009",
+      "title": "A claim carries its context",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N097-N106"
+      ],
+      "start_seconds": 380.25,
+      "end_seconds": 417.25
+    },
+    {
+      "id": "S010",
+      "title": "Evidence changes what we understand",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N107-N116"
+      ],
+      "start_seconds": 417.25,
+      "end_seconds": 451.19
+    },
+    {
+      "id": "S011",
+      "title": "Connected claims still need reasoning",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N117-N128"
+      ],
+      "start_seconds": 451.19,
+      "end_seconds": 496
+    },
+    {
+      "id": "S012",
+      "title": "Reasoning interprets significance",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N129-N142"
+      ],
+      "start_seconds": 496,
+      "end_seconds": 568.01
+    },
+    {
+      "id": "S013",
+      "title": "Knowledge Model ≠ Knowledge Graph",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N143-N159"
+      ],
+      "start_seconds": 568.01,
+      "end_seconds": 634.24
+    },
+    {
+      "id": "S014",
+      "title": "The Knowledge Model",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N160-N168"
+      ],
+      "start_seconds": 634.24,
+      "end_seconds": 663.25
+    },
+    {
+      "id": "S015",
+      "title": "Understanding evolves with the architecture",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N169-N176"
+      ],
+      "start_seconds": 663.25,
+      "end_seconds": 687.36
+    },
+    {
+      "id": "S016",
+      "title": "One shared understanding",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N177-N187"
+      ],
+      "start_seconds": 687.36,
+      "end_seconds": 741.25
+    },
+    {
+      "id": "S017",
+      "title": "The Knowledge API is the gateway",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N188-N206"
+      ],
+      "start_seconds": 741.25,
+      "end_seconds": 824.19
+    },
+    {
+      "id": "S018",
+      "title": "One model. One consistent interface.",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N207-N213"
+      ],
+      "start_seconds": 824.19,
+      "end_seconds": 848.19
+    },
+    {
+      "id": "S019",
+      "title": "Towards Architectural Intelligence",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N214-N225"
+      ],
+      "start_seconds": 848.19,
+      "end_seconds": 904
+    },
+    {
+      "id": "S020",
+      "title": "AI supports judgement. Architects remain accountable.",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N226-N239"
+      ],
+      "start_seconds": 904,
+      "end_seconds": 954.25
+    },
+    {
+      "id": "S021",
+      "title": "From information to Architectural Intelligence",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N240-N245"
+      ],
+      "start_seconds": 954.25,
+      "end_seconds": 977.2
+    },
+    {
+      "id": "S022",
+      "title": "How does AI reason over the Knowledge Model?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N246-N255"
+      ],
+      "start_seconds": 977.2,
+      "end_seconds": 1023.139
+    }
+  ]
+}
