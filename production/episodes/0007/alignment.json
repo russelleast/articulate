@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "narrativeSegments": [
+        "N001-N006"
+      ],
+      "start": 0,
+      "end": 50,
+      "confidence": 1,
+      "anchor": "recording start",
+      "matchedText": "recording start"
+    },
+    {
+      "id": "architectural-knowledge",
+      "title": "What Is Architectural Knowledge?",
+      "narrativeSegments": [
+        "N007-N012"
+      ],
+      "start": 50,
+      "end": 79.25,
+      "confidence": 1,
+      "anchor": "What is architectural knowledge",
+      "matchedText": "What is architectural knowledge"
+    },
+    {
+      "id": "repository-information",
+      "title": "A Repository Is Information",
+      "narrativeSegments": [
+        "N013-N023"
+      ],
+      "start": 79.25,
+      "end": 103.25,
+      "confidence": 0.875,
+      "anchor": "Imagine joining a new organisation as an architect",
+      "matchedText": "Imagine joining a new organization as an architect"
+    },
+    {
+      "id": "connecting-understanding",
+      "title": "Connecting Understanding",
+      "narrativeSegments": [
+        "N024-N038"
+      ],
+      "start": 103.25,
+      "end": 165.25,
+      "confidence": 0.75,
+      "anchor": "Understanding doesn't come from reading one document",
+      "matchedText": "Understanding doesn't come from reading one document"
+    },
+    {
+      "id": "information-in-architecture",
+      "title": "Information Within an Architecture",
+      "narrativeSegments": [
+        "N039-N065"
+      ],
+      "start": 165.25,
+      "end": 239.25,
+      "confidence": 0.857,
+      "anchor": "What information actually exists within an architecture",
+      "matchedText": "What information actually exists in an architecture"
+    },
+    {
+      "id": "information-versus-knowledge",
+      "title": "Information Versus Knowledge",
+      "narrativeSegments": [
+        "N066-N077"
+      ],
+      "start": 239.25,
+      "end": 296.03,
+      "confidence": 0.778,
+      "anchor": "Suppose Articulate knows that a payment service uses PostgreSQL",
+      "matchedText": "Suppose articulate knows that a payment services uses"
+    },
+    {
+      "id": "knowledge-definition",
+      "title": "Knowledge Is Information Combined With Thinking",
+      "narrativeSegments": [
+        "N078-N084"
+      ],
+      "start": 296.03,
+      "end": 332.19,
+      "confidence": 1,
+      "anchor": "After thinking about this for quite a while",
+      "matchedText": "After thinking about this for quite a while"
+    },
+    {
+      "id": "claims",
+      "title": "Claims",
+      "narrativeSegments": [
+        "N085-N096"
+      ],
+      "start": 332.19,
+      "end": 380.25,
+      "confidence": 1,
+      "anchor": "How should that knowledge actually be represented",
+      "matchedText": "How should that knowledge actually be represented"
+    },
+    {
+      "id": "claim-context",
+      "title": "Claim Context",
+      "narrativeSegments": [
+        "N097-N106"
+      ],
+      "start": 380.25,
+      "end": 417.25,
+      "confidence": 1,
+      "anchor": "Where did this claim come from",
+      "matchedText": "Where did this claim come from"
+    },
+    {
+      "id": "claim-evolution",
+      "title": "Claims Evolve",
+      "narrativeSegments": [
+        "N107-N116"
+      ],
+      "start": 417.25,
+      "end": 451.19,
+      "confidence": 1,
+      "anchor": "That allows the model to grow over time",
+      "matchedText": "That allows the model to grow over time"
+    },
+    {
+      "id": "connected-claims",
+      "title": "From Information to Knowledge",
+      "narrativeSegments": [
+        "N117-N128"
+      ],
+      "start": 451.19,
+      "end": 496,
+      "confidence": 1,
+      "anchor": "By this point I had the beginnings of a model",
+      "matchedText": "By this point I had the beginnings of a model"
+    },
+    {
+      "id": "reasoning-context",
+      "title": "Reasoning Creates Understanding",
+      "narrativeSegments": [
+        "N129-N142"
+      ],
+      "start": 496,
+      "end": 568.01,
+      "confidence": 1,
+      "anchor": "imagine Articulate discovers that a service has suffered several operational incidents",
+      "matchedText": "imagine articulate discovers that a service has suffered several operational incidents"
+    },
+    {
+      "id": "model-not-graph",
+      "title": "Knowledge Model, Not Knowledge Graph",
+      "narrativeSegments": [
+        "N143-N159"
+      ],
+      "start": 568.01,
+      "end": 634.24,
+      "confidence": 0.975,
+      "anchor": "By this point I felt I had enough understanding",
+      "matchedText": "By this point I felt like I had enough understanding"
+    },
+    {
+      "id": "knowledge-model",
+      "title": "The Knowledge Model",
+      "narrativeSegments": [
+        "N160-N168"
+      ],
+      "start": 634.24,
+      "end": 663.25,
+      "confidence": 1,
+      "anchor": "The Knowledge Model is the way Articulate represents architectural understanding",
+      "matchedText": "The knowledge model is the way Articulate represents architectural understanding"
+    },
+    {
+      "id": "model-evolution",
+      "title": "The Model Evolves",
+      "narrativeSegments": [
+        "N169-N176"
+      ],
+      "start": 663.25,
+      "end": 687.36,
+      "confidence": 1,
+      "anchor": "What I particularly like about this approach is that the model can evolve",
+      "matchedText": "What I particularly like about this approach is that the model can evolve"
+    },
+    {
+      "id": "shared-model",
+      "title": "One Shared Understanding",
+      "narrativeSegments": [
+        "N177-N187"
+      ],
+      "start": 687.36,
+      "end": 741.25,
+      "confidence": 0.899,
+      "anchor": "the Knowledge Model becomes much more than somewhere to store architectural information",
+      "matchedText": "the knowledge model becomes much more than somewhere just to store architecture information"
+    },
+    {
+      "id": "knowledge-api",
+      "title": "The Knowledge API",
+      "narrativeSegments": [
+        "N188-N206"
+      ],
+      "start": 741.25,
+      "end": 824.19,
+      "confidence": 0.958,
+      "anchor": "How does the rest of the platform interact with it",
+      "matchedText": "How does the rest of the platform interpret or interact with it"
+    },
+    {
+      "id": "api-evolution",
+      "title": "One Consistent Interface",
+      "narrativeSegments": [
+        "N207-N213"
+      ],
+      "start": 824.19,
+      "end": 848.19,
+      "confidence": 1,
+      "anchor": "As the platform evolves I expect the API to evolve as well",
+      "matchedText": "As the platform evolves I expect the API to evolve as well"
+    },
+    {
+      "id": "architectural-intelligence",
+      "title": "Architectural Intelligence",
+      "narrativeSegments": [
+        "N214-N225"
+      ],
+      "start": 848.19,
+      "end": 904,
+      "confidence": 1,
+      "anchor": "Stepping back from the details of the Knowledge Model",
+      "matchedText": "Stepping back from the details of the knowledge model"
+    },
+    {
+      "id": "architect-accountability",
+      "title": "AI Supports Architectural Judgement",
+      "narrativeSegments": [
+        "N226-N239"
+      ],
+      "start": 904,
+      "end": 954.25,
+      "confidence": 0.625,
+      "anchor": "That doesn't mean the AI replaces the architect",
+      "matchedText": "That doesn't mean that AI replaces the architect far from it."
+    },
+    {
+      "id": "closing-journey",
+      "title": "The Conceptual Journey",
+      "narrativeSegments": [
+        "N240-N245"
+      ],
+      "start": 954.25,
+      "end": 977.2,
+      "confidence": 1,
+      "anchor": "This episode has been less about technology",
+      "matchedText": "This episode has been less about technology"
+    },
+    {
+      "id": "looking-ahead",
+      "title": "Looking Ahead",
+      "narrativeSegments": [
+        "N246-N255"
+      ],
+      "start": 977.2,
+      "end": 1023.139,
+      "confidence": 0.977,
+      "anchor": "Now that I have a conceptual model for architectural knowledge",
+      "matchedText": "Now that I have a conceptual model for the architectural knowledge"
+    }
+  ]
+}

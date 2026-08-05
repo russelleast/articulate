@@ -1,0 +1,19 @@
+...@../../../styles/articulate
+direction: right
+
+information: "Isolated information" {
+  class: evidence
+  postgres: "Payment service uses PostgreSQL" { class: service }
+  finance: "Processes financial transactions" { class: capability }
+  availability: "High availability required" { class: quality }
+  adr: "ADR explains selection" { class: decision }
+  incidents: "Recent operational incidents" { class: evidence }
+}
+
+understanding: "Connected understanding" { class: system }
+
+information.postgres -> understanding: technology
+information.finance -> understanding: business context
+information.availability -> understanding: required quality
+information.adr -> understanding: rationale
+information.incidents -> understanding: changing evidence

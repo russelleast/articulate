@@ -1,0 +1,15 @@
+...@../../../styles/articulate
+direction: down
+
+model: "Knowledge Model\nConceptual architecture" { class: system }
+options: "Implementation options" {
+  graph: "Graph" { class: capability }
+  document: "Document" { class: capability }
+  relational: "Relational" { class: capability }
+  hybrid: "Hybrid" { class: capability }
+}
+
+model -> options.graph: may become
+model -> options.document: may become
+model -> options.relational: may become
+model -> options.hybrid: may become

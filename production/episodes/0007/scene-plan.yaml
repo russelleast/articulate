@@ -1,0 +1,179 @@
+{
+  "version": 2,
+  "status": "approved",
+  "episode": {
+    "id": "0007",
+    "title": "The Knowledge Model",
+    "writtenSource": "docs/episodes/0007-the-knowledge-model.md",
+    "narrativeSource": "production/episodes/0007/narrative.md",
+    "presenterMedia": "production/episodes/0007/ep07-narrator.mov"
+  },
+  "sections": [
+    { "id": "opening", "title": "Opening", "narrativeSegments": ["N001-N006"] },
+    { "id": "architectural-knowledge", "title": "What Is Architectural Knowledge?", "narrativeSegments": ["N007-N012"], "anchor": "What is architectural knowledge" },
+    { "id": "repository-information", "title": "A Repository Is Information", "narrativeSegments": ["N013-N023"], "anchor": "Imagine joining a new organisation as an architect" },
+    { "id": "connecting-understanding", "title": "Connecting Understanding", "narrativeSegments": ["N024-N038"], "anchor": "Understanding doesn't come from reading one document" },
+    { "id": "information-in-architecture", "title": "Information Within an Architecture", "narrativeSegments": ["N039-N065"], "anchor": "What information actually exists within an architecture" },
+    { "id": "information-versus-knowledge", "title": "Information Versus Knowledge", "narrativeSegments": ["N066-N077"], "anchor": "Suppose Articulate knows that a payment service uses PostgreSQL" },
+    { "id": "knowledge-definition", "title": "Knowledge Is Information Combined With Thinking", "narrativeSegments": ["N078-N084"], "anchor": "After thinking about this for quite a while" },
+    { "id": "claims", "title": "Claims", "narrativeSegments": ["N085-N096"], "anchor": "How should that knowledge actually be represented" },
+    { "id": "claim-context", "title": "Claim Context", "narrativeSegments": ["N097-N106"], "anchor": "Where did this claim come from" },
+    { "id": "claim-evolution", "title": "Claims Evolve", "narrativeSegments": ["N107-N116"], "anchor": "That allows the model to grow over time" },
+    { "id": "connected-claims", "title": "From Information to Knowledge", "narrativeSegments": ["N117-N128"], "anchor": "By this point I had the beginnings of a model" },
+    { "id": "reasoning-context", "title": "Reasoning Creates Understanding", "narrativeSegments": ["N129-N142"], "anchor": "imagine Articulate discovers that a service has suffered several operational incidents" },
+    { "id": "model-not-graph", "title": "Knowledge Model, Not Knowledge Graph", "narrativeSegments": ["N143-N159"], "anchor": "By this point I felt I had enough understanding" },
+    { "id": "knowledge-model", "title": "The Knowledge Model", "narrativeSegments": ["N160-N168"], "anchor": "The Knowledge Model is the way Articulate represents architectural understanding" },
+    { "id": "model-evolution", "title": "The Model Evolves", "narrativeSegments": ["N169-N176"], "anchor": "What I particularly like about this approach is that the model can evolve" },
+    { "id": "shared-model", "title": "One Shared Understanding", "narrativeSegments": ["N177-N187"], "anchor": "the Knowledge Model becomes much more than somewhere to store architectural information" },
+    { "id": "knowledge-api", "title": "The Knowledge API", "narrativeSegments": ["N188-N206"], "anchor": "How does the rest of the platform interact with it" },
+    { "id": "api-evolution", "title": "One Consistent Interface", "narrativeSegments": ["N207-N213"], "anchor": "As the platform evolves I expect the API to evolve as well" },
+    { "id": "architectural-intelligence", "title": "Architectural Intelligence", "narrativeSegments": ["N214-N225"], "anchor": "Stepping back from the details of the Knowledge Model" },
+    { "id": "architect-accountability", "title": "AI Supports Architectural Judgement", "narrativeSegments": ["N226-N239"], "anchor": "That doesn't mean the AI replaces the architect" },
+    { "id": "closing-journey", "title": "The Conceptual Journey", "narrativeSegments": ["N240-N245"], "anchor": "This episode has been less about technology" },
+    { "id": "looking-ahead", "title": "Looking Ahead", "narrativeSegments": ["N246-N255"], "anchor": "Now that I have a conceptual model for architectural knowledge" }
+  ],
+  "scenes": [
+    {
+      "id": "S001", "section": "opening", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "The Knowledge Model", "support": "Representing architecture as knowledge", "items": [],
+      "beats": [
+        { "id": "title", "target": "headline", "action": "emphasise", "alignTo": "conceptual data model" },
+        { "id": "question", "target": "support", "action": "emphasise", "alignTo": "architectural knowledge" }
+      ]
+    },
+    {
+      "id": "S002", "section": "architectural-knowledge", "archetype": "Narrator", "kind": "presenter-focus", "transition": "cut",
+      "headline": "What is architectural knowledge?", "support": "The artefacts are not the understanding.", "items": ["Diagrams", "Documents", "ADRs", "Source code"],
+      "beats": [
+        { "id": "diagram", "target": "item-1", "alignTo": "diagrams" },
+        { "id": "documents", "target": "item-2", "alignTo": "documents" },
+        { "id": "adrs", "target": "item-3", "alignTo": "Architecture Decision Records" },
+        { "id": "source", "target": "item-4", "alignTo": "source code" }
+      ]
+    },
+    {
+      "id": "S003", "section": "repository-information", "archetype": "Repository", "kind": "presenter-repository", "transition": "cut",
+      "headline": "Access is not understanding", "support": "A repository gives us information—not knowledge.",
+      "items": [
+        "production/episodes/0007/narrative.md",
+        "production/diagrams/sources/episodes/0007/knowledge-model.d2",
+        "production/diagrams/sources/episodes/0007/knowledge-model.svg"
+      ],
+      "evidence": { "excerpt": ["Dozens of diagrams · hundreds of pages", "ADRs · wikis · slide decks · design reviews"] },
+      "beats": [
+        { "id": "narrative-source", "target": "item-1", "alignTo": "architecture repository" },
+        { "id": "diagram-source", "target": "item-2", "alignTo": "diagrams" },
+        { "id": "generated-svg", "target": "item-3", "alignTo": "documentation" },
+        { "id": "repository-volume", "target": "evidence-1", "alignTo": "huge amount of information" },
+        { "id": "understanding-question", "target": "evidence-2", "alignTo": "understand the architecture" }
+      ]
+    },
+    {
+      "id": "S004", "section": "connecting-understanding", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-architectural-knowledge-journey", "headline": "Understanding connects the artefacts", "support": "Documents → Information → Understanding → Knowledge", "items": []
+    },
+    {
+      "id": "S005", "section": "information-in-architecture", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-architectural-information", "headline": "Architecture contains many kinds of information", "support": "Structure is only part of the picture.", "items": []
+    },
+    {
+      "id": "S006", "section": "information-versus-knowledge", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-information-vs-knowledge", "headline": "Connections create context", "support": "Isolated facts become a connected understanding.", "items": []
+    },
+    {
+      "id": "S007", "section": "knowledge-definition", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
+      "headline": "Knowledge is information combined with thinking.", "support": "The goal is a model that captures understanding.", "items": []
+    },
+    {
+      "id": "S008", "section": "claims", "archetype": "Evidence", "kind": "presenter-evidence", "transition": "cut",
+      "headline": "Claims are first-class architectural objects", "support": "A claim is an assertion about the architecture.",
+      "items": ["Order service uses PostgreSQL", "Checkout requires high availability", "Product API has three consumers", "ADR 0016 improves resilience"],
+      "beats": [
+        { "id": "claim-postgres", "target": "item-1", "alignTo": "Order service uses PostgreSQL" },
+        { "id": "claim-availability", "target": "item-2", "alignTo": "Checkout capability requires high availability" },
+        { "id": "claim-consumers", "target": "item-3", "alignTo": "three downstream systems" },
+        { "id": "claim-adr", "target": "item-4", "alignTo": "decision 16 was made to improve resilience" }
+      ]
+    },
+    {
+      "id": "S009", "section": "claim-context", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-claim-anatomy", "headline": "A claim carries its context", "support": "Source · confidence · evidence · temporal status", "items": []
+    },
+    {
+      "id": "S010", "section": "claim-evolution", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-claim-evolution", "headline": "Evidence changes what we understand", "support": "Strengthen, challenge and evolve—without hiding uncertainty.", "items": []
+    },
+    {
+      "id": "S011", "section": "connected-claims", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-information-to-knowledge", "headline": "Connected claims still need reasoning", "support": "Information → Connected claims → Reasoning → Knowledge", "items": []
+    },
+    {
+      "id": "S012", "section": "reasoning-context", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-reasoning-context", "headline": "Reasoning interprets significance", "support": "Context turns observations into architectural understanding.", "items": []
+    },
+    {
+      "id": "S013", "section": "model-not-graph", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-model-vs-graph", "headline": "Knowledge Model ≠ Knowledge Graph", "support": "Conceptual architecture first. Implementation options later.", "items": []
+    },
+    {
+      "id": "S014", "section": "knowledge-model", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "fade",
+      "diagramAssetId": "episode-0007-knowledge-model", "headline": "The Knowledge Model", "support": "The central model of architectural understanding.", "items": []
+    },
+    {
+      "id": "S015", "section": "model-evolution", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-knowledge-model-evolution", "headline": "Understanding evolves with the architecture", "support": "New information makes the shared model richer over time.", "items": []
+    },
+    {
+      "id": "S016", "section": "shared-model", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-shared-knowledge-model", "headline": "One shared understanding", "support": "Every capability contributes to or reasons over the same model.", "items": []
+    },
+    {
+      "id": "S017", "section": "knowledge-api", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
+      "diagramAssetId": "episode-0007-knowledge-api", "headline": "The Knowledge API is the gateway", "support": "Capabilities interact with knowledge—not storage technology.", "items": []
+    },
+    {
+      "id": "S018", "section": "api-evolution", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "One model. One consistent interface.", "support": "The implementation can evolve without changing the architecture above it.", "items": ["New queries", "New reasoning", "Richer model"],
+      "beats": [
+        { "id": "queries", "target": "item-1", "alignTo": "New ways of querying knowledge" },
+        { "id": "reasoning", "target": "item-2", "alignTo": "New reasoning capabilities" },
+        { "id": "richer", "target": "item-3", "alignTo": "model itself will become richer" }
+      ]
+    },
+    {
+      "id": "S019", "section": "architectural-intelligence", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "fade",
+      "diagramAssetId": "episode-0007-architectural-intelligence", "headline": "Towards Architectural Intelligence", "support": "Information → Knowledge Model → Reasoning → Intelligence", "items": []
+    },
+    {
+      "id": "S020", "section": "architect-accountability", "archetype": "Evidence", "kind": "presenter-evidence", "transition": "cut",
+      "headline": "AI supports judgement. Architects remain accountable.", "support": "The role of AI is to help build understanding.",
+      "items": ["Connect ideas", "Surface relationships", "Identify contradictions", "Explain consequences"],
+      "beats": [
+        { "id": "connect-ideas", "target": "item-1", "alignTo": "connect ideas" },
+        { "id": "surface", "target": "item-2", "alignTo": "surface relationships" },
+        { "id": "contradictions", "target": "item-3", "alignTo": "identify contradictions" },
+        { "id": "consequences", "target": "item-4", "alignTo": "consequences of change" }
+      ]
+    },
+    {
+      "id": "S021", "section": "closing-journey", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
+      "headline": "From information to Architectural Intelligence", "support": "The Knowledge Model is the conceptual foundation.",
+      "items": ["Information", "Connected claims", "Knowledge Model", "Architectural Intelligence"],
+      "beats": [
+        { "id": "information", "target": "item-1", "alignTo": "architectural information" },
+        { "id": "claims", "target": "item-2", "alignTo": "connected claims" },
+        { "id": "model", "target": "item-3", "alignTo": "Knowledge Model" },
+        { "id": "intelligence", "target": "item-4", "alignTo": "Architectural Intelligence" }
+      ]
+    },
+    {
+      "id": "S022", "section": "looking-ahead", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
+      "headline": "How does AI reason over the Knowledge Model?", "support": "Next · Retrieval, relationships and structured reasoning", "items": ["Semantic search", "Relationship traversal", "Structured queries"],
+      "beats": [
+        { "id": "semantic", "target": "item-1", "alignTo": "semantic search" },
+        { "id": "relationships", "target": "item-2", "alignTo": "traversing relationships" },
+        { "id": "structured", "target": "item-3", "alignTo": "structured queries" }
+      ]
+    }
+  ]
+}
