@@ -64,7 +64,7 @@ test("the home page exposes recent Episodes beside the hero with detailed previe
   assert.match(home, /class="latest-episode-preview"/);
   assert.match(home, /href="\/articulate\/episodes\/0015-derived-knowledge\/"/);
   assert.match(home, /Latest video/);
-  assert.match(home, /href="https:\/\/youtu\.be\/vk369gRbVnc"/);
+  assert.match(home, /href="https:\/\/youtu\.be\/Eac5D5SdHCA"/);
   assert.doesNotMatch(home, /Current Architectural Question|>Start Here<|Architecture at a Glance/);
   assert.match(home, /An architecture journal built through evidence/);
 });
