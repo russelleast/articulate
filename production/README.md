@@ -6,6 +6,8 @@ Its purpose is to help adapt canonical written episodes into derived media: spok
 
 This area is deliberately technology-neutral. It defines the production architecture, content model, reusable templates, prompts, review gates and Episode working areas. It does not select avatar vendors, video tools, voice services or automation frameworks.
 
+The implementation baseline is documented in [Current Production Engine Capabilities](architecture/current-production-engine-capabilities.md). It distinguishes executable renderer behaviour from capabilities described only by editorial guidance or pre-render planning contracts.
+
 ## Principles
 
 - The written episode is canonical for the journal.

@@ -1,0 +1,19 @@
+...@../../../styles/articulate
+direction: right
+
+capability: Business Capability {class: emphasis}
+application: Application Component {class: node}
+data: Data {class: data}
+integration: Integration {class: capability}
+infrastructure: Infrastructure {class: node}
+decision: Decision {class: decision}
+principle: Principle {class: principle}
+characteristic: System Characteristic {class: constraint}
+
+capability -> application: supported by
+application -> data: depends on
+application -> integration: depends on
+integration -> infrastructure: runs on
+decision -> application: explains
+principle -> decision: influences
+characteristic -> decision: constrains

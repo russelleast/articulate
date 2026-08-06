@@ -1,0 +1,327 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 921.954375,
+  "selectedDurationSeconds": 921.954375,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 29.76,
+      "narrationReference": "Journal Opening · N001"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 29.76,
+      "endSeconds": 55.44,
+      "narrationReference": "Architectural Domains · N002-N004"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 55.44,
+      "endSeconds": 68.56,
+      "narrationReference": "The Knowledge Model · N005"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 68.56,
+      "endSeconds": 84.48,
+      "narrationReference": "The Reasoning Question · N006-N009"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 84.48,
+      "endSeconds": 95.6,
+      "narrationReference": "Identify the Platform · N010-N011"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 95.6,
+      "endSeconds": 109.52,
+      "narrationReference": "Trace Dependencies · N012-N013"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 109.52,
+      "endSeconds": 123.12,
+      "narrationReference": "Find Decisions and Constraints · N014"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 123.12,
+      "endSeconds": 128.88,
+      "narrationReference": "Evaluate the Replacement · N015"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 128.88,
+      "endSeconds": 136.53,
+      "narrationReference": "Construct the Consequence · N016-N017"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 136.53,
+      "endSeconds": 154.88,
+      "narrationReference": "Retrieval Is Not Reasoning · N018-N021"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 154.88,
+      "endSeconds": 180.96,
+      "narrationReference": "The Conventional RAG Pipeline · N022-N025"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 180.96,
+      "endSeconds": 200.32,
+      "narrationReference": "The Architectural Question · N026-N029"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 200.32,
+      "endSeconds": 228.23,
+      "narrationReference": "Follow Relationships · N030-N034"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 228.23,
+      "endSeconds": 251.04,
+      "narrationReference": "From Chunks to Connected Knowledge · N035-N037"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 251.04,
+      "endSeconds": 284.53,
+      "narrationReference": "Traverse the Knowledge Model · N038-N042"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 284.53,
+      "endSeconds": 295.52,
+      "narrationReference": "Questions Select Retrieval · N043-N049"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 295.52,
+      "endSeconds": 311.59,
+      "narrationReference": "Combine Retrieval Strategies · N050-N053"
+    },
+    {
+      "id": "S018",
+      "startSeconds": 311.59,
+      "endSeconds": 341.68,
+      "narrationReference": "Understand the Question · N054-N061"
+    },
+    {
+      "id": "S019",
+      "startSeconds": 341.68,
+      "endSeconds": 367.6,
+      "narrationReference": "Map Questions to Reasoning · N062-N067"
+    },
+    {
+      "id": "S020",
+      "startSeconds": 367.6,
+      "endSeconds": 379,
+      "narrationReference": "Capabilities, Not Agent Reasoning · N068-N070"
+    },
+    {
+      "id": "S021",
+      "startSeconds": 379,
+      "endSeconds": 401.04,
+      "narrationReference": "Relational Reasoning · N071-N076"
+    },
+    {
+      "id": "S022",
+      "startSeconds": 401.04,
+      "endSeconds": 416.56,
+      "narrationReference": "Architectural Constraints · N077-N078"
+    },
+    {
+      "id": "S023",
+      "startSeconds": 416.56,
+      "endSeconds": 437.12,
+      "narrationReference": "Constraint Reasoning · N079-N082"
+    },
+    {
+      "id": "S024",
+      "startSeconds": 437.12,
+      "endSeconds": 449.6,
+      "narrationReference": "Architectural Alternatives · N083-N085"
+    },
+    {
+      "id": "S025",
+      "startSeconds": 449.6,
+      "endSeconds": 469.44,
+      "narrationReference": "Comparative Reasoning · N086-N087"
+    },
+    {
+      "id": "S026",
+      "startSeconds": 469.44,
+      "endSeconds": 491.28,
+      "narrationReference": "Temporal Reasoning · N088-N090"
+    },
+    {
+      "id": "S027",
+      "startSeconds": 491.28,
+      "endSeconds": 503.2,
+      "narrationReference": "Reason Across Architectural States · N091-N095"
+    },
+    {
+      "id": "S028",
+      "startSeconds": 503.2,
+      "endSeconds": 536.4,
+      "narrationReference": "Evidential Reasoning · N096-N102"
+    },
+    {
+      "id": "S029",
+      "startSeconds": 536.4,
+      "endSeconds": 551.44,
+      "narrationReference": "Reasoning Capabilities, Not Five Agents · N103-N106"
+    },
+    {
+      "id": "S030",
+      "startSeconds": 551.44,
+      "endSeconds": 580.32,
+      "narrationReference": "Agentic RAG as a Feedback Loop · N107-N115"
+    },
+    {
+      "id": "S031",
+      "startSeconds": 580.32,
+      "endSeconds": 604.88,
+      "narrationReference": "Retrieval Participates in Reasoning · N116-N118"
+    },
+    {
+      "id": "S032",
+      "startSeconds": 604.88,
+      "endSeconds": 619.28,
+      "narrationReference": "Beyond Agentic RAG · N119-N120"
+    },
+    {
+      "id": "S033",
+      "startSeconds": 619.28,
+      "endSeconds": 626.8,
+      "narrationReference": "Represent Knowledge · N121"
+    },
+    {
+      "id": "S034",
+      "startSeconds": 626.8,
+      "endSeconds": 632.88,
+      "narrationReference": "Reason With Knowledge · N122"
+    },
+    {
+      "id": "S035",
+      "startSeconds": 632.88,
+      "endSeconds": 645.68,
+      "narrationReference": "A Conceptual Boundary · N123-N125"
+    },
+    {
+      "id": "S036",
+      "startSeconds": 645.68,
+      "endSeconds": 664.48,
+      "narrationReference": "Separate Responsibilities · N126-N129"
+    },
+    {
+      "id": "S037",
+      "startSeconds": 664.48,
+      "endSeconds": 685.92,
+      "narrationReference": "Hide Retrieval Mechanics · N130-N131"
+    },
+    {
+      "id": "S038",
+      "startSeconds": 685.92,
+      "endSeconds": 712.08,
+      "narrationReference": "Starting With Agents · N132-N138"
+    },
+    {
+      "id": "S039",
+      "startSeconds": 712.08,
+      "endSeconds": 719.12,
+      "narrationReference": "Start With the Problem · N139-N140"
+    },
+    {
+      "id": "S040",
+      "startSeconds": 719.12,
+      "endSeconds": 724.8,
+      "narrationReference": "Identify the Reasoning · N141"
+    },
+    {
+      "id": "S041",
+      "startSeconds": 724.8,
+      "endSeconds": 727.6,
+      "narrationReference": "Identify Required Knowledge · N142"
+    },
+    {
+      "id": "S042",
+      "startSeconds": 727.6,
+      "endSeconds": 730.4,
+      "narrationReference": "Choose Retrieval · N143-N144"
+    },
+    {
+      "id": "S043",
+      "startSeconds": 730.4,
+      "endSeconds": 743.92,
+      "narrationReference": "Agent Behaviour Comes Last · N145-N147"
+    },
+    {
+      "id": "S044",
+      "startSeconds": 743.92,
+      "endSeconds": 753.25,
+      "narrationReference": "The Agents Come Later · N148-N150"
+    },
+    {
+      "id": "S045",
+      "startSeconds": 753.25,
+      "endSeconds": 784.08,
+      "narrationReference": "What the System Knows · N151-N159"
+    },
+    {
+      "id": "S046",
+      "startSeconds": 784.08,
+      "endSeconds": 796,
+      "narrationReference": "Knowledge Graph and Reasoning Map · N160-N161"
+    },
+    {
+      "id": "S047",
+      "startSeconds": 796,
+      "endSeconds": 802.08,
+      "narrationReference": "Extract the Path for One Question · N162-N164"
+    },
+    {
+      "id": "S048",
+      "startSeconds": 802.08,
+      "endSeconds": 825.76,
+      "narrationReference": "Inspect the Reasoning · N165-N171"
+    },
+    {
+      "id": "S049",
+      "startSeconds": 825.76,
+      "endSeconds": 839.82,
+      "narrationReference": "A Useful Answer Is Not Enough · N172-N174"
+    },
+    {
+      "id": "S050",
+      "startSeconds": 839.82,
+      "endSeconds": 868.32,
+      "narrationReference": "Knowledge Reasoning Adds the Next Layer · N175-N183"
+    },
+    {
+      "id": "S051",
+      "startSeconds": 868.32,
+      "endSeconds": 887.52,
+      "narrationReference": "Useful Mechanisms, Not Intelligence Alone · N184-N187"
+    },
+    {
+      "id": "S052",
+      "startSeconds": 887.52,
+      "endSeconds": 899.68,
+      "narrationReference": "Architectural Intelligence · N188-N190"
+    },
+    {
+      "id": "S053",
+      "startSeconds": 899.68,
+      "endSeconds": 921.954,
+      "narrationReference": "Next: Describing Agent Behaviour · N191-N193"
+    }
+  ]
+}

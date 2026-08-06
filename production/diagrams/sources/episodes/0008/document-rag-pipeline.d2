@@ -1,0 +1,12 @@
+...@../../../styles/articulate
+direction: right
+
+question: Question {class: evidence}
+documents: Documents {class: data}
+chunks: Text Chunks {class: node}
+embeddings: Vector Embeddings {class: capability}
+similar: Similar Text Chunks {class: emphasis}
+question -> embeddings: semantic match
+documents -> chunks: divide
+chunks -> embeddings: encode
+embeddings -> similar: retrieve

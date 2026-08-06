@@ -22,6 +22,9 @@ repository_paths:
 - production/diagrams/sources/reasoning/reasoning-before-agents.d2
 - production/diagrams/sources/reasoning/reasoning-map-example.d2
 - production/diagrams/sources/knowledge/knowledge-graph-example.d2
+thumbnail: /media/episodes/0008/episode-0008-thumbnail.png
+thumbnail_alt: "Presenter beside the words Retrieval Isn't Reasoning and a feedback loop between retrieval and reasoning."
+youtube_url: https://youtu.be/rN0Sr9CYCSI
 ---
 
 # Episode 8 – Knowledge Reasoning: Beyond RAG

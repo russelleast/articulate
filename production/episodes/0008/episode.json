@@ -1,0 +1,1494 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0008",
+    "title": "Knowledge Reasoning: Beyond RAG",
+    "journalSource": "docs/episodes/0008-agentic-rag-and-knowledge-reasoning.md",
+    "narrativeSource": "production/episodes/0008/narrative.md",
+    "storyboard": "production/episodes/0008/storyboard.yaml",
+    "timingMarkers": "production/episodes/0008/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0008/asset-register.yaml",
+    "scenePlan": "production/episodes/0008/scene-plan.yaml",
+    "timeline": "production/episodes/0008/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0008-presenter-v1",
+    "expectedSha256": "49cf407605ab3d3fea3cfc43bd99d77bb9a00a6ce278db8968a370a37856e46f",
+    "expectedDurationSeconds": 921.954375,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 921.954375,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0008/output/episode-0008-final.mp4",
+    "generatedDirectory": "production/episodes/0008/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0008/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0008/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Knowledge Reasoning",
+      "kind": "presenter-focus",
+      "headline": "Knowledge Reasoning",
+      "support": "Beyond RAG",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Journal Opening",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "Architecture is connected knowledge",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-architectural-domains",
+      "headline": "Architecture is connected knowledge",
+      "support": "Domains gain meaning through their relationships.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Domains",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "The Knowledge Model represents those relationships",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0007-knowledge-model",
+      "headline": "The Knowledge Model represents those relationships",
+      "support": "A connected model of architectural knowledge.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Knowledge Model",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "How should AI reason with that knowledge?",
+      "kind": "presenter-focus",
+      "headline": "How should AI reason with that knowledge?",
+      "support": "Representation creates the next architectural problem.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Reasoning Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "1 · Identify the messaging platform",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-impact-answer-01",
+      "headline": "1 · Identify the messaging platform",
+      "support": "Finding it is only the beginning.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Identify the Platform",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "2 · Trace components and capabilities",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-impact-answer-02",
+      "headline": "2 · Trace components and capabilities",
+      "support": "The answer grows through relationships.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Trace Dependencies",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "3 · Recover decisions and constraints",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-impact-answer-03",
+      "headline": "3 · Recover decisions and constraints",
+      "support": "Why was the platform selected?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Find Decisions and Constraints",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "4 · Evaluate the proposed replacement",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-impact-answer-04",
+      "headline": "4 · Evaluate the proposed replacement",
+      "support": "Test it against principles and characteristics.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Evaluate the Replacement",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "5 · Construct the architectural consequence",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-impact-answer-05",
+      "headline": "5 · Construct the architectural consequence",
+      "support": "The answer is built from connected knowledge.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Construct the Consequence",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "Retrieval is not reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-retrieval-versus-reasoning",
+      "headline": "Retrieval is not reasoning",
+      "support": "Gathering knowledge and interpreting it are distinct responsibilities.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Retrieval Is Not Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Conventional document RAG",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-document-rag-pipeline",
+      "headline": "Conventional document RAG",
+      "support": "Question → semantically similar text chunks",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Conventional RAG Pipeline",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Which capabilities fail with this infrastructure?",
+      "kind": "presenter-focus",
+      "headline": "Which capabilities fail with this infrastructure?",
+      "support": "The answer may not exist in a similar paragraph.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Architectural Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Architectural questions follow relationships",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-relationship-retrieval",
+      "headline": "Architectural questions follow relationships",
+      "support": "Infrastructure → application component → business capability",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Follow Relationships",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "The problem is bigger than RAG",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-chunks-to-connected-knowledge",
+      "headline": "The problem is bigger than RAG",
+      "support": "Relationships become part of retrieval.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "From Chunks to Connected Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "GraphRAG navigates what is known",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "graphrag-traversal",
+      "headline": "GraphRAG navigates what is known",
+      "support": "The relationship path carries architectural meaning.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Traverse the Knowledge Model",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "Different questions need different retrieval",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-retrieval-strategies",
+      "headline": "Different questions need different retrieval",
+      "support": "Semantic search · graph traversal · structured query",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Questions Select Retrieval",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "title": "One question may combine all three",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-combined-retrieval",
+      "headline": "One question may combine all three",
+      "support": "The question determines the retrieval strategy.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Combine Retrieval Strategies",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S018",
+      "title": "First, understand the question",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-question-to-reasoning",
+      "headline": "First, understand the question",
+      "support": "What kind of architectural reasoning does it require?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Understand the Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S019",
+      "title": "Each question creates a different reasoning need",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-question-to-reasoning",
+      "headline": "Each question creates a different reasoning need",
+      "support": "Relationships · decision context · constraints · time · evidence",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Map Questions to Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S020",
+      "title": "“Agent reasoning” hides the architecture",
+      "kind": "presenter-focus",
+      "headline": "“Agent reasoning” hides the architecture",
+      "support": "The system needs explicit reasoning capabilities.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Capabilities, Not Agent Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S021",
+      "title": "Relational reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-relational-reasoning",
+      "headline": "Relational reasoning",
+      "support": "What depends on this—and what does it support?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Relational Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S022",
+      "title": "Architecture contains constraints",
+      "kind": "presenter-focus",
+      "headline": "Architecture contains constraints",
+      "support": "Principles · characteristics · policies · previous decisions",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Constraints",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S023",
+      "title": "Constraint reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-constraint-reasoning",
+      "headline": "Constraint reasoning",
+      "support": "Evaluate one piece of knowledge in the context of another.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Constraint Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S024",
+      "title": "Architectural decisions involve alternatives",
+      "kind": "presenter-focus",
+      "headline": "Architectural decisions involve alternatives",
+      "support": "The important comparison is contextual, not generic.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Alternatives",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S025",
+      "title": "Comparative reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-comparative-reasoning",
+      "headline": "Comparative reasoning",
+      "support": "Compare options against drivers, principles and existing architecture.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Comparative Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S026",
+      "title": "Temporal reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-temporal-reasoning",
+      "headline": "Temporal reasoning",
+      "support": "A decision can be correct in the architectural state that produced it.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Temporal Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S027",
+      "title": "What changed—and why?",
+      "kind": "presenter-focus",
+      "headline": "What changed—and why?",
+      "support": "Reason across successive architectural states and their assumptions.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reason Across Architectural States",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S028",
+      "title": "Evidential reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-evidential-reasoning",
+      "headline": "Evidential reasoning",
+      "support": "Trace claims to sources, provenance and confidence.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Evidential Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S029",
+      "title": "These are not necessarily five agents",
+      "kind": "presenter-focus",
+      "headline": "These are not necessarily five agents",
+      "support": "They are five distinct reasoning capabilities.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reasoning Capabilities, Not Five Agents",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S030",
+      "title": "Agentic RAG is iterative",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-agentic-rag-loop",
+      "headline": "Agentic RAG is iterative",
+      "support": "Retrieve, inspect, decide whether more knowledge is required.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Agentic RAG as a Feedback Loop",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S031",
+      "title": "Retrieval becomes part of reasoning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-reasoning-flow",
+      "headline": "Retrieval becomes part of reasoning",
+      "support": "It is no longer one fixed step before generation.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Retrieval Participates in Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S032",
+      "title": "Retrieval is not the centre of the architecture",
+      "kind": "presenter-focus",
+      "headline": "Retrieval is not the centre of the architecture",
+      "support": "The more useful concept is a Knowledge Reasoning Layer.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Beyond Agentic RAG",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S033",
+      "title": "The Knowledge Model represents knowledge",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-layer-01",
+      "headline": "The Knowledge Model represents knowledge",
+      "support": "What Articulate knows about an architecture.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Represent Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S034",
+      "title": "The reasoning layer interprets knowledge",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-layer-02",
+      "headline": "The reasoning layer interprets knowledge",
+      "support": "A distinct architectural responsibility.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reason With Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S035",
+      "title": "A boundary between capabilities and access",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-layer-03",
+      "headline": "A boundary between capabilities and access",
+      "support": "Conceptual boundary—not implementation design.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Conceptual Boundary",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S036",
+      "title": "Separate representation from interpretation",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-layer-04",
+      "headline": "Separate representation from interpretation",
+      "support": "The model represents; the layer explores and interprets.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Separate Responsibilities",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S037",
+      "title": "Agents ask meaningful questions",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-reasoning-layer",
+      "headline": "Agents ask meaningful questions",
+      "support": "Retrieval mechanics remain inside the reasoning architecture.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Hide Retrieval Mechanics",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S038",
+      "title": "Starting with agents is the wrong abstraction",
+      "kind": "presenter-focus",
+      "headline": "Starting with agents is the wrong abstraction",
+      "support": "An agent name says little about the reasoning it must perform.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Starting With Agents",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S039",
+      "title": "1 · What problem are we solving?",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-before-agents-01",
+      "headline": "1 · What problem are we solving?",
+      "support": "Begin with the architectural need.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Start With the Problem",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S040",
+      "title": "2 · What reasoning does it require?",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-before-agents-02",
+      "headline": "2 · What reasoning does it require?",
+      "support": "Name the capability before the runtime.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Identify the Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S041",
+      "title": "3 · What knowledge does it need?",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-before-agents-03",
+      "headline": "3 · What knowledge does it need?",
+      "support": "Make the knowledge dependency explicit.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Identify Required Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S042",
+      "title": "4 · How should that knowledge be retrieved?",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-before-agents-04",
+      "headline": "4 · How should that knowledge be retrieved?",
+      "support": "Select access from the reasoning need.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Choose Retrieval",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S043",
+      "title": "5 · Then decide the agent behaviour",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-before-agents-05",
+      "headline": "5 · Then decide the agent behaviour",
+      "support": "The runtime abstraction comes last.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Agent Behaviour Comes Last",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S044",
+      "title": "The architecture emerges from the problem",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "reasoning-before-agents",
+      "headline": "The architecture emerges from the problem",
+      "support": "The agents come later.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Agents Come Later",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S045",
+      "title": "The Knowledge Model: everything connected",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-knowledge-graph-expanded",
+      "headline": "The Knowledge Model: everything connected",
+      "support": "The relationships available to the system.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "What the System Knows",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S046",
+      "title": "Knowledge graph ≠ reasoning map",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-graph-example",
+      "headline": "Knowledge graph ≠ reasoning map",
+      "support": "Available knowledge differs from the path used for one answer.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge Graph and Reasoning Map",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S047",
+      "title": "A reasoning map isolates one path",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-map-extracted",
+      "headline": "A reasoning map isolates one path",
+      "support": "Question → selected knowledge → conclusion",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Extract the Path for One Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S048",
+      "title": "Inspect how the conclusion was reached",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "reasoning-map-example",
+      "headline": "Inspect how the conclusion was reached",
+      "support": "See the knowledge, assumptions and path used.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Inspect the Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S049",
+      "title": "A useful answer is important",
+      "kind": "presenter-focus",
+      "headline": "A useful answer is important",
+      "support": "Understanding how it was reached may be just as important.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Useful Answer Is Not Enough",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S050",
+      "title": "Knowledge reasoning adds the next layer",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-reasoning-layer-04",
+      "headline": "Knowledge reasoning adds the next layer",
+      "support": "Relationships · constraints · alternatives · time · evidence",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge Reasoning Adds the Next Layer",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S051",
+      "title": "Retrieval mechanisms remain useful",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-reasoning-flow",
+      "headline": "Retrieval mechanisms remain useful",
+      "support": "None of them is Architectural Intelligence on its own.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Useful Mechanisms, Not Intelligence Alone",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S052",
+      "title": "Architectural Intelligence",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0008-architectural-intelligence-synthesis",
+      "headline": "Architectural Intelligence",
+      "support": "Structured knowledge + explicit reasoning capabilities",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Intelligence",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S053",
+      "title": "The agents come later",
+      "kind": "presenter-focus",
+      "headline": "The agents come later",
+      "support": "Next: describing their intended behaviour with DCL.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Next: Describing Agent Behaviour",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

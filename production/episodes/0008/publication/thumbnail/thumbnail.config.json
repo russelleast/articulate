@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0008",
+    "eyebrow": "KNOWLEDGE REASONING",
+    "headline": ["RETRIEVAL ISN'T", "REASONING"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep8-editted.mp4",
+    "frameTimestampSeconds": 540,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}

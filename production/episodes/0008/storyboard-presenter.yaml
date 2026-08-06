@@ -1,0 +1,600 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0008",
+    "title": "Knowledge Reasoning: Beyond RAG",
+    "written_source": "docs/episodes/0008-agentic-rag-and-knowledge-reasoning.md",
+    "narrative_source": "production/episodes/0008/narrative.md",
+    "scene_plan": "production/episodes/0008/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 921.954375
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Knowledge Reasoning",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 29.76
+    },
+    {
+      "id": "S002",
+      "title": "Architecture is connected knowledge",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N002-N004"
+      ],
+      "start_seconds": 29.76,
+      "end_seconds": 55.44
+    },
+    {
+      "id": "S003",
+      "title": "The Knowledge Model represents those relationships",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N005"
+      ],
+      "start_seconds": 55.44,
+      "end_seconds": 68.56
+    },
+    {
+      "id": "S004",
+      "title": "How should AI reason with that knowledge?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N006-N009"
+      ],
+      "start_seconds": 68.56,
+      "end_seconds": 84.48
+    },
+    {
+      "id": "S005",
+      "title": "1 · Identify the messaging platform",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N010-N011"
+      ],
+      "start_seconds": 84.48,
+      "end_seconds": 95.6
+    },
+    {
+      "id": "S006",
+      "title": "2 · Trace components and capabilities",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N012-N013"
+      ],
+      "start_seconds": 95.6,
+      "end_seconds": 109.52
+    },
+    {
+      "id": "S007",
+      "title": "3 · Recover decisions and constraints",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N014"
+      ],
+      "start_seconds": 109.52,
+      "end_seconds": 123.12
+    },
+    {
+      "id": "S008",
+      "title": "4 · Evaluate the proposed replacement",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N015"
+      ],
+      "start_seconds": 123.12,
+      "end_seconds": 128.88
+    },
+    {
+      "id": "S009",
+      "title": "5 · Construct the architectural consequence",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N016-N017"
+      ],
+      "start_seconds": 128.88,
+      "end_seconds": 136.53
+    },
+    {
+      "id": "S010",
+      "title": "Retrieval is not reasoning",
+      "archetype": "Comparison",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N018-N021"
+      ],
+      "start_seconds": 136.53,
+      "end_seconds": 154.88
+    },
+    {
+      "id": "S011",
+      "title": "Conventional document RAG",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N022-N025"
+      ],
+      "start_seconds": 154.88,
+      "end_seconds": 180.96
+    },
+    {
+      "id": "S012",
+      "title": "Which capabilities fail with this infrastructure?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N026-N029"
+      ],
+      "start_seconds": 180.96,
+      "end_seconds": 200.32
+    },
+    {
+      "id": "S013",
+      "title": "Architectural questions follow relationships",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N030-N034"
+      ],
+      "start_seconds": 200.32,
+      "end_seconds": 228.23
+    },
+    {
+      "id": "S014",
+      "title": "The problem is bigger than RAG",
+      "archetype": "Comparison",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N035-N037"
+      ],
+      "start_seconds": 228.23,
+      "end_seconds": 251.04
+    },
+    {
+      "id": "S015",
+      "title": "GraphRAG navigates what is known",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N038-N042"
+      ],
+      "start_seconds": 251.04,
+      "end_seconds": 284.53
+    },
+    {
+      "id": "S016",
+      "title": "Different questions need different retrieval",
+      "archetype": "Selector",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N043-N049"
+      ],
+      "start_seconds": 284.53,
+      "end_seconds": 295.52
+    },
+    {
+      "id": "S017",
+      "title": "One question may combine all three",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N050-N053"
+      ],
+      "start_seconds": 295.52,
+      "end_seconds": 311.59
+    },
+    {
+      "id": "S018",
+      "title": "First, understand the question",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N054-N061"
+      ],
+      "start_seconds": 311.59,
+      "end_seconds": 341.68
+    },
+    {
+      "id": "S019",
+      "title": "Each question creates a different reasoning need",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N062-N067"
+      ],
+      "start_seconds": 341.68,
+      "end_seconds": 367.6
+    },
+    {
+      "id": "S020",
+      "title": "“Agent reasoning” hides the architecture",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N068-N070"
+      ],
+      "start_seconds": 367.6,
+      "end_seconds": 379
+    },
+    {
+      "id": "S021",
+      "title": "Relational reasoning",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N071-N076"
+      ],
+      "start_seconds": 379,
+      "end_seconds": 401.04
+    },
+    {
+      "id": "S022",
+      "title": "Architecture contains constraints",
+      "archetype": "Evidence",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N077-N078"
+      ],
+      "start_seconds": 401.04,
+      "end_seconds": 416.56
+    },
+    {
+      "id": "S023",
+      "title": "Constraint reasoning",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N079-N082"
+      ],
+      "start_seconds": 416.56,
+      "end_seconds": 437.12
+    },
+    {
+      "id": "S024",
+      "title": "Architectural decisions involve alternatives",
+      "archetype": "Comparison",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N083-N085"
+      ],
+      "start_seconds": 437.12,
+      "end_seconds": 449.6
+    },
+    {
+      "id": "S025",
+      "title": "Comparative reasoning",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N086-N087"
+      ],
+      "start_seconds": 449.6,
+      "end_seconds": 469.44
+    },
+    {
+      "id": "S026",
+      "title": "Temporal reasoning",
+      "archetype": "Timeline",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N088-N090"
+      ],
+      "start_seconds": 469.44,
+      "end_seconds": 491.28
+    },
+    {
+      "id": "S027",
+      "title": "What changed—and why?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N091-N095"
+      ],
+      "start_seconds": 491.28,
+      "end_seconds": 503.2
+    },
+    {
+      "id": "S028",
+      "title": "Evidential reasoning",
+      "archetype": "Evidence",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N096-N102"
+      ],
+      "start_seconds": 503.2,
+      "end_seconds": 536.4
+    },
+    {
+      "id": "S029",
+      "title": "These are not necessarily five agents",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N103-N106"
+      ],
+      "start_seconds": 536.4,
+      "end_seconds": 551.44
+    },
+    {
+      "id": "S030",
+      "title": "Agentic RAG is iterative",
+      "archetype": "Feedback Loop",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N107-N115"
+      ],
+      "start_seconds": 551.44,
+      "end_seconds": 580.32
+    },
+    {
+      "id": "S031",
+      "title": "Retrieval becomes part of reasoning",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N116-N118"
+      ],
+      "start_seconds": 580.32,
+      "end_seconds": 604.88
+    },
+    {
+      "id": "S032",
+      "title": "Retrieval is not the centre of the architecture",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N119-N120"
+      ],
+      "start_seconds": 604.88,
+      "end_seconds": 619.28
+    },
+    {
+      "id": "S033",
+      "title": "The Knowledge Model represents knowledge",
+      "archetype": "Layer",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N121"
+      ],
+      "start_seconds": 619.28,
+      "end_seconds": 626.8
+    },
+    {
+      "id": "S034",
+      "title": "The reasoning layer interprets knowledge",
+      "archetype": "Layer",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N122"
+      ],
+      "start_seconds": 626.8,
+      "end_seconds": 632.88
+    },
+    {
+      "id": "S035",
+      "title": "A boundary between capabilities and access",
+      "archetype": "Layer",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N123-N125"
+      ],
+      "start_seconds": 632.88,
+      "end_seconds": 645.68
+    },
+    {
+      "id": "S036",
+      "title": "Separate representation from interpretation",
+      "archetype": "Layer",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N126-N129"
+      ],
+      "start_seconds": 645.68,
+      "end_seconds": 664.48
+    },
+    {
+      "id": "S037",
+      "title": "Agents ask meaningful questions",
+      "archetype": "Layer",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N130-N131"
+      ],
+      "start_seconds": 664.48,
+      "end_seconds": 685.92
+    },
+    {
+      "id": "S038",
+      "title": "Starting with agents is the wrong abstraction",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N132-N138"
+      ],
+      "start_seconds": 685.92,
+      "end_seconds": 712.08
+    },
+    {
+      "id": "S039",
+      "title": "1 · What problem are we solving?",
+      "archetype": "Progression",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N139-N140"
+      ],
+      "start_seconds": 712.08,
+      "end_seconds": 719.12
+    },
+    {
+      "id": "S040",
+      "title": "2 · What reasoning does it require?",
+      "archetype": "Progression",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N141"
+      ],
+      "start_seconds": 719.12,
+      "end_seconds": 724.8
+    },
+    {
+      "id": "S041",
+      "title": "3 · What knowledge does it need?",
+      "archetype": "Progression",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N142"
+      ],
+      "start_seconds": 724.8,
+      "end_seconds": 727.6
+    },
+    {
+      "id": "S042",
+      "title": "4 · How should that knowledge be retrieved?",
+      "archetype": "Progression",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N143-N144"
+      ],
+      "start_seconds": 727.6,
+      "end_seconds": 730.4
+    },
+    {
+      "id": "S043",
+      "title": "5 · Then decide the agent behaviour",
+      "archetype": "Progression",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N145-N147"
+      ],
+      "start_seconds": 730.4,
+      "end_seconds": 743.92
+    },
+    {
+      "id": "S044",
+      "title": "The architecture emerges from the problem",
+      "archetype": "Progression",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N148-N150"
+      ],
+      "start_seconds": 743.92,
+      "end_seconds": 753.25
+    },
+    {
+      "id": "S045",
+      "title": "The Knowledge Model: everything connected",
+      "archetype": "Knowledge Graph",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N151-N159"
+      ],
+      "start_seconds": 753.25,
+      "end_seconds": 784.08
+    },
+    {
+      "id": "S046",
+      "title": "Knowledge graph ≠ reasoning map",
+      "archetype": "Comparison",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N160-N161"
+      ],
+      "start_seconds": 784.08,
+      "end_seconds": 796
+    },
+    {
+      "id": "S047",
+      "title": "A reasoning map isolates one path",
+      "archetype": "Reasoning Map",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N162-N164"
+      ],
+      "start_seconds": 796,
+      "end_seconds": 802.08
+    },
+    {
+      "id": "S048",
+      "title": "Inspect how the conclusion was reached",
+      "archetype": "Reasoning Map",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N165-N171"
+      ],
+      "start_seconds": 802.08,
+      "end_seconds": 825.76
+    },
+    {
+      "id": "S049",
+      "title": "A useful answer is important",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N172-N174"
+      ],
+      "start_seconds": 825.76,
+      "end_seconds": 839.82
+    },
+    {
+      "id": "S050",
+      "title": "Knowledge reasoning adds the next layer",
+      "archetype": "Layer",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N175-N183"
+      ],
+      "start_seconds": 839.82,
+      "end_seconds": 868.32
+    },
+    {
+      "id": "S051",
+      "title": "Retrieval mechanisms remain useful",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N184-N187"
+      ],
+      "start_seconds": 868.32,
+      "end_seconds": 887.52
+    },
+    {
+      "id": "S052",
+      "title": "Architectural Intelligence",
+      "archetype": "Synthesis",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N188-N190"
+      ],
+      "start_seconds": 887.52,
+      "end_seconds": 899.68
+    },
+    {
+      "id": "S053",
+      "title": "The agents come later",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N191-N193"
+      ],
+      "start_seconds": 899.68,
+      "end_seconds": 921.954
+    }
+  ]
+}

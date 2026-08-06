@@ -1,0 +1,22 @@
+...@../../../styles/articulate
+direction: right
+
+question: Architectural Question {class: evidence}
+kind: Understand the Question {class: router}
+relationships: Relationships {class: capability}
+decision: Decision Context {class: decision}
+constraints: Constraints {class: constraint}
+time: Time {class: event}
+evidence: Evidence {class: evidence}
+capability: Required Reasoning Capability {class: emphasis}
+question -> kind
+kind -> relationships
+kind -> decision
+kind -> constraints
+kind -> time
+kind -> evidence
+relationships -> capability
+decision -> capability
+constraints -> capability
+time -> capability
+evidence -> capability

@@ -1,0 +1,12 @@
+...@../../../styles/articulate
+direction: right
+
+conversation: Conversation {class: evidence}
+document: Document {class: evidence}
+observation: Observation {class: evidence}
+claim: Architectural Claim {class: node}
+confidence: Confidence & Provenance {class: emphasis}
+conversation -> claim: supports
+document -> claim: supports
+observation -> claim: supports
+claim -> confidence: assessed as

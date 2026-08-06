@@ -1,0 +1,435 @@
+{
+  "episode": {
+    "id": "episode-0008",
+    "title": "Knowledge Reasoning: Beyond RAG",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0008-presenter-v1",
+    "narration_duration_seconds": 921.954375
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 29.76,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 29.76,
+      "end_seconds": 55.44,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-architectural-domains"
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 55.44,
+      "end_seconds": 68.56,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0007-knowledge-model"
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 68.56,
+      "end_seconds": 84.48,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 84.48,
+      "end_seconds": 95.6,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-impact-answer-01"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 95.6,
+      "end_seconds": 109.52,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-impact-answer-02"
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 109.52,
+      "end_seconds": 123.12,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-impact-answer-03"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 123.12,
+      "end_seconds": 128.88,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-impact-answer-04"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 128.88,
+      "end_seconds": 136.53,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-impact-answer-05"
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 136.53,
+      "end_seconds": 154.88,
+      "visual_type": "Comparison",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-retrieval-versus-reasoning"
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 154.88,
+      "end_seconds": 180.96,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-document-rag-pipeline"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 180.96,
+      "end_seconds": 200.32,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 200.32,
+      "end_seconds": 228.23,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-relationship-retrieval"
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 228.23,
+      "end_seconds": 251.04,
+      "visual_type": "Comparison",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-chunks-to-connected-knowledge"
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 251.04,
+      "end_seconds": 284.53,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "graphrag-traversal"
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 284.53,
+      "end_seconds": 295.52,
+      "visual_type": "Selector",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-retrieval-strategies"
+    },
+    {
+      "scene_id": "S017",
+      "start_seconds": 295.52,
+      "end_seconds": 311.59,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-combined-retrieval"
+    },
+    {
+      "scene_id": "S018",
+      "start_seconds": 311.59,
+      "end_seconds": 341.68,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-question-to-reasoning"
+    },
+    {
+      "scene_id": "S019",
+      "start_seconds": 341.68,
+      "end_seconds": 367.6,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-question-to-reasoning"
+    },
+    {
+      "scene_id": "S020",
+      "start_seconds": 367.6,
+      "end_seconds": 379,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S021",
+      "start_seconds": 379,
+      "end_seconds": 401.04,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-relational-reasoning"
+    },
+    {
+      "scene_id": "S022",
+      "start_seconds": 401.04,
+      "end_seconds": 416.56,
+      "visual_type": "Evidence",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S023",
+      "start_seconds": 416.56,
+      "end_seconds": 437.12,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-constraint-reasoning"
+    },
+    {
+      "scene_id": "S024",
+      "start_seconds": 437.12,
+      "end_seconds": 449.6,
+      "visual_type": "Comparison",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S025",
+      "start_seconds": 449.6,
+      "end_seconds": 469.44,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-comparative-reasoning"
+    },
+    {
+      "scene_id": "S026",
+      "start_seconds": 469.44,
+      "end_seconds": 491.28,
+      "visual_type": "Timeline",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-temporal-reasoning"
+    },
+    {
+      "scene_id": "S027",
+      "start_seconds": 491.28,
+      "end_seconds": 503.2,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S028",
+      "start_seconds": 503.2,
+      "end_seconds": 536.4,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-evidential-reasoning"
+    },
+    {
+      "scene_id": "S029",
+      "start_seconds": 536.4,
+      "end_seconds": 551.44,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S030",
+      "start_seconds": 551.44,
+      "end_seconds": 580.32,
+      "visual_type": "Feedback Loop",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-agentic-rag-loop"
+    },
+    {
+      "scene_id": "S031",
+      "start_seconds": 580.32,
+      "end_seconds": 604.88,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "knowledge-reasoning-flow"
+    },
+    {
+      "scene_id": "S032",
+      "start_seconds": 604.88,
+      "end_seconds": 619.28,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S033",
+      "start_seconds": 619.28,
+      "end_seconds": 626.8,
+      "visual_type": "Layer",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-layer-01"
+    },
+    {
+      "scene_id": "S034",
+      "start_seconds": 626.8,
+      "end_seconds": 632.88,
+      "visual_type": "Layer",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-layer-02"
+    },
+    {
+      "scene_id": "S035",
+      "start_seconds": 632.88,
+      "end_seconds": 645.68,
+      "visual_type": "Layer",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-layer-03"
+    },
+    {
+      "scene_id": "S036",
+      "start_seconds": 645.68,
+      "end_seconds": 664.48,
+      "visual_type": "Layer",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-layer-04"
+    },
+    {
+      "scene_id": "S037",
+      "start_seconds": 664.48,
+      "end_seconds": 685.92,
+      "visual_type": "Layer",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "knowledge-reasoning-layer"
+    },
+    {
+      "scene_id": "S038",
+      "start_seconds": 685.92,
+      "end_seconds": 712.08,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S039",
+      "start_seconds": 712.08,
+      "end_seconds": 719.12,
+      "visual_type": "Progression",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-before-agents-01"
+    },
+    {
+      "scene_id": "S040",
+      "start_seconds": 719.12,
+      "end_seconds": 724.8,
+      "visual_type": "Progression",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-before-agents-02"
+    },
+    {
+      "scene_id": "S041",
+      "start_seconds": 724.8,
+      "end_seconds": 727.6,
+      "visual_type": "Progression",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-before-agents-03"
+    },
+    {
+      "scene_id": "S042",
+      "start_seconds": 727.6,
+      "end_seconds": 730.4,
+      "visual_type": "Progression",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-before-agents-04"
+    },
+    {
+      "scene_id": "S043",
+      "start_seconds": 730.4,
+      "end_seconds": 743.92,
+      "visual_type": "Progression",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-before-agents-05"
+    },
+    {
+      "scene_id": "S044",
+      "start_seconds": 743.92,
+      "end_seconds": 753.25,
+      "visual_type": "Progression",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "reasoning-before-agents"
+    },
+    {
+      "scene_id": "S045",
+      "start_seconds": 753.25,
+      "end_seconds": 784.08,
+      "visual_type": "Knowledge Graph",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-knowledge-graph-expanded"
+    },
+    {
+      "scene_id": "S046",
+      "start_seconds": 784.08,
+      "end_seconds": 796,
+      "visual_type": "Comparison",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "knowledge-graph-example"
+    },
+    {
+      "scene_id": "S047",
+      "start_seconds": 796,
+      "end_seconds": 802.08,
+      "visual_type": "Reasoning Map",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-map-extracted"
+    },
+    {
+      "scene_id": "S048",
+      "start_seconds": 802.08,
+      "end_seconds": 825.76,
+      "visual_type": "Reasoning Map",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "reasoning-map-example"
+    },
+    {
+      "scene_id": "S049",
+      "start_seconds": 825.76,
+      "end_seconds": 839.82,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S050",
+      "start_seconds": 839.82,
+      "end_seconds": 868.32,
+      "visual_type": "Layer",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-reasoning-layer-04"
+    },
+    {
+      "scene_id": "S051",
+      "start_seconds": 868.32,
+      "end_seconds": 887.52,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "knowledge-reasoning-flow"
+    },
+    {
+      "scene_id": "S052",
+      "start_seconds": 887.52,
+      "end_seconds": 899.68,
+      "visual_type": "Synthesis",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0008-architectural-intelligence-synthesis"
+    },
+    {
+      "scene_id": "S053",
+      "start_seconds": 899.68,
+      "end_seconds": 921.954,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

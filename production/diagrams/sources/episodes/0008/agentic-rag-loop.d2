@@ -1,0 +1,13 @@
+...@../../../styles/articulate
+direction: right
+
+question: Understand Question {class: evidence}
+choose: Choose Retrieval Strategy {class: capability}
+retrieve: Retrieve Knowledge {class: node}
+inspect: Inspect Result {class: node}
+more: More Knowledge Required? {class: router}
+continue: Continue Reasoning {class: emphasis}
+
+question -> choose -> retrieve -> inspect -> more
+more -> choose: yes · retrieve again
+more -> continue: no

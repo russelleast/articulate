@@ -1,0 +1,17 @@
+...@../../../styles/articulate
+direction: right
+
+question: Replace the messaging platform? {class: evidence}
+platform: Messaging Platform {class: node}
+app: Application A {class: node}
+capability: Capability A {class: capability}
+decision: Selection Decision {class: decision}
+principle: Resilience Principle {class: principle}
+conclusion: Capability A may be affected {class: emphasis}
+question -> platform: identify
+platform -> app: used by
+app -> capability: supports
+platform -> decision: selected by
+principle -> decision: influenced
+capability -> conclusion: consequence
+decision -> conclusion: context

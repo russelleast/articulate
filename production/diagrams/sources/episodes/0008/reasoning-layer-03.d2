@@ -1,0 +1,20 @@
+...@../../../styles/articulate
+direction: down
+
+capabilities: Reasoning Capabilities {class: capability}
+layer: Knowledge Reasoning Layer\nExplore and interpret knowledge {class: emphasis}
+access: {
+  label: Retrieval Mechanisms
+  direction: right
+  semantic: Semantic Search {class: node}
+  graph: Graph Traversal {class: node}
+  query: Structured Query {class: node}
+}
+model: Knowledge Model {class: data}
+capabilities -> layer
+layer -> access.semantic
+layer -> access.graph
+layer -> access.query
+access.semantic -> model
+access.graph -> model
+access.query -> model
