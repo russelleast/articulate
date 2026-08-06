@@ -64,7 +64,8 @@ test("the home page exposes recent Episodes beside the hero with detailed previe
   assert.match(home, /class="latest-episode-preview"/);
   assert.match(home, /href="\/articulate\/episodes\/0015-derived-knowledge\/"/);
   assert.match(home, /Latest video/);
-  assert.match(home, /href="https:\/\/youtu\.be\/Eac5D5SdHCA"/);
+  assert.match(home, /href="\/articulate\/episodes\/0008-agentic-rag-and-knowledge-reasoning\/"/);
+  assert.match(home, /href="https:\/\/youtu\.be\/rN0Sr9CYCSI"/);
   assert.doesNotMatch(home, /Current Architectural Question|>Start Here<|Architecture at a Glance/);
   assert.match(home, /An architecture journal built through evidence/);
 });
@@ -198,7 +199,15 @@ for (const episode of [
     slug: "0004-system-characteristics-the-properties-every-system-needs",
     thumbnail: "episode-0004-thumbnail.png",
     youtubeUrl: "https://youtu.be/vk369gRbVnc",
-    videoId: "vk369gRbVnc"
+    videoId: "vk369gRbVnc",
+    iframeTitle: "System Characteristics: The Properties Every System Needs — Articulate Journal Episode 4"
+  },
+  {
+    slug: "0008-agentic-rag-and-knowledge-reasoning",
+    thumbnail: "episode-0008-thumbnail.png",
+    youtubeUrl: "https://youtu.be/rN0Sr9CYCSI",
+    videoId: "rN0Sr9CYCSI",
+    iframeTitle: "Knowledge Reasoning: Beyond RAG — Articulate Journal Episode 8"
   }
 ]) {
   test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {
@@ -215,7 +224,7 @@ for (const episode of [
       assert.match(page, new RegExp(`youtube-nocookie\\.com/embed/${episode.videoId}`));
       assert.match(
         page,
-        /title="System Characteristics: The Properties Every System Needs — Articulate Journal Episode 4"/
+        new RegExp(`title="${episode.iframeTitle}"`)
       );
     }
     await access(new URL(`../dist/media/episodes/${episode.slug.slice(0, 4)}/${episode.thumbnail}`, import.meta.url));

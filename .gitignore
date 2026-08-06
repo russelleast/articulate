@@ -80,6 +80,9 @@ production/episodes/*/generated/
 production/episodes/*/output/*
 !production/episodes/*/output/.gitkeep
 
+# Local source recordings and video exports
+*.mp4
+
 # MSBuild Binary and Structured Log
 *.binlog
 
