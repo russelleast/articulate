@@ -1,0 +1,93 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 921.954375,
+  "selectedDurationSeconds": 921.954375,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 80.46,
+      "narrationReference": "Opening · N001-N008"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 80.46,
+      "endSeconds": 136.53,
+      "narrationReference": "Constructing an Architectural Answer · N009-N017"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 136.53,
+      "endSeconds": 154.88,
+      "narrationReference": "Retrieval Is Not Reasoning · N018-N021"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 154.88,
+      "endSeconds": 228.23,
+      "narrationReference": "The Problem Is Bigger Than RAG · N022-N034"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 228.23,
+      "endSeconds": 284.53,
+      "narrationReference": "Connected Knowledge · N035-N042"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 284.53,
+      "endSeconds": 311.59,
+      "narrationReference": "Different Retrieval Strategies · N043-N053"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 311.59,
+      "endSeconds": 379,
+      "narrationReference": "From Retrieval to Reasoning Strategy · N054-N070"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 379,
+      "endSeconds": 551.44,
+      "narrationReference": "Reasoning Capabilities · N071-N106"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 551.44,
+      "endSeconds": 619.28,
+      "narrationReference": "Agentic RAG · N107-N120"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 619.28,
+      "endSeconds": 685.92,
+      "narrationReference": "The Knowledge Reasoning Layer · N121-N131"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 685.92,
+      "endSeconds": 753.25,
+      "narrationReference": "Reasoning Before Agents · N132-N150"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 753.25,
+      "endSeconds": 800.54,
+      "narrationReference": "What the System Knows · N151-N162"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 800.54,
+      "endSeconds": 839.82,
+      "narrationReference": "How the Conclusion Was Reached · N163-N174"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 839.82,
+      "endSeconds": 921.954,
+      "narrationReference": "Towards Architectural Intelligence · N175-N193"
+    }
+  ]
+}

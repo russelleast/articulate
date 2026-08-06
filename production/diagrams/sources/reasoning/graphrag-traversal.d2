@@ -1,0 +1,13 @@
+...@../../styles/articulate
+direction: right
+
+capability: Business Capability {class: emphasis}
+application: Application Component {class: node}
+integration: Integration {class: capability}
+platform: Messaging Platform {class: evidence}
+infrastructure: Infrastructure {class: node}
+
+capability -> application: supported by
+application -> integration: depends on
+integration -> platform: uses
+platform -> infrastructure: hosted on

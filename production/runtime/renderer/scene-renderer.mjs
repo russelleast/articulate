@@ -1,5 +1,6 @@
 import { centredTextBlock, insetBox, textBlock, xml } from "./layout.mjs";
 import { diagramViewport, VIDEO_DIAGRAM_PROFILE_ID } from "../diagrams/video-diagram-profile.mjs";
+import { renderTeachingComposition } from "./teaching-compositions.mjs";
 
 export function renderSceneSvg(scene, episode, output, companionData, grammar, state = null, visualAssetData = "") {
   const { palette, frame, typography } = grammar;
@@ -39,6 +40,8 @@ function presenterProductionSceneSvg(scene, episode, output, grammar, state, vis
     content = presenterEvidenceComposition(scene, bounds, state);
   } else if (mode === "repository-full") {
     content = presenterRepositoryComposition(scene, bounds, state);
+  } else if (scene.teachingLayout) {
+    content = renderTeachingComposition(scene, bounds, state, visualAssetData);
   } else if (scene.diagramAssetId) {
     content = presenterDiagramComposition(scene, bounds, state, visualAssetData);
   } else {

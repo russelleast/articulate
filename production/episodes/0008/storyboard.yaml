@@ -1,0 +1,171 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0008",
+    "title": "Knowledge Reasoning: Beyond RAG",
+    "written_source": "docs/episodes/0008-agentic-rag-and-knowledge-reasoning.md",
+    "narrative_source": "production/episodes/0008/narrative.md",
+    "scene_plan": "production/episodes/0008/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 921.954375
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Knowledge is connected",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N008"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 80.46
+    },
+    {
+      "id": "S002",
+      "title": "The answer has to be constructed",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N009-N017"
+      ],
+      "start_seconds": 80.46,
+      "end_seconds": 136.53
+    },
+    {
+      "id": "S003",
+      "title": "Retrieval isn't reasoning",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N018-N021"
+      ],
+      "start_seconds": 136.53,
+      "end_seconds": 154.88
+    },
+    {
+      "id": "S004",
+      "title": "The problem is bigger than RAG",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N022-N034"
+      ],
+      "start_seconds": 154.88,
+      "end_seconds": 228.23
+    },
+    {
+      "id": "S005",
+      "title": "GraphRAG: traverse connected knowledge",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N035-N042"
+      ],
+      "start_seconds": 228.23,
+      "end_seconds": 284.53
+    },
+    {
+      "id": "S006",
+      "title": "Select retrieval by question type",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N043-N053"
+      ],
+      "start_seconds": 284.53,
+      "end_seconds": 311.59
+    },
+    {
+      "id": "S007",
+      "title": "First understand the question",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N054-N070"
+      ],
+      "start_seconds": 311.59,
+      "end_seconds": 379
+    },
+    {
+      "id": "S008",
+      "title": "Capabilities—not necessarily agents",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N071-N106"
+      ],
+      "start_seconds": 379,
+      "end_seconds": 551.44
+    },
+    {
+      "id": "S009",
+      "title": "Agentic RAG is a feedback loop",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N107-N120"
+      ],
+      "start_seconds": 551.44,
+      "end_seconds": 619.28
+    },
+    {
+      "id": "S010",
+      "title": "The Knowledge Reasoning Layer",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N121-N131"
+      ],
+      "start_seconds": 619.28,
+      "end_seconds": 685.92
+    },
+    {
+      "id": "S011",
+      "title": "Reasoning before agents",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N132-N150"
+      ],
+      "start_seconds": 685.92,
+      "end_seconds": 753.25
+    },
+    {
+      "id": "S012",
+      "title": "Knowledge graph",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N151-N162"
+      ],
+      "start_seconds": 753.25,
+      "end_seconds": 800.54
+    },
+    {
+      "id": "S013",
+      "title": "Reasoning map",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N163-N174"
+      ],
+      "start_seconds": 800.54,
+      "end_seconds": 839.82
+    },
+    {
+      "id": "S014",
+      "title": "Architectural Intelligence",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N175-N193"
+      ],
+      "start_seconds": 839.82,
+      "end_seconds": 921.954
+    }
+  ]
+}

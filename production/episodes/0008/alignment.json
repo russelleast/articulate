@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Opening",
+      "narrativeSegments": [
+        "N001-N008"
+      ],
+      "start": 0,
+      "end": 80.46,
+      "confidence": 1,
+      "anchor": "recording start",
+      "matchedText": "recording start"
+    },
+    {
+      "id": "impact-question",
+      "title": "Constructing an Architectural Answer",
+      "narrativeSegments": [
+        "N009-N017"
+      ],
+      "start": 80.46,
+      "end": 136.53,
+      "confidence": 1,
+      "anchor": "Imagine asking Articulate a question",
+      "matchedText": "Imagine asking Articulate a question"
+    },
+    {
+      "id": "retrieval-not-reasoning",
+      "title": "Retrieval Is Not Reasoning",
+      "narrativeSegments": [
+        "N018-N021"
+      ],
+      "start": 136.53,
+      "end": 154.88,
+      "confidence": 1,
+      "anchor": "This creates an important distinction",
+      "matchedText": "This creates an important distinction"
+    },
+    {
+      "id": "rag-limit",
+      "title": "The Problem Is Bigger Than RAG",
+      "narrativeSegments": [
+        "N022-N034"
+      ],
+      "start": 154.88,
+      "end": 228.23,
+      "confidence": 1,
+      "anchor": "Retrieval Augmented Generation or RAG",
+      "matchedText": "Retrieval Augmented Generation or RAG"
+    },
+    {
+      "id": "connected-knowledge",
+      "title": "Connected Knowledge",
+      "narrativeSegments": [
+        "N035-N042"
+      ],
+      "start": 228.23,
+      "end": 284.53,
+      "confidence": 0.5,
+      "anchor": "This is one reason approaches such as GraphRAG are interesting",
+      "matchedText": "This is one of the reasons such as"
+    },
+    {
+      "id": "retrieval-strategies",
+      "title": "Different Retrieval Strategies",
+      "narrativeSegments": [
+        "N043-N053"
+      ],
+      "start": 284.53,
+      "end": 311.59,
+      "confidence": 1,
+      "anchor": "However graph traversal is not the answer to every question",
+      "matchedText": "However graph traversal is not the answer to every question"
+    },
+    {
+      "id": "reasoning-strategy",
+      "title": "From Retrieval to Reasoning Strategy",
+      "narrativeSegments": [
+        "N054-N070"
+      ],
+      "start": 311.59,
+      "end": 379,
+      "confidence": 1,
+      "anchor": "This leads to a broader question",
+      "matchedText": "This leads to a broader question"
+    },
+    {
+      "id": "reasoning-capabilities",
+      "title": "Reasoning Capabilities",
+      "narrativeSegments": [
+        "N071-N106"
+      ],
+      "start": 379,
+      "end": 551.44,
+      "confidence": 0.972,
+      "anchor": "Relational reasoning explores how architectural concepts are connected",
+      "matchedText": "relational reasoning and explores how architectural concepts are connected"
+    },
+    {
+      "id": "agentic-rag",
+      "title": "Agentic RAG",
+      "narrativeSegments": [
+        "N107-N120"
+      ],
+      "start": 551.44,
+      "end": 619.28,
+      "confidence": 0.88,
+      "anchor": "This is where the idea of Agentic RAG becomes useful",
+      "matchedText": "This is where the idea of a genetic rag becomes useful"
+    },
+    {
+      "id": "reasoning-layer",
+      "title": "The Knowledge Reasoning Layer",
+      "narrativeSegments": [
+        "N121-N131"
+      ],
+      "start": 619.28,
+      "end": 685.92,
+      "confidence": 1,
+      "anchor": "The Knowledge Model is responsible for representing what Articulate knows",
+      "matchedText": "The knowledge model is responsible for representing what articulate knows"
+    },
+    {
+      "id": "reasoning-before-agents",
+      "title": "Reasoning Before Agents",
+      "narrativeSegments": [
+        "N132-N150"
+      ],
+      "start": 685.92,
+      "end": 753.25,
+      "confidence": 0.833,
+      "anchor": "One of the lessons I'm beginning to take from designing Articulate",
+      "matchedText": "One of the lessons I'm beginning to take from designing articulate"
+    },
+    {
+      "id": "knowledge-graph",
+      "title": "What the System Knows",
+      "narrativeSegments": [
+        "N151-N162"
+      ],
+      "start": 753.25,
+      "end": 800.54,
+      "confidence": 1,
+      "anchor": "There is another idea that becomes possible once knowledge and reasoning are treated separately",
+      "matchedText": "There is another idea that becomes possible once knowledge and reasoning are treated separately"
+    },
+    {
+      "id": "reasoning-map",
+      "title": "How the Conclusion Was Reached",
+      "narrativeSegments": [
+        "N163-N174"
+      ],
+      "start": 800.54,
+      "end": 839.82,
+      "confidence": 1,
+      "anchor": "The reasoning map is not necessarily part of the permanent architectural knowledge",
+      "matchedText": "The reasoning map is not necessarily part of the permanent architectural knowledge"
+    },
+    {
+      "id": "closing",
+      "title": "Towards Architectural Intelligence",
+      "narrativeSegments": [
+        "N175-N193"
+      ],
+      "start": 839.82,
+      "end": 921.954,
+      "confidence": 1,
+      "anchor": "The Knowledge Model establishes the foundation for representing architecture as connected knowledge",
+      "matchedText": "The knowledge model establishes the foundation for representing architecture as connected knowledge"
+    }
+  ]
+}

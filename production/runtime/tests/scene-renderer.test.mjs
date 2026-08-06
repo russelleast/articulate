@@ -195,6 +195,64 @@ test("Focus Canvas v2 supports side-by-side presenter composition without whiteb
   assert.doesNotMatch(svg, /WHITEBOARD|f6f2e9/);
 });
 
+test("presenter teaching compositions progressively reveal addressable architectural concepts", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-TEACHING",
+    kind: "presenter-diagram",
+    transition: "cut",
+    teachingLayout: "horizontal-progression",
+    headline: "Reasoning before agents",
+    support: "Agent behaviour appears last.",
+    items: ["Problem", "Reasoning capability", "Required knowledge", "Agent behaviour"],
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const state = {
+    hidden: new Set(["item-3", "item-4"]),
+    emphasized: new Set(["item-2"]),
+    connections: new Map(),
+    text: new Map(),
+    frame: 0
+  };
+  const svg = renderSceneSvg(scene, { id: "episode-0008", title: "Knowledge Reasoning" }, { width: 1920, height: 1080 }, "", presenterGrammar, state);
+  assert.match(svg, /data-element="item-1"/);
+  assert.match(svg, /data-element="item-2" class="emphasized"/);
+  assert.doesNotMatch(svg, /Required knowledge|data-element="item-4"/);
+  assert.match(svg, /marker-end="url\(#presenter-arrow\)"/);
+});
+
+test("teaching connectors require visible endpoints and completed states use canonical diagrams", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-GRAPH",
+    kind: "presenter-diagram",
+    transition: "cut",
+    teachingLayout: "graph-traversal",
+    diagramAssetId: "graphrag-traversal",
+    headline: "Traverse connected knowledge",
+    support: "Relationships carry meaning.",
+    items: ["Capability", "Application", "Integration"],
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const progressive = renderSceneSvg(scene, { id: "episode-0008", title: "Knowledge Reasoning" }, { width: 1920, height: 1080 }, "", presenterGrammar, {
+    hidden: new Set(["item-3"]), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0
+  }, "data:image/svg+xml;base64,PHN2Zy8+");
+  assert.equal([...progressive.matchAll(/marker-end="url\(#presenter-arrow\)"/g)].length, 1);
+  assert.doesNotMatch(progressive, /data-element="item-3"/);
+
+  const complete = renderSceneSvg(scene, { id: "episode-0008", title: "Knowledge Reasoning" }, { width: 1920, height: 1080 }, "", presenterGrammar, {
+    hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0
+  }, "data:image/svg+xml;base64,PHN2Zy8+");
+  assert.match(complete, /data-diagram-asset="graphrag-traversal"/);
+  assert.doesNotMatch(complete, /data-element="item-1"/);
+});
+
 test("presenter full v2 emits a black plate for continuous source video", () => {
   const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
   const scene = {

@@ -1,0 +1,123 @@
+{
+  "episode": {
+    "id": "episode-0008",
+    "title": "Knowledge Reasoning: Beyond RAG",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0008-presenter-v1",
+    "narration_duration_seconds": 921.954375
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 80.46,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 80.46,
+      "end_seconds": 136.53,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 136.53,
+      "end_seconds": 154.88,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 154.88,
+      "end_seconds": 228.23,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 228.23,
+      "end_seconds": 284.53,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "graphrag-traversal"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 284.53,
+      "end_seconds": 311.59,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 311.59,
+      "end_seconds": 379,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 379,
+      "end_seconds": 551.44,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 551.44,
+      "end_seconds": 619.28,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "knowledge-reasoning-flow"
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 619.28,
+      "end_seconds": 685.92,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "knowledge-reasoning-layer"
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 685.92,
+      "end_seconds": 753.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "reasoning-before-agents"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 753.25,
+      "end_seconds": 800.54,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "knowledge-graph-example"
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 800.54,
+      "end_seconds": 839.82,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "reasoning-map-example"
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 839.82,
+      "end_seconds": 921.954,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

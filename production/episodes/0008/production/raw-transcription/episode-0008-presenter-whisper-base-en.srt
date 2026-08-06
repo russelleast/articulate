@@ -1,0 +1,576 @@
+1
+00:00:00,000 --> 00:00:06,640
+ Hello I'm Russell and welcome to the Articulate Journal where I'm exploring what it takes to build
+
+2
+00:00:06,640 --> 00:00:12,320
+ an AI native architecture from first principles through the design and implementation of a reference
+
+3
+00:00:12,320 --> 00:00:18,720
+ architecture for architectural intelligence. This isn't a tutorial series or a product demo,
+
+4
+00:00:18,720 --> 00:00:23,680
+ it's a public engineering journal documenting the architectural decisions, experiments,
+
+5
+00:00:23,680 --> 00:00:29,760
+ and lessons learned as the architecture evolves. In the previous episode I explored the idea of
+
+6
+00:00:29,760 --> 00:00:35,040
+ treating architecture as knowledge. That information exists across different architectural domains.
+
+7
+00:00:36,320 --> 00:00:41,600
+ The business capability may be supported by application components. Those components may
+
+8
+00:00:41,600 --> 00:00:48,720
+ depend on data, integrations, and infrastructure. Decisions explain why parts of the architecture
+
+9
+00:00:48,720 --> 00:00:55,440
+ exist in their current form. Principles influence those decisions. System characteristics provide
+
+10
+00:00:55,440 --> 00:01:02,320
+ constraints that shape the resulting design. The knowledge model gives Articulate a way to
+
+11
+00:01:02,320 --> 00:01:08,560
+ represent this information and importantly the relationships between it, but representing knowledge
+
+12
+00:01:08,560 --> 00:01:16,240
+ creates another question. How should AI reason with that knowledge? This is where the problem
+
+13
+00:01:16,240 --> 00:01:22,960
+ becomes more interesting than simply retrieving information. Imagine asking Articulate a question.
+
+14
+00:01:24,480 --> 00:01:30,800
+ What would be affected if we replaced our current messaging platform? Finding information about
+
+15
+00:01:30,800 --> 00:01:35,600
+ the messaging platform is only the beginning. To provide a useful architectural answer,
+
+16
+00:01:35,600 --> 00:01:42,240
+ the system may need to identify which application components depend on it. It may then need to
+
+17
+00:01:42,240 --> 00:01:49,520
+ understand which business capabilities those components support. There may be architectural
+
+18
+00:01:49,520 --> 00:01:55,280
+ decisions that explain why the messaging platform was originally selected. Those decisions may have
+
+19
+00:01:55,280 --> 00:02:03,120
+ been influenced by particular system characteristics or architectural principles. A proposed replacement
+
+20
+00:02:03,120 --> 00:02:08,880
+ may satisfy some of those constraints while conflicting with others. The answer therefore
+
+21
+00:02:08,880 --> 00:02:14,080
+ does not exist as a single piece of information waiting to be retrieved. It has to be constructed
+
+22
+00:02:14,080 --> 00:02:21,520
+ from the knowledge available. This creates an important distinction. Retrieval gathers relevant
+
+23
+00:02:21,520 --> 00:02:26,160
+ knowledge. Reasoning determines what that knowledge means in the context of the question.
+
+24
+00:02:27,280 --> 00:02:32,880
+ This distinction is important when thinking about how AI systems interact with architectural knowledge.
+
+25
+00:02:34,880 --> 00:02:41,280
+ Retrieval Augmented Generation, or RAG, has become a common architectural pattern for giving
+
+26
+00:02:41,280 --> 00:02:47,280
+ language models access to information beyond their training data. A typical implementation
+
+27
+00:02:47,840 --> 00:02:54,560
+ takes documents, divides them into chunks, creates vector embeddings, and retrieves chunks that are
+
+28
+00:02:54,560 --> 00:03:00,960
+ semantically similar to the user's question. This is useful. Articulate may use semantic
+
+29
+00:03:00,960 --> 00:03:06,960
+ search for exactly this reason. But architectural knowledge is not simply a collection of text
+
+30
+00:03:06,960 --> 00:03:13,760
+ fragments. Consider the following question. Which business capabilities would be affected
+
+31
+00:03:13,760 --> 00:03:20,320
+ if this infrastructure component failed? The answer is not necessarily contained within a
+
+32
+00:03:20,320 --> 00:03:27,120
+ semantically similar paragraph. The system may need to follow relationships. An infrastructure
+
+33
+00:03:27,120 --> 00:03:33,680
+ component hosts an application component. That application component supports a business capability.
+
+34
+00:03:34,960 --> 00:03:38,640
+ The relationship between those concepts itself is part of the knowledge.
+
+35
+00:03:40,480 --> 00:03:45,600
+ Semantic similarity can help us find relevant information, but it cannot be the only way
+
+36
+00:03:45,600 --> 00:03:52,000
+ we navigate architectural knowledge. This is one of the reasons, such as approaches like RAG,
+
+37
+00:03:52,720 --> 00:03:59,200
+ graph RAG are interesting. Rather than treating information only as isolated chunks of text,
+
+38
+00:03:59,200 --> 00:04:03,680
+ a graph allows relationships between information to become part of the retrieval process.
+
+39
+00:04:04,960 --> 00:04:09,360
+ This aligns naturally with the knowledge model introduced in the previous episode.
+
+40
+00:04:11,040 --> 00:04:17,520
+ If articulate knows that, a business capability is supported by an application component.
+
+41
+00:04:17,520 --> 00:04:23,840
+ An application component depends on an integration. That integration uses a messaging platform.
+
+42
+00:04:24,400 --> 00:04:30,160
+ The messaging platform is posted on particular infrastructure. Then a question about infrastructure
+
+43
+00:04:30,160 --> 00:04:36,240
+ can be explored through those relationships. The important shift is that retrieval is no longer
+
+44
+00:04:36,240 --> 00:04:41,200
+ only about finding information that looks similar to the question. It can also be about
+
+45
+00:04:41,200 --> 00:04:48,480
+ navigating the structure of what is known. However, graph traversal is not the answer to every question
+
+46
+00:04:48,480 --> 00:04:55,520
+ either. Some questions are semantic, some are relational, some are structured. Others may require
+
+47
+00:04:55,520 --> 00:05:00,800
+ several of these approaches together. The important architectural principle, therefore,
+
+48
+00:05:00,800 --> 00:05:07,840
+ is not that articulate should use vector search, knowledge graph or structured queries. It is that
+
+49
+00:05:07,840 --> 00:05:13,760
+ different questions require different ways of retrieving knowledge. This leads to a broader
+
+50
+00:05:13,760 --> 00:05:19,760
+ question. Before articulate can decide how to retrieve information, it needs to understand
+
+51
+00:05:19,760 --> 00:05:26,720
+ what kind of question it is trying to answer. Consider these questions. What depends on this
+
+52
+00:05:26,720 --> 00:05:33,280
+ component? Why did we choose this technology? Does this proposal conflict with an architectural
+
+53
+00:05:33,280 --> 00:05:40,160
+ principle? What changed between these two architectural states? What evidence supports this claim?
+
+54
+00:05:41,680 --> 00:05:47,360
+ Each question requires something different from the system. The first requires understanding
+
+55
+00:05:47,360 --> 00:05:53,200
+ relationships and dependencies. The second requires reconstructing the context around a decision.
+
+56
+00:05:54,160 --> 00:06:00,960
+ The third requires evaluating a proposal against existing constraints. The fourth requires reasoning
+
+57
+00:06:00,960 --> 00:06:07,600
+ across time. The fifth requires tracing knowledge back to supporting evidence. Calling all of this
+
+58
+00:06:07,600 --> 00:06:15,840
+ simply agent reasoning hides an important part of the architecture. The system needs different
+
+59
+00:06:15,840 --> 00:06:23,600
+ reasoning capabilities. The first is relational reasoning and explores how architectural concepts
+
+60
+00:06:23,600 --> 00:06:30,320
+ are connected. It allows questions such as what depends on this? What does this support?
+
+61
+00:06:31,040 --> 00:06:33,840
+ Which parts of the architecture are connected to this decision?
+
+62
+00:06:36,000 --> 00:06:41,040
+ This form of reasoning naturally relies heavily on the relationships captured with inside the
+
+63
+00:06:41,040 --> 00:06:49,520
+ knowledge model. Architecture contains constraints, principles, system characteristics, policies,
+
+64
+00:06:50,080 --> 00:06:55,360
+ and previous decisions, all influence what constitutes as an appropriate design.
+
+65
+00:06:56,560 --> 00:07:03,280
+ Constraint reasoning asks questions such as does this proposal violate an existing architectural
+
+66
+00:07:03,280 --> 00:07:10,720
+ principle? Does this design satisfy the required available characteristic? The system is not simply
+
+67
+00:07:10,720 --> 00:07:16,000
+ looking for relevant information. It is evaluating one piece of knowledge in the context of another.
+
+68
+00:07:17,120 --> 00:07:23,520
+ Architectural decisions frequently involve alternatives. Comparative reasoning examines
+
+69
+00:07:23,520 --> 00:07:29,600
+ options in the context of the problem being solved. The important comparison is rarely
+
+70
+00:07:29,600 --> 00:07:35,840
+ a generic list of advantages and disadvantages. An option may be appropriate in one architectural
+
+71
+00:07:35,840 --> 00:07:43,360
+ context and unsuitable in another. The reasoning therefore needs to consider the requirements,
+
+72
+00:07:43,360 --> 00:07:48,000
+ characteristics, principles, and the existing architecture surrounding that decision.
+
+73
+00:07:49,440 --> 00:07:55,440
+ Architecture evolves. A decision that is correct today may replace an earlier decision that was
+
+74
+00:07:55,440 --> 00:08:04,160
+ equally correct when it was made. Temporal reasoning allows articulate to understand that
+
+75
+00:08:04,160 --> 00:08:10,080
+ architectural knowledge exists within time. It can help answer questions such as
+
+76
+00:08:11,280 --> 00:08:17,680
+ what did this decision replace? Why did the architecture change? Which assumptions were
+
+77
+00:08:17,680 --> 00:08:23,200
+ true when this decision was made? This becomes increasingly important as the knowledge model
+
+78
+00:08:23,200 --> 00:08:30,880
+ evolves. Architectural knowledge should not exist without context. Claims may be supported by
+
+79
+00:08:31,440 --> 00:08:38,080
+ conversations, documents, observations, and other evidence. Evidential reasoning allows
+
+80
+00:08:38,080 --> 00:08:44,240
+ the system to ask which supports this conclusion, where did this information come from, and how
+
+81
+00:08:44,240 --> 00:08:50,480
+ confidence should we be in it? This is particularly important for an AI-native architecture system
+
+82
+00:08:50,480 --> 00:08:56,400
+ because not everything discovered or inferred by AI should ultimately become accepted architectural
+
+83
+00:08:56,400 --> 00:09:04,240
+ truth. These are not necessarily five agents. That distinction matters. These are reasoning
+
+84
+00:09:04,240 --> 00:09:10,320
+ capabilities. How these capabilities are eventually implemented is a separate architectural decision.
+
+85
+00:09:11,440 --> 00:09:16,960
+ This is where the idea of a genetic rag becomes useful. Instead of following a fixed retrieval
+
+86
+00:09:16,960 --> 00:09:22,080
+ pipeline, an agent can decide how knowledge should be gathered based on the question it's trying to
+
+87
+00:09:22,080 --> 00:09:28,400
+ answer. A reasoning process might begin with semantic search to identify relevant concepts.
+
+88
+00:09:29,040 --> 00:09:34,080
+ It might then traverse relationships within the knowledge model. It could then use structured
+
+89
+00:09:34,080 --> 00:09:40,320
+ queries to retrieve specific architectural information. The results may reveal that additional
+
+90
+00:09:40,320 --> 00:09:46,560
+ knowledge is required, causing the reasoning process to perform further retrieval. The important
+
+91
+00:09:46,560 --> 00:09:53,120
+ difference here is that retrieval is no longer a single step before generation. Retrieval becomes
+
+92
+00:09:53,120 --> 00:09:59,440
+ part of the reasoning process. The system can decide what information it needs, retrieve it,
+
+93
+00:09:59,440 --> 00:10:03,520
+ examine what it has discovered, and determine where the further knowledge is required.
+
+94
+00:10:04,880 --> 00:10:10,720
+ But I think even the term "agentic rag" risks making retrieval the center of the architecture.
+
+95
+00:10:12,880 --> 00:10:17,520
+ For articulate, the more useful concept is a knowledge reasoning layer.
+
+96
+00:10:19,280 --> 00:10:24,640
+ The knowledge model is responsible for representing what articulate knows about the architecture.
+
+97
+00:10:26,800 --> 00:10:31,760
+ The knowledge reasoning layer is responsible for helping articulate reason with that knowledge.
+
+98
+00:10:32,880 --> 00:10:38,400
+ Conceptually, it sits between reasoning capabilities and the underlying ways in which
+
+99
+00:10:38,400 --> 00:10:44,160
+ knowledge can be accessed. This is a conceptual boundary rather than an implementation design.
+
+100
+00:10:45,680 --> 00:10:51,840
+ The purpose is to separate two concerns. The knowledge model represents architectural knowledge.
+
+101
+00:10:52,400 --> 00:10:57,840
+ The reasoning layer determines how that knowledge should be explored and interpreted for a particular
+
+102
+00:10:57,840 --> 00:11:04,480
+ problem. This means an agent should not necessarily need to understand how every piece of knowledge
+
+103
+00:11:04,480 --> 00:11:10,880
+ is stored. Instead, it needs capabilities that allow it to ask meaningful questions of the knowledge
+
+104
+00:11:10,880 --> 00:11:18,080
+ model. The details of whether those questions require semantic retrieval, graph traversal,
+
+105
+00:11:18,080 --> 00:11:23,920
+ structured queries, or a combination of approaches belong within the knowledge reasoning layer.
+
+106
+00:11:25,920 --> 00:11:31,360
+ One of the lessons I'm beginning to take from designing articulate is that starting with agents
+
+107
+00:11:31,360 --> 00:11:37,040
+ may be the wrong level of abstraction. It's easy to identify a problem and then immediately create
+
+108
+00:11:37,040 --> 00:11:44,240
+ an agent for it. A research agent, a decision agent, an impact analysis agent, and a principal agent.
+
+109
+00:11:45,280 --> 00:11:51,280
+ But the existence of an agent tells us very little about the reasoning it actually needs to perform.
+
+110
+00:11:52,080 --> 00:11:59,120
+ Before designing an agent, I think the more useful questions are, the old age, what problem is it
+
+111
+00:11:59,120 --> 00:12:04,800
+ trying to solve? What kind of reasoning does that problem require? What knowledge does that
+
+112
+00:12:04,800 --> 00:12:10,400
+ reasoning depend upon? How should that knowledge be retrieved and what evidence should support the
+
+113
+00:12:10,400 --> 00:12:17,280
+ result? Only then does it make sense to ask how the capability should be implemented and whether
+
+114
+00:12:17,280 --> 00:12:23,920
+ an agent is the appropriate runtime abstraction. This follows a wider architectural approach I'm
+
+115
+00:12:23,920 --> 00:12:29,040
+ trying to take throughout this project. The architecture should emerge from the problem and
+
+116
+00:12:29,040 --> 00:12:35,200
+ the capabilities required to solve it. The agents can come later. There is another idea
+
+117
+00:12:35,200 --> 00:12:40,080
+ that becomes possible once knowledge and reasoning are treated separately. The knowledge model can
+
+118
+00:12:40,080 --> 00:12:45,920
+ tell articulate what it knows, but it does not necessarily explain how a particular conclusion
+
+119
+00:12:45,920 --> 00:12:51,440
+ was reached. A reasoning process may traverse these relationships and conclude that changing
+
+120
+00:12:51,440 --> 00:12:58,240
+ the messaging platform could affect a specific business capability. The relationship exists in
+
+121
+00:12:58,240 --> 00:13:03,040
+ the knowledge model, but the path taken through those relationships is part of the reasoning process.
+
+122
+00:13:04,080 --> 00:13:10,320
+ This suggests a distinction between a knowledge graph and a reasoning map. The knowledge graph
+
+123
+00:13:10,320 --> 00:13:16,000
+ represents the connected architectural knowledge available to the system. A reasoning graph represents
+
+124
+00:13:16,000 --> 00:13:22,080
+ the path taken through the knowledge while answering a particular question. The reasoning map is not
+
+125
+00:13:22,080 --> 00:13:27,040
+ necessarily part of the permanent architectural knowledge. It is an artifact of reasoning,
+
+126
+00:13:27,600 --> 00:13:32,800
+ but it may become valuable. It provides a way to inspect how a conclusion was reached.
+
+127
+00:13:33,680 --> 00:13:39,360
+ It can show which knowledge was used and it can expose assumptions. It may allow
+
+128
+00:13:39,360 --> 00:13:44,800
+ an architect to challenge a reasoning path rather than simply accepting or rejecting the final answer.
+
+129
+00:13:45,760 --> 00:13:51,040
+ This becomes particularly important when AI is participating in architectural decisions.
+
+130
+00:13:51,920 --> 00:13:59,040
+ A useful answer is important. Understanding how the system reached that answer may be just as
+
+131
+00:13:59,040 --> 00:14:04,240
+ important. The knowledge model establishes the foundation for representing architecture
+
+132
+00:14:04,240 --> 00:14:11,200
+ as connected knowledge. Knowledge reasoning adds the next layer. Articulate needs to do more
+
+133
+00:14:11,200 --> 00:14:15,840
+ than retrieve information that appears relevant to a question. It needs to understand relationships.
+
+134
+00:14:16,400 --> 00:14:22,000
+ It needs to evaluate constraints. It needs to compare alternatives within the architectural
+
+135
+00:14:22,000 --> 00:14:28,320
+ context. It needs to reason across time and it needs to understand the evidence behind what it
+
+136
+00:14:28,320 --> 00:14:35,920
+ knows. And it needs to explain how it reached its conclusions. Semantic search, graph traversal,
+
+137
+00:14:35,920 --> 00:14:41,920
+ and structured queries remain useful. A Gentic RAG provides a useful model for allowing agents
+
+138
+00:14:41,920 --> 00:14:47,520
+ to choose between those retrieval strategies dynamically. But none of them individually
+
+139
+00:14:47,520 --> 00:14:53,360
+ are architectural intelligence. Architectural intelligence emerges from combining structured
+
+140
+00:14:53,360 --> 00:14:59,680
+ knowledge with explicit reasoning capabilities. If articulate is going to contain agents that
+
+141
+00:14:59,680 --> 00:15:04,880
+ perform these reasoning capabilities, how should their intended behaviour be described?
+
+142
+00:15:06,000 --> 00:15:12,320
+ This is where DCL enters the architecture, a topic for the next episode. If you're interested
+
+143
+00:15:12,320 --> 00:15:17,040
+ in AI-native architecture, architectural knowledge, or building systems at reason,
+
+144
+00:15:17,040 --> 00:15:21,760
+ rather than simply retrieve, I hope you join me for the next episode.
+

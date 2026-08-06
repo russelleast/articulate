@@ -1,0 +1,1081 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0008",
+    "title": "Knowledge Reasoning: Beyond RAG",
+    "journalSource": "docs/episodes/0008-agentic-rag-and-knowledge-reasoning.md",
+    "narrativeSource": "production/episodes/0008/narrative.md",
+    "storyboard": "production/episodes/0008/storyboard.yaml",
+    "timingMarkers": "production/episodes/0008/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0008/asset-register.yaml",
+    "scenePlan": "production/episodes/0008/scene-plan.yaml",
+    "timeline": "production/episodes/0008/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0008-presenter-v1",
+    "expectedSha256": "49cf407605ab3d3fea3cfc43bd99d77bb9a00a6ce278db8968a370a37856e46f",
+    "expectedDurationSeconds": 921.954375,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 921.954375,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0008/output/episode-0008-final.mp4",
+    "generatedDirectory": "production/episodes/0008/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0008/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0008/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Knowledge is connected",
+      "kind": "presenter-focus",
+      "headline": "Knowledge is connected",
+      "support": "Architectural domains gain meaning through their relationships.",
+      "items": [
+        "Business capability",
+        "Application",
+        "Data",
+        "Integration",
+        "Decision",
+        "Constraint"
+      ],
+      "teachingLayout": "knowledge-graph",
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "capability",
+            "at": 36.32,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "A business capability"
+          },
+          {
+            "id": "application",
+            "at": 38.21,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "application components"
+          },
+          {
+            "id": "data",
+            "at": 41.89,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "depend on data"
+          },
+          {
+            "id": "integration",
+            "at": 42.75,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "integrations and infrastructure"
+          },
+          {
+            "id": "decision",
+            "at": 45.62,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "Decisions explain why"
+          },
+          {
+            "id": "constraint",
+            "at": 55.73,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "constraints that shape"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Opening",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "The answer has to be constructed",
+      "kind": "presenter-diagram",
+      "headline": "The answer has to be constructed",
+      "support": "What changes if we replace the messaging platform?",
+      "items": [
+        "Question",
+        "Knowledge retrieval",
+        "Relationship navigation",
+        "Constraint evaluation",
+        "Constructed answer"
+      ],
+      "teachingLayout": "vertical-path",
+      "details": [
+        "replace the messaging platform?",
+        "find the platform",
+        "trace components and capabilities",
+        "test decisions and principles",
+        "explain the impact"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "question",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Imagine asking Articulate a question"
+          },
+          {
+            "id": "platform",
+            "at": 8.56,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Finding information about the messaging platform"
+          },
+          {
+            "id": "relationships",
+            "at": 17.24,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "application components depend on it"
+          },
+          {
+            "id": "constraints",
+            "at": 42.95,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "satisfy some of those constraints"
+          },
+          {
+            "id": "conclusion",
+            "at": 52.96,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "constructed from the knowledge available"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Constructing an Architectural Answer",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "Retrieval isn't reasoning",
+      "kind": "presenter-diagram",
+      "headline": "Retrieval isn't reasoning",
+      "support": "Two responsibilities; one architectural distinction.",
+      "items": [
+        "Retrieval",
+        "Reasoning",
+        "Gather knowledge → construct understanding"
+      ],
+      "teachingLayout": "retrieval-reasoning",
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "retrieve",
+            "at": 3.07,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Retrieval gathers relevant knowledge"
+          },
+          {
+            "id": "reason",
+            "at": 5.77,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Reasoning determines"
+          },
+          {
+            "id": "distinction",
+            "at": 10.75,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "This distinction is important"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Retrieval Is Not Reasoning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "The problem is bigger than RAG",
+      "kind": "presenter-diagram",
+      "headline": "The problem is bigger than RAG",
+      "support": "Semantic similarity finds text; architecture often asks for connected meaning.",
+      "items": [
+        "Semantic search",
+        "Relevant text",
+        "Dependencies",
+        "Supported capabilities"
+      ],
+      "teachingLayout": "rag-gap",
+      "details": [
+        "similar passages",
+        "what the documents say",
+        "what relies on what",
+        "what the architecture enables"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "semantic",
+            "at": 25.51,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "semantic search"
+          },
+          {
+            "id": "text",
+            "at": 67.48,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "relevant information"
+          },
+          {
+            "id": "dependencies",
+            "at": 48.78,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "follow relationships"
+          },
+          {
+            "id": "capabilities",
+            "at": 56.79,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "supports a business capability"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Problem Is Bigger Than RAG",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "GraphRAG: traverse connected knowledge",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "graphrag-traversal",
+      "headline": "GraphRAG: traverse connected knowledge",
+      "support": "Follow the active relationship path; the relationships carry meaning.",
+      "items": [
+        "Business capability",
+        "Application",
+        "Integration",
+        "Messaging platform",
+        "Infrastructure"
+      ],
+      "teachingLayout": "graph-traversal",
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "capability",
+            "at": 24.69,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "business capability"
+          },
+          {
+            "id": "application",
+            "at": 27.77,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "application component"
+          },
+          {
+            "id": "integration",
+            "at": 31.18,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "depends on an integration"
+          },
+          {
+            "id": "platform",
+            "at": 34.21,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "uses a messaging platform"
+          },
+          {
+            "id": "infrastructure",
+            "at": 37.99,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "hosted on particular infrastructure"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Connected Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "Select retrieval by question type",
+      "kind": "presenter-diagram",
+      "headline": "Select retrieval by question type",
+      "support": "These strategies are complementary—not equivalent.",
+      "items": [
+        "Semantic search",
+        "Graph traversal",
+        "Structured queries",
+        "Combined strategies"
+      ],
+      "teachingLayout": "retrieval-selector",
+      "details": [
+        "What relates to resilience?",
+        "What depends on this?",
+        "Which accepted decisions?",
+        "One question may require all three"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "semantic",
+            "at": 4.57,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Some questions are semantic"
+          },
+          {
+            "id": "graph",
+            "at": 4.57,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Some questions are relational"
+          },
+          {
+            "id": "structured",
+            "at": 4.57,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "Some questions are structured"
+          },
+          {
+            "id": "combined",
+            "at": 11.28,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "several of these approaches together"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Different Retrieval Strategies",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "First understand the question",
+      "kind": "presenter-diagram",
+      "headline": "First understand the question",
+      "support": "Reasoning need determines what knowledge must be found.",
+      "items": [
+        "Relationships",
+        "Decision context",
+        "Constraints",
+        "Time",
+        "Evidence"
+      ],
+      "teachingLayout": "reasoning-router",
+      "details": [
+        "What depends on this?",
+        "Why did we choose it?",
+        "Does this conflict?",
+        "What changed?",
+        "What supports the claim?"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "relationships",
+            "at": 36.06,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "relationships and dependencies"
+          },
+          {
+            "id": "decisions",
+            "at": 40.31,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "context around a decision"
+          },
+          {
+            "id": "constraints",
+            "at": 45.08,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "existing constraints"
+          },
+          {
+            "id": "time",
+            "at": 48.9,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "reasoning across time"
+          },
+          {
+            "id": "evidence",
+            "at": 52.55,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "supporting evidence"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "From Retrieval to Reasoning Strategy",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "Capabilities—not necessarily agents",
+      "kind": "presenter-diagram",
+      "headline": "Capabilities—not necessarily agents",
+      "support": "Each capability performs a different kind of architectural reasoning.",
+      "items": [
+        "Relational",
+        "Constraint",
+        "Comparative",
+        "Temporal",
+        "Evidential"
+      ],
+      "teachingLayout": "capability-lenses",
+      "details": [
+        "What depends on this?",
+        "Does this violate a principle?",
+        "Which option fits this context?",
+        "Why did the architecture change?",
+        "What supports this conclusion?"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "relational",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Relational reasoning"
+          },
+          {
+            "id": "constraint",
+            "at": 37.56,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Constraint reasoning"
+          },
+          {
+            "id": "comparative",
+            "at": 61.48,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "Comparative reasoning"
+          },
+          {
+            "id": "temporal",
+            "at": 98.33,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "Temporal reasoning"
+          },
+          {
+            "id": "evidential",
+            "at": 135.64,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "Evidential reasoning"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reasoning Capabilities",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Agentic RAG is a feedback loop",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-reasoning-flow",
+      "headline": "Agentic RAG is a feedback loop",
+      "support": "Retrieval participates in an iterative reasoning process.",
+      "items": [
+        "Understand question",
+        "Choose strategy",
+        "Retrieve",
+        "Inspect",
+        "Retrieve again",
+        "Validate & explain"
+      ],
+      "teachingLayout": "reasoning-loop",
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "question",
+            "at": 8.87,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "based on the question"
+          },
+          {
+            "id": "strategy",
+            "at": 13.67,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "semantic search"
+          },
+          {
+            "id": "retrieve",
+            "at": 22.16,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "structured queries"
+          },
+          {
+            "id": "inspect",
+            "at": 26.89,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "results may reveal"
+          },
+          {
+            "id": "again",
+            "at": 31.6,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "perform further retrieval"
+          },
+          {
+            "id": "validate",
+            "at": 48.29,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "examine what it has discovered"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Agentic RAG",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "The Knowledge Reasoning Layer",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-reasoning-layer",
+      "headline": "The Knowledge Reasoning Layer",
+      "support": "A conceptual boundary between reasoning needs and knowledge access.",
+      "items": [
+        "Reasoning capabilities",
+        "Knowledge Reasoning Layer",
+        "Retrieval mechanisms",
+        "Knowledge Model"
+      ],
+      "teachingLayout": "layer-stack",
+      "details": [
+        "relational · constraint · comparative · temporal · evidential",
+        "explore and interpret knowledge",
+        "semantic · graph · structured",
+        "authoritative connected knowledge"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "capabilities",
+            "at": 15.49,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "reasoning capabilities"
+          },
+          {
+            "id": "layer",
+            "at": 7.52,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "Knowledge Reasoning Layer"
+          },
+          {
+            "id": "retrieval",
+            "at": 19.41,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "knowledge can be accessed"
+          },
+          {
+            "id": "model",
+            "at": 28.96,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "Knowledge Model represents"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Knowledge Reasoning Layer",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Reasoning before agents",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "reasoning-before-agents",
+      "headline": "Reasoning before agents",
+      "support": "The architecture emerges from the problem; the runtime abstraction comes last.",
+      "items": [
+        "Problem",
+        "Reasoning capability",
+        "Required knowledge",
+        "Retrieval strategy",
+        "Agent behaviour"
+      ],
+      "teachingLayout": "horizontal-progression",
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "problem",
+            "at": 32.42,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "What problem is it trying to solve"
+          },
+          {
+            "id": "capability",
+            "at": 34.22,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "what kind of reasoning"
+          },
+          {
+            "id": "knowledge",
+            "at": 37.21,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "what knowledge"
+          },
+          {
+            "id": "retrieval",
+            "at": 40.38,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "how should that knowledge be retrieved"
+          },
+          {
+            "id": "agent",
+            "at": 51.12,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "whether an agent is the appropriate runtime abstraction"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reasoning Before Agents",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Knowledge graph",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "knowledge-graph-example",
+      "headline": "Knowledge graph",
+      "support": "The full connected knowledge available to the system.",
+      "items": [
+        "Messaging platform",
+        "Application A",
+        "Application B",
+        "Capability A",
+        "Decision",
+        "Principle"
+      ],
+      "teachingLayout": "knowledge-graph",
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "platform",
+            "at": 6.16,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "Knowledge Model may contain"
+          },
+          {
+            "id": "application-a",
+            "at": 2.2,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "application component"
+          },
+          {
+            "id": "application-b",
+            "at": 15.73,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "relationships"
+          },
+          {
+            "id": "capability",
+            "at": 21.32,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "business capability"
+          },
+          {
+            "id": "decision",
+            "at": 32.72,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "knowledge graph"
+          },
+          {
+            "id": "principle",
+            "at": 37.87,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "connected architectural knowledge"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "What the System Knows",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Reasoning map",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "reasoning-map-example",
+      "headline": "Reasoning map",
+      "support": "The path used to answer one question.",
+      "items": [
+        "Question",
+        "Platform",
+        "Dependencies",
+        "Capabilities",
+        "Constraints",
+        "Conclusion"
+      ],
+      "teachingLayout": "reasoning-map",
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "question",
+            "at": 0.15,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "reasoning map represents"
+          },
+          {
+            "id": "platform",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "path taken"
+          },
+          {
+            "id": "dependencies",
+            "at": 13.38,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "which knowledge was used"
+          },
+          {
+            "id": "capabilities",
+            "at": 15.34,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "expose assumptions"
+          },
+          {
+            "id": "constraints",
+            "at": 19.61,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "challenge a reasoning path"
+          },
+          {
+            "id": "conclusion",
+            "at": 23.54,
+            "action": "reveal",
+            "target": "item-6",
+            "sourcePhrase": "final answer"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "How the Conclusion Was Reached",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "Architectural Intelligence",
+      "kind": "presenter-focus",
+      "headline": "Architectural Intelligence",
+      "support": "Structured knowledge + explicit reasoning capabilities",
+      "items": [
+        "Relationships",
+        "Constraints",
+        "Alternatives",
+        "Time",
+        "Evidence"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "relationships",
+            "at": 14.64,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "understand relationships"
+          },
+          {
+            "id": "constraints",
+            "at": 16.87,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "evaluate constraints"
+          },
+          {
+            "id": "alternatives",
+            "at": 19.4,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "compare alternatives"
+          },
+          {
+            "id": "time",
+            "at": 24.07,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "reason across time"
+          },
+          {
+            "id": "evidence",
+            "at": 26.98,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "evidence behind what it knows"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Towards Architectural Intelligence",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

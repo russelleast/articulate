@@ -335,6 +335,17 @@
       "provider": "local"
     },
     {
+      "id": "graphrag-traversal",
+      "type": "diagram",
+      "format": "d2",
+      "episode": null,
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/reasoning/graphrag-traversal.d2",
+      "location": "site/public/diagrams/graphrag-traversal.svg",
+      "provider": "local"
+    },
+    {
       "id": "reasoning-before-agents",
       "type": "diagram",
       "format": "d2",
@@ -407,6 +418,15 @@
       "status": "approved-recording",
       "checksum": "sha256:9dd811460c2a90f797eb64b5798da5ae7c866a254c183b4ad4a698600d68699c",
       "location": "production/episodes/0007/ep07-narrator.mov",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0008-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0008",
+      "status": "approved-recording",
+      "checksum": "sha256:49cf407605ab3d3fea3cfc43bd99d77bb9a00a6ce278db8968a370a37856e46f",
+      "location": "production/episodes/0008/ep8-editted.mp4",
       "provider": "local"
     },
     {
