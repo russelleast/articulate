@@ -1,0 +1,12 @@
+...@../../../styles/articulate
+direction: right
+
+question: “What depends on this?” {class: evidence}
+component: Component {class: node}
+integration: Integration {class: capability}
+application: Application {class: capability}
+capability: Business Capability {class: emphasis}
+question -> component: start at
+component -> integration: depends on
+integration -> application: used by
+application -> capability: supports

@@ -19,7 +19,9 @@ This production adapts the canonical written episode and the approved recorded p
 
 ```sh
 make episode-0008-presenter-prepare
+node production/episodes/0008/production/generate-pre-render-review.mjs
 make episode-0008-presenter-render
+make episode-0008-presenter-review
 ```
 
-The render uses the continuous presenter recording for picture and audio, EBU R128 normalisation, the Articulate visual grammar v2, and registered D2 diagram assets. It does not use the legacy Focus Canvas treatment.
+The render uses the continuous presenter recording for picture and audio, EBU R128 normalisation, the Articulate visual grammar v2, and registered D2 diagram assets. It does not use the legacy companion-era diagram canvas. The pre-render review is intentionally episode-local because the shared review command samples an existing MP4 rather than unresolved scene plates.

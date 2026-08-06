@@ -24,3 +24,8 @@ assets:
     source: "production/diagrams/sources/reasoning/graphrag-traversal.d2"
     generation_method: "D2 to publication-profile SVG"
     status: "generated"
+  - asset_id: "A005"
+    asset_type: "Episode 8 authored diagram states"
+    source: "production/diagrams/sources/episodes/0008"
+    generation_method: "D2 and PlantUML to publication-profile SVG"
+    status: "generated"

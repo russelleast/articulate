@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "status": "approved",
   "episode": {
     "id": "0008",
@@ -8,195 +8,115 @@
     "narrativeSource": "production/episodes/0008/narrative.md",
     "presenterMedia": "production/episodes/0008/ep8-editted.mp4"
   },
+  "editorialPrinciple": "The narration carries the reasoning. The production carries the attention.",
   "sections": [
-    { "id": "opening", "title": "Opening", "narrativeSegments": ["N001-N008"] },
-    { "id": "impact-question", "title": "Constructing an Architectural Answer", "narrativeSegments": ["N009-N017"], "anchor": "Imagine asking Articulate a question" },
-    { "id": "retrieval-not-reasoning", "title": "Retrieval Is Not Reasoning", "narrativeSegments": ["N018-N021"], "anchor": "This creates an important distinction" },
-    { "id": "rag-limit", "title": "The Problem Is Bigger Than RAG", "narrativeSegments": ["N022-N034"], "anchor": "Retrieval Augmented Generation or RAG" },
-    { "id": "connected-knowledge", "title": "Connected Knowledge", "narrativeSegments": ["N035-N042"], "anchor": "This is one reason approaches such as GraphRAG are interesting" },
-    { "id": "retrieval-strategies", "title": "Different Retrieval Strategies", "narrativeSegments": ["N043-N053"], "anchor": "However graph traversal is not the answer to every question" },
-    { "id": "reasoning-strategy", "title": "From Retrieval to Reasoning Strategy", "narrativeSegments": ["N054-N070"], "anchor": "This leads to a broader question" },
-    { "id": "reasoning-capabilities", "title": "Reasoning Capabilities", "narrativeSegments": ["N071-N106"], "anchor": "Relational reasoning explores how architectural concepts are connected" },
-    { "id": "agentic-rag", "title": "Agentic RAG", "narrativeSegments": ["N107-N120"], "anchor": "This is where the idea of Agentic RAG becomes useful" },
-    { "id": "reasoning-layer", "title": "The Knowledge Reasoning Layer", "narrativeSegments": ["N121-N131"], "anchor": "The Knowledge Model is responsible for representing what Articulate knows" },
-    { "id": "reasoning-before-agents", "title": "Reasoning Before Agents", "narrativeSegments": ["N132-N150"], "anchor": "One of the lessons I'm beginning to take from designing Articulate" },
-    { "id": "knowledge-graph", "title": "What the System Knows", "narrativeSegments": ["N151-N162"], "anchor": "There is another idea that becomes possible once knowledge and reasoning are treated separately" },
-    { "id": "reasoning-map", "title": "How the Conclusion Was Reached", "narrativeSegments": ["N163-N174"], "anchor": "The reasoning map is not necessarily part of the permanent architectural knowledge" },
-    { "id": "closing", "title": "Towards Architectural Intelligence", "narrativeSegments": ["N175-N193"], "anchor": "The Knowledge Model establishes the foundation for representing architecture as connected knowledge" }
+    { "id": "opening", "title": "Journal Opening", "narrativeSegments": ["N001"], "startSeconds": 0 },
+    { "id": "domains", "title": "Architectural Domains", "narrativeSegments": ["N002-N004"], "startSeconds": 29.76 },
+    { "id": "knowledge-model", "title": "The Knowledge Model", "narrativeSegments": ["N005"], "startSeconds": 55.44 },
+    { "id": "reasoning-question", "title": "The Reasoning Question", "narrativeSegments": ["N006-N009"], "startSeconds": 68.56 },
+    { "id": "impact-platform", "title": "Identify the Platform", "narrativeSegments": ["N010-N011"], "startSeconds": 84.48 },
+    { "id": "impact-dependencies", "title": "Trace Dependencies", "narrativeSegments": ["N012-N013"], "startSeconds": 95.6 },
+    { "id": "impact-decisions", "title": "Find Decisions and Constraints", "narrativeSegments": ["N014"], "startSeconds": 109.52 },
+    { "id": "impact-evaluate", "title": "Evaluate the Replacement", "narrativeSegments": ["N015"], "startSeconds": 123.12 },
+    { "id": "impact-consequence", "title": "Construct the Consequence", "narrativeSegments": ["N016-N017"], "startSeconds": 128.88 },
+    { "id": "retrieval-distinction", "title": "Retrieval Is Not Reasoning", "narrativeSegments": ["N018-N021"], "startSeconds": 136.53 },
+    { "id": "document-rag", "title": "The Conventional RAG Pipeline", "narrativeSegments": ["N022-N025"], "startSeconds": 154.88 },
+    { "id": "rag-gap-question", "title": "The Architectural Question", "narrativeSegments": ["N026-N029"], "startSeconds": 180.96 },
+    { "id": "relationship-retrieval", "title": "Follow Relationships", "narrativeSegments": ["N030-N034"], "startSeconds": 200.32 },
+    { "id": "connected-shift", "title": "From Chunks to Connected Knowledge", "narrativeSegments": ["N035-N037"], "startSeconds": 228.23 },
+    { "id": "graphrag-traversal", "title": "Traverse the Knowledge Model", "narrativeSegments": ["N038-N042"], "startSeconds": 251.04 },
+    { "id": "retrieval-strategies", "title": "Questions Select Retrieval", "narrativeSegments": ["N043-N049"], "startSeconds": 284.53 },
+    { "id": "combined-retrieval", "title": "Combine Retrieval Strategies", "narrativeSegments": ["N050-N053"], "startSeconds": 295.52 },
+    { "id": "question-types", "title": "Understand the Question", "narrativeSegments": ["N054-N061"], "startSeconds": 311.59 },
+    { "id": "reasoning-needs", "title": "Map Questions to Reasoning", "narrativeSegments": ["N062-N067"], "startSeconds": 341.68 },
+    { "id": "capability-transition", "title": "Capabilities, Not Agent Reasoning", "narrativeSegments": ["N068-N070"], "startSeconds": 367.6 },
+    { "id": "relational", "title": "Relational Reasoning", "narrativeSegments": ["N071-N076"], "startSeconds": 379 },
+    { "id": "constraint-context", "title": "Architectural Constraints", "narrativeSegments": ["N077-N078"], "startSeconds": 401.04 },
+    { "id": "constraint-evaluation", "title": "Constraint Reasoning", "narrativeSegments": ["N079-N082"], "startSeconds": 416.56 },
+    { "id": "comparison-question", "title": "Architectural Alternatives", "narrativeSegments": ["N083-N085"], "startSeconds": 437.12 },
+    { "id": "comparative", "title": "Comparative Reasoning", "narrativeSegments": ["N086-N087"], "startSeconds": 449.6 },
+    { "id": "temporal", "title": "Temporal Reasoning", "narrativeSegments": ["N088-N090"], "startSeconds": 469.44 },
+    { "id": "temporal-questions", "title": "Reason Across Architectural States", "narrativeSegments": ["N091-N095"], "startSeconds": 491.28 },
+    { "id": "evidential", "title": "Evidential Reasoning", "narrativeSegments": ["N096-N102"], "startSeconds": 503.2 },
+    { "id": "not-five-agents", "title": "Reasoning Capabilities, Not Five Agents", "narrativeSegments": ["N103-N106"], "startSeconds": 536.4 },
+    { "id": "agentic-loop", "title": "Agentic RAG as a Feedback Loop", "narrativeSegments": ["N107-N115"], "startSeconds": 551.44 },
+    { "id": "retrieval-in-reasoning", "title": "Retrieval Participates in Reasoning", "narrativeSegments": ["N116-N118"], "startSeconds": 580.32 },
+    { "id": "layer-transition", "title": "Beyond Agentic RAG", "narrativeSegments": ["N119-N120"], "startSeconds": 604.88 },
+    { "id": "layer-model", "title": "Represent Knowledge", "narrativeSegments": ["N121"], "startSeconds": 619.28 },
+    { "id": "layer-boundary", "title": "Reason With Knowledge", "narrativeSegments": ["N122"], "startSeconds": 626.8 },
+    { "id": "layer-position", "title": "A Conceptual Boundary", "narrativeSegments": ["N123-N125"], "startSeconds": 632.88 },
+    { "id": "layer-responsibilities", "title": "Separate Responsibilities", "narrativeSegments": ["N126-N129"], "startSeconds": 645.68 },
+    { "id": "layer-access", "title": "Hide Retrieval Mechanics", "narrativeSegments": ["N130-N131"], "startSeconds": 664.48 },
+    { "id": "agents-wrong-level", "title": "Starting With Agents", "narrativeSegments": ["N132-N138"], "startSeconds": 685.92 },
+    { "id": "progression-problem", "title": "Start With the Problem", "narrativeSegments": ["N139-N140"], "startSeconds": 712.08 },
+    { "id": "progression-reasoning", "title": "Identify the Reasoning", "narrativeSegments": ["N141"], "startSeconds": 719.12 },
+    { "id": "progression-knowledge", "title": "Identify Required Knowledge", "narrativeSegments": ["N142"], "startSeconds": 724.8 },
+    { "id": "progression-retrieval", "title": "Choose Retrieval", "narrativeSegments": ["N143-N144"], "startSeconds": 727.6 },
+    { "id": "progression-agent", "title": "Agent Behaviour Comes Last", "narrativeSegments": ["N145-N147"], "startSeconds": 730.4 },
+    { "id": "agents-later", "title": "The Agents Come Later", "narrativeSegments": ["N148-N150"], "startSeconds": 743.92 },
+    { "id": "knowledge-graph", "title": "What the System Knows", "narrativeSegments": ["N151-N159"], "startSeconds": 753.25 },
+    { "id": "graph-distinction", "title": "Knowledge Graph and Reasoning Map", "narrativeSegments": ["N160-N161"], "startSeconds": 784.08 },
+    { "id": "reasoning-map", "title": "Extract the Path for One Question", "narrativeSegments": ["N162-N164"], "startSeconds": 796 },
+    { "id": "reasoning-map-value", "title": "Inspect the Reasoning", "narrativeSegments": ["N165-N171"], "startSeconds": 802.08 },
+    { "id": "trust-transition", "title": "A Useful Answer Is Not Enough", "narrativeSegments": ["N172-N174"], "startSeconds": 825.76 },
+    { "id": "closing-capabilities", "title": "Knowledge Reasoning Adds the Next Layer", "narrativeSegments": ["N175-N183"], "startSeconds": 839.82 },
+    { "id": "closing-mechanisms", "title": "Useful Mechanisms, Not Intelligence Alone", "narrativeSegments": ["N184-N187"], "startSeconds": 868.32 },
+    { "id": "closing-synthesis", "title": "Architectural Intelligence", "narrativeSegments": ["N188-N190"], "startSeconds": 887.52 },
+    { "id": "closing", "title": "Next: Describing Agent Behaviour", "narrativeSegments": ["N191-N193"], "startSeconds": 899.68 }
   ],
   "scenes": [
-    {
-      "id": "S001", "section": "opening", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade",
-      "compositionMode": "presenter-left-canvas-right", "teachingLayout": "knowledge-graph",
-      "headline": "Knowledge is connected", "support": "Architectural domains gain meaning through their relationships.",
-      "items": ["Business capability", "Application", "Data", "Integration", "Decision", "Constraint"],
-      "beats": [
-        { "id": "capability", "target": "item-1", "alignTo": "A business capability" },
-        { "id": "application", "target": "item-2", "alignTo": "application components" },
-        { "id": "data", "target": "item-3", "alignTo": "depend on data" },
-        { "id": "integration", "target": "item-4", "alignTo": "integrations and infrastructure" },
-        { "id": "decision", "target": "item-5", "alignTo": "Decisions explain why" },
-        { "id": "constraint", "target": "item-6", "alignTo": "constraints that shape" }
-      ]
-    },
-    {
-      "id": "S002", "section": "impact-question", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "teachingLayout": "vertical-path", "headline": "The answer has to be constructed", "support": "What changes if we replace the messaging platform?",
-      "items": ["Question", "Knowledge retrieval", "Relationship navigation", "Constraint evaluation", "Constructed answer"],
-      "details": ["replace the messaging platform?", "find the platform", "trace components and capabilities", "test decisions and principles", "explain the impact"],
-      "beats": [
-        { "id": "question", "target": "item-1", "alignTo": "Imagine asking Articulate a question" },
-        { "id": "platform", "target": "item-2", "alignTo": "Finding information about the messaging platform" },
-        { "id": "relationships", "target": "item-3", "alignTo": "application components depend on it" },
-        { "id": "constraints", "target": "item-4", "alignTo": "satisfy some of those constraints" },
-        { "id": "conclusion", "target": "item-5", "alignTo": "constructed from the knowledge available" }
-      ]
-    },
-    {
-      "id": "S003", "section": "retrieval-not-reasoning", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "fade",
-      "teachingLayout": "retrieval-reasoning", "headline": "Retrieval isn't reasoning", "support": "Two responsibilities; one architectural distinction.",
-      "items": ["Retrieval", "Reasoning", "Gather knowledge → construct understanding"],
-      "beats": [
-        { "id": "retrieve", "target": "item-1", "alignTo": "Retrieval gathers relevant knowledge" },
-        { "id": "reason", "target": "item-2", "alignTo": "Reasoning determines" },
-        { "id": "distinction", "target": "item-3", "alignTo": "This distinction is important" }
-      ]
-    },
-    {
-      "id": "S004", "section": "rag-limit", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "teachingLayout": "rag-gap", "headline": "The problem is bigger than RAG", "support": "Semantic similarity finds text; architecture often asks for connected meaning.",
-      "items": ["Semantic search", "Relevant text", "Dependencies", "Supported capabilities"],
-      "details": ["similar passages", "what the documents say", "what relies on what", "what the architecture enables"],
-      "beats": [
-        { "id": "semantic", "target": "item-1", "alignTo": "semantic search" },
-        { "id": "text", "target": "item-2", "alignTo": "relevant information" },
-        { "id": "dependencies", "target": "item-3", "alignTo": "follow relationships" },
-        { "id": "capabilities", "target": "item-4", "alignTo": "supports a business capability" }
-      ]
-    },
-    {
-      "id": "S005", "section": "connected-knowledge", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "diagramAssetId": "graphrag-traversal", "teachingLayout": "graph-traversal", "headline": "GraphRAG: traverse connected knowledge", "support": "Follow the active relationship path; the relationships carry meaning.",
-      "items": ["Business capability", "Application", "Integration", "Messaging platform", "Infrastructure"],
-      "beats": [
-        { "id": "capability", "target": "item-1", "alignTo": "business capability" },
-        { "id": "application", "target": "item-2", "alignTo": "application component" },
-        { "id": "integration", "target": "item-3", "alignTo": "depends on an integration" },
-        { "id": "platform", "target": "item-4", "alignTo": "uses a messaging platform" },
-        { "id": "infrastructure", "target": "item-5", "alignTo": "hosted on particular infrastructure" }
-      ]
-    },
-    {
-      "id": "S006", "section": "retrieval-strategies", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "teachingLayout": "retrieval-selector", "headline": "Select retrieval by question type", "support": "These strategies are complementary—not equivalent.",
-      "items": ["Semantic search", "Graph traversal", "Structured queries", "Combined strategies"],
-      "details": ["What relates to resilience?", "What depends on this?", "Which accepted decisions?", "One question may require all three"],
-      "beats": [
-        { "id": "semantic", "target": "item-1", "alignTo": "Some questions are semantic" },
-        { "id": "graph", "target": "item-2", "alignTo": "Some questions are relational" },
-        { "id": "structured", "target": "item-3", "alignTo": "Some questions are structured" },
-        { "id": "combined", "target": "item-4", "alignTo": "several of these approaches together" }
-      ]
-    },
-    {
-      "id": "S007", "section": "reasoning-strategy", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "teachingLayout": "reasoning-router", "headline": "First understand the question", "support": "Reasoning need determines what knowledge must be found.",
-      "items": ["Relationships", "Decision context", "Constraints", "Time", "Evidence"],
-      "details": ["What depends on this?", "Why did we choose it?", "Does this conflict?", "What changed?", "What supports the claim?"],
-      "beats": [
-        { "id": "relationships", "target": "item-1", "alignTo": "relationships and dependencies" },
-        { "id": "decisions", "target": "item-2", "alignTo": "context around a decision" },
-        { "id": "constraints", "target": "item-3", "alignTo": "existing constraints" },
-        { "id": "time", "target": "item-4", "alignTo": "reasoning across time" },
-        { "id": "evidence", "target": "item-5", "alignTo": "supporting evidence" }
-      ]
-    },
-    {
-      "id": "S008", "section": "reasoning-capabilities", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "teachingLayout": "capability-lenses", "headline": "Capabilities—not necessarily agents", "support": "Each capability performs a different kind of architectural reasoning.",
-      "items": ["Relational", "Constraint", "Comparative", "Temporal", "Evidential"],
-      "details": ["What depends on this?", "Does this violate a principle?", "Which option fits this context?", "Why did the architecture change?", "What supports this conclusion?"],
-      "beats": [
-        { "id": "relational", "target": "item-1", "alignTo": "Relational reasoning" },
-        { "id": "constraint", "target": "item-2", "alignTo": "Constraint reasoning" },
-        { "id": "comparative", "target": "item-3", "alignTo": "Comparative reasoning" },
-        { "id": "temporal", "target": "item-4", "alignTo": "Temporal reasoning" },
-        { "id": "evidential", "target": "item-5", "alignTo": "Evidential reasoning" }
-      ]
-    },
-    {
-      "id": "S009", "section": "agentic-rag", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "fade",
-      "diagramAssetId": "knowledge-reasoning-flow", "teachingLayout": "reasoning-loop", "headline": "Agentic RAG is a feedback loop", "support": "Retrieval participates in an iterative reasoning process.",
-      "items": ["Understand question", "Choose strategy", "Retrieve", "Inspect", "Retrieve again", "Validate & explain"],
-      "beats": [
-        { "id": "question", "target": "item-1", "alignTo": "based on the question" },
-        { "id": "strategy", "target": "item-2", "alignTo": "semantic search" },
-        { "id": "retrieve", "target": "item-3", "alignTo": "structured queries" },
-        { "id": "inspect", "target": "item-4", "alignTo": "results may reveal" },
-        { "id": "again", "target": "item-5", "alignTo": "perform further retrieval" },
-        { "id": "validate", "target": "item-6", "alignTo": "examine what it has discovered" }
-      ]
-    },
-    {
-      "id": "S010", "section": "reasoning-layer", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "diagramAssetId": "knowledge-reasoning-layer", "teachingLayout": "layer-stack", "headline": "The Knowledge Reasoning Layer", "support": "A conceptual boundary between reasoning needs and knowledge access.",
-      "items": ["Reasoning capabilities", "Knowledge Reasoning Layer", "Retrieval mechanisms", "Knowledge Model"],
-      "details": ["relational · constraint · comparative · temporal · evidential", "explore and interpret knowledge", "semantic · graph · structured", "authoritative connected knowledge"],
-      "beats": [
-        { "id": "capabilities", "target": "item-1", "alignTo": "reasoning capabilities" },
-        { "id": "layer", "target": "item-2", "alignTo": "Knowledge Reasoning Layer" },
-        { "id": "retrieval", "target": "item-3", "alignTo": "knowledge can be accessed" },
-        { "id": "model", "target": "item-4", "alignTo": "Knowledge Model represents" }
-      ]
-    },
-    {
-      "id": "S011", "section": "reasoning-before-agents", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "diagramAssetId": "reasoning-before-agents", "teachingLayout": "horizontal-progression", "headline": "Reasoning before agents", "support": "The architecture emerges from the problem; the runtime abstraction comes last.",
-      "items": ["Problem", "Reasoning capability", "Required knowledge", "Retrieval strategy", "Agent behaviour"],
-      "beats": [
-        { "id": "problem", "target": "item-1", "alignTo": "What problem is it trying to solve" },
-        { "id": "capability", "target": "item-2", "alignTo": "what kind of reasoning" },
-        { "id": "knowledge", "target": "item-3", "alignTo": "what knowledge" },
-        { "id": "retrieval", "target": "item-4", "alignTo": "how should that knowledge be retrieved" },
-        { "id": "agent", "target": "item-5", "alignTo": "whether an agent is the appropriate runtime abstraction" }
-      ]
-    },
-    {
-      "id": "S012", "section": "knowledge-graph", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "diagramAssetId": "knowledge-graph-example", "teachingLayout": "knowledge-graph", "headline": "Knowledge graph", "support": "The full connected knowledge available to the system.",
-      "items": ["Messaging platform", "Application A", "Application B", "Capability A", "Decision", "Principle"],
-      "beats": [
-        { "id": "platform", "target": "item-1", "alignTo": "Knowledge Model may contain" },
-        { "id": "application-a", "target": "item-2", "alignTo": "application component" },
-        { "id": "application-b", "target": "item-3", "alignTo": "relationships" },
-        { "id": "capability", "target": "item-4", "alignTo": "business capability" },
-        { "id": "decision", "target": "item-5", "alignTo": "knowledge graph" },
-        { "id": "principle", "target": "item-6", "alignTo": "connected architectural knowledge" }
-      ]
-    },
-    {
-      "id": "S013", "section": "reasoning-map", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut",
-      "diagramAssetId": "reasoning-map-example", "teachingLayout": "reasoning-map", "headline": "Reasoning map", "support": "The path used to answer one question.",
-      "items": ["Question", "Platform", "Dependencies", "Capabilities", "Constraints", "Conclusion"],
-      "beats": [
-        { "id": "question", "target": "item-1", "alignTo": "reasoning map represents" },
-        { "id": "platform", "target": "item-2", "alignTo": "path taken" },
-        { "id": "dependencies", "target": "item-3", "alignTo": "which knowledge was used" },
-        { "id": "capabilities", "target": "item-4", "alignTo": "expose assumptions" },
-        { "id": "constraints", "target": "item-5", "alignTo": "challenge a reasoning path" },
-        { "id": "conclusion", "target": "item-6", "alignTo": "final answer" }
-      ]
-    },
-    {
-      "id": "S014", "section": "closing", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade",
-      "headline": "Architectural Intelligence", "support": "Structured knowledge + explicit reasoning capabilities", "items": ["Relationships", "Constraints", "Alternatives", "Time", "Evidence"],
-      "beats": [
-        { "id": "relationships", "target": "item-1", "alignTo": "understand relationships" },
-        { "id": "constraints", "target": "item-2", "alignTo": "evaluate constraints" },
-        { "id": "alternatives", "target": "item-3", "alignTo": "compare alternatives" },
-        { "id": "time", "target": "item-4", "alignTo": "reason across time" },
-        { "id": "evidence", "target": "item-5", "alignTo": "evidence behind what it knows" }
-      ]
-    }
+    { "id": "S001", "section": "opening", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "Knowledge Reasoning", "support": "Beyond RAG", "items": [] },
+    { "id": "S002", "section": "domains", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Architecture is connected knowledge", "support": "Domains gain meaning through their relationships.", "diagramAssetId": "episode-0008-architectural-domains" },
+    { "id": "S003", "section": "knowledge-model", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "The Knowledge Model represents those relationships", "support": "A connected model of architectural knowledge.", "diagramAssetId": "episode-0007-knowledge-model" },
+    { "id": "S004", "section": "reasoning-question", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "How should AI reason with that knowledge?", "support": "Representation creates the next architectural problem.", "items": [] },
+    { "id": "S005", "section": "impact-platform", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "1 · Identify the messaging platform", "support": "Finding it is only the beginning.", "diagramAssetId": "episode-0008-impact-answer-01" },
+    { "id": "S006", "section": "impact-dependencies", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "2 · Trace components and capabilities", "support": "The answer grows through relationships.", "diagramAssetId": "episode-0008-impact-answer-02" },
+    { "id": "S007", "section": "impact-decisions", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "3 · Recover decisions and constraints", "support": "Why was the platform selected?", "diagramAssetId": "episode-0008-impact-answer-03" },
+    { "id": "S008", "section": "impact-evaluate", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "4 · Evaluate the proposed replacement", "support": "Test it against principles and characteristics.", "diagramAssetId": "episode-0008-impact-answer-04" },
+    { "id": "S009", "section": "impact-consequence", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "5 · Construct the architectural consequence", "support": "The answer is built from connected knowledge.", "diagramAssetId": "episode-0008-impact-answer-05" },
+    { "id": "S010", "section": "retrieval-distinction", "archetype": "Comparison", "kind": "presenter-diagram", "transition": "fade", "headline": "Retrieval is not reasoning", "support": "Gathering knowledge and interpreting it are distinct responsibilities.", "diagramAssetId": "episode-0008-retrieval-versus-reasoning" },
+    { "id": "S011", "section": "document-rag", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Conventional document RAG", "support": "Question → semantically similar text chunks", "diagramAssetId": "episode-0008-document-rag-pipeline" },
+    { "id": "S012", "section": "rag-gap-question", "archetype": "Narrator", "kind": "presenter-focus", "transition": "cut", "headline": "Which capabilities fail with this infrastructure?", "support": "The answer may not exist in a similar paragraph.", "items": [] },
+    { "id": "S013", "section": "relationship-retrieval", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Architectural questions follow relationships", "support": "Infrastructure → application component → business capability", "diagramAssetId": "episode-0008-relationship-retrieval" },
+    { "id": "S014", "section": "connected-shift", "archetype": "Comparison", "kind": "presenter-diagram", "transition": "cut", "headline": "The problem is bigger than RAG", "support": "Relationships become part of retrieval.", "diagramAssetId": "episode-0008-chunks-to-connected-knowledge" },
+    { "id": "S015", "section": "graphrag-traversal", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "GraphRAG navigates what is known", "support": "The relationship path carries architectural meaning.", "diagramAssetId": "graphrag-traversal" },
+    { "id": "S016", "section": "retrieval-strategies", "archetype": "Selector", "kind": "presenter-diagram", "transition": "cut", "headline": "Different questions need different retrieval", "support": "Semantic search · graph traversal · structured query", "diagramAssetId": "episode-0008-retrieval-strategies" },
+    { "id": "S017", "section": "combined-retrieval", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "One question may combine all three", "support": "The question determines the retrieval strategy.", "diagramAssetId": "episode-0008-combined-retrieval" },
+    { "id": "S018", "section": "question-types", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "fade", "headline": "First, understand the question", "support": "What kind of architectural reasoning does it require?", "diagramAssetId": "episode-0008-question-to-reasoning" },
+    { "id": "S019", "section": "reasoning-needs", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Each question creates a different reasoning need", "support": "Relationships · decision context · constraints · time · evidence", "diagramAssetId": "episode-0008-question-to-reasoning" },
+    { "id": "S020", "section": "capability-transition", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "“Agent reasoning” hides the architecture", "support": "The system needs explicit reasoning capabilities.", "items": [] },
+    { "id": "S021", "section": "relational", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Relational reasoning", "support": "What depends on this—and what does it support?", "diagramAssetId": "episode-0008-relational-reasoning" },
+    { "id": "S022", "section": "constraint-context", "archetype": "Evidence", "kind": "presenter-focus", "transition": "cut", "headline": "Architecture contains constraints", "support": "Principles · characteristics · policies · previous decisions", "items": [] },
+    { "id": "S023", "section": "constraint-evaluation", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Constraint reasoning", "support": "Evaluate one piece of knowledge in the context of another.", "diagramAssetId": "episode-0008-constraint-reasoning" },
+    { "id": "S024", "section": "comparison-question", "archetype": "Comparison", "kind": "presenter-focus", "transition": "cut", "headline": "Architectural decisions involve alternatives", "support": "The important comparison is contextual, not generic.", "items": [] },
+    { "id": "S025", "section": "comparative", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Comparative reasoning", "support": "Compare options against drivers, principles and existing architecture.", "diagramAssetId": "episode-0008-comparative-reasoning" },
+    { "id": "S026", "section": "temporal", "archetype": "Timeline", "kind": "presenter-diagram", "transition": "cut", "headline": "Temporal reasoning", "support": "A decision can be correct in the architectural state that produced it.", "diagramAssetId": "episode-0008-temporal-reasoning" },
+    { "id": "S027", "section": "temporal-questions", "archetype": "Narrator", "kind": "presenter-focus", "transition": "cut", "headline": "What changed—and why?", "support": "Reason across successive architectural states and their assumptions.", "items": [] },
+    { "id": "S028", "section": "evidential", "archetype": "Evidence", "kind": "presenter-diagram", "transition": "cut", "headline": "Evidential reasoning", "support": "Trace claims to sources, provenance and confidence.", "diagramAssetId": "episode-0008-evidential-reasoning" },
+    { "id": "S029", "section": "not-five-agents", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "These are not necessarily five agents", "support": "They are five distinct reasoning capabilities.", "items": [] },
+    { "id": "S030", "section": "agentic-loop", "archetype": "Feedback Loop", "kind": "presenter-diagram", "transition": "cut", "headline": "Agentic RAG is iterative", "support": "Retrieve, inspect, decide whether more knowledge is required.", "diagramAssetId": "episode-0008-agentic-rag-loop" },
+    { "id": "S031", "section": "retrieval-in-reasoning", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Retrieval becomes part of reasoning", "support": "It is no longer one fixed step before generation.", "diagramAssetId": "knowledge-reasoning-flow" },
+    { "id": "S032", "section": "layer-transition", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "Retrieval is not the centre of the architecture", "support": "The more useful concept is a Knowledge Reasoning Layer.", "items": [] },
+    { "id": "S033", "section": "layer-model", "archetype": "Layer", "kind": "presenter-diagram", "transition": "cut", "headline": "The Knowledge Model represents knowledge", "support": "What Articulate knows about an architecture.", "diagramAssetId": "episode-0008-reasoning-layer-01" },
+    { "id": "S034", "section": "layer-boundary", "archetype": "Layer", "kind": "presenter-diagram", "transition": "cut", "headline": "The reasoning layer interprets knowledge", "support": "A distinct architectural responsibility.", "diagramAssetId": "episode-0008-reasoning-layer-02" },
+    { "id": "S035", "section": "layer-position", "archetype": "Layer", "kind": "presenter-diagram", "transition": "cut", "headline": "A boundary between capabilities and access", "support": "Conceptual boundary—not implementation design.", "diagramAssetId": "episode-0008-reasoning-layer-03" },
+    { "id": "S036", "section": "layer-responsibilities", "archetype": "Layer", "kind": "presenter-diagram", "transition": "cut", "headline": "Separate representation from interpretation", "support": "The model represents; the layer explores and interprets.", "diagramAssetId": "episode-0008-reasoning-layer-04" },
+    { "id": "S037", "section": "layer-access", "archetype": "Layer", "kind": "presenter-diagram", "transition": "cut", "headline": "Agents ask meaningful questions", "support": "Retrieval mechanics remain inside the reasoning architecture.", "diagramAssetId": "knowledge-reasoning-layer" },
+    { "id": "S038", "section": "agents-wrong-level", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "Starting with agents is the wrong abstraction", "support": "An agent name says little about the reasoning it must perform.", "items": [] },
+    { "id": "S039", "section": "progression-problem", "archetype": "Progression", "kind": "presenter-diagram", "transition": "cut", "headline": "1 · What problem are we solving?", "support": "Begin with the architectural need.", "diagramAssetId": "episode-0008-reasoning-before-agents-01" },
+    { "id": "S040", "section": "progression-reasoning", "archetype": "Progression", "kind": "presenter-diagram", "transition": "cut", "headline": "2 · What reasoning does it require?", "support": "Name the capability before the runtime.", "diagramAssetId": "episode-0008-reasoning-before-agents-02" },
+    { "id": "S041", "section": "progression-knowledge", "archetype": "Progression", "kind": "presenter-diagram", "transition": "cut", "headline": "3 · What knowledge does it need?", "support": "Make the knowledge dependency explicit.", "diagramAssetId": "episode-0008-reasoning-before-agents-03" },
+    { "id": "S042", "section": "progression-retrieval", "archetype": "Progression", "kind": "presenter-diagram", "transition": "cut", "headline": "4 · How should that knowledge be retrieved?", "support": "Select access from the reasoning need.", "diagramAssetId": "episode-0008-reasoning-before-agents-04" },
+    { "id": "S043", "section": "progression-agent", "archetype": "Progression", "kind": "presenter-diagram", "transition": "cut", "headline": "5 · Then decide the agent behaviour", "support": "The runtime abstraction comes last.", "diagramAssetId": "episode-0008-reasoning-before-agents-05" },
+    { "id": "S044", "section": "agents-later", "archetype": "Progression", "kind": "presenter-diagram", "transition": "fade", "headline": "The architecture emerges from the problem", "support": "The agents come later.", "diagramAssetId": "reasoning-before-agents" },
+    { "id": "S045", "section": "knowledge-graph", "archetype": "Knowledge Graph", "kind": "presenter-diagram", "transition": "cut", "headline": "The Knowledge Model: everything connected", "support": "The relationships available to the system.", "diagramAssetId": "episode-0008-knowledge-graph-expanded" },
+    { "id": "S046", "section": "graph-distinction", "archetype": "Comparison", "kind": "presenter-diagram", "transition": "cut", "headline": "Knowledge graph ≠ reasoning map", "support": "Available knowledge differs from the path used for one answer.", "diagramAssetId": "knowledge-graph-example" },
+    { "id": "S047", "section": "reasoning-map", "archetype": "Reasoning Map", "kind": "presenter-diagram", "transition": "cut", "headline": "A reasoning map isolates one path", "support": "Question → selected knowledge → conclusion", "diagramAssetId": "episode-0008-reasoning-map-extracted" },
+    { "id": "S048", "section": "reasoning-map-value", "archetype": "Reasoning Map", "kind": "presenter-diagram", "transition": "cut", "headline": "Inspect how the conclusion was reached", "support": "See the knowledge, assumptions and path used.", "diagramAssetId": "reasoning-map-example" },
+    { "id": "S049", "section": "trust-transition", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "A useful answer is important", "support": "Understanding how it was reached may be just as important.", "items": [] },
+    { "id": "S050", "section": "closing-capabilities", "archetype": "Layer", "kind": "presenter-diagram", "transition": "cut", "headline": "Knowledge reasoning adds the next layer", "support": "Relationships · constraints · alternatives · time · evidence", "diagramAssetId": "episode-0008-reasoning-layer-04" },
+    { "id": "S051", "section": "closing-mechanisms", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "headline": "Retrieval mechanisms remain useful", "support": "None of them is Architectural Intelligence on its own.", "diagramAssetId": "knowledge-reasoning-flow" },
+    { "id": "S052", "section": "closing-synthesis", "archetype": "Synthesis", "kind": "presenter-diagram", "transition": "fade", "headline": "Architectural Intelligence", "support": "Structured knowledge + explicit reasoning capabilities", "diagramAssetId": "episode-0008-architectural-intelligence-synthesis" },
+    { "id": "S053", "section": "closing", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "The agents come later", "support": "Next: describing their intended behaviour with DCL.", "items": [] }
   ]
 }

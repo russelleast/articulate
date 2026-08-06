@@ -212,7 +212,7 @@ function buildScene(scene, section, index) {
     ...(scene.details ? { details: scene.details } : {}),
     companion: false,
     assetIds: scene.diagramAssetId
-      ? ["A002", scene.id === "S005" ? "A004" : "A003"]
+      ? ["A002", scene.diagramAssetId.startsWith("episode-0008-") ? "A005" : (scene.diagramAssetId === "graphrag-traversal" ? "A004" : "A003")]
       : index === 0 ? ["A001", "A002"] : ["A002"],
     transition: scene.transition,
     timeline: { connectorTiming: "with-destination", events },

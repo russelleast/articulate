@@ -15,7 +15,7 @@ const errors = [];
 const frameRate = config.output.frameRate;
 const durationTarget = config.presenter.expectedDurationSeconds;
 const tolerance = 1 / frameRate + 0.01;
-const diagramAssets = [
+const sharedDiagramAssets = [
   ["graphrag-traversal", "production/diagrams/sources/reasoning/graphrag-traversal.d2"],
   ["knowledge-reasoning-flow", "production/diagrams/sources/reasoning/knowledge-reasoning-flow.d2"],
   ["knowledge-reasoning-layer", "production/diagrams/sources/reasoning/knowledge-reasoning-layer.d2"],
@@ -23,6 +23,10 @@ const diagramAssets = [
   ["knowledge-graph-example", "production/diagrams/sources/knowledge/knowledge-graph-example.d2"],
   ["reasoning-map-example", "production/diagrams/sources/reasoning/reasoning-map-example.d2"]
 ];
+const episodeDiagramSources = fs.readdirSync(resolve("production/diagrams/sources/episodes/0008"))
+  .filter((name) => name.endsWith(".d2") || name.endsWith(".puml"))
+  .map((name) => [`episode-0008-${name.replace(/\.(d2|puml)$/, "")}`, `production/diagrams/sources/episodes/0008/${name}`]);
+const diagramAssets = [...sharedDiagramAssets, ...episodeDiagramSources];
 
 for (const required of [
   videoPath,
@@ -64,8 +68,8 @@ if (config.scenes.some((scene) => scene.kind === "focus-canvas" || scene.composi
 for (const expected of ["graphrag-traversal", "knowledge-reasoning-flow", "knowledge-reasoning-layer", "reasoning-before-agents", "knowledge-graph-example", "reasoning-map-example"]) {
   if (!config.scenes.some((scene) => scene.diagramAssetId === expected)) errors.push(`Required visual sequence is missing: ${expected}`);
 }
-if (!config.scenes.some((scene) => scene.headline === "Capabilities—not necessarily agents")) errors.push("Reasoning-capability distinction is missing");
-if (!config.scenes.some((scene) => scene.headline === "Retrieval isn't reasoning")) errors.push("Central retrieval/reasoning distinction is missing");
+if (!config.scenes.some((scene) => scene.headline === "These are not necessarily five agents")) errors.push("Reasoning-capability distinction is missing");
+if (!config.scenes.some((scene) => scene.headline === "Retrieval is not reasoning")) errors.push("Central retrieval/reasoning distinction is missing");
 
 if (fs.existsSync(subtitlePath)) {
   const contents = fs.readFileSync(subtitlePath, "utf8");

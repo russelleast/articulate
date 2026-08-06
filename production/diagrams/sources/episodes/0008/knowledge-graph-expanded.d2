@@ -1,0 +1,18 @@
+...@../../../styles/articulate
+direction: right
+
+platform: Messaging Platform {class: evidence}
+app_a: Application A {class: node}
+app_b: Application B {class: node}
+cap_a: Capability A {class: capability}
+cap_b: Capability B {class: capability}
+decision: Selection Decision {class: decision}
+principle: Resilience Principle {class: principle}
+infrastructure: Infrastructure {class: data}
+platform -> app_a: used by
+platform -> app_b: used by
+app_a -> cap_a: supports
+app_b -> cap_b: supports
+decision -> platform: selected
+principle -> decision: influenced
+platform -> infrastructure: hosted on

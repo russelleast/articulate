@@ -1,0 +1,22 @@
+...@../../../styles/articulate
+direction: right
+
+chunks: {
+  label: Similar text
+  style: {stroke: "#687681"; stroke-dash: 5; fill: transparent}
+  a: Chunk A {class: node}
+  b: Chunk B {class: node}
+  c: Chunk C {class: node}
+}
+shift: Relationships become retrievable {class: emphasis}
+graph: {
+  label: Connected knowledge
+  style: {stroke: "#49677C"; stroke-dash: 5; fill: transparent}
+  platform: Platform {class: node}
+  app: Application {class: capability}
+  capability: Capability {class: emphasis}
+  platform -> app: used by
+  app -> capability: supports
+}
+chunks -> shift
+shift -> graph

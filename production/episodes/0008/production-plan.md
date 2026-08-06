@@ -18,8 +18,8 @@ The visual sequence must explain semantic, relational and structured retrieval; 
 
 ## Architecture
 
-Fourteen continuous-audio scenes combine Presenter, Evidence, Diagram and Reflection archetypes. Shared registered D2 sources provide the knowledge reasoning flow, Knowledge Reasoning Layer, reasoning-before-agents progression, knowledge graph and reasoning map. The connected-knowledge example reuses the Episode 7 reasoning-context asset.
+Fifty-three continuous-audio scenes combine Presenter, Comparison, Diagram, Evidence, Timeline, Layer, Progression and Reflection archetypes. Thirty-one episode-owned D2 sources provide complete authored states for the worked impact example, RAG contrast, retrieval selection, five reasoning capabilities, Agentic RAG feedback, the Knowledge Reasoning Layer, reasoning-before-agents progression, knowledge graph, reasoning map and closing synthesis. Shared registered diagrams remain in use where they already express the complete concept well.
 
 ## Runtime
 
-`prepare-presenter-v1.mjs` aligns the approved narrative to local Whisper word timings from the final recording, resolves deterministic reveal events, writes the render contract and produces British English subtitles. The shared episode renderer creates a 1080p/30 fps H.264/AAC publication file and review contact sheets.
+`prepare-presenter-v1.mjs` preserves reviewed presenter-time boundaries, writes the deterministic render contract and reproduces the existing British English subtitle timing. `generate-pre-render-review.mjs` renders resolved scene plates and a 15-second temporal sheet before video assembly. The shared episode renderer then creates the 1080p/30 fps H.264/AAC publication file and post-render contact sheets.

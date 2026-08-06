@@ -4,30 +4,114 @@
   "sections": [
     {
       "id": "opening",
-      "title": "Opening",
+      "title": "Journal Opening",
       "narrativeSegments": [
-        "N001-N008"
+        "N001"
       ],
       "start": 0,
-      "end": 80.46,
+      "end": 29.76,
       "confidence": 1,
-      "anchor": "recording start",
-      "matchedText": "recording start"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
     },
     {
-      "id": "impact-question",
-      "title": "Constructing an Architectural Answer",
+      "id": "domains",
+      "title": "Architectural Domains",
       "narrativeSegments": [
-        "N009-N017"
+        "N002-N004"
       ],
-      "start": 80.46,
+      "start": 29.76,
+      "end": 55.44,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 29.760s"
+    },
+    {
+      "id": "knowledge-model",
+      "title": "The Knowledge Model",
+      "narrativeSegments": [
+        "N005"
+      ],
+      "start": 55.44,
+      "end": 68.56,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 55.440s"
+    },
+    {
+      "id": "reasoning-question",
+      "title": "The Reasoning Question",
+      "narrativeSegments": [
+        "N006-N009"
+      ],
+      "start": 68.56,
+      "end": 84.48,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 68.560s"
+    },
+    {
+      "id": "impact-platform",
+      "title": "Identify the Platform",
+      "narrativeSegments": [
+        "N010-N011"
+      ],
+      "start": 84.48,
+      "end": 95.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 84.480s"
+    },
+    {
+      "id": "impact-dependencies",
+      "title": "Trace Dependencies",
+      "narrativeSegments": [
+        "N012-N013"
+      ],
+      "start": 95.6,
+      "end": 109.52,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 95.600s"
+    },
+    {
+      "id": "impact-decisions",
+      "title": "Find Decisions and Constraints",
+      "narrativeSegments": [
+        "N014"
+      ],
+      "start": 109.52,
+      "end": 123.12,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 109.520s"
+    },
+    {
+      "id": "impact-evaluate",
+      "title": "Evaluate the Replacement",
+      "narrativeSegments": [
+        "N015"
+      ],
+      "start": 123.12,
+      "end": 128.88,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 123.120s"
+    },
+    {
+      "id": "impact-consequence",
+      "title": "Construct the Consequence",
+      "narrativeSegments": [
+        "N016-N017"
+      ],
+      "start": 128.88,
       "end": 136.53,
       "confidence": 1,
-      "anchor": "Imagine asking Articulate a question",
-      "matchedText": "Imagine asking Articulate a question"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 128.880s"
     },
     {
-      "id": "retrieval-not-reasoning",
+      "id": "retrieval-distinction",
       "title": "Retrieval Is Not Reasoning",
       "narrativeSegments": [
         "N018-N021"
@@ -35,140 +119,524 @@
       "start": 136.53,
       "end": 154.88,
       "confidence": 1,
-      "anchor": "This creates an important distinction",
-      "matchedText": "This creates an important distinction"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 136.530s"
     },
     {
-      "id": "rag-limit",
-      "title": "The Problem Is Bigger Than RAG",
+      "id": "document-rag",
+      "title": "The Conventional RAG Pipeline",
       "narrativeSegments": [
-        "N022-N034"
+        "N022-N025"
       ],
       "start": 154.88,
-      "end": 228.23,
+      "end": 180.96,
       "confidence": 1,
-      "anchor": "Retrieval Augmented Generation or RAG",
-      "matchedText": "Retrieval Augmented Generation or RAG"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 154.880s"
     },
     {
-      "id": "connected-knowledge",
-      "title": "Connected Knowledge",
+      "id": "rag-gap-question",
+      "title": "The Architectural Question",
       "narrativeSegments": [
-        "N035-N042"
+        "N026-N029"
+      ],
+      "start": 180.96,
+      "end": 200.32,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 180.960s"
+    },
+    {
+      "id": "relationship-retrieval",
+      "title": "Follow Relationships",
+      "narrativeSegments": [
+        "N030-N034"
+      ],
+      "start": 200.32,
+      "end": 228.23,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 200.320s"
+    },
+    {
+      "id": "connected-shift",
+      "title": "From Chunks to Connected Knowledge",
+      "narrativeSegments": [
+        "N035-N037"
       ],
       "start": 228.23,
+      "end": 251.04,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 228.230s"
+    },
+    {
+      "id": "graphrag-traversal",
+      "title": "Traverse the Knowledge Model",
+      "narrativeSegments": [
+        "N038-N042"
+      ],
+      "start": 251.04,
       "end": 284.53,
-      "confidence": 0.5,
-      "anchor": "This is one reason approaches such as GraphRAG are interesting",
-      "matchedText": "This is one of the reasons such as"
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 251.040s"
     },
     {
       "id": "retrieval-strategies",
-      "title": "Different Retrieval Strategies",
+      "title": "Questions Select Retrieval",
       "narrativeSegments": [
-        "N043-N053"
+        "N043-N049"
       ],
       "start": 284.53,
+      "end": 295.52,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 284.530s"
+    },
+    {
+      "id": "combined-retrieval",
+      "title": "Combine Retrieval Strategies",
+      "narrativeSegments": [
+        "N050-N053"
+      ],
+      "start": 295.52,
       "end": 311.59,
       "confidence": 1,
-      "anchor": "However graph traversal is not the answer to every question",
-      "matchedText": "However graph traversal is not the answer to every question"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 295.520s"
     },
     {
-      "id": "reasoning-strategy",
-      "title": "From Retrieval to Reasoning Strategy",
+      "id": "question-types",
+      "title": "Understand the Question",
       "narrativeSegments": [
-        "N054-N070"
+        "N054-N061"
       ],
       "start": 311.59,
+      "end": 341.68,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 311.590s"
+    },
+    {
+      "id": "reasoning-needs",
+      "title": "Map Questions to Reasoning",
+      "narrativeSegments": [
+        "N062-N067"
+      ],
+      "start": 341.68,
+      "end": 367.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 341.680s"
+    },
+    {
+      "id": "capability-transition",
+      "title": "Capabilities, Not Agent Reasoning",
+      "narrativeSegments": [
+        "N068-N070"
+      ],
+      "start": 367.6,
       "end": 379,
       "confidence": 1,
-      "anchor": "This leads to a broader question",
-      "matchedText": "This leads to a broader question"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 367.600s"
     },
     {
-      "id": "reasoning-capabilities",
-      "title": "Reasoning Capabilities",
+      "id": "relational",
+      "title": "Relational Reasoning",
       "narrativeSegments": [
-        "N071-N106"
+        "N071-N076"
       ],
       "start": 379,
-      "end": 551.44,
-      "confidence": 0.972,
-      "anchor": "Relational reasoning explores how architectural concepts are connected",
-      "matchedText": "relational reasoning and explores how architectural concepts are connected"
+      "end": 401.04,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 379.000s"
     },
     {
-      "id": "agentic-rag",
-      "title": "Agentic RAG",
+      "id": "constraint-context",
+      "title": "Architectural Constraints",
       "narrativeSegments": [
-        "N107-N120"
+        "N077-N078"
+      ],
+      "start": 401.04,
+      "end": 416.56,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 401.040s"
+    },
+    {
+      "id": "constraint-evaluation",
+      "title": "Constraint Reasoning",
+      "narrativeSegments": [
+        "N079-N082"
+      ],
+      "start": 416.56,
+      "end": 437.12,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 416.560s"
+    },
+    {
+      "id": "comparison-question",
+      "title": "Architectural Alternatives",
+      "narrativeSegments": [
+        "N083-N085"
+      ],
+      "start": 437.12,
+      "end": 449.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 437.120s"
+    },
+    {
+      "id": "comparative",
+      "title": "Comparative Reasoning",
+      "narrativeSegments": [
+        "N086-N087"
+      ],
+      "start": 449.6,
+      "end": 469.44,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 449.600s"
+    },
+    {
+      "id": "temporal",
+      "title": "Temporal Reasoning",
+      "narrativeSegments": [
+        "N088-N090"
+      ],
+      "start": 469.44,
+      "end": 491.28,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 469.440s"
+    },
+    {
+      "id": "temporal-questions",
+      "title": "Reason Across Architectural States",
+      "narrativeSegments": [
+        "N091-N095"
+      ],
+      "start": 491.28,
+      "end": 503.2,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 491.280s"
+    },
+    {
+      "id": "evidential",
+      "title": "Evidential Reasoning",
+      "narrativeSegments": [
+        "N096-N102"
+      ],
+      "start": 503.2,
+      "end": 536.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 503.200s"
+    },
+    {
+      "id": "not-five-agents",
+      "title": "Reasoning Capabilities, Not Five Agents",
+      "narrativeSegments": [
+        "N103-N106"
+      ],
+      "start": 536.4,
+      "end": 551.44,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 536.400s"
+    },
+    {
+      "id": "agentic-loop",
+      "title": "Agentic RAG as a Feedback Loop",
+      "narrativeSegments": [
+        "N107-N115"
       ],
       "start": 551.44,
-      "end": 619.28,
-      "confidence": 0.88,
-      "anchor": "This is where the idea of Agentic RAG becomes useful",
-      "matchedText": "This is where the idea of a genetic rag becomes useful"
+      "end": 580.32,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 551.440s"
     },
     {
-      "id": "reasoning-layer",
-      "title": "The Knowledge Reasoning Layer",
+      "id": "retrieval-in-reasoning",
+      "title": "Retrieval Participates in Reasoning",
       "narrativeSegments": [
-        "N121-N131"
+        "N116-N118"
+      ],
+      "start": 580.32,
+      "end": 604.88,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 580.320s"
+    },
+    {
+      "id": "layer-transition",
+      "title": "Beyond Agentic RAG",
+      "narrativeSegments": [
+        "N119-N120"
+      ],
+      "start": 604.88,
+      "end": 619.28,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 604.880s"
+    },
+    {
+      "id": "layer-model",
+      "title": "Represent Knowledge",
+      "narrativeSegments": [
+        "N121"
       ],
       "start": 619.28,
-      "end": 685.92,
+      "end": 626.8,
       "confidence": 1,
-      "anchor": "The Knowledge Model is responsible for representing what Articulate knows",
-      "matchedText": "The knowledge model is responsible for representing what articulate knows"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 619.280s"
     },
     {
-      "id": "reasoning-before-agents",
-      "title": "Reasoning Before Agents",
+      "id": "layer-boundary",
+      "title": "Reason With Knowledge",
       "narrativeSegments": [
-        "N132-N150"
+        "N122"
+      ],
+      "start": 626.8,
+      "end": 632.88,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 626.800s"
+    },
+    {
+      "id": "layer-position",
+      "title": "A Conceptual Boundary",
+      "narrativeSegments": [
+        "N123-N125"
+      ],
+      "start": 632.88,
+      "end": 645.68,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 632.880s"
+    },
+    {
+      "id": "layer-responsibilities",
+      "title": "Separate Responsibilities",
+      "narrativeSegments": [
+        "N126-N129"
+      ],
+      "start": 645.68,
+      "end": 664.48,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 645.680s"
+    },
+    {
+      "id": "layer-access",
+      "title": "Hide Retrieval Mechanics",
+      "narrativeSegments": [
+        "N130-N131"
+      ],
+      "start": 664.48,
+      "end": 685.92,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 664.480s"
+    },
+    {
+      "id": "agents-wrong-level",
+      "title": "Starting With Agents",
+      "narrativeSegments": [
+        "N132-N138"
       ],
       "start": 685.92,
+      "end": 712.08,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 685.920s"
+    },
+    {
+      "id": "progression-problem",
+      "title": "Start With the Problem",
+      "narrativeSegments": [
+        "N139-N140"
+      ],
+      "start": 712.08,
+      "end": 719.12,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 712.080s"
+    },
+    {
+      "id": "progression-reasoning",
+      "title": "Identify the Reasoning",
+      "narrativeSegments": [
+        "N141"
+      ],
+      "start": 719.12,
+      "end": 724.8,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 719.120s"
+    },
+    {
+      "id": "progression-knowledge",
+      "title": "Identify Required Knowledge",
+      "narrativeSegments": [
+        "N142"
+      ],
+      "start": 724.8,
+      "end": 727.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 724.800s"
+    },
+    {
+      "id": "progression-retrieval",
+      "title": "Choose Retrieval",
+      "narrativeSegments": [
+        "N143-N144"
+      ],
+      "start": 727.6,
+      "end": 730.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 727.600s"
+    },
+    {
+      "id": "progression-agent",
+      "title": "Agent Behaviour Comes Last",
+      "narrativeSegments": [
+        "N145-N147"
+      ],
+      "start": 730.4,
+      "end": 743.92,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 730.400s"
+    },
+    {
+      "id": "agents-later",
+      "title": "The Agents Come Later",
+      "narrativeSegments": [
+        "N148-N150"
+      ],
+      "start": 743.92,
       "end": 753.25,
-      "confidence": 0.833,
-      "anchor": "One of the lessons I'm beginning to take from designing Articulate",
-      "matchedText": "One of the lessons I'm beginning to take from designing articulate"
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 743.920s"
     },
     {
       "id": "knowledge-graph",
       "title": "What the System Knows",
       "narrativeSegments": [
-        "N151-N162"
+        "N151-N159"
       ],
       "start": 753.25,
-      "end": 800.54,
+      "end": 784.08,
       "confidence": 1,
-      "anchor": "There is another idea that becomes possible once knowledge and reasoning are treated separately",
-      "matchedText": "There is another idea that becomes possible once knowledge and reasoning are treated separately"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 753.250s"
+    },
+    {
+      "id": "graph-distinction",
+      "title": "Knowledge Graph and Reasoning Map",
+      "narrativeSegments": [
+        "N160-N161"
+      ],
+      "start": 784.08,
+      "end": 796,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 784.080s"
     },
     {
       "id": "reasoning-map",
-      "title": "How the Conclusion Was Reached",
+      "title": "Extract the Path for One Question",
       "narrativeSegments": [
-        "N163-N174"
+        "N162-N164"
       ],
-      "start": 800.54,
+      "start": 796,
+      "end": 802.08,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 796.000s"
+    },
+    {
+      "id": "reasoning-map-value",
+      "title": "Inspect the Reasoning",
+      "narrativeSegments": [
+        "N165-N171"
+      ],
+      "start": 802.08,
+      "end": 825.76,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 802.080s"
+    },
+    {
+      "id": "trust-transition",
+      "title": "A Useful Answer Is Not Enough",
+      "narrativeSegments": [
+        "N172-N174"
+      ],
+      "start": 825.76,
       "end": 839.82,
       "confidence": 1,
-      "anchor": "The reasoning map is not necessarily part of the permanent architectural knowledge",
-      "matchedText": "The reasoning map is not necessarily part of the permanent architectural knowledge"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 825.760s"
+    },
+    {
+      "id": "closing-capabilities",
+      "title": "Knowledge Reasoning Adds the Next Layer",
+      "narrativeSegments": [
+        "N175-N183"
+      ],
+      "start": 839.82,
+      "end": 868.32,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 839.820s"
+    },
+    {
+      "id": "closing-mechanisms",
+      "title": "Useful Mechanisms, Not Intelligence Alone",
+      "narrativeSegments": [
+        "N184-N187"
+      ],
+      "start": 868.32,
+      "end": 887.52,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 868.320s"
+    },
+    {
+      "id": "closing-synthesis",
+      "title": "Architectural Intelligence",
+      "narrativeSegments": [
+        "N188-N190"
+      ],
+      "start": 887.52,
+      "end": 899.68,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 887.520s"
     },
     {
       "id": "closing",
-      "title": "Towards Architectural Intelligence",
+      "title": "Next: Describing Agent Behaviour",
       "narrativeSegments": [
-        "N175-N193"
+        "N191-N193"
       ],
-      "start": 839.82,
+      "start": 899.68,
       "end": 921.954,
       "confidence": 1,
-      "anchor": "The Knowledge Model establishes the foundation for representing architecture as connected knowledge",
-      "matchedText": "The knowledge model establishes the foundation for representing architecture as connected knowledge"
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 899.680s"
     }
   ]
 }

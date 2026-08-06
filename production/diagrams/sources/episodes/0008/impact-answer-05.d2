@@ -1,0 +1,18 @@
+...@../../../styles/articulate
+direction: right
+
+question: Replace the messaging platform? {class: evidence}
+platform: Messaging Platform {class: node}
+component: Dependent Components {class: capability}
+capability: Supported Capabilities {class: capability}
+decision: Related Decisions {class: decision}
+principle: Principles & Characteristics {class: principle}
+consequence: Architectural Consequence {class: emphasis}
+question -> platform: identify
+platform -> component: used by
+component -> capability: supports
+platform -> decision: selected by
+principle -> decision: shaped
+capability -> consequence: affected
+decision -> consequence: explains
+principle -> consequence: constrains
