@@ -1,0 +1,462 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "The Opening Question",
+      "narrativeSegments": [
+        "N001-N003"
+      ],
+      "start": 0,
+      "end": 30,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "foundation",
+      "title": "The Conceptual Foundation",
+      "narrativeSegments": [
+        "N004-N007"
+      ],
+      "start": 30,
+      "end": 57,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 30.000s"
+    },
+    {
+      "id": "missing",
+      "title": "Understanding Is Not Behaviour",
+      "narrativeSegments": [
+        "N008-N011"
+      ],
+      "start": 57,
+      "end": 74,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 57.000s"
+    },
+    {
+      "id": "situation",
+      "title": "A Coherent Capability",
+      "narrativeSegments": [
+        "N012-N018"
+      ],
+      "start": 74,
+      "end": 89,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 74.000s"
+    },
+    {
+      "id": "build",
+      "title": "Now We Have To Build It",
+      "narrativeSegments": [
+        "N019-N021"
+      ],
+      "start": 89,
+      "end": 98,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 89.000s"
+    },
+    {
+      "id": "desire-core",
+      "title": "Keep the Meaning",
+      "narrativeSegments": [
+        "N022-N024"
+      ],
+      "start": 98,
+      "end": 105,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 98.000s"
+    },
+    {
+      "id": "desire-intent",
+      "title": "Purpose and Outcome",
+      "narrativeSegments": [
+        "N025-N026"
+      ],
+      "start": 105,
+      "end": 111,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 105.000s"
+    },
+    {
+      "id": "desire-governance",
+      "title": "Rules Policies and Behaviour",
+      "narrativeSegments": [
+        "N026"
+      ],
+      "start": 111,
+      "end": 117,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 111.000s"
+    },
+    {
+      "id": "durability",
+      "title": "Independent of Implementation",
+      "narrativeSegments": [
+        "N027-N029"
+      ],
+      "start": 117,
+      "end": 126,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 117.000s"
+    },
+    {
+      "id": "conflict-coherent",
+      "title": "Capability Intent Is Coherent",
+      "narrativeSegments": [
+        "N030-N032"
+      ],
+      "start": 126,
+      "end": 133,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 126.000s"
+    },
+    {
+      "id": "conflict-delivery",
+      "title": "Intent Enters Delivery Planning",
+      "narrativeSegments": [
+        "N033-N034"
+      ],
+      "start": 133,
+      "end": 142,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 133.000s"
+    },
+    {
+      "id": "conflict-software",
+      "title": "Intent Disperses Into Software",
+      "narrativeSegments": [
+        "N035"
+      ],
+      "start": 142,
+      "end": 152,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 142.000s"
+    },
+    {
+      "id": "conflict-runtime",
+      "title": "Intent Disperses Into Runtime",
+      "narrativeSegments": [
+        "N036"
+      ],
+      "start": 152,
+      "end": 162,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 152.000s"
+    },
+    {
+      "id": "conflict-fragmented",
+      "title": "Architecture Is Fragmented",
+      "narrativeSegments": [
+        "N037-N045"
+      ],
+      "start": 162,
+      "end": 173,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 162.000s"
+    },
+    {
+      "id": "representation",
+      "title": "A Representation Problem",
+      "narrativeSegments": [
+        "N046-N048"
+      ],
+      "start": 173,
+      "end": 184,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 173.000s"
+    },
+    {
+      "id": "knowledge-gap",
+      "title": "The Knowledge Model Boundary",
+      "narrativeSegments": [
+        "N049-N051"
+      ],
+      "start": 184,
+      "end": 194,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 184.000s"
+    },
+    {
+      "id": "first-class",
+      "title": "Capability Behaviour",
+      "narrativeSegments": [
+        "N052-N058"
+      ],
+      "start": 194,
+      "end": 202,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 194.000s"
+    },
+    {
+      "id": "behaviour-capability",
+      "title": "Begin With the Capability",
+      "narrativeSegments": [
+        "N059"
+      ],
+      "start": 202,
+      "end": 205.5,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 202.000s"
+    },
+    {
+      "id": "behaviour-intent",
+      "title": "Describe Intent",
+      "narrativeSegments": [
+        "N060"
+      ],
+      "start": 205.5,
+      "end": 209,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 205.500s"
+    },
+    {
+      "id": "behaviour-governance",
+      "title": "Describe Governance",
+      "narrativeSegments": [
+        "N060"
+      ],
+      "start": 209,
+      "end": 212.5,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 209.000s"
+    },
+    {
+      "id": "behaviour-lifecycle",
+      "title": "Describe Integrity and Lifecycle",
+      "narrativeSegments": [
+        "N060-N061"
+      ],
+      "start": 212.5,
+      "end": 216,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 212.500s"
+    },
+    {
+      "id": "dcl-reveal",
+      "title": "The Architectural Response",
+      "narrativeSegments": [
+        "N062-N063"
+      ],
+      "start": 216,
+      "end": 226,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 216.000s"
+    },
+    {
+      "id": "not-replacement",
+      "title": "DCL Does Not Replace",
+      "narrativeSegments": [
+        "N064-N066"
+      ],
+      "start": 226,
+      "end": 234,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 226.000s"
+    },
+    {
+      "id": "durable-intent",
+      "title": "A Durable Description",
+      "narrativeSegments": [
+        "N067-N069"
+      ],
+      "start": 234,
+      "end": 244,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 234.000s"
+    },
+    {
+      "id": "responsibilities",
+      "title": "Knowledge and Behaviour",
+      "narrativeSegments": [
+        "N070-N072"
+      ],
+      "start": 244,
+      "end": 252,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 244.000s"
+    },
+    {
+      "id": "knowledge",
+      "title": "Knowledge Evolves",
+      "narrativeSegments": [
+        "N073-N076"
+      ],
+      "start": 252,
+      "end": 265,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 252.000s"
+    },
+    {
+      "id": "dcl",
+      "title": "Behaviour Becomes Clear",
+      "narrativeSegments": [
+        "N077-N078"
+      ],
+      "start": 265,
+      "end": 272,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 265.000s"
+    },
+    {
+      "id": "progression",
+      "title": "Understanding Before Language",
+      "narrativeSegments": [
+        "N079-N083"
+      ],
+      "start": 272,
+      "end": 280,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 272.000s"
+    },
+    {
+      "id": "result-understanding",
+      "title": "DCL Is the Result",
+      "narrativeSegments": [
+        "N084-N085"
+      ],
+      "start": 280,
+      "end": 288,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 280.000s"
+    },
+    {
+      "id": "capability-not-tech",
+      "title": "Capabilities Before Technology",
+      "narrativeSegments": [
+        "N086-N090"
+      ],
+      "start": 288,
+      "end": 298,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 288.000s"
+    },
+    {
+      "id": "implementation-evolves",
+      "title": "Implementation Evolves",
+      "narrativeSegments": [
+        "N091-N097"
+      ],
+      "start": 298,
+      "end": 323,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 298.000s"
+    },
+    {
+      "id": "agents",
+      "title": "Agents Surround the Capability",
+      "narrativeSegments": [
+        "N098-N103"
+      ],
+      "start": 323,
+      "end": 336,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 323.000s"
+    },
+    {
+      "id": "actors",
+      "title": "Agents Are Actors",
+      "narrativeSegments": [
+        "N104-N107"
+      ],
+      "start": 336,
+      "end": 345,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 336.000s"
+    },
+    {
+      "id": "runtime",
+      "title": "Runtime Executes Capabilities",
+      "narrativeSegments": [
+        "N108-N111"
+      ],
+      "start": 345,
+      "end": 354,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 345.000s"
+    },
+    {
+      "id": "three-assets",
+      "title": "Three Complementary Assets",
+      "narrativeSegments": [
+        "N112-N115"
+      ],
+      "start": 354,
+      "end": 371,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 354.000s"
+    },
+    {
+      "id": "complete",
+      "title": "Conceptual Architecture Complete",
+      "narrativeSegments": [
+        "N116-N120"
+      ],
+      "start": 371,
+      "end": 383,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 371.000s"
+    },
+    {
+      "id": "next-question",
+      "title": "The Runtime Question",
+      "narrativeSegments": [
+        "N121-N123"
+      ],
+      "start": 383,
+      "end": 403,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 383.000s"
+    },
+    {
+      "id": "closing",
+      "title": "Next: Selecting an Agent Runtime",
+      "narrativeSegments": [
+        "N123"
+      ],
+      "start": 403,
+      "end": 409.91,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 403.000s"
+    }
+  ]
+}

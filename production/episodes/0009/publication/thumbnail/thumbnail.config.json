@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0009",
+    "eyebrow": "ARCHITECTURAL INTENT",
+    "headline": ["PRESERVE", "THE INTENT"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep09-narrative.mp4",
+    "frameTimestampSeconds": 216,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}

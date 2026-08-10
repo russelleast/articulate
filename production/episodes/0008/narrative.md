@@ -1,6 +1,6 @@
 # EP8 - knowledge reasoning
 
-Hello, I'm Russell East, and welcome to the Articulate Journal, where I'm exploring what it takes to build an AI-native architecture from first principles through the design and implementation of a reference architecture for Architectural Intelligence. This isn't a tutorial series or a product demo. It's a public engineering journal documenting the architectural decisions, experiments and lessons learned as the architecture evolves.
+Hello, I'm Russell, and welcome to the Articulate Journal, where I'm exploring what it takes to build an AI-native architecture from first principles through the design and implementation of a reference architecture for Architectural Intelligence. This isn't a tutorial series or a product demo. It's a public engineering journal documenting the architectural decisions, experiments and lessons learned as the architecture evolves.
 
 In the previous episode, I explored the idea of treating architecture as knowledge.
 

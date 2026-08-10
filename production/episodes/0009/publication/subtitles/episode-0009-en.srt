@@ -1,0 +1,510 @@
+1
+00:00:00,160 --> 00:00:03,350
+How do we stop Architectural
+Intent being lost as
+
+2
+00:00:03,430 --> 00:00:08,520
+software is built? Hello,
+I'm Russell and welcome to
+
+3
+00:00:08,590 --> 00:00:11,960
+the Articulate Journal where
+I'm exploring what it takes
+
+4
+00:00:12,040 --> 00:00:15,960
+to build an AI-native architecture
+from first principles through
+
+5
+00:00:16,040 --> 00:00:18,920
+the design and implementation
+of a reference architecture for
+
+6
+00:00:19,000 --> 00:00:23,160
+Architectural Intelligence. This
+isn't a tutorial series or a
+
+7
+00:00:23,240 --> 00:00:24,980
+product demo. It's a public
+engineering journal documenting the
+
+8
+00:00:25,020 --> 00:00:28,985
+architectural decisions experiments
+and lessons learned as the architecture
+
+9
+00:00:29,065 --> 00:00:36,150
+evolves. In the last two
+episodes, we built the
+
+10
+00:00:36,360 --> 00:00:41,530
+conceptual foundation for Articulate.
+We introduced the Knowledge Model
+
+11
+00:00:41,610 --> 00:00:45,770
+as the place where architectural
+understanding lives.
+
+12
+00:00:46,120 --> 00:00:49,200
+We also explored how AI
+can retrieve and reason
+
+13
+00:00:49,280 --> 00:00:52,530
+over that knowledge. At
+this point, it feels like
+
+14
+00:00:52,610 --> 00:00:56,070
+we've got a good
+understanding of this part of
+
+15
+00:00:56,150 --> 00:00:59,280
+the architecture. But there's
+something important missing.
+
+16
+00:00:59,320 --> 00:01:03,380
+Understanding an architecture
+isn't the same as understanding how
+
+17
+00:01:03,420 --> 00:01:06,450
+it's intended to behave.
+That raises another question.
+
+18
+00:01:06,970 --> 00:01:11,340
+How do we preserve
+architectural intent as an idea
+
+19
+00:01:11,380 --> 00:01:15,440
+it becomes running software?
+Let's imagine we've just finished
+
+20
+00:01:15,810 --> 00:01:19,190
+designing a new capability. We've
+had conversations with domain
+
+21
+00:01:19,270 --> 00:01:22,730
+experts. We've captured
+claims in the Knowledge Model.
+
+22
+00:01:22,790 --> 00:01:26,800
+We've reasoned about constraints.
+We've agreed on the behaviour.
+
+23
+00:01:27,070 --> 00:01:32,220
+Everything feels clear. At that
+moment, the architecture exists
+
+24
+00:01:32,300 --> 00:01:35,810
+almost perfectly. But only
+in our current understanding.
+
+25
+00:01:36,140 --> 00:01:37,820
+Now we have to build it.
+
+26
+00:01:38,160 --> 00:01:39,790
+What we really want is
+surprisingly simple.
+
+27
+00:01:39,970 --> 00:01:43,130
+We want the capability
+to keep its meaning as
+
+28
+00:01:43,170 --> 00:01:45,790
+it moves through the implementation.
+
+29
+00:01:46,130 --> 00:01:48,570
+We don't want to lose why it exists or
+
+30
+00:01:48,620 --> 00:01:51,960
+outcomes it should produce.
+The rules it must obey
+
+31
+00:01:52,040 --> 00:01:55,450
+and the policies it operates
+under and the behaviours
+
+32
+00:01:55,530 --> 00:01:59,050
+that we expect. Ideally, those
+things should remain true
+
+33
+00:01:59,130 --> 00:02:01,680
+regardless of how we eventually
+implement the system.
+
+34
+00:02:02,160 --> 00:02:05,810
+That might sound obvious,
+but it rarely happens.
+
+35
+00:02:06,160 --> 00:02:08,840
+This is where architecture begins to leak.
+
+36
+00:02:08,960 --> 00:02:12,810
+The capability starts life
+as an architectural idea.
+
+37
+00:02:13,160 --> 00:02:14,420
+Then it becomes a requirement.
+
+38
+00:02:14,810 --> 00:02:16,870
+The requirement becomes backlog items.
+
+39
+00:02:16,960 --> 00:02:20,140
+The backlog items become
+source code and source code
+
+40
+00:02:20,180 --> 00:02:24,920
+becomes deployments. In an AI-native
+system, behaviour may disappear
+
+41
+00:02:24,960 --> 00:02:28,800
+even further. Some intent
+ends up inside prompts.
+
+42
+00:02:29,140 --> 00:02:32,440
+Some becomes workflow definitions.
+Some is hidden in validation
+
+43
+00:02:32,820 --> 00:02:35,670
+logic and some is scattered
+across configuration.
+
+44
+00:02:36,130 --> 00:02:38,790
+Some survives only in old documents.
+
+45
+00:02:39,090 --> 00:02:42,310
+By the time the software
+reaches production, the original
+
+46
+00:02:42,350 --> 00:02:44,840
+architectural intent has been fragmented.
+
+47
+00:02:44,960 --> 00:02:48,370
+The software may work
+perfectly, but recovering why it
+
+48
+00:02:48,450 --> 00:02:52,830
+behaves that way does become
+increasingly difficult.
+
+49
+00:02:53,160 --> 00:02:56,250
+This isn't simply a documentation problem.
+
+50
+00:02:56,300 --> 00:03:01,730
+It's a representation problem. While
+exploring AI-native architecture, I
+
+51
+00:03:01,810 --> 00:03:03,680
+kept running into this problem.
+
+52
+00:03:04,140 --> 00:03:07,040
+The Knowledge Model was excellent
+for representing what we
+
+53
+00:03:07,120 --> 00:03:10,550
+understood about the architecture,
+but it wasn't the right
+
+54
+00:03:10,630 --> 00:03:13,820
+place to describe how a
+capability should behave.
+
+55
+00:03:14,160 --> 00:03:15,450
+That led me to a different question.
+
+56
+00:03:15,970 --> 00:03:21,790
+What if capability behaviour became
+a first-class architectural concept?
+
+57
+00:03:22,160 --> 00:03:26,670
+Not services, APIs, agents
+or workflows, capabilities.
+
+58
+00:03:27,130 --> 00:03:33,970
+Capabilities that describe outcomes,
+behaviour, rules, policies, invariants,
+
+59
+00:03:34,010 --> 00:03:39,900
+effects and life cycle. Without
+saying anything about implementation,
+
+60
+00:03:39,960 --> 00:03:43,967
+that idea became the foundation
+of DCL, the Declarative
+
+61
+00:03:44,047 --> 00:03:48,640
+Capability Language. DCL isn't
+intended to replace source code,
+
+62
+00:03:48,680 --> 00:03:52,610
+and it doesn't replace documentation,
+and it certainly doesn't
+
+63
+00:03:52,690 --> 00:03:56,570
+replace prompts. Instead, it
+provides a durable description of
+
+64
+00:03:56,620 --> 00:04:00,810
+architectural intent, one
+that both humans and AI can
+
+65
+00:04:01,140 --> 00:04:06,820
+understand consistently. This
+also clarified something else.
+
+66
+00:04:06,960 --> 00:04:11,790
+The Knowledge Model and DCL
+have different responsibilities.
+
+67
+00:04:12,140 --> 00:04:15,920
+The Knowledge Model represents what
+Articulate currently understands about
+
+68
+00:04:16,000 --> 00:04:21,090
+an architecture. It can contain
+uncertainty, conflicting claims,
+
+69
+00:04:21,130 --> 00:04:24,780
+incomplete evidence and knowledge evolves.
+
+70
+00:04:25,070 --> 00:04:29,670
+DCL is different. DCL represents
+behaviour once the understanding
+
+71
+00:04:30,070 --> 00:04:34,480
+has become sufficiently clear. The
+progression isn't conversation to
+
+72
+00:04:34,560 --> 00:04:39,800
+DCL. Instead, it becomes conversation,
+knowledge, understanding, DCL.
+
+73
+00:04:40,120 --> 00:04:43,830
+In this context, the language
+isn't the starting point.
+
+74
+00:04:43,960 --> 00:04:47,790
+It's the result of
+architectural understanding.
+
+75
+00:04:48,160 --> 00:04:50,860
+This changes how I think
+about architecture.
+
+76
+00:04:50,960 --> 00:04:53,900
+A capability is not an API or a service,
+
+77
+00:04:53,960 --> 00:04:55,790
+an agent or a workflow.
+
+78
+00:04:55,980 --> 00:05:00,200
+Those are implementation choices.
+The capability should survive, even
+
+79
+00:05:00,280 --> 00:05:02,680
+if every one of those
+technologies changes.
+
+80
+00:05:03,160 --> 00:05:08,780
+Today, a capability might be
+implemented by deterministic software.
+
+81
+00:05:08,960 --> 00:05:09,820
+Tomorrow, it might use an agent.
+
+82
+00:05:10,160 --> 00:05:12,900
+Next year, it could become
+a distributed workflow.
+
+83
+00:05:12,960 --> 00:05:16,800
+The implementation evolves,
+but the capability remains.
+
+84
+00:05:17,160 --> 00:05:20,140
+That's why capabilities
+feel like much more of a
+
+85
+00:05:20,220 --> 00:05:24,990
+durable architectural building
+block. This also changes how I
+
+86
+00:05:25,070 --> 00:05:30,190
+think about AI-native systems.
+It's easy to describe an
+
+87
+00:05:30,270 --> 00:05:34,080
+architecture using agents, whether
+you've got a research agent,
+
+88
+00:05:34,120 --> 00:05:35,570
+a planning agent, a decision
+agent or a knowledge
+
+89
+00:05:35,650 --> 00:05:37,420
+agent. But agents are actors.
+
+90
+00:05:37,810 --> 00:05:41,900
+They perform work. They aren't the
+architectural responsibility itself.
+
+91
+00:05:42,360 --> 00:05:47,590
+The capability is. Once I
+realized that, the architecture
+
+92
+00:05:47,660 --> 00:05:51,810
+became much clearer. The runtime
+exists to execute capabilities,
+
+93
+00:05:52,140 --> 00:05:53,750
+not the other way round.
+
+94
+00:05:54,140 --> 00:05:59,810
+At this point, Articulate has three
+complementary architectural assets.
+
+95
+00:05:59,960 --> 00:06:02,860
+The conversation, which
+discovers knowledge.
+
+96
+00:06:03,160 --> 00:06:08,340
+The Knowledge Model, which captures
+architectural understanding, and DCL
+
+97
+00:06:08,420 --> 00:06:12,550
+formalizes capability behaviour.
+Each solves a different problem.
+
+98
+00:06:12,850 --> 00:06:16,960
+Together, they preserve architectural
+intent from discovery through to
+
+99
+00:06:17,350 --> 00:06:20,760
+implementation. And that's
+exactly what we'll need as we
+
+100
+00:06:20,840 --> 00:06:25,280
+move into implementation.
+Because now, we know what we
+
+101
+00:06:25,360 --> 00:06:30,730
+understand, how we reason, and
+how capabilities should behave.
+
+102
+00:06:31,160 --> 00:06:33,840
+we can finally ask a different question.
+
+103
+00:06:33,960 --> 00:06:37,790
+What kind of runtime do those
+capabilities actually need?
+
+104
+00:06:38,160 --> 00:06:41,300
+That becomes the first major
+architectural decision of the
+
+105
+00:06:41,340 --> 00:06:44,180
+implementation journey. And
+that is the topic for the
+
+106
+00:06:44,260 --> 00:06:47,660
+next episode. Selecting an agent runtime.
