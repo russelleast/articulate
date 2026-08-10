@@ -1,0 +1,6958 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "audio": "production/episodes/0009/ep09-narrative.mp4",
+  "engine": "whisper.cpp",
+  "model": "whisper.cpp base.en",
+  "language": "en",
+  "segments": [
+    {
+      "id": "T0001",
+      "start": 0,
+      "end": 29.72,
+      "text": "How do we stop Architectural Intent being lost as software is built? Hello, I'm Russell and welcome to the Articulate Journal where I'm exploring what it takes to build an AI native architecture from first principles through the design and implementation of a reference architecture for Architectural Intelligence. This isn't a tutorial series or a product demo. It's a public engineering journal documenting the architectural decisions experiments in this form of architecture. This is a design and a layout of the engineering and engineering journal documenting the architecture of a cloud.",
+      "confidence": 0.722,
+      "words": [
+        {
+          "start": 0.2,
+          "end": 0.25,
+          "text": " How",
+          "confidence": 0.957
+        },
+        {
+          "start": 0.25,
+          "end": 0.41,
+          "text": " do",
+          "confidence": 0.956
+        },
+        {
+          "start": 0.57,
+          "end": 0.57,
+          "text": " we",
+          "confidence": 0.998
+        },
+        {
+          "start": 0.64,
+          "end": 0.9,
+          "text": " stop",
+          "confidence": 0.997
+        },
+        {
+          "start": 0.9,
+          "end": 1.31,
+          "text": " Architect",
+          "confidence": 0.235
+        },
+        {
+          "start": 1.85,
+          "end": 1.99,
+          "text": "ural",
+          "confidence": 0.998
+        },
+        {
+          "start": 2.01,
+          "end": 2.49,
+          "text": " Intent",
+          "confidence": 0.724
+        },
+        {
+          "start": 2.49,
+          "end": 2.87,
+          "text": " being",
+          "confidence": 0.936
+        },
+        {
+          "start": 2.96,
+          "end": 3.24,
+          "text": " lost",
+          "confidence": 0.861
+        },
+        {
+          "start": 3.24,
+          "end": 3.39,
+          "text": " as",
+          "confidence": 0.436
+        },
+        {
+          "start": 3.39,
+          "end": 4.07,
+          "text": " software",
+          "confidence": 0.991
+        },
+        {
+          "start": 4.07,
+          "end": 4.15,
+          "text": " is",
+          "confidence": 0.719
+        },
+        {
+          "start": 4.25,
+          "end": 4.56,
+          "text": " built",
+          "confidence": 0.994
+        },
+        {
+          "start": 4.63,
+          "end": 5,
+          "text": "?",
+          "confidence": 0.939
+        },
+        {
+          "start": 5.17,
+          "end": 5.82,
+          "text": " Hello",
+          "confidence": 0.87
+        },
+        {
+          "start": 5.82,
+          "end": 6.14,
+          "text": ",",
+          "confidence": 0.485
+        },
+        {
+          "start": 6.14,
+          "end": 6.27,
+          "text": " I",
+          "confidence": 0.987
+        },
+        {
+          "start": 6.42,
+          "end": 6.62,
+          "text": "'m",
+          "confidence": 0.96
+        },
+        {
+          "start": 6.62,
+          "end": 7.67,
+          "text": " Russell",
+          "confidence": 0.973
+        },
+        {
+          "start": 7.88,
+          "end": 7.88,
+          "text": " and",
+          "confidence": 0.649
+        },
+        {
+          "start": 8.02,
+          "end": 8.4,
+          "text": " welcome",
+          "confidence": 0.919
+        },
+        {
+          "start": 8.4,
+          "end": 8.55,
+          "text": " to",
+          "confidence": 0.958
+        },
+        {
+          "start": 8.56,
+          "end": 8.64,
+          "text": " the",
+          "confidence": 0.673
+        },
+        {
+          "start": 8.64,
+          "end": 8.82,
+          "text": " Art",
+          "confidence": 0.789
+        },
+        {
+          "start": 8.82,
+          "end": 8.93,
+          "text": "ic",
+          "confidence": 0.993
+        },
+        {
+          "start": 8.93,
+          "end": 9.24,
+          "text": "ulate",
+          "confidence": 0.996
+        },
+        {
+          "start": 9.24,
+          "end": 9.71,
+          "text": " Journal",
+          "confidence": 0.795
+        },
+        {
+          "start": 10.02,
+          "end": 10.21,
+          "text": " where",
+          "confidence": 0.628
+        },
+        {
+          "start": 10.42,
+          "end": 10.43,
+          "text": " I",
+          "confidence": 0.994
+        },
+        {
+          "start": 10.43,
+          "end": 10.57,
+          "text": "'m",
+          "confidence": 0.94
+        },
+        {
+          "start": 10.57,
+          "end": 11.22,
+          "text": " exploring",
+          "confidence": 0.997
+        },
+        {
+          "start": 11.22,
+          "end": 11.42,
+          "text": " what",
+          "confidence": 0.988
+        },
+        {
+          "start": 11.52,
+          "end": 11.64,
+          "text": " it",
+          "confidence": 0.993
+        },
+        {
+          "start": 11.64,
+          "end": 12,
+          "text": " takes",
+          "confidence": 0.992
+        },
+        {
+          "start": 12,
+          "end": 12.14,
+          "text": " to",
+          "confidence": 0.996
+        },
+        {
+          "start": 12.14,
+          "end": 12.5,
+          "text": " build",
+          "confidence": 0.99
+        },
+        {
+          "start": 12.5,
+          "end": 12.64,
+          "text": " an",
+          "confidence": 0.97
+        },
+        {
+          "start": 12.64,
+          "end": 12.72,
+          "text": " AI",
+          "confidence": 0.973
+        },
+        {
+          "start": 13.09,
+          "end": 13.21,
+          "text": " native",
+          "confidence": 0.779
+        },
+        {
+          "start": 13.21,
+          "end": 14.05,
+          "text": " architecture",
+          "confidence": 0.817
+        },
+        {
+          "start": 14.06,
+          "end": 14.34,
+          "text": " from",
+          "confidence": 0.985
+        },
+        {
+          "start": 14.38,
+          "end": 14.71,
+          "text": " first",
+          "confidence": 0.801
+        },
+        {
+          "start": 14.71,
+          "end": 15.39,
+          "text": " principles",
+          "confidence": 0.96
+        },
+        {
+          "start": 15.7,
+          "end": 16,
+          "text": " through",
+          "confidence": 0.559
+        },
+        {
+          "start": 16,
+          "end": 16.11,
+          "text": " the",
+          "confidence": 0.896
+        },
+        {
+          "start": 16.11,
+          "end": 16.34,
+          "text": " design",
+          "confidence": 0.955
+        },
+        {
+          "start": 16.34,
+          "end": 16.45,
+          "text": " and",
+          "confidence": 0.974
+        },
+        {
+          "start": 16.45,
+          "end": 16.99,
+          "text": " implementation",
+          "confidence": 0.99
+        },
+        {
+          "start": 17.03,
+          "end": 17.16,
+          "text": " of",
+          "confidence": 0.979
+        },
+        {
+          "start": 17.16,
+          "end": 17.24,
+          "text": " a",
+          "confidence": 0.951
+        },
+        {
+          "start": 17.24,
+          "end": 18,
+          "text": " reference",
+          "confidence": 0.96
+        },
+        {
+          "start": 18,
+          "end": 18.62,
+          "text": " architecture",
+          "confidence": 0.971
+        },
+        {
+          "start": 18.77,
+          "end": 18.96,
+          "text": " for",
+          "confidence": 0.99
+        },
+        {
+          "start": 18.96,
+          "end": 19.86,
+          "text": " architecture",
+          "confidence": 0.441
+        },
+        {
+          "start": 19.86,
+          "end": 20.22,
+          "text": " intelligence",
+          "confidence": 0.785
+        },
+        {
+          "start": 20.92,
+          "end": 21,
+          "text": ".",
+          "confidence": 0.97
+        },
+        {
+          "start": 21,
+          "end": 21.16,
+          "text": " This",
+          "confidence": 0.916
+        },
+        {
+          "start": 21.37,
+          "end": 21.57,
+          "text": " isn",
+          "confidence": 0.996
+        },
+        {
+          "start": 21.57,
+          "end": 21.73,
+          "text": "'t",
+          "confidence": 0.999
+        },
+        {
+          "start": 21.73,
+          "end": 21.81,
+          "text": " a",
+          "confidence": 0.992
+        },
+        {
+          "start": 21.81,
+          "end": 22.47,
+          "text": " tutorial",
+          "confidence": 0.984
+        },
+        {
+          "start": 22.47,
+          "end": 22.96,
+          "text": " series",
+          "confidence": 0.994
+        },
+        {
+          "start": 22.96,
+          "end": 23.12,
+          "text": " or",
+          "confidence": 0.953
+        },
+        {
+          "start": 23.12,
+          "end": 23.2,
+          "text": " a",
+          "confidence": 0.947
+        },
+        {
+          "start": 23.2,
+          "end": 23.78,
+          "text": " product",
+          "confidence": 0.979
+        },
+        {
+          "start": 23.78,
+          "end": 24.08,
+          "text": " demo",
+          "confidence": 0.995
+        },
+        {
+          "start": 24.19,
+          "end": 24.4,
+          "text": ".",
+          "confidence": 0.709
+        },
+        {
+          "start": 24.4,
+          "end": 24.42,
+          "text": " It",
+          "confidence": 0.973
+        },
+        {
+          "start": 24.42,
+          "end": 24.44,
+          "text": "'s",
+          "confidence": 0.982
+        },
+        {
+          "start": 24.44,
+          "end": 24.45,
+          "text": " a",
+          "confidence": 0.995
+        },
+        {
+          "start": 24.45,
+          "end": 24.53,
+          "text": " public",
+          "confidence": 0.985
+        },
+        {
+          "start": 24.53,
+          "end": 24.63,
+          "text": " engineering",
+          "confidence": 0.99
+        },
+        {
+          "start": 24.75,
+          "end": 24.79,
+          "text": " journal",
+          "confidence": 0.993
+        },
+        {
+          "start": 24.79,
+          "end": 24.95,
+          "text": " documenting",
+          "confidence": 0.874
+        },
+        {
+          "start": 24.95,
+          "end": 24.95,
+          "text": " the",
+          "confidence": 0.987
+        },
+        {
+          "start": 25.02,
+          "end": 25.18,
+          "text": " architectural",
+          "confidence": 0.798
+        },
+        {
+          "start": 25.18,
+          "end": 25.27,
+          "text": " decisions",
+          "confidence": 0.981
+        },
+        {
+          "start": 25.31,
+          "end": 25.47,
+          "text": " experiments",
+          "confidence": 0.912
+        },
+        {
+          "start": 25.47,
+          "end": 25.49,
+          "text": " in",
+          "confidence": 0.174
+        },
+        {
+          "start": 25.49,
+          "end": 25.54,
+          "text": " this",
+          "confidence": 0.043
+        },
+        {
+          "start": 25.54,
+          "end": 25.59,
+          "text": " form",
+          "confidence": 0.01
+        },
+        {
+          "start": 25.59,
+          "end": 25.6,
+          "text": " of",
+          "confidence": 0.38
+        },
+        {
+          "start": 25.63,
+          "end": 25.78,
+          "text": " architecture",
+          "confidence": 0.063
+        },
+        {
+          "start": 25.78,
+          "end": 25.82,
+          "text": ".",
+          "confidence": 0.605
+        },
+        {
+          "start": 25.82,
+          "end": 25.87,
+          "text": " This",
+          "confidence": 0.038
+        },
+        {
+          "start": 25.87,
+          "end": 25.89,
+          "text": " is",
+          "confidence": 0.534
+        },
+        {
+          "start": 25.89,
+          "end": 25.9,
+          "text": " a",
+          "confidence": 0.447
+        },
+        {
+          "start": 25.9,
+          "end": 25.98,
+          "text": " design",
+          "confidence": 0.04
+        },
+        {
+          "start": 25.98,
+          "end": 26.02,
+          "text": " and",
+          "confidence": 0.273
+        },
+        {
+          "start": 26.02,
+          "end": 26.03,
+          "text": " a",
+          "confidence": 0.054
+        },
+        {
+          "start": 26.03,
+          "end": 26.11,
+          "text": " layout",
+          "confidence": 0.002
+        },
+        {
+          "start": 26.11,
+          "end": 26.13,
+          "text": " of",
+          "confidence": 0.173
+        },
+        {
+          "start": 26.13,
+          "end": 26.17,
+          "text": " the",
+          "confidence": 0.141
+        },
+        {
+          "start": 26.17,
+          "end": 26.33,
+          "text": " engineering",
+          "confidence": 0.015
+        },
+        {
+          "start": 26.33,
+          "end": 26.36,
+          "text": " and",
+          "confidence": 0.024
+        },
+        {
+          "start": 26.37,
+          "end": 26.46,
+          "text": " engineering",
+          "confidence": 0.25
+        },
+        {
+          "start": 26.63,
+          "end": 26.63,
+          "text": " journal",
+          "confidence": 0.106
+        },
+        {
+          "start": 26.63,
+          "end": 27,
+          "text": " documenting",
+          "confidence": 0.091
+        },
+        {
+          "start": 27,
+          "end": 27.99,
+          "text": " the",
+          "confidence": 0.824
+        },
+        {
+          "start": 28.03,
+          "end": 28.85,
+          "text": " architecture",
+          "confidence": 0.337
+        },
+        {
+          "start": 28.85,
+          "end": 29,
+          "text": " of",
+          "confidence": 0.144
+        },
+        {
+          "start": 29,
+          "end": 29.07,
+          "text": " a",
+          "confidence": 0.089
+        },
+        {
+          "start": 29.1,
+          "end": 29.47,
+          "text": " cloud",
+          "confidence": 0.001
+        },
+        {
+          "start": 29.47,
+          "end": 29.72,
+          "text": ".",
+          "confidence": 0.284
+        }
+      ]
+    },
+    {
+      "id": "T0002",
+      "start": 30,
+      "end": 39,
+      "text": "This is the lesson to learn as the architecture evolves. In the last two episodes, we built the conceptual foundation for Articulate.",
+      "confidence": 0.794,
+      "words": [
+        {
+          "start": 30.2,
+          "end": 30.32,
+          "text": " This",
+          "confidence": 0.069
+        },
+        {
+          "start": 30.32,
+          "end": 30.48,
+          "text": " is",
+          "confidence": 0.514
+        },
+        {
+          "start": 30.61,
+          "end": 30.72,
+          "text": " the",
+          "confidence": 0.145
+        },
+        {
+          "start": 30.72,
+          "end": 31.2,
+          "text": " lesson",
+          "confidence": 0.131
+        },
+        {
+          "start": 31.2,
+          "end": 31.33,
+          "text": " to",
+          "confidence": 0.847
+        },
+        {
+          "start": 31.36,
+          "end": 31.67,
+          "text": " learn",
+          "confidence": 0.993
+        },
+        {
+          "start": 31.85,
+          "end": 31.92,
+          "text": " as",
+          "confidence": 0.942
+        },
+        {
+          "start": 31.92,
+          "end": 32.16,
+          "text": " the",
+          "confidence": 0.985
+        },
+        {
+          "start": 32.16,
+          "end": 33.13,
+          "text": " architecture",
+          "confidence": 0.982
+        },
+        {
+          "start": 33.13,
+          "end": 33.69,
+          "text": " evolves",
+          "confidence": 0.808
+        },
+        {
+          "start": 33.69,
+          "end": 34,
+          "text": ".",
+          "confidence": 0.961
+        },
+        {
+          "start": 34,
+          "end": 34.13,
+          "text": " In",
+          "confidence": 0.797
+        },
+        {
+          "start": 34.13,
+          "end": 34.33,
+          "text": " the",
+          "confidence": 0.911
+        },
+        {
+          "start": 34.33,
+          "end": 34.56,
+          "text": " last",
+          "confidence": 0.999
+        },
+        {
+          "start": 34.61,
+          "end": 34.79,
+          "text": " two",
+          "confidence": 0.972
+        },
+        {
+          "start": 35.17,
+          "end": 35.34,
+          "text": " episodes",
+          "confidence": 0.996
+        },
+        {
+          "start": 35.37,
+          "end": 35.38,
+          "text": ",",
+          "confidence": 0.558
+        },
+        {
+          "start": 35.52,
+          "end": 35.61,
+          "text": " we",
+          "confidence": 0.941
+        },
+        {
+          "start": 35.65,
+          "end": 35.88,
+          "text": " built",
+          "confidence": 0.983
+        },
+        {
+          "start": 35.88,
+          "end": 36.03,
+          "text": " the",
+          "confidence": 0.968
+        },
+        {
+          "start": 36.4,
+          "end": 36.56,
+          "text": " conceptual",
+          "confidence": 0.758
+        },
+        {
+          "start": 36.56,
+          "end": 37.2,
+          "text": " foundation",
+          "confidence": 0.58
+        },
+        {
+          "start": 37.2,
+          "end": 37.88,
+          "text": " for",
+          "confidence": 0.883
+        },
+        {
+          "start": 38.03,
+          "end": 38.23,
+          "text": " Art",
+          "confidence": 0.747
+        },
+        {
+          "start": 38.23,
+          "end": 38.38,
+          "text": "ic",
+          "confidence": 0.992
+        },
+        {
+          "start": 38.38,
+          "end": 38.76,
+          "text": "ulate",
+          "confidence": 0.997
+        },
+        {
+          "start": 38.76,
+          "end": 38.99,
+          "text": ".",
+          "confidence": 0.988
+        }
+      ]
+    },
+    {
+      "id": "T0003",
+      "start": 39,
+      "end": 46,
+      "text": "We introduced the Knowledge Model as the place where architectural understanding lives.",
+      "confidence": 0.92,
+      "words": [
+        {
+          "start": 39.18,
+          "end": 39.18,
+          "text": " We",
+          "confidence": 0.992
+        },
+        {
+          "start": 39.61,
+          "end": 40.07,
+          "text": " introduced",
+          "confidence": 0.998
+        },
+        {
+          "start": 40.07,
+          "end": 40.3,
+          "text": " the",
+          "confidence": 0.978
+        },
+        {
+          "start": 40.32,
+          "end": 41.1,
+          "text": " Knowledge",
+          "confidence": 0.603
+        },
+        {
+          "start": 41.13,
+          "end": 41.57,
+          "text": " Model",
+          "confidence": 0.984
+        },
+        {
+          "start": 41.57,
+          "end": 41.75,
+          "text": " as",
+          "confidence": 0.98
+        },
+        {
+          "start": 41.75,
+          "end": 42.01,
+          "text": " the",
+          "confidence": 0.996
+        },
+        {
+          "start": 42.01,
+          "end": 42.44,
+          "text": " place",
+          "confidence": 0.997
+        },
+        {
+          "start": 42.44,
+          "end": 42.84,
+          "text": " where",
+          "confidence": 0.994
+        },
+        {
+          "start": 42.87,
+          "end": 43.56,
+          "text": " architectural",
+          "confidence": 0.472
+        },
+        {
+          "start": 44.17,
+          "end": 45.17,
+          "text": " understanding",
+          "confidence": 0.987
+        },
+        {
+          "start": 45.42,
+          "end": 45.65,
+          "text": " lives",
+          "confidence": 0.99
+        },
+        {
+          "start": 45.65,
+          "end": 45.69,
+          "text": ".",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "id": "T0004",
+      "start": 46,
+      "end": 57,
+      "text": "We also explored how AI can retrieve and reason over that knowledge. At this point, it feels like we've got a fair good understanding of this part of the architecture.",
+      "confidence": 0.933,
+      "words": [
+        {
+          "start": 46.16,
+          "end": 46.16,
+          "text": " We",
+          "confidence": 0.91
+        },
+        {
+          "start": 46.2,
+          "end": 46.49,
+          "text": " also",
+          "confidence": 0.993
+        },
+        {
+          "start": 46.63,
+          "end": 47.12,
+          "text": " explored",
+          "confidence": 0.998
+        },
+        {
+          "start": 47.17,
+          "end": 47.33,
+          "text": " how",
+          "confidence": 0.999
+        },
+        {
+          "start": 47.42,
+          "end": 47.51,
+          "text": " AI",
+          "confidence": 0.995
+        },
+        {
+          "start": 47.82,
+          "end": 47.82,
+          "text": " can",
+          "confidence": 0.994
+        },
+        {
+          "start": 47.86,
+          "end": 48.49,
+          "text": " retrieve",
+          "confidence": 0.998
+        },
+        {
+          "start": 48.49,
+          "end": 48.74,
+          "text": " and",
+          "confidence": 0.992
+        },
+        {
+          "start": 48.74,
+          "end": 49.24,
+          "text": " reason",
+          "confidence": 0.968
+        },
+        {
+          "start": 49.24,
+          "end": 49.57,
+          "text": " over",
+          "confidence": 0.938
+        },
+        {
+          "start": 49.57,
+          "end": 49.83,
+          "text": " that",
+          "confidence": 0.994
+        },
+        {
+          "start": 49.89,
+          "end": 50.55,
+          "text": " knowledge",
+          "confidence": 0.996
+        },
+        {
+          "start": 50.63,
+          "end": 51,
+          "text": ".",
+          "confidence": 0.98
+        },
+        {
+          "start": 51.15,
+          "end": 51.15,
+          "text": " At",
+          "confidence": 0.787
+        },
+        {
+          "start": 51.17,
+          "end": 51.38,
+          "text": " this",
+          "confidence": 0.999
+        },
+        {
+          "start": 51.5,
+          "end": 51.83,
+          "text": " point",
+          "confidence": 0.997
+        },
+        {
+          "start": 51.83,
+          "end": 52,
+          "text": ",",
+          "confidence": 0.776
+        },
+        {
+          "start": 52,
+          "end": 52.1,
+          "text": " it",
+          "confidence": 0.961
+        },
+        {
+          "start": 52.36,
+          "end": 52.36,
+          "text": " feels",
+          "confidence": 0.983
+        },
+        {
+          "start": 52.42,
+          "end": 52.57,
+          "text": " like",
+          "confidence": 0.894
+        },
+        {
+          "start": 52.57,
+          "end": 52.66,
+          "text": " we",
+          "confidence": 0.953
+        },
+        {
+          "start": 52.66,
+          "end": 52.69,
+          "text": "'ve",
+          "confidence": 0.945
+        },
+        {
+          "start": 52.81,
+          "end": 53,
+          "text": " got",
+          "confidence": 0.986
+        },
+        {
+          "start": 53.11,
+          "end": 53.11,
+          "text": " a",
+          "confidence": 0.901
+        },
+        {
+          "start": 53.18,
+          "end": 53.55,
+          "text": " fair",
+          "confidence": 0.542
+        },
+        {
+          "start": 53.55,
+          "end": 53.88,
+          "text": " good",
+          "confidence": 0.898
+        },
+        {
+          "start": 54.02,
+          "end": 54.99,
+          "text": " understanding",
+          "confidence": 0.978
+        },
+        {
+          "start": 54.99,
+          "end": 55.2,
+          "text": " of",
+          "confidence": 0.895
+        },
+        {
+          "start": 55.2,
+          "end": 55.59,
+          "text": " this",
+          "confidence": 0.982
+        },
+        {
+          "start": 55.59,
+          "end": 55.71,
+          "text": " part",
+          "confidence": 0.954
+        },
+        {
+          "start": 55.99,
+          "end": 56.11,
+          "text": " of",
+          "confidence": 0.972
+        },
+        {
+          "start": 56.11,
+          "end": 56.28,
+          "text": " the",
+          "confidence": 0.97
+        },
+        {
+          "start": 56.42,
+          "end": 57,
+          "text": " architecture",
+          "confidence": 0.9
+        },
+        {
+          "start": 57,
+          "end": 57,
+          "text": ".",
+          "confidence": 0.685
+        }
+      ]
+    },
+    {
+      "id": "T0005",
+      "start": 57,
+      "end": 65,
+      "text": "But there's something important missing. Understanding an architecture isn't the same as understanding how it's intended to behave.",
+      "confidence": 0.956,
+      "words": [
+        {
+          "start": 57.18,
+          "end": 57.18,
+          "text": " But",
+          "confidence": 0.763
+        },
+        {
+          "start": 57.2,
+          "end": 57.49,
+          "text": " there",
+          "confidence": 0.969
+        },
+        {
+          "start": 57.6,
+          "end": 57.61,
+          "text": "'s",
+          "confidence": 0.944
+        },
+        {
+          "start": 57.63,
+          "end": 58.12,
+          "text": " something",
+          "confidence": 0.997
+        },
+        {
+          "start": 58.17,
+          "end": 58.33,
+          "text": " important",
+          "confidence": 0.984
+        },
+        {
+          "start": 58.86,
+          "end": 59.16,
+          "text": " missing",
+          "confidence": 0.998
+        },
+        {
+          "start": 59.16,
+          "end": 59.34,
+          "text": ".",
+          "confidence": 0.965
+        },
+        {
+          "start": 59.34,
+          "end": 60.14,
+          "text": " Understanding",
+          "confidence": 0.987
+        },
+        {
+          "start": 60.14,
+          "end": 60.26,
+          "text": " an",
+          "confidence": 0.654
+        },
+        {
+          "start": 60.26,
+          "end": 61,
+          "text": " architecture",
+          "confidence": 0.99
+        },
+        {
+          "start": 61,
+          "end": 61.15,
+          "text": " isn",
+          "confidence": 0.988
+        },
+        {
+          "start": 61.25,
+          "end": 61.3,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 61.3,
+          "end": 61.48,
+          "text": " the",
+          "confidence": 0.99
+        },
+        {
+          "start": 61.48,
+          "end": 61.68,
+          "text": " same",
+          "confidence": 0.992
+        },
+        {
+          "start": 61.68,
+          "end": 62,
+          "text": " as",
+          "confidence": 0.977
+        },
+        {
+          "start": 62.17,
+          "end": 63.07,
+          "text": " understanding",
+          "confidence": 0.98
+        },
+        {
+          "start": 63.33,
+          "end": 63.33,
+          "text": " how",
+          "confidence": 0.982
+        },
+        {
+          "start": 63.42,
+          "end": 63.49,
+          "text": " it",
+          "confidence": 0.971
+        },
+        {
+          "start": 63.49,
+          "end": 63.65,
+          "text": "'s",
+          "confidence": 0.989
+        },
+        {
+          "start": 63.65,
+          "end": 64.31,
+          "text": " intended",
+          "confidence": 0.999
+        },
+        {
+          "start": 64.31,
+          "end": 64.46,
+          "text": " to",
+          "confidence": 0.998
+        },
+        {
+          "start": 64.46,
+          "end": 64.88,
+          "text": " behave",
+          "confidence": 0.999
+        },
+        {
+          "start": 65,
+          "end": 65,
+          "text": ".",
+          "confidence": 0.865
+        }
+      ]
+    },
+    {
+      "id": "T0006",
+      "start": 65,
+      "end": 74,
+      "text": "That raises another question. How do we preserve architectural intent as an idea it becomes running software?",
+      "confidence": 0.951,
+      "words": [
+        {
+          "start": 65.2,
+          "end": 65.28,
+          "text": " That",
+          "confidence": 0.873
+        },
+        {
+          "start": 65.6,
+          "end": 65.7,
+          "text": " raises",
+          "confidence": 0.999
+        },
+        {
+          "start": 65.7,
+          "end": 66.2,
+          "text": " another",
+          "confidence": 0.998
+        },
+        {
+          "start": 66.2,
+          "end": 66.33,
+          "text": " question",
+          "confidence": 1
+        },
+        {
+          "start": 66.86,
+          "end": 66.99,
+          "text": ".",
+          "confidence": 0.874
+        },
+        {
+          "start": 67.01,
+          "end": 67.24,
+          "text": " How",
+          "confidence": 0.823
+        },
+        {
+          "start": 67.32,
+          "end": 67.5,
+          "text": " do",
+          "confidence": 0.993
+        },
+        {
+          "start": 67.5,
+          "end": 67.7,
+          "text": " we",
+          "confidence": 0.999
+        },
+        {
+          "start": 67.7,
+          "end": 68.44,
+          "text": " preserve",
+          "confidence": 0.995
+        },
+        {
+          "start": 68.5,
+          "end": 69.55,
+          "text": " architectural",
+          "confidence": 0.898
+        },
+        {
+          "start": 70.17,
+          "end": 70.39,
+          "text": " intent",
+          "confidence": 0.993
+        },
+        {
+          "start": 70.52,
+          "end": 70.61,
+          "text": " as",
+          "confidence": 0.991
+        },
+        {
+          "start": 70.65,
+          "end": 70.82,
+          "text": " an",
+          "confidence": 0.998
+        },
+        {
+          "start": 70.82,
+          "end": 71.22,
+          "text": " idea",
+          "confidence": 0.998
+        },
+        {
+          "start": 71.42,
+          "end": 71.42,
+          "text": " it",
+          "confidence": 0.685
+        },
+        {
+          "start": 71.42,
+          "end": 72.11,
+          "text": " becomes",
+          "confidence": 0.996
+        },
+        {
+          "start": 72.18,
+          "end": 72.67,
+          "text": " running",
+          "confidence": 0.997
+        },
+        {
+          "start": 72.88,
+          "end": 73.63,
+          "text": " software",
+          "confidence": 0.999
+        },
+        {
+          "start": 73.63,
+          "end": 73.99,
+          "text": "?",
+          "confidence": 0.965
+        }
+      ]
+    },
+    {
+      "id": "T0007",
+      "start": 74,
+      "end": 80,
+      "text": "Let's imagine we've just finished designing a new capability. We've had conversations with domain experts.",
+      "confidence": 0.963,
+      "words": [
+        {
+          "start": 74.16,
+          "end": 74.16,
+          "text": " Let",
+          "confidence": 0.921
+        },
+        {
+          "start": 74.2,
+          "end": 74.26,
+          "text": "'s",
+          "confidence": 0.995
+        },
+        {
+          "start": 74.6,
+          "end": 74.64,
+          "text": " imagine",
+          "confidence": 0.997
+        },
+        {
+          "start": 74.64,
+          "end": 74.74,
+          "text": " we",
+          "confidence": 0.953
+        },
+        {
+          "start": 74.74,
+          "end": 74.9,
+          "text": "'ve",
+          "confidence": 0.976
+        },
+        {
+          "start": 74.9,
+          "end": 75.11,
+          "text": " just",
+          "confidence": 0.999
+        },
+        {
+          "start": 75.11,
+          "end": 75.32,
+          "text": " finished",
+          "confidence": 0.998
+        },
+        {
+          "start": 75.85,
+          "end": 76.03,
+          "text": " designing",
+          "confidence": 0.998
+        },
+        {
+          "start": 76.03,
+          "end": 76.08,
+          "text": " a",
+          "confidence": 0.996
+        },
+        {
+          "start": 76.08,
+          "end": 76.24,
+          "text": " new",
+          "confidence": 1
+        },
+        {
+          "start": 76.32,
+          "end": 76.78,
+          "text": " capability",
+          "confidence": 0.998
+        },
+        {
+          "start": 76.78,
+          "end": 77,
+          "text": ".",
+          "confidence": 0.972
+        },
+        {
+          "start": 77,
+          "end": 77.14,
+          "text": " We",
+          "confidence": 0.855
+        },
+        {
+          "start": 77.14,
+          "end": 77.3,
+          "text": "'ve",
+          "confidence": 0.995
+        },
+        {
+          "start": 77.35,
+          "end": 77.56,
+          "text": " had",
+          "confidence": 0.998
+        },
+        {
+          "start": 77.56,
+          "end": 78.51,
+          "text": " conversations",
+          "confidence": 0.989
+        },
+        {
+          "start": 78.51,
+          "end": 78.79,
+          "text": " with",
+          "confidence": 0.994
+        },
+        {
+          "start": 79.17,
+          "end": 79.23,
+          "text": " domain",
+          "confidence": 0.845
+        },
+        {
+          "start": 79.23,
+          "end": 79.74,
+          "text": " experts",
+          "confidence": 0.999
+        },
+        {
+          "start": 79.74,
+          "end": 80,
+          "text": ".",
+          "confidence": 0.789
+        }
+      ]
+    },
+    {
+      "id": "T0008",
+      "start": 80,
+      "end": 89,
+      "text": "We've captured claims in the Knowledge Model. We've reasoned about constraints. We've agreed on the behavior. Everything feels clear.",
+      "confidence": 0.962,
+      "words": [
+        {
+          "start": 80.14,
+          "end": 80.14,
+          "text": " We",
+          "confidence": 0.99
+        },
+        {
+          "start": 80.2,
+          "end": 80.34,
+          "text": "'ve",
+          "confidence": 0.989
+        },
+        {
+          "start": 80.63,
+          "end": 80.89,
+          "text": " captured",
+          "confidence": 0.99
+        },
+        {
+          "start": 80.89,
+          "end": 81.29,
+          "text": " claims",
+          "confidence": 0.999
+        },
+        {
+          "start": 81.29,
+          "end": 81.33,
+          "text": " in",
+          "confidence": 0.996
+        },
+        {
+          "start": 81.42,
+          "end": 81.66,
+          "text": " the",
+          "confidence": 0.994
+        },
+        {
+          "start": 81.86,
+          "end": 82.27,
+          "text": " Knowledge",
+          "confidence": 0.95
+        },
+        {
+          "start": 82.32,
+          "end": 82.61,
+          "text": " Model",
+          "confidence": 0.99
+        },
+        {
+          "start": 82.63,
+          "end": 82.83,
+          "text": ".",
+          "confidence": 0.941
+        },
+        {
+          "start": 82.83,
+          "end": 82.97,
+          "text": " We",
+          "confidence": 0.994
+        },
+        {
+          "start": 82.97,
+          "end": 83.17,
+          "text": "'ve",
+          "confidence": 0.949
+        },
+        {
+          "start": 83.17,
+          "end": 83.71,
+          "text": " reasoned",
+          "confidence": 0.962
+        },
+        {
+          "start": 83.72,
+          "end": 84.07,
+          "text": " about",
+          "confidence": 0.997
+        },
+        {
+          "start": 84.07,
+          "end": 84.55,
+          "text": " constraints",
+          "confidence": 0.999
+        },
+        {
+          "start": 84.55,
+          "end": 85.03,
+          "text": ".",
+          "confidence": 0.713
+        },
+        {
+          "start": 85.17,
+          "end": 85.17,
+          "text": " We",
+          "confidence": 0.985
+        },
+        {
+          "start": 85.17,
+          "end": 85.33,
+          "text": "'ve",
+          "confidence": 0.989
+        },
+        {
+          "start": 85.37,
+          "end": 85.79,
+          "text": " agreed",
+          "confidence": 0.999
+        },
+        {
+          "start": 85.79,
+          "end": 85.93,
+          "text": " on",
+          "confidence": 0.999
+        },
+        {
+          "start": 85.93,
+          "end": 86.14,
+          "text": " the",
+          "confidence": 0.981
+        },
+        {
+          "start": 86.4,
+          "end": 86.68,
+          "text": " behavior",
+          "confidence": 0.843
+        },
+        {
+          "start": 86.68,
+          "end": 86.7,
+          "text": ".",
+          "confidence": 0.911
+        },
+        {
+          "start": 87.11,
+          "end": 87.67,
+          "text": " Everything",
+          "confidence": 0.894
+        },
+        {
+          "start": 87.88,
+          "end": 88.29,
+          "text": " feels",
+          "confidence": 0.989
+        },
+        {
+          "start": 88.32,
+          "end": 88.72,
+          "text": " clear",
+          "confidence": 0.999
+        },
+        {
+          "start": 88.72,
+          "end": 88.99,
+          "text": ".",
+          "confidence": 0.971
+        }
+      ]
+    },
+    {
+      "id": "T0009",
+      "start": 89,
+      "end": 98,
+      "text": "At that moment, the architecture exists almost perfectly. But only in our current understanding. Now we have to build it.",
+      "confidence": 0.951,
+      "words": [
+        {
+          "start": 89.18,
+          "end": 89.18,
+          "text": " At",
+          "confidence": 0.995
+        },
+        {
+          "start": 89.2,
+          "end": 89.24,
+          "text": " that",
+          "confidence": 0.995
+        },
+        {
+          "start": 89.63,
+          "end": 90.11,
+          "text": " moment",
+          "confidence": 0.999
+        },
+        {
+          "start": 90.11,
+          "end": 90.29,
+          "text": ",",
+          "confidence": 0.906
+        },
+        {
+          "start": 90.29,
+          "end": 90.33,
+          "text": " the",
+          "confidence": 0.997
+        },
+        {
+          "start": 90.86,
+          "end": 91.7,
+          "text": " architecture",
+          "confidence": 0.996
+        },
+        {
+          "start": 91.7,
+          "end": 92.26,
+          "text": " exists",
+          "confidence": 0.995
+        },
+        {
+          "start": 92.26,
+          "end": 92.78,
+          "text": " almost",
+          "confidence": 0.992
+        },
+        {
+          "start": 92.81,
+          "end": 93.55,
+          "text": " perfectly",
+          "confidence": 0.999
+        },
+        {
+          "start": 93.63,
+          "end": 94,
+          "text": ".",
+          "confidence": 0.749
+        },
+        {
+          "start": 94.17,
+          "end": 94.17,
+          "text": " But",
+          "confidence": 0.864
+        },
+        {
+          "start": 94.17,
+          "end": 94.38,
+          "text": " only",
+          "confidence": 0.989
+        },
+        {
+          "start": 94.39,
+          "end": 94.39,
+          "text": " in",
+          "confidence": 0.998
+        },
+        {
+          "start": 94.5,
+          "end": 94.67,
+          "text": " our",
+          "confidence": 0.997
+        },
+        {
+          "start": 94.67,
+          "end": 95.06,
+          "text": " current",
+          "confidence": 0.998
+        },
+        {
+          "start": 95.39,
+          "end": 95.69,
+          "text": " understanding",
+          "confidence": 0.997
+        },
+        {
+          "start": 95.79,
+          "end": 95.99,
+          "text": ".",
+          "confidence": 0.586
+        },
+        {
+          "start": 96.18,
+          "end": 96.28,
+          "text": " Now",
+          "confidence": 0.891
+        },
+        {
+          "start": 96.28,
+          "end": 96.46,
+          "text": " we",
+          "confidence": 0.898
+        },
+        {
+          "start": 96.46,
+          "end": 96.67,
+          "text": " have",
+          "confidence": 0.997
+        },
+        {
+          "start": 96.88,
+          "end": 97.04,
+          "text": " to",
+          "confidence": 0.999
+        },
+        {
+          "start": 97.04,
+          "end": 97.51,
+          "text": " build",
+          "confidence": 1
+        },
+        {
+          "start": 97.51,
+          "end": 97.7,
+          "text": " it",
+          "confidence": 0.997
+        },
+        {
+          "start": 97.7,
+          "end": 97.99,
+          "text": ".",
+          "confidence": 0.996
+        }
+      ]
+    },
+    {
+      "id": "T0010",
+      "start": 98,
+      "end": 106,
+      "text": "What we really want is surprisingly simple. We want the capability to keep its meaning as it moves through the implementation.",
+      "confidence": 0.99,
+      "words": [
+        {
+          "start": 98.2,
+          "end": 98.2,
+          "text": " What",
+          "confidence": 0.928
+        },
+        {
+          "start": 98.2,
+          "end": 98.3,
+          "text": " we",
+          "confidence": 0.998
+        },
+        {
+          "start": 98.59,
+          "end": 98.6,
+          "text": " really",
+          "confidence": 0.998
+        },
+        {
+          "start": 98.63,
+          "end": 98.8,
+          "text": " want",
+          "confidence": 0.998
+        },
+        {
+          "start": 98.8,
+          "end": 98.9,
+          "text": " is",
+          "confidence": 0.995
+        },
+        {
+          "start": 98.9,
+          "end": 99.3,
+          "text": " surprisingly",
+          "confidence": 0.986
+        },
+        {
+          "start": 99.66,
+          "end": 99.67,
+          "text": " simple",
+          "confidence": 0.998
+        },
+        {
+          "start": 99.86,
+          "end": 99.99,
+          "text": ".",
+          "confidence": 0.98
+        },
+        {
+          "start": 100.01,
+          "end": 100.16,
+          "text": " We",
+          "confidence": 0.961
+        },
+        {
+          "start": 100.16,
+          "end": 100.49,
+          "text": " want",
+          "confidence": 0.999
+        },
+        {
+          "start": 100.49,
+          "end": 100.74,
+          "text": " the",
+          "confidence": 0.999
+        },
+        {
+          "start": 100.74,
+          "end": 101.58,
+          "text": " capability",
+          "confidence": 0.998
+        },
+        {
+          "start": 101.58,
+          "end": 101.74,
+          "text": " to",
+          "confidence": 0.992
+        },
+        {
+          "start": 101.74,
+          "end": 102.07,
+          "text": " keep",
+          "confidence": 0.996
+        },
+        {
+          "start": 102.07,
+          "end": 102.32,
+          "text": " its",
+          "confidence": 0.973
+        },
+        {
+          "start": 102.32,
+          "end": 102.56,
+          "text": " meaning",
+          "confidence": 0.999
+        },
+        {
+          "start": 102.91,
+          "end": 103.06,
+          "text": " as",
+          "confidence": 0.994
+        },
+        {
+          "start": 103.17,
+          "end": 103.23,
+          "text": " it",
+          "confidence": 0.997
+        },
+        {
+          "start": 103.23,
+          "end": 103.54,
+          "text": " moves",
+          "confidence": 0.996
+        },
+        {
+          "start": 103.65,
+          "end": 104.23,
+          "text": " through",
+          "confidence": 0.995
+        },
+        {
+          "start": 104.42,
+          "end": 104.49,
+          "text": " the",
+          "confidence": 0.993
+        },
+        {
+          "start": 104.49,
+          "end": 105.67,
+          "text": " implementation",
+          "confidence": 0.999
+        },
+        {
+          "start": 105.67,
+          "end": 105.88,
+          "text": ".",
+          "confidence": 0.995
+        }
+      ]
+    },
+    {
+      "id": "T0011",
+      "start": 106,
+      "end": 117,
+      "text": "We don't want to lose why it exists or outcomes it should produce. The rules it must obey and the policies it operates under and the behaviors that we expect.",
+      "confidence": 0.927,
+      "words": [
+        {
+          "start": 106.17,
+          "end": 106.17,
+          "text": " We",
+          "confidence": 0.971
+        },
+        {
+          "start": 106.2,
+          "end": 106.43,
+          "text": " don",
+          "confidence": 0.993
+        },
+        {
+          "start": 106.6,
+          "end": 106.6,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 106.64,
+          "end": 106.95,
+          "text": " want",
+          "confidence": 0.997
+        },
+        {
+          "start": 106.95,
+          "end": 107.12,
+          "text": " to",
+          "confidence": 0.999
+        },
+        {
+          "start": 107.12,
+          "end": 107.32,
+          "text": " lose",
+          "confidence": 0.982
+        },
+        {
+          "start": 107.41,
+          "end": 107.73,
+          "text": " why",
+          "confidence": 0.937
+        },
+        {
+          "start": 107.85,
+          "end": 107.9,
+          "text": " it",
+          "confidence": 0.99
+        },
+        {
+          "start": 107.9,
+          "end": 108.43,
+          "text": " exists",
+          "confidence": 0.995
+        },
+        {
+          "start": 108.43,
+          "end": 108.58,
+          "text": " or",
+          "confidence": 0.585
+        },
+        {
+          "start": 108.61,
+          "end": 109.3,
+          "text": " outcomes",
+          "confidence": 0.914
+        },
+        {
+          "start": 109.3,
+          "end": 109.44,
+          "text": " it",
+          "confidence": 0.914
+        },
+        {
+          "start": 109.5,
+          "end": 110.01,
+          "text": " should",
+          "confidence": 0.991
+        },
+        {
+          "start": 110.01,
+          "end": 110.55,
+          "text": " produce",
+          "confidence": 0.978
+        },
+        {
+          "start": 110.6,
+          "end": 110.99,
+          "text": ".",
+          "confidence": 0.691
+        },
+        {
+          "start": 111.16,
+          "end": 111.16,
+          "text": " The",
+          "confidence": 0.865
+        },
+        {
+          "start": 111.17,
+          "end": 111.38,
+          "text": " rules",
+          "confidence": 0.995
+        },
+        {
+          "start": 111.44,
+          "end": 111.54,
+          "text": " it",
+          "confidence": 0.866
+        },
+        {
+          "start": 111.54,
+          "end": 111.76,
+          "text": " must",
+          "confidence": 0.994
+        },
+        {
+          "start": 111.76,
+          "end": 112,
+          "text": " obey",
+          "confidence": 0.867
+        },
+        {
+          "start": 112,
+          "end": 112.2,
+          "text": " and",
+          "confidence": 0.873
+        },
+        {
+          "start": 112.4,
+          "end": 112.4,
+          "text": " the",
+          "confidence": 0.91
+        },
+        {
+          "start": 112.4,
+          "end": 112.68,
+          "text": " policies",
+          "confidence": 0.997
+        },
+        {
+          "start": 113.08,
+          "end": 113.08,
+          "text": " it",
+          "confidence": 0.994
+        },
+        {
+          "start": 113.18,
+          "end": 113.61,
+          "text": " operates",
+          "confidence": 0.982
+        },
+        {
+          "start": 113.62,
+          "end": 113.88,
+          "text": " under",
+          "confidence": 0.982
+        },
+        {
+          "start": 114.03,
+          "end": 114.28,
+          "text": " and",
+          "confidence": 0.524
+        },
+        {
+          "start": 114.32,
+          "end": 114.6,
+          "text": " the",
+          "confidence": 0.982
+        },
+        {
+          "start": 114.6,
+          "end": 115.49,
+          "text": " behaviors",
+          "confidence": 0.912
+        },
+        {
+          "start": 115.49,
+          "end": 115.71,
+          "text": " that",
+          "confidence": 0.939
+        },
+        {
+          "start": 115.88,
+          "end": 116.09,
+          "text": " we",
+          "confidence": 0.999
+        },
+        {
+          "start": 116.41,
+          "end": 116.68,
+          "text": " expect",
+          "confidence": 0.996
+        },
+        {
+          "start": 116.68,
+          "end": 117,
+          "text": ".",
+          "confidence": 0.993
+        }
+      ]
+    },
+    {
+      "id": "T0012",
+      "start": 117,
+      "end": 122,
+      "text": "Ideally, those things should remain true regardless of how we eventually implement the system.",
+      "confidence": 0.97,
+      "words": [
+        {
+          "start": 117.2,
+          "end": 117.41,
+          "text": " Ideally",
+          "confidence": 0.995
+        },
+        {
+          "start": 117.41,
+          "end": 117.45,
+          "text": ",",
+          "confidence": 0.87
+        },
+        {
+          "start": 117.63,
+          "end": 117.81,
+          "text": " those",
+          "confidence": 0.978
+        },
+        {
+          "start": 117.81,
+          "end": 118.11,
+          "text": " things",
+          "confidence": 0.992
+        },
+        {
+          "start": 118.17,
+          "end": 118.33,
+          "text": " should",
+          "confidence": 0.992
+        },
+        {
+          "start": 118.85,
+          "end": 118.85,
+          "text": " remain",
+          "confidence": 0.998
+        },
+        {
+          "start": 118.86,
+          "end": 119.09,
+          "text": " true",
+          "confidence": 1
+        },
+        {
+          "start": 119.09,
+          "end": 119.66,
+          "text": " regardless",
+          "confidence": 0.739
+        },
+        {
+          "start": 119.68,
+          "end": 119.79,
+          "text": " of",
+          "confidence": 0.991
+        },
+        {
+          "start": 119.79,
+          "end": 119.87,
+          "text": " how",
+          "confidence": 0.999
+        },
+        {
+          "start": 119.96,
+          "end": 120.07,
+          "text": " we",
+          "confidence": 0.998
+        },
+        {
+          "start": 120.07,
+          "end": 120.65,
+          "text": " eventually",
+          "confidence": 0.977
+        },
+        {
+          "start": 120.65,
+          "end": 121.15,
+          "text": " implement",
+          "confidence": 0.999
+        },
+        {
+          "start": 121.25,
+          "end": 121.36,
+          "text": " the",
+          "confidence": 0.995
+        },
+        {
+          "start": 121.36,
+          "end": 121.56,
+          "text": " system",
+          "confidence": 0.999
+        },
+        {
+          "start": 121.56,
+          "end": 122,
+          "text": ".",
+          "confidence": 0.997
+        }
+      ]
+    },
+    {
+      "id": "T0013",
+      "start": 122,
+      "end": 126,
+      "text": "That might sound obvious, but it rarely happens.",
+      "confidence": 0.951,
+      "words": [
+        {
+          "start": 122.2,
+          "end": 122.36,
+          "text": " That",
+          "confidence": 0.947
+        },
+        {
+          "start": 122.61,
+          "end": 122.81,
+          "text": " might",
+          "confidence": 0.998
+        },
+        {
+          "start": 122.81,
+          "end": 123.26,
+          "text": " sound",
+          "confidence": 0.998
+        },
+        {
+          "start": 123.26,
+          "end": 123.89,
+          "text": " obvious",
+          "confidence": 1
+        },
+        {
+          "start": 123.89,
+          "end": 124.07,
+          "text": ",",
+          "confidence": 0.732
+        },
+        {
+          "start": 124.07,
+          "end": 124.34,
+          "text": " but",
+          "confidence": 0.995
+        },
+        {
+          "start": 124.34,
+          "end": 124.52,
+          "text": " it",
+          "confidence": 0.995
+        },
+        {
+          "start": 124.52,
+          "end": 125.06,
+          "text": " rarely",
+          "confidence": 0.856
+        },
+        {
+          "start": 125.06,
+          "end": 125.69,
+          "text": " happens",
+          "confidence": 0.999
+        },
+        {
+          "start": 125.69,
+          "end": 126,
+          "text": ".",
+          "confidence": 0.995
+        }
+      ]
+    },
+    {
+      "id": "T0014",
+      "start": 126,
+      "end": 133,
+      "text": "This is where architecture begins to leak. The capability starts life as an architectural idea.",
+      "confidence": 0.956,
+      "words": [
+        {
+          "start": 126.2,
+          "end": 126.31,
+          "text": " This",
+          "confidence": 0.649
+        },
+        {
+          "start": 126.31,
+          "end": 126.46,
+          "text": " is",
+          "confidence": 0.998
+        },
+        {
+          "start": 126.63,
+          "end": 126.85,
+          "text": " where",
+          "confidence": 0.997
+        },
+        {
+          "start": 126.85,
+          "end": 127.31,
+          "text": " architecture",
+          "confidence": 0.958
+        },
+        {
+          "start": 127.86,
+          "end": 128.25,
+          "text": " begins",
+          "confidence": 0.992
+        },
+        {
+          "start": 128.32,
+          "end": 128.37,
+          "text": " to",
+          "confidence": 0.999
+        },
+        {
+          "start": 128.41,
+          "end": 128.72,
+          "text": " leak",
+          "confidence": 0.998
+        },
+        {
+          "start": 128.72,
+          "end": 129,
+          "text": ".",
+          "confidence": 0.97
+        },
+        {
+          "start": 129,
+          "end": 129.27,
+          "text": " The",
+          "confidence": 0.92
+        },
+        {
+          "start": 129.27,
+          "end": 130.14,
+          "text": " capability",
+          "confidence": 0.995
+        },
+        {
+          "start": 130.25,
+          "end": 130.56,
+          "text": " starts",
+          "confidence": 0.989
+        },
+        {
+          "start": 130.65,
+          "end": 131.06,
+          "text": " life",
+          "confidence": 0.99
+        },
+        {
+          "start": 131.17,
+          "end": 131.25,
+          "text": " as",
+          "confidence": 0.995
+        },
+        {
+          "start": 131.25,
+          "end": 131.38,
+          "text": " an",
+          "confidence": 0.995
+        },
+        {
+          "start": 131.53,
+          "end": 132.61,
+          "text": " architectural",
+          "confidence": 0.96
+        },
+        {
+          "start": 132.61,
+          "end": 132.69,
+          "text": " idea",
+          "confidence": 0.998
+        },
+        {
+          "start": 132.99,
+          "end": 133,
+          "text": ".",
+          "confidence": 0.851
+        }
+      ]
+    },
+    {
+      "id": "T0015",
+      "start": 133,
+      "end": 142,
+      "text": "Then it becomes a requirement. The requirement becomes backlog items. The backlog items become source code and source code becomes deployments.",
+      "confidence": 0.878,
+      "words": [
+        {
+          "start": 133.2,
+          "end": 133.25,
+          "text": " Then",
+          "confidence": 0.438
+        },
+        {
+          "start": 133.25,
+          "end": 133.37,
+          "text": " it",
+          "confidence": 0.895
+        },
+        {
+          "start": 133.61,
+          "end": 133.8,
+          "text": " becomes",
+          "confidence": 0.993
+        },
+        {
+          "start": 133.8,
+          "end": 133.86,
+          "text": " a",
+          "confidence": 0.868
+        },
+        {
+          "start": 133.86,
+          "end": 134.3,
+          "text": " requirement",
+          "confidence": 0.997
+        },
+        {
+          "start": 134.5,
+          "end": 134.72,
+          "text": ".",
+          "confidence": 0.325
+        },
+        {
+          "start": 134.85,
+          "end": 134.9,
+          "text": " The",
+          "confidence": 0.878
+        },
+        {
+          "start": 134.9,
+          "end": 135.58,
+          "text": " requirement",
+          "confidence": 0.853
+        },
+        {
+          "start": 135.58,
+          "end": 136.01,
+          "text": " becomes",
+          "confidence": 0.991
+        },
+        {
+          "start": 136.01,
+          "end": 136.44,
+          "text": " backlog",
+          "confidence": 0.85
+        },
+        {
+          "start": 136.44,
+          "end": 136.75,
+          "text": " items",
+          "confidence": 0.98
+        },
+        {
+          "start": 136.75,
+          "end": 137,
+          "text": ".",
+          "confidence": 0.986
+        },
+        {
+          "start": 137,
+          "end": 137.15,
+          "text": " The",
+          "confidence": 0.86
+        },
+        {
+          "start": 137.25,
+          "end": 137.56,
+          "text": " backlog",
+          "confidence": 0.985
+        },
+        {
+          "start": 137.63,
+          "end": 137.96,
+          "text": " items",
+          "confidence": 0.984
+        },
+        {
+          "start": 138.17,
+          "end": 138.34,
+          "text": " become",
+          "confidence": 0.845
+        },
+        {
+          "start": 138.34,
+          "end": 138.72,
+          "text": " source",
+          "confidence": 0.99
+        },
+        {
+          "start": 138.72,
+          "end": 139,
+          "text": " code",
+          "confidence": 0.982
+        },
+        {
+          "start": 139,
+          "end": 139.26,
+          "text": " and",
+          "confidence": 0.458
+        },
+        {
+          "start": 139.4,
+          "end": 139.68,
+          "text": " source",
+          "confidence": 0.994
+        },
+        {
+          "start": 140.11,
+          "end": 140.12,
+          "text": " code",
+          "confidence": 0.999
+        },
+        {
+          "start": 140.18,
+          "end": 140.67,
+          "text": " becomes",
+          "confidence": 0.966
+        },
+        {
+          "start": 140.88,
+          "end": 141.71,
+          "text": " deployments",
+          "confidence": 0.973
+        },
+        {
+          "start": 141.71,
+          "end": 141.99,
+          "text": ".",
+          "confidence": 0.984
+        }
+      ]
+    },
+    {
+      "id": "T0016",
+      "start": 142,
+      "end": 151,
+      "text": "In an AI native system, behavior may disappear even further. Some intent ends up inside prompts. Some becomes workflow definitions.",
+      "confidence": 0.934,
+      "words": [
+        {
+          "start": 142.14,
+          "end": 142.14,
+          "text": " In",
+          "confidence": 0.947
+        },
+        {
+          "start": 142.2,
+          "end": 142.28,
+          "text": " an",
+          "confidence": 0.929
+        },
+        {
+          "start": 142.28,
+          "end": 142.42,
+          "text": " AI",
+          "confidence": 0.92
+        },
+        {
+          "start": 142.63,
+          "end": 142.86,
+          "text": " native",
+          "confidence": 0.557
+        },
+        {
+          "start": 142.86,
+          "end": 143.29,
+          "text": " system",
+          "confidence": 0.998
+        },
+        {
+          "start": 143.29,
+          "end": 143.33,
+          "text": ",",
+          "confidence": 0.916
+        },
+        {
+          "start": 143.85,
+          "end": 144.03,
+          "text": " behavior",
+          "confidence": 0.919
+        },
+        {
+          "start": 144.03,
+          "end": 144.24,
+          "text": " may",
+          "confidence": 0.997
+        },
+        {
+          "start": 144.32,
+          "end": 144.87,
+          "text": " disappear",
+          "confidence": 0.999
+        },
+        {
+          "start": 144.96,
+          "end": 145.2,
+          "text": " even",
+          "confidence": 0.977
+        },
+        {
+          "start": 145.2,
+          "end": 145.71,
+          "text": " further",
+          "confidence": 0.995
+        },
+        {
+          "start": 145.71,
+          "end": 146,
+          "text": ".",
+          "confidence": 0.993
+        },
+        {
+          "start": 146,
+          "end": 146.37,
+          "text": " Some",
+          "confidence": 0.896
+        },
+        {
+          "start": 146.37,
+          "end": 146.56,
+          "text": " intent",
+          "confidence": 0.988
+        },
+        {
+          "start": 147.17,
+          "end": 147.3,
+          "text": " ends",
+          "confidence": 0.991
+        },
+        {
+          "start": 147.3,
+          "end": 147.38,
+          "text": " up",
+          "confidence": 0.998
+        },
+        {
+          "start": 147.5,
+          "end": 148.04,
+          "text": " inside",
+          "confidence": 0.963
+        },
+        {
+          "start": 148.4,
+          "end": 148.68,
+          "text": " prompts",
+          "confidence": 0.998
+        },
+        {
+          "start": 148.68,
+          "end": 148.7,
+          "text": ".",
+          "confidence": 0.971
+        },
+        {
+          "start": 149.18,
+          "end": 149.24,
+          "text": " Some",
+          "confidence": 0.773
+        },
+        {
+          "start": 149.24,
+          "end": 149.66,
+          "text": " becomes",
+          "confidence": 0.819
+        },
+        {
+          "start": 149.66,
+          "end": 150.14,
+          "text": " workflow",
+          "confidence": 0.979
+        },
+        {
+          "start": 150.14,
+          "end": 150.8,
+          "text": " definitions",
+          "confidence": 0.996
+        },
+        {
+          "start": 150.8,
+          "end": 150.99,
+          "text": ".",
+          "confidence": 0.887
+        }
+      ]
+    },
+    {
+      "id": "T0017",
+      "start": 151,
+      "end": 159,
+      "text": "Some is hidden in validation logic and some is scattered across configuration. Some survives only in old documents.",
+      "confidence": 0.946,
+      "words": [
+        {
+          "start": 151.2,
+          "end": 151.29,
+          "text": " Some",
+          "confidence": 0.895
+        },
+        {
+          "start": 151.29,
+          "end": 151.43,
+          "text": " is",
+          "confidence": 0.967
+        },
+        {
+          "start": 151.63,
+          "end": 151.86,
+          "text": " hidden",
+          "confidence": 0.996
+        },
+        {
+          "start": 151.86,
+          "end": 152,
+          "text": " in",
+          "confidence": 0.983
+        },
+        {
+          "start": 152,
+          "end": 152.32,
+          "text": " validation",
+          "confidence": 0.989
+        },
+        {
+          "start": 152.86,
+          "end": 153.08,
+          "text": " logic",
+          "confidence": 0.996
+        },
+        {
+          "start": 153.08,
+          "end": 153.25,
+          "text": " and",
+          "confidence": 0.613
+        },
+        {
+          "start": 153.32,
+          "end": 153.58,
+          "text": " some",
+          "confidence": 0.998
+        },
+        {
+          "start": 153.58,
+          "end": 153.72,
+          "text": " is",
+          "confidence": 0.941
+        },
+        {
+          "start": 153.72,
+          "end": 154.31,
+          "text": " scattered",
+          "confidence": 0.995
+        },
+        {
+          "start": 154.35,
+          "end": 154.8,
+          "text": " across",
+          "confidence": 0.997
+        },
+        {
+          "start": 154.8,
+          "end": 155.55,
+          "text": " configuration",
+          "confidence": 0.986
+        },
+        {
+          "start": 155.55,
+          "end": 156,
+          "text": ".",
+          "confidence": 0.994
+        },
+        {
+          "start": 156.17,
+          "end": 156.34,
+          "text": " Some",
+          "confidence": 0.693
+        },
+        {
+          "start": 156.37,
+          "end": 157.07,
+          "text": " survives",
+          "confidence": 0.938
+        },
+        {
+          "start": 157.42,
+          "end": 157.44,
+          "text": " only",
+          "confidence": 0.978
+        },
+        {
+          "start": 157.44,
+          "end": 157.62,
+          "text": " in",
+          "confidence": 0.997
+        },
+        {
+          "start": 157.62,
+          "end": 157.68,
+          "text": " old",
+          "confidence": 0.984
+        },
+        {
+          "start": 158.18,
+          "end": 158.67,
+          "text": " documents",
+          "confidence": 0.999
+        },
+        {
+          "start": 158.88,
+          "end": 158.88,
+          "text": ".",
+          "confidence": 0.985
+        }
+      ]
+    },
+    {
+      "id": "T0018",
+      "start": 159,
+      "end": 173,
+      "text": "By the time the software reaches production, the original architecture intent has been fragmented. The software may work perfectly, but recovering why it behaves that way does become increasingly difficult.",
+      "confidence": 0.933,
+      "words": [
+        {
+          "start": 159.13,
+          "end": 159.13,
+          "text": " By",
+          "confidence": 0.985
+        },
+        {
+          "start": 159.2,
+          "end": 159.33,
+          "text": " the",
+          "confidence": 0.998
+        },
+        {
+          "start": 159.59,
+          "end": 159.6,
+          "text": " time",
+          "confidence": 0.999
+        },
+        {
+          "start": 159.63,
+          "end": 159.8,
+          "text": " the",
+          "confidence": 0.953
+        },
+        {
+          "start": 159.8,
+          "end": 160.29,
+          "text": " software",
+          "confidence": 0.998
+        },
+        {
+          "start": 160.81,
+          "end": 160.81,
+          "text": " reaches",
+          "confidence": 0.994
+        },
+        {
+          "start": 160.86,
+          "end": 161.49,
+          "text": " production",
+          "confidence": 0.998
+        },
+        {
+          "start": 161.49,
+          "end": 161.61,
+          "text": ",",
+          "confidence": 0.835
+        },
+        {
+          "start": 161.63,
+          "end": 161.82,
+          "text": " the",
+          "confidence": 0.994
+        },
+        {
+          "start": 161.82,
+          "end": 162.3,
+          "text": " original",
+          "confidence": 0.997
+        },
+        {
+          "start": 162.35,
+          "end": 163.15,
+          "text": " architecture",
+          "confidence": 0.48
+        },
+        {
+          "start": 163.25,
+          "end": 163.55,
+          "text": " intent",
+          "confidence": 0.993
+        },
+        {
+          "start": 163.55,
+          "end": 163.7,
+          "text": " has",
+          "confidence": 0.988
+        },
+        {
+          "start": 163.7,
+          "end": 164.04,
+          "text": " been",
+          "confidence": 0.992
+        },
+        {
+          "start": 164.17,
+          "end": 164.72,
+          "text": " fragmented",
+          "confidence": 0.999
+        },
+        {
+          "start": 164.72,
+          "end": 165,
+          "text": ".",
+          "confidence": 0.985
+        },
+        {
+          "start": 165,
+          "end": 165.22,
+          "text": " The",
+          "confidence": 0.666
+        },
+        {
+          "start": 165.4,
+          "end": 165.68,
+          "text": " software",
+          "confidence": 1
+        },
+        {
+          "start": 165.81,
+          "end": 166.02,
+          "text": " may",
+          "confidence": 0.994
+        },
+        {
+          "start": 166.18,
+          "end": 166.32,
+          "text": " work",
+          "confidence": 0.998
+        },
+        {
+          "start": 166.32,
+          "end": 166.88,
+          "text": " perfectly",
+          "confidence": 0.999
+        },
+        {
+          "start": 167.03,
+          "end": 167.13,
+          "text": ",",
+          "confidence": 0.631
+        },
+        {
+          "start": 167.13,
+          "end": 167.33,
+          "text": " but",
+          "confidence": 0.678
+        },
+        {
+          "start": 167.33,
+          "end": 167.99,
+          "text": " recovering",
+          "confidence": 0.954
+        },
+        {
+          "start": 167.99,
+          "end": 168.25,
+          "text": " why",
+          "confidence": 0.903
+        },
+        {
+          "start": 168.25,
+          "end": 168.41,
+          "text": " it",
+          "confidence": 0.961
+        },
+        {
+          "start": 168.41,
+          "end": 168.71,
+          "text": " behaves",
+          "confidence": 0.984
+        },
+        {
+          "start": 169.03,
+          "end": 169.57,
+          "text": " that",
+          "confidence": 0.945
+        },
+        {
+          "start": 169.57,
+          "end": 170,
+          "text": " way",
+          "confidence": 0.998
+        },
+        {
+          "start": 170,
+          "end": 170.35,
+          "text": " does",
+          "confidence": 0.838
+        },
+        {
+          "start": 170.35,
+          "end": 170.85,
+          "text": " become",
+          "confidence": 0.984
+        },
+        {
+          "start": 170.88,
+          "end": 171.72,
+          "text": " increasingly",
+          "confidence": 0.999
+        },
+        {
+          "start": 172.09,
+          "end": 172.71,
+          "text": " difficult",
+          "confidence": 0.998
+        },
+        {
+          "start": 172.71,
+          "end": 173,
+          "text": ".",
+          "confidence": 0.995
+        }
+      ]
+    },
+    {
+      "id": "T0019",
+      "start": 173,
+      "end": 179,
+      "text": "This isn't simply a documentation problem. It's a representation problem.",
+      "confidence": 0.964,
+      "words": [
+        {
+          "start": 173.2,
+          "end": 173.35,
+          "text": " This",
+          "confidence": 0.915
+        },
+        {
+          "start": 173.6,
+          "end": 173.61,
+          "text": " isn",
+          "confidence": 0.993
+        },
+        {
+          "start": 173.64,
+          "end": 173.78,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 173.78,
+          "end": 174.29,
+          "text": " simply",
+          "confidence": 0.995
+        },
+        {
+          "start": 174.3,
+          "end": 174.33,
+          "text": " a",
+          "confidence": 0.995
+        },
+        {
+          "start": 174.86,
+          "end": 175.52,
+          "text": " documentation",
+          "confidence": 0.998
+        },
+        {
+          "start": 175.52,
+          "end": 176.13,
+          "text": " problem",
+          "confidence": 0.998
+        },
+        {
+          "start": 176.13,
+          "end": 176.31,
+          "text": ".",
+          "confidence": 0.659
+        },
+        {
+          "start": 176.34,
+          "end": 176.56,
+          "text": " It",
+          "confidence": 0.981
+        },
+        {
+          "start": 176.56,
+          "end": 176.73,
+          "text": "'s",
+          "confidence": 0.977
+        },
+        {
+          "start": 176.73,
+          "end": 176.79,
+          "text": " a",
+          "confidence": 0.999
+        },
+        {
+          "start": 176.79,
+          "end": 177.55,
+          "text": " representation",
+          "confidence": 0.997
+        },
+        {
+          "start": 178.17,
+          "end": 178.54,
+          "text": " problem",
+          "confidence": 0.998
+        },
+        {
+          "start": 178.65,
+          "end": 179,
+          "text": ".",
+          "confidence": 0.996
+        }
+      ]
+    },
+    {
+      "id": "T0020",
+      "start": 179,
+      "end": 184,
+      "text": "While exploring AI native architecture, I kept running into this problem.",
+      "confidence": 0.927,
+      "words": [
+        {
+          "start": 179.2,
+          "end": 179.37,
+          "text": " While",
+          "confidence": 0.74
+        },
+        {
+          "start": 179.62,
+          "end": 180.05,
+          "text": " exploring",
+          "confidence": 0.996
+        },
+        {
+          "start": 180.05,
+          "end": 180.2,
+          "text": " AI",
+          "confidence": 0.939
+        },
+        {
+          "start": 180.2,
+          "end": 180.33,
+          "text": " native",
+          "confidence": 0.965
+        },
+        {
+          "start": 180.86,
+          "end": 181.55,
+          "text": " architecture",
+          "confidence": 0.998
+        },
+        {
+          "start": 181.55,
+          "end": 181.7,
+          "text": ",",
+          "confidence": 0.902
+        },
+        {
+          "start": 181.7,
+          "end": 181.77,
+          "text": " I",
+          "confidence": 0.607
+        },
+        {
+          "start": 181.77,
+          "end": 182.07,
+          "text": " kept",
+          "confidence": 0.922
+        },
+        {
+          "start": 182.07,
+          "end": 182.6,
+          "text": " running",
+          "confidence": 0.995
+        },
+        {
+          "start": 182.6,
+          "end": 182.83,
+          "text": " into",
+          "confidence": 0.995
+        },
+        {
+          "start": 182.91,
+          "end": 183.15,
+          "text": " this",
+          "confidence": 0.993
+        },
+        {
+          "start": 183.25,
+          "end": 183.56,
+          "text": " problem",
+          "confidence": 0.999
+        },
+        {
+          "start": 183.56,
+          "end": 184,
+          "text": ".",
+          "confidence": 0.996
+        }
+      ]
+    },
+    {
+      "id": "T0021",
+      "start": 184,
+      "end": 194,
+      "text": "The Knowledge Model was excellent for representing what we understood about the architecture, but it wasn't the right place to describe how a capability should behave.",
+      "confidence": 0.969,
+      "words": [
+        {
+          "start": 184.18,
+          "end": 184.18,
+          "text": " The",
+          "confidence": 0.968
+        },
+        {
+          "start": 184.6,
+          "end": 184.74,
+          "text": " knowledge",
+          "confidence": 0.922
+        },
+        {
+          "start": 184.74,
+          "end": 185.04,
+          "text": " model",
+          "confidence": 0.985
+        },
+        {
+          "start": 185.04,
+          "end": 185.23,
+          "text": " was",
+          "confidence": 0.992
+        },
+        {
+          "start": 185.23,
+          "end": 185.33,
+          "text": " excellent",
+          "confidence": 0.986
+        },
+        {
+          "start": 185.86,
+          "end": 185.97,
+          "text": " for",
+          "confidence": 0.962
+        },
+        {
+          "start": 185.97,
+          "end": 186.71,
+          "text": " representing",
+          "confidence": 0.963
+        },
+        {
+          "start": 186.71,
+          "end": 186.87,
+          "text": " what",
+          "confidence": 0.995
+        },
+        {
+          "start": 186.96,
+          "end": 187.08,
+          "text": " we",
+          "confidence": 0.996
+        },
+        {
+          "start": 187.08,
+          "end": 187.69,
+          "text": " understood",
+          "confidence": 0.994
+        },
+        {
+          "start": 187.69,
+          "end": 188.01,
+          "text": " about",
+          "confidence": 0.99
+        },
+        {
+          "start": 188.01,
+          "end": 188.15,
+          "text": " the",
+          "confidence": 0.97
+        },
+        {
+          "start": 188.25,
+          "end": 188.56,
+          "text": " architecture",
+          "confidence": 0.993
+        },
+        {
+          "start": 189.15,
+          "end": 189.15,
+          "text": ",",
+          "confidence": 0.765
+        },
+        {
+          "start": 189.17,
+          "end": 189.38,
+          "text": " but",
+          "confidence": 0.853
+        },
+        {
+          "start": 189.38,
+          "end": 189.53,
+          "text": " it",
+          "confidence": 0.988
+        },
+        {
+          "start": 189.53,
+          "end": 189.83,
+          "text": " wasn",
+          "confidence": 0.99
+        },
+        {
+          "start": 189.83,
+          "end": 189.98,
+          "text": "'t",
+          "confidence": 0.999
+        },
+        {
+          "start": 189.98,
+          "end": 190.21,
+          "text": " the",
+          "confidence": 0.992
+        },
+        {
+          "start": 190.42,
+          "end": 190.59,
+          "text": " right",
+          "confidence": 0.998
+        },
+        {
+          "start": 190.59,
+          "end": 190.68,
+          "text": " place",
+          "confidence": 0.996
+        },
+        {
+          "start": 191.11,
+          "end": 191.11,
+          "text": " to",
+          "confidence": 0.991
+        },
+        {
+          "start": 191.18,
+          "end": 191.67,
+          "text": " describe",
+          "confidence": 0.995
+        },
+        {
+          "start": 191.88,
+          "end": 191.89,
+          "text": " how",
+          "confidence": 0.987
+        },
+        {
+          "start": 192.02,
+          "end": 192.03,
+          "text": " a",
+          "confidence": 0.851
+        },
+        {
+          "start": 192.03,
+          "end": 192.79,
+          "text": " capability",
+          "confidence": 0.994
+        },
+        {
+          "start": 192.79,
+          "end": 193.25,
+          "text": " should",
+          "confidence": 0.993
+        },
+        {
+          "start": 193.25,
+          "end": 193.7,
+          "text": " behave",
+          "confidence": 0.997
+        },
+        {
+          "start": 193.7,
+          "end": 193.99,
+          "text": ".",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "id": "T0022",
+      "start": 194,
+      "end": 202,
+      "text": "That led me to a different question. What if capability behavior became a first-class architectural concept?",
+      "confidence": 0.931,
+      "words": [
+        {
+          "start": 194.2,
+          "end": 194.25,
+          "text": " That",
+          "confidence": 0.991
+        },
+        {
+          "start": 194.25,
+          "end": 194.43,
+          "text": " led",
+          "confidence": 0.968
+        },
+        {
+          "start": 194.55,
+          "end": 194.55,
+          "text": " me",
+          "confidence": 0.991
+        },
+        {
+          "start": 194.63,
+          "end": 194.67,
+          "text": " to",
+          "confidence": 0.998
+        },
+        {
+          "start": 194.67,
+          "end": 194.73,
+          "text": " a",
+          "confidence": 0.992
+        },
+        {
+          "start": 194.73,
+          "end": 195.28,
+          "text": " different",
+          "confidence": 0.999
+        },
+        {
+          "start": 195.28,
+          "end": 195.33,
+          "text": " question",
+          "confidence": 0.999
+        },
+        {
+          "start": 195.86,
+          "end": 195.99,
+          "text": ".",
+          "confidence": 0.882
+        },
+        {
+          "start": 196.01,
+          "end": 196.36,
+          "text": " What",
+          "confidence": 0.69
+        },
+        {
+          "start": 196.36,
+          "end": 196.54,
+          "text": " if",
+          "confidence": 0.993
+        },
+        {
+          "start": 196.54,
+          "end": 197.43,
+          "text": " capability",
+          "confidence": 0.91
+        },
+        {
+          "start": 197.5,
+          "end": 198.15,
+          "text": " behavior",
+          "confidence": 0.978
+        },
+        {
+          "start": 198.25,
+          "end": 198.56,
+          "text": " became",
+          "confidence": 0.998
+        },
+        {
+          "start": 198.63,
+          "end": 198.83,
+          "text": " a",
+          "confidence": 0.861
+        },
+        {
+          "start": 199.17,
+          "end": 199.29,
+          "text": " first",
+          "confidence": 0.991
+        },
+        {
+          "start": 199.29,
+          "end": 199.33,
+          "text": "-",
+          "confidence": 0.619
+        },
+        {
+          "start": 199.37,
+          "end": 199.84,
+          "text": "class",
+          "confidence": 0.999
+        },
+        {
+          "start": 200.39,
+          "end": 200.69,
+          "text": " architectural",
+          "confidence": 0.943
+        },
+        {
+          "start": 201.18,
+          "end": 201.67,
+          "text": " concept",
+          "confidence": 0.999
+        },
+        {
+          "start": 201.67,
+          "end": 201.88,
+          "text": "?",
+          "confidence": 0.81
+        }
+      ]
+    },
+    {
+      "id": "T0023",
+      "start": 202,
+      "end": 216,
+      "text": "Not services, APIs, agents or workflows, capabilities. Capabilities that describe outcomes, behavior, rules, policies, invariants, effects and life cycle.",
+      "confidence": 0.892,
+      "words": [
+        {
+          "start": 202.2,
+          "end": 202.29,
+          "text": " Not",
+          "confidence": 0.962
+        },
+        {
+          "start": 202.61,
+          "end": 203.06,
+          "text": " services",
+          "confidence": 0.975
+        },
+        {
+          "start": 203.06,
+          "end": 203.25,
+          "text": ",",
+          "confidence": 0.948
+        },
+        {
+          "start": 203.25,
+          "end": 203.35,
+          "text": " APIs",
+          "confidence": 0.764
+        },
+        {
+          "start": 203.82,
+          "end": 203.82,
+          "text": ",",
+          "confidence": 0.99
+        },
+        {
+          "start": 203.86,
+          "end": 204.38,
+          "text": " agents",
+          "confidence": 0.985
+        },
+        {
+          "start": 204.41,
+          "end": 204.58,
+          "text": " or",
+          "confidence": 0.55
+        },
+        {
+          "start": 204.58,
+          "end": 204.87,
+          "text": " work",
+          "confidence": 0.967
+        },
+        {
+          "start": 204.96,
+          "end": 205.44,
+          "text": "flows",
+          "confidence": 0.992
+        },
+        {
+          "start": 205.44,
+          "end": 205.63,
+          "text": ",",
+          "confidence": 0.56
+        },
+        {
+          "start": 205.63,
+          "end": 206.55,
+          "text": " capabilities",
+          "confidence": 0.982
+        },
+        {
+          "start": 206.63,
+          "end": 207.06,
+          "text": ".",
+          "confidence": 0.688
+        },
+        {
+          "start": 207.17,
+          "end": 207.34,
+          "text": " Cap",
+          "confidence": 0.949
+        },
+        {
+          "start": 207.35,
+          "end": 208.17,
+          "text": "abilities",
+          "confidence": 0.993
+        },
+        {
+          "start": 208.42,
+          "end": 208.59,
+          "text": " that",
+          "confidence": 0.981
+        },
+        {
+          "start": 208.59,
+          "end": 209.36,
+          "text": " describe",
+          "confidence": 0.994
+        },
+        {
+          "start": 209.36,
+          "end": 210.13,
+          "text": " outcomes",
+          "confidence": 0.974
+        },
+        {
+          "start": 210.13,
+          "end": 210.27,
+          "text": ",",
+          "confidence": 0.965
+        },
+        {
+          "start": 210.32,
+          "end": 211.08,
+          "text": " behavior",
+          "confidence": 0.95
+        },
+        {
+          "start": 211.08,
+          "end": 211.27,
+          "text": ",",
+          "confidence": 0.953
+        },
+        {
+          "start": 211.28,
+          "end": 211.7,
+          "text": " rules",
+          "confidence": 0.994
+        },
+        {
+          "start": 211.88,
+          "end": 211.88,
+          "text": ",",
+          "confidence": 0.981
+        },
+        {
+          "start": 212.03,
+          "end": 212.72,
+          "text": " policies",
+          "confidence": 0.992
+        },
+        {
+          "start": 212.72,
+          "end": 212.87,
+          "text": ",",
+          "confidence": 0.953
+        },
+        {
+          "start": 212.98,
+          "end": 213.42,
+          "text": " invari",
+          "confidence": 0.96
+        },
+        {
+          "start": 213.52,
+          "end": 213.85,
+          "text": "ants",
+          "confidence": 0.521
+        },
+        {
+          "start": 213.88,
+          "end": 214.05,
+          "text": ",",
+          "confidence": 0.979
+        },
+        {
+          "start": 214.05,
+          "end": 214.71,
+          "text": " effects",
+          "confidence": 0.961
+        },
+        {
+          "start": 214.71,
+          "end": 214.73,
+          "text": " and",
+          "confidence": 0.681
+        },
+        {
+          "start": 215.09,
+          "end": 215.39,
+          "text": " life",
+          "confidence": 0.734
+        },
+        {
+          "start": 215.39,
+          "end": 216,
+          "text": " cycle",
+          "confidence": 0.883
+        },
+        {
+          "start": 216,
+          "end": 216,
+          "text": ".",
+          "confidence": 0.775
+        }
+      ]
+    },
+    {
+      "id": "T0024",
+      "start": 216,
+      "end": 226,
+      "text": "Without saying anything about implementation, that idea became the foundation of DCL, the Declarative Capability Language.",
+      "confidence": 0.957,
+      "words": [
+        {
+          "start": 216.6,
+          "end": 216.66,
+          "text": " Without",
+          "confidence": 0.91
+        },
+        {
+          "start": 216.66,
+          "end": 217.23,
+          "text": " saying",
+          "confidence": 0.998
+        },
+        {
+          "start": 217.23,
+          "end": 217.99,
+          "text": " anything",
+          "confidence": 0.994
+        },
+        {
+          "start": 218.01,
+          "end": 218.46,
+          "text": " about",
+          "confidence": 0.998
+        },
+        {
+          "start": 218.46,
+          "end": 219.78,
+          "text": " implementation",
+          "confidence": 0.994
+        },
+        {
+          "start": 219.81,
+          "end": 220,
+          "text": ",",
+          "confidence": 0.879
+        },
+        {
+          "start": 220,
+          "end": 220.34,
+          "text": " that",
+          "confidence": 0.937
+        },
+        {
+          "start": 220.34,
+          "end": 220.56,
+          "text": " idea",
+          "confidence": 0.997
+        },
+        {
+          "start": 221.17,
+          "end": 221.2,
+          "text": " became",
+          "confidence": 0.996
+        },
+        {
+          "start": 221.2,
+          "end": 221.38,
+          "text": " the",
+          "confidence": 0.95
+        },
+        {
+          "start": 221.52,
+          "end": 222.18,
+          "text": " foundation",
+          "confidence": 0.996
+        },
+        {
+          "start": 222.42,
+          "end": 222.49,
+          "text": " of",
+          "confidence": 0.995
+        },
+        {
+          "start": 222.49,
+          "end": 222.57,
+          "text": " D",
+          "confidence": 0.724
+        },
+        {
+          "start": 222.57,
+          "end": 222.67,
+          "text": "CL",
+          "confidence": 0.973
+        },
+        {
+          "start": 222.74,
+          "end": 222.75,
+          "text": ",",
+          "confidence": 0.758
+        },
+        {
+          "start": 223.11,
+          "end": 223.11,
+          "text": " the",
+          "confidence": 0.986
+        },
+        {
+          "start": 223.18,
+          "end": 223.5,
+          "text": " decl",
+          "confidence": 0.995
+        },
+        {
+          "start": 223.5,
+          "end": 223.67,
+          "text": "ar",
+          "confidence": 0.997
+        },
+        {
+          "start": 223.88,
+          "end": 224.11,
+          "text": "ative",
+          "confidence": 0.999
+        },
+        {
+          "start": 224.11,
+          "end": 224.97,
+          "text": " capability",
+          "confidence": 0.982
+        },
+        {
+          "start": 224.97,
+          "end": 225.66,
+          "text": " language",
+          "confidence": 0.998
+        },
+        {
+          "start": 225.66,
+          "end": 225.72,
+          "text": ".",
+          "confidence": 0.997
+        }
+      ]
+    },
+    {
+      "id": "T0025",
+      "start": 226,
+      "end": 234,
+      "text": "DCL isn't intended to replace source code, and it doesn't replace documentation, and it certainly doesn't replace prompts.",
+      "confidence": 0.933,
+      "words": [
+        {
+          "start": 226.07,
+          "end": 226.07,
+          "text": " D",
+          "confidence": 0.713
+        },
+        {
+          "start": 226.2,
+          "end": 226.21,
+          "text": "CL",
+          "confidence": 0.998
+        },
+        {
+          "start": 226.21,
+          "end": 226.43,
+          "text": " isn",
+          "confidence": 0.962
+        },
+        {
+          "start": 226.57,
+          "end": 226.57,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 226.63,
+          "end": 227.12,
+          "text": " intended",
+          "confidence": 0.999
+        },
+        {
+          "start": 227.18,
+          "end": 227.29,
+          "text": " to",
+          "confidence": 0.998
+        },
+        {
+          "start": 227.29,
+          "end": 227.33,
+          "text": " replace",
+          "confidence": 0.999
+        },
+        {
+          "start": 227.86,
+          "end": 228.24,
+          "text": " source",
+          "confidence": 0.916
+        },
+        {
+          "start": 228.32,
+          "end": 228.53,
+          "text": " code",
+          "confidence": 0.992
+        },
+        {
+          "start": 228.53,
+          "end": 228.65,
+          "text": ",",
+          "confidence": 0.519
+        },
+        {
+          "start": 228.68,
+          "end": 228.87,
+          "text": " and",
+          "confidence": 0.931
+        },
+        {
+          "start": 228.96,
+          "end": 229.03,
+          "text": " it",
+          "confidence": 0.978
+        },
+        {
+          "start": 229.03,
+          "end": 229.31,
+          "text": " doesn",
+          "confidence": 0.962
+        },
+        {
+          "start": 229.34,
+          "end": 229.53,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 229.53,
+          "end": 230.03,
+          "text": " replace",
+          "confidence": 0.996
+        },
+        {
+          "start": 230.03,
+          "end": 230.56,
+          "text": " documentation",
+          "confidence": 0.988
+        },
+        {
+          "start": 231.13,
+          "end": 231.13,
+          "text": ",",
+          "confidence": 0.508
+        },
+        {
+          "start": 231.17,
+          "end": 231.33,
+          "text": " and",
+          "confidence": 0.985
+        },
+        {
+          "start": 231.37,
+          "end": 231.38,
+          "text": " it",
+          "confidence": 0.921
+        },
+        {
+          "start": 231.5,
+          "end": 232.15,
+          "text": " certainly",
+          "confidence": 0.989
+        },
+        {
+          "start": 232.42,
+          "end": 232.51,
+          "text": " doesn",
+          "confidence": 0.99
+        },
+        {
+          "start": 232.51,
+          "end": 232.65,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 232.65,
+          "end": 233.11,
+          "text": " replace",
+          "confidence": 0.999
+        },
+        {
+          "start": 233.18,
+          "end": 233.66,
+          "text": " prompts",
+          "confidence": 0.999
+        },
+        {
+          "start": 233.66,
+          "end": 233.88,
+          "text": ".",
+          "confidence": 0.981
+        }
+      ]
+    },
+    {
+      "id": "T0026",
+      "start": 234,
+      "end": 244,
+      "text": "Instead, it provides a durable description of architectural intent, one that both humans and AI can understand consistently.",
+      "confidence": 0.953,
+      "words": [
+        {
+          "start": 234.2,
+          "end": 234.45,
+          "text": " Instead",
+          "confidence": 0.997
+        },
+        {
+          "start": 234.58,
+          "end": 234.58,
+          "text": ",",
+          "confidence": 0.919
+        },
+        {
+          "start": 234.63,
+          "end": 234.71,
+          "text": " it",
+          "confidence": 0.997
+        },
+        {
+          "start": 234.71,
+          "end": 235.23,
+          "text": " provides",
+          "confidence": 0.997
+        },
+        {
+          "start": 235.23,
+          "end": 235.29,
+          "text": " a",
+          "confidence": 0.996
+        },
+        {
+          "start": 235.29,
+          "end": 235.43,
+          "text": " durable",
+          "confidence": 0.986
+        },
+        {
+          "start": 235.86,
+          "end": 236.46,
+          "text": " description",
+          "confidence": 0.998
+        },
+        {
+          "start": 236.46,
+          "end": 236.58,
+          "text": " of",
+          "confidence": 0.999
+        },
+        {
+          "start": 236.61,
+          "end": 237.43,
+          "text": " architectural",
+          "confidence": 0.68
+        },
+        {
+          "start": 237.43,
+          "end": 237.83,
+          "text": " intent",
+          "confidence": 1
+        },
+        {
+          "start": 237.83,
+          "end": 238,
+          "text": ",",
+          "confidence": 0.644
+        },
+        {
+          "start": 238,
+          "end": 238.36,
+          "text": " one",
+          "confidence": 0.981
+        },
+        {
+          "start": 238.36,
+          "end": 238.56,
+          "text": " that",
+          "confidence": 0.994
+        },
+        {
+          "start": 239.17,
+          "end": 239.32,
+          "text": " both",
+          "confidence": 0.998
+        },
+        {
+          "start": 239.32,
+          "end": 240.02,
+          "text": " humans",
+          "confidence": 0.984
+        },
+        {
+          "start": 240.39,
+          "end": 240.39,
+          "text": " and",
+          "confidence": 0.953
+        },
+        {
+          "start": 240.42,
+          "end": 240.63,
+          "text": " AI",
+          "confidence": 0.938
+        },
+        {
+          "start": 240.63,
+          "end": 240.69,
+          "text": " can",
+          "confidence": 0.972
+        },
+        {
+          "start": 241.18,
+          "end": 242.18,
+          "text": " understand",
+          "confidence": 0.991
+        },
+        {
+          "start": 242.18,
+          "end": 243.6,
+          "text": " consistently",
+          "confidence": 0.994
+        },
+        {
+          "start": 243.6,
+          "end": 243.71,
+          "text": ".",
+          "confidence": 0.997
+        }
+      ]
+    },
+    {
+      "id": "T0027",
+      "start": 244,
+      "end": 252,
+      "text": "This also clarified something else. The Knowledge Model and DCL have different responsibilities.",
+      "confidence": 0.932,
+      "words": [
+        {
+          "start": 244.2,
+          "end": 244.36,
+          "text": " This",
+          "confidence": 0.81
+        },
+        {
+          "start": 244.61,
+          "end": 244.72,
+          "text": " also",
+          "confidence": 0.994
+        },
+        {
+          "start": 244.72,
+          "end": 245.29,
+          "text": " clarified",
+          "confidence": 0.905
+        },
+        {
+          "start": 245.86,
+          "end": 246.34,
+          "text": " something",
+          "confidence": 0.999
+        },
+        {
+          "start": 246.34,
+          "end": 246.7,
+          "text": " else",
+          "confidence": 0.997
+        },
+        {
+          "start": 246.7,
+          "end": 247,
+          "text": ".",
+          "confidence": 0.986
+        },
+        {
+          "start": 247,
+          "end": 247.27,
+          "text": " The",
+          "confidence": 0.821
+        },
+        {
+          "start": 247.27,
+          "end": 248.08,
+          "text": " knowledge",
+          "confidence": 0.985
+        },
+        {
+          "start": 248.08,
+          "end": 248.53,
+          "text": " model",
+          "confidence": 0.997
+        },
+        {
+          "start": 248.53,
+          "end": 248.79,
+          "text": " and",
+          "confidence": 0.931
+        },
+        {
+          "start": 248.79,
+          "end": 248.89,
+          "text": " D",
+          "confidence": 0.509
+        },
+        {
+          "start": 248.9,
+          "end": 249.06,
+          "text": "CL",
+          "confidence": 0.999
+        },
+        {
+          "start": 249.17,
+          "end": 249.38,
+          "text": " have",
+          "confidence": 0.99
+        },
+        {
+          "start": 249.44,
+          "end": 250.23,
+          "text": " different",
+          "confidence": 0.997
+        },
+        {
+          "start": 250.42,
+          "end": 251.67,
+          "text": " responsibilities",
+          "confidence": 0.999
+        },
+        {
+          "start": 251.88,
+          "end": 251.88,
+          "text": ".",
+          "confidence": 0.987
+        }
+      ]
+    },
+    {
+      "id": "T0028",
+      "start": 252,
+      "end": 257,
+      "text": "The Knowledge Model represents what Articulate currently understands about an architecture.",
+      "confidence": 0.895,
+      "words": [
+        {
+          "start": 252.18,
+          "end": 252.18,
+          "text": " The",
+          "confidence": 0.986
+        },
+        {
+          "start": 252.6,
+          "end": 252.72,
+          "text": " knowledge",
+          "confidence": 0.976
+        },
+        {
+          "start": 252.72,
+          "end": 253.02,
+          "text": " model",
+          "confidence": 0.997
+        },
+        {
+          "start": 253.02,
+          "end": 253.31,
+          "text": " represents",
+          "confidence": 0.968
+        },
+        {
+          "start": 253.85,
+          "end": 253.85,
+          "text": " what",
+          "confidence": 0.981
+        },
+        {
+          "start": 253.86,
+          "end": 254.46,
+          "text": " articulate",
+          "confidence": 0.42
+        },
+        {
+          "start": 254.46,
+          "end": 255,
+          "text": " currently",
+          "confidence": 0.596
+        },
+        {
+          "start": 255,
+          "end": 255.66,
+          "text": " understands",
+          "confidence": 0.917
+        },
+        {
+          "start": 255.66,
+          "end": 255.96,
+          "text": " about",
+          "confidence": 0.994
+        },
+        {
+          "start": 255.96,
+          "end": 256.08,
+          "text": " an",
+          "confidence": 0.955
+        },
+        {
+          "start": 256.08,
+          "end": 256.55,
+          "text": " architecture",
+          "confidence": 0.99
+        },
+        {
+          "start": 256.55,
+          "end": 257,
+          "text": ".",
+          "confidence": 0.954
+        }
+      ]
+    },
+    {
+      "id": "T0029",
+      "start": 257,
+      "end": 265,
+      "text": "It can contain uncertainty, conflicting claims, incomplete evidence and knowledge evolves.",
+      "confidence": 0.959,
+      "words": [
+        {
+          "start": 257.19,
+          "end": 257.19,
+          "text": " It",
+          "confidence": 0.992
+        },
+        {
+          "start": 257.2,
+          "end": 257.47,
+          "text": " can",
+          "confidence": 0.988
+        },
+        {
+          "start": 257.63,
+          "end": 258.12,
+          "text": " contain",
+          "confidence": 0.998
+        },
+        {
+          "start": 258.12,
+          "end": 259.17,
+          "text": " uncertainty",
+          "confidence": 0.999
+        },
+        {
+          "start": 259.17,
+          "end": 259.36,
+          "text": ",",
+          "confidence": 0.986
+        },
+        {
+          "start": 259.36,
+          "end": 260.31,
+          "text": " conflicting",
+          "confidence": 0.945
+        },
+        {
+          "start": 260.35,
+          "end": 260.97,
+          "text": " claims",
+          "confidence": 0.998
+        },
+        {
+          "start": 260.97,
+          "end": 261.15,
+          "text": ",",
+          "confidence": 0.99
+        },
+        {
+          "start": 261.15,
+          "end": 261.56,
+          "text": " incomplete",
+          "confidence": 0.991
+        },
+        {
+          "start": 262.17,
+          "end": 262.85,
+          "text": " evidence",
+          "confidence": 0.998
+        },
+        {
+          "start": 262.85,
+          "end": 263.15,
+          "text": " and",
+          "confidence": 0.611
+        },
+        {
+          "start": 263.39,
+          "end": 263.69,
+          "text": " knowledge",
+          "confidence": 0.994
+        },
+        {
+          "start": 264.18,
+          "end": 264.66,
+          "text": " evolves",
+          "confidence": 0.947
+        },
+        {
+          "start": 264.66,
+          "end": 264.88,
+          "text": ".",
+          "confidence": 0.992
+        }
+      ]
+    },
+    {
+      "id": "T0030",
+      "start": 265,
+      "end": 272,
+      "text": "DCL is different. DCL represents behavior once the understanding has become sufficiently clear.",
+      "confidence": 0.937,
+      "words": [
+        {
+          "start": 265.11,
+          "end": 265.11,
+          "text": " D",
+          "confidence": 0.754
+        },
+        {
+          "start": 265.2,
+          "end": 265.34,
+          "text": "CL",
+          "confidence": 0.998
+        },
+        {
+          "start": 265.57,
+          "end": 265.57,
+          "text": " is",
+          "confidence": 0.978
+        },
+        {
+          "start": 265.61,
+          "end": 266.31,
+          "text": " different",
+          "confidence": 0.999
+        },
+        {
+          "start": 266.85,
+          "end": 266.99,
+          "text": ".",
+          "confidence": 0.955
+        },
+        {
+          "start": 267.01,
+          "end": 267.07,
+          "text": " D",
+          "confidence": 0.848
+        },
+        {
+          "start": 267.07,
+          "end": 267.21,
+          "text": "CL",
+          "confidence": 0.999
+        },
+        {
+          "start": 267.21,
+          "end": 267.87,
+          "text": " represents",
+          "confidence": 0.99
+        },
+        {
+          "start": 267.96,
+          "end": 268.44,
+          "text": " behavior",
+          "confidence": 0.968
+        },
+        {
+          "start": 268.5,
+          "end": 268.77,
+          "text": " once",
+          "confidence": 0.782
+        },
+        {
+          "start": 268.77,
+          "end": 268.98,
+          "text": " the",
+          "confidence": 0.886
+        },
+        {
+          "start": 268.98,
+          "end": 269.55,
+          "text": " understanding",
+          "confidence": 0.998
+        },
+        {
+          "start": 270.11,
+          "end": 270.11,
+          "text": " has",
+          "confidence": 0.788
+        },
+        {
+          "start": 270.17,
+          "end": 270.53,
+          "text": " become",
+          "confidence": 0.987
+        },
+        {
+          "start": 270.53,
+          "end": 270.8,
+          "text": " sufficiently",
+          "confidence": 1
+        },
+        {
+          "start": 271.42,
+          "end": 271.68,
+          "text": " clear",
+          "confidence": 0.999
+        },
+        {
+          "start": 271.73,
+          "end": 271.75,
+          "text": ".",
+          "confidence": 0.996
+        }
+      ]
+    },
+    {
+      "id": "T0031",
+      "start": 272,
+      "end": 280,
+      "text": "The progression isn't conversation to DCL. Instead, it becomes conversation, knowledge, understanding, DCL.",
+      "confidence": 0.922,
+      "words": [
+        {
+          "start": 272.2,
+          "end": 272.23,
+          "text": " The",
+          "confidence": 0.85
+        },
+        {
+          "start": 272.61,
+          "end": 273.07,
+          "text": " progression",
+          "confidence": 0.998
+        },
+        {
+          "start": 273.07,
+          "end": 273.29,
+          "text": " isn",
+          "confidence": 0.989
+        },
+        {
+          "start": 273.29,
+          "end": 273.33,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 273.86,
+          "end": 274.37,
+          "text": " conversation",
+          "confidence": 0.636
+        },
+        {
+          "start": 274.37,
+          "end": 274.52,
+          "text": " to",
+          "confidence": 0.996
+        },
+        {
+          "start": 274.52,
+          "end": 274.58,
+          "text": " D",
+          "confidence": 0.894
+        },
+        {
+          "start": 274.63,
+          "end": 274.74,
+          "text": "CL",
+          "confidence": 0.999
+        },
+        {
+          "start": 274.74,
+          "end": 275,
+          "text": ".",
+          "confidence": 0.785
+        },
+        {
+          "start": 275,
+          "end": 275.77,
+          "text": " Instead",
+          "confidence": 0.779
+        },
+        {
+          "start": 275.77,
+          "end": 276,
+          "text": ",",
+          "confidence": 0.798
+        },
+        {
+          "start": 276,
+          "end": 276.14,
+          "text": " it",
+          "confidence": 0.986
+        },
+        {
+          "start": 276.14,
+          "end": 276.55,
+          "text": " becomes",
+          "confidence": 0.997
+        },
+        {
+          "start": 276.68,
+          "end": 277.39,
+          "text": " conversation",
+          "confidence": 0.978
+        },
+        {
+          "start": 277.52,
+          "end": 277.62,
+          "text": ",",
+          "confidence": 0.905
+        },
+        {
+          "start": 277.65,
+          "end": 278.24,
+          "text": " knowledge",
+          "confidence": 0.994
+        },
+        {
+          "start": 278.42,
+          "end": 278.44,
+          "text": ",",
+          "confidence": 0.966
+        },
+        {
+          "start": 278.44,
+          "end": 279.38,
+          "text": " understanding",
+          "confidence": 0.995
+        },
+        {
+          "start": 279.38,
+          "end": 279.5,
+          "text": ",",
+          "confidence": 0.811
+        },
+        {
+          "start": 279.52,
+          "end": 279.59,
+          "text": " D",
+          "confidence": 0.937
+        },
+        {
+          "start": 279.59,
+          "end": 279.68,
+          "text": "CL",
+          "confidence": 0.998
+        },
+        {
+          "start": 279.88,
+          "end": 279.88,
+          "text": ".",
+          "confidence": 0.995
+        }
+      ]
+    },
+    {
+      "id": "T0032",
+      "start": 280,
+      "end": 288,
+      "text": "In this context, the language isn't the starting point. It's the result of architectural understanding.",
+      "confidence": 0.974,
+      "words": [
+        {
+          "start": 280.16,
+          "end": 280.16,
+          "text": " In",
+          "confidence": 0.987
+        },
+        {
+          "start": 280.2,
+          "end": 280.48,
+          "text": " this",
+          "confidence": 0.998
+        },
+        {
+          "start": 280.63,
+          "end": 281.03,
+          "text": " context",
+          "confidence": 0.998
+        },
+        {
+          "start": 281.03,
+          "end": 281.12,
+          "text": ",",
+          "confidence": 0.964
+        },
+        {
+          "start": 281.17,
+          "end": 281.33,
+          "text": " the",
+          "confidence": 0.997
+        },
+        {
+          "start": 281.85,
+          "end": 282.05,
+          "text": " language",
+          "confidence": 0.997
+        },
+        {
+          "start": 282.05,
+          "end": 282.25,
+          "text": " isn",
+          "confidence": 0.99
+        },
+        {
+          "start": 282.32,
+          "end": 282.44,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 282.44,
+          "end": 282.65,
+          "text": " the",
+          "confidence": 0.986
+        },
+        {
+          "start": 282.68,
+          "end": 283.31,
+          "text": " starting",
+          "confidence": 0.948
+        },
+        {
+          "start": 283.31,
+          "end": 283.71,
+          "text": " point",
+          "confidence": 0.999
+        },
+        {
+          "start": 283.71,
+          "end": 284,
+          "text": ".",
+          "confidence": 0.83
+        },
+        {
+          "start": 284,
+          "end": 284.15,
+          "text": " It",
+          "confidence": 0.888
+        },
+        {
+          "start": 284.25,
+          "end": 284.36,
+          "text": "'s",
+          "confidence": 0.945
+        },
+        {
+          "start": 284.36,
+          "end": 284.56,
+          "text": " the",
+          "confidence": 0.997
+        },
+        {
+          "start": 285.17,
+          "end": 285.17,
+          "text": " result",
+          "confidence": 0.999
+        },
+        {
+          "start": 285.17,
+          "end": 285.33,
+          "text": " of",
+          "confidence": 0.999
+        },
+        {
+          "start": 285.53,
+          "end": 286.53,
+          "text": " architectural",
+          "confidence": 0.959
+        },
+        {
+          "start": 286.53,
+          "end": 287.67,
+          "text": " understanding",
+          "confidence": 0.998
+        },
+        {
+          "start": 287.88,
+          "end": 287.88,
+          "text": ".",
+          "confidence": 0.996
+        }
+      ]
+    },
+    {
+      "id": "T0033",
+      "start": 288,
+      "end": 298,
+      "text": "This changes how I think about architecture. A capability is not an API or a service, an agent or a workflow. Those are implementation choices.",
+      "confidence": 0.928,
+      "words": [
+        {
+          "start": 288.2,
+          "end": 288.3,
+          "text": " This",
+          "confidence": 0.99
+        },
+        {
+          "start": 288.61,
+          "end": 288.82,
+          "text": " changes",
+          "confidence": 0.987
+        },
+        {
+          "start": 288.82,
+          "end": 289.02,
+          "text": " how",
+          "confidence": 0.994
+        },
+        {
+          "start": 289.04,
+          "end": 289.11,
+          "text": " I",
+          "confidence": 0.977
+        },
+        {
+          "start": 289.11,
+          "end": 289.32,
+          "text": " think",
+          "confidence": 0.999
+        },
+        {
+          "start": 289.85,
+          "end": 289.85,
+          "text": " about",
+          "confidence": 0.981
+        },
+        {
+          "start": 289.86,
+          "end": 290.74,
+          "text": " architecture",
+          "confidence": 0.995
+        },
+        {
+          "start": 290.74,
+          "end": 291,
+          "text": ".",
+          "confidence": 0.979
+        },
+        {
+          "start": 291,
+          "end": 291.09,
+          "text": " A",
+          "confidence": 0.741
+        },
+        {
+          "start": 291.09,
+          "end": 291.99,
+          "text": " capability",
+          "confidence": 0.987
+        },
+        {
+          "start": 291.99,
+          "end": 292.15,
+          "text": " is",
+          "confidence": 0.995
+        },
+        {
+          "start": 292.25,
+          "end": 292.41,
+          "text": " not",
+          "confidence": 0.999
+        },
+        {
+          "start": 292.44,
+          "end": 292.56,
+          "text": " an",
+          "confidence": 0.979
+        },
+        {
+          "start": 292.61,
+          "end": 292.86,
+          "text": " API",
+          "confidence": 0.985
+        },
+        {
+          "start": 292.9,
+          "end": 293.06,
+          "text": " or",
+          "confidence": 0.644
+        },
+        {
+          "start": 293.16,
+          "end": 293.16,
+          "text": " a",
+          "confidence": 0.882
+        },
+        {
+          "start": 293.17,
+          "end": 293.78,
+          "text": " service",
+          "confidence": 0.985
+        },
+        {
+          "start": 293.78,
+          "end": 294,
+          "text": ",",
+          "confidence": 0.968
+        },
+        {
+          "start": 294,
+          "end": 294.19,
+          "text": " an",
+          "confidence": 0.875
+        },
+        {
+          "start": 294.42,
+          "end": 294.66,
+          "text": " agent",
+          "confidence": 0.991
+        },
+        {
+          "start": 294.66,
+          "end": 294.69,
+          "text": " or",
+          "confidence": 0.956
+        },
+        {
+          "start": 294.69,
+          "end": 294.94,
+          "text": " a",
+          "confidence": 0.788
+        },
+        {
+          "start": 295.18,
+          "end": 295.67,
+          "text": " workflow",
+          "confidence": 0.904
+        },
+        {
+          "start": 295.88,
+          "end": 295.88,
+          "text": ".",
+          "confidence": 0.823
+        },
+        {
+          "start": 296.02,
+          "end": 296.28,
+          "text": " Those",
+          "confidence": 0.541
+        },
+        {
+          "start": 296.32,
+          "end": 296.49,
+          "text": " are",
+          "confidence": 0.997
+        },
+        {
+          "start": 296.49,
+          "end": 297.36,
+          "text": " implementation",
+          "confidence": 0.994
+        },
+        {
+          "start": 297.36,
+          "end": 297.7,
+          "text": " choices",
+          "confidence": 0.997
+        },
+        {
+          "start": 297.78,
+          "end": 298,
+          "text": ".",
+          "confidence": 0.993
+        }
+      ]
+    },
+    {
+      "id": "T0034",
+      "start": 298,
+      "end": 303,
+      "text": "The capability should survive, even if every one of those technologies changes.",
+      "confidence": 0.948,
+      "words": [
+        {
+          "start": 298.2,
+          "end": 298.21,
+          "text": " The",
+          "confidence": 0.948
+        },
+        {
+          "start": 298.61,
+          "end": 298.91,
+          "text": " capability",
+          "confidence": 0.928
+        },
+        {
+          "start": 298.91,
+          "end": 299.29,
+          "text": " should",
+          "confidence": 0.997
+        },
+        {
+          "start": 299.29,
+          "end": 299.33,
+          "text": " survive",
+          "confidence": 0.999
+        },
+        {
+          "start": 299.86,
+          "end": 299.96,
+          "text": ",",
+          "confidence": 0.762
+        },
+        {
+          "start": 299.96,
+          "end": 300.24,
+          "text": " even",
+          "confidence": 0.998
+        },
+        {
+          "start": 300.24,
+          "end": 300.37,
+          "text": " if",
+          "confidence": 0.998
+        },
+        {
+          "start": 300.41,
+          "end": 300.73,
+          "text": " every",
+          "confidence": 0.766
+        },
+        {
+          "start": 300.73,
+          "end": 300.87,
+          "text": " one",
+          "confidence": 0.992
+        },
+        {
+          "start": 300.96,
+          "end": 301.08,
+          "text": " of",
+          "confidence": 0.999
+        },
+        {
+          "start": 301.08,
+          "end": 301.43,
+          "text": " those",
+          "confidence": 0.948
+        },
+        {
+          "start": 301.43,
+          "end": 302.27,
+          "text": " technologies",
+          "confidence": 0.956
+        },
+        {
+          "start": 302.27,
+          "end": 302.56,
+          "text": " changes",
+          "confidence": 0.992
+        },
+        {
+          "start": 302.56,
+          "end": 303,
+          "text": ".",
+          "confidence": 0.994
+        }
+      ]
+    },
+    {
+      "id": "T0035",
+      "start": 303,
+      "end": 310,
+      "text": "Today, a capability might be implemented by deterministic software. Tomorrow, it might use an agent.",
+      "confidence": 0.96,
+      "words": [
+        {
+          "start": 303.2,
+          "end": 303.48,
+          "text": " Today",
+          "confidence": 0.98
+        },
+        {
+          "start": 303.61,
+          "end": 303.67,
+          "text": ",",
+          "confidence": 0.846
+        },
+        {
+          "start": 303.67,
+          "end": 303.76,
+          "text": " a",
+          "confidence": 0.972
+        },
+        {
+          "start": 303.76,
+          "end": 304.3,
+          "text": " capability",
+          "confidence": 0.998
+        },
+        {
+          "start": 304.86,
+          "end": 305.2,
+          "text": " might",
+          "confidence": 0.994
+        },
+        {
+          "start": 305.2,
+          "end": 305.37,
+          "text": " be",
+          "confidence": 0.998
+        },
+        {
+          "start": 305.41,
+          "end": 306.44,
+          "text": " implemented",
+          "confidence": 0.999
+        },
+        {
+          "start": 306.44,
+          "end": 306.64,
+          "text": " by",
+          "confidence": 0.996
+        },
+        {
+          "start": 306.64,
+          "end": 307.12,
+          "text": " deter",
+          "confidence": 0.928
+        },
+        {
+          "start": 307.12,
+          "end": 307.56,
+          "text": "ministic",
+          "confidence": 0.999
+        },
+        {
+          "start": 308.17,
+          "end": 308.66,
+          "text": " software",
+          "confidence": 0.999
+        },
+        {
+          "start": 308.66,
+          "end": 309,
+          "text": ".",
+          "confidence": 0.975
+        },
+        {
+          "start": 309,
+          "end": 309.26,
+          "text": " Tomorrow",
+          "confidence": 0.922
+        },
+        {
+          "start": 309.32,
+          "end": 309.32,
+          "text": ",",
+          "confidence": 0.832
+        },
+        {
+          "start": 309.38,
+          "end": 309.38,
+          "text": " it",
+          "confidence": 0.991
+        },
+        {
+          "start": 309.42,
+          "end": 309.54,
+          "text": " might",
+          "confidence": 0.978
+        },
+        {
+          "start": 309.54,
+          "end": 309.63,
+          "text": " use",
+          "confidence": 0.976
+        },
+        {
+          "start": 309.63,
+          "end": 309.68,
+          "text": " an",
+          "confidence": 0.987
+        },
+        {
+          "start": 309.68,
+          "end": 309.7,
+          "text": " agent",
+          "confidence": 0.994
+        },
+        {
+          "start": 309.82,
+          "end": 310,
+          "text": ".",
+          "confidence": 0.834
+        }
+      ]
+    },
+    {
+      "id": "T0036",
+      "start": 310,
+      "end": 317,
+      "text": "Next year, it could become a distributed workflow. The implementation evolves, but the capability remains.",
+      "confidence": 0.971,
+      "words": [
+        {
+          "start": 310.2,
+          "end": 310.26,
+          "text": " Next",
+          "confidence": 0.952
+        },
+        {
+          "start": 310.26,
+          "end": 310.47,
+          "text": " year",
+          "confidence": 0.998
+        },
+        {
+          "start": 310.61,
+          "end": 310.65,
+          "text": ",",
+          "confidence": 0.92
+        },
+        {
+          "start": 310.65,
+          "end": 310.78,
+          "text": " it",
+          "confidence": 0.998
+        },
+        {
+          "start": 310.78,
+          "end": 311.08,
+          "text": " could",
+          "confidence": 0.992
+        },
+        {
+          "start": 311.08,
+          "end": 311.32,
+          "text": " become",
+          "confidence": 0.992
+        },
+        {
+          "start": 311.41,
+          "end": 311.55,
+          "text": " a",
+          "confidence": 0.987
+        },
+        {
+          "start": 311.85,
+          "end": 312.25,
+          "text": " distributed",
+          "confidence": 0.998
+        },
+        {
+          "start": 312.32,
+          "end": 312.78,
+          "text": " workflow",
+          "confidence": 0.997
+        },
+        {
+          "start": 312.78,
+          "end": 313,
+          "text": ".",
+          "confidence": 0.988
+        },
+        {
+          "start": 313,
+          "end": 313.23,
+          "text": " The",
+          "confidence": 0.8
+        },
+        {
+          "start": 313.23,
+          "end": 314.3,
+          "text": " implementation",
+          "confidence": 1
+        },
+        {
+          "start": 314.3,
+          "end": 314.56,
+          "text": " evolves",
+          "confidence": 0.983
+        },
+        {
+          "start": 314.56,
+          "end": 314.98,
+          "text": ",",
+          "confidence": 0.908
+        },
+        {
+          "start": 315.17,
+          "end": 315.21,
+          "text": " but",
+          "confidence": 0.956
+        },
+        {
+          "start": 315.21,
+          "end": 315.38,
+          "text": " the",
+          "confidence": 0.984
+        },
+        {
+          "start": 315.44,
+          "end": 316.2,
+          "text": " capability",
+          "confidence": 0.996
+        },
+        {
+          "start": 316.4,
+          "end": 316.68,
+          "text": " remains",
+          "confidence": 0.998
+        },
+        {
+          "start": 316.73,
+          "end": 316.75,
+          "text": ".",
+          "confidence": 0.996
+        }
+      ]
+    },
+    {
+      "id": "T0037",
+      "start": 317,
+      "end": 323,
+      "text": "That's why capabilities feel like much more of a durable architectural building blog.",
+      "confidence": 0.932,
+      "words": [
+        {
+          "start": 317.2,
+          "end": 317.32,
+          "text": " That",
+          "confidence": 0.985
+        },
+        {
+          "start": 317.32,
+          "end": 317.47,
+          "text": "'s",
+          "confidence": 0.994
+        },
+        {
+          "start": 317.61,
+          "end": 317.71,
+          "text": " why",
+          "confidence": 0.996
+        },
+        {
+          "start": 317.71,
+          "end": 318.3,
+          "text": " capabilities",
+          "confidence": 0.988
+        },
+        {
+          "start": 318.85,
+          "end": 318.98,
+          "text": " feel",
+          "confidence": 0.853
+        },
+        {
+          "start": 318.98,
+          "end": 319.24,
+          "text": " like",
+          "confidence": 0.917
+        },
+        {
+          "start": 319.32,
+          "end": 319.61,
+          "text": " much",
+          "confidence": 0.979
+        },
+        {
+          "start": 319.63,
+          "end": 319.87,
+          "text": " more",
+          "confidence": 0.998
+        },
+        {
+          "start": 319.96,
+          "end": 320.1,
+          "text": " of",
+          "confidence": 0.994
+        },
+        {
+          "start": 320.1,
+          "end": 320.18,
+          "text": " a",
+          "confidence": 0.997
+        },
+        {
+          "start": 320.18,
+          "end": 320.73,
+          "text": " durable",
+          "confidence": 0.989
+        },
+        {
+          "start": 320.73,
+          "end": 321.55,
+          "text": " architectural",
+          "confidence": 0.951
+        },
+        {
+          "start": 322.17,
+          "end": 322.38,
+          "text": " building",
+          "confidence": 0.983
+        },
+        {
+          "start": 322.39,
+          "end": 322.71,
+          "text": " blog",
+          "confidence": 0.359
+        },
+        {
+          "start": 322.71,
+          "end": 323,
+          "text": ".",
+          "confidence": 0.997
+        }
+      ]
+    },
+    {
+      "id": "T0038",
+      "start": 323,
+      "end": 336,
+      "text": "This also changes how I think about AI-native systems. It's easy to describe an architecture using agents, whether you've got a research agent, a planning agent, a decision agent or a knowledge agent.",
+      "confidence": 0.938,
+      "words": [
+        {
+          "start": 323.2,
+          "end": 323.43,
+          "text": " This",
+          "confidence": 0.928
+        },
+        {
+          "start": 323.63,
+          "end": 323.86,
+          "text": " also",
+          "confidence": 0.951
+        },
+        {
+          "start": 323.86,
+          "end": 324.3,
+          "text": " changes",
+          "confidence": 0.997
+        },
+        {
+          "start": 324.85,
+          "end": 324.93,
+          "text": " how",
+          "confidence": 0.994
+        },
+        {
+          "start": 324.93,
+          "end": 325.03,
+          "text": " I",
+          "confidence": 0.993
+        },
+        {
+          "start": 325.03,
+          "end": 325.56,
+          "text": " think",
+          "confidence": 0.999
+        },
+        {
+          "start": 325.56,
+          "end": 326.09,
+          "text": " about",
+          "confidence": 0.99
+        },
+        {
+          "start": 326.09,
+          "end": 326.3,
+          "text": " AI",
+          "confidence": 0.954
+        },
+        {
+          "start": 326.3,
+          "end": 326.4,
+          "text": "-",
+          "confidence": 0.453
+        },
+        {
+          "start": 326.4,
+          "end": 327.03,
+          "text": "native",
+          "confidence": 0.965
+        },
+        {
+          "start": 327.03,
+          "end": 327.55,
+          "text": " systems",
+          "confidence": 0.998
+        },
+        {
+          "start": 327.78,
+          "end": 327.84,
+          "text": ".",
+          "confidence": 0.976
+        },
+        {
+          "start": 328.17,
+          "end": 328.32,
+          "text": " It",
+          "confidence": 0.976
+        },
+        {
+          "start": 328.32,
+          "end": 328.53,
+          "text": "'s",
+          "confidence": 0.971
+        },
+        {
+          "start": 328.53,
+          "end": 328.96,
+          "text": " easy",
+          "confidence": 0.991
+        },
+        {
+          "start": 328.96,
+          "end": 329.17,
+          "text": " to",
+          "confidence": 0.997
+        },
+        {
+          "start": 329.39,
+          "end": 329.69,
+          "text": " describe",
+          "confidence": 0.995
+        },
+        {
+          "start": 330.18,
+          "end": 330.23,
+          "text": " an",
+          "confidence": 0.975
+        },
+        {
+          "start": 330.23,
+          "end": 331.51,
+          "text": " architecture",
+          "confidence": 0.866
+        },
+        {
+          "start": 331.51,
+          "end": 332.01,
+          "text": " using",
+          "confidence": 0.989
+        },
+        {
+          "start": 332.05,
+          "end": 332.68,
+          "text": " agents",
+          "confidence": 0.987
+        },
+        {
+          "start": 332.68,
+          "end": 332.99,
+          "text": ",",
+          "confidence": 0.667
+        },
+        {
+          "start": 332.99,
+          "end": 333.25,
+          "text": " whether",
+          "confidence": 0.902
+        },
+        {
+          "start": 333.35,
+          "end": 333.35,
+          "text": " you",
+          "confidence": 0.969
+        },
+        {
+          "start": 333.42,
+          "end": 333.45,
+          "text": "'ve",
+          "confidence": 0.874
+        },
+        {
+          "start": 333.45,
+          "end": 333.55,
+          "text": " got",
+          "confidence": 0.952
+        },
+        {
+          "start": 333.55,
+          "end": 333.58,
+          "text": " a",
+          "confidence": 0.99
+        },
+        {
+          "start": 333.58,
+          "end": 333.87,
+          "text": " research",
+          "confidence": 0.985
+        },
+        {
+          "start": 333.87,
+          "end": 334.05,
+          "text": " agent",
+          "confidence": 0.984
+        },
+        {
+          "start": 334.05,
+          "end": 334.12,
+          "text": ",",
+          "confidence": 0.982
+        },
+        {
+          "start": 334.12,
+          "end": 334.15,
+          "text": " a",
+          "confidence": 0.955
+        },
+        {
+          "start": 334.15,
+          "end": 334.42,
+          "text": " planning",
+          "confidence": 0.998
+        },
+        {
+          "start": 334.44,
+          "end": 334.62,
+          "text": " agent",
+          "confidence": 0.997
+        },
+        {
+          "start": 334.62,
+          "end": 334.68,
+          "text": ",",
+          "confidence": 0.992
+        },
+        {
+          "start": 334.72,
+          "end": 334.72,
+          "text": " a",
+          "confidence": 0.932
+        },
+        {
+          "start": 334.74,
+          "end": 335.01,
+          "text": " decision",
+          "confidence": 0.997
+        },
+        {
+          "start": 335.01,
+          "end": 335.19,
+          "text": " agent",
+          "confidence": 0.998
+        },
+        {
+          "start": 335.19,
+          "end": 335.23,
+          "text": " or",
+          "confidence": 0.727
+        },
+        {
+          "start": 335.28,
+          "end": 335.28,
+          "text": " a",
+          "confidence": 0.735
+        },
+        {
+          "start": 335.29,
+          "end": 335.61,
+          "text": " knowledge",
+          "confidence": 0.995
+        },
+        {
+          "start": 335.61,
+          "end": 335.72,
+          "text": " agent",
+          "confidence": 0.998
+        },
+        {
+          "start": 336,
+          "end": 336,
+          "text": ".",
+          "confidence": 0.822
+        }
+      ]
+    },
+    {
+      "id": "T0039",
+      "start": 336,
+      "end": 345,
+      "text": "But agents are actors. They perform work. They aren't the architectural responsibility itself. The capability is.",
+      "confidence": 0.95,
+      "words": [
+        {
+          "start": 336.2,
+          "end": 336.23,
+          "text": " But",
+          "confidence": 0.83
+        },
+        {
+          "start": 336.6,
+          "end": 336.69,
+          "text": " agents",
+          "confidence": 0.948
+        },
+        {
+          "start": 336.69,
+          "end": 336.92,
+          "text": " are",
+          "confidence": 0.898
+        },
+        {
+          "start": 336.92,
+          "end": 337.3,
+          "text": " actors",
+          "confidence": 0.995
+        },
+        {
+          "start": 337.42,
+          "end": 337.46,
+          "text": ".",
+          "confidence": 0.746
+        },
+        {
+          "start": 337.85,
+          "end": 337.91,
+          "text": " They",
+          "confidence": 0.995
+        },
+        {
+          "start": 337.91,
+          "end": 338.44,
+          "text": " perform",
+          "confidence": 0.973
+        },
+        {
+          "start": 338.44,
+          "end": 338.74,
+          "text": " work",
+          "confidence": 0.999
+        },
+        {
+          "start": 338.74,
+          "end": 339,
+          "text": ".",
+          "confidence": 0.994
+        },
+        {
+          "start": 339,
+          "end": 339.24,
+          "text": " They",
+          "confidence": 0.935
+        },
+        {
+          "start": 339.24,
+          "end": 339.44,
+          "text": " aren",
+          "confidence": 0.956
+        },
+        {
+          "start": 339.5,
+          "end": 339.6,
+          "text": "'t",
+          "confidence": 1
+        },
+        {
+          "start": 339.6,
+          "end": 339.78,
+          "text": " the",
+          "confidence": 0.993
+        },
+        {
+          "start": 339.78,
+          "end": 340.54,
+          "text": " architectural",
+          "confidence": 0.916
+        },
+        {
+          "start": 340.54,
+          "end": 341.38,
+          "text": " responsibility",
+          "confidence": 0.993
+        },
+        {
+          "start": 341.52,
+          "end": 341.78,
+          "text": " itself",
+          "confidence": 0.994
+        },
+        {
+          "start": 341.78,
+          "end": 342,
+          "text": ".",
+          "confidence": 0.914
+        },
+        {
+          "start": 342.4,
+          "end": 342.5,
+          "text": " The",
+          "confidence": 0.942
+        },
+        {
+          "start": 342.5,
+          "end": 344.16,
+          "text": " capability",
+          "confidence": 0.996
+        },
+        {
+          "start": 344.16,
+          "end": 344.47,
+          "text": " is",
+          "confidence": 0.998
+        },
+        {
+          "start": 344.48,
+          "end": 344.99,
+          "text": ".",
+          "confidence": 0.932
+        }
+      ]
+    },
+    {
+      "id": "T0040",
+      "start": 345,
+      "end": 354,
+      "text": "Once I realized that, the architecture became much clearer. The runtime exists to execute capabilities, not the other way round.",
+      "confidence": 0.945,
+      "words": [
+        {
+          "start": 345.2,
+          "end": 345.31,
+          "text": " Once",
+          "confidence": 0.951
+        },
+        {
+          "start": 345.31,
+          "end": 345.38,
+          "text": " I",
+          "confidence": 0.996
+        },
+        {
+          "start": 345.63,
+          "end": 346,
+          "text": " realized",
+          "confidence": 0.748
+        },
+        {
+          "start": 346,
+          "end": 346.29,
+          "text": " that",
+          "confidence": 0.994
+        },
+        {
+          "start": 346.29,
+          "end": 346.33,
+          "text": ",",
+          "confidence": 0.638
+        },
+        {
+          "start": 346.42,
+          "end": 346.69,
+          "text": " the",
+          "confidence": 0.995
+        },
+        {
+          "start": 346.86,
+          "end": 347.62,
+          "text": " architecture",
+          "confidence": 0.997
+        },
+        {
+          "start": 347.63,
+          "end": 348.08,
+          "text": " became",
+          "confidence": 0.996
+        },
+        {
+          "start": 348.08,
+          "end": 348.31,
+          "text": " much",
+          "confidence": 0.988
+        },
+        {
+          "start": 348.35,
+          "end": 348.93,
+          "text": " clearer",
+          "confidence": 1
+        },
+        {
+          "start": 348.93,
+          "end": 349.15,
+          "text": ".",
+          "confidence": 0.982
+        },
+        {
+          "start": 349.25,
+          "end": 349.39,
+          "text": " The",
+          "confidence": 0.974
+        },
+        {
+          "start": 349.39,
+          "end": 349.56,
+          "text": " runtime",
+          "confidence": 0.955
+        },
+        {
+          "start": 350.17,
+          "end": 350.38,
+          "text": " exists",
+          "confidence": 0.992
+        },
+        {
+          "start": 350.39,
+          "end": 350.54,
+          "text": " to",
+          "confidence": 0.996
+        },
+        {
+          "start": 350.54,
+          "end": 351.08,
+          "text": " execute",
+          "confidence": 0.999
+        },
+        {
+          "start": 351.39,
+          "end": 351.69,
+          "text": " capabilities",
+          "confidence": 0.993
+        },
+        {
+          "start": 352.16,
+          "end": 352.16,
+          "text": ",",
+          "confidence": 0.897
+        },
+        {
+          "start": 352.18,
+          "end": 352.39,
+          "text": " not",
+          "confidence": 0.995
+        },
+        {
+          "start": 352.39,
+          "end": 352.61,
+          "text": " the",
+          "confidence": 0.998
+        },
+        {
+          "start": 352.61,
+          "end": 352.88,
+          "text": " other",
+          "confidence": 0.999
+        },
+        {
+          "start": 353.03,
+          "end": 353.24,
+          "text": " way",
+          "confidence": 0.995
+        },
+        {
+          "start": 353.24,
+          "end": 353.63,
+          "text": " round",
+          "confidence": 0.604
+        },
+        {
+          "start": 353.63,
+          "end": 353.99,
+          "text": ".",
+          "confidence": 0.998
+        }
+      ]
+    },
+    {
+      "id": "T0041",
+      "start": 354,
+      "end": 363,
+      "text": "At this point, Articulate has three complementary architectural assets. The conversation, which discovers knowledge.",
+      "confidence": 0.899,
+      "words": [
+        {
+          "start": 354.18,
+          "end": 354.18,
+          "text": " At",
+          "confidence": 0.991
+        },
+        {
+          "start": 354.2,
+          "end": 354.4,
+          "text": " this",
+          "confidence": 0.999
+        },
+        {
+          "start": 354.63,
+          "end": 354.99,
+          "text": " point",
+          "confidence": 0.999
+        },
+        {
+          "start": 354.99,
+          "end": 355.12,
+          "text": ",",
+          "confidence": 0.988
+        },
+        {
+          "start": 355.17,
+          "end": 355.33,
+          "text": " Art",
+          "confidence": 0.799
+        },
+        {
+          "start": 355.42,
+          "end": 355.6,
+          "text": "ic",
+          "confidence": 0.939
+        },
+        {
+          "start": 355.85,
+          "end": 356.07,
+          "text": "ulate",
+          "confidence": 0.996
+        },
+        {
+          "start": 356.07,
+          "end": 356.34,
+          "text": " has",
+          "confidence": 0.984
+        },
+        {
+          "start": 356.34,
+          "end": 356.79,
+          "text": " three",
+          "confidence": 0.954
+        },
+        {
+          "start": 356.79,
+          "end": 357.97,
+          "text": " complementary",
+          "confidence": 0.846
+        },
+        {
+          "start": 357.97,
+          "end": 358.56,
+          "text": " architectural",
+          "confidence": 0.975
+        },
+        {
+          "start": 359.17,
+          "end": 359.69,
+          "text": " assets",
+          "confidence": 0.971
+        },
+        {
+          "start": 359.69,
+          "end": 360,
+          "text": ".",
+          "confidence": 0.372
+        },
+        {
+          "start": 360,
+          "end": 360.2,
+          "text": " The",
+          "confidence": 0.732
+        },
+        {
+          "start": 360.39,
+          "end": 360.69,
+          "text": " conversation",
+          "confidence": 0.85
+        },
+        {
+          "start": 361.16,
+          "end": 361.16,
+          "text": ",",
+          "confidence": 0.638
+        },
+        {
+          "start": 361.18,
+          "end": 361.5,
+          "text": " which",
+          "confidence": 0.991
+        },
+        {
+          "start": 361.5,
+          "end": 362.12,
+          "text": " discovers",
+          "confidence": 0.994
+        },
+        {
+          "start": 362.12,
+          "end": 362.74,
+          "text": " knowledge",
+          "confidence": 0.996
+        },
+        {
+          "start": 362.74,
+          "end": 362.99,
+          "text": ".",
+          "confidence": 0.963
+        }
+      ]
+    },
+    {
+      "id": "T0042",
+      "start": 363,
+      "end": 371,
+      "text": "The Knowledge Model, which captures architectural understanding, and DCL formalizes capability behavior.",
+      "confidence": 0.905,
+      "words": [
+        {
+          "start": 363.2,
+          "end": 363.24,
+          "text": " The",
+          "confidence": 0.809
+        },
+        {
+          "start": 363.61,
+          "end": 363.98,
+          "text": " knowledge",
+          "confidence": 0.963
+        },
+        {
+          "start": 363.98,
+          "end": 364.3,
+          "text": " model",
+          "confidence": 0.996
+        },
+        {
+          "start": 364.42,
+          "end": 364.46,
+          "text": ",",
+          "confidence": 0.877
+        },
+        {
+          "start": 364.85,
+          "end": 364.96,
+          "text": " which",
+          "confidence": 0.995
+        },
+        {
+          "start": 364.96,
+          "end": 365.58,
+          "text": " captures",
+          "confidence": 0.978
+        },
+        {
+          "start": 365.61,
+          "end": 366.68,
+          "text": " architectural",
+          "confidence": 0.884
+        },
+        {
+          "start": 366.68,
+          "end": 367.55,
+          "text": " understanding",
+          "confidence": 0.997
+        },
+        {
+          "start": 367.55,
+          "end": 367.91,
+          "text": ",",
+          "confidence": 0.467
+        },
+        {
+          "start": 368.15,
+          "end": 368.15,
+          "text": " and",
+          "confidence": 0.891
+        },
+        {
+          "start": 368.18,
+          "end": 368.23,
+          "text": " D",
+          "confidence": 0.982
+        },
+        {
+          "start": 368.23,
+          "end": 368.38,
+          "text": "CL",
+          "confidence": 0.999
+        },
+        {
+          "start": 368.38,
+          "end": 368.87,
+          "text": " formal",
+          "confidence": 0.869
+        },
+        {
+          "start": 368.87,
+          "end": 369.2,
+          "text": "izes",
+          "confidence": 0.902
+        },
+        {
+          "start": 369.39,
+          "end": 369.69,
+          "text": " capability",
+          "confidence": 0.991
+        },
+        {
+          "start": 370.18,
+          "end": 370.67,
+          "text": " behavior",
+          "confidence": 0.782
+        },
+        {
+          "start": 370.67,
+          "end": 370.88,
+          "text": ".",
+          "confidence": 0.997
+        }
+      ]
+    },
+    {
+      "id": "T0043",
+      "start": 371,
+      "end": 378,
+      "text": "Each solves a different problem. Together, they preserve architectural intent from discovery through to implementation.",
+      "confidence": 0.947,
+      "words": [
+        {
+          "start": 371.2,
+          "end": 371.25,
+          "text": " Each",
+          "confidence": 0.976
+        },
+        {
+          "start": 371.6,
+          "end": 371.63,
+          "text": " solves",
+          "confidence": 0.998
+        },
+        {
+          "start": 371.64,
+          "end": 371.69,
+          "text": " a",
+          "confidence": 0.984
+        },
+        {
+          "start": 371.69,
+          "end": 372.26,
+          "text": " different",
+          "confidence": 0.989
+        },
+        {
+          "start": 372.26,
+          "end": 372.43,
+          "text": " problem",
+          "confidence": 0.998
+        },
+        {
+          "start": 372.85,
+          "end": 372.89,
+          "text": ".",
+          "confidence": 0.958
+        },
+        {
+          "start": 372.89,
+          "end": 373.37,
+          "text": " Together",
+          "confidence": 0.988
+        },
+        {
+          "start": 373.41,
+          "end": 373.51,
+          "text": ",",
+          "confidence": 0.871
+        },
+        {
+          "start": 373.51,
+          "end": 373.76,
+          "text": " they",
+          "confidence": 0.997
+        },
+        {
+          "start": 373.76,
+          "end": 374.26,
+          "text": " preserve",
+          "confidence": 0.985
+        },
+        {
+          "start": 374.26,
+          "end": 375.08,
+          "text": " architectural",
+          "confidence": 0.917
+        },
+        {
+          "start": 375.08,
+          "end": 375.41,
+          "text": " intent",
+          "confidence": 0.999
+        },
+        {
+          "start": 375.46,
+          "end": 375.57,
+          "text": " from",
+          "confidence": 0.961
+        },
+        {
+          "start": 376.17,
+          "end": 376.28,
+          "text": " discovery",
+          "confidence": 0.982
+        },
+        {
+          "start": 376.28,
+          "end": 376.72,
+          "text": " through",
+          "confidence": 0.913
+        },
+        {
+          "start": 376.72,
+          "end": 376.84,
+          "text": " to",
+          "confidence": 0.678
+        },
+        {
+          "start": 377.39,
+          "end": 377.69,
+          "text": " implementation",
+          "confidence": 0.997
+        },
+        {
+          "start": 377.73,
+          "end": 377.75,
+          "text": ".",
+          "confidence": 0.846
+        }
+      ]
+    },
+    {
+      "id": "T0044",
+      "start": 378,
+      "end": 383,
+      "text": "And that's exactly what we'll need as we move into implementation.",
+      "confidence": 0.935,
+      "words": [
+        {
+          "start": 378.2,
+          "end": 378.25,
+          "text": " And",
+          "confidence": 0.496
+        },
+        {
+          "start": 378.59,
+          "end": 378.59,
+          "text": " that",
+          "confidence": 0.985
+        },
+        {
+          "start": 378.63,
+          "end": 378.76,
+          "text": "'s",
+          "confidence": 0.995
+        },
+        {
+          "start": 378.76,
+          "end": 379.29,
+          "text": " exactly",
+          "confidence": 0.995
+        },
+        {
+          "start": 379.35,
+          "end": 379.67,
+          "text": " what",
+          "confidence": 0.997
+        },
+        {
+          "start": 379.85,
+          "end": 379.87,
+          "text": " we",
+          "confidence": 0.996
+        },
+        {
+          "start": 379.87,
+          "end": 380.09,
+          "text": "'ll",
+          "confidence": 0.932
+        },
+        {
+          "start": 380.13,
+          "end": 380.46,
+          "text": " need",
+          "confidence": 0.997
+        },
+        {
+          "start": 380.46,
+          "end": 380.61,
+          "text": " as",
+          "confidence": 0.911
+        },
+        {
+          "start": 380.63,
+          "end": 380.8,
+          "text": " we",
+          "confidence": 0.999
+        },
+        {
+          "start": 380.8,
+          "end": 381.14,
+          "text": " move",
+          "confidence": 0.999
+        },
+        {
+          "start": 381.14,
+          "end": 381.44,
+          "text": " into",
+          "confidence": 0.968
+        },
+        {
+          "start": 381.5,
+          "end": 382.54,
+          "text": " implementation",
+          "confidence": 0.997
+        },
+        {
+          "start": 382.63,
+          "end": 383,
+          "text": ".",
+          "confidence": 0.825
+        }
+      ]
+    },
+    {
+      "id": "T0045",
+      "start": 383,
+      "end": 391,
+      "text": "Because now, we know what we understand, how we reason, and how capabilities should behave.",
+      "confidence": 0.943,
+      "words": [
+        {
+          "start": 383.6,
+          "end": 383.68,
+          "text": " Because",
+          "confidence": 0.948
+        },
+        {
+          "start": 383.68,
+          "end": 383.97,
+          "text": " now",
+          "confidence": 0.962
+        },
+        {
+          "start": 383.97,
+          "end": 384.12,
+          "text": ",",
+          "confidence": 0.74
+        },
+        {
+          "start": 384.17,
+          "end": 384.32,
+          "text": " we",
+          "confidence": 0.993
+        },
+        {
+          "start": 384.34,
+          "end": 384.67,
+          "text": " know",
+          "confidence": 0.999
+        },
+        {
+          "start": 384.86,
+          "end": 385.09,
+          "text": " what",
+          "confidence": 0.892
+        },
+        {
+          "start": 385.13,
+          "end": 385.32,
+          "text": " we",
+          "confidence": 0.999
+        },
+        {
+          "start": 385.32,
+          "end": 386.29,
+          "text": " understand",
+          "confidence": 0.998
+        },
+        {
+          "start": 386.29,
+          "end": 386.44,
+          "text": ",",
+          "confidence": 0.858
+        },
+        {
+          "start": 386.5,
+          "end": 386.77,
+          "text": " how",
+          "confidence": 0.901
+        },
+        {
+          "start": 386.77,
+          "end": 386.96,
+          "text": " we",
+          "confidence": 0.997
+        },
+        {
+          "start": 386.96,
+          "end": 387.54,
+          "text": " reason",
+          "confidence": 0.994
+        },
+        {
+          "start": 387.54,
+          "end": 387.7,
+          "text": ",",
+          "confidence": 0.688
+        },
+        {
+          "start": 387.7,
+          "end": 388.02,
+          "text": " and",
+          "confidence": 0.982
+        },
+        {
+          "start": 388.17,
+          "end": 388.31,
+          "text": " how",
+          "confidence": 0.997
+        },
+        {
+          "start": 388.31,
+          "end": 389.47,
+          "text": " capabilities",
+          "confidence": 0.997
+        },
+        {
+          "start": 389.47,
+          "end": 389.68,
+          "text": " should",
+          "confidence": 0.997
+        },
+        {
+          "start": 390.18,
+          "end": 390.61,
+          "text": " behave",
+          "confidence": 0.999
+        },
+        {
+          "start": 390.62,
+          "end": 390.88,
+          "text": ".",
+          "confidence": 0.977
+        }
+      ]
+    },
+    {
+      "id": "T0046",
+      "start": 391,
+      "end": 398,
+      "text": "And finally, ask a different question. What kind of runtime do those capabilities actually need?",
+      "confidence": 0.935,
+      "words": [
+        {
+          "start": 391.2,
+          "end": 391.25,
+          "text": " And",
+          "confidence": 0.919
+        },
+        {
+          "start": 391.61,
+          "end": 391.83,
+          "text": " finally",
+          "confidence": 0.938
+        },
+        {
+          "start": 391.83,
+          "end": 391.99,
+          "text": ",",
+          "confidence": 0.782
+        },
+        {
+          "start": 391.99,
+          "end": 392.24,
+          "text": " ask",
+          "confidence": 0.988
+        },
+        {
+          "start": 392.24,
+          "end": 392.31,
+          "text": " a",
+          "confidence": 0.991
+        },
+        {
+          "start": 392.31,
+          "end": 393.06,
+          "text": " different",
+          "confidence": 0.999
+        },
+        {
+          "start": 393.06,
+          "end": 393.72,
+          "text": " question",
+          "confidence": 1
+        },
+        {
+          "start": 393.72,
+          "end": 394,
+          "text": ".",
+          "confidence": 0.532
+        },
+        {
+          "start": 394,
+          "end": 394.31,
+          "text": " What",
+          "confidence": 0.837
+        },
+        {
+          "start": 394.31,
+          "end": 394.62,
+          "text": " kind",
+          "confidence": 0.991
+        },
+        {
+          "start": 394.62,
+          "end": 394.77,
+          "text": " of",
+          "confidence": 0.998
+        },
+        {
+          "start": 394.77,
+          "end": 395.31,
+          "text": " runtime",
+          "confidence": 0.979
+        },
+        {
+          "start": 395.31,
+          "end": 395.41,
+          "text": " do",
+          "confidence": 0.916
+        },
+        {
+          "start": 395.46,
+          "end": 395.68,
+          "text": " those",
+          "confidence": 0.996
+        },
+        {
+          "start": 396.17,
+          "end": 396.79,
+          "text": " capabilities",
+          "confidence": 0.999
+        },
+        {
+          "start": 397.39,
+          "end": 397.4,
+          "text": " actually",
+          "confidence": 0.996
+        },
+        {
+          "start": 397.42,
+          "end": 397.67,
+          "text": " need",
+          "confidence": 0.999
+        },
+        {
+          "start": 397.72,
+          "end": 397.74,
+          "text": "?",
+          "confidence": 0.977
+        }
+      ]
+    },
+    {
+      "id": "T0047",
+      "start": 398,
+      "end": 403,
+      "text": "That becomes the first major architectural decision of the implementation journey.",
+      "confidence": 0.982,
+      "words": [
+        {
+          "start": 398.2,
+          "end": 398.27,
+          "text": " That",
+          "confidence": 0.979
+        },
+        {
+          "start": 398.6,
+          "end": 398.74,
+          "text": " becomes",
+          "confidence": 0.991
+        },
+        {
+          "start": 398.74,
+          "end": 398.94,
+          "text": " the",
+          "confidence": 0.996
+        },
+        {
+          "start": 398.94,
+          "end": 399.27,
+          "text": " first",
+          "confidence": 0.999
+        },
+        {
+          "start": 399.27,
+          "end": 399.35,
+          "text": " major",
+          "confidence": 0.996
+        },
+        {
+          "start": 399.86,
+          "end": 400.47,
+          "text": " architectural",
+          "confidence": 0.972
+        },
+        {
+          "start": 400.47,
+          "end": 401.01,
+          "text": " decision",
+          "confidence": 0.999
+        },
+        {
+          "start": 401.01,
+          "end": 401.14,
+          "text": " of",
+          "confidence": 0.975
+        },
+        {
+          "start": 401.14,
+          "end": 401.3,
+          "text": " the",
+          "confidence": 0.997
+        },
+        {
+          "start": 401.34,
+          "end": 402.28,
+          "text": " implementation",
+          "confidence": 0.967
+        },
+        {
+          "start": 402.28,
+          "end": 402.56,
+          "text": " journey",
+          "confidence": 0.998
+        },
+        {
+          "start": 402.56,
+          "end": 403,
+          "text": ".",
+          "confidence": 0.912
+        }
+      ]
+    },
+    {
+      "id": "T0048",
+      "start": 403,
+      "end": 408,
+      "text": "And that is the topic for the next episode. Selecting an agent runtime.",
+      "confidence": 0.933,
+      "words": [
+        {
+          "start": 403.16,
+          "end": 403.16,
+          "text": " And",
+          "confidence": 0.836
+        },
+        {
+          "start": 403.2,
+          "end": 403.37,
+          "text": " that",
+          "confidence": 0.998
+        },
+        {
+          "start": 403.37,
+          "end": 403.47,
+          "text": " is",
+          "confidence": 0.972
+        },
+        {
+          "start": 403.61,
+          "end": 403.63,
+          "text": " the",
+          "confidence": 0.994
+        },
+        {
+          "start": 403.64,
+          "end": 403.9,
+          "text": " topic",
+          "confidence": 0.997
+        },
+        {
+          "start": 403.9,
+          "end": 404.06,
+          "text": " for",
+          "confidence": 0.989
+        },
+        {
+          "start": 404.06,
+          "end": 404.22,
+          "text": " the",
+          "confidence": 0.977
+        },
+        {
+          "start": 404.22,
+          "end": 404.33,
+          "text": " next",
+          "confidence": 1
+        },
+        {
+          "start": 404.42,
+          "end": 404.67,
+          "text": " episode",
+          "confidence": 0.999
+        },
+        {
+          "start": 404.86,
+          "end": 404.99,
+          "text": ".",
+          "confidence": 0.478
+        },
+        {
+          "start": 405.01,
+          "end": 405.69,
+          "text": " Select",
+          "confidence": 0.858
+        },
+        {
+          "start": 405.69,
+          "end": 406.03,
+          "text": "ing",
+          "confidence": 0.999
+        },
+        {
+          "start": 406.03,
+          "end": 406.26,
+          "text": " an",
+          "confidence": 0.961
+        },
+        {
+          "start": 406.26,
+          "end": 406.83,
+          "text": " agent",
+          "confidence": 0.904
+        },
+        {
+          "start": 406.83,
+          "end": 407.54,
+          "text": " runtime",
+          "confidence": 0.981
+        },
+        {
+          "start": 407.6,
+          "end": 407.99,
+          "text": ".",
+          "confidence": 0.985
+        }
+      ]
+    }
+  ]
+}
