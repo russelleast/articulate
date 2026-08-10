@@ -143,3 +143,23 @@ This episode creates the Knowledge Service, the central service responsible for 
 The implementation establishes the project structure, service boundaries, APIs and foundational abstractions that future episodes will build upon.
 
 It marks the transition from architectural thinking to executable software.
+
+## Future episodes
+
+Episodes in no set order
+
+- Learn from Reasoning: After observabilty, evaluation. Look at reasoning maps with evaluation to see how agents can learn from data
+- Hardware analysis: Using Ollama Gemma3 on mac mini, profile the hardware to see how it performs and how it can be improved
+
+- Conversation (season): 
+  - Conversational ui and backend service, using sse and llm.
+  - RAG: include companion documentation to aid the users looking how to use articulate.
+  - Speech service: SST & TTS
+  - The conversation spine - the intent router
+
+- Discovery (season):
+  - Question service: question sets and hidden checklist pattern
+  - Signal extraction: NLP and LLM
+  - Landscape discovery lens: Quantitive Claims
+  - System lens - Ontology
+  - Domaim lens - DDD & DCL 
