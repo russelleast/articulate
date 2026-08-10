@@ -48,8 +48,24 @@
       "diagram_asset": null
     },
     {
-      "scene_id": "S006",
+      "scene_id": "S006A",
       "start_seconds": 98,
+      "end_seconds": 105,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S006B",
+      "start_seconds": 105,
+      "end_seconds": 111,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S006C",
+      "start_seconds": 111,
       "end_seconds": 117,
       "visual_type": "Focus Canvas",
       "presenter_mode": "audio-continuous",
@@ -64,12 +80,44 @@
       "diagram_asset": null
     },
     {
-      "scene_id": "S008",
+      "scene_id": "S008A",
       "start_seconds": 126,
+      "end_seconds": 133,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0009-intent-fragmentation-state-01"
+    },
+    {
+      "scene_id": "S008B",
+      "start_seconds": 133,
+      "end_seconds": 142,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0009-intent-fragmentation-state-02"
+    },
+    {
+      "scene_id": "S008C",
+      "start_seconds": 142,
+      "end_seconds": 152,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0009-intent-fragmentation-state-03"
+    },
+    {
+      "scene_id": "S008D",
+      "start_seconds": 152,
+      "end_seconds": 162,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0009-intent-fragmentation-state-04"
+    },
+    {
+      "scene_id": "S008E",
+      "start_seconds": 162,
       "end_seconds": 173,
       "visual_type": "Diagram",
       "presenter_mode": "audio-continuous",
-      "diagram_asset": null
+      "diagram_asset": "episode-0009-intent-fragmentation-state-05"
     },
     {
       "scene_id": "S009",
@@ -96,8 +144,32 @@
       "diagram_asset": null
     },
     {
-      "scene_id": "S012",
+      "scene_id": "S012A",
       "start_seconds": 202,
+      "end_seconds": 205.5,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S012B",
+      "start_seconds": 205.5,
+      "end_seconds": 209,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S012C",
+      "start_seconds": 209,
+      "end_seconds": 212.5,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S012D",
+      "start_seconds": 212.5,
       "end_seconds": 216,
       "visual_type": "Focus Canvas",
       "presenter_mode": "audio-continuous",

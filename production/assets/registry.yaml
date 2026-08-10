@@ -732,6 +732,61 @@
       "source": "production/diagrams/sources/episodes/0009/conceptual-architecture-complete.d2",
       "location": "site/public/diagrams/episode-0009-conceptual-architecture-complete.svg",
       "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-01",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-01.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-01.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-02",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-02.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-02.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-03",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-03.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-03.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-04",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-04.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-04.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-05",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-05.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-05.svg",
+      "provider": "local"
     }
   ]
 }

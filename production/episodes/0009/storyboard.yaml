@@ -69,14 +69,36 @@
       "end_seconds": 98
     },
     {
-      "id": "S006",
+      "id": "S006A",
       "title": "Keep the capability's meaning",
       "archetype": "Focus Canvas",
       "kind": "presenter-diagram",
       "narrative_segments": [
-        "N022-N026"
+        "N022-N024"
       ],
       "start_seconds": 98,
+      "end_seconds": 105
+    },
+    {
+      "id": "S006B",
+      "title": "Keep the capability's meaning",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N025-N026"
+      ],
+      "start_seconds": 105,
+      "end_seconds": 111
+    },
+    {
+      "id": "S006C",
+      "title": "Keep the capability's meaning",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N026"
+      ],
+      "start_seconds": 111,
       "end_seconds": 117
     },
     {
@@ -91,14 +113,58 @@
       "end_seconds": 126
     },
     {
-      "id": "S008",
+      "id": "S008A",
       "title": "Architecture begins to leak",
       "archetype": "Diagram",
       "kind": "presenter-diagram",
       "narrative_segments": [
-        "N030-N045"
+        "N030-N032"
       ],
       "start_seconds": 126,
+      "end_seconds": 133
+    },
+    {
+      "id": "S008B",
+      "title": "Intent enters delivery planning",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N033-N034"
+      ],
+      "start_seconds": 133,
+      "end_seconds": 142
+    },
+    {
+      "id": "S008C",
+      "title": "Intent disperses into software",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N035"
+      ],
+      "start_seconds": 142,
+      "end_seconds": 152
+    },
+    {
+      "id": "S008D",
+      "title": "Intent disperses into runtime",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N036"
+      ],
+      "start_seconds": 152,
+      "end_seconds": 162
+    },
+    {
+      "id": "S008E",
+      "title": "The architecture is fragmented",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N037-N045"
+      ],
+      "start_seconds": 162,
       "end_seconds": 173
     },
     {
@@ -135,14 +201,47 @@
       "end_seconds": 202
     },
     {
-      "id": "S012",
+      "id": "S012A",
       "title": "Describe the capability",
       "archetype": "Focus Canvas",
       "kind": "presenter-diagram",
       "narrative_segments": [
-        "N059-N061"
+        "N059"
       ],
       "start_seconds": 202,
+      "end_seconds": 205.5
+    },
+    {
+      "id": "S012B",
+      "title": "Describe the capability",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N060"
+      ],
+      "start_seconds": 205.5,
+      "end_seconds": 209
+    },
+    {
+      "id": "S012C",
+      "title": "Describe the capability",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N060"
+      ],
+      "start_seconds": 209,
+      "end_seconds": 212.5
+    },
+    {
+      "id": "S012D",
+      "title": "Describe the capability",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N060-N061"
+      ],
+      "start_seconds": 212.5,
       "end_seconds": 216
     },
     {

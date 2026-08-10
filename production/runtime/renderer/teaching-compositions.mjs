@@ -27,31 +27,11 @@ function graphic(scene, area, state) {
     case "horizontal-progression": return progression(scene, area, state, labels);
     case "knowledge-graph": return graph(scene, area, state, labels, true);
     case "reasoning-map": return reasoningMap(scene, area, state, labels);
-    case "intent-fragmentation": return intentFragmentation(scene, area, state, labels, details);
     case "stable-capability": return stableCapability(scene, area, state, labels, details);
     case "capability-orbit": return capabilityOrbit(scene, area, state, labels, details);
+    case "concept-decomposition": return conceptDecomposition(scene, area, state, labels, details);
     default: throw new Error(`${scene.id} uses unknown teaching layout '${scene.teachingLayout}'`);
   }
-}
-
-function intentFragmentation(scene, area, state, labels, details) {
-  const capability = { x: area.x + 18, y: area.y + area.height / 2 - 70, width: 330, height: 140 };
-  const fragments = labels.slice(1).map((_, index) => ({
-    x: area.x + 500 + index % 3 * 275,
-    y: area.y + 20 + Math.floor(index / 3) * 150,
-    width: 235,
-    height: 108
-  }));
-  const paths = fragments.map((box, index) => {
-    if (!visible("item-1", state) || !visible(`item-${index + 2}`, state)) return "";
-    return curvedArrow(capability, box, index > 3 ? "#c77a58" : "#6f93a4");
-  }).join("");
-  const source = element("item-1", node(scene, "item-1", labels[0], details[0], capability, state, "evidence"), state);
-  const nodes = fragments.map((box, index) => {
-    const id = `item-${index + 2}`;
-    return element(id, node(scene, id, labels[index + 1], details[index + 1], box, state, index > 3 ? "rust" : "default"), state);
-  }).join("");
-  return `${paths}${source}${nodes}`;
 }
 
 function stableCapability(scene, area, state, labels, details) {
@@ -83,6 +63,35 @@ function capabilityOrbit(scene, area, state, labels, details) {
     return element(id, node(scene, id, labels[index + 1], details[index + 1], box, state), state);
   }).join("");
   return `${paths}${nodes}${source}`;
+}
+
+function conceptDecomposition(scene, area, state, labels, details) {
+  const centre = {
+    x: area.x + (labels.length === 1 ? area.width / 2 - 260 : 70),
+    y: area.y + area.height / 2 - 88,
+    width: 520,
+    height: 176
+  };
+  const satellites = labels.slice(1).map((_, index, values) => {
+    const count = values.length;
+    const height = count === 1 ? 176 : count === 2 ? 142 : 116;
+    const gap = count === 1 ? 0 : 22;
+    const groupHeight = count * height + (count - 1) * gap;
+    return {
+      x: area.x + area.width - 600,
+      y: area.y + (area.height - groupHeight) / 2 + index * (height + gap),
+      width: 530,
+      height
+    };
+  });
+  const paths = satellites.map((box, index) => !visible("item-1", state) || !visible(`item-${index + 2}`, state)
+    ? "" : boxArrow(centre, box, index === satellites.length - 1 ? "#c77a58" : "#6f93a4")).join("");
+  const source = element("item-1", node(scene, "item-1", labels[0], details[0], centre, state, "evidence"), state);
+  const nodes = satellites.map((box, index) => {
+    const id = `item-${index + 2}`;
+    return element(id, node(scene, id, labels[index + 1], details[index + 1], box, state, index === satellites.length - 1 ? "rust" : "default"), state);
+  }).join("");
+  return `${paths}${source}${nodes}`;
 }
 
 function verticalPath(scene, area, state, labels, details) {

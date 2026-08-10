@@ -1,0 +1,13 @@
+...@../../../styles/articulate
+direction: right
+
+capability: "Capability\nOriginal intent obscured" {class: external}
+delivery: "Delivery planning\nRequirements · Backlog" {class: capability}
+software: "Software\nSource code · Validation" {class: service}
+runtime: "Runtime\nDeployments · Configuration" {class: node}
+ai: "AI behaviour\nPrompts · Workflows" {class: evidence}
+
+capability -> delivery: {style.stroke-dash: 5}
+capability -> software: {style.stroke-dash: 5}
+capability -> runtime: {style.stroke-dash: 5}
+capability -> ai: {style.stroke-dash: 5}

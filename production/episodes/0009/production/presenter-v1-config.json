@@ -312,25 +312,18 @@
       ]
     },
     {
-      "id": "S006",
+      "id": "S006A",
       "title": "Keep the capability's meaning",
       "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
       "headline": "Keep the capability's meaning",
-      "support": "Behavioural intent should travel with the capability.",
+      "support": "Begin with one durable architectural idea.",
       "items": [
-        "Purpose",
-        "Outcome",
-        "Rules",
-        "Policies",
-        "Expected behaviour"
+        "Capability meaning"
       ],
-      "teachingLayout": "capability-lenses",
+      "teachingLayout": "concept-decomposition",
       "details": [
-        "why it exists",
-        "what it produces",
-        "what it obeys",
-        "what governs it",
-        "what remains true"
+        "what must remain true"
       ],
       "companion": false,
       "assetIds": [
@@ -339,48 +332,84 @@
       "transition": "cut",
       "timeline": {
         "connectorTiming": "with-destination",
-        "events": [
-          {
-            "id": "desire-purpose",
-            "at": 9.41,
-            "action": "reveal",
-            "target": "item-1",
-            "sourcePhrase": "why it exists"
-          },
-          {
-            "id": "desire-outcome",
-            "at": 10.61,
-            "action": "reveal",
-            "target": "item-2",
-            "sourcePhrase": "outcomes it should produce"
-          },
-          {
-            "id": "desire-rules",
-            "at": 13.17,
-            "action": "reveal",
-            "target": "item-3",
-            "sourcePhrase": "rules it must obey"
-          },
-          {
-            "id": "desire-policies",
-            "at": 14.4,
-            "action": "reveal",
-            "target": "item-4",
-            "sourcePhrase": "policies it operates under"
-          },
-          {
-            "id": "desire-behaviour",
-            "at": 16.6,
-            "action": "reveal",
-            "target": "item-5",
-            "sourcePhrase": "behaviors that we expect"
-          }
-        ]
+        "events": []
       },
       "shots": [
         {
           "id": "section",
           "label": "Keep the Meaning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006B",
+      "title": "Keep the capability's meaning",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Keep the capability's meaning",
+      "support": "Purpose and outcome explain why the capability exists.",
+      "items": [
+        "Capability meaning",
+        "Purpose & outcome"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "what must remain true",
+        "why it exists · what it produces"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Purpose and Outcome",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006C",
+      "title": "Keep the capability's meaning",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Keep the capability's meaning",
+      "support": "Governance and expected behaviour complete the intent.",
+      "items": [
+        "Capability meaning",
+        "Purpose & outcome",
+        "Rules & policies",
+        "Expected behaviour"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "what must remain true",
+        "why it exists · what it produces",
+        "what it obeys · what governs it",
+        "how it should behave"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Rules Policies and Behaviour",
           "at": 0,
           "events": []
         }
@@ -412,128 +441,140 @@
       ]
     },
     {
-      "id": "S008",
+      "id": "S008A",
       "title": "Architecture begins to leak",
       "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-01",
+      "visualStateMode": "complete-diagram",
       "headline": "Architecture begins to leak",
-      "support": "One coherent capability disperses into disconnected implementation artefacts.",
-      "items": [
-        "Capability",
-        "Requirements",
-        "Backlog",
-        "Source code",
-        "Deployments",
-        "Prompts",
-        "Workflows",
-        "Validation",
-        "Configuration",
-        "Old documents"
-      ],
-      "teachingLayout": "intent-fragmentation",
-      "details": [
-        "architectural idea",
-        "translated",
-        "planned",
-        "implemented",
-        "operated",
-        "embedded",
-        "distributed",
-        "hidden",
-        "scattered",
-        "forgotten"
-      ],
+      "support": "The capability starts as one coherent architectural state.",
+      "items": [],
       "companion": false,
       "assetIds": [
-        "A002"
+        "A002",
+        "A005"
       ],
       "transition": "cut",
       "timeline": {
         "connectorTiming": "with-destination",
-        "events": [
-          {
-            "id": "conflict-capability",
-            "at": 3.27,
-            "action": "reveal",
-            "target": "item-1",
-            "sourcePhrase": "capability starts life"
-          },
-          {
-            "id": "conflict-requirements",
-            "at": 7.61,
-            "action": "reveal",
-            "target": "item-2",
-            "sourcePhrase": "becomes a requirement"
-          },
-          {
-            "id": "conflict-backlog",
-            "at": 10.01,
-            "action": "reveal",
-            "target": "item-3",
-            "sourcePhrase": "backlog items"
-          },
-          {
-            "id": "conflict-code",
-            "at": 12.17,
-            "action": "reveal",
-            "target": "item-4",
-            "sourcePhrase": "become source code"
-          },
-          {
-            "id": "conflict-deployments",
-            "at": 14.18,
-            "action": "reveal",
-            "target": "item-5",
-            "sourcePhrase": "becomes deployments"
-          },
-          {
-            "id": "conflict-prompts",
-            "at": 21.5,
-            "action": "reveal",
-            "target": "item-6",
-            "sourcePhrase": "inside prompts"
-          },
-          {
-            "id": "conflict-workflows",
-            "at": 23.66,
-            "action": "reveal",
-            "target": "item-7",
-            "sourcePhrase": "workflow definitions"
-          },
-          {
-            "id": "conflict-validation",
-            "at": 26,
-            "action": "reveal",
-            "target": "item-8",
-            "sourcePhrase": "validation logic"
-          },
-          {
-            "id": "conflict-config",
-            "at": 28.35,
-            "action": "reveal",
-            "target": "item-9",
-            "sourcePhrase": "across configuration"
-          },
-          {
-            "id": "conflict-documents",
-            "at": 31.62,
-            "action": "reveal",
-            "target": "item-10",
-            "sourcePhrase": "old documents"
-          },
-          {
-            "id": "conflict-fragmented",
-            "at": 37.25,
-            "action": "emphasize",
-            "target": "item-1",
-            "duration": 7,
-            "sourcePhrase": "intent has been fragmented"
-          }
-        ]
+        "events": []
       },
       "shots": [
         {
           "id": "section",
-          "label": "Architectural Intent Fragments",
+          "label": "Capability Intent Is Coherent",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008B",
+      "title": "Intent enters delivery planning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-02",
+      "visualStateMode": "complete-diagram",
+      "headline": "Intent enters delivery planning",
+      "support": "Requirements and backlog reinterpret the capability.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Intent Enters Delivery Planning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008C",
+      "title": "Intent disperses into software",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-03",
+      "visualStateMode": "complete-diagram",
+      "headline": "Intent disperses into software",
+      "support": "Source code and validation absorb more of the meaning.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Intent Disperses Into Software",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008D",
+      "title": "Intent disperses into runtime",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-04",
+      "visualStateMode": "complete-diagram",
+      "headline": "Intent disperses into runtime",
+      "support": "Deployments and configuration carry operational intent.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Intent Disperses Into Runtime",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008E",
+      "title": "The architecture is fragmented",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-05",
+      "visualStateMode": "complete-diagram",
+      "headline": "The architecture is fragmented",
+      "support": "Intent is distributed across artefacts—and rationale survives only in old documents.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architecture Is Fragmented",
           "at": 0,
           "events": []
         }
@@ -657,29 +698,18 @@
       ]
     },
     {
-      "id": "S012",
+      "id": "S012A",
       "title": "Describe the capability",
       "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
       "headline": "Describe the capability",
-      "support": "Progressively reveal the intent without choosing an implementation.",
+      "support": "Begin with the architectural responsibility.",
       "items": [
-        "Outcomes",
-        "Behaviour",
-        "Rules",
-        "Policies",
-        "Invariants",
-        "Effects",
-        "Lifecycle"
+        "Capability"
       ],
-      "teachingLayout": "capability-lenses",
+      "teachingLayout": "concept-decomposition",
       "details": [
-        "produces",
-        "responds",
-        "permits",
-        "governs",
-        "preserves",
-        "changes",
-        "evolves"
+        "implementation-independent"
       ],
       "companion": false,
       "assetIds": [
@@ -688,62 +718,120 @@
       "transition": "cut",
       "timeline": {
         "connectorTiming": "with-destination",
-        "events": [
-          {
-            "id": "behaviour-outcomes",
-            "at": 6.59,
-            "action": "reveal",
-            "target": "item-1",
-            "sourcePhrase": "describe outcomes"
-          },
-          {
-            "id": "behaviour-behaviour",
-            "at": 8.32,
-            "action": "reveal",
-            "target": "item-2",
-            "sourcePhrase": "behavior"
-          },
-          {
-            "id": "behaviour-rules",
-            "at": 9.28,
-            "action": "reveal",
-            "target": "item-3",
-            "sourcePhrase": "rules"
-          },
-          {
-            "id": "behaviour-policies",
-            "at": 10.03,
-            "action": "reveal",
-            "target": "item-4",
-            "sourcePhrase": "policies"
-          },
-          {
-            "id": "behaviour-invariants",
-            "at": 10.98,
-            "action": "reveal",
-            "target": "item-5",
-            "sourcePhrase": "invariants"
-          },
-          {
-            "id": "behaviour-effects",
-            "at": 12.05,
-            "action": "reveal",
-            "target": "item-6",
-            "sourcePhrase": "effects"
-          },
-          {
-            "id": "behaviour-lifecycle",
-            "at": 13.09,
-            "action": "reveal",
-            "target": "item-7",
-            "sourcePhrase": "life cycle"
-          }
-        ]
+        "events": []
       },
       "shots": [
         {
           "id": "section",
-          "label": "Describe Behavioural Intent",
+          "label": "Begin With the Capability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012B",
+      "title": "Describe the capability",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Describe the capability",
+      "support": "Outcomes and behaviour express its intent.",
+      "items": [
+        "Capability",
+        "Intent"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "implementation-independent",
+        "outcomes · behaviour"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Describe Intent",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012C",
+      "title": "Describe the capability",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Describe the capability",
+      "support": "Rules and policies govern that intent.",
+      "items": [
+        "Capability",
+        "Intent",
+        "Governance"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "implementation-independent",
+        "outcomes · behaviour",
+        "rules · policies"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Describe Governance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012D",
+      "title": "Describe the capability",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Describe the capability",
+      "support": "Integrity and lifecycle complete the behavioural model.",
+      "items": [
+        "Capability",
+        "Intent",
+        "Governance",
+        "Integrity & lifecycle"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "implementation-independent",
+        "outcomes · behaviour",
+        "rules · policies",
+        "invariants · effects · lifecycle"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Describe Integrity and Lifecycle",
           "at": 0,
           "events": []
         }

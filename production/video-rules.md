@@ -9,3 +9,7 @@ If communicating that idea requires more than four equally important visual elem
 Do not shrink or compress content simply to fit within a single frame.
 
 The viewer's attention should always have an obvious focal point.
+
+- A scene should answer one question.
+
+If the viewer could reasonably ask two different questions about what is on screen, the scene contains too much information and should be split into multiple shots

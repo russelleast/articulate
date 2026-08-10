@@ -64,8 +64,8 @@ test("the home page exposes recent Episodes beside the hero with detailed previe
   assert.match(home, /class="latest-episode-preview"/);
   assert.match(home, /href="\/articulate\/episodes\/0015-derived-knowledge\/"/);
   assert.match(home, /Latest video/);
-  assert.match(home, /href="\/articulate\/episodes\/0008-agentic-rag-and-knowledge-reasoning\/"/);
-  assert.match(home, /href="https:\/\/youtu\.be\/rN0Sr9CYCSI"/);
+  assert.match(home, /href="\/articulate\/episodes\/0009-defining-architectural-behaviour-with-dcl\/"/);
+  assert.match(home, /href="https:\/\/youtu\.be\/lD9BOdSmSjA"/);
   assert.doesNotMatch(home, /Current Architectural Question|>Start Here<|Architecture at a Glance/);
   assert.match(home, /An architecture journal built through evidence/);
 });
@@ -208,6 +208,13 @@ for (const episode of [
     youtubeUrl: "https://youtu.be/rN0Sr9CYCSI",
     videoId: "rN0Sr9CYCSI",
     iframeTitle: "Knowledge Reasoning: Beyond RAG — Articulate Journal Episode 8"
+  },
+  {
+    slug: "0009-defining-architectural-behaviour-with-dcl",
+    thumbnail: "episode-0009-thumbnail.png",
+    youtubeUrl: "https://youtu.be/lD9BOdSmSjA",
+    videoId: "lD9BOdSmSjA",
+    iframeTitle: "Defining Architectural Behaviour with DCL — Articulate Journal Episode 9"
   }
 ]) {
   test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {

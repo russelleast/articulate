@@ -63,16 +63,40 @@
       "matchedText": "reviewed boundary at 89.000s"
     },
     {
-      "id": "desire",
+      "id": "desire-core",
       "title": "Keep the Meaning",
       "narrativeSegments": [
-        "N022-N026"
+        "N022-N024"
       ],
       "start": 98,
-      "end": 117,
+      "end": 105,
       "confidence": 1,
       "anchor": "reviewed-boundary",
       "matchedText": "reviewed boundary at 98.000s"
+    },
+    {
+      "id": "desire-intent",
+      "title": "Purpose and Outcome",
+      "narrativeSegments": [
+        "N025-N026"
+      ],
+      "start": 105,
+      "end": 111,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 105.000s"
+    },
+    {
+      "id": "desire-governance",
+      "title": "Rules Policies and Behaviour",
+      "narrativeSegments": [
+        "N026"
+      ],
+      "start": 111,
+      "end": 117,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 111.000s"
     },
     {
       "id": "durability",
@@ -87,16 +111,64 @@
       "matchedText": "reviewed boundary at 117.000s"
     },
     {
-      "id": "conflict",
-      "title": "Architectural Intent Fragments",
+      "id": "conflict-coherent",
+      "title": "Capability Intent Is Coherent",
       "narrativeSegments": [
-        "N030-N045"
+        "N030-N032"
       ],
       "start": 126,
-      "end": 173,
+      "end": 133,
       "confidence": 1,
       "anchor": "reviewed-boundary",
       "matchedText": "reviewed boundary at 126.000s"
+    },
+    {
+      "id": "conflict-delivery",
+      "title": "Intent Enters Delivery Planning",
+      "narrativeSegments": [
+        "N033-N034"
+      ],
+      "start": 133,
+      "end": 142,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 133.000s"
+    },
+    {
+      "id": "conflict-software",
+      "title": "Intent Disperses Into Software",
+      "narrativeSegments": [
+        "N035"
+      ],
+      "start": 142,
+      "end": 152,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 142.000s"
+    },
+    {
+      "id": "conflict-runtime",
+      "title": "Intent Disperses Into Runtime",
+      "narrativeSegments": [
+        "N036"
+      ],
+      "start": 152,
+      "end": 162,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 152.000s"
+    },
+    {
+      "id": "conflict-fragmented",
+      "title": "Architecture Is Fragmented",
+      "narrativeSegments": [
+        "N037-N045"
+      ],
+      "start": 162,
+      "end": 173,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 162.000s"
     },
     {
       "id": "representation",
@@ -135,16 +207,52 @@
       "matchedText": "reviewed boundary at 194.000s"
     },
     {
-      "id": "behaviour",
-      "title": "Describe Behavioural Intent",
+      "id": "behaviour-capability",
+      "title": "Begin With the Capability",
       "narrativeSegments": [
-        "N059-N061"
+        "N059"
       ],
       "start": 202,
-      "end": 216,
+      "end": 205.5,
       "confidence": 1,
       "anchor": "reviewed-boundary",
       "matchedText": "reviewed boundary at 202.000s"
+    },
+    {
+      "id": "behaviour-intent",
+      "title": "Describe Intent",
+      "narrativeSegments": [
+        "N060"
+      ],
+      "start": 205.5,
+      "end": 209,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 205.500s"
+    },
+    {
+      "id": "behaviour-governance",
+      "title": "Describe Governance",
+      "narrativeSegments": [
+        "N060"
+      ],
+      "start": 209,
+      "end": 212.5,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 209.000s"
+    },
+    {
+      "id": "behaviour-lifecycle",
+      "title": "Describe Integrity and Lifecycle",
+      "narrativeSegments": [
+        "N060-N061"
+      ],
+      "start": 212.5,
+      "end": 216,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 212.500s"
     },
     {
       "id": "dcl-reveal",

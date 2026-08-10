@@ -56,10 +56,32 @@ for (const [index, scene] of boundaries.entries()) {
 if (boundaries[0]?.startFrame !== 0) errors.push("First scene does not start at frame zero");
 if (boundaries.at(-1)?.endFrame !== Math.round(durationTarget * frameRate)) errors.push("Final scene does not end on the publication frame");
 
-for (const expected of ["episode-0009-conversation-to-dcl", "episode-0009-discovery-to-dcl", "episode-0009-conceptual-architecture-complete"]) {
+for (const expected of [
+  "episode-0009-conversation-to-dcl",
+  "episode-0009-discovery-to-dcl",
+  "episode-0009-conceptual-architecture-complete",
+  "episode-0009-intent-fragmentation-state-01",
+  "episode-0009-intent-fragmentation-state-02",
+  "episode-0009-intent-fragmentation-state-03",
+  "episode-0009-intent-fragmentation-state-04",
+  "episode-0009-intent-fragmentation-state-05"
+]) {
   if (!config.scenes.some((scene) => scene.diagramAssetId === expected)) errors.push(`Required visual sequence is missing: ${expected}`);
 }
-if (!config.scenes.some((scene) => scene.teachingLayout === "intent-fragmentation")) errors.push("Central intent-fragmentation sequence is missing");
+const fragmentationStates = config.scenes.filter((scene) => scene.id.startsWith("S008"));
+if (fragmentationStates.length !== 5) errors.push("Intent fragmentation must use five complete diagram states");
+for (const scene of fragmentationStates) {
+  if (scene.visualStateMode !== "complete-diagram" || !scene.diagramAssetId || scene.timeline.events.length) {
+    errors.push(`${scene.id} must be a complete static architectural diagram state`);
+  }
+}
+const focusStates = config.scenes.filter((scene) => scene.id.startsWith("S006") || scene.id.startsWith("S012"));
+for (const scene of focusStates) {
+  if (scene.visualStateMode !== "complete-focus-state" || scene.timeline.events.length) {
+    errors.push(`${scene.id} must be a complete static Focus Canvas state`);
+  }
+  if (scene.items.length > 4) errors.push(`${scene.id} exceeds four top-level Focus Canvas elements`);
+}
 if (!config.scenes.some((scene) => scene.teachingLayout === "stable-capability")) errors.push("Capability/implementation durability sequence is missing");
 if (!config.scenes.some((scene) => scene.teachingLayout === "capability-orbit")) errors.push("Agent-as-actor sequence is missing");
 
@@ -100,7 +122,8 @@ const report = {
     "integer-frame scene boundaries and 1080p output",
     "EBU R128 programme loudness",
     "current visual grammar with progressive Focus Canvas and diagram states",
-    "intent fragmentation, stable capability, Knowledge Model and DCL visuals",
+    "complete architectural diagram states for intent fragmentation",
+    "complete Focus Canvas states with no more than four top-level concepts",
     "subtitle range, overlap, line length and architectural terminology",
     "presenter-based thumbnail and reusable diagram sources"
   ],

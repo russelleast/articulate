@@ -224,6 +224,31 @@ test("presenter teaching compositions progressively reveal addressable architect
   assert.match(svg, /marker-end="url\(#presenter-arrow\)"/);
 });
 
+test("concept decomposition keeps one focus and at most three peer concepts comfortably framed", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-CONCEPT-STATES",
+    kind: "presenter-diagram",
+    transition: "cut",
+    teachingLayout: "concept-decomposition",
+    headline: "Describe the capability",
+    support: "Each frame is one complete conceptual state.",
+    items: ["Capability", "Intent", "Governance", "Integrity & lifecycle"],
+    details: ["implementation-independent", "outcomes · behaviour", "rules · policies", "invariants · effects · lifecycle"],
+    startSeconds: 0,
+    endSeconds: 10,
+    durationSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0009", title: "Defining Architectural Behaviour with DCL" }, { width: 1920, height: 1080 }, "", presenterGrammar, {
+    hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0
+  });
+  assert.match(svg, /data-element="item-1"/);
+  assert.match(svg, /Integrity &amp; lifecycle/);
+  assert.equal([...svg.matchAll(/marker-end="url\(#presenter-arrow\)"/g)].length, 3);
+  assert.equal([...svg.matchAll(/data-element="item-/g)].length, 4);
+});
+
 test("teaching connectors require visible endpoints and completed states use canonical diagrams", () => {
   const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
   const scene = {

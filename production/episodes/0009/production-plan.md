@@ -10,14 +10,14 @@ Keep the capability visually central. Motion must reveal translation, fragmentat
 
 ## Capability
 
-The production engine must express two episode-specific relationships: one intent dispersing into many artefacts, and changing implementations surrounding stable capability intent.
+The production engine must express two episode-specific relationships: one intent dispersing across successive architectural states, and changing implementations surrounding stable capability intent.
 
 ## Architecture
 
-The episode extends the existing teaching-composition boundary with reusable `intent-fragmentation`, `stable-capability` and `capability-orbit` layouts. It reuses the presenter grammar, D2 publication profile, recorded-media timing authority and deterministic timeline actions.
+The fragmentation sequence uses five complete D2 states rather than constructing one diagram box by box. Conceptual decomposition uses the reusable `concept-decomposition` Focus Canvas layout, with no more than four top-level concepts in any state. Existing `stable-capability` and `capability-orbit` layouts remain unchanged.
 
 ## Runtime
 
-The 409.909-second recording drives 29 scenes. Timeline reveals change the visual state at narration-aligned phrases, with the central conflict evolving approximately every four to eight seconds.
+The 409.909-second recording remains the timing authority. The central conflict changes through complete diagram states, while the desire and DCL decomposition sequences change through complete Focus Canvas states.
 
 No ADR is required: the added layouts are incremental compositions within the existing declarative-shot and visual-grammar decisions, not a new production architecture.

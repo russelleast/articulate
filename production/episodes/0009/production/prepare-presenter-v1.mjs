@@ -200,6 +200,7 @@ function buildScene(scene, section, index) {
     title: scene.headline,
     kind: scene.kind,
     ...(scene.diagramAssetId ? { diagramAssetId: scene.diagramAssetId } : {}),
+    ...(scene.visualStateMode ? { visualStateMode: scene.visualStateMode } : {}),
     headline: scene.headline,
     support: scene.support,
     items: scene.items ?? [],

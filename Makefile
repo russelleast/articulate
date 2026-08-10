@@ -310,6 +310,11 @@ episode-0009-presenter-prepare:
 	node production/runtime/diagrams-cli.mjs render episode-0009-architecture-sequence
 	node production/runtime/diagrams-cli.mjs render episode-0009-discovery-to-dcl
 	node production/runtime/diagrams-cli.mjs render episode-0009-conceptual-architecture-complete
+	node production/runtime/diagrams-cli.mjs render episode-0009-intent-fragmentation-state-01
+	node production/runtime/diagrams-cli.mjs render episode-0009-intent-fragmentation-state-02
+	node production/runtime/diagrams-cli.mjs render episode-0009-intent-fragmentation-state-03
+	node production/runtime/diagrams-cli.mjs render episode-0009-intent-fragmentation-state-04
+	node production/runtime/diagrams-cli.mjs render episode-0009-intent-fragmentation-state-05
 	node production/episodes/0009/production/prepare-presenter-v1.mjs
 
 episode-0009-presenter-analyse: episode-0009-presenter-prepare
