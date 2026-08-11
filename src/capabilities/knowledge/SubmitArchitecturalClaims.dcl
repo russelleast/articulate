@@ -1,11 +1,16 @@
 language dcl 1.1
 
-context KnowledgeModel {
-    depends on Shapes
- 
-    actor Architect is Human
+context KnowledgeModel { 
+    actor Architect is human
 
     capability SubmitArchitecturalClaims {
         intent claim from Architect
+
+        outcome Accepted
+        
+
+        when {
+            always  Accepted
+        }
     }
 }

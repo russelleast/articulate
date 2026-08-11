@@ -7,5 +7,13 @@ context KnowledgeModel {
 
     capability CaptureProposedKnowledge {
         intent claim from ingestAgent
+
+        outcomes {
+            Accepted
+        }
+
+        when {
+            always Accepted
+        }
     }
 }
