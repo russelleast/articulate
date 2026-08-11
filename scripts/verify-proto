@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -eu
+
+repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+
+echo "Protobuf verification"
+
+if ! find "$repository_root" \
+  -path '*/.git' -prune -o \
+  -path '*/node_modules' -prune -o \
+  -name '*.proto' -print -quit | grep -q .; then
+  echo "  not configured: no protobuf contracts found"
+  exit 0
+fi
+
+echo "  failed: protobuf contracts exist, but repository verification is not configured"
+echo "  configure schema validation, generated-code freshness, and compatibility checks here"
+exit 1

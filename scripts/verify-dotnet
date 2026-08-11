@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -eu
+
+repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+
+echo ".NET verification"
+
+if ! find "$repository_root" \
+  -path '*/.git' -prune -o \
+  -path '*/node_modules' -prune -o \
+  \( -name '*.sln' -o -name '*.slnx' -o -name '*.csproj' \) -print -quit | grep -q .; then
+  echo "  not configured: no .NET project found"
+  exit 0
+fi
+
+echo "  failed: a .NET project exists, but repository verification is not configured"
+echo "  configure repository-defined restore, build, test, formatting, and analysis here"
+exit 1

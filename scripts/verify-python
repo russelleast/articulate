@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -eu
+
+repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+
+echo "Python verification"
+
+if ! find "$repository_root" \
+  -path '*/.git' -prune -o \
+  -path '*/node_modules' -prune -o \
+  -name pyproject.toml -print -quit | grep -q .; then
+  echo "  not configured: no Python project found"
+  exit 0
+fi
+
+echo "  failed: a Python project exists, but repository verification is not configured"
+echo "  configure uv environment consistency, formatting, linting, type checking, and pytest here"
+exit 1
