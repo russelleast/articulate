@@ -4,7 +4,7 @@ context KnowledgeModel {
     actor Architect is human
 
     capability SubmitArchitecturalClaims {
-        intent claim from Architect
+        intent Claim from Architect
 
         outcome Accepted
         

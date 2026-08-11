@@ -1,12 +1,10 @@
 language dcl 1.1
 
-context KnowledgeModel {
-    depends on Shapes
-    
+context KnowledgeModel {    
     actor ingestAgent is agent
 
     capability CaptureProposedKnowledge {
-        intent claim from ingestAgent
+        intent Claim from ingestAgent
 
         outcomes {
             Accepted
