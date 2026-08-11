@@ -1,0 +1,369 @@
+1
+00:00:00,160 --> 00:00:04,650
+Where should Architectural
+Intelligence actually execute?
+
+2
+00:00:04,920 --> 00:00:08,380
+That's the question I've reached
+while building the conceptual
+
+3
+00:00:08,460 --> 00:00:10,650
+architecture for the Knowledge API.
+
+4
+00:00:10,720 --> 00:00:13,590
+Hello I'm Russell and
+welcome to episode 10 of
+
+5
+00:00:13,670 --> 00:00:16,640
+the Articulate Journal where
+I'm exploring what it takes
+
+6
+00:00:16,720 --> 00:00:19,940
+to build an AI-native architecture
+from the first principles.
+
+7
+00:00:20,050 --> 00:00:24,545
+Over the past few episodes
+we've explored the Knowledge
+
+8
+00:00:24,625 --> 00:00:27,930
+Model. looked at how AI can
+reason over architectural
+
+9
+00:00:27,970 --> 00:00:32,630
+knowledge and how we can
+describe a capability behaviour
+
+10
+00:00:32,710 --> 00:00:37,070
+using DCL. Every architecture
+eventually reaches a point where
+
+11
+00:00:37,110 --> 00:00:38,830
+the ideas have to become software.
+
+12
+00:00:38,880 --> 00:00:42,150
+For Articulate I want
+that point to arrive very
+
+13
+00:00:42,230 --> 00:00:46,330
+soon. Architectural Intelligence
+won't simply answer prompts.
+
+14
+00:00:46,410 --> 00:00:50,600
+It will retrieve knowledge, reason
+over architectural problems, invoke
+
+15
+00:00:50,680 --> 00:00:54,960
+tools, collaborate with people,
+evolve the Knowledge Model and
+
+16
+00:00:55,040 --> 00:00:58,600
+coordinate long running work.
+Something has to orchestrate all
+
+17
+00:00:58,670 --> 00:01:02,440
+of that. In other words
+Articulate needs a runtime.
+
+18
+00:01:02,620 --> 00:01:06,200
+At first glance it seemed like
+a straightforward technology
+
+19
+00:01:06,280 --> 00:01:10,147
+decision. Should I use Dapr,
+Temporal, LangGraph or Microsoft
+
+20
+00:01:10,227 --> 00:01:15,620
+Agent Framework? There are already
+several excellent technologies available
+
+21
+00:01:15,700 --> 00:01:18,380
+so perhaps the obvious
+next step is simply to
+
+22
+00:01:18,460 --> 00:01:21,340
+compare them. The more
+I thought about it the
+
+23
+00:01:21,380 --> 00:01:23,890
+more I realized I wasn't
+actually ready to compare
+
+24
+00:01:24,010 --> 00:01:26,460
+any of them because I
+still hadn't answered the
+
+25
+00:01:26,520 --> 00:01:31,520
+simpler question. What is the
+runtime actually responsible for?
+
+26
+00:01:32,130 --> 00:01:35,190
+That question completely changed
+how I approached the decision.
+
+27
+00:01:35,230 --> 00:01:38,430
+Instead of looking at products
+I started looking back
+
+28
+00:01:38,510 --> 00:01:42,400
+at the architecture we'd already
+defined and something interesting
+
+29
+00:01:42,460 --> 00:01:47,810
+happened. The architecture had
+already begun answering the question.
+
+30
+00:01:48,260 --> 00:01:52,780
+Articulate isn't a traditional
+request response application.
+
+31
+00:01:53,650 --> 00:01:58,060
+Architectural reasoning may take
+minutes, hours and even days.
+
+32
+00:01:58,610 --> 00:02:02,140
+The capability may need to
+retrieve knowledge from several
+
+33
+00:02:02,220 --> 00:02:05,050
+software sources before
+it can reach a conclusion.
+
+34
+00:02:05,190 --> 00:02:07,850
+It may invoke external tools.
+
+35
+00:02:08,090 --> 00:02:11,740
+It may collaborate with other
+specialised capabilities.
+
+36
+00:02:11,810 --> 00:02:15,370
+It may need clarification
+from a human architect before
+
+37
+00:02:15,450 --> 00:02:18,840
+it can continue. And when
+something goes wrong it
+
+38
+00:02:18,920 --> 00:02:21,450
+shouldn't simply lose
+everything and start again.
+
+39
+00:02:21,580 --> 00:02:25,480
+Without deliberately planning it
+the previous episodes had already
+
+40
+00:02:25,560 --> 00:02:28,690
+revealed a set of responsibilities
+that any runtime would
+
+41
+00:02:28,760 --> 00:02:32,010
+need to support. It would need
+to coordinate long-running
+
+42
+00:02:32,090 --> 00:02:35,680
+work. It should orchestrate
+specialised capabilities.
+
+43
+00:02:35,720 --> 00:02:37,530
+It should invoke external tools.
+
+44
+00:02:37,640 --> 00:02:41,300
+It should recover safely
+from failure and it should
+
+45
+00:02:41,340 --> 00:02:43,790
+provide visibility into what is going on.
+
+46
+00:02:43,950 --> 00:02:47,600
+And it should remain flexible
+enough to evolve alongside
+
+47
+00:02:47,680 --> 00:02:51,060
+an AI ecosystem that's
+changing almost monthly.
+
+48
+00:02:51,130 --> 00:02:54,410
+None of those describe
+a particular technology.
+
+49
+00:02:54,460 --> 00:02:57,640
+They describe the job the
+runtime needs to perform.
+
+50
+00:02:57,770 --> 00:03:00,943
+At this point I expected
+the decision to become
+
+51
+00:03:01,023 --> 00:03:04,710
+clearer. Instead another
+question kept getting in the way.
+
+52
+00:03:04,810 --> 00:03:08,400
+Almost every AI framework
+talks about memory.
+
+53
+00:03:08,440 --> 00:03:13,010
+Conversation memory, working memory,
+long-term memory, execution memory.
+
+54
+00:03:13,120 --> 00:03:16,440
+Some treat memory as
+something the runtime owns.
+
+55
+00:03:16,740 --> 00:03:18,980
+Others expect it to live elsewhere.
+
+56
+00:03:19,120 --> 00:03:21,880
+The more I read the
+more I realized everyone
+
+57
+00:03:21,960 --> 00:03:23,830
+seemed to be using the
+same word to describe
+
+58
+00:03:23,910 --> 00:03:27,710
+several completely different
+responsibilities. And if I couldn't
+
+59
+00:03:27,790 --> 00:03:31,540
+explain what memory meant
+within Articulate then how could
+
+60
+00:03:31,620 --> 00:03:34,783
+I possibly decide what
+runtime would be the better
+
+61
+00:03:34,863 --> 00:03:39,300
+fit? Because I didn't know which
+responsibilities belonged inside
+
+62
+00:03:39,370 --> 00:03:43,250
+the runtime and which belonged
+elsewhere in the architecture.
+
+63
+00:03:43,360 --> 00:03:46,720
+So this episode doesn't end
+with a technology decision.
+
+64
+00:03:46,900 --> 00:03:50,860
+Instead it marks the beginning
+of an investigation captured
+
+65
+00:03:50,940 --> 00:03:55,840
+in ADR 0001. We've identified
+the responsibilities at the
+
+66
+00:03:55,880 --> 00:03:59,410
+runtime will eventually need
+to fulfil that the runtime
+
+67
+00:03:59,490 --> 00:04:02,670
+is a significant architectural component.
+
+68
+00:04:02,940 --> 00:04:06,380
+Not simply somewhere to execute prompts.
+
+69
+00:04:06,420 --> 00:04:08,960
+And we've uncovered that
+the next question needs to
+
+70
+00:04:09,040 --> 00:04:11,860
+be answered before any
+technology can be selected.
+
+71
+00:04:11,950 --> 00:04:15,640
+What does memory actually
+mean in an AI-native system?
+
+72
+00:04:15,730 --> 00:04:19,180
+Because once we understand
+that we'll be much closer
+
+73
+00:04:19,260 --> 00:04:21,910
+to understanding what
+the runtime should own.
+
+74
+00:04:22,310 --> 00:04:25,640
+And only then will we be ready to evaluate
+
+75
+00:04:25,720 --> 00:04:29,830
+the technologies themselves.
+That's what we're exploring in the
+
+76
+00:04:29,910 --> 00:04:32,933
+next episode. See you then.

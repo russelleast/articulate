@@ -1,0 +1,53 @@
+ Where should architectural intelligence actually execute? That's the question I've
+ reached while building the conceptual architecture for the knowledge API.
+ Hello I'm Russell and welcome to episode 10 of the Articulate Journal where I'm
+ exploring what it takes to build an AI native architecture from the first
+ principles. Over the past few episodes we've explored the knowledge model. Look
+ at how AI can reason over architectural knowledge and how we can describe a
+ capability behavior using DCM. Every architecture eventually reaches a
+ point where the ideas have to become software. For articulate I want that
+ point to arrive very soon. Architectural intelligence won't simply answer prompts.
+ It will retrieve knowledge, reason over architectural problems, invoke tools,
+ collaborate with people, involve the knowledge model and coordinate long running
+ work. Something has to orchestrate all of that. In other words articulate needs at
+ runtime. At first glance it seemed like a straightforward technology decision.
+ Should I use dapper, temporal, land graph or Microsoft agent framework? There are
+ already several excellent technologies available so perhaps the obvious question
+ isn't simply compare them. The more I thought about it the more I realized I
+ wasn't actually ready to compare any of them because I still hadn't answered the
+ simpler question. What is the runtime actually responsible for? That question
+ completely changed how I approached the decision. Instead of looking at products
+ I started looking back at the architecture we'd already defined and
+ something interesting happened. The architecture had already begun answering
+ the question. Articulate isn't a traditional request response application.
+ Architectural reasoning may take minutes, hours and even days. The capability may
+ need to retrieve knowledge from several software sources before it can reach a
+ conclusion. It may invoke external tools. It may collaborate with other
+ specialized capabilities. It may need clarification from a human architect
+ before it can continue. And when something goes wrong it shouldn't simply lose
+ everything can start again. Without deliberately planning it the previous
+ episodes had already revealed a set of responsibilities that any runtime would
+ need to support. It would need to coordinate long-running work. It should
+ orchestrate specialized capabilities. It should invoke external tools. It should
+ recover safely from failure and it should provide visibility into what is
+ going on. And it should remain flexible enough to evolve alongside an AI ecosystem
+ that's changing almost monthly. None of those describe a particular
+ technology. They describe the job the runtime needs to perform. At this point I
+ expect a decision to become cleaner. Instead another question kept getting
+ into way. Almost every AI framework talks about memory. Conversation memory,
+ working memory, long-term memory, execution memory. Some treat memory as
+ something the runtime owns. Others expect it to live elsewhere. The more I read
+ the more I realized everyone seemed to be using the same word to describe several
+ completely different responsibilities. And if I couldn't explain what memory
+ meant within Articulate then how could I possibly decide what runtime would be
+ the benefit? Because I didn't know which responsibilities belonged inside the
+ runtime and which belonged elsewhere in the architecture. So this episode doesn't
+ end with a technology decision. Instead it marks the beginning of an
+ investigation captured in ADR 0001. We've identified the responsibilities at the
+ runtime will eventually need to fails that the runtime is a significant
+ architectural component. Not simply somewhere to execute prompts. And we've
+ uncovered that the next question needs to be answered before any technology can be
+ selected. What does memory actually mean in an AI native system? Because once we
+ understand that we'll be much closer to understanding what the runtime should
+ own. And only then will we be ready to evaluate the technologies themselves.
+ That's what we're exploring in the next episode. See you then.

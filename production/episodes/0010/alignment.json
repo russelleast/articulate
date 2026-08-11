@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "hook",
+      "title": "The Runtime Question",
+      "narrativeSegments": [
+        "N001-N002"
+      ],
+      "start": 0,
+      "end": 10.56,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "foundation",
+      "title": "The Conceptual Architecture",
+      "narrativeSegments": [
+        "N003-N005"
+      ],
+      "start": 10.56,
+      "end": 36.44,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 10.560s"
+    },
+    {
+      "id": "software",
+      "title": "Ideas Become Software",
+      "narrativeSegments": [
+        "N006-N007"
+      ],
+      "start": 36.44,
+      "end": 45.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 36.440s"
+    },
+    {
+      "id": "orchestration",
+      "title": "A Runtime Is Needed",
+      "narrativeSegments": [
+        "N008-N016"
+      ],
+      "start": 45.6,
+      "end": 65.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 45.600s"
+    },
+    {
+      "id": "candidates",
+      "title": "Plausible Runtime Candidates",
+      "narrativeSegments": [
+        "N017-N024"
+      ],
+      "start": 65.4,
+      "end": 80.6,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 65.400s"
+    },
+    {
+      "id": "different-question",
+      "title": "A Different Question",
+      "narrativeSegments": [
+        "N025-N032"
+      ],
+      "start": 80.6,
+      "end": 108.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 80.600s"
+    },
+    {
+      "id": "responsibilities-emerge",
+      "title": "Responsibilities Emerge",
+      "narrativeSegments": [
+        "N033-N038"
+      ],
+      "start": 108.4,
+      "end": 126.56,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 108.400s"
+    },
+    {
+      "id": "responsibilities-expand",
+      "title": "Coordination Crosses Boundaries",
+      "narrativeSegments": [
+        "N039-N042"
+      ],
+      "start": 126.56,
+      "end": 145,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 126.560s"
+    },
+    {
+      "id": "responsibilities",
+      "title": "The Runtime Coordination Model",
+      "narrativeSegments": [
+        "N043-N048"
+      ],
+      "start": 145,
+      "end": 173.56,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 145.000s"
+    },
+    {
+      "id": "job",
+      "title": "The Job, Not the Product",
+      "narrativeSegments": [
+        "N049-N051"
+      ],
+      "start": 173.56,
+      "end": 178.96,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 173.560s"
+    },
+    {
+      "id": "memory",
+      "title": "Memory Masks Several Responsibilities",
+      "narrativeSegments": [
+        "N052-N061"
+      ],
+      "start": 178.96,
+      "end": 204.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 178.960s"
+    },
+    {
+      "id": "boundary",
+      "title": "The Ownership Boundary",
+      "narrativeSegments": [
+        "N062-N065"
+      ],
+      "start": 204.4,
+      "end": 224.4,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 204.400s"
+    },
+    {
+      "id": "adr",
+      "title": "ADR 0001 Begins",
+      "narrativeSegments": [
+        "N066-N070"
+      ],
+      "start": 224.4,
+      "end": 244,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 224.400s"
+    },
+    {
+      "id": "memory-question",
+      "title": "The Next Architectural Question",
+      "narrativeSegments": [
+        "N071-N074"
+      ],
+      "start": 244,
+      "end": 267.8,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 244.000s"
+    },
+    {
+      "id": "closing",
+      "title": "Next: Agent Memory",
+      "narrativeSegments": [
+        "N075"
+      ],
+      "start": 267.8,
+      "end": 272.973,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 267.800s"
+    }
+  ]
+}

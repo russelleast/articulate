@@ -1,0 +1,131 @@
+{
+  "episode": {
+    "id": "episode-0010",
+    "title": "ADR 0001: Defining the Runtime Requirements",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0010-presenter-v1",
+    "narration_duration_seconds": 272.972708
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 10.56,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 10.56,
+      "end_seconds": 36.44,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0010-conceptual-architecture-to-runtime"
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 36.44,
+      "end_seconds": 45.6,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 45.6,
+      "end_seconds": 65.4,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0010-runtime-orchestration"
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 65.4,
+      "end_seconds": 80.6,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 80.6,
+      "end_seconds": 108.4,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S007A",
+      "start_seconds": 108.4,
+      "end_seconds": 126.56,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0010-runtime-responsibilities-state-01"
+    },
+    {
+      "scene_id": "S007B",
+      "start_seconds": 126.56,
+      "end_seconds": 145,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0010-runtime-responsibilities-state-02"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 145,
+      "end_seconds": 173.56,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0010-runtime-responsibilities-state-03"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 173.56,
+      "end_seconds": 178.96,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 178.96,
+      "end_seconds": 204.4,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0010-memory-responsibilities"
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 204.4,
+      "end_seconds": 224.4,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 224.4,
+      "end_seconds": 244,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 244,
+      "end_seconds": 267.8,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 267.8,
+      "end_seconds": 272.973,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

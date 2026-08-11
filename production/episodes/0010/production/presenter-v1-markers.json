@@ -1,0 +1,99 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 272.972708,
+  "selectedDurationSeconds": 272.972708,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 10.56,
+      "narrationReference": "The Runtime Question · N001-N002"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 10.56,
+      "endSeconds": 36.44,
+      "narrationReference": "The Conceptual Architecture · N003-N005"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 36.44,
+      "endSeconds": 45.6,
+      "narrationReference": "Ideas Become Software · N006-N007"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 45.6,
+      "endSeconds": 65.4,
+      "narrationReference": "A Runtime Is Needed · N008-N016"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 65.4,
+      "endSeconds": 80.6,
+      "narrationReference": "Plausible Runtime Candidates · N017-N024"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 80.6,
+      "endSeconds": 108.4,
+      "narrationReference": "A Different Question · N025-N032"
+    },
+    {
+      "id": "S007A",
+      "startSeconds": 108.4,
+      "endSeconds": 126.56,
+      "narrationReference": "Responsibilities Emerge · N033-N038"
+    },
+    {
+      "id": "S007B",
+      "startSeconds": 126.56,
+      "endSeconds": 145,
+      "narrationReference": "Coordination Crosses Boundaries · N039-N042"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 145,
+      "endSeconds": 173.56,
+      "narrationReference": "The Runtime Coordination Model · N043-N048"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 173.56,
+      "endSeconds": 178.96,
+      "narrationReference": "The Job, Not the Product · N049-N051"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 178.96,
+      "endSeconds": 204.4,
+      "narrationReference": "Memory Masks Several Responsibilities · N052-N061"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 204.4,
+      "endSeconds": 224.4,
+      "narrationReference": "The Ownership Boundary · N062-N065"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 224.4,
+      "endSeconds": 244,
+      "narrationReference": "ADR 0001 Begins · N066-N070"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 244,
+      "endSeconds": 267.8,
+      "narrationReference": "The Next Architectural Question · N071-N074"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 267.8,
+      "endSeconds": 272.973,
+      "narrationReference": "Next: Agent Memory · N075"
+    }
+  ]
+}
