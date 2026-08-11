@@ -1,0 +1,15 @@
+...@../../../styles/articulate
+direction: right
+
+runtime: "Runtime\ncoordination" {class: service}
+work: "Long-running\nwork" {class: emphasis}
+capabilities: "Specialised\ncapabilities" {class: capability}
+tools: "External\ntools" {class: node}
+human: "Human\ninteraction" {class: evidence}
+recovery: "Failure\nrecovery" {class: capability}
+
+runtime -> work
+runtime -> capabilities
+runtime -> tools
+runtime -> human
+runtime -> recovery

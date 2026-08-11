@@ -1,0 +1,46 @@
+{
+  "version": 3,
+  "status": "approved",
+  "episode": {
+    "id": "0010",
+    "title": "ADR 0001: Defining the Runtime Requirements",
+    "writtenSource": "docs/episodes/0010-selecting-an-agent-runtime.md",
+    "narrativeSource": "production/episodes/0010/narrative.md",
+    "presenterMedia": "production/episodes/0010/ep10-narrator-edited.mp4"
+  },
+  "editorialPrinciple": "Before selecting a runtime, understand what the runtime is responsible for.",
+  "sections": [
+    { "id": "hook", "title": "The Runtime Question", "narrativeSegments": ["N001-N002"], "startSeconds": 0 },
+    { "id": "foundation", "title": "The Conceptual Architecture", "narrativeSegments": ["N003-N005"], "startSeconds": 10.56 },
+    { "id": "software", "title": "Ideas Become Software", "narrativeSegments": ["N006-N007"], "startSeconds": 36.44 },
+    { "id": "orchestration", "title": "A Runtime Is Needed", "narrativeSegments": ["N008-N016"], "startSeconds": 45.6 },
+    { "id": "candidates", "title": "Plausible Runtime Candidates", "narrativeSegments": ["N017-N024"], "startSeconds": 65.4 },
+    { "id": "different-question", "title": "A Different Question", "narrativeSegments": ["N025-N032"], "startSeconds": 80.6 },
+    { "id": "responsibilities-emerge", "title": "Responsibilities Emerge", "narrativeSegments": ["N033-N038"], "startSeconds": 108.4 },
+    { "id": "responsibilities-expand", "title": "Coordination Crosses Boundaries", "narrativeSegments": ["N039-N042"], "startSeconds": 126.56 },
+    { "id": "responsibilities", "title": "The Runtime Coordination Model", "narrativeSegments": ["N043-N048"], "startSeconds": 145 },
+    { "id": "job", "title": "The Job, Not the Product", "narrativeSegments": ["N049-N051"], "startSeconds": 173.56 },
+    { "id": "memory", "title": "Memory Masks Several Responsibilities", "narrativeSegments": ["N052-N061"], "startSeconds": 178.96 },
+    { "id": "boundary", "title": "The Ownership Boundary", "narrativeSegments": ["N062-N065"], "startSeconds": 204.4 },
+    { "id": "adr", "title": "ADR 0001 Begins", "narrativeSegments": ["N066-N070"], "startSeconds": 224.4 },
+    { "id": "memory-question", "title": "The Next Architectural Question", "narrativeSegments": ["N071-N074"], "startSeconds": 244.0 },
+    { "id": "closing", "title": "Next: Agent Memory", "narrativeSegments": ["N075"], "startSeconds": 267.8 }
+  ],
+  "scenes": [
+    { "id": "S001", "section": "hook", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "Where should Architectural Intelligence actually execute?", "support": "The conceptual architecture now needs an execution runtime.", "items": [] },
+    { "id": "S002", "section": "foundation", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "The conceptual architecture now converges on Runtime", "support": "Knowledge Model · Knowledge Reasoning · DCL", "diagramAssetId": "episode-0010-conceptual-architecture-to-runtime" },
+    { "id": "S003", "section": "software", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "Ideas now have to become software", "support": "For Articulate, that point has arrived.", "items": [] },
+    { "id": "S004", "section": "orchestration", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Something has to orchestrate the work", "support": "Architectural Intelligence is more than prompt execution.", "diagramAssetId": "episode-0010-runtime-orchestration" },
+    { "id": "S005", "section": "candidates", "archetype": "Evidence", "kind": "presenter-evidence", "transition": "cut", "headline": "Several plausible runtimes already exist", "support": "Alternatives—not yet a comparison.", "items": ["Dapr", "Temporal", "LangGraph", "Microsoft Agent Framework"], "evidence": { "emphasisIndex": -1 } },
+    { "id": "S006", "section": "different-question", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "What is the runtime actually responsible for?", "support": "The architecture must define the job before products can be compared.", "items": [] },
+    { "id": "S007A", "section": "responsibilities-emerge", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "The responsibilities begin to appear", "support": "Reasoning crosses time, knowledge sources and tools.", "diagramAssetId": "episode-0010-runtime-responsibilities-state-01" },
+    { "id": "S007B", "section": "responsibilities-expand", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Coordination crosses capability boundaries", "support": "People and safe recovery are part of the execution model.", "diagramAssetId": "episode-0010-runtime-responsibilities-state-02" },
+    { "id": "S008", "section": "responsibilities", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "The runtime coordinates a system of responsibilities", "support": "Execution must be durable, observable and able to evolve.", "diagramAssetId": "episode-0010-runtime-responsibilities-state-03" },
+    { "id": "S009", "section": "job", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "These describe the job—not a technology", "support": "The runtime decision now has an architectural basis.", "items": [] },
+    { "id": "S010", "section": "memory", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "One word masks several responsibilities", "support": "Memory is not yet a single architectural concept.", "diagramAssetId": "episode-0010-memory-responsibilities" },
+    { "id": "S011", "section": "boundary", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "Which responsibilities belong inside the runtime?", "support": "And which belong elsewhere in the architecture?", "items": [] },
+    { "id": "S012", "section": "adr", "archetype": "Evidence", "kind": "presenter-evidence", "transition": "cut", "headline": "ADR 0001 begins with requirements", "support": "The investigation opens before a technology is selected.", "items": ["Runtime responsibilities", "Architectural boundary", "Memory ownership"] },
+    { "id": "S013", "section": "memory-question", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "What does memory actually mean?", "support": "The unresolved question becomes the bridge to Episode 11.", "items": [] },
+    { "id": "S014", "section": "closing", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "Next: memory in an AI-native system", "support": "Understand ownership—then evaluate the runtime technologies.", "items": [] }
+  ]
+}

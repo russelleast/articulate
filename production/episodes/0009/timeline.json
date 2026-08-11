@@ -1,0 +1,350 @@
+{
+  "version": 2,
+  "generatedFrom": "production/episodes/0009/scene-plan.yaml",
+  "authority": "recorded-presenter",
+  "selectedDurationSeconds": 409.9095,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 30,
+      "narrationReference": "The Opening Question · N001-N003",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 30,
+      "endSeconds": 57,
+      "narrationReference": "The Conceptual Foundation · N004-N007",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 57,
+      "endSeconds": 74,
+      "narrationReference": "Understanding Is Not Behaviour · N008-N011",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 74,
+      "endSeconds": 89,
+      "narrationReference": "A Coherent Capability · N012-N018",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 89,
+      "endSeconds": 98,
+      "narrationReference": "Now We Have To Build It · N019-N021",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S006A",
+      "startSeconds": 98,
+      "endSeconds": 105,
+      "narrationReference": "Keep the Meaning · N022-N024",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S006B",
+      "startSeconds": 105,
+      "endSeconds": 111,
+      "narrationReference": "Purpose and Outcome · N025-N026",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S006C",
+      "startSeconds": 111,
+      "endSeconds": 117,
+      "narrationReference": "Rules Policies and Behaviour · N026",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 117,
+      "endSeconds": 126,
+      "narrationReference": "Independent of Implementation · N027-N029",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S008A",
+      "startSeconds": 126,
+      "endSeconds": 133,
+      "narrationReference": "Capability Intent Is Coherent · N030-N032",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S008B",
+      "startSeconds": 133,
+      "endSeconds": 142,
+      "narrationReference": "Intent Enters Delivery Planning · N033-N034",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S008C",
+      "startSeconds": 142,
+      "endSeconds": 152,
+      "narrationReference": "Intent Disperses Into Software · N035",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S008D",
+      "startSeconds": 152,
+      "endSeconds": 162,
+      "narrationReference": "Intent Disperses Into Runtime · N036",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S008E",
+      "startSeconds": 162,
+      "endSeconds": 173,
+      "narrationReference": "Architecture Is Fragmented · N037-N045",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 173,
+      "endSeconds": 184,
+      "narrationReference": "A Representation Problem · N046-N048",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 184,
+      "endSeconds": 194,
+      "narrationReference": "The Knowledge Model Boundary · N049-N051",
+      "archetype": "Comparison",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 194,
+      "endSeconds": 202,
+      "narrationReference": "Capability Behaviour · N052-N058",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S012A",
+      "startSeconds": 202,
+      "endSeconds": 205.5,
+      "narrationReference": "Begin With the Capability · N059",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S012B",
+      "startSeconds": 205.5,
+      "endSeconds": 209,
+      "narrationReference": "Describe Intent · N060",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S012C",
+      "startSeconds": 209,
+      "endSeconds": 212.5,
+      "narrationReference": "Describe Governance · N060",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S012D",
+      "startSeconds": 212.5,
+      "endSeconds": 216,
+      "narrationReference": "Describe Integrity and Lifecycle · N060-N061",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 216,
+      "endSeconds": 226,
+      "narrationReference": "The Architectural Response · N062-N063",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 226,
+      "endSeconds": 234,
+      "narrationReference": "DCL Does Not Replace · N064-N066",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "transition": "cut"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 234,
+      "endSeconds": 244,
+      "narrationReference": "A Durable Description · N067-N069",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 244,
+      "endSeconds": 252,
+      "narrationReference": "Knowledge and Behaviour · N070-N072",
+      "archetype": "Comparison",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 252,
+      "endSeconds": 265,
+      "narrationReference": "Knowledge Evolves · N073-N076",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S018",
+      "startSeconds": 265,
+      "endSeconds": 272,
+      "narrationReference": "Behaviour Becomes Clear · N077-N078",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S019",
+      "startSeconds": 272,
+      "endSeconds": 280,
+      "narrationReference": "Understanding Before Language · N079-N083",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S020",
+      "startSeconds": 280,
+      "endSeconds": 288,
+      "narrationReference": "DCL Is the Result · N084-N085",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S021",
+      "startSeconds": 288,
+      "endSeconds": 298,
+      "narrationReference": "Capabilities Before Technology · N086-N090",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S022",
+      "startSeconds": 298,
+      "endSeconds": 323,
+      "narrationReference": "Implementation Evolves · N091-N097",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S023",
+      "startSeconds": 323,
+      "endSeconds": 336,
+      "narrationReference": "Agents Surround the Capability · N098-N103",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S024",
+      "startSeconds": 336,
+      "endSeconds": 345,
+      "narrationReference": "Agents Are Actors · N104-N107",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S025",
+      "startSeconds": 345,
+      "endSeconds": 354,
+      "narrationReference": "Runtime Executes Capabilities · N108-N111",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S026",
+      "startSeconds": 354,
+      "endSeconds": 371,
+      "narrationReference": "Three Complementary Assets · N112-N115",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S027",
+      "startSeconds": 371,
+      "endSeconds": 383,
+      "narrationReference": "Conceptual Architecture Complete · N116-N120",
+      "archetype": "Synthesis",
+      "kind": "presenter-diagram",
+      "transition": "fade"
+    },
+    {
+      "id": "S028",
+      "startSeconds": 383,
+      "endSeconds": 403,
+      "narrationReference": "The Runtime Question · N121-N123",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S029",
+      "startSeconds": 403,
+      "endSeconds": 409.91,
+      "narrationReference": "Next: Selecting an Agent Runtime · N123",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    }
+  ]
+}

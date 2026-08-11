@@ -1,0 +1,237 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 409.9095,
+  "selectedDurationSeconds": 409.9095,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 30,
+      "narrationReference": "The Opening Question · N001-N003"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 30,
+      "endSeconds": 57,
+      "narrationReference": "The Conceptual Foundation · N004-N007"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 57,
+      "endSeconds": 74,
+      "narrationReference": "Understanding Is Not Behaviour · N008-N011"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 74,
+      "endSeconds": 89,
+      "narrationReference": "A Coherent Capability · N012-N018"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 89,
+      "endSeconds": 98,
+      "narrationReference": "Now We Have To Build It · N019-N021"
+    },
+    {
+      "id": "S006A",
+      "startSeconds": 98,
+      "endSeconds": 105,
+      "narrationReference": "Keep the Meaning · N022-N024"
+    },
+    {
+      "id": "S006B",
+      "startSeconds": 105,
+      "endSeconds": 111,
+      "narrationReference": "Purpose and Outcome · N025-N026"
+    },
+    {
+      "id": "S006C",
+      "startSeconds": 111,
+      "endSeconds": 117,
+      "narrationReference": "Rules Policies and Behaviour · N026"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 117,
+      "endSeconds": 126,
+      "narrationReference": "Independent of Implementation · N027-N029"
+    },
+    {
+      "id": "S008A",
+      "startSeconds": 126,
+      "endSeconds": 133,
+      "narrationReference": "Capability Intent Is Coherent · N030-N032"
+    },
+    {
+      "id": "S008B",
+      "startSeconds": 133,
+      "endSeconds": 142,
+      "narrationReference": "Intent Enters Delivery Planning · N033-N034"
+    },
+    {
+      "id": "S008C",
+      "startSeconds": 142,
+      "endSeconds": 152,
+      "narrationReference": "Intent Disperses Into Software · N035"
+    },
+    {
+      "id": "S008D",
+      "startSeconds": 152,
+      "endSeconds": 162,
+      "narrationReference": "Intent Disperses Into Runtime · N036"
+    },
+    {
+      "id": "S008E",
+      "startSeconds": 162,
+      "endSeconds": 173,
+      "narrationReference": "Architecture Is Fragmented · N037-N045"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 173,
+      "endSeconds": 184,
+      "narrationReference": "A Representation Problem · N046-N048"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 184,
+      "endSeconds": 194,
+      "narrationReference": "The Knowledge Model Boundary · N049-N051"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 194,
+      "endSeconds": 202,
+      "narrationReference": "Capability Behaviour · N052-N058"
+    },
+    {
+      "id": "S012A",
+      "startSeconds": 202,
+      "endSeconds": 205.5,
+      "narrationReference": "Begin With the Capability · N059"
+    },
+    {
+      "id": "S012B",
+      "startSeconds": 205.5,
+      "endSeconds": 209,
+      "narrationReference": "Describe Intent · N060"
+    },
+    {
+      "id": "S012C",
+      "startSeconds": 209,
+      "endSeconds": 212.5,
+      "narrationReference": "Describe Governance · N060"
+    },
+    {
+      "id": "S012D",
+      "startSeconds": 212.5,
+      "endSeconds": 216,
+      "narrationReference": "Describe Integrity and Lifecycle · N060-N061"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 216,
+      "endSeconds": 226,
+      "narrationReference": "The Architectural Response · N062-N063"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 226,
+      "endSeconds": 234,
+      "narrationReference": "DCL Does Not Replace · N064-N066"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 234,
+      "endSeconds": 244,
+      "narrationReference": "A Durable Description · N067-N069"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 244,
+      "endSeconds": 252,
+      "narrationReference": "Knowledge and Behaviour · N070-N072"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 252,
+      "endSeconds": 265,
+      "narrationReference": "Knowledge Evolves · N073-N076"
+    },
+    {
+      "id": "S018",
+      "startSeconds": 265,
+      "endSeconds": 272,
+      "narrationReference": "Behaviour Becomes Clear · N077-N078"
+    },
+    {
+      "id": "S019",
+      "startSeconds": 272,
+      "endSeconds": 280,
+      "narrationReference": "Understanding Before Language · N079-N083"
+    },
+    {
+      "id": "S020",
+      "startSeconds": 280,
+      "endSeconds": 288,
+      "narrationReference": "DCL Is the Result · N084-N085"
+    },
+    {
+      "id": "S021",
+      "startSeconds": 288,
+      "endSeconds": 298,
+      "narrationReference": "Capabilities Before Technology · N086-N090"
+    },
+    {
+      "id": "S022",
+      "startSeconds": 298,
+      "endSeconds": 323,
+      "narrationReference": "Implementation Evolves · N091-N097"
+    },
+    {
+      "id": "S023",
+      "startSeconds": 323,
+      "endSeconds": 336,
+      "narrationReference": "Agents Surround the Capability · N098-N103"
+    },
+    {
+      "id": "S024",
+      "startSeconds": 336,
+      "endSeconds": 345,
+      "narrationReference": "Agents Are Actors · N104-N107"
+    },
+    {
+      "id": "S025",
+      "startSeconds": 345,
+      "endSeconds": 354,
+      "narrationReference": "Runtime Executes Capabilities · N108-N111"
+    },
+    {
+      "id": "S026",
+      "startSeconds": 354,
+      "endSeconds": 371,
+      "narrationReference": "Three Complementary Assets · N112-N115"
+    },
+    {
+      "id": "S027",
+      "startSeconds": 371,
+      "endSeconds": 383,
+      "narrationReference": "Conceptual Architecture Complete · N116-N120"
+    },
+    {
+      "id": "S028",
+      "startSeconds": 383,
+      "endSeconds": 403,
+      "narrationReference": "The Runtime Question · N121-N123"
+    },
+    {
+      "id": "S029",
+      "startSeconds": 403,
+      "endSeconds": 409.91,
+      "narrationReference": "Next: Selecting an Agent Runtime · N123"
+    }
+  ]
+}

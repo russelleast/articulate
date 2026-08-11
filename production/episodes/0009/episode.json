@@ -1,0 +1,1550 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0009",
+    "title": "Defining Architectural Behaviour with DCL",
+    "journalSource": "docs/episodes/0009-defining-architectural-behaviour-with-dcl.md",
+    "narrativeSource": "production/episodes/0009/narrative.md",
+    "storyboard": "production/episodes/0009/storyboard.yaml",
+    "timingMarkers": "production/episodes/0009/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0009/asset-register.yaml",
+    "scenePlan": "production/episodes/0009/scene-plan.yaml",
+    "timeline": "production/episodes/0009/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0009-presenter-v1",
+    "expectedSha256": "a386893dbb773d5d2c5191044e53dafa55fda8035d121fe6c86861f5e3ec9ea0",
+    "expectedDurationSeconds": 409.9095,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 409.9095,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0009/output/episode-0009-final.mp4",
+    "generatedDirectory": "production/episodes/0009/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0009/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0009/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "How do we stop architectural intent being lost?",
+      "kind": "presenter-focus",
+      "headline": "How do we stop architectural intent being lost?",
+      "support": "An idea must survive the journey into running software.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "hook",
+            "at": 0.2,
+            "action": "reveal",
+            "target": "headline",
+            "sourcePhrase": "How do we stop Architectural Intent"
+          },
+          {
+            "id": "hook-answer",
+            "at": 3.24,
+            "action": "reveal",
+            "target": "support",
+            "sourcePhrase": "as software is built"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Opening Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "The conceptual foundation",
+      "kind": "presenter-diagram",
+      "headline": "The conceptual foundation",
+      "support": "Architectural understanding is connected and reasoned over.",
+      "items": [
+        "Conversation",
+        "Knowledge Model",
+        "Knowledge Reasoning"
+      ],
+      "teachingLayout": "layer-stack",
+      "details": [
+        "discovers",
+        "represents",
+        "interprets"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "foundation-conversation",
+            "at": 6.4,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "conceptual foundation"
+          },
+          {
+            "id": "foundation-model",
+            "at": 9.61,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "introduced the Knowledge Model"
+          },
+          {
+            "id": "foundation-reasoning",
+            "at": 17.86,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "retrieve and reason"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Conceptual Foundation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "Understanding is not behavioural intent",
+      "kind": "presenter-focus",
+      "headline": "Understanding is not behavioural intent",
+      "support": "Knowing the architecture does not tell us how a capability should behave.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "missing-headline",
+            "at": 0.63,
+            "action": "reveal",
+            "target": "headline",
+            "sourcePhrase": "something important missing"
+          },
+          {
+            "id": "missing-support",
+            "at": 6.65,
+            "action": "reveal",
+            "target": "support",
+            "sourcePhrase": "intended to behave"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Understanding Is Not Behaviour",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "A capability begins coherent",
+      "kind": "presenter-diagram",
+      "headline": "A capability begins coherent",
+      "support": "One shared understanding holds the design together.",
+      "items": [
+        "Domain conversations",
+        "Knowledge claims",
+        "Constraints",
+        "Agreed behaviour"
+      ],
+      "teachingLayout": "capability-lenses",
+      "details": [
+        "discovered",
+        "captured",
+        "reasoned over",
+        "made explicit"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "situation-conversation",
+            "at": 3.56,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "conversations with domain experts"
+          },
+          {
+            "id": "situation-claims",
+            "at": 6.63,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "captured claims"
+          },
+          {
+            "id": "situation-constraints",
+            "at": 9.17,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "reasoned about constraints"
+          },
+          {
+            "id": "situation-behaviour",
+            "at": 11.37,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "agreed on the behavior"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Coherent Capability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "The architecture is clear",
+      "kind": "presenter-focus",
+      "headline": "The architecture is clear",
+      "support": "But only in our current understanding. Now we have to build it.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Now We Have To Build It",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006A",
+      "title": "Keep the capability's meaning",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Keep the capability's meaning",
+      "support": "Begin with one durable architectural idea.",
+      "items": [
+        "Capability meaning"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "what must remain true"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Keep the Meaning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006B",
+      "title": "Keep the capability's meaning",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Keep the capability's meaning",
+      "support": "Purpose and outcome explain why the capability exists.",
+      "items": [
+        "Capability meaning",
+        "Purpose & outcome"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "what must remain true",
+        "why it exists · what it produces"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Purpose and Outcome",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006C",
+      "title": "Keep the capability's meaning",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Keep the capability's meaning",
+      "support": "Governance and expected behaviour complete the intent.",
+      "items": [
+        "Capability meaning",
+        "Purpose & outcome",
+        "Rules & policies",
+        "Expected behaviour"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "what must remain true",
+        "why it exists · what it produces",
+        "what it obeys · what governs it",
+        "how it should behave"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Rules Policies and Behaviour",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "Intent should outlive implementation",
+      "kind": "presenter-focus",
+      "headline": "Intent should outlive implementation",
+      "support": "The technology can change without changing what the capability means.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Independent of Implementation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008A",
+      "title": "Architecture begins to leak",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-01",
+      "visualStateMode": "complete-diagram",
+      "headline": "Architecture begins to leak",
+      "support": "The capability starts as one coherent architectural state.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Capability Intent Is Coherent",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008B",
+      "title": "Intent enters delivery planning",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-02",
+      "visualStateMode": "complete-diagram",
+      "headline": "Intent enters delivery planning",
+      "support": "Requirements and backlog reinterpret the capability.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Intent Enters Delivery Planning",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008C",
+      "title": "Intent disperses into software",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-03",
+      "visualStateMode": "complete-diagram",
+      "headline": "Intent disperses into software",
+      "support": "Source code and validation absorb more of the meaning.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Intent Disperses Into Software",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008D",
+      "title": "Intent disperses into runtime",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-04",
+      "visualStateMode": "complete-diagram",
+      "headline": "Intent disperses into runtime",
+      "support": "Deployments and configuration carry operational intent.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Intent Disperses Into Runtime",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008E",
+      "title": "The architecture is fragmented",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-intent-fragmentation-state-05",
+      "visualStateMode": "complete-diagram",
+      "headline": "The architecture is fragmented",
+      "support": "Intent is distributed across artefacts—and rationale survives only in old documents.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architecture Is Fragmented",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "This is not a documentation problem",
+      "kind": "presenter-focus",
+      "headline": "This is not a documentation problem",
+      "support": "It is a representation problem.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "representation-question",
+            "at": 1.86,
+            "action": "reveal",
+            "target": "headline",
+            "sourcePhrase": "documentation problem"
+          },
+          {
+            "id": "representation-answer",
+            "at": 3.79,
+            "action": "reveal",
+            "target": "support",
+            "sourcePhrase": "representation problem"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Representation Problem",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "The Knowledge Model had a boundary",
+      "kind": "presenter-diagram",
+      "headline": "The Knowledge Model had a boundary",
+      "support": "Understanding architecture and specifying capability behaviour are different responsibilities.",
+      "items": [
+        "Knowledge Model",
+        "Behavioural intent",
+        "One informs the other—but they are not the same"
+      ],
+      "teachingLayout": "retrieval-reasoning",
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "gap-model",
+            "at": 0.6,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "knowledge model was excellent"
+          },
+          {
+            "id": "gap-behaviour",
+            "at": 8.03,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "capability should behave"
+          },
+          {
+            "id": "gap-distinction",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "wasn't the right place"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Knowledge Model Boundary",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "What if capability behaviour were first-class?",
+      "kind": "presenter-focus",
+      "headline": "What if capability behaviour were first-class?",
+      "support": "Start with the architectural responsibility—not its mechanism.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Capability Behaviour",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012A",
+      "title": "Describe the capability",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Describe the capability",
+      "support": "Begin with the architectural responsibility.",
+      "items": [
+        "Capability"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "implementation-independent"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Begin With the Capability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012B",
+      "title": "Describe the capability",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Describe the capability",
+      "support": "Outcomes and behaviour express its intent.",
+      "items": [
+        "Capability",
+        "Intent"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "implementation-independent",
+        "outcomes · behaviour"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Describe Intent",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012C",
+      "title": "Describe the capability",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Describe the capability",
+      "support": "Rules and policies govern that intent.",
+      "items": [
+        "Capability",
+        "Intent",
+        "Governance"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "implementation-independent",
+        "outcomes · behaviour",
+        "rules · policies"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Describe Governance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012D",
+      "title": "Describe the capability",
+      "kind": "presenter-diagram",
+      "visualStateMode": "complete-focus-state",
+      "headline": "Describe the capability",
+      "support": "Integrity and lifecycle complete the behavioural model.",
+      "items": [
+        "Capability",
+        "Intent",
+        "Governance",
+        "Integrity & lifecycle"
+      ],
+      "teachingLayout": "concept-decomposition",
+      "details": [
+        "implementation-independent",
+        "outcomes · behaviour",
+        "rules · policies",
+        "invariants · effects · lifecycle"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Describe Integrity and Lifecycle",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "That architectural response became DCL",
+      "kind": "presenter-focus",
+      "headline": "That architectural response became DCL",
+      "support": "The Declarative Capability Language.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "dcl-foundation",
+            "at": 5.52,
+            "action": "reveal",
+            "target": "headline",
+            "sourcePhrase": "foundation of DCL"
+          },
+          {
+            "id": "dcl-name",
+            "at": 7.18,
+            "action": "reveal",
+            "target": "support",
+            "sourcePhrase": "declarative capability language"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Architectural Response",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "DCL does not replace",
+      "kind": "presenter-evidence",
+      "headline": "DCL does not replace",
+      "support": "It preserves intent across the artefacts that implement and explain it.",
+      "items": [
+        "Source code",
+        "Documentation",
+        "Prompts"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "not-code",
+            "at": 1.29,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "replace source code"
+          },
+          {
+            "id": "not-docs",
+            "at": 3.53,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "replace documentation"
+          },
+          {
+            "id": "not-prompts",
+            "at": 6.65,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "replace prompts"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "DCL Does Not Replace",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "A durable description of architectural intent",
+      "kind": "presenter-focus",
+      "headline": "A durable description of architectural intent",
+      "support": "Consistent enough for humans and AI to share.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Durable Description",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "Two distinct responsibilities",
+      "kind": "presenter-diagram",
+      "headline": "Two distinct responsibilities",
+      "support": "Knowledge represents understanding. DCL represents behavioural intent.",
+      "items": [
+        "Knowledge Model",
+        "DCL",
+        "Understanding becomes intent when it is sufficiently clear"
+      ],
+      "teachingLayout": "retrieval-reasoning",
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "responsibility-knowledge",
+            "at": 3.27,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "knowledge model and DCL"
+          },
+          {
+            "id": "responsibility-dcl",
+            "at": 5.44,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "different responsibilities"
+          },
+          {
+            "id": "responsibility-relationship",
+            "at": 0.72,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "clarified something else"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge and Behaviour",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "title": "The Knowledge Model represents current understanding",
+      "kind": "presenter-diagram",
+      "headline": "The Knowledge Model represents current understanding",
+      "support": "Architectural knowledge is allowed to evolve.",
+      "items": [
+        "Uncertainty",
+        "Conflicting claims",
+        "Incomplete evidence",
+        "Evolution"
+      ],
+      "teachingLayout": "capability-lenses",
+      "details": [
+        "is explicit",
+        "can coexist",
+        "is visible",
+        "is expected"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "knowledge-uncertainty",
+            "at": 5.63,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "contain uncertainty"
+          },
+          {
+            "id": "knowledge-conflict",
+            "at": 7.36,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "conflicting claims"
+          },
+          {
+            "id": "knowledge-evidence",
+            "at": 9.15,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "incomplete evidence"
+          },
+          {
+            "id": "knowledge-evolves",
+            "at": 11.39,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "knowledge evolves"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge Evolves",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S018",
+      "title": "DCL begins when behaviour is sufficiently clear",
+      "kind": "presenter-focus",
+      "headline": "DCL begins when behaviour is sufficiently clear",
+      "support": "Formalisation is the consequence of understanding.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Behaviour Becomes Clear",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S019",
+      "title": "The progression is not Conversation → DCL",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-conversation-to-dcl",
+      "headline": "The progression is not Conversation → DCL",
+      "support": "The language cannot be the starting point.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Understanding Before Language",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S020",
+      "title": "DCL is the result of architectural understanding",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-discovery-to-dcl",
+      "headline": "DCL is the result of architectural understanding",
+      "support": "Conversation → Knowledge → Understanding → DCL",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "DCL Is the Result",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S021",
+      "title": "A capability is not its implementation",
+      "kind": "presenter-focus",
+      "headline": "A capability is not its implementation",
+      "support": "API · service · agent · workflow are choices around it.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Capabilities Before Technology",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S022",
+      "title": "The implementation evolves",
+      "kind": "presenter-diagram",
+      "headline": "The implementation evolves",
+      "support": "The capability remains.",
+      "items": [
+        "Capability",
+        "Deterministic software",
+        "AI agent",
+        "Distributed workflow"
+      ],
+      "teachingLayout": "stable-capability",
+      "details": [
+        "stable intent",
+        "today",
+        "tomorrow",
+        "next year"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "stable-capability",
+            "at": 0.61,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "capability should survive"
+          },
+          {
+            "id": "implementation-software",
+            "at": 8.64,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "deterministic software"
+          },
+          {
+            "id": "implementation-agent",
+            "at": 11.42,
+            "action": "replace",
+            "target": "item-2",
+            "to": "item-3",
+            "with": "item-3",
+            "sourcePhrase": "might use an agent"
+          },
+          {
+            "id": "implementation-workflow",
+            "at": 13.85,
+            "action": "replace",
+            "target": "item-3",
+            "to": "item-4",
+            "with": "item-4",
+            "sourcePhrase": "distributed workflow"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Implementation Evolves",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S023",
+      "title": "Agents surround capabilities",
+      "kind": "presenter-diagram",
+      "headline": "Agents surround capabilities",
+      "support": "They perform work; they do not define the responsibility.",
+      "items": [
+        "Capability",
+        "Research agent",
+        "Planning agent",
+        "Decision agent",
+        "Knowledge agent"
+      ],
+      "teachingLayout": "capability-orbit",
+      "details": [
+        "architectural centre",
+        "actor",
+        "actor",
+        "actor",
+        "actor"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "agents-capability",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "AI-native systems"
+          },
+          {
+            "id": "agents-research",
+            "at": 10.58,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "research agent"
+          },
+          {
+            "id": "agents-planning",
+            "at": 11.15,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "planning agent"
+          },
+          {
+            "id": "agents-decision",
+            "at": 11.74,
+            "action": "reveal",
+            "target": "item-4",
+            "sourcePhrase": "decision agent"
+          },
+          {
+            "id": "agents-knowledge",
+            "at": 12.29,
+            "action": "reveal",
+            "target": "item-5",
+            "sourcePhrase": "knowledge agent"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Agents Surround the Capability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S024",
+      "title": "Agents are actors",
+      "kind": "presenter-focus",
+      "headline": "Agents are actors",
+      "support": "The capability is the architectural responsibility.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Agents Are Actors",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S025",
+      "title": "The runtime exists to execute capabilities",
+      "kind": "presenter-diagram",
+      "headline": "The runtime exists to execute capabilities",
+      "support": "Capabilities do not exist to justify a runtime.",
+      "items": [
+        "Capability",
+        "Runtime",
+        "Execution"
+      ],
+      "teachingLayout": "horizontal-progression",
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "runtime-capability",
+            "at": 0,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "capability is"
+          },
+          {
+            "id": "runtime-runtime",
+            "at": 4.39,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "runtime exists"
+          },
+          {
+            "id": "runtime-execution",
+            "at": 5.54,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "execute capabilities"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Runtime Executes Capabilities",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S026",
+      "title": "Three complementary architectural assets",
+      "kind": "presenter-diagram",
+      "headline": "Three complementary architectural assets",
+      "support": "Each preserves a different part of the journey.",
+      "items": [
+        "Conversation",
+        "Knowledge Model",
+        "DCL"
+      ],
+      "teachingLayout": "layer-stack",
+      "details": [
+        "discovers knowledge",
+        "captures understanding",
+        "formalises behaviour"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "assets-conversation",
+            "at": 6.39,
+            "action": "reveal",
+            "target": "item-1",
+            "sourcePhrase": "conversation which discovers"
+          },
+          {
+            "id": "assets-knowledge",
+            "at": 9.61,
+            "action": "reveal",
+            "target": "item-2",
+            "sourcePhrase": "knowledge model"
+          },
+          {
+            "id": "assets-dcl",
+            "at": 14.18,
+            "action": "reveal",
+            "target": "item-3",
+            "sourcePhrase": "DCL formalizes"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Three Complementary Assets",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S027",
+      "title": "Architectural intent is now connected end to end",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0009-conceptual-architecture-complete",
+      "headline": "Architectural intent is now connected end to end",
+      "support": "Conversation → Knowledge Model → Knowledge Reasoning → DCL",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A005"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Conceptual Architecture Complete",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S028",
+      "title": "What runtime do those capabilities need?",
+      "kind": "presenter-focus",
+      "headline": "What runtime do those capabilities need?",
+      "support": "The conceptual architecture now creates the first implementation decision.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "next-question-headline",
+            "at": 11,
+            "action": "reveal",
+            "target": "headline",
+            "sourcePhrase": "what kind of runtime"
+          },
+          {
+            "id": "next-question-support",
+            "at": 15.94,
+            "action": "reveal",
+            "target": "support",
+            "sourcePhrase": "first major architectural decision"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Runtime Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S029",
+      "title": "Next: selecting an agent runtime",
+      "kind": "presenter-focus",
+      "headline": "Next: selecting an agent runtime",
+      "support": "From architectural intent to executable capability.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Next: Selecting an Agent Runtime",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

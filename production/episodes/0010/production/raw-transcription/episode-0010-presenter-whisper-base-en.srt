@@ -1,0 +1,212 @@
+1
+00:00:00,000 --> 00:00:06,680
+ Where should architectural intelligence actually execute? That's the question I've
+
+2
+00:00:06,680 --> 00:00:10,560
+ reached while building the conceptual architecture for the knowledge API.
+
+3
+00:00:10,560 --> 00:00:15,640
+ Hello I'm Russell and welcome to episode 10 of the Articulate Journal where I'm
+
+4
+00:00:15,640 --> 00:00:18,880
+ exploring what it takes to build an AI native architecture from the first
+
+5
+00:00:18,880 --> 00:00:25,720
+ principles. Over the past few episodes we've explored the knowledge model. Look
+
+6
+00:00:25,720 --> 00:00:29,920
+ at how AI can reason over architectural knowledge and how we can describe a
+
+7
+00:00:29,920 --> 00:00:36,460
+ capability behavior using DCM. Every architecture eventually reaches a
+
+8
+00:00:36,460 --> 00:00:40,840
+ point where the ideas have to become software. For articulate I want that
+
+9
+00:00:40,840 --> 00:00:46,320
+ point to arrive very soon. Architectural intelligence won't simply answer prompts.
+
+10
+00:00:46,320 --> 00:00:51,040
+ It will retrieve knowledge, reason over architectural problems, invoke tools,
+
+11
+00:00:51,040 --> 00:00:56,320
+ collaborate with people, involve the knowledge model and coordinate long running
+
+12
+00:00:56,320 --> 00:01:01,840
+ work. Something has to orchestrate all of that. In other words articulate needs at
+
+13
+00:01:01,840 --> 00:01:06,680
+ runtime. At first glance it seemed like a straightforward technology decision.
+
+14
+00:01:06,680 --> 00:01:12,880
+ Should I use dapper, temporal, land graph or Microsoft agent framework? There are
+
+15
+00:01:12,880 --> 00:01:17,320
+ already several excellent technologies available so perhaps the obvious question
+
+16
+00:01:17,320 --> 00:01:22,360
+ isn't simply compare them. The more I thought about it the more I realized I
+
+17
+00:01:22,360 --> 00:01:26,360
+ wasn't actually ready to compare any of them because I still hadn't answered the
+
+18
+00:01:26,360 --> 00:01:33,120
+ simpler question. What is the runtime actually responsible for? That question
+
+19
+00:01:33,120 --> 00:01:37,280
+ completely changed how I approached the decision. Instead of looking at products
+
+20
+00:01:37,280 --> 00:01:41,040
+ I started looking back at the architecture we'd already defined and
+
+21
+00:01:41,040 --> 00:01:46,280
+ something interesting happened. The architecture had already begun answering
+
+22
+00:01:46,280 --> 00:01:52,840
+ the question. Articulate isn't a traditional request response application.
+
+23
+00:01:52,840 --> 00:02:00,240
+ Architectural reasoning may take minutes, hours and even days. The capability may
+
+24
+00:02:00,240 --> 00:02:03,880
+ need to retrieve knowledge from several software sources before it can reach a
+
+25
+00:02:03,880 --> 00:02:09,800
+ conclusion. It may invoke external tools. It may collaborate with other
+
+26
+00:02:09,800 --> 00:02:14,920
+ specialized capabilities. It may need clarification from a human architect
+
+27
+00:02:14,920 --> 00:02:19,920
+ before it can continue. And when something goes wrong it shouldn't simply lose
+
+28
+00:02:19,920 --> 00:02:24,360
+ everything can start again. Without deliberately planning it the previous
+
+29
+00:02:24,360 --> 00:02:28,600
+ episodes had already revealed a set of responsibilities that any runtime would
+
+30
+00:02:28,600 --> 00:02:33,440
+ need to support. It would need to coordinate long-running work. It should
+
+31
+00:02:33,440 --> 00:02:38,760
+ orchestrate specialized capabilities. It should invoke external tools. It should
+
+32
+00:02:38,760 --> 00:02:43,120
+ recover safely from failure and it should provide visibility into what is
+
+33
+00:02:43,120 --> 00:02:48,840
+ going on. And it should remain flexible enough to evolve alongside an AI ecosystem
+
+34
+00:02:48,840 --> 00:02:53,560
+ that's changing almost monthly. None of those describe a particular
+
+35
+00:02:53,560 --> 00:02:59,000
+ technology. They describe the job the runtime needs to perform. At this point I
+
+36
+00:02:59,000 --> 00:03:03,960
+ expect a decision to become cleaner. Instead another question kept getting
+
+37
+00:03:03,960 --> 00:03:09,600
+ into way. Almost every AI framework talks about memory. Conversation memory,
+
+38
+00:03:09,600 --> 00:03:14,880
+ working memory, long-term memory, execution memory. Some treat memory as
+
+39
+00:03:14,880 --> 00:03:20,640
+ something the runtime owns. Others expect it to live elsewhere. The more I read
+
+40
+00:03:20,640 --> 00:03:24,480
+ the more I realized everyone seemed to be using the same word to describe several
+
+41
+00:03:24,480 --> 00:03:28,800
+ completely different responsibilities. And if I couldn't explain what memory
+
+42
+00:03:28,800 --> 00:03:34,400
+ meant within Articulate then how could I possibly decide what runtime would be
+
+43
+00:03:34,400 --> 00:03:39,640
+ the benefit? Because I didn't know which responsibilities belonged inside the
+
+44
+00:03:39,640 --> 00:03:45,200
+ runtime and which belonged elsewhere in the architecture. So this episode doesn't
+
+45
+00:03:45,200 --> 00:03:48,760
+ end with a technology decision. Instead it marks the beginning of an
+
+46
+00:03:48,760 --> 00:03:55,720
+ investigation captured in ADR 0001. We've identified the responsibilities at the
+
+47
+00:03:55,720 --> 00:04:00,400
+ runtime will eventually need to fails that the runtime is a significant
+
+48
+00:04:00,400 --> 00:04:07,040
+ architectural component. Not simply somewhere to execute prompts. And we've
+
+49
+00:04:07,040 --> 00:04:11,080
+ uncovered that the next question needs to be answered before any technology can be
+
+50
+00:04:11,080 --> 00:04:17,200
+ selected. What does memory actually mean in an AI native system? Because once we
+
+51
+00:04:17,200 --> 00:04:21,480
+ understand that we'll be much closer to understanding what the runtime should
+
+52
+00:04:21,480 --> 00:04:27,800
+ own. And only then will we be ready to evaluate the technologies themselves.
+
+53
+00:04:27,800 --> 00:04:33,800
+ That's what we're exploring in the next episode. See you then.
+

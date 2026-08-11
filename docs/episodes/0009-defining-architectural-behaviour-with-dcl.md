@@ -19,6 +19,9 @@ repository_paths:
   - production/diagrams/sources/episodes/0009/formalised-intent.d2
   - production/diagrams/sources/episodes/0009/architecture-sequence.d2
   - production/diagrams/sources/episodes/0009/discovery-to-dcl.d2
+thumbnail: /media/episodes/0009/episode-0009-thumbnail.png
+thumbnail_alt: "Presenter beside the words Preserve the Intent and a flow from capability through DCL to intent."
+youtube_url: https://youtu.be/lD9BOdSmSjA
 ---
 
 # Episode 9 – Defining Architectural Behaviour with DCL

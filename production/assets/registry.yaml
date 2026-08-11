@@ -461,6 +461,24 @@
       "provider": "local"
     },
     {
+      "id": "episode-0009-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0009",
+      "status": "approved-recording",
+      "checksum": "sha256:a386893dbb773d5d2c5191044e53dafa55fda8035d121fe6c86861f5e3ec9ea0",
+      "location": "production/episodes/0009/ep09-narrative.mp4",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0010-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0010",
+      "status": "approved-recording",
+      "checksum": "sha256:d040c14f37fdd3ed87f605885514cde8d723a7dadfbce8f8a3b75b846af3a67f",
+      "location": "production/episodes/0010/ep10-narrator-edited.mp4",
+      "provider": "local"
+    },
+    {
       "id": "episode-0007-architectural-knowledge-journey",
       "type": "diagram",
       "format": "plantuml",
@@ -711,6 +729,138 @@
       "checksum": null,
       "source": "production/diagrams/sources/episodes/0015/architectural-assurance-capability-model.d2",
       "location": "site/public/diagrams/episode-0015-architectural-assurance-capability-model.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-conceptual-architecture-complete",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/conceptual-architecture-complete.d2",
+      "location": "site/public/diagrams/episode-0009-conceptual-architecture-complete.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-01",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-01.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-01.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-02",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-02.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-02.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-03",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-03.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-03.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-04",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-04.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-04.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0009-intent-fragmentation-state-05",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0009",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0009/intent-fragmentation-state-05.d2",
+      "location": "site/public/diagrams/episode-0009-intent-fragmentation-state-05.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0010-conceptual-architecture-to-runtime",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0010",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0010/conceptual-architecture-to-runtime.d2",
+      "location": "site/public/diagrams/episode-0010-conceptual-architecture-to-runtime.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0010-runtime-orchestration",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0010",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0010/runtime-orchestration.d2",
+      "location": "site/public/diagrams/episode-0010-runtime-orchestration.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0010-runtime-responsibilities-state-01",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0010",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0010/runtime-responsibilities-state-01.d2",
+      "location": "site/public/diagrams/episode-0010-runtime-responsibilities-state-01.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0010-runtime-responsibilities-state-02",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0010",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0010/runtime-responsibilities-state-02.d2",
+      "location": "site/public/diagrams/episode-0010-runtime-responsibilities-state-02.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0010-memory-responsibilities",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0010",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0010/memory-responsibilities.d2",
+      "location": "site/public/diagrams/episode-0010-memory-responsibilities.svg",
+      "provider": "local"
+    },
+    {
+      "id": "episode-0010-runtime-responsibilities-state-03",
+      "type": "diagram",
+      "format": "d2",
+      "episode": "0010",
+      "status": "generated",
+      "checksum": null,
+      "source": "production/diagrams/sources/episodes/0010/runtime-responsibilities-state-03.d2",
+      "location": "site/public/diagrams/episode-0010-runtime-responsibilities-state-03.svg",
       "provider": "local"
     }
   ]

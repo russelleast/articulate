@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0010",
+    "eyebrow": "ARCHITECTURAL INTELLIGENCE",
+    "headline": ["WHERE DOES AI", "EXECUTE?"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep10-narrator-edited.mp4",
+    "frameTimestampSeconds": 90,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}
