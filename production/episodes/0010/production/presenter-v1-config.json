@@ -1,0 +1,492 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0010",
+    "title": "ADR 0001: Defining the Runtime Requirements",
+    "journalSource": "docs/episodes/0010-selecting-an-agent-runtime.md",
+    "narrativeSource": "production/episodes/0010/narrative.md",
+    "storyboard": "production/episodes/0010/storyboard.yaml",
+    "timingMarkers": "production/episodes/0010/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0010/asset-register.yaml",
+    "scenePlan": "production/episodes/0010/scene-plan.yaml",
+    "timeline": "production/episodes/0010/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0010-presenter-v1",
+    "expectedSha256": "d040c14f37fdd3ed87f605885514cde8d723a7dadfbce8f8a3b75b846af3a67f",
+    "expectedDurationSeconds": 272.972708,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 272.972708,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0010/output/episode-0010-final.mp4",
+    "generatedDirectory": "production/episodes/0010/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0010/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0010/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Where should Architectural Intelligence actually execute?",
+      "kind": "presenter-focus",
+      "headline": "Where should Architectural Intelligence actually execute?",
+      "support": "The conceptual architecture now needs an execution runtime.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Runtime Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "The conceptual architecture now converges on Runtime",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0010-conceptual-architecture-to-runtime",
+      "visualStateMode": "complete-diagram",
+      "headline": "The conceptual architecture now converges on Runtime",
+      "support": "Knowledge Model · Knowledge Reasoning · DCL",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Conceptual Architecture",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "Ideas now have to become software",
+      "kind": "presenter-focus",
+      "headline": "Ideas now have to become software",
+      "support": "For Articulate, that point has arrived.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Ideas Become Software",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Something has to orchestrate the work",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0010-runtime-orchestration",
+      "visualStateMode": "complete-diagram",
+      "headline": "Something has to orchestrate the work",
+      "support": "Architectural Intelligence is more than prompt execution.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Runtime Is Needed",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Several plausible runtimes already exist",
+      "kind": "presenter-evidence",
+      "headline": "Several plausible runtimes already exist",
+      "support": "Alternatives—not yet a comparison.",
+      "items": [
+        "Dapr",
+        "Temporal",
+        "LangGraph",
+        "Microsoft Agent Framework"
+      ],
+      "evidence": {
+        "emphasisIndex": -1
+      },
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Plausible Runtime Candidates",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "What is the runtime actually responsible for?",
+      "kind": "presenter-focus",
+      "headline": "What is the runtime actually responsible for?",
+      "support": "The architecture must define the job before products can be compared.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A Different Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007A",
+      "title": "The responsibilities begin to appear",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0010-runtime-responsibilities-state-01",
+      "visualStateMode": "complete-diagram",
+      "headline": "The responsibilities begin to appear",
+      "support": "Reasoning crosses time, knowledge sources and tools.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Responsibilities Emerge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007B",
+      "title": "Coordination crosses capability boundaries",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0010-runtime-responsibilities-state-02",
+      "visualStateMode": "complete-diagram",
+      "headline": "Coordination crosses capability boundaries",
+      "support": "People and safe recovery are part of the execution model.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Coordination Crosses Boundaries",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "The runtime coordinates a system of responsibilities",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0010-runtime-responsibilities-state-03",
+      "visualStateMode": "complete-diagram",
+      "headline": "The runtime coordinates a system of responsibilities",
+      "support": "Execution must be durable, observable and able to evolve.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Runtime Coordination Model",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "These describe the job—not a technology",
+      "kind": "presenter-focus",
+      "headline": "These describe the job—not a technology",
+      "support": "The runtime decision now has an architectural basis.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Job, Not the Product",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "One word masks several responsibilities",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0010-memory-responsibilities",
+      "visualStateMode": "complete-diagram",
+      "headline": "One word masks several responsibilities",
+      "support": "Memory is not yet a single architectural concept.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Memory Masks Several Responsibilities",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Which responsibilities belong inside the runtime?",
+      "kind": "presenter-focus",
+      "headline": "Which responsibilities belong inside the runtime?",
+      "support": "And which belong elsewhere in the architecture?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Ownership Boundary",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "ADR 0001 begins with requirements",
+      "kind": "presenter-evidence",
+      "headline": "ADR 0001 begins with requirements",
+      "support": "The investigation opens before a technology is selected.",
+      "items": [
+        "Runtime responsibilities",
+        "Architectural boundary",
+        "Memory ownership"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "ADR 0001 Begins",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "What does memory actually mean?",
+      "kind": "presenter-focus",
+      "headline": "What does memory actually mean?",
+      "support": "The unresolved question becomes the bridge to Episode 11.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Next Architectural Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "Next: memory in an AI-native system",
+      "kind": "presenter-focus",
+      "headline": "Next: memory in an AI-native system",
+      "support": "Understand ownership—then evaluate the runtime technologies.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Next: Agent Memory",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

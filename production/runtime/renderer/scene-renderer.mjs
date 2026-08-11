@@ -202,10 +202,11 @@ function presenterEvidenceComposition(scene, bounds, state) {
   const itemHeight = Math.min(88, (itemRegion.bottom - itemRegion.top - gap * (itemCount - 1)) / itemCount);
   const groupHeight = itemHeight * itemCount + gap * (itemCount - 1);
   const groupTop = itemRegion.top + (itemRegion.bottom - itemRegion.top - groupHeight) / 2;
+  const emphasisIndex = Number.isInteger(scene.evidence?.emphasisIndex) ? scene.evidence.emphasisIndex : 2;
   const items = (scene.items ?? []).map((item, index) => {
     const box = { x: bounds.x + 170, y: groupTop + index * (itemHeight + gap), width: bounds.width - 340, height: itemHeight };
     const id = `item-${index + 1}`;
-    return element(id, `<rect data-evidence-option="${index + 1}" x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="${box.height / 2}" fill="${index === 2 ? "#38261f" : "#1d313a"}" stroke="${index === 2 ? "#b76c4d" : "#597785"}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 44, 8), { fontSize: itemCount >= 5 ? 25 : 29, weight: 650, maxLines: 2, align: "middle", fill: "#edf1f0" }, `${scene.id} evidence item ${index + 1}`)}`, state);
+    return element(id, `<rect data-evidence-option="${index + 1}" x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="${box.height / 2}" fill="${index === emphasisIndex ? "#38261f" : "#1d313a"}" stroke="${index === emphasisIndex ? "#b76c4d" : "#597785"}" stroke-width="2"/>${centredTextBlock(elementText(scene, id, state, item), insetBox(box, 44, 8), { fontSize: itemCount >= 5 ? 25 : 29, weight: 650, maxLines: 2, align: "middle", fill: "#edf1f0" }, `${scene.id} evidence item ${index + 1}`)}`, state);
   }).join("");
   return `${shell}${headline}${support}${items}`;
 }

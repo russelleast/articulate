@@ -1,0 +1,182 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0010",
+    "title": "ADR 0001: Defining the Runtime Requirements",
+    "written_source": "docs/episodes/0010-selecting-an-agent-runtime.md",
+    "narrative_source": "production/episodes/0010/narrative.md",
+    "scene_plan": "production/episodes/0010/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 272.972708
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Where should Architectural Intelligence actually execute?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N002"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 10.56
+    },
+    {
+      "id": "S002",
+      "title": "The conceptual architecture now converges on Runtime",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N003-N005"
+      ],
+      "start_seconds": 10.56,
+      "end_seconds": 36.44
+    },
+    {
+      "id": "S003",
+      "title": "Ideas now have to become software",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N006-N007"
+      ],
+      "start_seconds": 36.44,
+      "end_seconds": 45.6
+    },
+    {
+      "id": "S004",
+      "title": "Something has to orchestrate the work",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N008-N016"
+      ],
+      "start_seconds": 45.6,
+      "end_seconds": 65.4
+    },
+    {
+      "id": "S005",
+      "title": "Several plausible runtimes already exist",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N017-N024"
+      ],
+      "start_seconds": 65.4,
+      "end_seconds": 80.6
+    },
+    {
+      "id": "S006",
+      "title": "What is the runtime actually responsible for?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N025-N032"
+      ],
+      "start_seconds": 80.6,
+      "end_seconds": 108.4
+    },
+    {
+      "id": "S007A",
+      "title": "The responsibilities begin to appear",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N033-N038"
+      ],
+      "start_seconds": 108.4,
+      "end_seconds": 126.56
+    },
+    {
+      "id": "S007B",
+      "title": "Coordination crosses capability boundaries",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N039-N042"
+      ],
+      "start_seconds": 126.56,
+      "end_seconds": 145
+    },
+    {
+      "id": "S008",
+      "title": "The runtime coordinates a system of responsibilities",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N043-N048"
+      ],
+      "start_seconds": 145,
+      "end_seconds": 173.56
+    },
+    {
+      "id": "S009",
+      "title": "These describe the job—not a technology",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N049-N051"
+      ],
+      "start_seconds": 173.56,
+      "end_seconds": 178.96
+    },
+    {
+      "id": "S010",
+      "title": "One word masks several responsibilities",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N052-N061"
+      ],
+      "start_seconds": 178.96,
+      "end_seconds": 204.4
+    },
+    {
+      "id": "S011",
+      "title": "Which responsibilities belong inside the runtime?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N062-N065"
+      ],
+      "start_seconds": 204.4,
+      "end_seconds": 224.4
+    },
+    {
+      "id": "S012",
+      "title": "ADR 0001 begins with requirements",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N066-N070"
+      ],
+      "start_seconds": 224.4,
+      "end_seconds": 244
+    },
+    {
+      "id": "S013",
+      "title": "What does memory actually mean?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N071-N074"
+      ],
+      "start_seconds": 244,
+      "end_seconds": 267.8
+    },
+    {
+      "id": "S014",
+      "title": "Next: memory in an AI-native system",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N075"
+      ],
+      "start_seconds": 267.8,
+      "end_seconds": 272.973
+    }
+  ]
+}

@@ -111,6 +111,20 @@ test("environment compositions retain shared Articulate world chrome", () => {
   }
 });
 
+test("presenter Evidence can render alternatives without implying a selection", () => {
+  const presenterGrammar = getVisualGrammarProfile("articulate-visual-grammar-v2");
+  const scene = {
+    id: "S-EVIDENCE", kind: "presenter-evidence", transition: "cut", companion: false,
+    headline: "Several plausible alternatives", support: "Not yet a comparison.",
+    items: ["One", "Two", "Three", "Four"], evidence: { emphasisIndex: -1 },
+    narrationReference: "Alternatives", startSeconds: 0, endSeconds: 10
+  };
+  scene.presentation = resolveScenePresentation(scene, presenterGrammar);
+  const svg = renderSceneSvg(scene, { id: "episode-0010", title: "Runtime" }, { width: 1920, height: 1080 }, "", presenterGrammar, { hidden: new Set(), emphasized: new Set(), connections: new Map(), text: new Map(), frame: 0 });
+  assert.equal([...svg.matchAll(/fill="#1d313a"/g)].length, 4);
+  assert.doesNotMatch(svg, /fill="#38261f"/);
+});
+
 test("diagram scenes embed a resolved reusable SVG asset", () => {
   const scene = {
     id: "S-D2", kind: "diagram", transition: "cut", companion: false,

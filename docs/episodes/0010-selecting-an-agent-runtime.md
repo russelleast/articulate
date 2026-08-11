@@ -17,6 +17,9 @@ related_decisions:
 repository_paths:
   - docs/episodes/0010-selecting-an-agent-runtime.md
   - docs/adrs/0001-ai-runtime.md
+thumbnail: /media/episodes/0010/episode-0010-thumbnail.png
+thumbnail_alt: "Presenter beside the words Where Does AI Execute and a flow from AI capability to an unresolved runtime."
+youtube_url: https://youtu.be/rOnui-Tj3ks
 ---
 
 # Episode 10 – ADR 0001: Defining the Runtime Requirements

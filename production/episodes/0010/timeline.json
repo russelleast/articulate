@@ -1,0 +1,143 @@
+{
+  "version": 2,
+  "generatedFrom": "production/episodes/0010/scene-plan.yaml",
+  "authority": "recorded-presenter",
+  "selectedDurationSeconds": 272.972708,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 10.56,
+      "narrationReference": "The Runtime Question · N001-N002",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 10.56,
+      "endSeconds": 36.44,
+      "narrationReference": "The Conceptual Architecture · N003-N005",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 36.44,
+      "endSeconds": 45.6,
+      "narrationReference": "Ideas Become Software · N006-N007",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 45.6,
+      "endSeconds": 65.4,
+      "narrationReference": "A Runtime Is Needed · N008-N016",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 65.4,
+      "endSeconds": 80.6,
+      "narrationReference": "Plausible Runtime Candidates · N017-N024",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "transition": "cut"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 80.6,
+      "endSeconds": 108.4,
+      "narrationReference": "A Different Question · N025-N032",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S007A",
+      "startSeconds": 108.4,
+      "endSeconds": 126.56,
+      "narrationReference": "Responsibilities Emerge · N033-N038",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S007B",
+      "startSeconds": 126.56,
+      "endSeconds": 145,
+      "narrationReference": "Coordination Crosses Boundaries · N039-N042",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 145,
+      "endSeconds": 173.56,
+      "narrationReference": "The Runtime Coordination Model · N043-N048",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 173.56,
+      "endSeconds": 178.96,
+      "narrationReference": "The Job, Not the Product · N049-N051",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 178.96,
+      "endSeconds": 204.4,
+      "narrationReference": "Memory Masks Several Responsibilities · N052-N061",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 204.4,
+      "endSeconds": 224.4,
+      "narrationReference": "The Ownership Boundary · N062-N065",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 224.4,
+      "endSeconds": 244,
+      "narrationReference": "ADR 0001 Begins · N066-N070",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "transition": "cut"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 244,
+      "endSeconds": 267.8,
+      "narrationReference": "The Next Architectural Question · N071-N074",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 267.8,
+      "endSeconds": 272.973,
+      "narrationReference": "Next: Agent Memory · N075",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    }
+  ]
+}
