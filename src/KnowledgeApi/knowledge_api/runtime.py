@@ -9,6 +9,7 @@ from pymongo import MongoClient
 from pymongo.database import Database
 
 from knowledge_api.grpc_service import KnowledgeApiServicer
+from knowledge_api.observability import configure_observability
 from knowledge_api.repository import MongoProposedKnowledgeRepository
 
 
@@ -33,6 +34,7 @@ def get_mongodb_connection_string(attempts: int = 30) -> str:
 
 
 def serve() -> None:
+    observability = configure_observability()
     mongo_client: MongoClient[dict[str, object]] = MongoClient(get_mongodb_connection_string())
     database: Database[dict[str, object]] = mongo_client["articulate"]
     repository = MongoProposedKnowledgeRepository(database["proposed-knowledge"])
@@ -43,7 +45,10 @@ def serve() -> None:
     server.add_insecure_port(f"[::]:{port}")
 
     server.start()
-    server.wait_for_termination()
+    try:
+        server.wait_for_termination()
+    finally:
+        observability.shutdown()
 
 
 if __name__ == "__main__":

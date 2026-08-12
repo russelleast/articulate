@@ -4,6 +4,10 @@ from pydantic import ValidationError
 
 from knowledge_api.capture import capture_proposed_knowledge
 from knowledge_api.domain import Polarity, TemporalStatus
+from knowledge_api.observability import (
+    InstrumentedProposedKnowledgeRepository,
+    KnowledgeApiInstrumentation,
+)
 from knowledge_api.repository import ProposedKnowledgeRepository
 from knowledge_api.validation import ClaimInput
 
@@ -21,8 +25,15 @@ POLARITIES = {
 
 
 class KnowledgeApiServicer(knowledge_pb2_grpc.KnowledgeApiServicer):
-    def __init__(self, repository: ProposedKnowledgeRepository) -> None:
-        self._repository = repository
+    def __init__(
+        self,
+        repository: ProposedKnowledgeRepository,
+        instrumentation: KnowledgeApiInstrumentation | None = None,
+    ) -> None:
+        self._instrumentation = instrumentation or KnowledgeApiInstrumentation()
+        self._repository = InstrumentedProposedKnowledgeRepository(
+            repository, self._instrumentation
+        )
 
     def SubmitArchitecturalClaims(
         self,
@@ -30,14 +41,29 @@ class KnowledgeApiServicer(knowledge_pb2_grpc.KnowledgeApiServicer):
         context: grpc.ServicerContext,
     ) -> knowledge_pb2.SubmitArchitecturalClaimsResponse:
         try:
-            if not request.claims:
-                raise ValueError("at least one claim is required")
-            claims = [self._validate_claim(claim).to_domain() for claim in request.claims]
+            with self._instrumentation.tracer.start_as_current_span(
+                "Validate Contract",
+                attributes={
+                    "operation.name": "SubmitArchitecturalClaims",
+                    "claims.submitted_count": len(request.claims),
+                },
+            ) as validation_span:
+                try:
+                    if not request.claims:
+                        raise ValueError("at least one claim is required")
+                    claims = [self._validate_claim(claim).to_domain() for claim in request.claims]
+                except (ValidationError, ValueError, KeyError):
+                    validation_span.set_attribute("validation.outcome", "Rejected")
+                    raise
+                else:
+                    validation_span.set_attribute("validation.outcome", "Valid")
         except (ValidationError, ValueError, KeyError) as error:
             context.abort(grpc.StatusCode.INVALID_ARGUMENT, str(error))
             raise AssertionError("context.abort must terminate the call") from error
 
-        captured_count = capture_proposed_knowledge(claims, self._repository)
+        with self._instrumentation.capture_timer() as capability:
+            captured_count = capture_proposed_knowledge(claims, self._repository)
+            capability.captured(captured_count)
         return knowledge_pb2.SubmitArchitecturalClaimsResponse(
             success=True, captured_count=captured_count
         )

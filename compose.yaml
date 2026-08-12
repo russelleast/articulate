@@ -14,17 +14,45 @@ services:
     ports:
       - "9411:9411"
 
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.153.0
+    command: ["--config=/etc/otelcol-contrib/collector.yaml"]
+    volumes:
+      - ./deploy/otel/collector.yaml:/etc/otelcol-contrib/collector.yaml:ro
+    ports:
+      - "9464:9464"
+      - "13133:13133"
+    healthcheck:
+      test:
+        - CMD
+        - /otelcol-contrib
+        - validate
+        - --config=/etc/otelcol-contrib/collector.yaml
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    depends_on:
+      zipkin:
+        condition: service_started
+
   knowledge-api:
     build:
       context: .
       dockerfile: src/KnowledgeApi/Dockerfile
     ports:
       - "50051:50051"
+    environment:
+      OTEL_SERVICE_NAME: KnowledgeApi
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_METRIC_EXPORT_INTERVAL: "1000"
     depends_on:
       mongodb:
         condition: service_healthy
       zipkin:
         condition: service_started
+      otel-collector:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c", "import grpc; grpc.channel_ready_future(grpc.insecure_channel('localhost:50051')).result(timeout=2)"]
       interval: 2s

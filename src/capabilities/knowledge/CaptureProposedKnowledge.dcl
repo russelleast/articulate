@@ -18,22 +18,23 @@ context KnowledgeModel {
         intent Claim from decisionAgent
         intent Claim from designAgent
 
-        // actually, want to return the result shape
         outcomes {
             Captured
             Rejected
         }
  
+        effects {
+            PersistClaim
+        }
 
-        // need rule is state if the claim is invalid (which checks all the validy rules in the shape)
-        // plus need a way state that the statement needs to be a coule of words. this is not DCL think, but its a rule I cannot express in DCL. I can express it in the code that implements the capability, but not in DCL. I can express it as a rule in the capability, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint. I can express it as a rule in the shape, but not as a shape constraint.
-        rules {
-            StatementRequired: Claim.Statement is required
-
+        observe {
+            capability duration as capture_proposed_knowledge_duration
+            effect PersistClaim count as persist_claim_count
+            outcome Rejected count as rejected_count
         }
 
         when {
-            StatementRequired violated then Rejected
+            PersistClaim unresolved then Rejected
             otherwise then Captured
         }
     }

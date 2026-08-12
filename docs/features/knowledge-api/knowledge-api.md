@@ -23,7 +23,8 @@ src/KnowledgeApi/.venv/bin/python -m grpc_tools.protoc \
 
 ## Run locally
 
-Start MongoDB, Zipkin, KnowledgeApi with its Dapr sidecar, and ClaimSimulator:
+Start MongoDB, Zipkin, the OpenTelemetry Collector, KnowledgeApi with its Dapr sidecar, and
+ClaimSimulator:
 
 ```sh
 docker compose up --build
@@ -41,5 +42,20 @@ docker compose exec mongodb mongosh articulate --quiet \
   --eval 'db.getCollection("proposed-knowledge").countDocuments({})'
 ```
 
-Zipkin is available at <http://localhost:9411>. Stop and remove the local containers and volume with
-`docker compose down --volumes`.
+Zipkin is available at <http://localhost:9411>. Select the `KnowledgeApi` service and run a query to
+locate `SubmitArchitecturalClaims`. Open the trace to inspect the `Validate Contract`,
+`Capture Proposed Knowledge`, and `Persist Proposed Knowledge` spans in one execution hierarchy.
+
+The application exports traces and metrics to the OpenTelemetry Collector over OTLP. Inspect the DCL
+observations exposed by the Collector at <http://localhost:9464/metrics>:
+
+```sh
+curl --silent http://localhost:9464/metrics \
+  | grep -E 'capture_proposed_knowledge_duration|persist_claim_count|rejected_count'
+```
+
+Successful scenarios emit capability duration and persistence count. The rejection counter appears
+after a capability reaches the `Rejected` outcome; invalid transport contracts are rejected before
+capability execution and are not included in that counter.
+
+Stop and remove the local containers and volume with `docker compose down --volumes`.

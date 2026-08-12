@@ -12,6 +12,8 @@ These instructions apply to source code beneath `src/`.
 - Do not weaken tests or validation to make a change pass.
 - Avoid unrelated refactoring.
 - Do not use `DTO` as a suffix for types, classes, structures or variables. Name values for their actual role, such as `Claim`, `ClaimRequest` or `ProposedKnowledge`.
+- Observability is a first-class architectural concern. New externally accessible capabilities should be instrumented with OpenTelemetry spans that reflect the architectural workflow rather than low-level implementation details.
+- OpenTelemetry is the observability standard. Observability backends are replaceable infrastructure and must not leak into application or capability design.
 
 ## Python
 
