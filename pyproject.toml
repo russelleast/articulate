@@ -8,13 +8,14 @@ dependencies = []
 [dependency-groups]
 dev = [
   "grpcio-tools>=1.76.0,<2",
+  "httpx>=0.28.0,<1",
   "pyright>=1.1.400,<2",
   "pytest>=8.3.0,<9",
   "ruff>=0.11.0,<1",
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["src/KnowledgeApi/tests"]
+testpaths = ["src/KnowledgeApi/tests", "src/ClaimSimulator/tests"]
 pythonpath = ["src", "src/shared", "src/KnowledgeApi", "src/ClaimSimulator"]
 
 [tool.ruff]

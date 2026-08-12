@@ -60,6 +60,19 @@ services:
       dockerfile: src/ClaimSimulator/Dockerfile
     environment:
       KNOWLEDGE_API_ADDRESS: knowledge-api:50051
+    ports:
+      - "8000:8000"
     depends_on:
       knowledge-api:
         condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen('http://localhost:8000/openapi.json', timeout=2)
+      interval: 2s
+      timeout: 3s
+      retries: 30

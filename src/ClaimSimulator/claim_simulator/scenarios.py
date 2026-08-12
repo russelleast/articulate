@@ -41,3 +41,11 @@ def first_vertical_slice() -> Scenario:
         description="Fifty inspectable claims exercising the proposed-knowledge capture path.",
         claims=claims,
     )
+
+
+def available_scenarios() -> tuple[Scenario, ...]:
+    return (first_vertical_slice(),)
+
+
+def scenario_named(name: str) -> Scenario | None:
+    return next((scenario for scenario in available_scenarios() if scenario.name == name), None)

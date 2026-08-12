@@ -23,13 +23,18 @@ src/KnowledgeApi/.venv/bin/python -m grpc_tools.protoc \
 
 ## Run locally
 
-Start MongoDB, Zipkin, KnowledgeApi with its Dapr sidecar, and the one-shot ClaimSimulator:
+Start MongoDB, Zipkin, KnowledgeApi with its Dapr sidecar, and ClaimSimulator:
 
 ```sh
 docker compose up --build
 ```
 
-The simulator reports that 50 claims were captured. Inspect persisted proposed knowledge with:
+ClaimSimulator's Swagger interface is available at <http://localhost:8000/docs>. Use it to list the
+available scenarios with `GET /scenarios`, then run the existing 50-claim scenario with
+`POST /scenarios/first-vertical-slice/run`.
+
+The execution response reports the total, successfully submitted, and failed claim counts. Inspect
+persisted proposed knowledge with:
 
 ```sh
 docker compose exec mongodb mongosh articulate --quiet \

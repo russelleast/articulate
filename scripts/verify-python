@@ -29,12 +29,16 @@ uv pip install \
   --python "$knowledge_environment/bin/python" \
   --requirement src/KnowledgeApi/requirements.txt
 
-uv venv --allow-existing "$claim_simulator_environment"
+UV_PROJECT_ENVIRONMENT="$claim_simulator_environment" uv sync --frozen --inexact
 uv pip install \
   --python "$claim_simulator_environment/bin/python" \
   --requirement src/ClaimSimulator/requirements.txt
 
 "$knowledge_environment/bin/ruff" format --check src/KnowledgeApi src/ClaimSimulator
 "$knowledge_environment/bin/ruff" check src/KnowledgeApi src/ClaimSimulator
-"$knowledge_environment/bin/pyright" --pythonpath "$knowledge_environment/bin/python"
-"$knowledge_environment/bin/pytest"
+"$knowledge_environment/bin/pyright" --pythonpath "$knowledge_environment/bin/python" src/KnowledgeApi
+"$claim_simulator_environment/bin/pyright" \
+  --pythonpath "$claim_simulator_environment/bin/python" \
+  src/ClaimSimulator
+"$knowledge_environment/bin/pytest" src/KnowledgeApi/tests
+"$claim_simulator_environment/bin/pytest" src/ClaimSimulator/tests
