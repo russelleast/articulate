@@ -13,6 +13,15 @@ if ! find "$repository_root" \
   exit 0
 fi
 
-echo "  failed: a Python project exists, but repository verification is not configured"
-echo "  configure uv environment consistency, formatting, linting, type checking, and pytest here"
-exit 1
+command -v uv >/dev/null 2>&1 || {
+  echo "  failed: uv is required"
+  exit 1
+}
+
+cd "$repository_root"
+uv lock --check
+uv sync --frozen
+uv run ruff format --check src/KnowledgeApi src/ClaimSimulator
+uv run ruff check src/KnowledgeApi src/ClaimSimulator
+uv run pyright
+uv run pytest

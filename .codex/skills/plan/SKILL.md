@@ -22,3 +22,11 @@ Produce an implementation plan before changing source code.
 Planning is read-only. **Do not modify implementation files while planning.**
 
 If implementation evidence contradicts the requested architecture or capability intent, report the conflict. Do not silently design around it.
+
+The output of this skill is the implementation plan only.
+
+After producing the plan, STOP.
+
+Do not begin implementation.
+
+Wait for explicit user approval before entering the Implement phase.

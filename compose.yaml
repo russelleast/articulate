@@ -1,0 +1,65 @@
+services:
+  mongodb:
+    image: mongo:8.0
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  zipkin:
+    image: openzipkin/zipkin:3.5
+    ports:
+      - "9411:9411"
+
+  knowledge-api:
+    build:
+      context: .
+      dockerfile: src/KnowledgeApi/Dockerfile
+    ports:
+      - "50051:50051"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      zipkin:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "python", "-c", "import grpc; grpc.channel_ready_future(grpc.insecure_channel('localhost:50051')).result(timeout=2)"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  knowledge-api-dapr:
+    image: daprio/daprd:1.15.4
+    command:
+      - ./daprd
+      - --app-id
+      - knowledge-api
+      - --app-port
+      - "50051"
+      - --app-protocol
+      - grpc
+      - --resources-path
+      - /dapr/components
+      - --config
+      - /dapr/config/configuration.yaml
+    network_mode: service:knowledge-api
+    volumes:
+      - ./deploy/dapr/components:/dapr/components:ro
+      - ./deploy/dapr/configuration.yaml:/dapr/config/configuration.yaml:ro
+      - ./deploy/dapr/secrets.json:/dapr/secrets/secrets.json:ro
+    depends_on:
+      knowledge-api:
+        condition: service_started
+
+  claim-simulator:
+    build:
+      context: .
+      dockerfile: src/ClaimSimulator/Dockerfile
+    environment:
+      KNOWLEDGE_API_ADDRESS: knowledge-api:50051
+    depends_on:
+      knowledge-api:
+        condition: service_healthy

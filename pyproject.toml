@@ -1,0 +1,38 @@
+[project]
+name = "articulate-knowledge-slice"
+version = "0.1.0"
+description = "The first vertical slice of the Articulate Knowledge API"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "dapr>=1.15.0,<2",
+  "grpcio>=1.71.0,<2",
+  "protobuf>=6.31.1,<7",
+  "pydantic>=2.11.0,<3",
+  "pymongo>=4.12.0,<5",
+]
+
+[dependency-groups]
+dev = [
+  "grpcio-tools>=1.76.0,<2",
+  "pyright>=1.1.400,<2",
+  "pytest>=8.3.0,<9",
+  "ruff>=0.11.0,<1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["src/KnowledgeApi/tests"]
+pythonpath = ["src", "src/shared", "src/KnowledgeApi", "src/ClaimSimulator"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pyright]
+include = ["src/KnowledgeApi", "src/ClaimSimulator"]
+extraPaths = ["src", "src/shared"]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+reportMissingTypeStubs = false

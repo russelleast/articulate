@@ -1,0 +1,3 @@
+# The simulator deliberately has no Dapr or KnowledgeApi implementation dependency.
+grpcio>=1.71.0,<2
+protobuf>=6.31.1,<7

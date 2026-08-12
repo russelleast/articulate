@@ -44,6 +44,16 @@ ScaffoldingReadMe.txt
 *~
 CodeCoverage/
 
+# Python
+.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+
 # Articulate website
 site/node_modules/
 site/dist/

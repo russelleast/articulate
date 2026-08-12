@@ -11,6 +11,7 @@ These instructions apply to source code beneath `src/`.
 - All changes require appropriate automated verification.
 - Do not weaken tests or validation to make a change pass.
 - Avoid unrelated refactoring.
+- Do not use `DTO` as a suffix for types, classes, structures or variables. Name values for their actual role, such as `Claim`, `ClaimRequest` or `ProposedKnowledge`.
 
 ## Python
 

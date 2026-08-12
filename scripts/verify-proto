@@ -13,6 +13,24 @@ if ! find "$repository_root" \
   exit 0
 fi
 
-echo "  failed: protobuf contracts exist, but repository verification is not configured"
-echo "  configure schema validation, generated-code freshness, and compatibility checks here"
-exit 1
+command -v uv >/dev/null 2>&1 || {
+  echo "  failed: uv is required"
+  exit 1
+}
+
+cd "$repository_root"
+temporary_directory=$(mktemp -d)
+trap 'rm -rf "$temporary_directory"' EXIT
+
+uv run python -m grpc_tools.protoc \
+  --proto_path=proto \
+  --python_out="$temporary_directory" \
+  --pyi_out="$temporary_directory" \
+  --grpc_python_out="$temporary_directory" \
+  proto/knowledge/v1/knowledge.proto
+
+for generated_file in knowledge_pb2.py knowledge_pb2.pyi knowledge_pb2_grpc.py; do
+  diff \
+    "$temporary_directory/knowledge/v1/$generated_file" \
+    "src/shared/knowledge/v1/$generated_file"
+done
