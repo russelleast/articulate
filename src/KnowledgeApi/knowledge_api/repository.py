@@ -4,6 +4,7 @@ from pymongo.collection import Collection
 
 from knowledge_api.domain import ProposedKnowledge
 
+
 class ProposedKnowledgeRepository(Protocol):
     def add(self, proposed_knowledge: ProposedKnowledge) -> None: ...
 

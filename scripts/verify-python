@@ -20,8 +20,21 @@ command -v uv >/dev/null 2>&1 || {
 
 cd "$repository_root"
 uv lock --check
-uv sync --frozen
-uv run ruff format --check src/KnowledgeApi src/ClaimSimulator
-uv run ruff check src/KnowledgeApi src/ClaimSimulator
-uv run pyright
-uv run pytest
+
+knowledge_environment="$repository_root/src/KnowledgeApi/.venv"
+claim_simulator_environment="$repository_root/src/ClaimSimulator/.venv"
+
+UV_PROJECT_ENVIRONMENT="$knowledge_environment" uv sync --frozen --inexact
+uv pip install \
+  --python "$knowledge_environment/bin/python" \
+  --requirement src/KnowledgeApi/requirements.txt
+
+uv venv --allow-existing "$claim_simulator_environment"
+uv pip install \
+  --python "$claim_simulator_environment/bin/python" \
+  --requirement src/ClaimSimulator/requirements.txt
+
+"$knowledge_environment/bin/ruff" format --check src/KnowledgeApi src/ClaimSimulator
+"$knowledge_environment/bin/ruff" check src/KnowledgeApi src/ClaimSimulator
+"$knowledge_environment/bin/pyright" --pythonpath "$knowledge_environment/bin/python"
+"$knowledge_environment/bin/pytest"

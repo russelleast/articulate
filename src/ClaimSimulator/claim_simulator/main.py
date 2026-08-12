@@ -12,7 +12,6 @@ def run() -> int:
     address = os.getenv("KNOWLEDGE_API_ADDRESS", "knowledge-api:50051")
     try:
         with grpc.insecure_channel(address) as channel:
-
             grpc.channel_ready_future(channel).result(timeout=30)
 
             response = knowledge_pb2_grpc.KnowledgeApiStub(channel).SubmitArchitecturalClaims(

@@ -1,15 +1,9 @@
 [project]
-name = "articulate-knowledge-slice"
+name = "articulate-python-tooling"
 version = "0.1.0"
-description = "The first vertical slice of the Articulate Knowledge API"
+description = "Shared Python tooling configuration for Articulate services"
 requires-python = ">=3.12,<3.13"
-dependencies = [
-  "dapr>=1.15.0,<2",
-  "grpcio>=1.71.0,<2",
-  "protobuf>=6.31.1,<7",
-  "pydantic>=2.11.0,<3",
-  "pymongo>=4.12.0,<5",
-]
+dependencies = []
 
 [dependency-groups]
 dev = [

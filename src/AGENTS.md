@@ -17,7 +17,8 @@ These instructions apply to source code beneath `src/`.
 
 - Use Python 3.x version defined by the repository.
 - Use `uv` for dependency and environment management.
-- Use `pyproject.toml` as the canonical project configuration.
+- Python virtual environments are service-local. Each independently deployable Python service owns its own `.venv` and dependency definition. Do not create or use a repository-root Python virtual environment.
+- Use the root `pyproject.toml` only for genuinely shared Python tooling configuration.
 - Commit `uv.lock`.
 - Use explicit type annotations.
 - Use Pydantic at external validation and configuration boundaries.

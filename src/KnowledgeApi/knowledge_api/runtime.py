@@ -41,7 +41,7 @@ def serve() -> None:
     knowledge_pb2_grpc.add_KnowledgeApiServicer_to_server(KnowledgeApiServicer(repository), server)
     port = os.getenv("KNOWLEDGE_API_PORT", "50051")
     server.add_insecure_port(f"[::]:{port}")
-    
+
     server.start()
     server.wait_for_termination()
 

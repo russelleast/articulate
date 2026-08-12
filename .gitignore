@@ -45,8 +45,7 @@ ScaffoldingReadMe.txt
 CodeCoverage/
 
 # Python
-.venv/
-**/.venv/
+src/*/.venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/

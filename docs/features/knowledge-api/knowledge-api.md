@@ -9,7 +9,11 @@ reasoning, reconciliation, assessment or merge.
 Generated Python protobuf modules are checked in and verified for freshness:
 
 ```sh
-uv run python -m grpc_tools.protoc \
+UV_PROJECT_ENVIRONMENT=src/KnowledgeApi/.venv uv sync --frozen --inexact
+uv pip install \
+  --python src/KnowledgeApi/.venv/bin/python \
+  --requirement src/KnowledgeApi/requirements.txt
+src/KnowledgeApi/.venv/bin/python -m grpc_tools.protoc \
   --proto_path=proto \
   --python_out=src/shared \
   --pyi_out=src/shared \
