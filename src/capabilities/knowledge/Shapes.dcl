@@ -30,5 +30,4 @@ context KnowledgeModel {
         Positive
         Negative
     }
-
 }
