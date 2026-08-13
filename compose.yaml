@@ -1,4 +1,24 @@
 services:
+  rabbitmq:
+    image: rabbitmq:4.1-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:8.0
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
   mongodb:
     image: mongo:8.0
     ports:
@@ -41,17 +61,29 @@ services:
       dockerfile: src/KnowledgeApi/Dockerfile
     ports:
       - "50051:50051"
+      - "8001:8001"
     environment:
       OTEL_SERVICE_NAME: KnowledgeApi
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_METRIC_EXPORT_INTERVAL: "1000"
+      PROPOSED_CLAIMS_PUBSUB: knowledge-events
+      PROPOSED_CLAIMS_TOPIC: proposed-claims-captured
+      DAPR_CONVERSATION_COMPONENT: architectural-reasoning
+      KNOWLEDGE_EVENTS_PUBSUB: knowledge-events
+      READY_CLAIMS_TOPIC: claims-ready-for-reconciliation
+      AGENT_STATE_STORE: review-agent-execution-state
+      MINIMUM_ANSWER_CONFIDENCE: ${MINIMUM_ANSWER_CONFIDENCE:-0.6}
     depends_on:
       mongodb:
         condition: service_healthy
       zipkin:
         condition: service_started
       otel-collector:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c", "import grpc; grpc.channel_ready_future(grpc.insecure_channel('localhost:50051')).result(timeout=2)"]
@@ -60,22 +92,28 @@ services:
       retries: 30
 
   knowledge-api-dapr:
-    image: daprio/daprd:1.15.4
+    image: daprio/daprd:1.16.1
     command:
       - ./daprd
       - --app-id
       - knowledge-api
       - --app-port
-      - "50051"
+      - "8001"
       - --app-protocol
-      - grpc
+      - http
       - --resources-path
       - /dapr/components
+      - --resources-path
+      - /dapr/subscriptions
       - --config
       - /dapr/config/configuration.yaml
     network_mode: service:knowledge-api
+    environment:
+      OLLAMA_ENDPOINT: ${OLLAMA_ENDPOINT:-http://host.docker.internal:11434/v1}
+      GEMMA_MODEL: ${GEMMA_MODEL:-gemma3:4b}
     volumes:
       - ./deploy/dapr/components:/dapr/components:ro
+      - ./deploy/dapr/subscriptions:/dapr/subscriptions:ro
       - ./deploy/dapr/configuration.yaml:/dapr/config/configuration.yaml:ro
       - ./deploy/dapr/secrets.json:/dapr/secrets/secrets.json:ro
     depends_on:

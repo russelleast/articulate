@@ -71,3 +71,28 @@ Agent is ReviewProposedClaim with DCL
 | Next capability         | Interpretation, Remediation                                                        |
 
 This sets a template for defining the capbility and understand how it fits in the overall picture and every agent-capability pairing.
+
+### Phase 3 - asynchronous claim review
+
+The first reasoning slice preserves the capability boundaries established by DCL:
+
+```text
+ClaimSimulator -> KnowledgeApi -> MongoDB -> Dapr Pub/Sub -> RabbitMQ
+    -> KnowledgeApi internal ReviewProposedClaim Agent
+    -> Dapr Conversation -> Ollama/Gemma 3 -> RecordReviewResult -> MongoDB
+```
+
+Claims now carry a stable `ClaimId` and structured provenance `Activity`. KnowledgeApi publishes the
+complete claim only after persistence succeeds. The review agent performs one narrow relevance
+judgement using a Prompty instruction and a structured `Ready` or `NotReady` response. It neither
+assesses truth nor reads or mutates authoritative architectural knowledge.
+
+Review results are recorded idempotently by `ClaimId` through KnowledgeApi's internal repository
+boundary; no review-result RPC is exposed. Only a
+recorded `Ready` result is published to the future reconciliation topic. `NotReady` remediation and
+the persist/publish outbox gap remain later Knowledge Evolution concerns.
+
+RabbitMQ is replaceable behind Dapr Pub/Sub, Ollama is replaceable behind Dapr Conversation, Redis
+contains only agent execution markers, and MongoDB continues to own proposed knowledge and review
+evidence. OpenTelemetry spans and DCL-named metrics describe capability, effect, policy, and outcome
+behaviour without recording claims or prompts.

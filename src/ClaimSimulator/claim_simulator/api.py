@@ -38,7 +38,6 @@ def create_app(runner: ScenarioRunner | None = None) -> FastAPI:
     def list_scenarios() -> list[ScenarioDetails]:
         return [
             ScenarioDetails(name=scenario.name, description=scenario.description)
-            
             for scenario in available_scenarios()
         ]
 

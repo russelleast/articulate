@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import UTC, datetime
+from uuid import UUID, uuid4
 
 import grpc
 import pytest
@@ -29,9 +30,18 @@ class RpcAborted(Exception):
 
 def valid_claim() -> knowledge_pb2.Claim:
     return knowledge_pb2.Claim(
+        claim_id=str(uuid4()),
         statement="Services own their operational data.",
         evidence=knowledge_pb2.Evidence(value="ADR-0001"),
-        provenance=knowledge_pb2.Provenance(source="architecture repository"),
+        provenance=knowledge_pb2.Provenance(
+            source="architecture repository",
+            activity=knowledge_pb2.Activity(
+                id=str(uuid4()),
+                name="Decision",
+                when=datetime.now(UTC).isoformat(),
+                who="Architecture Team",
+            ),
+        ),
         temporal_status=knowledge_pb2.TEMPORAL_STATUS_CURRENT,
         polarity=knowledge_pb2.POLARITY_POSITIVE,
         confidence=0.9,
@@ -52,6 +62,9 @@ def test_grpc_request_captures_proposed_knowledge_through_repository() -> None:
     assert len(repository.captured) == 2
     assert repository.captured[0].claim.statement == "Services own their operational data."
     assert repository.captured[0].claim.evidence == "ADR-0001"
+    assert isinstance(repository.captured[0].claim.claim_id, UUID)
+    assert repository.captured[0].id == repository.captured[0].claim.claim_id
+    assert repository.captured[0].claim.activity.name == "Decision"
     assert isinstance(repository.captured[0].captured_at, datetime)
 
 

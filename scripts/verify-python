@@ -23,6 +23,7 @@ uv lock --check
 
 knowledge_environment="$repository_root/src/KnowledgeApi/.venv"
 claim_simulator_environment="$repository_root/src/ClaimSimulator/.venv"
+review_agent_environment="$repository_root/src/ReviewProposedClaimAgent/.venv"
 
 UV_PROJECT_ENVIRONMENT="$knowledge_environment" uv sync --frozen --inexact
 uv pip install \
@@ -34,11 +35,22 @@ uv pip install \
   --python "$claim_simulator_environment/bin/python" \
   --requirement src/ClaimSimulator/requirements.txt
 
-"$knowledge_environment/bin/ruff" format --check src/KnowledgeApi src/ClaimSimulator
-"$knowledge_environment/bin/ruff" check src/KnowledgeApi src/ClaimSimulator
+UV_PROJECT_ENVIRONMENT="$review_agent_environment" uv sync --frozen --inexact
+uv pip install \
+  --python "$review_agent_environment/bin/python" \
+  --requirement src/ReviewProposedClaimAgent/requirements.txt
+
+"$knowledge_environment/bin/ruff" format --check \
+  src/KnowledgeApi src/ClaimSimulator src/ReviewProposedClaimAgent
+"$knowledge_environment/bin/ruff" check \
+  src/KnowledgeApi src/ClaimSimulator src/ReviewProposedClaimAgent
 "$knowledge_environment/bin/pyright" --pythonpath "$knowledge_environment/bin/python" src/KnowledgeApi
 "$claim_simulator_environment/bin/pyright" \
   --pythonpath "$claim_simulator_environment/bin/python" \
   src/ClaimSimulator
+"$review_agent_environment/bin/pyright" \
+  --pythonpath "$review_agent_environment/bin/python" \
+  src/ReviewProposedClaimAgent
 "$knowledge_environment/bin/pytest" src/KnowledgeApi/tests
 "$claim_simulator_environment/bin/pytest" src/ClaimSimulator/tests
+"$review_agent_environment/bin/pytest" src/ReviewProposedClaimAgent/tests

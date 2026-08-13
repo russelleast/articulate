@@ -33,8 +33,10 @@ def test_scenarios_lists_the_existing_scenario() -> None:
 
     assert response.status_code == 200
     scenarios = response.json()
-    assert len(scenarios) == 1
-    assert scenarios[0]["name"] == "first-vertical-slice"
+    assert [scenario["name"] for scenario in scenarios] == [
+        "first-vertical-slice",
+        "review-examples",
+    ]
     assert scenarios[0]["description"].startswith("Fifty inspectable claims")
 
 

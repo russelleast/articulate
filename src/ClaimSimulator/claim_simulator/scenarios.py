@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+from datetime import UTC, datetime
+from uuid import uuid4
 
 from knowledge.v1 import knowledge_pb2
 
@@ -26,9 +28,18 @@ def first_vertical_slice() -> Scenario:
     )
     claims = tuple(
         knowledge_pb2.Claim(
+            claim_id=str(uuid4()),
             statement=f"{subject} {practice}.",
             evidence=knowledge_pb2.Evidence(value="Knowledge API first vertical slice"),
-            provenance=knowledge_pb2.Provenance(source="ClaimSimulator:first-vertical-slice"),
+            provenance=knowledge_pb2.Provenance(
+                source="ClaimSimulator:first-vertical-slice",
+                activity=knowledge_pb2.Activity(
+                    id=str(uuid4()),
+                    name=("Discovery" if subject in {"MongoDB", "Zipkin"} else "SolutionDesign"),
+                    when=datetime.now(UTC).isoformat(),
+                    who="ClaimSimulator",
+                ),
+            ),
             temporal_status=knowledge_pb2.TEMPORAL_STATUS_CURRENT,
             polarity=knowledge_pb2.POLARITY_POSITIVE,
             confidence=0.8,
@@ -43,8 +54,40 @@ def first_vertical_slice() -> Scenario:
     )
 
 
+def review_examples() -> Scenario:
+    statements = (
+        ("The SQL servers are clustered.", "Discovery"),
+        ("I wear thick jumpers when it is cold.", "Discovery"),
+    )
+    claims = tuple(
+        knowledge_pb2.Claim(
+            claim_id=str(uuid4()),
+            statement=statement,
+            evidence=knowledge_pb2.Evidence(value="Episode 16 review example"),
+            provenance=knowledge_pb2.Provenance(
+                source="ClaimSimulator:review-examples",
+                activity=knowledge_pb2.Activity(
+                    id=str(uuid4()),
+                    name=activity_name,
+                    when=datetime.now(UTC).isoformat(),
+                    who="ClaimSimulator",
+                ),
+            ),
+            temporal_status=knowledge_pb2.TEMPORAL_STATUS_CURRENT,
+            polarity=knowledge_pb2.POLARITY_POSITIVE,
+            confidence=0.9,
+        )
+        for statement, activity_name in statements
+    )
+    return Scenario(
+        name="review-examples",
+        description="Known Ready and NotReady claims exercising ReviewProposedClaim.",
+        claims=claims,
+    )
+
+
 def available_scenarios() -> tuple[Scenario, ...]:
-    return (first_vertical_slice(),)
+    return (first_vertical_slice(), review_examples())
 
 
 def scenario_named(name: str) -> Scenario | None:

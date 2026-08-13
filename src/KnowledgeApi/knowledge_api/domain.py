@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from enum import StrEnum
-from uuid import UUID, uuid4
+from uuid import UUID
 
 
 class TemporalStatus(StrEnum):
@@ -17,10 +17,25 @@ class Polarity(StrEnum):
     NEGATIVE = "Negative"
 
 
+class ReviewStatus(StrEnum):
+    READY = "Ready"
+    NOT_READY = "NotReady"
+
+
+@dataclass(frozen=True)
+class Activity:
+    id: UUID
+    name: str
+    when: datetime
+    who: str
+
+
 @dataclass(frozen=True)
 class Claim:
+    claim_id: UUID
     statement: str
     provenance_source: str
+    activity: Activity
     temporal_status: TemporalStatus
     polarity: Polarity
     confidence: float
@@ -35,4 +50,23 @@ class ProposedKnowledge:
 
     @classmethod
     def from_claim(cls, claim: Claim) -> "ProposedKnowledge":
-        return cls(id=uuid4(), claim=claim, captured_at=datetime.now(UTC))
+        return cls(id=claim.claim_id, claim=claim, captured_at=datetime.now(UTC))
+
+
+@dataclass(frozen=True)
+class ReviewProposedClaimResult:
+    claim_id: UUID
+    status: ReviewStatus
+    confidence: float
+    recorded_at: datetime
+
+    @classmethod
+    def create(
+        cls, claim_id: UUID, status: ReviewStatus, confidence: float
+    ) -> "ReviewProposedClaimResult":
+        return cls(
+            claim_id=claim_id,
+            status=status,
+            confidence=confidence,
+            recorded_at=datetime.now(UTC),
+        )

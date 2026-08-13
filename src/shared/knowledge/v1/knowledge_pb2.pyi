@@ -46,20 +46,22 @@ class SubmitArchitecturalClaimsResponse(_message.Message):
     def __init__(self, success: _Optional[bool] = ..., captured_count: _Optional[int] = ...) -> None: ...
 
 class Claim(_message.Message):
-    __slots__ = ("statement", "evidence", "provenance", "temporal_status", "polarity", "confidence")
+    __slots__ = ("statement", "evidence", "provenance", "temporal_status", "polarity", "confidence", "claim_id")
     STATEMENT_FIELD_NUMBER: _ClassVar[int]
     EVIDENCE_FIELD_NUMBER: _ClassVar[int]
     PROVENANCE_FIELD_NUMBER: _ClassVar[int]
     TEMPORAL_STATUS_FIELD_NUMBER: _ClassVar[int]
     POLARITY_FIELD_NUMBER: _ClassVar[int]
     CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
+    CLAIM_ID_FIELD_NUMBER: _ClassVar[int]
     statement: str
     evidence: Evidence
     provenance: Provenance
     temporal_status: TemporalStatus
     polarity: Polarity
     confidence: float
-    def __init__(self, statement: _Optional[str] = ..., evidence: _Optional[_Union[Evidence, _Mapping]] = ..., provenance: _Optional[_Union[Provenance, _Mapping]] = ..., temporal_status: _Optional[_Union[TemporalStatus, str]] = ..., polarity: _Optional[_Union[Polarity, str]] = ..., confidence: _Optional[float] = ...) -> None: ...
+    claim_id: str
+    def __init__(self, statement: _Optional[str] = ..., evidence: _Optional[_Union[Evidence, _Mapping]] = ..., provenance: _Optional[_Union[Provenance, _Mapping]] = ..., temporal_status: _Optional[_Union[TemporalStatus, str]] = ..., polarity: _Optional[_Union[Polarity, str]] = ..., confidence: _Optional[float] = ..., claim_id: _Optional[str] = ...) -> None: ...
 
 class Evidence(_message.Message):
     __slots__ = ("value",)
@@ -68,7 +70,21 @@ class Evidence(_message.Message):
     def __init__(self, value: _Optional[str] = ...) -> None: ...
 
 class Provenance(_message.Message):
-    __slots__ = ("source",)
+    __slots__ = ("source", "activity")
     SOURCE_FIELD_NUMBER: _ClassVar[int]
+    ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     source: str
-    def __init__(self, source: _Optional[str] = ...) -> None: ...
+    activity: Activity
+    def __init__(self, source: _Optional[str] = ..., activity: _Optional[_Union[Activity, _Mapping]] = ...) -> None: ...
+
+class Activity(_message.Message):
+    __slots__ = ("id", "name", "when", "who")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    WHEN_FIELD_NUMBER: _ClassVar[int]
+    WHO_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    name: str
+    when: str
+    who: str
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., when: _Optional[str] = ..., who: _Optional[str] = ...) -> None: ...

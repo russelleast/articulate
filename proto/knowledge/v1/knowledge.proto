@@ -23,6 +23,7 @@ message Claim {
   TemporalStatus temporal_status = 4;
   Polarity polarity = 5;
   optional double confidence = 6;
+  string claim_id = 7;
 }
 
 message Evidence {
@@ -31,6 +32,14 @@ message Evidence {
 
 message Provenance {
   string source = 1;
+  Activity activity = 2;
+}
+
+message Activity {
+  string id = 1;
+  string name = 2;
+  string when = 3;
+  string who = 4;
 }
 
 enum TemporalStatus {

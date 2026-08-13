@@ -1,5 +1,7 @@
 from collections.abc import Iterator
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
+from uuid import uuid4
 
 import grpc
 import pytest
@@ -71,9 +73,18 @@ def telemetry() -> Iterator[TelemetryHarness]:
 
 def valid_claim() -> knowledge_pb2.Claim:
     return knowledge_pb2.Claim(
+        claim_id=str(uuid4()),
         statement="Services own their operational data.",
         evidence=knowledge_pb2.Evidence(value="ADR-0001"),
-        provenance=knowledge_pb2.Provenance(source="architecture repository"),
+        provenance=knowledge_pb2.Provenance(
+            source="architecture repository",
+            activity=knowledge_pb2.Activity(
+                id=str(uuid4()),
+                name="Decision",
+                when=datetime.now(UTC).isoformat(),
+                who="Architecture Team",
+            ),
+        ),
         temporal_status=knowledge_pb2.TEMPORAL_STATUS_CURRENT,
         polarity=knowledge_pb2.POLARITY_POSITIVE,
         confidence=0.9,
@@ -96,7 +107,7 @@ def test_capability_spans_join_parent_trace_and_metrics_capture_dcl_observations
     telemetry: TelemetryHarness,
 ) -> None:
     repository = RecordingRepository()
-    service = KnowledgeApiServicer(repository, telemetry.instrumentation)
+    service = KnowledgeApiServicer(repository, instrumentation=telemetry.instrumentation)
     tracer = telemetry.tracer_provider.get_tracer("test.request")
 
     with tracer.start_as_current_span("SubmitArchitecturalClaims"):
@@ -150,7 +161,7 @@ def test_capability_spans_join_parent_trace_and_metrics_capture_dcl_observations
 def test_validation_failure_is_traced_before_capability_execution(
     telemetry: TelemetryHarness,
 ) -> None:
-    service = KnowledgeApiServicer(RecordingRepository(), telemetry.instrumentation)
+    service = KnowledgeApiServicer(RecordingRepository(), instrumentation=telemetry.instrumentation)
 
     with pytest.raises(RpcAborted):
         service.SubmitArchitecturalClaims(
@@ -167,7 +178,7 @@ def test_validation_failure_is_traced_before_capability_execution(
 def test_persistence_failure_records_rejected_outcome_and_preserves_error(
     telemetry: TelemetryHarness,
 ) -> None:
-    service = KnowledgeApiServicer(FailingRepository(), telemetry.instrumentation)
+    service = KnowledgeApiServicer(FailingRepository(), instrumentation=telemetry.instrumentation)
 
     with pytest.raises(RuntimeError, match="persistence unavailable"):
         service.SubmitArchitecturalClaims(
