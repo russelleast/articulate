@@ -9,7 +9,7 @@ spec:
     - name: key
       value: ollama
     - name: model
-      envRef: GEMMA_MODEL
+      envRef: OLLAMA_MODEL
     - name: endpoint
       envRef: OLLAMA_ENDPOINT
 scopes:

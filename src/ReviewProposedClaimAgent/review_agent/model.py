@@ -5,13 +5,13 @@ from opentelemetry import trace
 
 from review_agent.domain import ClaimInput, ModelReview
 
-
 class DaprPromptyClaimReviewer:
     def __init__(self, prompty_path: Path, component_name: str) -> None:
         self._client = DaprChatClient.from_prompty(prompty_path)
         # Dapr Agents 1.0.5 includes response_format=None in Prompty parameter dumps,
         # which collides with the explicit structured schema. The rendered Prompty
         # template remains attached; only its duplicate request defaults are removed.
+
         self._client.prompty = None
         self._component_name = component_name
 
@@ -31,6 +31,8 @@ class DaprPromptyClaimReviewer:
                 structured_mode="json",
                 temperature=0.1,
             )
+
         if not isinstance(response, ModelReview):
             raise ValueError("Conversation returned an invalid structured review")
+
         return response

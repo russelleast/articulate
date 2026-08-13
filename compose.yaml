@@ -109,8 +109,8 @@ services:
       - /dapr/config/configuration.yaml
     network_mode: service:knowledge-api
     environment:
-      OLLAMA_ENDPOINT: ${OLLAMA_ENDPOINT:-http://host.docker.internal:11434/v1}
-      GEMMA_MODEL: ${GEMMA_MODEL:-gemma3:4b}
+      OLLAMA_ENDPOINT: http://${OLLAMA_HOST:?Set OLLAMA_HOST to the Mac mini hostname or IP}:${OLLAMA_PORT:-11434}/v1
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
     volumes:
       - ./deploy/dapr/components:/dapr/components:ro
       - ./deploy/dapr/subscriptions:/dapr/subscriptions:ro
@@ -119,6 +119,25 @@ services:
     depends_on:
       knowledge-api:
         condition: service_started
+      ollama-connectivity:
+        condition: service_completed_successfully
+
+  ollama-connectivity:
+    image: curlimages/curl:8.12.1
+    environment:
+      OLLAMA_BASE_URL: http://${OLLAMA_HOST:?Set OLLAMA_HOST to the Mac mini hostname or IP}:${OLLAMA_PORT:-11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
+    command:
+      - sh
+      - -ec
+      - >-
+        echo "Checking Ollama at $${OLLAMA_BASE_URL} for model '$${OLLAMA_MODEL}'...";
+        curl --fail --show-error --silent
+        --max-time 10
+        --header 'Content-Type: application/json'
+        --data "{\"model\":\"$${OLLAMA_MODEL}\"}"
+        "$${OLLAMA_BASE_URL}/api/show" >/dev/null;
+        echo "Ollama is reachable and model '$${OLLAMA_MODEL}' is available."
 
   claim-simulator:
     build:

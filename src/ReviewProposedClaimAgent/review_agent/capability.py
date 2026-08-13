@@ -31,16 +31,21 @@ class ReviewProposedClaim:
     def execute(self, claim: ClaimInput) -> ReviewResult:
         model_review = self._reviewer.review(claim)
         status = model_review.status
+
         if model_review.confidence < self._minimum_confidence:
             status = ReviewStatus.NOT_READY
+
         result = ReviewResult(
             claim_id=claim.claim_id,
             status=status,
             confidence=model_review.confidence,
         )
+
         self._recorder.record(result)
+
         if result.status is ReviewStatus.READY:
             self._ready_publisher.publish(claim, result)
+
         return result
 
     @property

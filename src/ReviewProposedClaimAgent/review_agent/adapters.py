@@ -14,6 +14,7 @@ class DaprReadyClaimPublisher:
     def publish(self, claim: ClaimInput, result: ReviewResult) -> None:
         data = claim.model_dump(mode="json", by_alias=True)
         data["review"] = result.model_dump(mode="json")
+        
         with (
             trace.get_tracer("articulate.review_proposed_claim").start_as_current_span(
                 "Publish Ready Claim",

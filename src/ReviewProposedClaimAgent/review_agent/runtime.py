@@ -27,9 +27,11 @@ def create_app(
 ) -> FastAPI:
     if capability is None:
         raise ValueError("the internal KnowledgeApi review capability is required")
+
     execution_state = execution_state or AgentExecutionState(
         os.getenv("AGENT_STATE_STORE", "review-agent-execution-state")
     )
+
     instrumentation = instrumentation or ReviewInstrumentation()
     app = FastAPI(title="ReviewProposedClaim Agent")
     FastAPIInstrumentor.instrument_app(app)
