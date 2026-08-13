@@ -31,7 +31,7 @@ It marks the transition from architectural thinking to executable software.
 
 Actions performed:
 
-### Phase 1
+### Phase 1 - basic application skeleton
 
 - Created for the first capability: CaptureProposedKnowledge
 - Setup up my harness.
@@ -47,3 +47,27 @@ Actions performed:
 - Created the Claims Simulator (Python) 
   - FastAPI to fetch scenerios and to invoke a scenario which posts claims to the Knowledge API over gRPC
 - Docker compose to host the services, dapr sidebar, zipkin and Mongo db
+
+### Phase 2 - what is the first agent and why
+
+Some of the episodes already provide context to the behaviour that we need to ingest claims and how we form knowledge. 
+
+This phase looks at the next step from persisting a proposed claim. 
+
+Agent is ReviewProposedClaim with DCL 
+
+| Question                | Claim Review                                                           |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Problem                 | Proposed claims may be valid data but unclear architectural assertions |
+| Capability              | Review Proposed Claim                                                  |
+| Input                   | Valid proposed claim                                                   |
+| Outcomes                | Ready / Ambiguous / Insufficient                                       |
+| Reasoning required?     | Yes                                                                    |
+| Agent justified?        | Likely yes                                                             |
+| Knowledge required?     | Initially little or none                                               |
+| Side effects            | Record review result                                                   |
+| Authoritative mutation? | No                                                                     |
+| Failure consequence     | Claim remains safely staged                                            |
+| Next capability         | Interpretation, Remediation                                                        |
+
+This sets a template for defining the capbility and understand how it fits in the overall picture and every agent-capability pairing.

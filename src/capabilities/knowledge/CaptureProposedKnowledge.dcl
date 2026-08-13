@@ -9,6 +9,7 @@ context KnowledgeModel {
     actor designAgent is agent
 
     effect PersistClaim is persistence
+    effect ProposedClaimNofication is notification
 
     capability CaptureProposedKnowledge {
         intent Claim from architect
@@ -25,6 +26,7 @@ context KnowledgeModel {
  
         effects {
             PersistClaim
+            ProposedClaimNofication after PersistClaim
         }
 
         observe {
