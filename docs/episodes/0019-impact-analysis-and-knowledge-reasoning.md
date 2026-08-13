@@ -1,5 +1,5 @@
 ---
-episode: 16
+episode: 19
 title: "Impact Analysis as Knowledge Reasoning"
 description: "A practical demonstration of Architectural Intelligence reasoning across capabilities, decisions, claims, evidence and multiple retrieval strategies."
 season: 2
@@ -15,7 +15,7 @@ topics:
   - Retrieval strategies
 ---
 
-# Episode 16 – Impact Analysis as Knowledge Reasoning
+# Episode 19 – Impact Analysis as Knowledge Reasoning
 
 **Question:** *Can AI understand the consequences of architectural change?*
 
