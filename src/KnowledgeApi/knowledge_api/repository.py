@@ -1,5 +1,6 @@
-from typing import Protocol
+from typing import Any, Protocol
 
+from opentelemetry import trace
 from pymongo.collection import Collection
 
 from knowledge_api.domain import ProposedKnowledge, ReviewProposedClaimResult
@@ -10,7 +11,15 @@ class ProposedKnowledgeRepository(Protocol):
 
 
 class ReviewResultRepository(Protocol):
-    def record(self, result: ReviewProposedClaimResult) -> None: ...
+    async def record(self, result: ReviewProposedClaimResult) -> None: ...
+
+
+class ProposedClaimNotFoundError(LookupError):
+    pass
+
+
+class AsyncReviewCollection(Protocol):
+    def update_one(self, filter: dict[str, object], update: dict[str, object]) -> Any: ...
 
 
 class MongoProposedKnowledgeRepository:
@@ -45,20 +54,25 @@ class MongoProposedKnowledgeRepository:
         self._collection.insert_one(document)
 
 
-class MongoReviewResultRepository:
-    def __init__(self, collection: Collection[dict[str, object]]) -> None:
+class MongoProposedKnowledgeReviewRepository:
+    def __init__(self, collection: AsyncReviewCollection) -> None:
         self._collection = collection
 
-    def record(self, result: ReviewProposedClaimResult) -> None:
-        self._collection.update_one(
-            {"_id": str(result.claim_id)},
-            {
-                "$set": {
-                    "claimId": str(result.claim_id),
-                    "status": result.status.value,
-                    "confidence": result.confidence,
-                    "recordedAt": result.recorded_at,
-                }
-            },
-            upsert=True,
-        )
+    async def record(self, result: ReviewProposedClaimResult) -> None:
+        with trace.get_tracer("articulate.knowledge_api").start_as_current_span(
+            "Update Proposed Claim Review",
+            attributes={"claim.id": str(result.claim_id)},
+        ) as span:
+            update = await self._collection.update_one(
+                {"_id": str(result.claim_id)},
+                {
+                    "$set": {
+                        "claim.reviewStatus": result.status.value,
+                        "claim.reviewConfidence": result.confidence,
+                    }
+                },
+            )
+            span.set_attribute("db.operation.name", "update")
+            span.set_attribute("db.collection.name", "proposed-knowledge")
+        if update.matched_count == 0:
+            raise ProposedClaimNotFoundError(f"proposed claim {result.claim_id} was not found")

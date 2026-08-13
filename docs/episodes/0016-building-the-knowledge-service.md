@@ -87,12 +87,14 @@ complete claim only after persistence succeeds. The review agent performs one na
 judgement using a Prompty instruction and a structured `Ready` or `NotReady` response. It neither
 assesses truth nor reads or mutates authoritative architectural knowledge.
 
-Review results are recorded idempotently by `ClaimId` through KnowledgeApi's internal repository
-boundary; no review-result RPC is exposed. Only a
+Review results evolve the existing staged claim idempotently by `ClaimId` through KnowledgeApi's
+internal repository boundary; no review-result RPC or separate review collection is exposed. Only a
 recorded `Ready` result is published to the future reconciliation topic. `NotReady` remediation and
 the persist/publish outbox gap remain later Knowledge Evolution concerns.
 
 RabbitMQ is replaceable behind Dapr Pub/Sub, Ollama is replaceable behind Dapr Conversation, Redis
-contains only agent execution markers, and MongoDB continues to own proposed knowledge and review
-evidence. OpenTelemetry spans and DCL-named metrics describe capability, effect, policy, and outcome
-behaviour without recording claims or prompts.
+contains only agent execution markers, and MongoDB continues to own proposed knowledge and its
+review evidence in the same staged document. The callback, Dapr operations and Mongo review update
+use async I/O. Dapr Agents 1.0.5 exposes only blocking model generation, so that call is isolated in
+a bounded worker thread. OpenTelemetry spans and DCL-named metrics describe capability, effect,
+policy, and outcome behaviour without recording claims or prompts.

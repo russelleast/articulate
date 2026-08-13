@@ -87,7 +87,7 @@ docker compose exec mongodb mongosh articulate --quiet \
   --eval 'db.getCollection("proposed-knowledge").countDocuments({})'
 
 docker compose exec mongodb mongosh articulate --quiet \
-  --eval 'db.getCollection("claim-review-results").find({}, {claimId:1,status:1,confidence:1}).toArray()'
+  --eval 'db.getCollection("proposed-knowledge").find({"claim.reviewStatus":{$exists:true}}, {"claim.claimId":1,"claim.reviewStatus":1,"claim.reviewConfidence":1}).toArray()'
 ```
 
 Zipkin is available at <http://localhost:9411>. Select the `KnowledgeApi` service and run a query to
@@ -114,8 +114,10 @@ records through its repository directly; it is not exposed as a public RPC.
 
 Deterministic repository verification uses controlled Conversation responses and does not require
 Ollama. The live Compose scenario is intentionally separate because model availability and output
-are environmental. Dapr Pub/Sub is at-least-once: execution markers and review-result upserts make
-duplicate completion safe. This slice does not implement an outbox, so a process failure between
+are environmental. The I/O-heavy callback path is async; Dapr Agents 1.0.5 model generation remains
+blocking and is isolated behind a bounded worker thread. Dapr Pub/Sub is at-least-once: execution
+markers and idempotent targeted updates to the staged claim make duplicate completion safe. An
+unknown `ClaimId` fails rather than creating a document. This slice does not implement an outbox, so a process failure between
 MongoDB persistence and publication remains a documented reliability gap.
 
 Stop and remove the local containers and volume with `docker compose down --volumes`.

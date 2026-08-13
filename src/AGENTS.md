@@ -23,6 +23,10 @@ These instructions apply to source code beneath `src/`.
 - Use the root `pyproject.toml` only for genuinely shared Python tooling configuration.
 - Commit `uv.lock`.
 - Use explicit type annotations.
+- Prefer async APIs for network, database, Dapr, model and other I/O-bound paths when the dependency stack supports them. Do not perform blocking I/O in an async event loop; isolate unavoidable blocking SDK calls explicitly and keep async behaviour consistent through the call chain.
+- Use bounded concurrency and explicit back-pressure when external resources such as models have limited capacity; avoid uncontrolled fan-out.
+- Prefer small functions, explicit data, pure transformations, immutable-style data flow where practical and dependency injection through function parameters over large service classes, deep inheritance or classes used only as namespaces.
+- Introduce classes when state, identity, lifecycle or framework integration makes them useful; do not mechanically replace reasonable framework and SDK abstractions.
 - Use Pydantic at external validation and configuration boundaries.
 - Do not use Pydantic models as domain entities by default.
 - Use pytest for tests.

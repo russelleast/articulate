@@ -58,15 +58,9 @@ class ReviewProposedClaimResult:
     claim_id: UUID
     status: ReviewStatus
     confidence: float
-    recorded_at: datetime
 
     @classmethod
     def create(
         cls, claim_id: UUID, status: ReviewStatus, confidence: float
     ) -> "ReviewProposedClaimResult":
-        return cls(
-            claim_id=claim_id,
-            status=status,
-            confidence=confidence,
-            recorded_at=datetime.now(UTC),
-        )
+        return cls(claim_id=claim_id, status=status, confidence=confidence)

@@ -1,3 +1,4 @@
+import asyncio
 from dataclasses import dataclass, field
 from uuid import uuid4
 
@@ -11,7 +12,7 @@ from review_agent.domain import ReviewStatus as AgentReviewStatus
 class RecordingReviewRepository:
     results: list[ReviewProposedClaimResult] = field(default_factory=list)
 
-    def record(self, result: ReviewProposedClaimResult) -> None:
+    async def record(self, result: ReviewProposedClaimResult) -> None:
         self.results.append(result)
 
 
@@ -20,11 +21,13 @@ def test_internal_agent_records_without_a_transport_endpoint() -> None:
     recorder = InternalReviewResultRecorder(repository)
     claim_id = uuid4()
 
-    recorder.record(
-        ReviewResult(
-            claim_id=claim_id,
-            status=AgentReviewStatus.READY,
-            confidence=0.91,
+    asyncio.run(
+        recorder.record(
+            ReviewResult(
+                claim_id=claim_id,
+                status=AgentReviewStatus.READY,
+                confidence=0.91,
+            )
         )
     )
 

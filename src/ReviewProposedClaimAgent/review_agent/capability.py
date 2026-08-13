@@ -1,18 +1,33 @@
 from typing import Protocol
+from uuid import UUID
 
 from review_agent.domain import ClaimInput, ModelReview, ReviewResult, ReviewStatus
 
 
 class ClaimReviewer(Protocol):
-    def review(self, claim: ClaimInput) -> ModelReview: ...
+    async def review(self, claim: ClaimInput) -> ModelReview: ...
 
 
 class ReviewResultRecorder(Protocol):
-    def record(self, result: ReviewResult) -> None: ...
+    async def record(self, result: ReviewResult) -> None: ...
 
 
 class ReadyClaimPublisher(Protocol):
-    def publish(self, claim: ClaimInput, result: ReviewResult) -> None: ...
+    async def publish(self, claim: ClaimInput, result: ReviewResult) -> None: ...
+
+
+def build_review_result(
+    claim_id: UUID, model_review: ModelReview, minimum_confidence: float
+) -> ReviewResult:
+    status = model_review.status
+    if model_review.confidence < minimum_confidence:
+        status = ReviewStatus.NOT_READY
+
+    return ReviewResult(
+        claim_id=claim_id,
+        status=status,
+        confidence=model_review.confidence,
+    )
 
 
 class ReviewProposedClaim:
@@ -28,23 +43,14 @@ class ReviewProposedClaim:
         self._ready_publisher = ready_publisher
         self._minimum_confidence = minimum_confidence
 
-    def execute(self, claim: ClaimInput) -> ReviewResult:
-        model_review = self._reviewer.review(claim)
-        status = model_review.status
+    async def execute(self, claim: ClaimInput) -> ReviewResult:
+        model_review = await self._reviewer.review(claim)
+        result = build_review_result(claim.claim_id, model_review, self._minimum_confidence)
 
-        if model_review.confidence < self._minimum_confidence:
-            status = ReviewStatus.NOT_READY
-
-        result = ReviewResult(
-            claim_id=claim.claim_id,
-            status=status,
-            confidence=model_review.confidence,
-        )
-
-        self._recorder.record(result)
+        await self._recorder.record(result)
 
         if result.status is ReviewStatus.READY:
-            self._ready_publisher.publish(claim, result)
+            await self._ready_publisher.publish(claim, result)
 
         return result
 

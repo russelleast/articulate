@@ -1,3 +1,4 @@
+import asyncio
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from uuid import uuid4
@@ -12,7 +13,7 @@ class Reviewer:
     response: ModelReview | None = None
     error: Exception | None = None
 
-    def review(self, claim: ClaimInput) -> ModelReview:
+    async def review(self, claim: ClaimInput) -> ModelReview:
         del claim
         if self.error is not None:
             raise self.error
@@ -24,18 +25,21 @@ class Reviewer:
 class Recorder:
     results: list[ReviewResult] = field(default_factory=list)
     fail: bool = False
+    events: list[str] | None = None
 
-    def record(self, result: ReviewResult) -> None:
+    async def record(self, result: ReviewResult) -> None:
         if self.fail:
             raise RuntimeError("recording unavailable")
         self.results.append(result)
+        if self.events is not None:
+            self.events.append("recorded")
 
 
 @dataclass
 class Publisher:
     results: list[ReviewResult] = field(default_factory=list)
 
-    def publish(self, claim: ClaimInput, result: ReviewResult) -> None:
+    async def publish(self, claim: ClaimInput, result: ReviewResult) -> None:
         del claim
         self.results.append(result)
 
@@ -75,7 +79,7 @@ def test_architectural_assertion_is_ready_recorded_and_progressed() -> None:
         ModelReview(status=ReviewStatus.READY, confidence=0.92)
     )
 
-    result = review.execute(claim())
+    result = asyncio.run(review.execute(claim()))
 
     assert result.status is ReviewStatus.READY
     assert recorder.results == [result]
@@ -87,7 +91,7 @@ def test_irrelevant_assertion_is_not_ready_and_not_progressed() -> None:
         ModelReview(status=ReviewStatus.NOT_READY, confidence=0.95)
     )
 
-    result = review.execute(claim("I wear thick jumpers when it is cold."))
+    result = asyncio.run(review.execute(claim("I wear thick jumpers when it is cold.")))
 
     assert result.status is ReviewStatus.NOT_READY
     assert recorder.results == [result]
@@ -97,7 +101,7 @@ def test_irrelevant_assertion_is_not_ready_and_not_progressed() -> None:
 def test_low_confidence_ready_response_is_governed_to_not_ready() -> None:
     review, _, publisher = capability(ModelReview(status=ReviewStatus.READY, confidence=0.59))
 
-    result = review.execute(claim())
+    result = asyncio.run(review.execute(claim()))
 
     assert result.status is ReviewStatus.NOT_READY
     assert publisher.results == []
@@ -109,7 +113,7 @@ def test_recording_failure_is_an_execution_failure_and_does_not_progress() -> No
     )
 
     with pytest.raises(RuntimeError, match="recording unavailable"):
-        review.execute(claim())
+        asyncio.run(review.execute(claim()))
     assert publisher.results == []
 
 

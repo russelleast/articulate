@@ -41,16 +41,16 @@ def create_app(
         return {"status": "ready"}
 
     @app.post("/review-proposed-claim")
-    def review_claim(event: CloudEvent) -> Response:
+    async def review_claim(event: CloudEvent) -> Response:
         claim = event.data
         try:
-            if execution_state.completed(str(claim.claim_id)):
+            if await execution_state.completed(str(claim.claim_id)):
                 return Response(status_code=status.HTTP_204_NO_CONTENT)
             with instrumentation.review(
                 str(claim.claim_id), capability.minimum_confidence
             ) as outcome:
-                result = capability.execute(claim)
-                execution_state.mark_completed(result)
+                result = await capability.execute(claim)
+                await execution_state.mark_completed(result)
                 instrumentation.complete(outcome, result)
         except Exception as error:
             logger.exception("ReviewProposedClaim failed for claim %s", claim.claim_id)

@@ -9,7 +9,8 @@ import uvicorn
 from dapr.clients import DaprClient
 from knowledge.v1 import knowledge_pb2_grpc
 from opentelemetry import trace
-from pymongo import MongoClient
+from pymongo import AsyncMongoClient, MongoClient
+from pymongo.asynchronous.database import AsyncDatabase
 from pymongo.database import Database
 from review_agent.adapters import DaprReadyClaimPublisher
 from review_agent.capability import ReviewProposedClaim
@@ -24,7 +25,7 @@ from knowledge_api.messaging import DaprProposedClaimPublisher
 from knowledge_api.observability import configure_observability
 from knowledge_api.repository import (
     MongoProposedKnowledgeRepository,
-    MongoReviewResultRepository,
+    MongoProposedKnowledgeReviewRepository,
     ReviewResultRepository,
 )
 
@@ -35,7 +36,7 @@ class InternalReviewResultRecorder:
     def __init__(self, repository: ReviewResultRepository) -> None:
         self._repository = repository
 
-    def record(self, result: AgentReviewResult) -> None:
+    async def record(self, result: AgentReviewResult) -> None:
         status = (
             ReviewStatus.READY
             if result.status is AgentReviewStatus.READY
@@ -48,11 +49,18 @@ class InternalReviewResultRecorder:
                 "claim.id": str(result.claim_id),
             },
         ) as span:
-            self._repository.record(
-                ReviewProposedClaimResult.create(result.claim_id, status, result.confidence)
-            )
-            span.set_attribute("effect.outcome", "Recorded")
-            span.set_attribute("audit.evidence", "review-result-persisted")
+            span.set_attribute("effect.requested", True)
+            try:
+                await self._repository.record(
+                    ReviewProposedClaimResult.create(result.claim_id, status, result.confidence)
+                )
+            except Exception:
+                span.set_attribute("effect.outcome", "Failed")
+                span.set_attribute("audit.evidence", "review-result-persistence-failed")
+                raise
+            else:
+                span.set_attribute("effect.outcome", "Recorded")
+                span.set_attribute("audit.evidence", "review-result-persisted")
 
 
 def get_mongodb_connection_string(attempts: int = 30) -> str:
@@ -77,10 +85,17 @@ def get_mongodb_connection_string(attempts: int = 30) -> str:
 
 def serve() -> None:
     observability = configure_observability()
-    mongo_client: MongoClient[dict[str, object]] = MongoClient(get_mongodb_connection_string())
+    mongodb_connection_string = get_mongodb_connection_string()
+    mongo_client: MongoClient[dict[str, object]] = MongoClient(mongodb_connection_string)
+    async_mongo_client: AsyncMongoClient[dict[str, object]] = AsyncMongoClient(
+        mongodb_connection_string
+    )
     database: Database[dict[str, object]] = mongo_client["articulate"]
+    async_database: AsyncDatabase[dict[str, object]] = async_mongo_client["articulate"]
     repository = MongoProposedKnowledgeRepository(database["proposed-knowledge"])
-    review_result_repository = MongoReviewResultRepository(database["claim-review-results"])
+    review_result_repository = MongoProposedKnowledgeReviewRepository(
+        async_database["proposed-knowledge"]
+    )
     publisher = DaprProposedClaimPublisher(
         os.getenv("PROPOSED_CLAIMS_PUBSUB", "knowledge-events"),
         os.getenv("PROPOSED_CLAIMS_TOPIC", "proposed-claims-captured"),
@@ -103,6 +118,7 @@ def serve() -> None:
         reviewer=DaprPromptyClaimReviewer(
             prompty_path,
             os.getenv("DAPR_CONVERSATION_COMPONENT", "architectural-reasoning"),
+            maximum_concurrency=int(os.getenv("MODEL_MAXIMUM_CONCURRENCY", "4")),
         ),
         recorder=InternalReviewResultRecorder(review_result_repository),
         ready_publisher=DaprReadyClaimPublisher(
