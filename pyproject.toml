@@ -1,0 +1,33 @@
+[project]
+name = "articulate-python-tooling"
+version = "0.1.0"
+description = "Shared Python tooling configuration for Articulate services"
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+  "grpcio-tools>=1.76.0,<2",
+  "httpx>=0.28.0,<1",
+  "pyright>=1.1.400,<2",
+  "pytest>=8.3.0,<9",
+  "ruff>=0.11.0,<1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["src/KnowledgeApi/tests", "src/ClaimSimulator/tests", "src/ReviewProposedClaimAgent/tests"]
+pythonpath = ["src", "src/shared", "src/KnowledgeApi", "src/ClaimSimulator", "src/ReviewProposedClaimAgent"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pyright]
+include = ["src/KnowledgeApi", "src/ClaimSimulator", "src/ReviewProposedClaimAgent"]
+extraPaths = ["src", "src/shared", "src/ReviewProposedClaimAgent"]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+reportMissingTypeStubs = false

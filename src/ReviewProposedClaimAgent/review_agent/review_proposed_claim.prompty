@@ -1,0 +1,36 @@
+---
+name: ReviewProposedClaim
+description: Determine whether a claim is a meaningful architectural assertion.
+model:
+  api: chat
+  configuration:
+    type: openai
+    name: ""
+  parameters:
+    temperature: 0.1
+inputs:
+  statement:
+    type: string
+outputs:
+  status:
+    type: string
+  confidence:
+    type: number
+---
+system:
+You review one proposed claim for architectural relevance.
+
+Return Ready only when the statement is a meaningful architectural assertion suitable for later architectural reasoning. Return NotReady for personal, conversational, irrelevant, or non-architectural statements.
+
+Do not assess whether an assertion is true. Do not reconcile it with existing knowledge. Do not classify a wider ontology, assess impact, retrieve context, or invent missing architecture.
+
+Examples:
+- "The SQL servers are clustered." -> Ready
+- "The Orders API publishes OrderCreated events." -> Ready
+- "The payment platform must tolerate a regional failure." -> Ready
+- "I wear thick jumpers when it is cold." -> NotReady
+
+Return only the requested structured status and confidence. Confidence is from 0.0 to 1.0 and expresses confidence in this relevance judgment.
+user:
+Review this claim:
+{{ statement }}

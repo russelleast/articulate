@@ -1,0 +1,56 @@
+#!/usr/bin/env sh
+set -eu
+
+repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+
+echo "Python verification"
+
+if ! find "$repository_root" \
+  -path '*/.git' -prune -o \
+  -path '*/node_modules' -prune -o \
+  -name pyproject.toml -print -quit | grep -q .; then
+  echo "  not configured: no Python project found"
+  exit 0
+fi
+
+command -v uv >/dev/null 2>&1 || {
+  echo "  failed: uv is required"
+  exit 1
+}
+
+cd "$repository_root"
+uv lock --check
+
+knowledge_environment="$repository_root/src/KnowledgeApi/.venv"
+claim_simulator_environment="$repository_root/src/ClaimSimulator/.venv"
+review_agent_environment="$repository_root/src/ReviewProposedClaimAgent/.venv"
+
+UV_PROJECT_ENVIRONMENT="$knowledge_environment" uv sync --frozen --inexact
+uv pip install \
+  --python "$knowledge_environment/bin/python" \
+  --requirement src/KnowledgeApi/requirements.txt
+
+UV_PROJECT_ENVIRONMENT="$claim_simulator_environment" uv sync --frozen --inexact
+uv pip install \
+  --python "$claim_simulator_environment/bin/python" \
+  --requirement src/ClaimSimulator/requirements.txt
+
+UV_PROJECT_ENVIRONMENT="$review_agent_environment" uv sync --frozen --inexact
+uv pip install \
+  --python "$review_agent_environment/bin/python" \
+  --requirement src/ReviewProposedClaimAgent/requirements.txt
+
+"$knowledge_environment/bin/ruff" format --check \
+  src/KnowledgeApi src/ClaimSimulator src/ReviewProposedClaimAgent
+"$knowledge_environment/bin/ruff" check \
+  src/KnowledgeApi src/ClaimSimulator src/ReviewProposedClaimAgent
+"$knowledge_environment/bin/pyright" --pythonpath "$knowledge_environment/bin/python" src/KnowledgeApi
+"$claim_simulator_environment/bin/pyright" \
+  --pythonpath "$claim_simulator_environment/bin/python" \
+  src/ClaimSimulator
+"$review_agent_environment/bin/pyright" \
+  --pythonpath "$review_agent_environment/bin/python" \
+  src/ReviewProposedClaimAgent
+"$knowledge_environment/bin/pytest" src/KnowledgeApi/tests
+"$claim_simulator_environment/bin/pytest" src/ClaimSimulator/tests
+"$review_agent_environment/bin/pytest" src/ReviewProposedClaimAgent/tests

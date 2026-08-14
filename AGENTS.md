@@ -91,3 +91,4 @@ When introducing significant behaviour consider updating:
 ### ADRs
 
 Architecture Decision Records use headings (Status, Context, Decision and Consequences) following adr-tools approach. https://github.com/npryce/adr-tools
+

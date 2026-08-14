@@ -1,0 +1,5 @@
+# The simulator deliberately has no Dapr or KnowledgeApi implementation dependency.
+fastapi>=0.116.0,<1
+grpcio>=1.71.0,<2
+protobuf>=6.31.1,<7
+uvicorn>=0.35.0,<1

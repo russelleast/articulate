@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+set -eu
+
+repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+site_root="${repository_root}/site"
+
+echo "Node verification"
+
+if [ ! -f "${site_root}/package.json" ]; then
+  echo "  skipped: no configured Node project found"
+  exit 0
+fi
+
+if [ ! -d "${site_root}/node_modules" ]; then
+  echo "  failed: site dependencies are not installed; run 'npm ci' in site/"
+  exit 1
+fi
+
+(
+  cd "$site_root"
+  npm run check
+  npm test
+)
