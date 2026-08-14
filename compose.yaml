@@ -1,0 +1,163 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4.1-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:8.0
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  mongodb:
+    image: mongo:8.0
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  zipkin:
+    image: openzipkin/zipkin:3.5
+    ports:
+      - "9411:9411"
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.153.0
+    command: ["--config=/etc/otelcol-contrib/collector.yaml"]
+    volumes:
+      - ./deploy/otel/collector.yaml:/etc/otelcol-contrib/collector.yaml:ro
+    ports:
+      - "9464:9464"
+      - "13133:13133"
+    healthcheck:
+      test:
+        - CMD
+        - /otelcol-contrib
+        - validate
+        - --config=/etc/otelcol-contrib/collector.yaml
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    depends_on:
+      zipkin:
+        condition: service_started
+
+  knowledge-api:
+    build:
+      context: .
+      dockerfile: src/KnowledgeApi/Dockerfile
+    ports:
+      - "50051:50051"
+      - "8001:8001"
+    environment:
+      OTEL_SERVICE_NAME: KnowledgeApi
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_METRIC_EXPORT_INTERVAL: "1000"
+      PROPOSED_CLAIMS_PUBSUB: knowledge-events
+      PROPOSED_CLAIMS_TOPIC: proposed-claims-captured
+      DAPR_CONVERSATION_COMPONENT: architectural-reasoning
+      KNOWLEDGE_EVENTS_PUBSUB: knowledge-events
+      READY_CLAIMS_TOPIC: claims-ready-for-reconciliation
+      AGENT_STATE_STORE: review-agent-execution-state
+      MINIMUM_ANSWER_CONFIDENCE: ${MINIMUM_ANSWER_CONFIDENCE:-0.6}
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      zipkin:
+        condition: service_started
+      otel-collector:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import grpc; grpc.channel_ready_future(grpc.insecure_channel('localhost:50051')).result(timeout=2)"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  knowledge-api-dapr:
+    image: daprio/daprd:1.16.1
+    command:
+      - ./daprd
+      - --app-id
+      - knowledge-api
+      - --app-port
+      - "8001"
+      - --app-protocol
+      - http
+      - --resources-path
+      - /dapr/components
+      - --resources-path
+      - /dapr/subscriptions
+      - --config
+      - /dapr/config/configuration.yaml
+    network_mode: service:knowledge-api
+    environment:
+      OLLAMA_ENDPOINT: http://${OLLAMA_HOST:?Set OLLAMA_HOST to the Mac mini hostname or IP}:${OLLAMA_PORT:-11434}/v1
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
+    volumes:
+      - ./deploy/dapr/components:/dapr/components:ro
+      - ./deploy/dapr/subscriptions:/dapr/subscriptions:ro
+      - ./deploy/dapr/configuration.yaml:/dapr/config/configuration.yaml:ro
+      - ./deploy/dapr/secrets.json:/dapr/secrets/secrets.json:ro
+    depends_on:
+      knowledge-api:
+        condition: service_started
+      ollama-connectivity:
+        condition: service_completed_successfully
+
+  ollama-connectivity:
+    image: curlimages/curl:8.12.1
+    environment:
+      OLLAMA_BASE_URL: http://${OLLAMA_HOST:?Set OLLAMA_HOST to the Mac mini hostname or IP}:${OLLAMA_PORT:-11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
+    command:
+      - sh
+      - -ec
+      - >-
+        echo "Checking Ollama at $${OLLAMA_BASE_URL} for model '$${OLLAMA_MODEL}'...";
+        curl --fail --show-error --silent
+        --max-time 10
+        --header 'Content-Type: application/json'
+        --data "{\"model\":\"$${OLLAMA_MODEL}\"}"
+        "$${OLLAMA_BASE_URL}/api/show" >/dev/null;
+        echo "Ollama is reachable and model '$${OLLAMA_MODEL}' is available."
+
+  claim-simulator:
+    build:
+      context: .
+      dockerfile: src/ClaimSimulator/Dockerfile
+    environment:
+      KNOWLEDGE_API_ADDRESS: knowledge-api:50051
+    ports:
+      - "8000:8000"
+    depends_on:
+      knowledge-api:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen('http://localhost:8000/openapi.json', timeout=2)
+      interval: 2s
+      timeout: 3s
+      retries: 30

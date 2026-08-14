@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package articulate.knowledge.v1;
+
+service KnowledgeApi {
+  rpc SubmitArchitecturalClaims(SubmitArchitecturalClaimsRequest)
+      returns (SubmitArchitecturalClaimsResponse);
+}
+
+message SubmitArchitecturalClaimsRequest {
+  repeated Claim claims = 1;
+}
+
+message SubmitArchitecturalClaimsResponse {
+  bool success = 1;
+  uint32 captured_count = 2;
+}
+
+message Claim {
+  string statement = 1;
+  Evidence evidence = 2;
+  Provenance provenance = 3;
+  TemporalStatus temporal_status = 4;
+  Polarity polarity = 5;
+  optional double confidence = 6;
+  string claim_id = 7;
+}
+
+message Evidence {
+  string value = 1;
+}
+
+message Provenance {
+  string source = 1;
+  Activity activity = 2;
+}
+
+message Activity {
+  string id = 1;
+  string name = 2;
+  string when = 3;
+  string who = 4;
+}
+
+enum TemporalStatus {
+  TEMPORAL_STATUS_UNSPECIFIED = 0;
+  TEMPORAL_STATUS_HISTORICAL = 1;
+  TEMPORAL_STATUS_CURRENT = 2;
+  TEMPORAL_STATUS_EMERGING = 3;
+  TEMPORAL_STATUS_FUTURE_INTENT = 4;
+  TEMPORAL_STATUS_UNKNOWN = 5;
+}
+
+enum Polarity {
+  POLARITY_UNSPECIFIED = 0;
+  POLARITY_POSITIVE = 1;
+  POLARITY_NEGATIVE = 2;
+}

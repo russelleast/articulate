@@ -62,7 +62,7 @@ test("the home page exposes recent Episodes beside the hero with detailed previe
 
   assert.match(home, /<h2 id="latest-episodes-heading">Latest Episodes<\/h2>/);
   assert.match(home, /class="latest-episode-preview"/);
-  assert.match(home, /href="\/articulate\/episodes\/0015-derived-knowledge\/"/);
+  assert.match(home, /href="\/articulate\/episodes\/0015-architectural-assurance\/"/);
   assert.match(home, /Latest video/);
   assert.match(home, /href="\/articulate\/episodes\/0010-selecting-an-agent-runtime\/"/);
   assert.match(home, /href="https:\/\/youtu\.be\/rOnui-Tj3ks"/);
@@ -119,7 +119,7 @@ test("published Episodes are grouped by season and ordered while future Episodes
   assert.match(listing, /Season 1 — Foundations/);
   assert.match(listing, /Season 2 — Architectural Intelligence/);
   assert.ok(seasonListing.indexOf("0006-ai-assisted-development") < seasonListing.indexOf("0007-the-knowledge-model"));
-  assert.ok(seasonListing.indexOf("0014-knowledge-evolution") < seasonListing.indexOf("0015-derived-knowledge"));
+  assert.ok(seasonListing.indexOf("0014-knowledge-evolution") < seasonListing.indexOf("0015-architectural-assurance"));
   assert.doesNotMatch(listing, /0016-impact-analysis|0017-observing-agents|0018-building-the-knowledge-service/);
   for (const slug of [
     "0016-impact-analysis-and-knowledge-reasoning",

@@ -1,0 +1,16 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: architectural-reasoning
+spec:
+  type: conversation.openai
+  version: v1
+  metadata:
+    - name: key
+      value: ollama
+    - name: model
+      envRef: OLLAMA_MODEL
+    - name: endpoint
+      envRef: OLLAMA_ENDPOINT
+scopes:
+  - knowledge-api
