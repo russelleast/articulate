@@ -1,0 +1,15 @@
+...@../../../styles/articulate
+direction: right
+conversation: Conversation {class: node}
+knowledge: Knowledge {class: capability}
+tools: "Tool results" {class: evidence}
+instructions: Instructions {class: node}
+task: "Current task" {class: capability}
+context: "CURRENT CONTEXT\nTemporary working set" {class: emphasis}
+reasoning: "Model\nReasoning now" {class: service}
+conversation -> context
+knowledge -> context
+tools -> context
+instructions -> context
+task -> context
+context -> reasoning

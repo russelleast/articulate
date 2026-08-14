@@ -359,3 +359,24 @@ episode-0010-presenter-review:
 
 episode-0010-thumbnail:
 	node production/episodes/0010/publication/thumbnail/render-thumbnail.mjs
+
+episode-0011-presenter-prepare:
+	@for diagram in memory-overload-state-01 memory-overload-state-02 state-decomposition context-assembly context-distinction state-ownership retrieval-from-knowledge state-characteristics runtime-coordinates execution-progress; do node production/runtime/diagrams-cli.mjs render episode-0011-$$diagram || exit 1; done
+	node production/episodes/0011/production/prepare-presenter-v1.mjs
+
+episode-0011-presenter-analyse: episode-0011-presenter-prepare
+	node production/runtime/episode-cli.mjs analyse --config production/episodes/0011/episode.json
+
+episode-0011-presenter-validate: episode-0011-presenter-prepare
+	node production/runtime/episode-cli.mjs validate --config production/episodes/0011/episode.json
+
+episode-0011-presenter-render: episode-0011-presenter-validate
+	node production/runtime/episode-cli.mjs render --config production/episodes/0011/episode.json
+	node production/episodes/0011/publication/thumbnail/render-thumbnail.mjs
+	node production/episodes/0011/production/validate-presenter-v1.mjs
+
+episode-0011-presenter-review:
+	node production/runtime/episode-cli.mjs review --config production/episodes/0011/episode.json
+
+episode-0011-thumbnail:
+	node production/episodes/0011/publication/thumbnail/render-thumbnail.mjs

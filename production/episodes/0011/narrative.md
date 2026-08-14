@@ -6,7 +6,7 @@
 
 That's the question for this episode.
 
-Hello, I'm Russell, and welcome to Episode 11 of the Articulate Journal, where I'm exploring what it takes to build an AI-native architecture from first principles. The previous episode the question was about AI runtime.
+Hello, I'm Russell, and welcome to Episode 11 of the Articulate Journal, where I'm exploring what it takes to build an AI-native architecture from first principles. The previous episode the question was about AI runtimes and what do need to understand in order to choose one. which led to the question for this episode.
 
 Every AI framework seems to talk about memory.
 
@@ -18,17 +18,15 @@ Every AI framework seems to talk about memory.
 
 At first glance, it sounds as though memory has become one of the most important concepts in AI-native systems.
 
-But over the years I've developed a habit whenever new terminology appears.
+But you start researching, you instinctively pause and ask myself: 
 
-I instinctively pause and ask myself:
+> **"Hold on… isn't this just… you got it, something we already know by another name?"**
 
-> **"Hold on… isn't this just… something we already know by another name?"**
+That is not be being cynical.
 
-That's not cynicism.
+That's industry we are in.
 
-That's architecture.
-
-Architects naturally try to decompose ideas until they understand the responsibilities underneath them.
+We naturally try to decompose ideas until they understand the responsibilities underneath them.
 
 So that's exactly what I want to do in this episode.
 
@@ -44,7 +42,7 @@ Questions immediately start appearing.
 
 Where should conversations be stored?
 
-Where does architectural knowledge live?
+In my case for articulate, Where does architectural knowledge live?
 
 Should embeddings be persisted?
 
@@ -77,32 +75,15 @@ Different frameworks use the word *memory* to describe completely different thin
 Sometimes memory means:
 
 - conversation history
-
-Sometimes it means:
-
 - vector databases
-
-Sometimes it means:
-
 - retrieved documents
-
-Sometimes it means:
-
 - execution checkpoints
-
-Sometimes it means:
-
 - prompts
-
-Sometimes it means:
-
+- context
 - knowledge graphs
-
-Sometimes it even means:
-
 - caches
 
-They're all called memory.
+They're all classed as memory.
 
 But are they actually the same thing?
 
@@ -141,6 +122,61 @@ Different rules.
 Calling all of them "memory" hides those differences.
 
 ---
+# What About Context?
+
+There is one other thing that is frequently described as memory.
+
+Context.
+
+And I think this one is slightly different.
+
+When an agent is reasoning, it needs a working set of information.
+
+That might include parts of the conversation.
+
+Knowledge retrieved from the Knowledge Model.
+
+Results from previous tool calls.
+
+Instructions.
+
+The current task.
+
+Maybe even information produced by another agent.
+
+Together, these things form the context available to the model at that moment.
+
+But I don't think context is another source of truth.
+
+It's assembled.
+
+It's a temporary view of the information needed for a particular piece of reasoning.
+
+And importantly, much of it can be reconstructed.
+
+If I lose the context, I can retrieve the knowledge again.
+
+I can reload the conversation.
+
+I can rebuild the instructions.
+
+I can call a tool again where that's safe.
+
+So context matters enormously to the quality of reasoning.
+
+But architecturally, I don't think we need another database called "memory" just to own it.
+
+What we need is a way of engineering the right context from the state that already has an appropriate home.
+
+That gives me another useful distinction.
+
+Knowledge is what the platform knows.
+
+Conversation is what we've discussed.
+
+Context is what the model needs right now.
+
+---
 
 # Ownership Changes Everything
 
@@ -150,7 +186,7 @@ Every piece of state naturally belongs somewhere.
 
 The Knowledge Model owns architectural knowledge.
 
-The conversation service owns conversations.
+A conversation service owns conversations.
 
 The retrieval layer owns embeddings, vector indexes and graph projections.
 
@@ -254,14 +290,8 @@ We don't store every kind of data in one database.
 We choose storage based on the responsibility of the data.
 
 Knowledge may suit one model.
-
-Conversation another.
-
-Vectors another.
-
-Execution state another.
-
-Caches another.
+Conversation has an another.
+Vectors, Execution, Caches have different responsibilities
 
 AI-native systems aren't using multiple storage technologies because AI is special.
 
@@ -287,46 +317,89 @@ It doesn't own conversations.
 
 It doesn't own retrieval.
 
-It orchestrates work across the platform that does.
+And it doesn't need to permanently own the context either.
 
-That leaves one responsibility.
+Context can be assembled from the platform when reasoning needs to happen.
+
+The runtime coordinates all of these capabilities.
+
+But that leaves one kind of state that is different.
 
 Execution.
 
-And execution turns out to be very different from every other form of state we've discussed.
+Because there is a difference between reconstructing what an agent needs to know...
+
+and reconstructing what has already happened.
+
+If an agent retrieves some knowledge twice, that's probably fine.
+
+If it sends the same notification twice...
+
+updates the same external system twice...
+
+or performs the same action twice...
+
+that's a very different problem.
+
+And that is where memory stops being the interesting question.
+
+The interesting question becomes:
+
+> **How do we preserve the progress of work?**
 
 ---
 
 # Looking Ahead
 
-We began this episode asking:
+We started this episode asking:
 
 > **What does AI memory actually mean?**
 
-But we've arrived somewhere quite different.
+And I think the answer is...
 
-Memory isn't one architectural concept.
+it depends what you're remembering.
 
-It's a convenient label for several completely different kinds of state.
+Knowledge has its own responsibility.
 
-Once we separate those responsibilities, the platform suddenly becomes much easier to understand.
+Conversation has its own responsibility.
 
-Knowledge has a home.
+Retrieval structures and caches can be rebuilt.
 
-Conversation has a home.
+Context is assembled for the reasoning taking place right now.
 
-Retrieval has a home.
+Once those responsibilities are separated, the runtime actually owns surprisingly little.
 
-Caching has a home.
+But there is one thing it cannot simply reconstruct.
 
-Configuration has a home.
+The progress of work.
 
-And the runtime?
+Imagine an agent has already called a tool.
 
-The runtime owns one thing that can't simply be recreated.
+Updated some state.
 
-The progress of work itself.
+Asked a human for approval.
 
-That's where the next episode begins.
+And then stopped.
 
-Because preserving execution across failures, pauses and even days of waiting turns out to be one of the defining responsibilities of an AI-native runtime.
+When it starts again tomorrow, knowing the conversation isn't enough.
+
+Knowing the architecture isn't enough.
+
+Even rebuilding exactly the same context isn't enough.
+
+It needs to know what has already happened...
+
+and what should happen next.
+
+That's a different problem.
+
+It's not really about memory anymore.
+
+It's about preserving execution across time.
+
+And that's the question for the next episode:
+
+> **How does an AI-native runtime preserve execution across time?**
+
+That's where we get into durable execution which is the topic for episode 12.
+

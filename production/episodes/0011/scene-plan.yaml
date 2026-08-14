@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "status": "approved",
+  "episode": {
+    "id": "0011",
+    "title": "Memory in AI-Native Systems",
+    "writtenSource": "docs/episodes/0011-agent-memory.md",
+    "narrativeSource": "production/episodes/0011/narrative.md",
+    "presenterMedia": "production/episodes/0011/ep11-narrator.mp4"
+  },
+  "editorialPrinciple": "Memory becomes understandable when state, authority, lifetime and ownership are separated.",
+  "sections": [
+    { "id": "hook", "title": "The Memory Question", "narrativeSegments": ["N001-N002"], "startSeconds": 0 },
+    { "id": "introduction", "title": "Episode Introduction", "narrativeSegments": ["N003-N006"], "startSeconds": 5.48 },
+    { "id": "memory-labels", "title": "Everything Looks Like Memory", "narrativeSegments": ["N007-N019"], "startSeconds": 26.84 },
+    { "id": "questions", "title": "Memory Shapes Architecture", "narrativeSegments": ["N020-N028"], "startSeconds": 73.96 },
+    { "id": "state-question", "title": "Ask About State", "narrativeSegments": ["N029-N031"], "startSeconds": 103.68 },
+    { "id": "overloaded", "title": "The Label Becomes Overloaded", "narrativeSegments": ["N032-N038"], "startSeconds": 115.88 },
+    { "id": "decomposition", "title": "Separate the Responsibilities", "narrativeSegments": ["N039-N047"], "startSeconds": 145.32 },
+    { "id": "context-assembly", "title": "Context Is Assembled", "narrativeSegments": ["N048-N060"], "startSeconds": 183.12 },
+    { "id": "context-distinction", "title": "Knowledge Conversation Context", "narrativeSegments": ["N061-N072"], "startSeconds": 232.76 },
+    { "id": "ownership", "title": "Ownership Changes Everything", "narrativeSegments": ["N073-N082"], "startSeconds": 271.68 },
+    { "id": "retrieval", "title": "Retrieval Is Not Knowledge", "narrativeSegments": ["N083-N085"], "startSeconds": 316.08 },
+    { "id": "cache", "title": "Caches Are Rebuildable", "narrativeSegments": ["N086-N095"], "startSeconds": 331.84 },
+    { "id": "storage", "title": "Different State Different Storage", "narrativeSegments": ["N096-N105"], "startSeconds": 372.64 },
+    { "id": "runtime", "title": "Runtime Coordinates", "narrativeSegments": ["N106-N114"], "startSeconds": 411.44 },
+    { "id": "execution", "title": "Execution Is Different", "narrativeSegments": ["N115-N121"], "startSeconds": 443.48 },
+    { "id": "closing", "title": "Durable Execution", "narrativeSegments": ["N122-N183"], "startSeconds": 475.08 }
+  ],
+  "scenes": [
+    { "id": "S001", "section": "hook", "archetype": "Reflection", "kind": "presenter-focus", "transition": "cut", "headline": "What does AI memory actually mean?", "support": "One familiar word. Several architectural responsibilities.", "items": [] },
+    { "id": "S002", "section": "introduction", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "Memory in AI-native systems", "support": "Episode 11 · Articulate Journal", "items": [] },
+    { "id": "S003", "section": "memory-labels", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Everything appears to be memory", "support": "The category grows before its responsibilities are understood.", "diagramAssetId": "episode-0011-memory-overload-state-01" },
+    { "id": "S004", "section": "questions", "archetype": "Focus Canvas", "kind": "presenter-focus", "transition": "fade", "headline": "These questions shape the architecture", "support": "Conversation · knowledge · retrieval · recovery · execution", "items": [] },
+    { "id": "S005", "section": "state-question", "archetype": "Reflection", "kind": "presenter-focus", "transition": "fade", "headline": "Ask about state instead", "support": "What state does an AI-native platform actually need?", "items": [] },
+    { "id": "S006", "section": "overloaded", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "One label now hides unrelated responsibilities", "support": "The overloaded category obscures architecture.", "diagramAssetId": "episode-0011-memory-overload-state-02" },
+    { "id": "S007", "section": "decomposition", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Separate the responsibilities", "support": "Different purpose · owner · lifetime · rules", "diagramAssetId": "episode-0011-state-decomposition" },
+    { "id": "S008", "section": "context-assembly", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Context is assembled for reasoning now", "support": "A temporary working set—not another source of truth.", "diagramAssetId": "episode-0011-context-assembly" },
+    { "id": "S009", "section": "context-distinction", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Three different responsibilities", "support": "Know · discuss · reason now", "diagramAssetId": "episode-0011-context-distinction" },
+    { "id": "S010", "section": "ownership", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "State has architectural homes", "support": "The runtime coordinates; it does not own everything.", "diagramAssetId": "episode-0011-state-ownership" },
+    { "id": "S011", "section": "retrieval", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Retrieval is not knowledge", "support": "Useful projections derive from authoritative knowledge.", "diagramAssetId": "episode-0011-retrieval-from-knowledge" },
+    { "id": "S012", "section": "cache", "archetype": "Focus Canvas", "kind": "presenter-evidence", "transition": "cut", "headline": "CACHE", "support": "Useful · temporary · rebuildable · potentially stale", "items": ["Performance optimisation", "Not a source of truth", "Staleness is risk"], "evidence": { "emphasisIndex": 1 } },
+    { "id": "S013", "section": "storage", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Different state has different characteristics", "support": "Responsibility first—not database products.", "diagramAssetId": "episode-0011-state-characteristics" },
+    { "id": "S014", "section": "runtime", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "The runtime coordinates", "support": "One remaining responsibility is qualitatively different.", "diagramAssetId": "episode-0011-runtime-coordinates" },
+    { "id": "S015", "section": "execution", "archetype": "Diagram", "kind": "presenter-diagram", "transition": "cut", "visualStateMode": "complete-diagram", "headline": "Knowing again is not doing again", "support": "Execution must preserve what has already happened.", "diagramAssetId": "episode-0011-execution-progress" },
+    { "id": "S016", "section": "closing", "archetype": "Narrator", "kind": "presenter-focus", "transition": "fade", "headline": "How does a runtime preserve execution across time?", "support": "Next: durable execution · Episode 12", "items": [] }
+  ]
+}

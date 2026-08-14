@@ -1,0 +1,709 @@
+1
+00:00:00,300 --> 00:00:02,840
+What does AI memory actually mean?
+
+2
+00:00:03,390 --> 00:00:05,360
+That's the question for this episode.
+
+3
+00:00:05,780 --> 00:00:09,610
+Hello, I'm Russell and
+welcome to episode 11 of
+
+4
+00:00:09,650 --> 00:00:12,900
+The Articulate Journal where
+I'm exploring what it takes
+
+5
+00:00:12,980 --> 00:00:16,560
+to build an AI-native architecture
+from first principles.
+
+6
+00:00:16,860 --> 00:00:19,600
+The previous episode, the
+question was about AI runtimes
+
+7
+00:00:19,680 --> 00:00:22,040
+and what do we need to understand in order
+
+8
+00:00:22,120 --> 00:00:25,410
+to choose one, which
+led to the question for
+
+9
+00:00:25,490 --> 00:00:29,510
+this episode. Every AI
+framework seems to talk about
+
+10
+00:00:29,590 --> 00:00:34,730
+memory, working memory, conversation
+memory, long-term memory, execution memory
+
+11
+00:00:34,810 --> 00:00:37,950
+and knowledge memory. At
+first glance, it sounds as
+
+12
+00:00:38,020 --> 00:00:40,810
+though memory has become
+one of the most important
+
+13
+00:00:40,890 --> 00:00:45,720
+concepts in AI-native systems.
+But when you start researching,
+
+14
+00:00:45,760 --> 00:00:50,520
+you instinctively pause and ask
+yourself,Hold on, isn't this
+
+15
+00:00:50,700 --> 00:00:53,800
+just? You've got it.
+Something we already know by
+
+16
+00:00:53,880 --> 00:00:57,430
+another name." That's not
+me being cynical, that's the
+
+17
+00:00:57,510 --> 00:01:00,930
+industry that we're in. We
+naturally try to decompose
+
+18
+00:01:01,010 --> 00:01:05,400
+ideas until we understand the
+responsibilities underneath them.
+
+19
+00:01:06,030 --> 00:01:07,530
+And that's what I wanted to do with this
+
+20
+00:01:07,610 --> 00:01:11,170
+episode, because I think the
+wordmemory is hiding something
+
+21
+00:01:11,210 --> 00:01:16,170
+much more interesting. If you're
+building an AI-native platform,
+
+22
+00:01:16,210 --> 00:01:20,870
+understanding memory matters,
+questions immediately start appearing.
+
+23
+00:01:21,460 --> 00:01:24,440
+Where should conversations
+be stored, in my case, for
+
+24
+00:01:24,500 --> 00:01:28,540
+Articulate, where does
+architectural knowledge live?
+
+25
+00:01:29,100 --> 00:01:32,620
+What embeddings should be
+persisted, or should they be
+
+26
+00:01:32,660 --> 00:01:36,350
+persisted at all? What happens
+if the runtime crashes?
+
+27
+00:01:36,820 --> 00:01:41,770
+Can execution continue tomorrow?
+Those aren't academic questions.
+
+28
+00:01:42,070 --> 00:01:44,850
+They shape the architecture.
+So let's ask a different
+
+29
+00:01:44,890 --> 00:01:48,910
+question. Instead of asking
+what memory does AI systems
+
+30
+00:01:48,950 --> 00:01:54,750
+need, let's ask what state does
+AI-native platforms actually
+
+31
+00:01:54,830 --> 00:01:58,420
+need? This is where things become
+confusing, because different
+
+32
+00:01:58,500 --> 00:02:03,330
+frameworks use the wordmemory to
+describe completely different things.
+
+33
+00:02:03,860 --> 00:02:08,595
+Sometimes memory means conversation
+history, vector databases, retrieved
+
+34
+00:02:08,675 --> 00:02:16,030
+documents, execution checkpoints, prompts,
+context, knowledge graphs, and caches.
+
+35
+00:02:16,760 --> 00:02:19,140
+They're all classed as
+memory, but are they actually
+
+36
+00:02:19,220 --> 00:02:21,750
+the same thing? I don't think so.
+
+37
+00:02:22,150 --> 00:02:24,860
+And that's where architecture
+starts to become clearer.
+
+38
+00:02:25,530 --> 00:02:30,570
+Let's separate those responsibilities.
+Conversation history remembers what we've
+
+39
+00:02:30,610 --> 00:02:35,250
+talked about. Architectural knowledge
+represents what the system knows.
+
+40
+00:02:35,700 --> 00:02:40,480
+Embeddings and vector indexes exist
+to retrieve information efficiently.
+
+41
+00:02:40,680 --> 00:02:45,720
+Caches improve performance, and
+execution state remembers work already
+
+42
+00:02:45,800 --> 00:02:50,620
+performed. Configuration
+describes how the system behaves.
+
+43
+00:02:51,040 --> 00:02:54,220
+They're all storing information,
+but they have completely different
+
+44
+00:02:54,260 --> 00:02:58,150
+purposes, different owners,
+lifetimes, and rules.
+
+45
+00:02:58,700 --> 00:03:02,880
+Calling them all memory
+hides those differences.
+
+46
+00:03:03,420 --> 00:03:06,720
+There's one other thing that
+is frequently described as
+
+47
+00:03:06,910 --> 00:03:10,520
+memory. Context. And this
+one, I believe, is very
+
+48
+00:03:10,600 --> 00:03:13,730
+different. When an agent
+is reasoning, it needs a
+
+49
+00:03:13,770 --> 00:03:16,890
+working set of information.
+That might include parts of
+
+50
+00:03:16,970 --> 00:03:21,580
+the conversation, information retrieved
+from an information system, knowledge
+
+51
+00:03:21,660 --> 00:03:25,470
+from the Knowledge Model in
+the context of Articulate.
+
+52
+00:03:26,070 --> 00:03:29,260
+The context could include
+results from previous tool calls,
+
+53
+00:03:29,300 --> 00:03:33,330
+instructions for the current
+task, and maybe even information
+
+54
+00:03:33,410 --> 00:03:37,490
+produced by another agent.
+Together, these things form the
+
+55
+00:03:37,530 --> 00:03:40,570
+context available to the
+model at that moment.
+
+56
+00:03:40,910 --> 00:03:43,090
+But I don't think context
+is another source of
+
+57
+00:03:43,170 --> 00:03:46,670
+truth. It's assembled. It's a
+temporary view of information
+
+58
+00:03:46,710 --> 00:03:49,120
+needed for a particular
+piece of reasoning.
+
+59
+00:03:49,400 --> 00:03:52,080
+And importantly, much of
+that could be reconstructed.
+
+60
+00:03:52,860 --> 00:03:55,170
+If I lose the context, I can retrieve that
+
+61
+00:03:55,250 --> 00:03:57,990
+knowledge again. I can
+reload the conversations.
+
+62
+00:03:58,040 --> 00:03:59,840
+I can rebuild the instructions.
+
+63
+00:03:59,960 --> 00:04:02,600
+I can call it a tool again, providing that
+
+64
+00:04:02,680 --> 00:04:06,330
+that's safe. So context matters
+enormously to the quality
+
+65
+00:04:06,410 --> 00:04:09,500
+of reasoning. But architecturally,
+I don't think we need
+
+66
+00:04:09,580 --> 00:04:12,470
+another database called
+memory, just to own it.
+
+67
+00:04:13,540 --> 00:04:15,340
+What we need is a way of engineering the
+
+68
+00:04:15,400 --> 00:04:18,280
+right context for the
+state that already has an
+
+69
+00:04:18,510 --> 00:04:23,560
+appropriate home. That gives
+me another useful distinction.
+
+70
+00:04:24,340 --> 00:04:25,920
+Knowledge is what the platform knows.
+
+71
+00:04:26,300 --> 00:04:29,740
+Conversation is what we've
+discussed, and context is what
+
+72
+00:04:29,800 --> 00:04:31,370
+the model needs right now.
+
+73
+00:04:31,930 --> 00:04:34,510
+Once I stop thinking
+about memory as one thing,
+
+74
+00:04:34,550 --> 00:04:38,690
+another pattern appeared. Every
+piece of state naturally belongs
+
+75
+00:04:38,770 --> 00:04:42,830
+somewhere. The Knowledge Model
+owns architectural knowledge in the
+
+76
+00:04:42,910 --> 00:04:48,220
+case of Articulate. A conversation
+service owns conversations.
+
+77
+00:04:48,610 --> 00:04:52,880
+The retrieval layer owns embeddings,
+vector indexes, and graph
+
+78
+00:04:52,960 --> 00:04:58,920
+projections. Caches belong wherever
+performance needs improving.
+
+79
+00:04:59,320 --> 00:05:02,830
+Capability definitions and
+prompts belong to configuration.
+
+80
+00:05:03,250 --> 00:05:06,730
+And the runtime owns surprisingly little.
+
+81
+00:05:07,260 --> 00:05:11,290
+Instead, it coordinates all those
+platform capabilities that completely
+
+82
+00:05:11,370 --> 00:05:14,670
+changed how I started to
+think about the runtime
+
+83
+00:05:14,750 --> 00:05:19,120
+architecture. One distinction
+became surprisingly important.
+
+84
+00:05:20,020 --> 00:05:24,210
+Often AI systems often contain
+vector stores, embeddings, search
+
+85
+00:05:24,250 --> 00:05:29,890
+indexes, graph projections. They're all
+incredibly useful, but architecturally,
+
+86
+00:05:30,150 --> 00:05:33,900
+they're not the knowledge.
+If Redis disappears, we don't
+
+87
+00:05:33,980 --> 00:05:36,020
+panic, we rebuild the cache.
+
+88
+00:05:36,510 --> 00:05:40,670
+The same is true for many
+AI-native optimizations.
+
+89
+00:05:41,220 --> 00:05:44,920
+Prompt caches, embedding caches,
+retrieval context caches.
+
+90
+00:05:45,220 --> 00:05:47,330
+They're all valuable because
+they improve performance.
+
+91
+00:05:47,660 --> 00:05:50,810
+They're not valuable because
+they contain the truth.
+
+92
+00:05:51,120 --> 00:05:54,300
+And if stale caches aren't
+managed carefully, they can
+
+93
+00:05:54,340 --> 00:05:58,090
+become very dangerous. An AI
+system may confidently reason
+
+94
+00:05:58,130 --> 00:06:02,290
+over outdated information simply
+because the cache hasn't been
+
+95
+00:06:02,330 --> 00:06:06,440
+refreshed. So caching remains
+just what it always has
+
+96
+00:06:06,520 --> 00:06:11,990
+been, a performance optimization,
+not a source of truth.
+
+97
+00:06:12,940 --> 00:06:15,480
+Something else became obvious
+during this investigation.
+
+98
+00:06:15,950 --> 00:06:18,150
+We've understood this
+principle for decades.
+
+99
+00:06:18,370 --> 00:06:20,380
+We don't store every kind of data in one
+
+100
+00:06:20,460 --> 00:06:25,420
+database. We choose storage
+based on the responsibility of
+
+101
+00:06:25,500 --> 00:06:29,490
+that data. Knowledge may suit
+one model, conversation has
+
+102
+00:06:29,570 --> 00:06:34,400
+another. Vectors, execution, caches
+all have different responsibilities.
+
+103
+00:06:34,650 --> 00:06:38,750
+AI-native systems aren't using multiple
+storage technologies because AI
+
+104
+00:06:38,830 --> 00:06:42,540
+is special. They're doing it
+because different kinds of
+
+105
+00:06:42,620 --> 00:06:46,400
+state have fundamentally
+different responsibilities.
+
+106
+00:06:46,620 --> 00:06:50,920
+Architecture hasn't changed.
+The kinds of state have.
+
+107
+00:06:51,550 --> 00:06:55,060
+By this point, I realized
+something I wasn't expecting.
+
+108
+00:06:55,340 --> 00:06:57,700
+The runtime isn't the
+brain of the platform, it's
+
+109
+00:06:57,780 --> 00:07:00,360
+a coordinator. It doesn't
+own the architecture.
+
+110
+00:07:00,550 --> 00:07:03,630
+It doesn't own the
+conversations and it doesn't own
+
+111
+00:07:03,710 --> 00:07:07,270
+the retrieval. And it doesn't
+need to permanently own
+
+112
+00:07:07,350 --> 00:07:11,190
+the context either. Context
+can be assembled from the
+
+113
+00:07:11,270 --> 00:07:14,630
+platform when reasoning needs to happen.
+
+114
+00:07:15,090 --> 00:07:18,420
+The runtime coordinates
+all of those capabilities.
+
+115
+00:07:18,810 --> 00:07:21,280
+But that leaves one kind of state that is
+
+116
+00:07:21,360 --> 00:07:26,470
+different. Execution. Because this is
+the difference between reconstructing
+
+117
+00:07:26,550 --> 00:07:29,380
+what an agent needs to know
+and reconstructing what
+
+118
+00:07:29,460 --> 00:07:33,580
+has already happened. If an
+agent retrieves some information
+
+119
+00:07:33,660 --> 00:07:36,890
+twice, that's probably
+fine. If it sends the same
+
+120
+00:07:36,930 --> 00:07:40,520
+notification twice, updates the
+same external system twice or
+
+121
+00:07:40,600 --> 00:07:43,720
+performs the same action
+twice, that's a very different
+
+122
+00:07:43,800 --> 00:07:46,890
+problem. And that is where
+memory stops being an
+
+123
+00:07:46,970 --> 00:07:52,220
+interesting question. The interesting
+question becomes, how do we
+
+124
+00:07:52,360 --> 00:07:54,820
+preserve the progress of the work?
+
+125
+00:07:55,190 --> 00:07:58,420
+We started this episode
+asking, what does AI memory
+
+126
+00:07:58,470 --> 00:08:01,200
+actually mean? And I
+think the answer is it
+
+127
+00:08:01,280 --> 00:08:03,460
+depends on what you're remembering.
+
+128
+00:08:04,020 --> 00:08:07,690
+Knowledge has its own
+responsibility, so does conversation.
+
+129
+00:08:08,000 --> 00:08:10,680
+Retrieval structures and
+caches can be rebuilt.
+
+130
+00:08:11,420 --> 00:08:14,000
+Context is assembled for the
+reasoning taking place right
+
+131
+00:08:14,080 --> 00:08:18,220
+now. Once those responsibilities
+have been separated, the runtime
+
+132
+00:08:18,320 --> 00:08:21,450
+actually owns surprisingly
+little. But there is one thing
+
+133
+00:08:21,490 --> 00:08:24,750
+we cannot simply reconstruct,
+the progress of the work.
+
+134
+00:08:25,220 --> 00:08:27,590
+Imagine an agent has already
+called a tool, updated
+
+135
+00:08:27,670 --> 00:08:30,320
+some state and asked a
+human for approval and
+
+136
+00:08:30,400 --> 00:08:34,610
+then it stopped. When it
+starts again tomorrow, knowing
+
+137
+00:08:34,690 --> 00:08:38,180
+the conversation isn't enough,
+knowing the architecture isn't enough,
+
+138
+00:08:38,220 --> 00:08:41,360
+even rebuilding exactly the
+same context isn't enough.
+
+139
+00:08:41,600 --> 00:08:43,960
+It needs to know what's
+already happened and what
+
+140
+00:08:44,040 --> 00:08:46,950
+should happen next, that's
+a different problem.
+
+141
+00:08:47,260 --> 00:08:50,960
+It's not really about memory
+anymore, it's about preserving
+
+142
+00:08:51,000 --> 00:08:54,120
+execution across time. And
+that's the question of the
+
+143
+00:08:54,200 --> 00:08:59,010
+next episode. How does an AI-native
+runtime preserve execution
+
+144
+00:08:59,090 --> 00:09:02,820
+across time? That's where we
+get into durable execution,
+
+145
+00:09:02,860 --> 00:09:05,010
+which is the topic for episode 12.
+
+146
+00:09:05,240 --> 00:09:06,040
+See you on the next one.

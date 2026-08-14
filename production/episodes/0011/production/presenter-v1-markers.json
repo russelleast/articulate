@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 547.8473,
+  "selectedDurationSeconds": 547.8473,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 5.48,
+      "narrationReference": "The Memory Question · N001-N002"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 5.48,
+      "endSeconds": 26.84,
+      "narrationReference": "Episode Introduction · N003-N006"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 26.84,
+      "endSeconds": 73.96,
+      "narrationReference": "Everything Looks Like Memory · N007-N019"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 73.96,
+      "endSeconds": 103.68,
+      "narrationReference": "Memory Shapes Architecture · N020-N028"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 103.68,
+      "endSeconds": 115.88,
+      "narrationReference": "Ask About State · N029-N031"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 115.88,
+      "endSeconds": 145.32,
+      "narrationReference": "The Label Becomes Overloaded · N032-N038"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 145.32,
+      "endSeconds": 183.12,
+      "narrationReference": "Separate the Responsibilities · N039-N047"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 183.12,
+      "endSeconds": 232.76,
+      "narrationReference": "Context Is Assembled · N048-N060"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 232.76,
+      "endSeconds": 271.68,
+      "narrationReference": "Knowledge Conversation Context · N061-N072"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 271.68,
+      "endSeconds": 316.08,
+      "narrationReference": "Ownership Changes Everything · N073-N082"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 316.08,
+      "endSeconds": 331.84,
+      "narrationReference": "Retrieval Is Not Knowledge · N083-N085"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 331.84,
+      "endSeconds": 372.64,
+      "narrationReference": "Caches Are Rebuildable · N086-N095"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 372.64,
+      "endSeconds": 411.44,
+      "narrationReference": "Different State Different Storage · N096-N105"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 411.44,
+      "endSeconds": 443.48,
+      "narrationReference": "Runtime Coordinates · N106-N114"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 443.48,
+      "endSeconds": 475.08,
+      "narrationReference": "Execution Is Different · N115-N121"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 475.08,
+      "endSeconds": 547.847,
+      "narrationReference": "Durable Execution · N122-N183"
+    }
+  ]
+}

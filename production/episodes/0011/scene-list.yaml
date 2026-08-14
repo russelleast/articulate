@@ -1,0 +1,139 @@
+{
+  "episode": {
+    "id": "episode-0011",
+    "title": "Memory in AI-Native Systems",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0011-presenter-v1",
+    "narration_duration_seconds": 547.8473
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 5.48,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 5.48,
+      "end_seconds": 26.84,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 26.84,
+      "end_seconds": 73.96,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-memory-overload-state-01"
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 73.96,
+      "end_seconds": 103.68,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 103.68,
+      "end_seconds": 115.88,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 115.88,
+      "end_seconds": 145.32,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-memory-overload-state-02"
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 145.32,
+      "end_seconds": 183.12,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-state-decomposition"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 183.12,
+      "end_seconds": 232.76,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-context-assembly"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 232.76,
+      "end_seconds": 271.68,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-context-distinction"
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 271.68,
+      "end_seconds": 316.08,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-state-ownership"
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 316.08,
+      "end_seconds": 331.84,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-retrieval-from-knowledge"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 331.84,
+      "end_seconds": 372.64,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 372.64,
+      "end_seconds": 411.44,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-state-characteristics"
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 411.44,
+      "end_seconds": 443.48,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-runtime-coordinates"
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 443.48,
+      "end_seconds": 475.08,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0011-execution-progress"
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 475.08,
+      "end_seconds": 547.847,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

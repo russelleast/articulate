@@ -1,0 +1,19 @@
+...@../../../styles/articulate
+direction: right
+memory: "MEMORY?\nOne overloaded label" {class: emphasis}
+conversation: "Conversation\nhistory" {class: node}
+vectors: "Vector\ndatabases" {class: capability}
+documents: "Retrieved\ndocuments" {class: evidence}
+checkpoints: "Execution\ncheckpoints" {class: service}
+prompts: Prompts {class: node}
+context: Context {class: emphasis}
+graphs: "Knowledge\ngraphs" {class: capability}
+caches: Caches {class: evidence}
+memory -> conversation
+memory -> vectors
+memory -> documents
+memory -> checkpoints
+memory -> prompts
+memory -> context
+memory -> graphs
+memory -> caches

@@ -1,0 +1,17 @@
+...@../../../styles/articulate
+direction: right
+knowledge: "RECONSTRUCT KNOWING\nretrieve again" {class: capability}
+execution: "RECONSTRUCT DOING?\nunsafe to repeat" {class: emphasis}
+tool: "Tool already called" {class: node}
+state: "State already updated" {class: evidence}
+approval: "Approval requested" {class: capability}
+effect: "External effect occurred" {class: service}
+progress: "EXECUTION PROGRESS\nwhat happened · what comes next" {class: emphasis}
+execution -> tool
+execution -> state
+execution -> approval
+execution -> effect
+tool -> progress
+state -> progress
+approval -> progress
+effect -> progress

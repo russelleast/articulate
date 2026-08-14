@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "hook",
+      "title": "The Memory Question",
+      "narrativeSegments": [
+        "N001-N002"
+      ],
+      "start": 0,
+      "end": 5.48,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "introduction",
+      "title": "Episode Introduction",
+      "narrativeSegments": [
+        "N003-N006"
+      ],
+      "start": 5.48,
+      "end": 26.84,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 5.480s"
+    },
+    {
+      "id": "memory-labels",
+      "title": "Everything Looks Like Memory",
+      "narrativeSegments": [
+        "N007-N019"
+      ],
+      "start": 26.84,
+      "end": 73.96,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 26.840s"
+    },
+    {
+      "id": "questions",
+      "title": "Memory Shapes Architecture",
+      "narrativeSegments": [
+        "N020-N028"
+      ],
+      "start": 73.96,
+      "end": 103.68,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 73.960s"
+    },
+    {
+      "id": "state-question",
+      "title": "Ask About State",
+      "narrativeSegments": [
+        "N029-N031"
+      ],
+      "start": 103.68,
+      "end": 115.88,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 103.680s"
+    },
+    {
+      "id": "overloaded",
+      "title": "The Label Becomes Overloaded",
+      "narrativeSegments": [
+        "N032-N038"
+      ],
+      "start": 115.88,
+      "end": 145.32,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 115.880s"
+    },
+    {
+      "id": "decomposition",
+      "title": "Separate the Responsibilities",
+      "narrativeSegments": [
+        "N039-N047"
+      ],
+      "start": 145.32,
+      "end": 183.12,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 145.320s"
+    },
+    {
+      "id": "context-assembly",
+      "title": "Context Is Assembled",
+      "narrativeSegments": [
+        "N048-N060"
+      ],
+      "start": 183.12,
+      "end": 232.76,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 183.120s"
+    },
+    {
+      "id": "context-distinction",
+      "title": "Knowledge Conversation Context",
+      "narrativeSegments": [
+        "N061-N072"
+      ],
+      "start": 232.76,
+      "end": 271.68,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 232.760s"
+    },
+    {
+      "id": "ownership",
+      "title": "Ownership Changes Everything",
+      "narrativeSegments": [
+        "N073-N082"
+      ],
+      "start": 271.68,
+      "end": 316.08,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 271.680s"
+    },
+    {
+      "id": "retrieval",
+      "title": "Retrieval Is Not Knowledge",
+      "narrativeSegments": [
+        "N083-N085"
+      ],
+      "start": 316.08,
+      "end": 331.84,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 316.080s"
+    },
+    {
+      "id": "cache",
+      "title": "Caches Are Rebuildable",
+      "narrativeSegments": [
+        "N086-N095"
+      ],
+      "start": 331.84,
+      "end": 372.64,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 331.840s"
+    },
+    {
+      "id": "storage",
+      "title": "Different State Different Storage",
+      "narrativeSegments": [
+        "N096-N105"
+      ],
+      "start": 372.64,
+      "end": 411.44,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 372.640s"
+    },
+    {
+      "id": "runtime",
+      "title": "Runtime Coordinates",
+      "narrativeSegments": [
+        "N106-N114"
+      ],
+      "start": 411.44,
+      "end": 443.48,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 411.440s"
+    },
+    {
+      "id": "execution",
+      "title": "Execution Is Different",
+      "narrativeSegments": [
+        "N115-N121"
+      ],
+      "start": 443.48,
+      "end": 475.08,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 443.480s"
+    },
+    {
+      "id": "closing",
+      "title": "Durable Execution",
+      "narrativeSegments": [
+        "N122-N183"
+      ],
+      "start": 475.08,
+      "end": 547.847,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 475.080s"
+    }
+  ]
+}
