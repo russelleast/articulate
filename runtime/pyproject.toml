@@ -15,8 +15,8 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["src/KnowledgeApi/tests", "src/ClaimSimulator/tests", "src/ReviewProposedClaimAgent/tests"]
-pythonpath = ["src", "src/shared", "src/KnowledgeApi", "src/ClaimSimulator", "src/ReviewProposedClaimAgent"]
+testpaths = ["src/knowledge/api/tests", "src/tools/claim_simulator/tests", "src/knowledge/agents/review_proposed_claim/tests"]
+pythonpath = ["src", "src/knowledge/shared", "src/knowledge/api", "src/tools/claim_simulator", "src/knowledge/agents/review_proposed_claim"]
 
 [tool.ruff]
 line-length = 100
@@ -26,8 +26,8 @@ target-version = "py312"
 select = ["E", "F", "I", "UP", "B", "SIM"]
 
 [tool.pyright]
-include = ["src/KnowledgeApi", "src/ClaimSimulator", "src/ReviewProposedClaimAgent"]
-extraPaths = ["src", "src/shared", "src/ReviewProposedClaimAgent"]
+include = ["src/knowledge/api", "src/tools/claim_simulator", "src/knowledge/agents/review_proposed_claim"]
+extraPaths = ["src", "src/knowledge/shared", "src/knowledge/agents/review_proposed_claim"]
 pythonVersion = "3.12"
 typeCheckingMode = "basic"
 reportMissingTypeStubs = false

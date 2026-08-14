@@ -8,15 +8,16 @@ reasoning capability. It intentionally does not implement reconciliation, assess
 Generated Python protobuf modules are checked in and verified for freshness:
 
 ```sh
-UV_PROJECT_ENVIRONMENT=src/KnowledgeApi/.venv uv sync --frozen --inexact
+cd runtime
+UV_PROJECT_ENVIRONMENT=src/knowledge/api/.venv uv sync --frozen --inexact
 uv pip install \
-  --python src/KnowledgeApi/.venv/bin/python \
-  --requirement src/KnowledgeApi/requirements.txt
-src/KnowledgeApi/.venv/bin/python -m grpc_tools.protoc \
+  --python src/knowledge/api/.venv/bin/python \
+  --requirement src/knowledge/api/requirements.txt
+src/knowledge/api/.venv/bin/python -m grpc_tools.protoc \
   --proto_path=proto \
-  --python_out=src/shared \
-  --pyi_out=src/shared \
-  --grpc_python_out=src/shared \
+  --python_out=src/knowledge/shared \
+  --pyi_out=src/knowledge/shared \
+  --grpc_python_out=src/knowledge/shared \
   proto/knowledge/v1/knowledge.proto
 ```
 
@@ -24,12 +25,13 @@ src/KnowledgeApi/.venv/bin/python -m grpc_tools.protoc \
 
 Ollama and its configured model run outside Compose. On the machine hosting Ollama, make it listen
 on an address reachable from Docker (for example `OLLAMA_HOST=0.0.0.0:11434`) and pull the model.
-Copy `.env.example` to the ignored `.env` file, then set `OLLAMA_HOST` to the network-resolvable
+From the runtime project root, copy `.env.example` to the ignored `.env` file, then set `OLLAMA_HOST` to the network-resolvable
 hostname or IP of the Mac mini. For the machine named **Russell's Mac mini**, run
 `scutil --get LocalHostName` on that Mac to discover its Bonjour hostname and append `.local`, or
 use its stable LAN IP. The machine-specific address is deliberately not committed:
 
 ```sh
+cd runtime
 cp .env.example .env
 # Edit .env:
 OLLAMA_HOST=your-resolvable-mac-mini-hostname.local

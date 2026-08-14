@@ -2,7 +2,7 @@
 
 This directory contains the Astro source for the public Articulate website.
 
-The site lives in `site/` to keep the narrative website source separate from future application code in `src/`, long-form repository documentation in `docs/`, and generated GitHub Pages output in `site/dist/`.
+The site lives in `site/` to keep the narrative website source separate from executable application code in `runtime/src/`, long-form repository documentation in `docs/`, and generated GitHub Pages output in `site/dist/`.
 
 ## Local Development
 

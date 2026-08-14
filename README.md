@@ -82,8 +82,11 @@ Articulate also includes an experimental AI-assisted publishing workflow under [
 │   └── reference/      # Stable reference material, glossaries, and specifications
 ├── examples/           # Focused examples derived from the reference implementation
 ├── production/         # AI-assisted publishing workflow for derived media
-├── src/                # Production implementation
-├── tests/              # Automated tests and architectural fitness functions
+├── runtime/            # Executable Articulate reference implementation
+│   ├── src/            # Application source code and tests
+│   ├── proto/          # Runtime-owned contracts
+│   └── deploy/         # Dapr and OpenTelemetry configuration
+├── site/               # Public journal website
 └── .github/            # Repository automation, templates, and governance
 ```
 
