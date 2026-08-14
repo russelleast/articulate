@@ -69,7 +69,7 @@ export const evolutionMilestones: EvolutionMilestone[] = [
     title: "Derived knowledge introduced continuous architectural assurance",
     description: "The architecture expanded from preserving knowledge to evaluating it. Derived findings connect principles, characteristics, maturity, decisions, and obligations without becoming a second source of truth.",
     links: [
-      { type: "Episode", label: "Architectural Assurance", href: "/episodes/0015-derived-knowledge/" }
+      { type: "Episode", label: "Architectural Assurance", href: "/episodes/0015-architectural-assurance/" }
     ]
   }
 ];

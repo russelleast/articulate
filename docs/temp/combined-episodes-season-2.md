@@ -2824,7 +2824,7 @@ topics:
   - Derived findings
   - Continuous architecture
 repository_paths:
-  - docs/episodes/0015-derived-knowledge.md
+  - docs/episodes/0015-architectural-assurance.md
 ---
 
 # Episode 15 – Architectural Assurance
