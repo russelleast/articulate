@@ -110,7 +110,8 @@ def serve() -> None:
 
     prompty_path = (
         Path(__file__).parents[2]
-        / "ReviewProposedClaimAgent"
+        / "agents"
+        / "review_proposed_claim"
         / "review_agent"
         / "review_proposed_claim.prompty"
     )

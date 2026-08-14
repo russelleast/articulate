@@ -9,15 +9,15 @@ Generated Python protobuf modules are checked in and verified for freshness:
 
 ```sh
 cd runtime
-UV_PROJECT_ENVIRONMENT=src/KnowledgeApi/.venv uv sync --frozen --inexact
+UV_PROJECT_ENVIRONMENT=src/knowledge/api/.venv uv sync --frozen --inexact
 uv pip install \
-  --python src/KnowledgeApi/.venv/bin/python \
-  --requirement src/KnowledgeApi/requirements.txt
-src/KnowledgeApi/.venv/bin/python -m grpc_tools.protoc \
+  --python src/knowledge/api/.venv/bin/python \
+  --requirement src/knowledge/api/requirements.txt
+src/knowledge/api/.venv/bin/python -m grpc_tools.protoc \
   --proto_path=proto \
-  --python_out=src/shared \
-  --pyi_out=src/shared \
-  --grpc_python_out=src/shared \
+  --python_out=src/knowledge/shared \
+  --pyi_out=src/knowledge/shared \
+  --grpc_python_out=src/knowledge/shared \
   proto/knowledge/v1/knowledge.proto
 ```
 

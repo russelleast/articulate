@@ -116,12 +116,18 @@ The executable runtime contains a `src` directory.
 
 Do not introduce another source folder within the runtime.
 
-Create the two services beneath `runtime/src`:
+Organise the runtime by architectural ownership beneath `runtime/src`:
 
 ```text
 runtime/src/
-├── KnowledgeApi/
-└── ClaimSimulator/
+├── knowledge/
+│   ├── api/
+│   ├── agents/
+│   │   └── review_proposed_claim/
+│   ├── capabilities/
+│   └── shared/
+└── tools/
+    └── claim_simulator/
 ```
 
 The exact internal package structure should be determined during the **Plan** phase and should favour the smallest structure that preserves clear architectural boundaries.

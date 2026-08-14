@@ -27,6 +27,11 @@ The implementation establishes the project structure, service boundaries, APIs a
 
 It marks the transition from architectural thinking to executable software.
 
+The runtime source is organised by architectural ownership: the Knowledge API, Knowledge agents,
+capability definitions and Knowledge-owned shared contracts live beneath `runtime/src/knowledge`,
+while the supporting claim simulator lives beneath `runtime/src/tools`. Runtime participant names
+and deployment lifecycles remain independent of this source hierarchy.
+
 ## Notes
 
 Actions performed:

@@ -58,7 +58,7 @@ services:
   knowledge-api:
     build:
       context: .
-      dockerfile: src/KnowledgeApi/Dockerfile
+      dockerfile: src/knowledge/api/Dockerfile
     ports:
       - "50051:50051"
       - "8001:8001"
@@ -142,7 +142,7 @@ services:
   claim-simulator:
     build:
       context: .
-      dockerfile: src/ClaimSimulator/Dockerfile
+      dockerfile: src/tools/claim_simulator/Dockerfile
     environment:
       KNOWLEDGE_API_ADDRESS: knowledge-api:50051
     ports:

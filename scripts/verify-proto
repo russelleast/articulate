@@ -20,11 +20,11 @@ cd "$runtime_root"
 temporary_directory=$(mktemp -d)
 trap 'rm -rf "$temporary_directory"' EXIT
 
-knowledge_environment="$runtime_root/src/KnowledgeApi/.venv"
+knowledge_environment="$runtime_root/src/knowledge/api/.venv"
 UV_PROJECT_ENVIRONMENT="$knowledge_environment" uv sync --frozen --inexact
 uv pip install \
   --python "$knowledge_environment/bin/python" \
-  --requirement src/KnowledgeApi/requirements.txt
+  --requirement src/knowledge/api/requirements.txt
 
 "$knowledge_environment/bin/python" -m grpc_tools.protoc \
   --proto_path=proto \
@@ -36,5 +36,5 @@ uv pip install \
 for generated_file in knowledge_pb2.py knowledge_pb2.pyi knowledge_pb2_grpc.py; do
   diff \
     "$temporary_directory/knowledge/v1/$generated_file" \
-    "src/shared/knowledge/v1/$generated_file"
+    "src/knowledge/shared/knowledge/v1/$generated_file"
 done
