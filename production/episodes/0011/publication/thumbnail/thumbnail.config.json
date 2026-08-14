@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "episode": {
+    "id": "0011",
+    "eyebrow": "ARCHITECTURAL INTELLIGENCE",
+    "headline": ["WHAT IS", "AI MEMORY?"]
+  },
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep11-narrator.mp4",
+    "frameTimestampSeconds": 43,
+    "placement": { "x": -170, "y": 80, "width": 1150, "height": 647 }
+  }
+}

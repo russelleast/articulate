@@ -64,8 +64,8 @@ test("the home page exposes recent Episodes beside the hero with detailed previe
   assert.match(home, /class="latest-episode-preview"/);
   assert.match(home, /href="\/articulate\/episodes\/0015-architectural-assurance\/"/);
   assert.match(home, /Latest video/);
-  assert.match(home, /href="\/articulate\/episodes\/0010-selecting-an-agent-runtime\/"/);
-  assert.match(home, /href="https:\/\/youtu\.be\/rOnui-Tj3ks"/);
+  assert.match(home, /href="\/articulate\/episodes\/0011-agent-memory\/"/);
+  assert.match(home, /href="https:\/\/youtu\.be\/OT-USJspSc8"/);
   assert.doesNotMatch(home, /Current Architectural Question|>Start Here<|Architecture at a Glance/);
   assert.match(home, /An architecture journal built through evidence/);
 });
@@ -222,6 +222,13 @@ for (const episode of [
     youtubeUrl: "https://youtu.be/rOnui-Tj3ks",
     videoId: "rOnui-Tj3ks",
     iframeTitle: "ADR 0001 – Defining the Runtime Requirements — Articulate Journal Episode 10"
+  },
+  {
+    slug: "0011-agent-memory",
+    thumbnail: "episode-0011-thumbnail.png",
+    youtubeUrl: "https://youtu.be/OT-USJspSc8",
+    videoId: "OT-USJspSc8",
+    iframeTitle: "Memory in AI-Native Systems — Articulate Journal Episode 11"
   }
 ]) {
   test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {

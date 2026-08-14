@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0011",
+    "title": "Memory in AI-Native Systems",
+    "written_source": "docs/episodes/0011-agent-memory.md",
+    "narrative_source": "production/episodes/0011/narrative.md",
+    "scene_plan": "production/episodes/0011/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 547.8473
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "What does AI memory actually mean?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N002"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 5.48
+    },
+    {
+      "id": "S002",
+      "title": "Memory in AI-native systems",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N003-N006"
+      ],
+      "start_seconds": 5.48,
+      "end_seconds": 26.84
+    },
+    {
+      "id": "S003",
+      "title": "Everything appears to be memory",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N007-N019"
+      ],
+      "start_seconds": 26.84,
+      "end_seconds": 73.96
+    },
+    {
+      "id": "S004",
+      "title": "These questions shape the architecture",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N020-N028"
+      ],
+      "start_seconds": 73.96,
+      "end_seconds": 103.68
+    },
+    {
+      "id": "S005",
+      "title": "Ask about state instead",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N029-N031"
+      ],
+      "start_seconds": 103.68,
+      "end_seconds": 115.88
+    },
+    {
+      "id": "S006",
+      "title": "One label now hides unrelated responsibilities",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N032-N038"
+      ],
+      "start_seconds": 115.88,
+      "end_seconds": 145.32
+    },
+    {
+      "id": "S007",
+      "title": "Separate the responsibilities",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N039-N047"
+      ],
+      "start_seconds": 145.32,
+      "end_seconds": 183.12
+    },
+    {
+      "id": "S008",
+      "title": "Context is assembled for reasoning now",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N048-N060"
+      ],
+      "start_seconds": 183.12,
+      "end_seconds": 232.76
+    },
+    {
+      "id": "S009",
+      "title": "Three different responsibilities",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N061-N072"
+      ],
+      "start_seconds": 232.76,
+      "end_seconds": 271.68
+    },
+    {
+      "id": "S010",
+      "title": "State has architectural homes",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N073-N082"
+      ],
+      "start_seconds": 271.68,
+      "end_seconds": 316.08
+    },
+    {
+      "id": "S011",
+      "title": "Retrieval is not knowledge",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N083-N085"
+      ],
+      "start_seconds": 316.08,
+      "end_seconds": 331.84
+    },
+    {
+      "id": "S012",
+      "title": "CACHE",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N086-N095"
+      ],
+      "start_seconds": 331.84,
+      "end_seconds": 372.64
+    },
+    {
+      "id": "S013",
+      "title": "Different state has different characteristics",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N096-N105"
+      ],
+      "start_seconds": 372.64,
+      "end_seconds": 411.44
+    },
+    {
+      "id": "S014",
+      "title": "The runtime coordinates",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N106-N114"
+      ],
+      "start_seconds": 411.44,
+      "end_seconds": 443.48
+    },
+    {
+      "id": "S015",
+      "title": "Knowing again is not doing again",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N115-N121"
+      ],
+      "start_seconds": 443.48,
+      "end_seconds": 475.08
+    },
+    {
+      "id": "S016",
+      "title": "How does a runtime preserve execution across time?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N122-N183"
+      ],
+      "start_seconds": 475.08,
+      "end_seconds": 547.847
+    }
+  ]
+}

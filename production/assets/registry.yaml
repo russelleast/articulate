@@ -479,6 +479,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0011-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0011",
+      "status": "approved-recording",
+      "checksum": "sha256:695f87fb6328c0b8ec0035337513762769529703c6633c4f813be18a4aea2f85",
+      "location": "production/episodes/0011/ep11-narrator.mp4",
+      "provider": "local"
+    },
+    {
       "id": "episode-0007-architectural-knowledge-journey",
       "type": "diagram",
       "format": "plantuml",
@@ -862,6 +871,16 @@
       "source": "production/diagrams/sources/episodes/0010/runtime-responsibilities-state-03.d2",
       "location": "site/public/diagrams/episode-0010-runtime-responsibilities-state-03.svg",
       "provider": "local"
-    }
+    },
+    {"id":"episode-0011-memory-overload-state-01","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/memory-overload-state-01.d2","location":"site/public/diagrams/episode-0011-memory-overload-state-01.svg","provider":"local"},
+    {"id":"episode-0011-memory-overload-state-02","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/memory-overload-state-02.d2","location":"site/public/diagrams/episode-0011-memory-overload-state-02.svg","provider":"local"},
+    {"id":"episode-0011-state-decomposition","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/state-decomposition.d2","location":"site/public/diagrams/episode-0011-state-decomposition.svg","provider":"local"},
+    {"id":"episode-0011-context-assembly","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/context-assembly.d2","location":"site/public/diagrams/episode-0011-context-assembly.svg","provider":"local"},
+    {"id":"episode-0011-context-distinction","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/context-distinction.d2","location":"site/public/diagrams/episode-0011-context-distinction.svg","provider":"local"},
+    {"id":"episode-0011-state-ownership","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/state-ownership.d2","location":"site/public/diagrams/episode-0011-state-ownership.svg","provider":"local"},
+    {"id":"episode-0011-retrieval-from-knowledge","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/retrieval-from-knowledge.d2","location":"site/public/diagrams/episode-0011-retrieval-from-knowledge.svg","provider":"local"},
+    {"id":"episode-0011-state-characteristics","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/state-characteristics.d2","location":"site/public/diagrams/episode-0011-state-characteristics.svg","provider":"local"},
+    {"id":"episode-0011-runtime-coordinates","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/runtime-coordinates.d2","location":"site/public/diagrams/episode-0011-runtime-coordinates.svg","provider":"local"},
+    {"id":"episode-0011-execution-progress","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/execution-progress.d2","location":"site/public/diagrams/episode-0011-execution-progress.svg","provider":"local"}
   ]
 }

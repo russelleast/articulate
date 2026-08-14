@@ -1,0 +1,524 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0011",
+    "title": "Memory in AI-Native Systems",
+    "journalSource": "docs/episodes/0011-agent-memory.md",
+    "narrativeSource": "production/episodes/0011/narrative.md",
+    "storyboard": "production/episodes/0011/storyboard.yaml",
+    "timingMarkers": "production/episodes/0011/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0011/asset-register.yaml",
+    "scenePlan": "production/episodes/0011/scene-plan.yaml",
+    "timeline": "production/episodes/0011/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0011-presenter-v1",
+    "expectedSha256": "695f87fb6328c0b8ec0035337513762769529703c6633c4f813be18a4aea2f85",
+    "expectedDurationSeconds": 547.8473,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 547.8473,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0011/output/episode-0011-final.mp4",
+    "generatedDirectory": "production/episodes/0011/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0011/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0011/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "What does AI memory actually mean?",
+      "kind": "presenter-focus",
+      "headline": "What does AI memory actually mean?",
+      "support": "One familiar word. Several architectural responsibilities.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Memory Question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "Memory in AI-native systems",
+      "kind": "presenter-focus",
+      "headline": "Memory in AI-native systems",
+      "support": "Episode 11 · Articulate Journal",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Episode Introduction",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "Everything appears to be memory",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-memory-overload-state-01",
+      "visualStateMode": "complete-diagram",
+      "headline": "Everything appears to be memory",
+      "support": "The category grows before its responsibilities are understood.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Everything Looks Like Memory",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "These questions shape the architecture",
+      "kind": "presenter-focus",
+      "headline": "These questions shape the architecture",
+      "support": "Conversation · knowledge · retrieval · recovery · execution",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Memory Shapes Architecture",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Ask about state instead",
+      "kind": "presenter-focus",
+      "headline": "Ask about state instead",
+      "support": "What state does an AI-native platform actually need?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Ask About State",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "One label now hides unrelated responsibilities",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-memory-overload-state-02",
+      "visualStateMode": "complete-diagram",
+      "headline": "One label now hides unrelated responsibilities",
+      "support": "The overloaded category obscures architecture.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Label Becomes Overloaded",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "Separate the responsibilities",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-state-decomposition",
+      "visualStateMode": "complete-diagram",
+      "headline": "Separate the responsibilities",
+      "support": "Different purpose · owner · lifetime · rules",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Separate the Responsibilities",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "Context is assembled for reasoning now",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-context-assembly",
+      "visualStateMode": "complete-diagram",
+      "headline": "Context is assembled for reasoning now",
+      "support": "A temporary working set—not another source of truth.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Context Is Assembled",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Three different responsibilities",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-context-distinction",
+      "visualStateMode": "complete-diagram",
+      "headline": "Three different responsibilities",
+      "support": "Know · discuss · reason now",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge Conversation Context",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "State has architectural homes",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-state-ownership",
+      "visualStateMode": "complete-diagram",
+      "headline": "State has architectural homes",
+      "support": "The runtime coordinates; it does not own everything.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Ownership Changes Everything",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Retrieval is not knowledge",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-retrieval-from-knowledge",
+      "visualStateMode": "complete-diagram",
+      "headline": "Retrieval is not knowledge",
+      "support": "Useful projections derive from authoritative knowledge.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Retrieval Is Not Knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "CACHE",
+      "kind": "presenter-evidence",
+      "headline": "CACHE",
+      "support": "Useful · temporary · rebuildable · potentially stale",
+      "items": [
+        "Performance optimisation",
+        "Not a source of truth",
+        "Staleness is risk"
+      ],
+      "evidence": {
+        "emphasisIndex": 1
+      },
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Caches Are Rebuildable",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Different state has different characteristics",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-state-characteristics",
+      "visualStateMode": "complete-diagram",
+      "headline": "Different state has different characteristics",
+      "support": "Responsibility first—not database products.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Different State Different Storage",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "The runtime coordinates",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-runtime-coordinates",
+      "visualStateMode": "complete-diagram",
+      "headline": "The runtime coordinates",
+      "support": "One remaining responsibility is qualitatively different.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Runtime Coordinates",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "Knowing again is not doing again",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0011-execution-progress",
+      "visualStateMode": "complete-diagram",
+      "headline": "Knowing again is not doing again",
+      "support": "Execution must preserve what has already happened.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Execution Is Different",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "How does a runtime preserve execution across time?",
+      "kind": "presenter-focus",
+      "headline": "How does a runtime preserve execution across time?",
+      "support": "Next: durable execution · Episode 12",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Durable Execution",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

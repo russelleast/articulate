@@ -1,0 +1,15 @@
+...@../../../styles/articulate
+direction: right
+state: STATE {class: emphasis}
+conversation: "Conversation\nwhat we discussed" {class: node}
+knowledge: "Knowledge\nwhat the system knows" {class: capability}
+retrieval: "Retrieval\nindexes and projections" {class: evidence}
+cache: "Cache\nperformance" {class: evidence}
+configuration: "Configuration\nbehaviour" {class: node}
+execution: "Execution\nwork already performed" {class: service}
+state -> conversation
+state -> knowledge
+state -> retrieval
+state -> cache
+state -> configuration
+state -> execution

@@ -1,0 +1,15 @@
+...@../../../styles/articulate
+direction: right
+runtime: "RUNTIME\nCoordinates work" {class: service}
+knowledge: Knowledge {class: capability}
+conversation: Conversation {class: node}
+retrieval: Retrieval {class: evidence}
+tools: Tools {class: node}
+context: Context {class: emphasis}
+execution: "EXECUTION\nProgress of work" {class: service}
+runtime -> knowledge
+runtime -> conversation
+runtime -> retrieval
+runtime -> tools
+runtime -> context
+runtime -> execution: preserves

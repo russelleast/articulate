@@ -1,0 +1,13 @@
+...@../../../styles/articulate
+direction: right
+knowledge: "Knowledge Model\narchitectural knowledge" {class: capability}
+conversation: "Conversation Service\nconversations" {class: node}
+retrieval: "Retrieval Layer\nderived structures" {class: evidence}
+config: "Configuration\ncapabilities and prompts" {class: node}
+context: "Context\nassembled when needed" {class: emphasis}
+runtime: "RUNTIME\ncoordinates" {class: service}
+runtime -> knowledge: coordinates
+runtime -> conversation: coordinates
+runtime -> retrieval: coordinates
+runtime -> config: coordinates
+runtime -> context: assembles
