@@ -112,14 +112,14 @@ If implementation exposes such requirements, record them as observations rather 
 
 # Repository Structure
 
-The repository already contains a `src` directory.
+The executable runtime contains a `src` directory.
 
-Do not introduce another repository-level source folder.
+Do not introduce another source folder within the runtime.
 
-Create the two services beneath the existing `src` directory:
+Create the two services beneath `runtime/src`:
 
 ```text
-src/
+runtime/src/
 ├── KnowledgeApi/
 └── ClaimSimulator/
 ```
@@ -186,7 +186,7 @@ ProposedKnowledge
 SubmitClaimsRequest
 ```
 
-This convention should also be added to the appropriate repository `AGENTS.md` guidance under `src`.
+This convention should also be added to the appropriate repository `AGENTS.md` guidance under `runtime/src`.
 
 ---
 
@@ -570,7 +570,7 @@ The existing repository engineering harness must be treated as part of the archi
 Before implementation Codex must inspect and follow:
 
 * root `AGENTS.md`
-* `src/AGENTS.md`
+* `runtime/src/AGENTS.md`
 * relevant `.codex` skills
 * repository verification scripts
 * DCL through the configured DCL MCP server
@@ -586,7 +586,7 @@ Do not duplicate architectural context into implementation documentation when an
 Before changing source code:
 
 1. Inspect repository instructions.
-2. Inspect the existing `src` structure.
+2. Inspect the existing `runtime/src` structure.
 3. Query the DCL capability using the DCL MCP server.
 4. Identify the existing verification mechanisms.
 5. Determine the minimum set of files and dependencies required.
@@ -706,7 +706,7 @@ And:
 * KnowledgeApi automated tests pass.
 * Repository verification passes.
 * The implementation follows existing `AGENTS.md` guidance.
-* `src/AGENTS.md` records the convention that `DTO` suffixes are not used.
+* `runtime/src/AGENTS.md` records the convention that `DTO` suffixes are not used.
 * No unnecessary future Knowledge Model functionality has been introduced.
 
 ---

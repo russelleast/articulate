@@ -2,13 +2,11 @@
 set -eu
 
 repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+runtime_root="$repository_root/runtime"
 
 echo "Protobuf verification"
 
-if ! find "$repository_root" \
-  -path '*/.git' -prune -o \
-  -path '*/node_modules' -prune -o \
-  -name '*.proto' -print -quit | grep -q .; then
+if ! find "$runtime_root/proto" -name '*.proto' -print -quit | grep -q .; then
   echo "  not configured: no protobuf contracts found"
   exit 0
 fi
@@ -18,11 +16,11 @@ command -v uv >/dev/null 2>&1 || {
   exit 1
 }
 
-cd "$repository_root"
+cd "$runtime_root"
 temporary_directory=$(mktemp -d)
 trap 'rm -rf "$temporary_directory"' EXIT
 
-knowledge_environment="$repository_root/src/KnowledgeApi/.venv"
+knowledge_environment="$runtime_root/src/KnowledgeApi/.venv"
 UV_PROJECT_ENVIRONMENT="$knowledge_environment" uv sync --frozen --inexact
 uv pip install \
   --python "$knowledge_environment/bin/python" \

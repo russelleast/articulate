@@ -1,6 +1,6 @@
 # Source Engineering Guidance
 
-These instructions apply to source code beneath `src/`.
+These instructions apply to source code beneath `runtime/src/`.
 
 ## General
 
@@ -20,7 +20,7 @@ These instructions apply to source code beneath `src/`.
 - Use Python 3.x version defined by the repository.
 - Use `uv` for dependency and environment management.
 - Python virtual environments are service-local. Each independently deployable Python service owns its own `.venv` and dependency definition. Do not create or use a repository-root Python virtual environment.
-- Use the root `pyproject.toml` only for genuinely shared Python tooling configuration.
+- Use `runtime/pyproject.toml` only for genuinely shared runtime Python tooling configuration.
 - Commit `uv.lock`.
 - Use explicit type annotations.
 - Prefer async APIs for network, database, Dapr, model and other I/O-bound paths when the dependency stack supports them. Do not perform blocking I/O in an async event loop; isolate unavoidable blocking SDK calls explicitly and keep async behaviour consistent through the call chain.

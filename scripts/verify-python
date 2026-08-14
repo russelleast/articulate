@@ -2,13 +2,11 @@
 set -eu
 
 repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+runtime_root="$repository_root/runtime"
 
 echo "Python verification"
 
-if ! find "$repository_root" \
-  -path '*/.git' -prune -o \
-  -path '*/node_modules' -prune -o \
-  -name pyproject.toml -print -quit | grep -q .; then
+if [ ! -f "$runtime_root/pyproject.toml" ]; then
   echo "  not configured: no Python project found"
   exit 0
 fi
@@ -18,12 +16,12 @@ command -v uv >/dev/null 2>&1 || {
   exit 1
 }
 
-cd "$repository_root"
+cd "$runtime_root"
 uv lock --check
 
-knowledge_environment="$repository_root/src/KnowledgeApi/.venv"
-claim_simulator_environment="$repository_root/src/ClaimSimulator/.venv"
-review_agent_environment="$repository_root/src/ReviewProposedClaimAgent/.venv"
+knowledge_environment="$runtime_root/src/KnowledgeApi/.venv"
+claim_simulator_environment="$runtime_root/src/ClaimSimulator/.venv"
+review_agent_environment="$runtime_root/src/ReviewProposedClaimAgent/.venv"
 
 UV_PROJECT_ENVIRONMENT="$knowledge_environment" uv sync --frozen --inexact
 uv pip install \
