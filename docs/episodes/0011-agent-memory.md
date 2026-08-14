@@ -19,6 +19,9 @@ related_decisions:
 repository_paths:
   - docs/episodes/0011-agent-memory.md
   - docs/adrs/0001-ai-runtime.md
+thumbnail: /media/episodes/0011/episode-0011-thumbnail.png
+thumbnail_alt: "Presenter beside the question What Is AI Memory and a decomposition into knowledge, context and execution."
+youtube_url: https://youtu.be/OT-USJspSc8
 ---
 
 # Episode 11 – Memory in AI-Native Systems
