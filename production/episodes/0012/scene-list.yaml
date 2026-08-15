@@ -1,0 +1,139 @@
+{
+  "episode": {
+    "id": "episode-0012",
+    "title": "Durable Execution and Long-Running Reasoning",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0012-presenter-v1",
+    "narration_duration_seconds": 549.8493
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 5.73,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 5.73,
+      "end_seconds": 17.01,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 17.01,
+      "end_seconds": 57.18,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-memory-responsibilities"
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 57.18,
+      "end_seconds": 100.25,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 100.25,
+      "end_seconds": 149,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-reconstructable-reasoning"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 149,
+      "end_seconds": 165.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-external-effects"
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 165.25,
+      "end_seconds": 194.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-process-failure"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 194.25,
+      "end_seconds": 232.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-execution-progress"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 232.25,
+      "end_seconds": 284.25,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 284.25,
+      "end_seconds": 313,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-human-wait"
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 313,
+      "end_seconds": 348.23,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-changing-baseline"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 348.23,
+      "end_seconds": 387.21,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-durable-continuity"
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 387.21,
+      "end_seconds": 397.25,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 397.25,
+      "end_seconds": 451.25,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0012-runtime-boundary"
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 451.25,
+      "end_seconds": 493.25,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 493.25,
+      "end_seconds": 549.849,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

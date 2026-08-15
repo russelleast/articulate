@@ -1,0 +1,531 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0012",
+    "title": "Durable Execution and Long-Running Reasoning",
+    "journalSource": "docs/episodes/0012-durable-execution.md",
+    "narrativeSource": "production/episodes/0012/narrative.md",
+    "storyboard": "production/episodes/0012/storyboard.yaml",
+    "timingMarkers": "production/episodes/0012/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0012/asset-register.yaml",
+    "scenePlan": "production/episodes/0012/scene-plan.yaml",
+    "timeline": "production/episodes/0012/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0012-presenter-v1",
+    "expectedSha256": "f22adf8909992a1cf19361a5631c74d5c164f02820e45db8838c2a1e9f144271",
+    "expectedDurationSeconds": 549.8493,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 549.8493,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0012/output/episode-0012-final.mp4",
+    "generatedDirectory": "production/episodes/0012/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0012/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0012/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "What happens when the process disappears?",
+      "kind": "presenter-focus",
+      "headline": "What happens when the process disappears?",
+      "support": "Does the agent's work disappear with it?",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The opening question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "Durable execution",
+      "kind": "presenter-focus",
+      "headline": "Durable execution",
+      "support": "Episode 12 · Articulate Journal",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Episode introduction",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "Most state found an architectural home",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-memory-responsibilities",
+      "visualStateMode": "complete-diagram",
+      "headline": "Most state found an architectural home",
+      "support": "Execution remained unresolved.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Memory responsibilities separate",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Work should survive the process performing it",
+      "kind": "presenter-focus",
+      "headline": "Work should survive the process performing it",
+      "support": "Thread · container · agent instance ≠ execution lifetime",
+      "items": [
+        "Process may disappear",
+        "Execution must remain"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Work should survive the process",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "At first, starting again looks plausible",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-reconstructable-reasoning",
+      "visualStateMode": "complete-diagram",
+      "headline": "At first, starting again looks plausible",
+      "support": "Knowledge and temporary context can be reconstructed.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Restart appears plausible",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "Then the agent starts doing things",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-external-effects",
+      "visualStateMode": "complete-diagram",
+      "headline": "Then the agent starts doing things",
+      "support": "The same flow now crosses system boundaries.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Work causes external effects",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "What has already happened?",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-process-failure",
+      "visualStateMode": "complete-diagram",
+      "headline": "What has already happened?",
+      "support": "Restarting reasoning is not safely resuming execution.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Process failure creates uncertainty",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "Execution state is a record of progress",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-execution-progress",
+      "visualStateMode": "complete-diagram",
+      "headline": "Execution state is a record of progress",
+      "support": "Completed work · effects · waiting · safe next action",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Execution is progress",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Recovering the prompt is not enough",
+      "kind": "presenter-focus",
+      "headline": "Recovering the prompt is not enough",
+      "support": "Every external boundary makes repeated work consequential.",
+      "items": [
+        "Tools",
+        "Capabilities",
+        "Systems",
+        "Approvals"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Crossing system boundaries",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "Human participation makes time architectural",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-human-wait",
+      "visualStateMode": "complete-diagram",
+      "headline": "Human participation makes time architectural",
+      "support": "The execution remains while no process needs to run.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Humans make time architectural",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "The world may change while execution waits",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-changing-baseline",
+      "visualStateMode": "complete-diagram",
+      "headline": "The world may change while execution waits",
+      "support": "Resumption re-enters a potentially different baseline.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The world changes while waiting",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Durable execution preserves continuity",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-durable-continuity",
+      "visualStateMode": "complete-diagram",
+      "headline": "Durable execution preserves continuity",
+      "support": "It does not keep one agent process alive.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Durable execution",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "The process is temporary.",
+      "kind": "presenter-focus",
+      "headline": "The process is temporary.",
+      "support": "THE EXECUTION IS DURABLE.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The durable principle",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "The runtime owns continuity of work",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0012-runtime-boundary",
+      "visualStateMode": "complete-diagram",
+      "headline": "The runtime owns continuity of work",
+      "support": "Knowledge, conversation and retrieval remain separate.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The runtime boundary",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "ADR 0001 · AI Runtime",
+      "kind": "presenter-evidence",
+      "headline": "ADR 0001 · AI Runtime",
+      "support": "Requirements discovered—not a technology decision.",
+      "items": [
+        "Long-running execution",
+        "Pause and resume",
+        "Failure recovery",
+        "Human-in-the-loop",
+        "Execution history",
+        "Distributed execution",
+        "Durable execution"
+      ],
+      "teachingLayout": "vertical-list",
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "ADR 0001 requirements",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "The requirements are now clear",
+      "kind": "presenter-focus",
+      "headline": "The requirements are now clear",
+      "support": "Next: evaluate the runtime candidates · Episode 13",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Ready to evaluate runtimes",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

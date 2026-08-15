@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "hook",
+      "title": "The opening question",
+      "narrativeSegments": [
+        "N001"
+      ],
+      "start": 0,
+      "end": 5.73,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "introduction",
+      "title": "Episode introduction",
+      "narrativeSegments": [
+        "N002"
+      ],
+      "start": 5.73,
+      "end": 17.01,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 5.730s"
+    },
+    {
+      "id": "memory",
+      "title": "Memory responsibilities separate",
+      "narrativeSegments": [
+        "N003-N011"
+      ],
+      "start": 17.01,
+      "end": 57.18,
+      "confidence": 1,
+      "anchor": "In the previous episode",
+      "matchedText": "In the previous episode"
+    },
+    {
+      "id": "survive",
+      "title": "Work should survive the process",
+      "narrativeSegments": [
+        "N012-N022"
+      ],
+      "start": 57.18,
+      "end": 100.25,
+      "confidence": 0.8,
+      "anchor": "At first the requirement sounds",
+      "matchedText": "At first the requirement"
+    },
+    {
+      "id": "restart",
+      "title": "Restart appears plausible",
+      "narrativeSegments": [
+        "N023-N035"
+      ],
+      "start": 100.25,
+      "end": 149,
+      "confidence": 0.75,
+      "anchor": "Imagine an agent analysing",
+      "matchedText": "Imagine an agent"
+    },
+    {
+      "id": "effects",
+      "title": "Work causes external effects",
+      "narrativeSegments": [
+        "N036-N040"
+      ],
+      "start": 149,
+      "end": 165.25,
+      "confidence": 0.958,
+      "anchor": "Let's change the scenario",
+      "matchedText": "Let's change the scenario slightly."
+    },
+    {
+      "id": "failure",
+      "title": "Process failure creates uncertainty",
+      "narrativeSegments": [
+        "N041-N049"
+      ],
+      "start": 165.25,
+      "end": 194.25,
+      "confidence": 1,
+      "anchor": "Now imagine the process disappears",
+      "matchedText": "Now imagine the process disappears"
+    },
+    {
+      "id": "progress",
+      "title": "Execution is progress",
+      "narrativeSegments": [
+        "N050-N063"
+      ],
+      "start": 194.25,
+      "end": 232.25,
+      "confidence": 1,
+      "anchor": "This is where execution begins",
+      "matchedText": "This is where execution begins"
+    },
+    {
+      "id": "boundaries",
+      "title": "Crossing system boundaries",
+      "narrativeSegments": [
+        "N064-N075"
+      ],
+      "start": 232.25,
+      "end": 284.25,
+      "confidence": 1,
+      "anchor": "This becomes particularly important",
+      "matchedText": "This becomes particularly important"
+    },
+    {
+      "id": "humans",
+      "title": "Humans make time architectural",
+      "narrativeSegments": [
+        "N076-N083"
+      ],
+      "start": 284.25,
+      "end": 313,
+      "confidence": 1,
+      "anchor": "And then we introduce us",
+      "matchedText": "And then we introduce us"
+    },
+    {
+      "id": "changed-world",
+      "title": "The world changes while waiting",
+      "narrativeSegments": [
+        "N084-N092"
+      ],
+      "start": 313,
+      "end": 348.23,
+      "confidence": 0.833,
+      "anchor": "But there's another complication",
+      "matchedText": "But there's another complication. The world may have changed while the agent was waiting."
+    },
+    {
+      "id": "durable",
+      "title": "Durable execution",
+      "narrativeSegments": [
+        "N093-N103"
+      ],
+      "start": 348.23,
+      "end": 387.21,
+      "confidence": 1,
+      "anchor": "And this is where the understanding",
+      "matchedText": "And this is where the understanding"
+    },
+    {
+      "id": "principle",
+      "title": "The durable principle",
+      "narrativeSegments": [
+        "N104-N107"
+      ],
+      "start": 387.21,
+      "end": 397.25,
+      "confidence": 1,
+      "anchor": "The process performing the work may disappear",
+      "matchedText": "The process performing the work may disappear"
+    },
+    {
+      "id": "runtime",
+      "title": "The runtime boundary",
+      "narrativeSegments": [
+        "N108-N117"
+      ],
+      "start": 397.25,
+      "end": 451.25,
+      "confidence": 1,
+      "anchor": "This also gives me",
+      "matchedText": "This also gives me"
+    },
+    {
+      "id": "adr",
+      "title": "ADR 0001 requirements",
+      "narrativeSegments": [
+        "N118-N125"
+      ],
+      "start": 451.25,
+      "end": 493.25,
+      "confidence": 1,
+      "anchor": "That gives me another important requirement",
+      "matchedText": "That gives me another important requirement"
+    },
+    {
+      "id": "closing",
+      "title": "Ready to evaluate runtimes",
+      "narrativeSegments": [
+        "N126-N137"
+      ],
+      "start": 493.25,
+      "end": 549.849,
+      "confidence": 1,
+      "anchor": "Over the last three episodes",
+      "matchedText": "Over the last three episodes"
+    }
+  ]
+}

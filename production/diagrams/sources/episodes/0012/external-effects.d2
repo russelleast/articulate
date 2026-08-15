@@ -1,0 +1,11 @@
+...@../../../styles/articulate
+direction: down
+analyse: "Analyse proposal" {class: agent}
+record: "Record proposed decision" {class: data}
+invoke: "Invoke capability" {class: capability}
+notify: "Send approval request" {class: external}
+wait: "WAIT" {class: emphasis}
+analyse -> record
+record -> invoke
+invoke -> notify
+notify -> wait

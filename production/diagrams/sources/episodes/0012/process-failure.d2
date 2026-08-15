@@ -1,0 +1,11 @@
+...@../../../styles/articulate
+direction: down
+record: "Proposal recorded?" {class: evidence}
+invoke: "Capability completed?" {class: evidence}
+notify: "Notification sent?" {class: evidence}
+failure: "PROCESS FAILURE" {class: constraint}
+retry: "IS RETRY SAFE?" {class: emphasis}
+record -> failure
+invoke -> failure
+notify -> failure
+failure -> retry

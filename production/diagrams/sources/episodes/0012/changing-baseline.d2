@@ -1,0 +1,9 @@
+...@../../../styles/articulate
+direction: right
+baseline_a: "BASELINE A\noriginal architecture" {class: data}
+waiting: "EXECUTION WAITS\ntime passes" {class: workflow}
+baseline_b: "BASELINE B\narchitecture changed" {class: data}
+resume: "RESUME SAFELY?" {class: emphasis}
+baseline_a -> waiting
+waiting -> baseline_b
+baseline_b -> resume
