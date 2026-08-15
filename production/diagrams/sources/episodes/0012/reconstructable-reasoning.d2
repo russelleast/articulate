@@ -1,0 +1,11 @@
+...@../../../styles/articulate
+direction: down
+analyse: "Analyse proposal" {class: agent}
+retrieve: "Retrieve knowledge" {class: capability}
+reason: "Reason" {class: capability}
+ask: "Ask user" {class: human}
+wait: "WAIT" {class: emphasis}
+analyse -> retrieve
+retrieve -> reason
+reason -> ask
+ask -> wait

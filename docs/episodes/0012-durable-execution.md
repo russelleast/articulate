@@ -17,6 +17,9 @@ related_decisions:
 repository_paths:
   - docs/episodes/0012-durable-execution.md
   - docs/adrs/0001-ai-runtime.md
+thumbnail: /media/episodes/0012/episode-0012-thumbnail.png
+thumbnail_alt: "Presenter beside the words Durable Execution and a flow showing that the process disappears while execution survives."
+youtube_url: https://youtu.be/k252fEQsP3I
 ---
 
 # Episode 12 – Durable Execution and Long-Running Reasoning

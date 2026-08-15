@@ -1,0 +1,13 @@
+...@../../../styles/articulate
+direction: right
+execution: "EXECUTION" {class: emphasis}
+approval: "Human approval" {class: human}
+wait: "WAIT" {class: workflow}
+minutes: "5 minutes" {class: evidence}
+day: "1 day" {class: evidence}
+week: "1 week" {class: evidence}
+execution -> approval
+approval -> wait
+wait -> minutes
+minutes -> day
+day -> week

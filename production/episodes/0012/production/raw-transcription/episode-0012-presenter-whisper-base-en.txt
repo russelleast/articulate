@@ -1,0 +1,95 @@
+ What happens to an AI agent when the process executing it disappears? Hello, I'm Russell and welcome to episode 12 of the Articulate Journal, where I'm exploring what it takes to build an AI-native architecture from first principles. In the previous episode, I explored what AI systems mean when they talk about memory. And what initially looked like one architectural concept turned out to be several different responsibilities. Knowledge belongs to the knowledge of AI-native architecture.
+ Knowledge Model, conversation has its own state. Embedings and indexes support retrieval and can usually be rebuilt.
+ Even much of the temporary context used while an agent is reasoning can potentially be reconstructed.
+ But one form of state was different. Execution. If an agent is halfway through some work and a process disappears, how does the system know where it got to?
+ At first, the requirement seems fairly simple. If an agent is interrupted, I want it to continue.
+ Maybe it's analyzing the impact of an architectural change. Maybe it needs clarification from me.
+ Maybe another agent needs to contribute, or perhaps it's waiting for approval.
+ Whatever the reason, I don't want the lifetime of that work tied to the lifetime of a thread, a container, or a particular agent instance.
+ If that process disappears, the work shouldn't disappear with it. But that raises another question.
+ Do I actually need to preserve execution? Couldn't I just run the agent again?
+ Imagine an agent analyzing the impact of a proposed architectural change.
+ It retrieves relevant architectural knowledge. It identifies the affected capabilities.
+ It looks at decisions and principles that might be relevant. Then it asks me a question before continuing.
+ If that process disappears at that point, perhaps nothing particularly important has been lost.
+ The knowledge models still exist, conversation exists, the context can be reconstructed.
+ The agent can retrieve the information again and continue reasoning.
+ It might perform some work twice. Perhaps that's acceptable.
+ So maybe the execution state isn't particularly special after all.
+ The problem appears when the agent starts to do things.
+ Let's change the scenario slightly.
+ Before asking me for approval, the agent records a proposed architectural decision.
+ It invokes another capability, sends a notification asking me to review something, and then it waits.
+ Now imagine the process disappears. When it starts again, they have a slightly different problem.
+ Was the proposed decision already recorded? Did the other capability complete?
+ Was the notification already sent? If I simply restart the reasoning process, should those actions happen again?
+ Suddenly the problem isn't remembering what the agent knew.
+ The problem is knowing what the system has already done. And that distinction matters.
+ This is where execution begins to look different from the other forms of state that were explored in a previous episode.
+ Knowledge can be retrieved, conversations can be replayed.
+ Context can be reconstructed, and reasoning can often be performed again.
+ But once work has caused an effect outside the reasoning process, we need to know whether that effect has actually happened.
+ The runtime needs to know what completed, what failed, which tools have already been executed, which external effects have occurred.
+ Isn't simply another form of memory. It's a record of progress.
+ This becomes particularly important because agents don't operate in isolation.
+ They call tools. They invoke other capabilities. They update systems. They request approvals.
+ They communicate with external services.
+ Every time execution crosses one of those boundaries, something may happen that can't simply be forgotten or performed again without consequence.
+ Something the same notification twice might only be annoying.
+ Creating the same record twice could be more serious.
+ Invoking another capability twice could cause an entire different chain of work to happen again.
+ So recovering an agent isn't simply about reconstructing its prompt and asking the model to continue.
+ The system needs to understand what has already happened before it can safely decide what should happen next.
+ And then we introduce us, human beings.
+ Suppose an agent reaches a point where it needs an architect to approve something.
+ The response might arrive five minutes later. It might arrive tomorrow. It might arrive next week.
+ And it might never arrive at all.
+ Keeping a process alive while it waits is really the answer.
+ The execution needs to survive independently of the process currently performing the work.
+ But there's another complication. The world may have changed while the agent was waiting.
+ New architectural knowledge may have been accepted.
+ Another decision may have been made. The proposal itself may have been superseded.
+ The state the agent originally reasoned may no longer represent the current architecture.
+ So, resuming execution isn't necessarily the same as waking up a suspended process.
+ We've re-entered a system that may have changed while we were away.
+ Time has become part of the architecture.
+ And this is where the understanding of the problem changed.
+ Durable execution isn't really about keeping the agent alive.
+ It's about preserving the continuity of work.
+ We don't necessarily need to preserve every temporary thought or every piece of reasoning context.
+ Much of that can be reconstructed.
+ What we need to preserve is enough of the execution to understand what work is completed, what work remains, what effects have already occurred.
+ What we're waiting for and what can safely happen next.
+ The process performing the work may disappear. The execution should not.
+ The process is temporary. The execution is durable.
+ This also gives me a much cleaner boundary around the runtime itself.
+ In the previous episode I discovered that
+ the runtime owns far less memory than I initially expected.
+ It doesn't own architectural knowledge. That's the responsibility of the knowledge model.
+ It doesn't need to own every conversation. It doesn't need to treat embeddings, indexes and caches as permanent memory.
+ Much of that context required by an agent can be reconstructed from the wider platform.
+ But the execution is different.
+ The runtime coordinates work.
+ If that work can span processes, failures, agents, external systems, humans and potentially days of elapsed time,
+ then preserving the continuity of that execution becomes one of the most important responsibilities.
+ That gives me another important requirement for ADR1.
+ The runtime articulates, eventually uses, needs to support work that survives interruption.
+ It needs pause and resume semantics. It needs to recover from failure,
+ support long-running execution and support humans becoming part of that execution.
+ It needs enough execution history to understand what has already happened.
+ And it needs to coordinate work, and it needs to coordinate work that may be distributed across different processes
+ and different points in time.
+ Those aren't simply useful runtime features anymore. They've become the architectural requirements.
+ Over the last three episodes, the question has gradually changed.
+ I started asking which agent runtime articulates you to use.
+ Then I had to understand what state the runtime actually owns.
+ And now I've discovered one of the most important responsibilities isn't really memory at all.
+ It's preserving work across failure and across time.
+ Once tools have executed, once other capabilities become involved, once humans enter the process
+ and once execution can last longer than the process performing it,
+ simply starting again isn't enough. We need continuity.
+ We need to know what happened, and we need to know what can safely happen again.
+ That gives me the final architectural requirement I need for ADR1.
+ Now I can go back to the candidate runtimes and evaluate them against the architecture
+ I'll articulate actually needs.
+ And that's what we'll do for the next episode. See you on the next one.

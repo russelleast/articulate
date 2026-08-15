@@ -28,7 +28,7 @@ const items = latestVideo && !latest.some((episode) => episode.id === latestVide
   </div>
   <ol class="latest-episode-list">
     {items.map((episode) => {
-      const isVideoPick = episode.id === latestVideo?.id && !latest.some((item) => item.id === episode.id);
+      const isVideoPick = episode.id === latestVideo?.id;
       const episodeNumber = episode.data.sequence.toString().padStart(4, "0");
       const detailId = `episode-preview-${episodeNumber}`;
 

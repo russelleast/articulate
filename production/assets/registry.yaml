@@ -488,6 +488,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0012-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0012",
+      "status": "approved-recording",
+      "checksum": "sha256:f22adf8909992a1cf19361a5631c74d5c164f02820e45db8838c2a1e9f144271",
+      "location": "production/episodes/0012/ep12-narrator.mp4",
+      "provider": "local"
+    },
+    {
       "id": "episode-0007-architectural-knowledge-journey",
       "type": "diagram",
       "format": "plantuml",
@@ -881,6 +890,15 @@
     {"id":"episode-0011-retrieval-from-knowledge","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/retrieval-from-knowledge.d2","location":"site/public/diagrams/episode-0011-retrieval-from-knowledge.svg","provider":"local"},
     {"id":"episode-0011-state-characteristics","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/state-characteristics.d2","location":"site/public/diagrams/episode-0011-state-characteristics.svg","provider":"local"},
     {"id":"episode-0011-runtime-coordinates","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/runtime-coordinates.d2","location":"site/public/diagrams/episode-0011-runtime-coordinates.svg","provider":"local"},
-    {"id":"episode-0011-execution-progress","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/execution-progress.d2","location":"site/public/diagrams/episode-0011-execution-progress.svg","provider":"local"}
+    {"id":"episode-0011-execution-progress","type":"diagram","format":"d2","episode":"0011","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0011/execution-progress.d2","location":"site/public/diagrams/episode-0011-execution-progress.svg","provider":"local"},
+    {"id":"episode-0012-memory-responsibilities","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/memory-responsibilities.d2","location":"site/public/diagrams/episode-0012-memory-responsibilities.svg","provider":"local"},
+    {"id":"episode-0012-reconstructable-reasoning","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/reconstructable-reasoning.d2","location":"site/public/diagrams/episode-0012-reconstructable-reasoning.svg","provider":"local"},
+    {"id":"episode-0012-external-effects","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/external-effects.d2","location":"site/public/diagrams/episode-0012-external-effects.svg","provider":"local"},
+    {"id":"episode-0012-process-failure","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/process-failure.d2","location":"site/public/diagrams/episode-0012-process-failure.svg","provider":"local"},
+    {"id":"episode-0012-execution-progress","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/execution-progress.d2","location":"site/public/diagrams/episode-0012-execution-progress.svg","provider":"local"},
+    {"id":"episode-0012-durable-continuity","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/durable-continuity.d2","location":"site/public/diagrams/episode-0012-durable-continuity.svg","provider":"local"},
+    {"id":"episode-0012-human-wait","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/human-wait.d2","location":"site/public/diagrams/episode-0012-human-wait.svg","provider":"local"},
+    {"id":"episode-0012-changing-baseline","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/changing-baseline.d2","location":"site/public/diagrams/episode-0012-changing-baseline.svg","provider":"local"},
+    {"id":"episode-0012-runtime-boundary","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/runtime-boundary.d2","location":"site/public/diagrams/episode-0012-runtime-boundary.svg","provider":"local"}
   ]
 }
