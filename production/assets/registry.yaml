@@ -497,6 +497,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0013-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0013",
+      "status": "approved-recording",
+      "checksum": "sha256:bdd38158bce79a035d35294638dd11b7cef19fd0f7fcb9f0b163420f852dde8e",
+      "location": "production/episodes/0013/ep13-narrator.mp4",
+      "provider": "local"
+    },
+    {
       "id": "episode-0007-architectural-knowledge-journey",
       "type": "diagram",
       "format": "plantuml",
@@ -899,6 +908,13 @@
     {"id":"episode-0012-durable-continuity","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/durable-continuity.d2","location":"site/public/diagrams/episode-0012-durable-continuity.svg","provider":"local"},
     {"id":"episode-0012-human-wait","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/human-wait.d2","location":"site/public/diagrams/episode-0012-human-wait.svg","provider":"local"},
     {"id":"episode-0012-changing-baseline","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/changing-baseline.d2","location":"site/public/diagrams/episode-0012-changing-baseline.svg","provider":"local"},
-    {"id":"episode-0012-runtime-boundary","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/runtime-boundary.d2","location":"site/public/diagrams/episode-0012-runtime-boundary.svg","provider":"local"}
+    {"id":"episode-0012-runtime-boundary","type":"diagram","format":"d2","episode":"0012","status":"generated","checksum":null,"source":"production/diagrams/sources/episodes/0012/runtime-boundary.d2","location":"site/public/diagrams/episode-0012-runtime-boundary.svg","provider":"local"},
+    {"id":"episode-0013-candidates","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/candidates.d2","location":"site/public/diagrams/episode-0013-candidates.svg","provider":"local"},
+    {"id":"episode-0013-maf-temporal","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/maf-temporal.d2","location":"site/public/diagrams/episode-0013-maf-temporal.svg","provider":"local"},
+    {"id":"episode-0013-maf-durable","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/maf-durable.d2","location":"site/public/diagrams/episode-0013-maf-durable.svg","provider":"local"},
+    {"id":"episode-0013-langgraph-temporal","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/langgraph-temporal.d2","location":"site/public/diagrams/episode-0013-langgraph-temporal.svg","provider":"local"},
+    {"id":"episode-0013-compositions","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/compositions.d2","location":"site/public/diagrams/episode-0013-compositions.svg","provider":"local"},
+    {"id":"episode-0013-dapr-platform","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/dapr-platform.d2","location":"site/public/diagrams/episode-0013-dapr-platform.svg","provider":"local"},
+    {"id":"episode-0013-dapr-decision","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/dapr-decision.d2","location":"site/public/diagrams/episode-0013-dapr-decision.svg","provider":"local"}
   ]
 }

@@ -1519,3 +1519,53 @@ This also provides a strong future bridge between Articulate, DCL, AI-assisted d
 
 ---
 
+- Decision Reflection / Architectural Learning:
+  - Treat architectural decisions as hypotheses about future architectural change.
+  - Model the relationship between a decision, its intended changes,
+    observed architectural changes and resulting consequences.
+  - Distinguish decision quality from decision outcome.
+  - Generate reflection candidates from architectural evidence rather than
+    automatically judging decisions.
+  - Use conversation with the architect to validate, reject or refine
+    reflections.
+  - Preserve accepted reflections as architectural knowledge.
+  - Surface learning from previous decisions when similar future decisions
+    are being considered.
+  - Explore recurring consequences across multiple decisions as potential
+    architectural patterns.
+  - Explore how repeated architectural learning can contribute to principles.
+  - Investigate superseded reasoning as distinct from superseded decisions.
+
+  Core lifecycle:
+
+      Decision
+          ↓
+      Intended Change
+          ↓
+      Observed Architectural Change
+          ↓
+      Consequence
+          ↓
+      Reflection
+          ↓
+      Architectural Learning
+          ↓
+      Future Decision
+
+  Core research question:
+
+  > Can Articulate preserve not only what architectural decisions were made,
+  > but what was learned from their consequences and use that learning to
+  > improve future architectural reasoning?
+
+  Important boundary:
+
+  Decision Reflection is not operational observability, automated ADR scoring
+  or retrospective judgement.
+
+  Articulate observes architectural change and reasoning over time rather
+  than application telemetry.
+
+  The agent assists reflection; architectural judgement remains with the
+  architect or organisation.
+

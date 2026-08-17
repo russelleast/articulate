@@ -1,0 +1,155 @@
+{
+  "episode": {
+    "id": "episode-0013",
+    "title": "Selecting the Agent Runtime",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0013-presenter-v1",
+    "narration_duration_seconds": 922.121208
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 61.19,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 61.19,
+      "end_seconds": 140.22,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 140.22,
+      "end_seconds": 192.22,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 192.22,
+      "end_seconds": 212.22,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0013-candidates"
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 212.22,
+      "end_seconds": 282,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0013-maf-temporal"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 282,
+      "end_seconds": 356.3,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0013-maf-durable"
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 356.3,
+      "end_seconds": 421.21,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0013-langgraph-temporal"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 421.21,
+      "end_seconds": 484,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0013-compositions"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 484,
+      "end_seconds": 575.22,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 575.22,
+      "end_seconds": 596.22,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 596.22,
+      "end_seconds": 635,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0013-dapr-platform"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 635,
+      "end_seconds": 665,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 665,
+      "end_seconds": 705.22,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 705.22,
+      "end_seconds": 731,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 731,
+      "end_seconds": 761.57,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0013-dapr-decision"
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 761.57,
+      "end_seconds": 803.22,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S017",
+      "start_seconds": 803.22,
+      "end_seconds": 865.22,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S018",
+      "start_seconds": 865.22,
+      "end_seconds": 922.121,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

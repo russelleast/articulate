@@ -1,0 +1,616 @@
+1
+00:00:00,000 --> 00:00:20,000
+ Which AI runtime actually fits Articulate? That's the question I've been trying to answer for the last few episodes. Hello, I'm Russell and welcome to episode 13 of the Articulate Journal where I'm exploring what it takes to build an AI native architecture from first principles.
+
+2
+00:00:20,000 --> 00:00:36,000
+ Back in episode 10, I opened ADR1 to select an agent runtime. At that point, I had already had a shortlist, Dapper Agents, Templural, Landgraph and Microsoft Agent Framework.
+
+3
+00:00:36,000 --> 00:00:43,000
+ It would have been very easy to put those into a comparison table, count the features and pick the winner and move on.
+
+4
+00:00:43,000 --> 00:00:50,000
+ But I didn't actually understand the problem well enough to make that decision, so instead, I left the ADR open.
+
+5
+00:00:50,000 --> 00:00:56,000
+ The last two episodes have been about figuring out what the runtime actually needs to do.
+
+6
+00:00:56,000 --> 00:01:01,000
+ Now I think I have enough information to make that decision.
+
+7
+00:01:01,000 --> 00:01:12,000
+ The interesting thing is that I no longer answering quite the same question I started with. Initially, I was asking which agent runtime should Articulate use.
+
+8
+00:01:12,000 --> 00:01:20,000
+ But exploring memory changed that. Most of what gets described as agent memory doesn't actually belong to the runtime.
+
+9
+00:01:20,000 --> 00:01:24,000
+ Architectural knowledge belongs in the knowledge model.
+
+10
+00:01:24,000 --> 00:01:33,000
+ Conversation history belongs in a conversation capability, embeddings, indexes and caching supports retrieval.
+
+11
+00:01:33,000 --> 00:01:36,000
+ External systems remain responsible for their own data.
+
+12
+00:01:36,000 --> 00:01:42,000
+ The runtime doesn't need all of that, but durable execution changed the question again.
+
+13
+00:01:42,000 --> 00:01:49,000
+ Because there is one thing the runtime really does need to own, the continuity of execution.
+
+14
+00:01:49,000 --> 00:01:55,000
+ If work had already happened, if a tool had already been executed, if an agent is waiting for approval,
+
+15
+00:01:55,000 --> 00:02:04,000
+ or if a process disappears halfway through, some long-running reasoning, the platform needs to know where that work had reached.
+
+16
+00:02:04,000 --> 00:02:09,000
+ So the question became much narrower, but at the same time, much clearer.
+
+17
+00:02:09,000 --> 00:02:20,000
+ I'm not looking for somewhere to store agent memory. I'm looking for a runtime that can reliably coordinate AI native work across time.
+
+18
+00:02:20,000 --> 00:02:30,000
+ That gives me a much better set of criteria. Articulate needs durable execution, long-running workflows, pause and resume,
+
+19
+00:02:30,000 --> 00:02:37,000
+ human interaction, failure recovery, distributed execution, tool orchestration and observability.
+
+20
+00:02:37,000 --> 00:02:43,000
+ And importantly, I don't want this decision to force decisions that I haven't already made yet.
+
+21
+00:02:43,000 --> 00:02:49,000
+ I haven't decided a cloud provider. I haven't decided the eventual production hosting model.
+
+22
+00:02:49,000 --> 00:02:56,000
+ I don't even know whether the architecture I have today will still be the architecture I need in several episodes from now.
+
+23
+00:02:56,000 --> 00:03:06,000
+ So, I want a runtime that gives Articulate some useful capabilities now without unnecessarily constraining where the platform can evolve.
+
+24
+00:03:06,000 --> 00:03:12,000
+ And with that criteria established, I can finally look at the candidates.
+
+25
+00:03:12,000 --> 00:03:18,000
+ This is where I expected decision to become easier. It didn't.
+
+26
+00:03:18,000 --> 00:03:23,000
+ Because once I started evaluating the candidates against the requirements from the previous episodes,
+
+27
+00:03:23,000 --> 00:03:27,000
+ several of them could have satisfied what Articulate needs.
+
+28
+00:03:27,000 --> 00:03:32,000
+ And some of the strongest options aren't actually single technologies.
+
+29
+00:03:32,000 --> 00:03:38,000
+ For example, Microsoft agent framework combined with Temporal is extremely compelling.
+
+30
+00:03:38,000 --> 00:03:43,000
+ Microsoft agent framework gives me the agent programming model.
+
+31
+00:03:43,000 --> 00:03:51,000
+ Temporal gives me mature durable execution. Together, they tick every box I've identified.
+
+32
+00:03:51,000 --> 00:03:57,000
+ And personally, there's another attraction. Microsoft agent framework supports C#.
+
+33
+00:03:57,000 --> 00:04:01,000
+ I've spent a large part of my career working with C# and .NET.
+
+34
+00:04:01,000 --> 00:04:08,000
+ So this would put Articulate in a technology ecosystem. I know extremely well.
+
+35
+00:04:08,000 --> 00:04:13,000
+ That's not something I should pretend doesn't influence the decision.
+
+36
+00:04:13,000 --> 00:04:19,000
+ I understand the framework that has value. It reduces implementation risk.
+
+37
+00:04:19,000 --> 00:04:23,000
+ It makes it easier for me to understand what's happening beneath the abstractions.
+
+38
+00:04:23,000 --> 00:04:29,000
+ And how it would allow me to concentrate more of my effort on the architectural experiments
+
+39
+00:04:29,000 --> 00:04:35,000
+ rather than learning the depths of another programming language in the ecosystem at the same time.
+
+40
+00:04:35,000 --> 00:04:42,000
+ So Microsoft agent framework and Temporal is a very credible option.
+
+41
+00:04:42,000 --> 00:04:52,000
+ There's also another Microsoft orientated option. Microsoft agent framework can use durable task for durable execution.
+
+42
+00:04:52,000 --> 00:05:04,000
+ That potentially gives me a more of an integrated stack, an agent programming model, durable execution, C# and a development environment I know well.
+
+43
+00:05:04,000 --> 00:05:13,000
+ And fewer independent runtime technologies to assemble. That's attractive, but it also raises an architectural question.
+
+44
+00:05:13,000 --> 00:05:19,000
+ How much of that architecture do I want the agent framework itself to own?
+
+45
+00:05:19,000 --> 00:05:26,000
+ The investigation into memory and durable execution has pushed me towards separating responsibilities.
+
+46
+00:05:26,000 --> 00:05:32,000
+ Agents perform reasoning. Durable execution preserves the continuity of work.
+
+47
+00:05:32,000 --> 00:05:39,000
+ The surrounding platform owns knowledge, messaging, state and infrastructure concerns.
+
+48
+00:05:39,000 --> 00:05:45,000
+ I don't necessarily want all those things collapsing into a single AI framework simply because it's convenient.
+
+49
+00:05:45,000 --> 00:05:51,000
+ Integration has value, but separation of responsibilities has value too.
+
+50
+00:05:51,000 --> 00:05:55,000
+ And that's a trade-off rather than an obvious answer.
+
+51
+00:05:55,000 --> 00:06:02,000
+ Landgraph creates another interesting combination. I like its model for representing reasoning.
+
+52
+00:06:02,000 --> 00:06:10,000
+ And if I combine Landgraph with Temporal, I can separate reasoning orchestration from durable execution.
+
+53
+00:06:10,000 --> 00:06:15,000
+ Landgraph can concentrate on how the intelligent process reasons.
+
+54
+00:06:15,000 --> 00:06:21,000
+ Temporal can concentrate on making sure that process survives failure and time.
+
+55
+00:06:21,000 --> 00:06:28,000
+ That's architecturally quite clean. In some ways, it's one of the strongest combinations on the shortlist.
+
+56
+00:06:28,000 --> 00:06:33,000
+ But now, Articulate has two significant runtime abstractions.
+
+57
+00:06:33,000 --> 00:06:38,000
+ I need to understand where Landgraph ends and Temporal begins.
+
+58
+00:06:38,000 --> 00:06:45,000
+ Which system owns orchestration? Which one owns retries? Which one owns execution state?
+
+59
+00:06:45,000 --> 00:06:49,000
+ And which one determines the life cycle of an agent?
+
+60
+00:06:49,000 --> 00:06:52,000
+ There are good answers to those questions.
+
+61
+00:06:52,000 --> 00:06:58,000
+ But every answer introduces another architecture boundary that I have to own.
+
+62
+00:06:58,000 --> 00:07:01,000
+ And that leads to another consideration.
+
+63
+00:07:01,000 --> 00:07:11,000
+ At this point, the comparison isn't really dapper versus Temporal versus Landgraph versus Microsoft Agent Framework.
+
+64
+00:07:11,000 --> 00:07:24,000
+ It's closer to Microsoft Agent Framework plus durable task or Microsoft Agent Framework's Temporal or Landgraph plus Temporal or dapper agents.
+
+65
+00:07:24,000 --> 00:07:29,000
+ And potentially, other combinations, all of them can be made to work, and that's important.
+
+66
+00:07:29,000 --> 00:07:34,000
+ I'm not choosing dapper because the alternatives fail the requirements.
+
+67
+00:07:34,000 --> 00:07:38,000
+ I'm choosing between several architectures that satisfy them.
+
+68
+00:07:38,000 --> 00:07:41,000
+ So the question becomes one of architectural composition.
+
+69
+00:07:41,000 --> 00:07:48,000
+ How many runtime concepts do I want Articulate to depend upon?
+
+70
+00:07:48,000 --> 00:07:56,000
+ Where do I want the boundaries between agents, workflows and distributed application infrastructure?
+
+71
+00:07:56,000 --> 00:08:04,000
+ And which combination gives me enough capability without assembling more platform than I currently needed?
+
+72
+00:08:04,000 --> 00:08:09,000
+ There's another technology decision sitting underneath all of that that I want to make explicit.
+
+73
+00:08:09,000 --> 00:08:12,000
+ Dapper agents is currently Python based.
+
+74
+00:08:12,000 --> 00:08:19,000
+ Coming from a C-sharp background that initially makes Microsoft Agent Framework particularly attractive.
+
+75
+00:08:19,000 --> 00:08:26,000
+ But I don't think choosing Python for the AI and reasoning parts of Articulate is actually a compromise.
+
+76
+00:08:26,000 --> 00:08:33,000
+ Python has become a dominant language across machine learning and much of the wider AI ecosystem.
+
+77
+00:08:33,000 --> 00:08:43,000
+ Models, evaluation libraries, data science, tooling, agent frameworks and research implementations frequently appear in Python first.
+
+78
+00:08:43,000 --> 00:08:48,000
+ And Articulate is deliberately an AI native architecture experiment.
+
+79
+00:08:48,000 --> 00:08:57,000
+ There's value in working closer to that ecosystem rather than isolating myself from it simply because C-sharp is more familiar.
+
+80
+00:08:57,000 --> 00:09:02,000
+ That doesn't mean that Articulate suddenly becomes a Python platform.
+
+81
+00:09:02,000 --> 00:09:07,000
+ The architecture shouldn't require every capability to be written in the same language.
+
+82
+00:09:07,000 --> 00:09:17,000
+ If another capability is better implemented using C-sharp, Go or something else in the future, the architecture should allow for that.
+
+83
+00:09:17,000 --> 00:09:25,000
+ But for the parts of Articulate closest to AI, machine learning and reasoning, I think Python is the strongest strategic fit.
+
+84
+00:09:25,000 --> 00:09:31,000
+ So Dapper agents being Python isn't the reason for choosing Python.
+
+85
+00:09:31,000 --> 00:09:35,000
+ The two decisions simply reinforce each other.
+
+86
+00:09:35,000 --> 00:09:39,000
+ And after all of that, I still come back to Dapper.
+
+87
+00:09:39,000 --> 00:09:44,000
+ Not because Dapper agents is obviously better than Microsoft Agent Framework.
+
+88
+00:09:44,000 --> 00:09:49,000
+ Not because Dapper workflows is more capable than temporal.
+
+89
+00:09:49,000 --> 00:09:53,000
+ And not because Dapper has the strongest reasoning abstraction.
+
+90
+00:09:53,000 --> 00:09:56,000
+ I don't think I could defend any of those claims.
+
+91
+00:09:56,000 --> 00:10:00,000
+ What attracts me to Dapper is the shape of the platform around the agents.
+
+92
+00:10:00,000 --> 00:10:04,000
+ Articulate needs agents and durable workflows.
+
+93
+00:10:04,000 --> 00:10:13,000
+ But it's also going to need messaging, state, service invocation, secrets, observability and ordinary application services.
+
+94
+00:10:13,000 --> 00:10:19,000
+ And integration between all those things, those aren't hypothetical requirements anymore.
+
+95
+00:10:19,000 --> 00:10:22,000
+ They're already appearing in the architecture.
+
+96
+00:10:22,000 --> 00:10:27,000
+ Dapper gives me a common distributed application runtime across these concerns.
+
+97
+00:10:27,000 --> 00:10:35,000
+ And its sidecar model gives the application a degree of independence from the infrastructure providing them.
+
+98
+00:10:35,000 --> 00:10:49,000
+ That's particularly valuable because I'm deliberately not deciding yet whether Articulate ultimately runs on Kubernetes, ECS, Azure, AWS, GCP or whatever else.
+
+99
+00:10:49,000 --> 00:10:59,000
+ I'm choosing an execution architecture without unnecessarily choosing the eventual infrastructure architecture at the same time.
+
+100
+00:10:59,000 --> 00:11:05,000
+ And that gives me something I value quite highly at this stage of Articulate options.
+
+101
+00:11:05,000 --> 00:11:08,000
+ But that flexibility isn't free.
+
+102
+00:11:08,000 --> 00:11:11,000
+ Choosing Dapper means accepting a broader runtime.
+
+103
+00:11:11,000 --> 00:11:14,000
+ There's another process running alongside the application.
+
+104
+00:11:14,000 --> 00:11:22,000
+ There are additional operational concepts. I need to understand Dapper itself rather than only understanding the agent framework.
+
+105
+00:11:22,000 --> 00:11:25,000
+ And Dapper agents is still relatively young.
+
+106
+00:11:25,000 --> 00:11:27,000
+ It's a genuine risk.
+
+107
+00:11:27,000 --> 00:11:34,000
+ There's also a danger of adopting a platform because it provides lots of capabilities that I might need.
+
+108
+00:11:34,000 --> 00:11:39,000
+ That's exactly the kind of reasoning I've tried to avoid throughout this journal.
+
+109
+00:11:39,000 --> 00:11:45,000
+ So the decision can't be, Dapper has more building blocks, therefore Dapper wins.
+
+110
+00:11:45,000 --> 00:11:54,000
+ The question has to remain, do those building blocks correspond to responsibilities actually emerging in the architecture?
+
+111
+00:11:54,000 --> 00:11:57,000
+ And for Articulate, I think they do.
+
+112
+00:11:57,000 --> 00:12:05,000
+ Pub/Sub, state, service invocation, observability, durable workflows, distributed execution.
+
+113
+00:12:05,000 --> 00:12:08,000
+ These aren't speculative requirements anymore.
+
+114
+00:12:08,000 --> 00:12:11,000
+ They are appearing in the architecture.
+
+115
+00:12:11,000 --> 00:12:14,000
+ So, I'm accepting ADR1.
+
+116
+00:12:14,000 --> 00:12:25,000
+ Articulate will use Dapper agents as its initial agent runtime with Dapper workflows providing durable execution and orchestration.
+
+117
+00:12:25,000 --> 00:12:28,000
+ I think the word initial matters.
+
+118
+00:12:28,000 --> 00:12:31,000
+ I'm not saying Dapper is the best agent for runtime.
+
+119
+00:12:31,000 --> 00:12:34,000
+ I don't think I've demonstrated that.
+
+120
+00:12:34,000 --> 00:12:39,000
+ What I'm saying is Dapper is currently the best architectural fit for Articulate.
+
+121
+00:12:39,000 --> 00:12:41,000
+ That's a much narrower claim.
+
+122
+00:12:41,000 --> 00:12:45,000
+ Microsoft agent framework and temporal remains compelling.
+
+123
+00:12:45,000 --> 00:12:51,000
+ Microsoft agent framework with durable task deserves further experimentation.
+
+124
+00:12:51,000 --> 00:12:59,000
+ And land graph with temporal is particularly interesting if reasoning orchestration becomes significantly more sophisticated.
+
+125
+00:12:59,000 --> 00:13:10,000
+ And temporal remains the benchmark I would come back to if durable execution becomes more demanding than Dapper workflows can comfortably support.
+
+126
+00:13:10,000 --> 00:13:14,000
+ ADR1 isn't declaring those alternatives are wrong.
+
+127
+00:13:14,000 --> 00:13:18,000
+ It's recording why I'm not choosing them now.
+
+128
+00:13:18,000 --> 00:13:23,000
+ And that's what I think an ADR should do.
+
+129
+00:13:23,000 --> 00:13:29,000
+ The most useful part of this investigation isn't actually selecting Dapper.
+
+130
+00:13:29,000 --> 00:13:33,000
+ It was discovering what I was selecting at four.
+
+131
+00:13:33,000 --> 00:13:37,000
+ I started ADR1 looking for an agent runtime.
+
+132
+00:13:37,000 --> 00:13:41,000
+ Memory forced me to separate the responsibilities around the runtime.
+
+133
+00:13:41,000 --> 00:13:46,000
+ Durable execution showed me which state really mattered to it.
+
+134
+00:13:46,000 --> 00:13:54,000
+ Comparing the candidates showed me that an agent framework can't be evaluated in isolation from the platform around it.
+
+135
+00:13:54,000 --> 00:13:56,000
+ There's another lesson here as well.
+
+136
+00:13:56,000 --> 00:14:01,000
+ Meeting requirements doesn't necessarily determine the architecture.
+
+137
+00:14:01,000 --> 00:14:04,000
+ Several of these approaches meet the requirement.
+
+138
+00:14:04,000 --> 00:14:12,000
+ The architectural decision emerges from the trade-offs between them, the boundaries, the responsibilities and the complexity.
+
+139
+00:14:12,000 --> 00:14:16,000
+ And the options they preserve for the future.
+
+140
+00:14:16,000 --> 00:14:19,000
+ So ADR1 is now accepted.
+
+141
+00:14:19,000 --> 00:14:25,000
+ Articulate has a runtime which architectural intelligence can eventually execute.
+
+142
+00:14:25,000 --> 00:14:28,000
+ But that creates and have a problem.
+
+143
+00:14:28,000 --> 00:14:32,000
+ Those agents are going to reason about architectural knowledge.
+
+144
+00:14:32,000 --> 00:14:34,000
+ They're going to discover new information.
+
+145
+00:14:34,000 --> 00:14:37,000
+ They're going to identify contradictions.
+
+146
+00:14:37,000 --> 00:14:40,000
+ They're going to make new claims about the architecture.
+
+147
+00:14:40,000 --> 00:14:46,000
+ And some of those claims may eventually need to change what articulate understands to be true.
+
+148
+00:14:46,000 --> 00:14:54,000
+ But an agent shouldn't simply be able to rewrite the knowledge model because it has reached a new conclusion.
+
+149
+00:14:54,000 --> 00:14:59,000
+ Architectural knowledge needs to evolve without losing where it came from.
+
+150
+00:14:59,000 --> 00:15:04,000
+ What it replaced or what it came to believe.
+
+151
+00:15:04,000 --> 00:15:11,000
+ So before I start implementing agents, there's one more part of the conceptual architecture I need to understand.
+
+152
+00:15:11,000 --> 00:15:16,000
+ How does architectural knowledge safely change over time?
+
+153
+00:15:16,000 --> 00:15:18,000
+ That's the question for the next episode.
+
+154
+00:15:18,000 --> 00:15:21,000
+ Knowledge Evolution.
+

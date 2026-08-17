@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "The runtime question",
+      "narrativeSegments": [
+        "N001-N012"
+      ],
+      "start": 0,
+      "end": 61.19,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "changed",
+      "title": "The question changes",
+      "narrativeSegments": [
+        "N013-N033"
+      ],
+      "start": 61.19,
+      "end": 140.22,
+      "confidence": 1,
+      "anchor": "The interesting thing is",
+      "matchedText": "The interesting thing is"
+    },
+    {
+      "id": "criteria",
+      "title": "Runtime requirements",
+      "narrativeSegments": [
+        "N034-N049"
+      ],
+      "start": 140.22,
+      "end": 192.22,
+      "confidence": 1,
+      "anchor": "That gives me a much better set of criteria",
+      "matchedText": "That gives me a much better set of criteria"
+    },
+    {
+      "id": "candidates",
+      "title": "Credible candidates",
+      "narrativeSegments": [
+        "N050-N056"
+      ],
+      "start": 192.22,
+      "end": 212.22,
+      "confidence": 0.857,
+      "anchor": "This is where I expected the decision",
+      "matchedText": "This is where I expected decision"
+    },
+    {
+      "id": "maf-temporal",
+      "title": "Microsoft Agent Framework and Temporal",
+      "narrativeSegments": [
+        "N057-N071"
+      ],
+      "start": 212.22,
+      "end": 282,
+      "confidence": 1,
+      "anchor": "For example Microsoft Agent Framework combined with Temporal",
+      "matchedText": "For example Microsoft agent framework combined with Temporal"
+    },
+    {
+      "id": "maf-durable",
+      "title": "Microsoft Agent Framework and Durable Task",
+      "narrativeSegments": [
+        "N072-N089"
+      ],
+      "start": 282,
+      "end": 356.3,
+      "confidence": 0.824,
+      "anchor": "There's also another Microsoft",
+      "matchedText": "There's also another Microsoft orientated option. Microsoft agent framework can use durable task for durable execution."
+    },
+    {
+      "id": "langgraph",
+      "title": "LangGraph and Temporal",
+      "narrativeSegments": [
+        "N090-N106"
+      ],
+      "start": 356.3,
+      "end": 421.21,
+      "confidence": 0.8,
+      "anchor": "LangGraph creates another interesting combination",
+      "matchedText": "creates another interesting combination"
+    },
+    {
+      "id": "composition",
+      "title": "Composition has a cost",
+      "narrativeSegments": [
+        "N107-N121"
+      ],
+      "start": 421.21,
+      "end": 484,
+      "confidence": 1,
+      "anchor": "At this point the comparison",
+      "matchedText": "At this point the comparison"
+    },
+    {
+      "id": "python",
+      "title": "Python is a separate decision",
+      "narrativeSegments": [
+        "N122-N145"
+      ],
+      "start": 484,
+      "end": 575.22,
+      "confidence": 0.563,
+      "anchor": "There's also a technology decision",
+      "matchedText": "There's another technology decision sitting underneath all of that that I want to make explicit."
+    },
+    {
+      "id": "why-dapr",
+      "title": "Why Dapr",
+      "narrativeSegments": [
+        "N146-N153"
+      ],
+      "start": 575.22,
+      "end": 596.22,
+      "confidence": 1,
+      "anchor": "And after all of that",
+      "matchedText": "And after all of that"
+    },
+    {
+      "id": "platform",
+      "title": "The platform around the agent",
+      "narrativeSegments": [
+        "N154-N165"
+      ],
+      "start": 596.22,
+      "end": 635,
+      "confidence": 0.8,
+      "anchor": "What attracts me to Dapr",
+      "matchedText": "What attracts me to"
+    },
+    {
+      "id": "optionality",
+      "title": "Optionality",
+      "narrativeSegments": [
+        "N166-N171"
+      ],
+      "start": 635,
+      "end": 665,
+      "confidence": 0.792,
+      "anchor": "That's particularly valuable",
+      "matchedText": "That's particularly valuable because I'm deliberately not deciding yet whether Articulate ultimately runs on Kubernetes, ECS, Azure, AWS, GCP or whatever else."
+    },
+    {
+      "id": "tradeoff",
+      "title": "The Dapr trade-off",
+      "narrativeSegments": [
+        "N172-N181"
+      ],
+      "start": 665,
+      "end": 705.22,
+      "confidence": 1,
+      "anchor": "But that flexibility isn't free",
+      "matchedText": "But that flexibility isn't free."
+    },
+    {
+      "id": "real-needs",
+      "title": "Emerging responsibilities",
+      "narrativeSegments": [
+        "N182-N190"
+      ],
+      "start": 705.22,
+      "end": 731,
+      "confidence": 1,
+      "anchor": "The question has to remain",
+      "matchedText": "The question has to remain"
+    },
+    {
+      "id": "decision",
+      "title": "ADR 0001 accepted",
+      "narrativeSegments": [
+        "N191-N201"
+      ],
+      "start": 731,
+      "end": 761.57,
+      "confidence": 0.958,
+      "anchor": "So I'm accepting ADR",
+      "matchedText": "So, I'm accepting ADR 0001."
+    },
+    {
+      "id": "alternatives",
+      "title": "Alternatives remain credible",
+      "narrativeSegments": [
+        "N202-N214"
+      ],
+      "start": 761.57,
+      "end": 803.22,
+      "confidence": 0.833,
+      "anchor": "Microsoft Agent Framework with Temporal remains",
+      "matchedText": "Microsoft agent framework and temporal remains"
+    },
+    {
+      "id": "lesson",
+      "title": "The architectural lesson",
+      "narrativeSegments": [
+        "N215-N221"
+      ],
+      "start": 803.22,
+      "end": 865.22,
+      "confidence": 1,
+      "anchor": "The most useful part",
+      "matchedText": "The most useful part"
+    },
+    {
+      "id": "closing",
+      "title": "Knowledge evolution",
+      "narrativeSegments": [
+        "N222-N228"
+      ],
+      "start": 865.22,
+      "end": 922.121,
+      "confidence": 0.743,
+      "anchor": "But that creates another problem",
+      "matchedText": "But that creates and have a problem"
+    }
+  ]
+}

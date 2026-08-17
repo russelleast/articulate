@@ -13,6 +13,9 @@ topics:
   - Workflow Orchestration
   - Dapr
   - Temporal
+thumbnail: /media/episodes/0013/episode-0013-thumbnail.png
+thumbnail_alt: "Presenter beside the title Selecting the Agent Runtime and a note that several credible runtime architectures were evaluated."
+youtube_url: https://youtu.be/FdGwipmJQNo
 ---
 
 # Episode 13 — Selecting the Agent Runtime
