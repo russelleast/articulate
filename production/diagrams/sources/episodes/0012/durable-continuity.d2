@@ -1,0 +1,9 @@
+...@../../../styles/articulate
+direction: right
+process_a: "PROCESS A" {class: agent}
+execution: "EXECUTION\npersists" {class: emphasis}
+failure: "PROCESS A\nDISAPPEARS" {class: constraint}
+process_b: "PROCESS B\nresumes" {class: agent}
+process_a -> execution: performs
+process_a -> failure: disappears
+execution -> process_b: resumes through

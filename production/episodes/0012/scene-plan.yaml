@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "status": "approved",
+  "episode": {
+    "id": "0012",
+    "title": "Durable Execution and Long-Running Reasoning",
+    "writtenSource": "docs/episodes/0012-durable-execution.md",
+    "narrativeSource": "production/episodes/0012/narrative.md",
+    "presenterMedia": "production/episodes/0012/ep12-narrator.mp4"
+  },
+  "editorialPrinciple": "The process is temporary. The execution is durable.",
+  "sections": [
+    {"id":"hook","title":"The opening question","narrativeSegments":["N001"],"startSeconds":0},
+    {"id":"introduction","title":"Episode introduction","narrativeSegments":["N002"],"startSeconds":5.73},
+    {"id":"memory","title":"Memory responsibilities separate","narrativeSegments":["N003-N011"],"anchor":"In the previous episode"},
+    {"id":"survive","title":"Work should survive the process","narrativeSegments":["N012-N022"],"anchor":"At first the requirement sounds"},
+    {"id":"restart","title":"Restart appears plausible","narrativeSegments":["N023-N035"],"anchor":"Imagine an agent analysing"},
+    {"id":"effects","title":"Work causes external effects","narrativeSegments":["N036-N040"],"anchor":"Let's change the scenario"},
+    {"id":"failure","title":"Process failure creates uncertainty","narrativeSegments":["N041-N049"],"anchor":"Now imagine the process disappears"},
+    {"id":"progress","title":"Execution is progress","narrativeSegments":["N050-N063"],"anchor":"This is where execution begins"},
+    {"id":"boundaries","title":"Crossing system boundaries","narrativeSegments":["N064-N075"],"anchor":"This becomes particularly important"},
+    {"id":"humans","title":"Humans make time architectural","narrativeSegments":["N076-N083"],"anchor":"And then we introduce us"},
+    {"id":"changed-world","title":"The world changes while waiting","narrativeSegments":["N084-N092"],"anchor":"But there's another complication"},
+    {"id":"durable","title":"Durable execution","narrativeSegments":["N093-N103"],"anchor":"And this is where the understanding"},
+    {"id":"principle","title":"The durable principle","narrativeSegments":["N104-N107"],"anchor":"The process performing the work may disappear"},
+    {"id":"runtime","title":"The runtime boundary","narrativeSegments":["N108-N117"],"anchor":"This also gives me"},
+    {"id":"adr","title":"ADR 0001 requirements","narrativeSegments":["N118-N125"],"anchor":"That gives me another important requirement"},
+    {"id":"closing","title":"Ready to evaluate runtimes","narrativeSegments":["N126-N137"],"anchor":"Over the last three episodes"}
+  ],
+  "scenes": [
+    {"id":"S001","section":"hook","archetype":"Reflection","kind":"presenter-focus","transition":"cut","headline":"What happens when the process disappears?","support":"Does the agent's work disappear with it?"},
+    {"id":"S002","section":"introduction","archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"Durable execution","support":"Episode 12 · Articulate Journal"},
+    {"id":"S003","section":"memory","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Most state found an architectural home","support":"Execution remained unresolved.","diagramAssetId":"episode-0012-memory-responsibilities","visualStateMode":"complete-diagram"},
+    {"id":"S004","section":"survive","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"Work should survive the process performing it","support":"Thread · container · agent instance ≠ execution lifetime","items":["Process may disappear","Execution must remain"]},
+    {"id":"S005","section":"restart","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"At first, starting again looks plausible","support":"Knowledge and temporary context can be reconstructed.","diagramAssetId":"episode-0012-reconstructable-reasoning","visualStateMode":"complete-diagram"},
+    {"id":"S006","section":"effects","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Then the agent starts doing things","support":"The same flow now crosses system boundaries.","diagramAssetId":"episode-0012-external-effects","visualStateMode":"complete-diagram"},
+    {"id":"S007","section":"failure","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"What has already happened?","support":"Restarting reasoning is not safely resuming execution.","diagramAssetId":"episode-0012-process-failure","visualStateMode":"complete-diagram"},
+    {"id":"S008","section":"progress","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Execution state is a record of progress","support":"Completed work · effects · waiting · safe next action","diagramAssetId":"episode-0012-execution-progress","visualStateMode":"complete-diagram"},
+    {"id":"S009","section":"boundaries","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"Recovering the prompt is not enough","support":"Every external boundary makes repeated work consequential.","items":["Tools","Capabilities","Systems","Approvals"]},
+    {"id":"S010","section":"humans","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Human participation makes time architectural","support":"The execution remains while no process needs to run.","diagramAssetId":"episode-0012-human-wait","visualStateMode":"complete-diagram"},
+    {"id":"S011","section":"changed-world","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"The world may change while execution waits","support":"Resumption re-enters a potentially different baseline.","diagramAssetId":"episode-0012-changing-baseline","visualStateMode":"complete-diagram"},
+    {"id":"S012","section":"durable","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Durable execution preserves continuity","support":"It does not keep one agent process alive.","diagramAssetId":"episode-0012-durable-continuity","visualStateMode":"complete-diagram"},
+    {"id":"S013","section":"principle","archetype":"Reflection","kind":"presenter-focus","transition":"fade","headline":"The process is temporary.","support":"THE EXECUTION IS DURABLE."},
+    {"id":"S014","section":"runtime","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"The runtime owns continuity of work","support":"Knowledge, conversation and retrieval remain separate.","diagramAssetId":"episode-0012-runtime-boundary","visualStateMode":"complete-diagram"},
+    {"id":"S015","section":"adr","archetype":"Focus Canvas","kind":"presenter-evidence","transition":"cut","headline":"ADR 0001 · AI Runtime","support":"Requirements discovered—not a technology decision.","items":["Long-running execution","Pause and resume","Failure recovery","Human-in-the-loop","Execution history","Distributed execution","Durable execution"]},
+    {"id":"S016","section":"closing","archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"The requirements are now clear","support":"Next: evaluate the runtime candidates · Episode 13"}
+  ]
+}

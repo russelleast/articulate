@@ -22,6 +22,18 @@ Need to introduce 1 agent that acts on a proposed claim
 
 ---
 
+## Episode 18 - multi agent
+
+- managing claims, if two claims exist like Order service uses PostgresSQL and another says Order service uses MongoDb. this does not cause a conflict. It could be valid. If the confidence is equal and then a new claim comes in to say Order service does not use MongoDb with high confidence. then the confidence on the existing claim (or respresentation of it) then the confidence should decrease.
+
+Alternatively if the claim "Order service does not use MongoDb" is low confidence, the existing claim has it confidence reduced still but with a smaller value.
+
+- duplicate claims, if the statement matches and the activity is the same, then ignore duplicate claims. (check this makes sense)
+
+
+
+---
+
 ## Episode 17 - Observing agents
 
 Although observbility solutions existing for cloud native systems, this explores the requirements and approach to observing agents.
@@ -1518,4 +1530,54 @@ Architecture intelligence: reason over both observed implementation and stated a
 This also provides a strong future bridge between Articulate, DCL, AI-assisted development and architecture governance.
 
 ---
+
+- Decision Reflection / Architectural Learning:
+  - Treat architectural decisions as hypotheses about future architectural change.
+  - Model the relationship between a decision, its intended changes,
+    observed architectural changes and resulting consequences.
+  - Distinguish decision quality from decision outcome.
+  - Generate reflection candidates from architectural evidence rather than
+    automatically judging decisions.
+  - Use conversation with the architect to validate, reject or refine
+    reflections.
+  - Preserve accepted reflections as architectural knowledge.
+  - Surface learning from previous decisions when similar future decisions
+    are being considered.
+  - Explore recurring consequences across multiple decisions as potential
+    architectural patterns.
+  - Explore how repeated architectural learning can contribute to principles.
+  - Investigate superseded reasoning as distinct from superseded decisions.
+
+  Core lifecycle:
+
+      Decision
+          ↓
+      Intended Change
+          ↓
+      Observed Architectural Change
+          ↓
+      Consequence
+          ↓
+      Reflection
+          ↓
+      Architectural Learning
+          ↓
+      Future Decision
+
+  Core research question:
+
+  > Can Articulate preserve not only what architectural decisions were made,
+  > but what was learned from their consequences and use that learning to
+  > improve future architectural reasoning?
+
+  Important boundary:
+
+  Decision Reflection is not operational observability, automated ADR scoring
+  or retrospective judgement.
+
+  Articulate observes architectural change and reasoning over time rather
+  than application telemetry.
+
+  The agent assists reflection; architectural judgement remains with the
+  architect or organisation.
 

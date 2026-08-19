@@ -1,0 +1,14 @@
+{
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep13-narrator.mp4",
+    "frameTimestampSeconds": 740,
+    "placement": { "x": -70, "y": 180, "width": 690, "height": 388 }
+  },
+  "episode": {
+    "eyebrow": "ADR 0001 · ARCHITECTURE DECISION",
+    "headline": ["SELECTING THE", "AGENT RUNTIME"],
+    "supportTitle": "SEVERAL CREDIBLE ARCHITECTURES",
+    "supportText": "Evaluate capabilities, boundaries and optionality"
+  }
+}

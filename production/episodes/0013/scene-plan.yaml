@@ -1,0 +1,52 @@
+{
+  "version": 3,
+  "status": "approved",
+  "episode": {
+    "id": "0013",
+    "title": "Selecting the Agent Runtime",
+    "writtenSource": "docs/episodes/0013-selecting-the-agent-runtime.md",
+    "narrativeSource": "production/episodes/0013/narrative.md",
+    "presenterMedia": "production/episodes/0013/ep13-narrator.mp4"
+  },
+  "editorialPrinciple": "Several architectures satisfy the requirements; select for architectural fit and optionality.",
+  "sections": [
+    {"id":"opening","title":"The runtime question","narrativeSegments":["N001-N012"],"startSeconds":0},
+    {"id":"changed","title":"The question changes","narrativeSegments":["N013-N033"],"anchor":"The interesting thing is"},
+    {"id":"criteria","title":"Runtime requirements","narrativeSegments":["N034-N049"],"anchor":"That gives me a much better set of criteria"},
+    {"id":"candidates","title":"Credible candidates","narrativeSegments":["N050-N056"],"anchor":"This is where I expected the decision"},
+    {"id":"maf-temporal","title":"Microsoft Agent Framework and Temporal","narrativeSegments":["N057-N071"],"anchor":"For example Microsoft Agent Framework combined with Temporal"},
+    {"id":"maf-durable","title":"Microsoft Agent Framework and Durable Task","narrativeSegments":["N072-N089"],"anchor":"There's also another Microsoft"},
+    {"id":"langgraph","title":"LangGraph and Temporal","narrativeSegments":["N090-N106"],"anchor":"LangGraph creates another interesting combination"},
+    {"id":"composition","title":"Composition has a cost","narrativeSegments":["N107-N121"],"anchor":"At this point the comparison"},
+    {"id":"python","title":"Python is a separate decision","narrativeSegments":["N122-N145"],"anchor":"There's also a technology decision"},
+    {"id":"why-dapr","title":"Why Dapr","narrativeSegments":["N146-N153"],"anchor":"And after all of that"},
+    {"id":"platform","title":"The platform around the agent","narrativeSegments":["N154-N165"],"anchor":"What attracts me to Dapr"},
+    {"id":"optionality","title":"Optionality","narrativeSegments":["N166-N171"],"anchor":"That's particularly valuable"},
+    {"id":"tradeoff","title":"The Dapr trade-off","narrativeSegments":["N172-N181"],"anchor":"But that flexibility isn't free"},
+    {"id":"real-needs","title":"Emerging responsibilities","narrativeSegments":["N182-N190"],"anchor":"The question has to remain"},
+    {"id":"decision","title":"ADR 0001 accepted","narrativeSegments":["N191-N201"],"anchor":"So I'm accepting ADR"},
+    {"id":"alternatives","title":"Alternatives remain credible","narrativeSegments":["N202-N214"],"anchor":"Microsoft Agent Framework with Temporal remains"},
+    {"id":"lesson","title":"The architectural lesson","narrativeSegments":["N215-N221"],"anchor":"The most useful part"},
+    {"id":"closing","title":"Knowledge evolution","narrativeSegments":["N222-N228"],"anchor":"But that creates another problem"}
+  ],
+  "scenes": [
+    {"id":"S001","section":"opening","archetype":"Narrator","kind":"presenter-focus","transition":"cut","headline":"Which AI runtime actually fits Articulate?","support":"Episode 13 · Articulate Journal","items":[]},
+    {"id":"S002","section":"changed","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"The question changed","support":"From agent memory to continuity of execution","items":["Memory responsibilities","Durable execution","AI-native work across time"]},
+    {"id":"S003","section":"criteria","archetype":"Evidence","kind":"presenter-evidence","transition":"cut","headline":"What is Articulate actually selecting?","support":"Capabilities now · optionality later","items":["Durable execution","Pause and resume","Human interaction","Failure recovery","Distributed execution","Tool orchestration","Observability"],"evidence":{"emphasisIndex":-1}},
+    {"id":"S004","section":"candidates","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Several candidates satisfy the requirements","support":"Credible technologies—not a winner screen","diagramAssetId":"episode-0013-candidates"},
+    {"id":"S005","section":"maf-temporal","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"A genuinely strong contender","support":"Agent programming model + mature durable execution","diagramAssetId":"episode-0013-maf-temporal"},
+    {"id":"S006","section":"maf-durable","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"A more integrated alternative","support":"Fewer technologies; a wider framework boundary","diagramAssetId":"episode-0013-maf-durable"},
+    {"id":"S007","section":"langgraph","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"A clean separation—and another boundary","support":"Reasoning orchestration + durable execution","diagramAssetId":"episode-0013-langgraph-temporal"},
+    {"id":"S008","section":"composition","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"These are runtime architectures","support":"All can satisfy the requirements. Composition has a cost.","diagramAssetId":"episode-0013-compositions"},
+    {"id":"S009","section":"python","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"Python is a separate decision","support":"Strategic fit for AI/ML—not a runtime constraint","items":["Python · AI/ML ecosystem","C# · familiar and attractive","Articulate · polyglot"]},
+    {"id":"S010","section":"why-dapr","archetype":"Reflection","kind":"presenter-focus","transition":"fade","headline":"Dapr does not win a feature comparison","support":"The decision is about the shape of the platform.","items":[]},
+    {"id":"S011","section":"platform","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"The platform around the agent","support":"A common distributed application runtime","diagramAssetId":"episode-0013-dapr-platform"},
+    {"id":"S012","section":"optionality","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"Execution architecture without infrastructure lock-in","support":"Preserve hosting and cloud decisions for later","items":["Kubernetes","ECS","Azure","AWS","GCP","Other"]},
+    {"id":"S013","section":"tradeoff","archetype":"Evidence","kind":"presenter-evidence","transition":"cut","headline":"That flexibility is not free","support":"A trade-off—not a hidden footnote","items":["Broader runtime","Sidecar process","Operational concepts","Young Agents framework"],"evidence":{"emphasisIndex":-1}},
+    {"id":"S014","section":"real-needs","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"Already emerging in the architecture","support":"Not speculative building blocks","items":["Pub/Sub","State","Service invocation","Observability","Durable workflows","Distributed execution"]},
+    {"id":"S015","section":"decision","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"ADR 0001 · Accepted","support":"Initial runtime; durable execution and orchestration","diagramAssetId":"episode-0013-dapr-decision"},
+    {"id":"S016","section":"alternatives","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"The alternatives are not wrong","support":"The ADR records why they are not selected now","items":["MAF + Temporal","MAF + Durable Task","LangGraph + Temporal","Temporal benchmark"]},
+    {"id":"S017","section":"lesson","archetype":"Reflection","kind":"presenter-focus","transition":"fade","headline":"Meeting requirements does not determine architecture","support":"Boundaries · responsibilities · complexity · future options","items":[]},
+    {"id":"S018","section":"closing","archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"How does architectural knowledge safely change?","support":"Next: Knowledge Evolution · Episode 14","items":[]}
+  ]
+}

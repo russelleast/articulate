@@ -1,0 +1,147 @@
+{
+  "episode": {
+    "id": "episode-0014",
+    "title": "Knowledge Evolution",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0014-presenter-v1",
+    "narration_duration_seconds": 689.355333
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 52.21,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 52.21,
+      "end_seconds": 85,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0014-living-knowledge"
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 85,
+      "end_seconds": 107.5,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 107.5,
+      "end_seconds": 156.21,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0014-competing-claims"
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 156.21,
+      "end_seconds": 179,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0014-proposed-knowledge"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 179,
+      "end_seconds": 233.21,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 233.21,
+      "end_seconds": 298.21,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0014-evolution-through-time"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 298.21,
+      "end_seconds": 360.21,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0014-baselines"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 360.21,
+      "end_seconds": 382,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 382,
+      "end_seconds": 442,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0014-approval-timeline"
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 442,
+      "end_seconds": 459,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 459,
+      "end_seconds": 520.21,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0014-claims-to-architecture"
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 520.21,
+      "end_seconds": 544.21,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 544.21,
+      "end_seconds": 609.14,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 609.14,
+      "end_seconds": 641,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 641,
+      "end_seconds": 673.21,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S017",
+      "start_seconds": 673.21,
+      "end_seconds": 689.355,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

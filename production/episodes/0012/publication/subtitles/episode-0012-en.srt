@@ -1,0 +1,730 @@
+1
+00:00:00,210 --> 00:00:03,280
+What happens to an AI
+agent when the process
+
+2
+00:00:03,360 --> 00:00:07,840
+executing it disappears? Hello,
+I'm Russell and welcome to
+
+3
+00:00:07,920 --> 00:00:11,560
+episode 12 of the Articulate
+Journal, where I'm exploring
+
+4
+00:00:11,640 --> 00:00:15,410
+what it takes to build an
+AI-native architecture from
+
+5
+00:00:15,410 --> 00:00:18,940
+first principles. In the
+previous episode, I explored what
+
+6
+00:00:19,020 --> 00:00:21,480
+AI systems mean when
+they talk about memory.
+
+7
+00:00:21,960 --> 00:00:25,450
+And what initially looked like
+one architectural concept turned
+
+8
+00:00:25,530 --> 00:00:27,840
+out to be several
+different responsibilities.
+
+9
+00:00:28,200 --> 00:00:32,470
+Knowledge belongs to the Knowledge
+Model, conversation has its
+
+10
+00:00:32,550 --> 00:00:36,740
+own state. Embeddings and
+indexes support retrieval and can
+
+11
+00:00:36,810 --> 00:00:40,990
+usually be rebuilt. Even
+much of the temporary context
+
+12
+00:00:41,070 --> 00:00:43,990
+used while an agent is
+reasoning can potentially be
+
+13
+00:00:44,070 --> 00:00:47,680
+reconstructed. But one form
+of state was different.
+
+14
+00:00:47,950 --> 00:00:51,960
+Execution. If an agent is
+halfway through some work
+
+15
+00:00:52,040 --> 00:00:54,950
+and a process disappears,
+how does the system know
+
+16
+00:00:55,030 --> 00:00:59,680
+where it got to? At first,
+the requirement seems
+
+17
+00:00:59,700 --> 00:01:02,890
+fairly simple. If an agent
+is interrupted, I want
+
+18
+00:01:02,970 --> 00:01:05,570
+it to continue. Maybe it's
+analysing the impact of
+
+19
+00:01:05,650 --> 00:01:09,760
+an architectural change. Maybe
+it needs clarification from me.
+
+20
+00:01:10,210 --> 00:01:14,810
+Maybe another agent needs to
+contribute, or perhaps it's
+
+21
+00:01:14,890 --> 00:01:19,160
+waiting for approval. Whatever
+the reason, I don't want
+
+22
+00:01:19,240 --> 00:01:22,040
+the lifetime of that
+work tied to the lifetime
+
+23
+00:01:22,120 --> 00:01:25,120
+of a thread, a container,
+or a particular agent
+
+24
+00:01:25,200 --> 00:01:30,140
+instance. If that process disappears,
+the work shouldn't disappear
+
+25
+00:01:30,210 --> 00:01:33,770
+with it. But that raises another question.
+
+26
+00:01:34,130 --> 00:01:37,020
+Do I actually need to preserve execution?
+
+27
+00:01:37,140 --> 00:01:39,740
+Couldn't I just run the agent again?
+
+28
+00:01:40,210 --> 00:01:44,540
+Imagine an agent analysing
+the impact of a proposed
+
+29
+00:01:44,620 --> 00:01:49,880
+architectural change. It retrieves
+relevant architectural knowledge.
+
+30
+00:01:50,010 --> 00:01:52,710
+It identifies the affected capabilities.
+
+31
+00:01:53,110 --> 00:01:56,090
+It looks at decisions and
+principles that might be
+
+32
+00:01:56,170 --> 00:01:59,790
+relevant. Then it asks me a
+question before continuing.
+
+33
+00:02:00,070 --> 00:02:02,850
+If that process disappears at
+that point, perhaps nothing
+
+34
+00:02:02,930 --> 00:02:04,840
+particularly important has been lost.
+
+35
+00:02:05,210 --> 00:02:10,080
+The Knowledge Model still exists,
+conversation exists, the context
+
+36
+00:02:10,160 --> 00:02:14,080
+can be reconstructed. The agent
+can retrieve the information
+
+37
+00:02:14,160 --> 00:02:17,510
+again and continue reasoning.
+It might perform some work
+
+38
+00:02:17,540 --> 00:02:21,980
+twice. Perhaps that's acceptable.
+So maybe the execution state
+
+39
+00:02:22,060 --> 00:02:24,790
+isn't particularly special after all.
+
+40
+00:02:25,210 --> 00:02:28,170
+The problem appears when
+the agent starts to do
+
+41
+00:02:28,250 --> 00:02:31,680
+things. Let's change
+the scenario slightly.
+
+42
+00:02:32,210 --> 00:02:35,930
+Before asking me for
+approval, the agent records a
+
+43
+00:02:36,010 --> 00:02:40,720
+proposed architectural decision. It
+invokes another capability, sends a
+
+44
+00:02:40,800 --> 00:02:44,470
+notification asking me to
+review something, and then it
+
+45
+00:02:44,550 --> 00:02:49,650
+waits. Now imagine the process disappears.
+
+46
+00:02:49,950 --> 00:02:50,750
+When it starts again, we
+have a slightly different
+
+47
+00:02:50,827 --> 00:02:54,780
+problem. Was the proposed
+decision already recorded?
+
+48
+00:02:54,960 --> 00:02:56,900
+Did the other capability complete?
+
+49
+00:02:57,140 --> 00:02:58,900
+Was the notification already sent?
+
+50
+00:02:58,960 --> 00:03:02,680
+If I simply restart the
+reasoning process, should those
+
+51
+00:03:02,690 --> 00:03:06,790
+actions happen again? Suddenly
+the problem isn't remembering what
+
+52
+00:03:06,870 --> 00:03:09,520
+the agent knew. The
+problem is knowing what the
+
+53
+00:03:09,600 --> 00:03:13,710
+system has already done. And
+that distinction matters.
+
+54
+00:03:14,210 --> 00:03:17,460
+This is where execution
+begins to look different from
+
+55
+00:03:17,460 --> 00:03:20,847
+the other forms of state I explored in the
+
+56
+00:03:20,927 --> 00:03:26,130
+previous episode. Knowledge can
+be retrieved, conversations can be
+
+57
+00:03:26,210 --> 00:03:30,480
+replayed. Context can be
+reconstructed, and reasoning can often
+
+58
+00:03:30,560 --> 00:03:33,560
+be performed again. But
+once work has caused an
+
+59
+00:03:33,610 --> 00:03:36,960
+effect outside the reasoning
+process, we need to know
+
+60
+00:03:37,040 --> 00:03:39,860
+whether that effect has actually happened.
+
+61
+00:03:40,140 --> 00:03:42,910
+The runtime needs to know
+what completed, what failed,
+
+62
+00:03:43,010 --> 00:03:46,360
+which tools have already been
+executed, which external effects
+
+63
+00:03:46,360 --> 00:03:49,680
+have occurred. Execution state
+isn't simply another form of memory.
+
+64
+00:03:50,010 --> 00:03:51,830
+It's a record of progress.
+
+65
+00:03:52,210 --> 00:03:56,090
+This becomes particularly important
+because agents don't operate in
+
+66
+00:03:56,170 --> 00:04:00,850
+isolation. They call tools.
+They invoke other capabilities.
+
+67
+00:04:00,960 --> 00:04:03,790
+They update systems.
+They request approvals.
+
+68
+00:04:04,210 --> 00:04:07,790
+They communicate with external services.
+
+69
+00:04:08,210 --> 00:04:11,950
+Every time execution crosses one
+of those boundaries, something
+
+70
+00:04:12,030 --> 00:04:14,840
+may happen that can't simply
+be forgotten or performed
+
+71
+00:04:14,920 --> 00:04:19,680
+again without consequence. Sending
+the same notification twice might
+
+72
+00:04:19,700 --> 00:04:23,680
+only be annoying. Creating
+the same record twice could
+
+73
+00:04:23,700 --> 00:04:27,290
+be more serious. Invoking another
+capability twice could cause
+
+74
+00:04:27,370 --> 00:04:29,790
+an entire different chain
+of work to happen again.
+
+75
+00:04:30,090 --> 00:04:33,460
+So recovering an agent isn't
+simply about reconstructing its
+
+76
+00:04:33,460 --> 00:04:35,740
+prompt and asking the model to continue.
+
+77
+00:04:36,210 --> 00:04:40,020
+The system needs to understand
+what has already happened
+
+78
+00:04:40,100 --> 00:04:43,830
+before it can safely decide
+what should happen next.
+
+79
+00:04:44,210 --> 00:04:47,750
+And then we introduce us, human beings.
+
+80
+00:04:48,210 --> 00:04:50,680
+Suppose an agent reaches
+a point where it needs
+
+81
+00:04:50,700 --> 00:04:52,880
+an architect to approve something.
+
+82
+00:04:53,170 --> 00:04:55,680
+The response might arrive
+five minutes later.
+
+83
+00:04:56,010 --> 00:04:59,120
+It might arrive tomorrow.
+It might arrive next week.
+
+84
+00:04:59,210 --> 00:05:01,680
+And it might never arrive at all.
+
+85
+00:05:02,210 --> 00:05:05,818
+Keeping a process alive
+while it waits isn't really
+
+86
+00:05:05,898 --> 00:05:10,010
+the answer. The execution needs
+to survive independently of
+
+87
+00:05:10,010 --> 00:05:12,770
+the process currently performing the work.
+
+88
+00:05:13,140 --> 00:05:16,310
+But there's another complication.
+The world may have changed
+
+89
+00:05:16,390 --> 00:05:17,880
+while the agent was waiting.
+
+90
+00:05:18,210 --> 00:05:21,840
+New architectural knowledge
+may have been accepted.
+
+91
+00:05:22,210 --> 00:05:23,920
+Another decision may have been made.
+
+92
+00:05:23,960 --> 00:05:26,840
+The proposal itself may
+have been superseded.
+
+93
+00:05:27,190 --> 00:05:30,000
+The state the agent originally
+reasoned over may no
+
+94
+00:05:30,000 --> 00:05:33,120
+longer represent the current architecture.
+
+95
+00:05:33,120 --> 00:05:37,130
+So, resuming execution isn't
+necessarily the same as waking
+
+96
+00:05:37,210 --> 00:05:41,150
+up a suspended process. We've
+re-entered a system that
+
+97
+00:05:41,170 --> 00:05:43,780
+may have changed while we were away.
+
+98
+00:05:44,210 --> 00:05:47,020
+Time has become part of the architecture.
+
+99
+00:05:48,190 --> 00:05:51,150
+And this is where the
+understanding of the problem
+
+100
+00:05:51,230 --> 00:05:56,310
+changed. Durable execution isn't
+really about keeping the agent
+
+101
+00:05:56,400 --> 00:05:59,690
+alive. It's about preserving
+the continuity of work.
+
+102
+00:06:00,110 --> 00:06:03,960
+We don't necessarily need to
+preserve every temporary thought
+
+103
+00:06:04,040 --> 00:06:06,790
+or every piece of reasoning context.
+
+104
+00:06:07,210 --> 00:06:09,680
+Much of that can be reconstructed.
+
+105
+00:06:10,210 --> 00:06:12,350
+What we need to preserve is enough of the
+
+106
+00:06:12,430 --> 00:06:16,480
+execution to understand what
+work is completed, what work
+
+107
+00:06:16,560 --> 00:06:19,850
+remains, what effects
+have already occurred.
+
+108
+00:06:20,210 --> 00:06:26,130
+What we're waiting for
+and what can safely happen
+
+109
+00:06:26,360 --> 00:06:29,870
+next. The process performing
+the work may disappear.
+
+110
+00:06:30,010 --> 00:06:34,250
+The execution should not.
+The process is temporary.
+
+111
+00:06:34,430 --> 00:06:38,080
+The execution is durable.
+This also gives me a
+
+112
+00:06:38,160 --> 00:06:41,120
+much cleaner boundary
+around the runtime itself.
+
+113
+00:06:41,210 --> 00:06:47,910
+In the previous episode I
+discovered that the runtime
+
+114
+00:06:47,990 --> 00:06:51,770
+owns far less memory than
+I initially expected.
+
+115
+00:06:52,120 --> 00:06:54,680
+It doesn't own architectural knowledge.
+
+116
+00:06:55,010 --> 00:06:56,940
+That's the responsibility
+of the Knowledge Model.
+
+117
+00:06:57,110 --> 00:06:59,680
+It doesn't need to own every conversation.
+
+118
+00:07:00,010 --> 00:07:02,960
+It doesn't need to treat
+embeddings, indexes and caches
+
+119
+00:07:03,040 --> 00:07:05,790
+as permanent memory. Much
+of that context required by
+
+120
+00:07:05,870 --> 00:07:09,120
+an agent can be reconstructed
+from the wider platform.
+
+121
+00:07:09,210 --> 00:07:11,680
+But the execution is different.
+
+122
+00:07:12,210 --> 00:07:18,430
+The runtime coordinates
+work. If that work can span
+
+123
+00:07:18,480 --> 00:07:24,240
+processes, failures, agents, external
+systems, humans and potentially days
+
+124
+00:07:24,320 --> 00:07:27,290
+of elapsed time, then preserving
+the continuity of that
+
+125
+00:07:27,370 --> 00:07:30,890
+execution becomes one of the
+most important responsibilities.
+
+126
+00:07:31,210 --> 00:07:35,770
+That gives me another important
+requirement for ADR 0001.
+
+127
+00:07:36,170 --> 00:07:39,970
+The runtime Articulate eventually
+uses, needs to support work
+
+128
+00:07:40,050 --> 00:07:44,680
+that survives interruption. It
+needs pause and resume semantics.
+
+129
+00:07:45,010 --> 00:07:47,830
+It needs to recover from failure,
+support long-running execution
+
+130
+00:07:47,910 --> 00:07:50,860
+and support humans becoming
+part of that execution.
+
+131
+00:07:51,110 --> 00:07:54,750
+It needs enough execution
+history to understand what has
+
+132
+00:07:54,780 --> 00:07:59,310
+already happened. And it
+needs to coordinate work, and
+
+133
+00:07:59,390 --> 00:08:02,600
+it needs to coordinate work
+that may be distributed
+
+134
+00:08:02,650 --> 00:08:05,870
+across different processes
+and different points in time.
+
+135
+00:08:06,210 --> 00:08:09,840
+Those aren't simply useful
+runtime features anymore.
+
+136
+00:08:09,960 --> 00:08:12,790
+They've become the
+architectural requirements.
+
+137
+00:08:13,210 --> 00:08:16,240
+Over the last three episodes,
+the question has gradually
+
+138
+00:08:16,310 --> 00:08:20,225
+changed. I started asking which
+agent runtime Articulate should
+
+139
+00:08:20,305 --> 00:08:23,430
+use. Then I had to
+understand what state the
+
+140
+00:08:23,510 --> 00:08:26,240
+runtime actually owns. And
+now I've discovered one of
+
+141
+00:08:26,240 --> 00:08:29,840
+the most important responsibilities
+isn't really memory at all.
+
+142
+00:08:30,130 --> 00:08:33,840
+It's preserving work across
+failure and across time.
+
+143
+00:08:34,210 --> 00:08:37,940
+Once tools have executed, once
+other capabilities become involved,
+
+144
+00:08:37,960 --> 00:08:41,320
+once humans enter the process
+and once execution can
+
+145
+00:08:41,400 --> 00:08:45,240
+last longer than the process
+performing it, simply starting
+
+146
+00:08:45,240 --> 00:08:47,950
+again isn't enough. We need continuity.
+
+147
+00:08:48,110 --> 00:08:50,380
+We need to know what happened, and we need
+
+148
+00:08:50,460 --> 00:08:51,940
+to know what can safely happen again.
+
+149
+00:08:52,210 --> 00:08:55,920
+That gives me the final
+architectural requirement I need
+
+150
+00:08:56,000 --> 00:08:58,240
+for ADR 0001. Now I can go back to
+
+151
+00:08:58,240 --> 00:09:02,180
+the candidate runtimes and evaluate
+them against the architecture
+
+152
+00:09:02,260 --> 00:09:06,090
+Articulate actually needs.
+And that's what we'll do for
+
+153
+00:09:06,170 --> 00:09:08,810
+the next episode. See you on the next one.

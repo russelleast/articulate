@@ -1,0 +1,591 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0015",
+    "title": "Architectural Assurance",
+    "journalSource": "docs/episodes/0015-architectural-assurance.md",
+    "narrativeSource": "production/episodes/0015/narrative.md",
+    "storyboard": "production/episodes/0015/storyboard.yaml",
+    "timingMarkers": "production/episodes/0015/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0015/asset-register.yaml",
+    "scenePlan": "production/episodes/0015/scene-plan.yaml",
+    "timeline": "production/episodes/0015/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0015-presenter-v1",
+    "expectedSha256": "409fab0f0e809bfb692c190e6570e657662afe9913310f6b4d7266320d62887c",
+    "expectedDurationSeconds": 679.5789,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 679.5789,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.07,
+      "softThresholdRange": 0.1,
+      "maskFeatherRadius": 2.5,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1.08,
+      "edgeVignetteRadius": 0,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0015/output/episode-0015-final.mp4",
+    "generatedDirectory": "production/episodes/0015/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0015/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0015/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "KNOWLEDGE ISN'T EVALUATION",
+      "kind": "presenter-focus",
+      "headline": "KNOWLEDGE ISN'T EVALUATION",
+      "support": "What do we know? → What does it imply?",
+      "items": [
+        "Knowledge Model",
+        "Architectural Assurance"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge is not evaluation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "A KNOWN RELATIONSHIP",
+      "kind": "presenter-focus",
+      "headline": "A KNOWN RELATIONSHIP",
+      "support": "Correct architectural knowledge",
+      "items": [
+        "Reporting Service",
+        "reads",
+        "Order Database"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "ownership-reads",
+            "at": 4,
+            "action": "reveal",
+            "target": "item-2"
+          },
+          {
+            "id": "ownership-database",
+            "at": 8,
+            "action": "reveal",
+            "target": "item-3"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A known relationship",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "Correct knowledge can reveal a concern",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0015-database-ownership-principle-conflict",
+      "visualStateMode": "complete-diagram",
+      "headline": "Correct knowledge can reveal a concern",
+      "support": "Relationship + principle → potential finding",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Correct knowledge can reveal a concern",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "ARCHITECTS EVALUATE CONTEXT",
+      "kind": "presenter-focus",
+      "headline": "ARCHITECTS EVALUATE CONTEXT",
+      "support": "Knowledge is information combined with thinking",
+      "items": [
+        "Retrieve facts",
+        "Connect context",
+        "Interpret consequences"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architects evaluate context",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "A VALID DEPENDENCY TODAY",
+      "kind": "presenter-focus",
+      "headline": "A VALID DEPENDENCY TODAY",
+      "support": "The current relationship works",
+      "items": [
+        "Loyalty Service",
+        "depends on",
+        "Legacy CRM"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "loyalty-depends",
+            "at": 4,
+            "action": "reveal",
+            "target": "item-2"
+          },
+          {
+            "id": "loyalty-crm",
+            "at": 8,
+            "action": "reveal",
+            "target": "item-3"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A valid dependency today",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "The concern is derived",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0015-dependency-on-retiring-system",
+      "visualStateMode": "complete-diagram",
+      "headline": "The concern is derived",
+      "support": "New dependency + retirement intent",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A dependency against architectural direction",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "ARCHITECTURAL TIME IS CONTEXT",
+      "kind": "presenter-focus",
+      "headline": "ARCHITECTURAL TIME IS CONTEXT",
+      "support": "Valid today can still move in the wrong direction",
+      "items": [
+        "Once Was",
+        "As Is",
+        "To Be"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural time provides context",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "Architectural Assurance",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0015-architectural-assurance-capability-model",
+      "visualStateMode": "complete-diagram",
+      "headline": "Architectural Assurance",
+      "support": "Structural · principle · trade-off concerns",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Forms of assurance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "Reliable structure + contextual interpretation",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0015-deterministic-and-contextual-assurance",
+      "visualStateMode": "complete-diagram",
+      "headline": "Reliable structure + contextual interpretation",
+      "support": "Complementary responsibilities",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reliable structure and contextual interpretation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Assurance before implementation",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0015-capability-assurance-refinement",
+      "visualStateMode": "complete-diagram",
+      "headline": "Assurance before implementation",
+      "support": "Structured capability intent can be evaluated",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Assurance before implementation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "FINDING ≠ TRUTH",
+      "kind": "presenter-focus",
+      "headline": "FINDING ≠ TRUTH",
+      "support": "Make the concern visible; keep judgement accountable",
+      "items": [
+        "Finding",
+        "Human judgement",
+        "Possible action"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "finding-judgement",
+            "at": 8,
+            "action": "reveal",
+            "target": "item-2"
+          },
+          {
+            "id": "finding-action",
+            "at": 16,
+            "action": "reveal",
+            "target": "item-3"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Findings are not truth",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "Continuous architectural assessment",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0015-knowledge-evolution-assurance",
+      "visualStateMode": "complete-diagram",
+      "headline": "Continuous architectural assessment",
+      "support": "Evaluate knowledge, proposals and changing decisions",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Continuous architectural assessment",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "SIGNAL OVER NOISE",
+      "kind": "presenter-evidence",
+      "headline": "SIGNAL OVER NOISE",
+      "support": "Surface concerns that materially affect outcomes",
+      "items": [
+        "27 low-value warnings",
+        "4 contextual candidates",
+        "1 material concern"
+      ],
+      "evidence": {
+        "emphasisIndex": 2
+      },
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Signal over noise",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "A CONCEPTUAL ARCHITECTURE",
+      "kind": "presenter-focus",
+      "headline": "A CONCEPTUAL ARCHITECTURE",
+      "support": "The ideas accumulate into one system",
+      "items": [
+        "Knowledge → Reasoning",
+        "Intent → AI Runtime",
+        "Execute → Evolve → Assure"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": [
+          {
+            "id": "architecture-runtime",
+            "at": 6,
+            "action": "reveal",
+            "target": "item-2"
+          },
+          {
+            "id": "architecture-assurance",
+            "at": 13,
+            "action": "reveal",
+            "target": "item-3"
+          }
+        ]
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The conceptual architecture accumulates",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "But so far, all of this is still architecture.",
+      "kind": "presenter-focus",
+      "headline": "But so far, all of this is still architecture.",
+      "support": "Models · capabilities · decisions · principles",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "All of this is still architecture",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "Does this architecture actually work when we build it?",
+      "kind": "presenter-focus",
+      "headline": "Does this architecture actually work when we build it?",
+      "support": "Next · implementation",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architecture confronts implementation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

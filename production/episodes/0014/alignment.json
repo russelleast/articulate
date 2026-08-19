@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Claims are current belief",
+      "narrativeSegments": [
+        "N001-N012"
+      ],
+      "start": 0,
+      "end": 52.21,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "living",
+      "title": "A living Knowledge Model",
+      "narrativeSegments": [
+        "N013-N020"
+      ],
+      "start": 52.21,
+      "end": 85,
+      "confidence": 1,
+      "anchor": "One of the goals for Articulate",
+      "matchedText": "One of the goals for Articulate"
+    },
+    {
+      "id": "tension",
+      "title": "Stale or untrustworthy",
+      "narrativeSegments": [
+        "N021-N025"
+      ],
+      "start": 85,
+      "end": 107.5,
+      "confidence": 1,
+      "anchor": "But there's a tension here",
+      "matchedText": "But there's a tension here."
+    },
+    {
+      "id": "new-claim",
+      "title": "PostgreSQL and MongoDB",
+      "narrativeSegments": [
+        "N026-N039"
+      ],
+      "start": 107.5,
+      "end": 156.21,
+      "confidence": 1,
+      "anchor": "Imagine Articulate currently believes",
+      "matchedText": "Imagine Articulate currently believes"
+    },
+    {
+      "id": "proposed",
+      "title": "Proposed knowledge",
+      "narrativeSegments": [
+        "N040-N046"
+      ],
+      "start": 156.21,
+      "end": 179,
+      "confidence": 1,
+      "anchor": "And that led me to the idea",
+      "matchedText": "And that led me to the idea"
+    },
+    {
+      "id": "reconcile",
+      "title": "Reconciliation preserves uncertainty",
+      "narrativeSegments": [
+        "N047-N062"
+      ],
+      "start": 179,
+      "end": 233.21,
+      "confidence": 0.964,
+      "anchor": "The exact implementation isn't important",
+      "matchedText": "The exact implementation isn't important here."
+    },
+    {
+      "id": "time",
+      "title": "Once Was, As Is, To Be",
+      "narrativeSegments": [
+        "N063-N076"
+      ],
+      "start": 233.21,
+      "end": 298.21,
+      "confidence": 1,
+      "anchor": "Time becomes particularly important",
+      "matchedText": "Time becomes particularly important"
+    },
+    {
+      "id": "baselines",
+      "title": "Architectural baselines",
+      "narrativeSegments": [
+        "N077-N090"
+      ],
+      "start": 298.21,
+      "end": 360.21,
+      "confidence": 1,
+      "anchor": "This is where architectural baselines",
+      "matchedText": "This is where architectural baselines"
+    },
+    {
+      "id": "baseline-questions",
+      "title": "Questions across baselines",
+      "narrativeSegments": [
+        "N091-N095"
+      ],
+      "start": 360.21,
+      "end": 382,
+      "confidence": 1,
+      "anchor": "And because the underlying claims",
+      "matchedText": "And because the underlying claims"
+    },
+    {
+      "id": "approval",
+      "title": "Approval is not acceptance",
+      "narrativeSegments": [
+        "N096-N110"
+      ],
+      "start": 382,
+      "end": 442,
+      "confidence": 0.893,
+      "anchor": "There's another consequence",
+      "matchedText": "There's another consequence of this model."
+    },
+    {
+      "id": "resume",
+      "title": "The architecture does not pause",
+      "narrativeSegments": [
+        "N111-N115"
+      ],
+      "start": 442,
+      "end": 459,
+      "confidence": 1,
+      "anchor": "I think this is particularly interesting",
+      "matchedText": "I think this is particularly interesting"
+    },
+    {
+      "id": "claims",
+      "title": "Claims become architecture",
+      "narrativeSegments": [
+        "N116-N133"
+      ],
+      "start": 459,
+      "end": 520.21,
+      "confidence": 0.846,
+      "anchor": "There's one important distinction",
+      "matchedText": "There's one important distinction. Articulate isn't ultimately going to present architects"
+    },
+    {
+      "id": "context",
+      "title": "Claims retain context",
+      "narrativeSegments": [
+        "N134-N140"
+      ],
+      "start": 520.21,
+      "end": 544.21,
+      "confidence": 1,
+      "anchor": "But the underlying claim",
+      "matchedText": "But the underlying claim"
+    },
+    {
+      "id": "capability",
+      "title": "Knowledge evolution is a capability",
+      "narrativeSegments": [
+        "N141-N158"
+      ],
+      "start": 544.21,
+      "end": 609.14,
+      "confidence": 1,
+      "anchor": "This has changed how I think",
+      "matchedText": "This has changed how I think"
+    },
+    {
+      "id": "summary",
+      "title": "Understanding evolves",
+      "narrativeSegments": [
+        "N159-N164"
+      ],
+      "start": 609.14,
+      "end": 641,
+      "confidence": 1,
+      "anchor": "So, we now have a model",
+      "matchedText": "So we now have a model"
+    },
+    {
+      "id": "assurance",
+      "title": "From description to evaluation",
+      "narrativeSegments": [
+        "N165-N173"
+      ],
+      "start": 641,
+      "end": 673.21,
+      "confidence": 1,
+      "anchor": "Here's another problem",
+      "matchedText": "Here's another problem."
+    },
+    {
+      "id": "closing",
+      "title": "Architectural Assurance",
+      "narrativeSegments": [
+        "N174-N194"
+      ],
+      "start": 673.21,
+      "end": 689.355,
+      "confidence": 1,
+      "anchor": "And that is the question",
+      "matchedText": "And that is the question"
+    }
+  ]
+}

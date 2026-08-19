@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0012",
+    "title": "Durable Execution and Long-Running Reasoning",
+    "written_source": "docs/episodes/0012-durable-execution.md",
+    "narrative_source": "production/episodes/0012/narrative.md",
+    "scene_plan": "production/episodes/0012/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 549.8493
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "What happens when the process disappears?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 5.73
+    },
+    {
+      "id": "S002",
+      "title": "Durable execution",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N002"
+      ],
+      "start_seconds": 5.73,
+      "end_seconds": 17.01
+    },
+    {
+      "id": "S003",
+      "title": "Most state found an architectural home",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N003-N011"
+      ],
+      "start_seconds": 17.01,
+      "end_seconds": 57.18
+    },
+    {
+      "id": "S004",
+      "title": "Work should survive the process performing it",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N012-N022"
+      ],
+      "start_seconds": 57.18,
+      "end_seconds": 100.25
+    },
+    {
+      "id": "S005",
+      "title": "At first, starting again looks plausible",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N023-N035"
+      ],
+      "start_seconds": 100.25,
+      "end_seconds": 149
+    },
+    {
+      "id": "S006",
+      "title": "Then the agent starts doing things",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N036-N040"
+      ],
+      "start_seconds": 149,
+      "end_seconds": 165.25
+    },
+    {
+      "id": "S007",
+      "title": "What has already happened?",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N041-N049"
+      ],
+      "start_seconds": 165.25,
+      "end_seconds": 194.25
+    },
+    {
+      "id": "S008",
+      "title": "Execution state is a record of progress",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N050-N063"
+      ],
+      "start_seconds": 194.25,
+      "end_seconds": 232.25
+    },
+    {
+      "id": "S009",
+      "title": "Recovering the prompt is not enough",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N064-N075"
+      ],
+      "start_seconds": 232.25,
+      "end_seconds": 284.25
+    },
+    {
+      "id": "S010",
+      "title": "Human participation makes time architectural",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N076-N083"
+      ],
+      "start_seconds": 284.25,
+      "end_seconds": 313
+    },
+    {
+      "id": "S011",
+      "title": "The world may change while execution waits",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N084-N092"
+      ],
+      "start_seconds": 313,
+      "end_seconds": 348.23
+    },
+    {
+      "id": "S012",
+      "title": "Durable execution preserves continuity",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N093-N103"
+      ],
+      "start_seconds": 348.23,
+      "end_seconds": 387.21
+    },
+    {
+      "id": "S013",
+      "title": "The process is temporary.",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N104-N107"
+      ],
+      "start_seconds": 387.21,
+      "end_seconds": 397.25
+    },
+    {
+      "id": "S014",
+      "title": "The runtime owns continuity of work",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N108-N117"
+      ],
+      "start_seconds": 397.25,
+      "end_seconds": 451.25
+    },
+    {
+      "id": "S015",
+      "title": "ADR 0001 · AI Runtime",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N118-N125"
+      ],
+      "start_seconds": 451.25,
+      "end_seconds": 493.25
+    },
+    {
+      "id": "S016",
+      "title": "The requirements are now clear",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N126-N137"
+      ],
+      "start_seconds": 493.25,
+      "end_seconds": 549.849
+    }
+  ]
+}

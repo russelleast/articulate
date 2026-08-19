@@ -64,8 +64,9 @@ test("the home page exposes recent Episodes beside the hero with detailed previe
   assert.match(home, /class="latest-episode-preview"/);
   assert.match(home, /href="\/articulate\/episodes\/0015-architectural-assurance\/"/);
   assert.match(home, /Latest video/);
-  assert.match(home, /href="\/articulate\/episodes\/0011-agent-memory\/"/);
-  assert.match(home, /href="https:\/\/youtu\.be\/OT-USJspSc8"/);
+  assert.match(home, /href="\/articulate\/episodes\/0013-selecting-the-agent-runtime\/"/);
+  assert.match(home, /src="\/articulate\/media\/episodes\/0013\/episode-0013-thumbnail\.png"/);
+  assert.match(home, /href="https:\/\/youtu\.be\/FdGwipmJQNo"/);
   assert.doesNotMatch(home, /Current Architectural Question|>Start Here<|Architecture at a Glance/);
   assert.match(home, /An architecture journal built through evidence/);
 });
@@ -77,7 +78,8 @@ for (const [episode, published] of [
   ["0009-defining-architectural-behaviour-with-dcl", "2026-07-24"],
   ["0010-selecting-an-agent-runtime", "2026-07-30"],
   ["0011-agent-memory", "2026-07-30"],
-  ["0012-durable-execution", "2026-07-30"]
+  ["0012-durable-execution", "2026-07-30"],
+  ["0013-selecting-the-agent-runtime", "2026-07-31"]
 ]) {
   test(`${episode} is published in the journal`, async () => {
     const listing = await output("episodes/index.html");
@@ -229,6 +231,13 @@ for (const episode of [
     youtubeUrl: "https://youtu.be/OT-USJspSc8",
     videoId: "OT-USJspSc8",
     iframeTitle: "Memory in AI-Native Systems — Articulate Journal Episode 11"
+  },
+  {
+    slug: "0012-durable-execution",
+    thumbnail: "episode-0012-thumbnail.png",
+    youtubeUrl: "https://youtu.be/k252fEQsP3I",
+    videoId: "k252fEQsP3I",
+    iframeTitle: "Durable Execution and Long-Running Reasoning — Articulate Journal Episode 12"
   }
 ]) {
   test(`${episode.slug} exposes its production video artwork without replacing the written Episode`, async () => {

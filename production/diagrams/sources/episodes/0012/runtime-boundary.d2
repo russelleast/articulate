@@ -1,0 +1,12 @@
+...@../../../styles/articulate
+direction: right
+knowledge: "Knowledge Model" {class: data}
+conversation: "Conversation" {class: service}
+retrieval: "Retrieval infrastructure" {class: capability}
+runtime: "RUNTIME" {class: boundary}
+runtime.coordinates: "Coordinates work" {class: capability}
+runtime.preserves: "Preserves execution" {class: emphasis}
+knowledge -> runtime: provides knowledge to
+conversation -> runtime: provides context to
+retrieval -> runtime: supports
+runtime.coordinates -> runtime.preserves

@@ -1,0 +1,14 @@
+{
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../Ep14-narrator.mp4",
+    "frameTimestampSeconds": 604,
+    "placement": { "x": -70, "y": 180, "width": 690, "height": 388 }
+  },
+  "episode": {
+    "eyebrow": "ARCHITECTURAL KNOWLEDGE · THROUGH TIME",
+    "headline": ["KNOWLEDGE", "EVOLVES"],
+    "supportTitle": "ONCE WAS · AS IS · TO BE",
+    "supportText": "New information is not automatically truth"
+  }
+}

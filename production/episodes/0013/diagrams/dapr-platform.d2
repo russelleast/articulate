@@ -1,0 +1,16 @@
+direction: down
+articulate: "Articulate" {
+  agents: "Agents"
+  services: "Services"
+  workflows: "Workflows"
+}
+dapr: "Dapr"
+building_blocks: "Building blocks" {
+  state: "State"
+  pubsub: "Pub/Sub"
+  invoke: "Invoke"
+  secrets: "Secrets"
+  otel: "OTel"
+}
+articulate -> dapr
+dapr -> building_blocks

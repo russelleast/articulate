@@ -1,0 +1,611 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0013",
+    "title": "Selecting the Agent Runtime",
+    "journalSource": "docs/episodes/0013-selecting-the-agent-runtime.md",
+    "narrativeSource": "production/episodes/0013/narrative.md",
+    "storyboard": "production/episodes/0013/storyboard.yaml",
+    "timingMarkers": "production/episodes/0013/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0013/asset-register.yaml",
+    "scenePlan": "production/episodes/0013/scene-plan.yaml",
+    "timeline": "production/episodes/0013/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0013-presenter-v1",
+    "expectedSha256": "bdd38158bce79a035d35294638dd11b7cef19fd0f7fcb9f0b163420f852dde8e",
+    "expectedDurationSeconds": 922.121208,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 922.121208,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.12,
+      "softThresholdRange": 0.14,
+      "maskFeatherRadius": 3,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0013/output/episode-0013-final.mp4",
+    "generatedDirectory": "production/episodes/0013/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0013/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0013/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "Which AI runtime actually fits Articulate?",
+      "kind": "presenter-focus",
+      "headline": "Which AI runtime actually fits Articulate?",
+      "support": "Episode 13 · Articulate Journal",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The runtime question",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "The question changed",
+      "kind": "presenter-focus",
+      "headline": "The question changed",
+      "support": "From agent memory to continuity of execution",
+      "items": [
+        "Memory responsibilities",
+        "Durable execution",
+        "AI-native work across time"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The question changes",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "What is Articulate actually selecting?",
+      "kind": "presenter-evidence",
+      "headline": "What is Articulate actually selecting?",
+      "support": "Capabilities now · optionality later",
+      "items": [
+        "Durable execution",
+        "Pause and resume",
+        "Human interaction",
+        "Failure recovery",
+        "Distributed execution",
+        "Tool orchestration",
+        "Observability"
+      ],
+      "evidence": {
+        "emphasisIndex": -1
+      },
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Runtime requirements",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "Several candidates satisfy the requirements",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0013-candidates",
+      "visualStateMode": "complete-diagram",
+      "headline": "Several candidates satisfy the requirements",
+      "support": "Credible technologies—not a winner screen",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Credible candidates",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "A genuinely strong contender",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0013-maf-temporal",
+      "visualStateMode": "complete-diagram",
+      "headline": "A genuinely strong contender",
+      "support": "Agent programming model + mature durable execution",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Microsoft Agent Framework and Temporal",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "A more integrated alternative",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0013-maf-durable",
+      "visualStateMode": "complete-diagram",
+      "headline": "A more integrated alternative",
+      "support": "Fewer technologies; a wider framework boundary",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Microsoft Agent Framework and Durable Task",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "A clean separation—and another boundary",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0013-langgraph-temporal",
+      "visualStateMode": "complete-diagram",
+      "headline": "A clean separation—and another boundary",
+      "support": "Reasoning orchestration + durable execution",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "LangGraph and Temporal",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "These are runtime architectures",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0013-compositions",
+      "visualStateMode": "complete-diagram",
+      "headline": "These are runtime architectures",
+      "support": "All can satisfy the requirements. Composition has a cost.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Composition has a cost",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Python is a separate decision",
+      "kind": "presenter-focus",
+      "headline": "Python is a separate decision",
+      "support": "Strategic fit for AI/ML—not a runtime constraint",
+      "items": [
+        "Python · AI/ML ecosystem",
+        "C# · familiar and attractive",
+        "Articulate · polyglot"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Python is a separate decision",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "Dapr does not win a feature comparison",
+      "kind": "presenter-focus",
+      "headline": "Dapr does not win a feature comparison",
+      "support": "The decision is about the shape of the platform.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Why Dapr",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "The platform around the agent",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0013-dapr-platform",
+      "visualStateMode": "complete-diagram",
+      "headline": "The platform around the agent",
+      "support": "A common distributed application runtime",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The platform around the agent",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Execution architecture without infrastructure lock-in",
+      "kind": "presenter-focus",
+      "headline": "Execution architecture without infrastructure lock-in",
+      "support": "Preserve hosting and cloud decisions for later",
+      "items": [
+        "Kubernetes",
+        "ECS",
+        "Azure",
+        "AWS",
+        "GCP",
+        "Other"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Optionality",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "That flexibility is not free",
+      "kind": "presenter-evidence",
+      "headline": "That flexibility is not free",
+      "support": "A trade-off—not a hidden footnote",
+      "items": [
+        "Broader runtime",
+        "Sidecar process",
+        "Operational concepts",
+        "Young Agents framework"
+      ],
+      "evidence": {
+        "emphasisIndex": -1
+      },
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The Dapr trade-off",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "Already emerging in the architecture",
+      "kind": "presenter-focus",
+      "headline": "Already emerging in the architecture",
+      "support": "Not speculative building blocks",
+      "items": [
+        "Pub/Sub",
+        "State",
+        "Service invocation",
+        "Observability",
+        "Durable workflows",
+        "Distributed execution"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Emerging responsibilities",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "ADR 0001 · Accepted",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0013-dapr-decision",
+      "visualStateMode": "complete-diagram",
+      "headline": "ADR 0001 · Accepted",
+      "support": "Initial runtime; durable execution and orchestration",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "ADR 0001 accepted",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "The alternatives are not wrong",
+      "kind": "presenter-focus",
+      "headline": "The alternatives are not wrong",
+      "support": "The ADR records why they are not selected now",
+      "items": [
+        "MAF + Temporal",
+        "MAF + Durable Task",
+        "LangGraph + Temporal",
+        "Temporal benchmark"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Alternatives remain credible",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "title": "Meeting requirements does not determine architecture",
+      "kind": "presenter-focus",
+      "headline": "Meeting requirements does not determine architecture",
+      "support": "Boundaries · responsibilities · complexity · future options",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The architectural lesson",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S018",
+      "title": "How does architectural knowledge safely change?",
+      "kind": "presenter-focus",
+      "headline": "How does architectural knowledge safely change?",
+      "support": "Next: Knowledge Evolution · Episode 14",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge evolution",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

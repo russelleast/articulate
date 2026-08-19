@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 679.5789,
+  "selectedDurationSeconds": 679.5789,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 59.57,
+      "narrationReference": "Knowledge is not evaluation"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 59.57,
+      "endSeconds": 75.17,
+      "narrationReference": "A known relationship"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 75.17,
+      "endSeconds": 111.24,
+      "narrationReference": "Correct knowledge can reveal a concern"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 111.24,
+      "endSeconds": 170.58,
+      "narrationReference": "Architects evaluate context"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 170.58,
+      "endSeconds": 196.19,
+      "narrationReference": "A valid dependency today"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 196.19,
+      "endSeconds": 232.24,
+      "narrationReference": "A dependency against architectural direction"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 232.24,
+      "endSeconds": 277.24,
+      "narrationReference": "Architectural time provides context"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 277.24,
+      "endSeconds": 342,
+      "narrationReference": "Forms of assurance"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 342,
+      "endSeconds": 424.23,
+      "narrationReference": "Reliable structure and contextual interpretation"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 424.23,
+      "endSeconds": 484.24,
+      "narrationReference": "Assurance before implementation"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 484.24,
+      "endSeconds": 550.24,
+      "narrationReference": "Findings are not truth"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 550.24,
+      "endSeconds": 589.2,
+      "narrationReference": "Continuous architectural assessment"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 589.2,
+      "endSeconds": 618,
+      "narrationReference": "Signal over noise"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 618,
+      "endSeconds": 654.24,
+      "narrationReference": "The conceptual architecture accumulates"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 654.24,
+      "endSeconds": 666.58,
+      "narrationReference": "All of this is still architecture"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 666.58,
+      "endSeconds": 679.579,
+      "narrationReference": "Architecture confronts implementation"
+    }
+  ]
+}

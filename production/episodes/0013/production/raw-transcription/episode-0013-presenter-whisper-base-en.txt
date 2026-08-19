@@ -1,0 +1,154 @@
+ Which AI runtime actually fits Articulate? That's the question I've been trying to answer for the last few episodes. Hello, I'm Russell and welcome to episode 13 of the Articulate Journal where I'm exploring what it takes to build an AI native architecture from first principles.
+ Back in episode 10, I opened ADR1 to select an agent runtime. At that point, I had already had a shortlist, Dapper Agents, Templural, Landgraph and Microsoft Agent Framework.
+ It would have been very easy to put those into a comparison table, count the features and pick the winner and move on.
+ But I didn't actually understand the problem well enough to make that decision, so instead, I left the ADR open.
+ The last two episodes have been about figuring out what the runtime actually needs to do.
+ Now I think I have enough information to make that decision.
+ The interesting thing is that I no longer answering quite the same question I started with. Initially, I was asking which agent runtime should Articulate use.
+ But exploring memory changed that. Most of what gets described as agent memory doesn't actually belong to the runtime.
+ Architectural knowledge belongs in the knowledge model.
+ Conversation history belongs in a conversation capability, embeddings, indexes and caching supports retrieval.
+ External systems remain responsible for their own data.
+ The runtime doesn't need all of that, but durable execution changed the question again.
+ Because there is one thing the runtime really does need to own, the continuity of execution.
+ If work had already happened, if a tool had already been executed, if an agent is waiting for approval,
+ or if a process disappears halfway through, some long-running reasoning, the platform needs to know where that work had reached.
+ So the question became much narrower, but at the same time, much clearer.
+ I'm not looking for somewhere to store agent memory. I'm looking for a runtime that can reliably coordinate AI native work across time.
+ That gives me a much better set of criteria. Articulate needs durable execution, long-running workflows, pause and resume,
+ human interaction, failure recovery, distributed execution, tool orchestration and observability.
+ And importantly, I don't want this decision to force decisions that I haven't already made yet.
+ I haven't decided a cloud provider. I haven't decided the eventual production hosting model.
+ I don't even know whether the architecture I have today will still be the architecture I need in several episodes from now.
+ So, I want a runtime that gives Articulate some useful capabilities now without unnecessarily constraining where the platform can evolve.
+ And with that criteria established, I can finally look at the candidates.
+ This is where I expected decision to become easier. It didn't.
+ Because once I started evaluating the candidates against the requirements from the previous episodes,
+ several of them could have satisfied what Articulate needs.
+ And some of the strongest options aren't actually single technologies.
+ For example, Microsoft agent framework combined with Temporal is extremely compelling.
+ Microsoft agent framework gives me the agent programming model.
+ Temporal gives me mature durable execution. Together, they tick every box I've identified.
+ And personally, there's another attraction. Microsoft agent framework supports C#.
+ I've spent a large part of my career working with C# and .NET.
+ So this would put Articulate in a technology ecosystem. I know extremely well.
+ That's not something I should pretend doesn't influence the decision.
+ I understand the framework that has value. It reduces implementation risk.
+ It makes it easier for me to understand what's happening beneath the abstractions.
+ And how it would allow me to concentrate more of my effort on the architectural experiments
+ rather than learning the depths of another programming language in the ecosystem at the same time.
+ So Microsoft agent framework and Temporal is a very credible option.
+ There's also another Microsoft orientated option. Microsoft agent framework can use durable task for durable execution.
+ That potentially gives me a more of an integrated stack, an agent programming model, durable execution, C# and a development environment I know well.
+ And fewer independent runtime technologies to assemble. That's attractive, but it also raises an architectural question.
+ How much of that architecture do I want the agent framework itself to own?
+ The investigation into memory and durable execution has pushed me towards separating responsibilities.
+ Agents perform reasoning. Durable execution preserves the continuity of work.
+ The surrounding platform owns knowledge, messaging, state and infrastructure concerns.
+ I don't necessarily want all those things collapsing into a single AI framework simply because it's convenient.
+ Integration has value, but separation of responsibilities has value too.
+ And that's a trade-off rather than an obvious answer.
+ Landgraph creates another interesting combination. I like its model for representing reasoning.
+ And if I combine Landgraph with Temporal, I can separate reasoning orchestration from durable execution.
+ Landgraph can concentrate on how the intelligent process reasons.
+ Temporal can concentrate on making sure that process survives failure and time.
+ That's architecturally quite clean. In some ways, it's one of the strongest combinations on the shortlist.
+ But now, Articulate has two significant runtime abstractions.
+ I need to understand where Landgraph ends and Temporal begins.
+ Which system owns orchestration? Which one owns retries? Which one owns execution state?
+ And which one determines the life cycle of an agent?
+ There are good answers to those questions.
+ But every answer introduces another architecture boundary that I have to own.
+ And that leads to another consideration.
+ At this point, the comparison isn't really dapper versus Temporal versus Landgraph versus Microsoft Agent Framework.
+ It's closer to Microsoft Agent Framework plus durable task or Microsoft Agent Framework's Temporal or Landgraph plus Temporal or dapper agents.
+ And potentially, other combinations, all of them can be made to work, and that's important.
+ I'm not choosing dapper because the alternatives fail the requirements.
+ I'm choosing between several architectures that satisfy them.
+ So the question becomes one of architectural composition.
+ How many runtime concepts do I want Articulate to depend upon?
+ Where do I want the boundaries between agents, workflows and distributed application infrastructure?
+ And which combination gives me enough capability without assembling more platform than I currently needed?
+ There's another technology decision sitting underneath all of that that I want to make explicit.
+ Dapper agents is currently Python based.
+ Coming from a C-sharp background that initially makes Microsoft Agent Framework particularly attractive.
+ But I don't think choosing Python for the AI and reasoning parts of Articulate is actually a compromise.
+ Python has become a dominant language across machine learning and much of the wider AI ecosystem.
+ Models, evaluation libraries, data science, tooling, agent frameworks and research implementations frequently appear in Python first.
+ And Articulate is deliberately an AI native architecture experiment.
+ There's value in working closer to that ecosystem rather than isolating myself from it simply because C-sharp is more familiar.
+ That doesn't mean that Articulate suddenly becomes a Python platform.
+ The architecture shouldn't require every capability to be written in the same language.
+ If another capability is better implemented using C-sharp, Go or something else in the future, the architecture should allow for that.
+ But for the parts of Articulate closest to AI, machine learning and reasoning, I think Python is the strongest strategic fit.
+ So Dapper agents being Python isn't the reason for choosing Python.
+ The two decisions simply reinforce each other.
+ And after all of that, I still come back to Dapper.
+ Not because Dapper agents is obviously better than Microsoft Agent Framework.
+ Not because Dapper workflows is more capable than temporal.
+ And not because Dapper has the strongest reasoning abstraction.
+ I don't think I could defend any of those claims.
+ What attracts me to Dapper is the shape of the platform around the agents.
+ Articulate needs agents and durable workflows.
+ But it's also going to need messaging, state, service invocation, secrets, observability and ordinary application services.
+ And integration between all those things, those aren't hypothetical requirements anymore.
+ They're already appearing in the architecture.
+ Dapper gives me a common distributed application runtime across these concerns.
+ And its sidecar model gives the application a degree of independence from the infrastructure providing them.
+ That's particularly valuable because I'm deliberately not deciding yet whether Articulate ultimately runs on Kubernetes, ECS, Azure, AWS, GCP or whatever else.
+ I'm choosing an execution architecture without unnecessarily choosing the eventual infrastructure architecture at the same time.
+ And that gives me something I value quite highly at this stage of Articulate options.
+ But that flexibility isn't free.
+ Choosing Dapper means accepting a broader runtime.
+ There's another process running alongside the application.
+ There are additional operational concepts. I need to understand Dapper itself rather than only understanding the agent framework.
+ And Dapper agents is still relatively young.
+ It's a genuine risk.
+ There's also a danger of adopting a platform because it provides lots of capabilities that I might need.
+ That's exactly the kind of reasoning I've tried to avoid throughout this journal.
+ So the decision can't be, Dapper has more building blocks, therefore Dapper wins.
+ The question has to remain, do those building blocks correspond to responsibilities actually emerging in the architecture?
+ And for Articulate, I think they do.
+ Pub/Sub, state, service invocation, observability, durable workflows, distributed execution.
+ These aren't speculative requirements anymore.
+ They are appearing in the architecture.
+ So, I'm accepting ADR1.
+ Articulate will use Dapper agents as its initial agent runtime with Dapper workflows providing durable execution and orchestration.
+ I think the word initial matters.
+ I'm not saying Dapper is the best agent for runtime.
+ I don't think I've demonstrated that.
+ What I'm saying is Dapper is currently the best architectural fit for Articulate.
+ That's a much narrower claim.
+ Microsoft agent framework and temporal remains compelling.
+ Microsoft agent framework with durable task deserves further experimentation.
+ And land graph with temporal is particularly interesting if reasoning orchestration becomes significantly more sophisticated.
+ And temporal remains the benchmark I would come back to if durable execution becomes more demanding than Dapper workflows can comfortably support.
+ ADR1 isn't declaring those alternatives are wrong.
+ It's recording why I'm not choosing them now.
+ And that's what I think an ADR should do.
+ The most useful part of this investigation isn't actually selecting Dapper.
+ It was discovering what I was selecting at four.
+ I started ADR1 looking for an agent runtime.
+ Memory forced me to separate the responsibilities around the runtime.
+ Durable execution showed me which state really mattered to it.
+ Comparing the candidates showed me that an agent framework can't be evaluated in isolation from the platform around it.
+ There's another lesson here as well.
+ Meeting requirements doesn't necessarily determine the architecture.
+ Several of these approaches meet the requirement.
+ The architectural decision emerges from the trade-offs between them, the boundaries, the responsibilities and the complexity.
+ And the options they preserve for the future.
+ So ADR1 is now accepted.
+ Articulate has a runtime which architectural intelligence can eventually execute.
+ But that creates and have a problem.
+ Those agents are going to reason about architectural knowledge.
+ They're going to discover new information.
+ They're going to identify contradictions.
+ They're going to make new claims about the architecture.
+ And some of those claims may eventually need to change what articulate understands to be true.
+ But an agent shouldn't simply be able to rewrite the knowledge model because it has reached a new conclusion.
+ Architectural knowledge needs to evolve without losing where it came from.
+ What it replaced or what it came to believe.
+ So before I start implementing agents, there's one more part of the conceptual architecture I need to understand.
+ How does architectural knowledge safely change over time?
+ That's the question for the next episode.
+ Knowledge Evolution.

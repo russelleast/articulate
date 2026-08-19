@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "authority": "recorded-audio",
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Knowledge is not evaluation",
+      "narrativeSegments": [
+        "N001-N013"
+      ],
+      "start": 0,
+      "end": 59.57,
+      "confidence": 1,
+      "anchor": "reviewed-boundary",
+      "matchedText": "reviewed boundary at 0.000s"
+    },
+    {
+      "id": "ownership-fact",
+      "title": "A known relationship",
+      "narrativeSegments": [
+        "N014-N018"
+      ],
+      "start": 59.57,
+      "end": 75.17,
+      "confidence": 1,
+      "anchor": "Imagine Articulate knows that a Reporting Service",
+      "matchedText": "Imagine Articulate knows that a reporting service"
+    },
+    {
+      "id": "ownership-evaluation",
+      "title": "Correct knowledge can reveal a concern",
+      "narrativeSegments": [
+        "N019-N029"
+      ],
+      "start": 75.17,
+      "end": 111.24,
+      "confidence": 0.875,
+      "anchor": "But suppose we also have an architecture principle",
+      "matchedText": "But suppose we have an architecture principle"
+    },
+    {
+      "id": "thinking",
+      "title": "Architects evaluate context",
+      "narrativeSegments": [
+        "N030-N043"
+      ],
+      "start": 111.24,
+      "end": 170.58,
+      "confidence": 1,
+      "anchor": "This is much closer to what architects actually do",
+      "matchedText": "This is much closer to what architects actually do"
+    },
+    {
+      "id": "loyalty-current",
+      "title": "A valid dependency today",
+      "narrativeSegments": [
+        "N044-N051"
+      ],
+      "start": 170.58,
+      "end": 196.19,
+      "confidence": 1,
+      "anchor": "Consider another example",
+      "matchedText": "Consider another example"
+    },
+    {
+      "id": "loyalty-direction",
+      "title": "A dependency against architectural direction",
+      "narrativeSegments": [
+        "N052-N062"
+      ],
+      "start": 196.19,
+      "end": 232.24,
+      "confidence": 0.833,
+      "anchor": "But elsewhere in the Knowledge Model",
+      "matchedText": "But elsewhere in a knowledge model"
+    },
+    {
+      "id": "time",
+      "title": "Architectural time provides context",
+      "narrativeSegments": [
+        "N063-N075"
+      ],
+      "start": 232.24,
+      "end": 277.24,
+      "confidence": 1,
+      "anchor": "This also reinforces something from the previous episode",
+      "matchedText": "This also reinforces something from the previous episode"
+    },
+    {
+      "id": "forms",
+      "title": "Forms of assurance",
+      "narrativeSegments": [
+        "N076-N093"
+      ],
+      "start": 277.24,
+      "end": 342,
+      "confidence": 0.714,
+      "anchor": "This is the responsibility I'm calling",
+      "matchedText": "This is the responsibility that I'm calling"
+    },
+    {
+      "id": "reasoning",
+      "title": "Reliable structure and contextual interpretation",
+      "narrativeSegments": [
+        "N094-N110"
+      ],
+      "start": 342,
+      "end": 424.23,
+      "confidence": 1,
+      "anchor": "There's another important distinction here",
+      "matchedText": "There's another important distinction here."
+    },
+    {
+      "id": "intent",
+      "title": "Assurance before implementation",
+      "narrativeSegments": [
+        "N111-N123"
+      ],
+      "start": 424.23,
+      "end": 484.24,
+      "confidence": 0.714,
+      "anchor": "And this doesn't have to begin",
+      "matchedText": "And this doesn't have to begin"
+    },
+    {
+      "id": "findings",
+      "title": "Findings are not truth",
+      "narrativeSegments": [
+        "N124-N143"
+      ],
+      "start": 484.24,
+      "end": 550.24,
+      "confidence": 0.714,
+      "anchor": "But there's an important boundary here",
+      "matchedText": "But there's an important boundary here"
+    },
+    {
+      "id": "continuous",
+      "title": "Continuous architectural assessment",
+      "narrativeSegments": [
+        "N144-N150"
+      ],
+      "start": 550.24,
+      "end": 589.2,
+      "confidence": 1,
+      "anchor": "This creates the possibility",
+      "matchedText": "This creates the possibility"
+    },
+    {
+      "id": "signal",
+      "title": "Signal over noise",
+      "narrativeSegments": [
+        "N151-N159"
+      ],
+      "start": 589.2,
+      "end": 618,
+      "confidence": 0.75,
+      "anchor": "But there's a danger here as well",
+      "matchedText": "But there's a danger here as well"
+    },
+    {
+      "id": "architecture",
+      "title": "The conceptual architecture accumulates",
+      "narrativeSegments": [
+        "N160-N168"
+      ],
+      "start": 618,
+      "end": 654.24,
+      "confidence": 0.583,
+      "anchor": "We've now spent fifteen episodes",
+      "matchedText": "We've spent 15 episodes working through the conceptual architecture behind Articulate."
+    },
+    {
+      "id": "pause",
+      "title": "All of this is still architecture",
+      "narrativeSegments": [
+        "N169-N174"
+      ],
+      "start": 654.24,
+      "end": 666.58,
+      "confidence": 1,
+      "anchor": "But so far, all of this is still architecture",
+      "matchedText": "But so far all of this is still architecture"
+    },
+    {
+      "id": "implementation",
+      "title": "Architecture confronts implementation",
+      "narrativeSegments": [
+        "N175-N177"
+      ],
+      "start": 666.58,
+      "end": 679.579,
+      "confidence": 1,
+      "anchor": "Eventually architecture has to confront implementation",
+      "matchedText": "Eventually architecture has to confront implementation"
+    }
+  ]
+}

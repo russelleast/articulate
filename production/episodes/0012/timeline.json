@@ -1,0 +1,152 @@
+{
+  "version": 2,
+  "generatedFrom": "production/episodes/0012/scene-plan.yaml",
+  "authority": "recorded-presenter",
+  "selectedDurationSeconds": 549.8493,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 5.73,
+      "narrationReference": "The opening question · N001",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "cut"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 5.73,
+      "endSeconds": 17.01,
+      "narrationReference": "Episode introduction · N002",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 17.01,
+      "endSeconds": 57.18,
+      "narrationReference": "Memory responsibilities separate · N003-N011",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 57.18,
+      "endSeconds": 100.25,
+      "narrationReference": "Work should survive the process · N012-N022",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 100.25,
+      "endSeconds": 149,
+      "narrationReference": "Restart appears plausible · N023-N035",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 149,
+      "endSeconds": 165.25,
+      "narrationReference": "Work causes external effects · N036-N040",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 165.25,
+      "endSeconds": 194.25,
+      "narrationReference": "Process failure creates uncertainty · N041-N049",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 194.25,
+      "endSeconds": 232.25,
+      "narrationReference": "Execution is progress · N050-N063",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 232.25,
+      "endSeconds": 284.25,
+      "narrationReference": "Crossing system boundaries · N064-N075",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 284.25,
+      "endSeconds": 313,
+      "narrationReference": "Humans make time architectural · N076-N083",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 313,
+      "endSeconds": 348.23,
+      "narrationReference": "The world changes while waiting · N084-N092",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 348.23,
+      "endSeconds": 387.21,
+      "narrationReference": "Durable execution · N093-N103",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 387.21,
+      "endSeconds": 397.25,
+      "narrationReference": "The durable principle · N104-N107",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 397.25,
+      "endSeconds": 451.25,
+      "narrationReference": "The runtime boundary · N108-N117",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 451.25,
+      "endSeconds": 493.25,
+      "narrationReference": "ADR 0001 requirements · N118-N125",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-evidence",
+      "transition": "cut"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 493.25,
+      "endSeconds": 549.849,
+      "narrationReference": "Ready to evaluate runtimes · N126-N137",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    }
+  ]
+}

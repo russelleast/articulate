@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "episodeId": "episode-0015",
+  "narrationAssetId": "episode-0015-presenter-v1",
+  "mediaRole": "continuous-presenter-video-with-embedded-audio",
+  "sha256": "409fab0f0e809bfb692c190e6570e657662afe9913310f6b4d7266320d62887c",
+  "media": {
+    "durationSeconds": 679.5789,
+    "sizeBytes": 1024103027,
+    "bitRate": 12055736,
+    "codec": "aac",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "channelLayout": "stereo"
+  },
+  "silenceAnalysis": {
+    "noiseThreshold": "-42dB",
+    "minimumSilenceSeconds": 0.35,
+    "leadingSilenceSeconds": 0.626437,
+    "trailingSilenceSeconds": 1.97915,
+    "usableNarrationDurationSeconds": 676.973313,
+    "detectedPauseCount": 218,
+    "majorPauseMinimumSeconds": 1.3,
+    "majorPauses": [
+      {
+        "startSeconds": 6.417438,
+        "endSeconds": 7.732229,
+        "durationSeconds": 1.314791
+      },
+      {
+        "startSeconds": 45.9465,
+        "endSeconds": 47.383354,
+        "durationSeconds": 1.436854
+      },
+      {
+        "startSeconds": 52.650646,
+        "endSeconds": 54.026187,
+        "durationSeconds": 1.375542
+      },
+      {
+        "startSeconds": 100.613979,
+        "endSeconds": 102.073604,
+        "durationSeconds": 1.459625
+      },
+      {
+        "startSeconds": 114.430188,
+        "endSeconds": 116.1275,
+        "durationSeconds": 1.697313
+      },
+      {
+        "startSeconds": 120.952021,
+        "endSeconds": 122.338375,
+        "durationSeconds": 1.386354
+      },
+      {
+        "startSeconds": 135.560875,
+        "endSeconds": 136.955437,
+        "durationSeconds": 1.394562
+      },
+      {
+        "startSeconds": 142.97775,
+        "endSeconds": 144.811813,
+        "durationSeconds": 1.834063
+      },
+      {
+        "startSeconds": 163.286792,
+        "endSeconds": 164.856646,
+        "durationSeconds": 1.569854
+      },
+      {
+        "startSeconds": 168.677021,
+        "endSeconds": 170.622,
+        "durationSeconds": 1.944979
+      },
+      {
+        "startSeconds": 211.201313,
+        "endSeconds": 212.748625,
+        "durationSeconds": 1.547312
+      },
+      {
+        "startSeconds": 231.047187,
+        "endSeconds": 232.819542,
+        "durationSeconds": 1.772355
+      },
+      {
+        "startSeconds": 238.347979,
+        "endSeconds": 239.792937,
+        "durationSeconds": 1.444958
+      },
+      {
+        "startSeconds": 249.344229,
+        "endSeconds": 251.058146,
+        "durationSeconds": 1.713917
+      },
+      {
+        "startSeconds": 265.530771,
+        "endSeconds": 266.861771,
+        "durationSeconds": 1.331
+      },
+      {
+        "startSeconds": 275.960729,
+        "endSeconds": 277.870437,
+        "durationSeconds": 1.909708
+      },
+      {
+        "startSeconds": 290.238583,
+        "endSeconds": 291.937146,
+        "durationSeconds": 1.698562
+      },
+      {
+        "startSeconds": 304.647583,
+        "endSeconds": 306.442833,
+        "durationSeconds": 1.79525
+      },
+      {
+        "startSeconds": 313.383354,
+        "endSeconds": 314.783021,
+        "durationSeconds": 1.399667
+      },
+      {
+        "startSeconds": 340.273854,
+        "endSeconds": 342.321604,
+        "durationSeconds": 2.04775
+      },
+      {
+        "startSeconds": 348.784833,
+        "endSeconds": 350.119667,
+        "durationSeconds": 1.334834
+      },
+      {
+        "startSeconds": 354.84025,
+        "endSeconds": 356.368771,
+        "durationSeconds": 1.528521
+      },
+      {
+        "startSeconds": 365.248562,
+        "endSeconds": 366.740271,
+        "durationSeconds": 1.491709
+      },
+      {
+        "startSeconds": 376.050479,
+        "endSeconds": 377.621688,
+        "durationSeconds": 1.571208
+      },
+      {
+        "startSeconds": 406.690021,
+        "endSeconds": 408.233875,
+        "durationSeconds": 1.543854
+      },
+      {
+        "startSeconds": 422.722,
+        "endSeconds": 424.0815,
+        "durationSeconds": 1.3595
+      },
+      {
+        "startSeconds": 492.96325,
+        "endSeconds": 494.322979,
+        "durationSeconds": 1.359729
+      },
+      {
+        "startSeconds": 502.119146,
+        "endSeconds": 503.718854,
+        "durationSeconds": 1.599708
+      },
+      {
+        "startSeconds": 549.234792,
+        "endSeconds": 550.887875,
+        "durationSeconds": 1.653083
+      },
+      {
+        "startSeconds": 555.373938,
+        "endSeconds": 556.765437,
+        "durationSeconds": 1.3915
+      },
+      {
+        "startSeconds": 580.030792,
+        "endSeconds": 581.482813,
+        "durationSeconds": 1.452021
+      },
+      {
+        "startSeconds": 588.522438,
+        "endSeconds": 589.870458,
+        "durationSeconds": 1.348021
+      },
+      {
+        "startSeconds": 616.400688,
+        "endSeconds": 619.082042,
+        "durationSeconds": 2.681354
+      },
+      {
+        "startSeconds": 677.59975,
+        "endSeconds": 679.593333,
+        "durationSeconds": 1.993583
+      }
+    ]
+  },
+  "interpretation": [
+    "The presenter source remains continuous from 0s to 679.5789s; no interior silence was removed.",
+    "Major pauses are deterministic signal evidence. Editorial scene boundaries are stored in production/episodes/0015/production/presenter-v1-markers.json.",
+    "The embedded audio remains coupled to the presenter picture and is the timing authority."
+  ]
+}

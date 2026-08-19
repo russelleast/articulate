@@ -1,0 +1,11 @@
+...@../../../styles/articulate
+direction: right
+knowledge: "Knowledge\nKnowledge Model" {class: capability}
+conversation: "Conversation\nconversation state" {class: node}
+retrieval: "Embeddings + indexes\nretrieval infrastructure" {class: evidence}
+context: "Reasoning context\nreconstructable" {class: capability}
+execution: "EXECUTION\nunresolved" {class: emphasis}
+knowledge -> execution: separate from
+conversation -> execution: separate from
+retrieval -> execution: separate from
+context -> execution: leaves
