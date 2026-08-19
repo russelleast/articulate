@@ -1,0 +1,573 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0014",
+    "title": "Knowledge Evolution",
+    "journalSource": "docs/episodes/0014-knowledge-evolution.md",
+    "narrativeSource": "production/episodes/0014/narrative.md",
+    "storyboard": "production/episodes/0014/storyboard.yaml",
+    "timingMarkers": "production/episodes/0014/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0014/asset-register.yaml",
+    "scenePlan": "production/episodes/0014/scene-plan.yaml",
+    "timeline": "production/episodes/0014/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0014-presenter-v1",
+    "expectedSha256": "923052c97e8e934b01f76f323be088f04ef63cba4e1236fda09dc0e31a2c2e13",
+    "expectedDurationSeconds": 689.355333,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 689.355333,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.025,
+      "softThresholdRange": 0.055,
+      "maskFeatherRadius": 2,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1,
+      "edgeVignetteRadius": 72,
+      "darkHaloSuppression": 0.03,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Established presenter framing: complete source scaled to 780x439 and anchored lower-left."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 15
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0014/output/episode-0014-final.mp4",
+    "generatedDirectory": "production/episodes/0014/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0014/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0014/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "How does architectural knowledge safely change?",
+      "kind": "presenter-focus",
+      "headline": "How does architectural knowledge safely change?",
+      "support": "Episode 14 · Articulate Journal",
+      "items": [
+        "Architecture",
+        "Claims",
+        "Current belief"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Claims are current belief",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "A living Knowledge Model",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0014-living-knowledge",
+      "visualStateMode": "complete-diagram",
+      "headline": "A living Knowledge Model",
+      "support": "Information continually arrives",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "A living Knowledge Model",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "How do we safely evolve understanding?",
+      "kind": "presenter-focus",
+      "headline": "How do we safely evolve understanding?",
+      "support": "Two unsafe extremes",
+      "items": [
+        "Cannot change → STALE",
+        "Changes freely → UNTRUSTWORTHY"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Stale or untrustworthy",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "New information is not automatically truth",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0014-competing-claims",
+      "visualStateMode": "complete-diagram",
+      "headline": "New information is not automatically truth",
+      "support": "Keep both assertions visible",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "PostgreSQL and MongoDB",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "Proposed knowledge protects accepted understanding",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0014-proposed-knowledge",
+      "visualStateMode": "complete-diagram",
+      "headline": "Proposed knowledge protects accepted understanding",
+      "support": "Conceptual responsibilities—not implementation architecture",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Proposed knowledge",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "Reconciliation can preserve uncertainty",
+      "kind": "presenter-evidence",
+      "headline": "Reconciliation can preserve uncertainty",
+      "support": "Do not manufacture certainty",
+      "items": [
+        "Supports?",
+        "Contradicts?",
+        "Supersedes?",
+        "Future state?",
+        "Not enough evidence?"
+      ],
+      "evidence": {
+        "emphasisIndex": -1
+      },
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Reconciliation preserves uncertainty",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "Evolution—not replacement",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0014-evolution-through-time",
+      "visualStateMode": "complete-diagram",
+      "headline": "Evolution—not replacement",
+      "support": "All three states remain meaningful",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Once Was, As Is, To Be",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "One model · three viewpoints",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0014-baselines",
+      "visualStateMode": "complete-diagram",
+      "headline": "One model · three viewpoints",
+      "support": "A baseline is an accepted viewpoint in time",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural baselines",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "title": "Baselines preserve architectural context",
+      "kind": "presenter-focus",
+      "headline": "Baselines preserve architectural context",
+      "support": "Ask across time",
+      "items": [
+        "What did it look like?",
+        "Why did it look like that?",
+        "What changed?"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Questions across baselines",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "title": "Approval is not acceptance",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0014-approval-timeline",
+      "visualStateMode": "complete-diagram",
+      "headline": "Approval is not acceptance",
+      "support": "The baseline may change while execution waits",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Approval is not acceptance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "title": "The execution can pause",
+      "kind": "presenter-focus",
+      "headline": "The execution can pause",
+      "support": "The architecture does not.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "The architecture does not pause",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "title": "Claims become architecture",
+      "kind": "presenter-diagram",
+      "diagramAssetId": "episode-0014-claims-to-architecture",
+      "visualStateMode": "complete-diagram",
+      "headline": "Claims become architecture",
+      "support": "Assertions assemble into relationships",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A002",
+        "A003"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Claims become architecture",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "title": "Claims explain why Articulate believes",
+      "kind": "presenter-evidence",
+      "headline": "Claims explain why Articulate believes",
+      "support": "Understanding retains provenance",
+      "items": [
+        "Evidence",
+        "Source",
+        "Confidence",
+        "Time"
+      ],
+      "evidence": {
+        "emphasisIndex": -1
+      },
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Claims retain context",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "title": "KNOWLEDGE EVOLUTION IS A CAPABILITY",
+      "kind": "presenter-focus",
+      "headline": "KNOWLEDGE EVOLUTION IS A CAPABILITY",
+      "support": "Governed architectural behaviour—not CRUD",
+      "items": [
+        "Interpret",
+        "Reconcile",
+        "Evolve understanding"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Knowledge evolution is a capability",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "title": "Understanding evolves without rewriting history",
+      "kind": "presenter-focus",
+      "headline": "Understanding evolves without rewriting history",
+      "support": "Proposed → reconciled → accepted",
+      "items": [
+        "Claims",
+        "Evidence",
+        "Baselines"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Understanding evolves",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "title": "What is the architecture?",
+      "kind": "presenter-focus",
+      "headline": "What is the architecture?",
+      "support": "becomes",
+      "items": [
+        "Is this a good architecture?"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "From description to evaluation",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "title": "Architectural Assurance",
+      "kind": "presenter-focus",
+      "headline": "Architectural Assurance",
+      "support": "Next · Episode 15",
+      "items": [
+        "Continuously evaluate architecture"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "Architectural Assurance",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

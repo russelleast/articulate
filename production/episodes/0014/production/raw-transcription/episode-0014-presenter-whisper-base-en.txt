@@ -1,0 +1,158 @@
+ How does architectural knowledge safely change over time?
+ Hello, I'm Russell and welcome to episode 14 of the Articulate Journal,
+ where I'm exploring what it takes to build an AI native architecture from first principles.
+ Earlier in the journal, I introduced a knowledge model and the idea of representing architectural knowledge as claims.
+ A claim is an assertion about an architecture.
+ The order service uses Postgres. A customer API runs in AWS.
+ The CRM platform is owned by the customer experience team.
+ But these aren't necessarily absolute truths.
+ They are things Articulate currently has some reason to believe.
+ And that creates the question for this episode.
+ What happens when new information arrives?
+ One of the goals for Articulate is to create a living architectural model.
+ Architectural information might come from a discovery conversation,
+ an architecture decision record, solution design, source code, or from the architect directly,
+ or eventually from agents reasoning over information Articulate already knows.
+ If the knowledge model represents Articulate's understanding of an architecture,
+ now understanding has to evolve as new information appears.
+ But there's a tension here.
+ If the knowledge model cannot change, it becomes stale.
+ But if anything can change it freely, it stops being trustworthy.
+ So the problem isn't really how do we update architectural knowledge.
+ It's how do we safely evolve what Articulate understands about an architecture?
+ Imagine Articulate currently believes the order service uses Postgres.
+ There is evidence supporting that claim.
+ And we have reasonably high confidence in that.
+ Then some new information arrives.
+ The order service uses MongoDB.
+ So what should Articulate do?
+ It can't simply replace Postgres with Mongo.
+ Perhaps Mongo describes the future migration.
+ Perhaps the service currently uses both.
+ Perhaps the new information is wrong.
+ Or perhaps Postgres was correct six months ago and Mongo is correct today.
+ That's an important distinction.
+ New information isn't automatically new truth.
+ It has to be understood in a context of what Articulate already knows.
+ And that led me to the idea of proposed knowledge.
+ New information doesn't directly modify the authoritative knowledge model.
+ Instead, it enters a process.
+ Something like this.
+ Incoming information initially becomes proposed knowledge.
+ That proposed knowledge is interpreted and reconciled before becoming accepted knowledge.
+ The exact implementation isn't important here.
+ What matters are the responsibilities.
+ Articulate first needs to understand what the new information is actually saying.
+ Then it needs to reconcile that information with what it already knows.
+ Does it support something we already believe?
+ Or does it contradict it?
+ Does it supersede something that was already previously true?
+ Does it describe a future state?
+ Or do we simply not have enough evidence to know yet?
+ Sometimes the correct answer will be we don't know.
+ That might require more evidence.
+ It might trigger further discovery, it might require an architect to make that judgement.
+ I don't want an agent manufacturing architectural certainty simply because the underlying data model expects one answer.
+ Uncertainty is a part of architectural knowledge.
+ Time becomes particularly important during reconciliation.
+ We might eventually understand that the order service used Postgres,
+ the order service currently uses Mongo and the order service might move to Dynamo.
+ Those aren't contradictory claims.
+ Together they describe the evolution of the architecture of once was and as is and what is to be.
+ Importantly, accepting Mongo doesn't mean deleting Postgres.
+ If Postgres generally represents the architecture previously, it remains part of the architectural history.
+ This matters because architectural decisions have contexts.
+ A decision made two years ago should be understood against the architecture that existed two years ago.
+ Something that looks like a poor decision today may have been completely reasonable given the constraints knowledge and the architecture that existed at the time.
+ So the knowledge hasn't simply been corrected.
+ Our understanding has evolved.
+ This is where architectural baselines become important.
+ Understanding the baseline architecture is something that architects say a lot.
+ Without articulating, I think a baseline gives a phrase a specific meaning.
+ A baseline represents an accepted architectural viewpoint or a particular point in the architecture's evolution.
+ It doesn't need to duplicate the entire knowledge model.
+ The knowledge model remains one connected body of architectural knowledge.
+ The baseline determines the viewpoint through which that knowledge is understood.
+ A current baseline represents the architecture we understand to exist today.
+ A previous baseline allows us to understand the architecture as it once was.
+ And a target baseline can represent the architecture we're intending to create.
+ This gives us that once was, as is and to be states, without maintaining three disconnected architecture models.
+ And because the underlying claims, evidence and decisions remain connected, we can ask more than what did the architecture look like.
+ We can also ask, why did it look like that?
+ Or what changed between these baselines?
+ That's much closer to how I want to articulate to understand architectural change.
+ There's another consequence of this model.
+ Proposed knowledge might remain proposed for quite some time.
+ Imagine a significant architectural proposal that requires human approval.
+ The proposal was created and reconciled against the current baseline.
+ It looks reasonable, but the architect doesn't approve it till two weeks later.
+ During those two weeks, the architecture may have changed.
+ Another decision may have been accepted.
+ Dependency may have changed.
+ A system may now be scheduled for assignment.
+ New evidence may have appeared.
+ The proposal was valid against the baseline from two weeks ago.
+ That doesn't necessarily mean it's valid against the current baseline.
+ So approval alone isn't necessary enough to make something accepted as architectural knowledge.
+ Before the proposal was merged, it may need to be reconciled against the latest baseline.
+ I think this is particularly interesting after the previous episodes on durable execution.
+ The execution can pause.
+ A human can take days to respond, but the architecture doesn't pause while we're waiting.
+ When execution resumes, the world may have changed.
+ There's one important distinction. Articulate isn't ultimately going to present architects
+ with thousands of disconnected claims.
+ Claims are the assertions underneath the architecture understanding.
+ Imagine Articulate has accepted these claims.
+ Order service runs in AWS ECS.
+ Order service reads and writes to the order database.
+ The order database is Postgres SQL, and the order database runs in AWS RDS.
+ Individually, these are architecture assertions.
+ Together, they begin to describe a system.
+ They identify architectural entities, they establish relationships,
+ and they create a connected architecture model.
+ Other claims might describe ownership, business capabilities, characteristics,
+ principles, and decisions.
+ The architecture emerges from the relationships between what Articulate has learnt.
+ But the underlying claim remains important because they explain why Articulate
+ believes those relationships exist.
+ What evidence supports them, where they came from, and how confident we are.
+ And when they're believed to be true, the architecture model gives us understanding.
+ The claims give us the understanding context.
+ This has changed how I think about the knowledge model.
+ Originally, the problem sounded like a data modeling problem.
+ How should Articulate store architectural information?
+ But storage isn't really the interesting problem.
+ The interesting problem is maintaining an evolving understanding of the architecture.
+ New information has to be interpreted.
+ It has to be reconciled with the existing understanding.
+ Time has to be considered.
+ Evidence and confidence have to matter.
+ And sometimes, uncertainty has to remain unresolved.
+ This also clarifies an important architectural boundary.
+ Agents shouldn't simply modify the knowledge model.
+ They can contribute information.
+ They can interpret it.
+ They can reconcile claims.
+ They can gather evidence.
+ They can reason about what has changed.
+ But changing authoritative architectural knowledge is a governed behavior.
+ There's not simply a database update.
+ Knowledge evolution is in itself an architectural capability.
+ So, we now have a model where Articulate can continually receive new architectural information
+ without automatically treating that information as truth.
+ New information becomes proposed knowledge.
+ It is interpreted and reconciled against existing understanding.
+ Accepted knowledge can evolve our understanding of the architecture without rewriting what came before it.
+ And baselines allow us to understand the architecture from different points in its evolution.
+ Here's another problem.
+ A proposed change can be perfectly consistent with what Articulate already knows
+ and still be a bad architectural change.
+ It might violate an architectural principle.
+ It might introduce a dependency on a system that we're trying to retire.
+ It might improve availability while significantly increasing operational complexity.
+ Knowing what the architecture is isn't enough.
+ We also need to evaluate what knowledge means.
+ And that is the question for the next episode.
+ How can Articulate continuously evaluate an architecture rather than simply storing it?
+ That's where architectural assurance begins.
+ See you on the next one.

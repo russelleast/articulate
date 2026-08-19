@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "status": "approved",
+  "episode": {
+    "id": "0014",
+    "title": "Knowledge Evolution",
+    "writtenSource": "docs/episodes/0014-knowledge-evolution.md",
+    "narrativeSource": "production/episodes/0014/narrative.md",
+    "presenterMedia": "production/episodes/0014/Ep14-narrator.mp4"
+  },
+  "editorialPrinciple": "New information becomes proposed knowledge; accepted understanding evolves without rewriting architectural history.",
+  "sections": [
+    {"id":"opening","title":"Claims are current belief","narrativeSegments":["N001-N012"],"startSeconds":0},
+    {"id":"living","title":"A living Knowledge Model","narrativeSegments":["N013-N020"],"anchor":"One of the goals for Articulate"},
+    {"id":"tension","title":"Stale or untrustworthy","narrativeSegments":["N021-N025"],"anchor":"But there's a tension here"},
+    {"id":"new-claim","title":"PostgreSQL and MongoDB","narrativeSegments":["N026-N039"],"anchor":"Imagine Articulate currently believes"},
+    {"id":"proposed","title":"Proposed knowledge","narrativeSegments":["N040-N046"],"anchor":"And that led me to the idea"},
+    {"id":"reconcile","title":"Reconciliation preserves uncertainty","narrativeSegments":["N047-N062"],"anchor":"The exact implementation isn't important"},
+    {"id":"time","title":"Once Was, As Is, To Be","narrativeSegments":["N063-N076"],"anchor":"Time becomes particularly important"},
+    {"id":"baselines","title":"Architectural baselines","narrativeSegments":["N077-N090"],"anchor":"This is where architectural baselines"},
+    {"id":"baseline-questions","title":"Questions across baselines","narrativeSegments":["N091-N095"],"anchor":"And because the underlying claims"},
+    {"id":"approval","title":"Approval is not acceptance","narrativeSegments":["N096-N110"],"anchor":"There's another consequence"},
+    {"id":"resume","title":"The architecture does not pause","narrativeSegments":["N111-N115"],"anchor":"I think this is particularly interesting"},
+    {"id":"claims","title":"Claims become architecture","narrativeSegments":["N116-N133"],"anchor":"There's one important distinction"},
+    {"id":"context","title":"Claims retain context","narrativeSegments":["N134-N140"],"anchor":"But the underlying claim"},
+    {"id":"capability","title":"Knowledge evolution is a capability","narrativeSegments":["N141-N158"],"anchor":"This has changed how I think"},
+    {"id":"summary","title":"Understanding evolves","narrativeSegments":["N159-N164"],"anchor":"So, we now have a model"},
+    {"id":"assurance","title":"From description to evaluation","narrativeSegments":["N165-N173"],"anchor":"Here's another problem"},
+    {"id":"closing","title":"Architectural Assurance","narrativeSegments":["N174-N194"],"anchor":"And that is the question"}
+  ],
+  "scenes": [
+    {"id":"S001","section":"opening","archetype":"Narrator","kind":"presenter-focus","transition":"cut","headline":"How does architectural knowledge safely change?","support":"Episode 14 · Articulate Journal","items":["Architecture","Claims","Current belief"]},
+    {"id":"S002","section":"living","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"A living Knowledge Model","support":"Information continually arrives","diagramAssetId":"episode-0014-living-knowledge"},
+    {"id":"S003","section":"tension","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"How do we safely evolve understanding?","support":"Two unsafe extremes","items":["Cannot change → STALE","Changes freely → UNTRUSTWORTHY"]},
+    {"id":"S004","section":"new-claim","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"New information is not automatically truth","support":"Keep both assertions visible","diagramAssetId":"episode-0014-competing-claims"},
+    {"id":"S005","section":"proposed","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Proposed knowledge protects accepted understanding","support":"Conceptual responsibilities—not implementation architecture","diagramAssetId":"episode-0014-proposed-knowledge"},
+    {"id":"S006","section":"reconcile","archetype":"Evidence","kind":"presenter-evidence","transition":"fade","headline":"Reconciliation can preserve uncertainty","support":"Do not manufacture certainty","items":["Supports?","Contradicts?","Supersedes?","Future state?","Not enough evidence?"],"evidence":{"emphasisIndex":-1}},
+    {"id":"S007","section":"time","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Evolution—not replacement","support":"All three states remain meaningful","diagramAssetId":"episode-0014-evolution-through-time"},
+    {"id":"S008","section":"baselines","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"One model · three viewpoints","support":"A baseline is an accepted viewpoint in time","diagramAssetId":"episode-0014-baselines"},
+    {"id":"S009","section":"baseline-questions","archetype":"Reflection","kind":"presenter-focus","transition":"fade","headline":"Baselines preserve architectural context","support":"Ask across time","items":["What did it look like?","Why did it look like that?","What changed?"]},
+    {"id":"S010","section":"approval","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Approval is not acceptance","support":"The baseline may change while execution waits","diagramAssetId":"episode-0014-approval-timeline"},
+    {"id":"S011","section":"resume","archetype":"Reflection","kind":"presenter-focus","transition":"fade","headline":"The execution can pause","support":"The architecture does not.","items":[]},
+    {"id":"S012","section":"claims","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Claims become architecture","support":"Assertions assemble into relationships","diagramAssetId":"episode-0014-claims-to-architecture"},
+    {"id":"S013","section":"context","archetype":"Evidence","kind":"presenter-evidence","transition":"fade","headline":"Claims explain why Articulate believes","support":"Understanding retains provenance","items":["Evidence","Source","Confidence","Time"],"evidence":{"emphasisIndex":-1}},
+    {"id":"S014","section":"capability","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"KNOWLEDGE EVOLUTION IS A CAPABILITY","support":"Governed architectural behaviour—not CRUD","items":["Interpret","Reconcile","Evolve understanding"]},
+    {"id":"S015","section":"summary","archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"Understanding evolves without rewriting history","support":"Proposed → reconciled → accepted","items":["Claims","Evidence","Baselines"]},
+    {"id":"S016","section":"assurance","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"What is the architecture?","support":"becomes","items":["Is this a good architecture?"]},
+    {"id":"S017","section":"closing","archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"Architectural Assurance","support":"Next · Episode 15","items":["Continuously evaluate architecture"]}
+  ]
+}

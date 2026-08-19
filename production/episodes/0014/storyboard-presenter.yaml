@@ -1,0 +1,204 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0014",
+    "title": "Knowledge Evolution",
+    "written_source": "docs/episodes/0014-knowledge-evolution.md",
+    "narrative_source": "production/episodes/0014/narrative.md",
+    "scene_plan": "production/episodes/0014/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 689.355333
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "How does architectural knowledge safely change?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N012"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 52.21
+    },
+    {
+      "id": "S002",
+      "title": "A living Knowledge Model",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N013-N020"
+      ],
+      "start_seconds": 52.21,
+      "end_seconds": 85
+    },
+    {
+      "id": "S003",
+      "title": "How do we safely evolve understanding?",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N021-N025"
+      ],
+      "start_seconds": 85,
+      "end_seconds": 107.5
+    },
+    {
+      "id": "S004",
+      "title": "New information is not automatically truth",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N026-N039"
+      ],
+      "start_seconds": 107.5,
+      "end_seconds": 156.21
+    },
+    {
+      "id": "S005",
+      "title": "Proposed knowledge protects accepted understanding",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N040-N046"
+      ],
+      "start_seconds": 156.21,
+      "end_seconds": 179
+    },
+    {
+      "id": "S006",
+      "title": "Reconciliation can preserve uncertainty",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N047-N062"
+      ],
+      "start_seconds": 179,
+      "end_seconds": 233.21
+    },
+    {
+      "id": "S007",
+      "title": "Evolution—not replacement",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N063-N076"
+      ],
+      "start_seconds": 233.21,
+      "end_seconds": 298.21
+    },
+    {
+      "id": "S008",
+      "title": "One model · three viewpoints",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N077-N090"
+      ],
+      "start_seconds": 298.21,
+      "end_seconds": 360.21
+    },
+    {
+      "id": "S009",
+      "title": "Baselines preserve architectural context",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N091-N095"
+      ],
+      "start_seconds": 360.21,
+      "end_seconds": 382
+    },
+    {
+      "id": "S010",
+      "title": "Approval is not acceptance",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N096-N110"
+      ],
+      "start_seconds": 382,
+      "end_seconds": 442
+    },
+    {
+      "id": "S011",
+      "title": "The execution can pause",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N111-N115"
+      ],
+      "start_seconds": 442,
+      "end_seconds": 459
+    },
+    {
+      "id": "S012",
+      "title": "Claims become architecture",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N116-N133"
+      ],
+      "start_seconds": 459,
+      "end_seconds": 520.21
+    },
+    {
+      "id": "S013",
+      "title": "Claims explain why Articulate believes",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N134-N140"
+      ],
+      "start_seconds": 520.21,
+      "end_seconds": 544.21
+    },
+    {
+      "id": "S014",
+      "title": "KNOWLEDGE EVOLUTION IS A CAPABILITY",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N141-N158"
+      ],
+      "start_seconds": 544.21,
+      "end_seconds": 609.14
+    },
+    {
+      "id": "S015",
+      "title": "Understanding evolves without rewriting history",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N159-N164"
+      ],
+      "start_seconds": 609.14,
+      "end_seconds": 641
+    },
+    {
+      "id": "S016",
+      "title": "What is the architecture?",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N165-N173"
+      ],
+      "start_seconds": 641,
+      "end_seconds": 673.21
+    },
+    {
+      "id": "S017",
+      "title": "Architectural Assurance",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N174-N194"
+      ],
+      "start_seconds": 673.21,
+      "end_seconds": 689.355
+    }
+  ]
+}

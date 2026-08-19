@@ -1,0 +1,9 @@
+service: Order Service
+ecs: AWS ECS
+database: Order Database
+postgres: PostgreSQL
+rds: AWS RDS
+service -> ecs: runs in
+service -> database: reads / writes
+database -> postgres: is
+database -> rds: runs in

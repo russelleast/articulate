@@ -1,0 +1,161 @@
+{
+  "version": 2,
+  "generatedFrom": "production/episodes/0014/scene-plan.yaml",
+  "authority": "recorded-presenter",
+  "selectedDurationSeconds": 689.355333,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 52.21,
+      "narrationReference": "Claims are current belief",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "cut"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 52.21,
+      "endSeconds": 85,
+      "narrationReference": "A living Knowledge Model",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 85,
+      "endSeconds": 107.5,
+      "narrationReference": "Stale or untrustworthy",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 107.5,
+      "endSeconds": 156.21,
+      "narrationReference": "PostgreSQL and MongoDB",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 156.21,
+      "endSeconds": 179,
+      "narrationReference": "Proposed knowledge",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 179,
+      "endSeconds": 233.21,
+      "narrationReference": "Reconciliation preserves uncertainty",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "transition": "fade"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 233.21,
+      "endSeconds": 298.21,
+      "narrationReference": "Once Was, As Is, To Be",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 298.21,
+      "endSeconds": 360.21,
+      "narrationReference": "Architectural baselines",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 360.21,
+      "endSeconds": 382,
+      "narrationReference": "Questions across baselines",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 382,
+      "endSeconds": 442,
+      "narrationReference": "Approval is not acceptance",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 442,
+      "endSeconds": 459,
+      "narrationReference": "The architecture does not pause",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 459,
+      "endSeconds": 520.21,
+      "narrationReference": "Claims become architecture",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "transition": "cut"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 520.21,
+      "endSeconds": 544.21,
+      "narrationReference": "Claims retain context",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "transition": "fade"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 544.21,
+      "endSeconds": 609.14,
+      "narrationReference": "Knowledge evolution is a capability",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 609.14,
+      "endSeconds": 641,
+      "narrationReference": "Understanding evolves",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 641,
+      "endSeconds": 673.21,
+      "narrationReference": "From description to evaluation",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 673.21,
+      "endSeconds": 689.355,
+      "narrationReference": "Architectural Assurance",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    }
+  ]
+}
