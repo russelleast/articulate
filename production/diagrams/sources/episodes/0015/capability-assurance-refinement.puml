@@ -2,26 +2,31 @@
 skinparam backgroundColor transparent
 skinparam shadowing false
 skinparam defaultFontName Arial
+skinparam defaultFontSize 22
 skinparam defaultFontColor #17232D
-skinparam activity {
+skinparam rectangle {
   BackgroundColor #F7F4ED
-  BorderColor #263746
+  BorderColor #49677C
   FontColor #17232D
-  DiamondBackgroundColor #E8EDF2
-  DiamondBorderColor #49677C
-  StartColor #176B62
-  EndColor #176B62
+  RoundCorner 18
 }
 skinparam ArrowColor #0D32B2
+skinparam ArrowFontSize 18
+left to right direction
 
-start
-:Capability Intent;
-repeat
-  :DCL Definition;
-  :Capability Assurance; <<#DCEBE7>>
-  :Findings and Discovery Questions;
-  :Refined Capability Intent;
-repeat while (Further clarification needed?) is (yes)
-->no;
-stop
+circle "Intent" as start #176B62
+rectangle "Capability\nIntent" as intent
+rectangle "DCL\nDefinition" as dcl
+rectangle "Capability\nAssurance" as assurance #DCEBE7
+rectangle "Findings and\nDiscovery Questions" as findings #F3E3DE
+rectangle "Refined\nCapability Intent" as refined
+circle "Ready" as ready #4A6FF3
+
+start --> intent
+intent --> dcl
+dcl --> assurance
+assurance --> findings
+findings --> refined
+refined --> ready : sufficient
+refined -up-> dcl : clarify
 @enduml
