@@ -1,0 +1,867 @@
+1
+00:00:00,170 --> 00:00:04,280
+How does architectural knowledge
+safely change over time?
+
+2
+00:00:04,670 --> 00:00:08,040
+Hello, I'm Russell and
+welcome to episode 14 of
+
+3
+00:00:08,080 --> 00:00:11,110
+the Articulate Journal, where
+I'm exploring what it takes
+
+4
+00:00:11,150 --> 00:00:15,120
+to build an AI-native architecture
+from first principles.
+
+5
+00:00:15,460 --> 00:00:18,560
+Earlier in the journal, I
+introduced a Knowledge Model
+
+6
+00:00:18,600 --> 00:00:21,940
+and the idea of representing
+architectural knowledge as claims.
+
+7
+00:00:22,080 --> 00:00:25,920
+A claim is an assertion
+about an architecture.
+
+8
+00:00:27,170 --> 00:00:29,800
+The order service uses PostgreSQL.
+
+9
+00:00:29,960 --> 00:00:32,110
+A customer API runs in AWS.
+
+10
+00:00:33,170 --> 00:00:36,580
+The CRM platform is owned
+by the customer experience
+
+11
+00:00:36,620 --> 00:00:39,860
+team. But these aren't
+necessarily absolute truths.
+
+12
+00:00:40,170 --> 00:00:44,260
+They are things Articulate
+currently has some reason to
+
+13
+00:00:44,300 --> 00:00:47,860
+believe. And that creates the
+question for this episode.
+
+14
+00:00:48,170 --> 00:00:51,780
+What happens when new information arrives?
+
+15
+00:00:52,170 --> 00:00:54,760
+One of the goals for
+Articulate is to create
+
+16
+00:00:54,800 --> 00:01:00,060
+a living architectural model.
+Architectural information might come from
+
+17
+00:01:00,100 --> 00:01:05,870
+a discovery conversation, an architecture
+decision record, solution design,
+
+18
+00:01:05,960 --> 00:01:09,960
+source code, or from the
+architect directly, or eventually
+
+19
+00:01:10,000 --> 00:01:14,800
+from agents reasoning over
+information Articulate already knows.
+
+20
+00:01:15,100 --> 00:01:19,070
+If the Knowledge Model represents
+Articulate understanding of an
+
+21
+00:01:19,110 --> 00:01:24,170
+architecture, now understanding
+has to evolve as new information
+
+22
+00:01:24,210 --> 00:01:26,790
+appears. But there's a tension here.
+
+23
+00:01:27,120 --> 00:01:30,830
+If the Knowledge Model cannot
+change, it becomes stale.
+
+24
+00:01:31,170 --> 00:01:34,490
+But if anything can
+change it freely, it stops
+
+25
+00:01:34,530 --> 00:01:37,760
+being trustworthy. So the
+problem isn't really how do
+
+26
+00:01:37,800 --> 00:01:41,710
+we update architectural
+knowledge. It's how do we safely
+
+27
+00:01:41,750 --> 00:01:46,750
+evolve what Articulate
+understands about an architecture?
+
+28
+00:01:47,460 --> 00:01:53,120
+Imagine Articulate currently believes
+the order service uses PostgreSQL.
+
+29
+00:01:53,170 --> 00:01:56,120
+There is evidence supporting that claim.
+
+30
+00:01:56,170 --> 00:01:58,860
+And we have reasonably
+high confidence in that.
+
+31
+00:01:59,170 --> 00:02:01,820
+Then some new information arrives.
+
+32
+00:02:02,170 --> 00:02:04,780
+The order service uses MongoDB.
+
+33
+00:02:05,170 --> 00:02:07,760
+So what should Articulate do?
+
+34
+00:02:08,110 --> 00:02:10,840
+It can't simply replace
+PostgreSQL with MongoDB.
+
+35
+00:02:11,170 --> 00:02:13,860
+Perhaps MongoDB describes
+the future migration.
+
+36
+00:02:14,180 --> 00:02:16,840
+Perhaps the service currently uses both.
+
+37
+00:02:17,170 --> 00:02:18,910
+Perhaps the new information is wrong.
+
+38
+00:02:19,160 --> 00:02:23,200
+Or perhaps PostgreSQL was
+correct six months ago and
+
+39
+00:02:23,240 --> 00:02:27,810
+MongoDB is correct today.
+That's an important distinction.
+
+40
+00:02:28,170 --> 00:02:31,790
+New information isn't
+automatically new truth.
+
+41
+00:02:32,100 --> 00:02:34,120
+It has to be understood in a context of
+
+42
+00:02:34,160 --> 00:02:37,230
+what Articulate already
+knows. And that led me to
+
+43
+00:02:37,270 --> 00:02:39,780
+the idea of proposed knowledge.
+
+44
+00:02:40,130 --> 00:02:43,890
+New information doesn't directly modify
+the authoritative Knowledge Model.
+
+45
+00:02:44,460 --> 00:02:46,760
+Instead, it enters a process.
+
+46
+00:02:47,460 --> 00:02:52,860
+Something like this. Incoming information
+initially becomes proposed knowledge.
+
+47
+00:02:53,170 --> 00:02:56,920
+That proposed knowledge is interpreted
+and reconciled before becoming
+
+48
+00:02:57,190 --> 00:03:01,840
+accepted knowledge. The exact
+implementation isn't important here.
+
+49
+00:03:02,170 --> 00:03:03,910
+What matters are the responsibilities.
+
+50
+00:03:04,170 --> 00:03:07,910
+Articulate first needs to
+understand what the new information
+
+51
+00:03:07,950 --> 00:03:11,030
+is actually saying. Then
+it needs to reconcile that
+
+52
+00:03:11,070 --> 00:03:13,870
+information with what it already knows.
+
+53
+00:03:14,170 --> 00:03:16,860
+Does it support something
+we already believe?
+
+54
+00:03:17,040 --> 00:03:17,950
+Or does it contradict it?
+
+55
+00:03:18,170 --> 00:03:22,800
+Does it supersede something that
+was already previously true?
+
+56
+00:03:23,170 --> 00:03:24,880
+Does it describe a future state?
+
+57
+00:03:25,170 --> 00:03:28,810
+Or do we simply not
+have enough evidence to
+
+58
+00:03:28,850 --> 00:03:32,850
+know yet? Sometimes the
+correct answer will be we
+
+59
+00:03:32,890 --> 00:03:35,900
+don't know. That might
+require more evidence.
+
+60
+00:03:36,140 --> 00:03:39,620
+It might trigger further
+discovery, it might require an
+
+61
+00:03:39,660 --> 00:03:40,960
+architect to make that judgement.
+
+62
+00:03:41,000 --> 00:03:45,420
+I don't want an agent manufacturing
+architectural certainty simply
+
+63
+00:03:45,460 --> 00:03:47,960
+because the underlying data
+model expects one answer.
+
+64
+00:03:48,170 --> 00:03:52,740
+Uncertainty is a part of
+architectural knowledge.
+
+65
+00:03:53,170 --> 00:03:56,870
+Time becomes particularly
+important during reconciliation.
+
+66
+00:03:57,130 --> 00:04:01,240
+We might eventually understand
+that the order service used
+
+67
+00:04:01,280 --> 00:04:05,220
+PostgreSQL, the order service
+currently uses MongoDB and the
+
+68
+00:04:05,260 --> 00:04:07,800
+order service might move to DynamoDB.
+
+69
+00:04:08,170 --> 00:04:12,890
+Those aren't contradictory claims.
+Together they describe the evolution
+
+70
+00:04:12,930 --> 00:04:16,960
+of the architecture of once was and as is
+
+71
+00:04:17,000 --> 00:04:19,000
+and what is to be.
+
+72
+00:04:19,170 --> 00:04:22,900
+Importantly, accepting MongoDB
+doesn't mean deleting PostgreSQL.
+
+73
+00:04:23,100 --> 00:04:27,710
+If PostgreSQL generally represents the
+architecture previously, it remains
+
+74
+00:04:27,750 --> 00:04:29,860
+part of the architectural history.
+
+75
+00:04:30,170 --> 00:04:33,870
+This matters because architectural
+decisions have contexts.
+
+76
+00:04:33,960 --> 00:04:36,960
+A decision made two years
+ago should be understood
+
+77
+00:04:37,000 --> 00:04:40,830
+against the architecture
+that existed two years ago.
+
+78
+00:04:41,460 --> 00:04:44,150
+Something that looks like
+a poor decision today may
+
+79
+00:04:44,190 --> 00:04:47,460
+have been completely reasonable
+given the constraints knowledge and
+
+80
+00:04:47,500 --> 00:04:49,970
+the architecture that existed at the time.
+
+81
+00:04:50,170 --> 00:04:54,670
+So the knowledge hasn't
+simply been corrected.
+
+82
+00:04:55,170 --> 00:05:00,510
+Our understanding has evolved. This
+is where architectural baselines
+
+83
+00:05:00,550 --> 00:05:05,520
+become important. Understanding the
+baseline architecture is something that
+
+84
+00:05:05,560 --> 00:05:09,550
+architects say a lot. Without
+articulating, I think a
+
+85
+00:05:09,590 --> 00:05:12,800
+baseline gives a phrase
+a specific meaning.
+
+86
+00:05:12,960 --> 00:05:17,140
+A baseline represents an accepted
+architectural viewpoint or a
+
+87
+00:05:17,180 --> 00:05:19,910
+particular point in the
+architecture's evolution.
+
+88
+00:05:20,120 --> 00:05:23,840
+It doesn't need to duplicate
+the entire Knowledge Model.
+
+89
+00:05:24,170 --> 00:05:28,980
+The Knowledge Model remains one
+connected body of architectural
+
+90
+00:05:29,080 --> 00:05:33,270
+knowledge. The baseline determines
+the viewpoint through which that
+
+91
+00:05:33,310 --> 00:05:37,950
+knowledge is understood. A current
+baseline represents the architecture
+
+92
+00:05:37,990 --> 00:05:39,840
+we understand to exist today.
+
+93
+00:05:40,050 --> 00:05:45,020
+A previous baseline allows us
+to understand the architecture
+
+94
+00:05:45,080 --> 00:05:47,440
+as it once was. And a target baseline can
+
+95
+00:05:47,480 --> 00:05:50,850
+represent the architecture
+we're intending to create.
+
+96
+00:05:51,170 --> 00:05:54,680
+This gives us that once was, as is and
+
+97
+00:05:54,720 --> 00:06:00,120
+to be states, without maintaining
+three disconnected architecture models.
+
+98
+00:06:00,170 --> 00:06:04,220
+And because the underlying claims,
+evidence and decisions remain
+
+99
+00:06:04,260 --> 00:06:07,960
+connected, we can ask
+more than what did the
+
+100
+00:06:08,000 --> 00:06:11,560
+architecture look like.
+We can also ask, why did
+
+101
+00:06:11,600 --> 00:06:14,960
+it look like that? Or
+what changed between these
+
+102
+00:06:15,000 --> 00:06:18,390
+baselines? That's much
+closer to how I want to
+
+103
+00:06:18,430 --> 00:06:21,800
+articulate to understand
+architectural change.
+
+104
+00:06:22,170 --> 00:06:24,840
+There's another consequence of this model.
+
+105
+00:06:25,170 --> 00:06:29,800
+Proposed knowledge might remain
+proposed for quite some time.
+
+106
+00:06:30,180 --> 00:06:35,810
+Imagine a significant architectural
+proposal that requires human approval.
+
+107
+00:06:36,150 --> 00:06:39,210
+The proposal was created and
+reconciled against the current
+
+108
+00:06:39,250 --> 00:06:43,200
+baseline. It looks reasonable,
+but the architect doesn't approve
+
+109
+00:06:43,240 --> 00:06:44,830
+it till two weeks later.
+
+110
+00:06:45,170 --> 00:06:48,840
+During those two weeks, the
+architecture may have changed.
+
+111
+00:06:49,170 --> 00:06:50,930
+Another decision may have been accepted.
+
+112
+00:06:51,460 --> 00:06:55,180
+Dependency may have
+changed. A system may now be
+
+113
+00:06:55,220 --> 00:06:59,790
+scheduled for assignment. New
+evidence may have appeared.
+
+114
+00:07:00,120 --> 00:07:02,390
+The proposal was valid
+against the baseline from two
+
+115
+00:07:02,430 --> 00:07:05,570
+weeks ago. That doesn't
+necessarily mean it's valid against
+
+116
+00:07:05,610 --> 00:07:09,760
+the current baseline. So approval
+alone isn't necessary enough
+
+117
+00:07:09,800 --> 00:07:13,880
+to make something accepted
+as architectural knowledge.
+
+118
+00:07:14,180 --> 00:07:18,060
+Before the proposal was
+merged, it may need to
+
+119
+00:07:18,100 --> 00:07:21,770
+be reconciled against the latest baseline.
+
+120
+00:07:21,960 --> 00:07:25,100
+I think this is particularly
+interesting after the previous
+
+121
+00:07:25,140 --> 00:07:28,800
+episodes on durable execution.
+The execution can pause.
+
+122
+00:07:28,960 --> 00:07:31,390
+A human can take days to respond, but the
+
+123
+00:07:31,430 --> 00:07:34,800
+architecture doesn't
+pause while we're waiting.
+
+124
+00:07:35,170 --> 00:07:38,820
+When execution resumes,
+the world may have changed.
+
+125
+00:07:39,170 --> 00:07:43,960
+There's one important distinction.
+Articulate isn't ultimately going to
+
+126
+00:07:44,000 --> 00:07:46,840
+present architects with
+thousands of disconnected claims.
+
+127
+00:07:47,170 --> 00:07:51,840
+Claims are the assertions underneath
+the architecture understanding.
+
+128
+00:07:52,460 --> 00:07:55,800
+Imagine Articulate has
+accepted these claims.
+
+129
+00:07:56,460 --> 00:07:59,640
+Order service runs in AWS ECS.
+
+130
+00:08:00,180 --> 00:08:04,760
+Order service reads and
+writes to the order database.
+
+131
+00:08:05,170 --> 00:08:09,490
+The order database is PostgreSQL,
+and the order database
+
+132
+00:08:09,530 --> 00:08:14,840
+runs in AWS RDS. Individually,
+these are architecture assertions.
+
+133
+00:08:15,180 --> 00:08:17,840
+Together, they begin to describe a system.
+
+134
+00:08:18,170 --> 00:08:23,600
+They identify architectural entities,
+they establish relationships, and they
+
+135
+00:08:23,640 --> 00:08:26,800
+create a connected architecture model.
+
+136
+00:08:27,170 --> 00:08:32,000
+Other claims might describe ownership,
+business capabilities, characteristics,
+
+137
+00:08:32,180 --> 00:08:37,010
+principles, and decisions. The
+architecture emerges from the
+
+138
+00:08:37,050 --> 00:08:39,920
+relationships between what
+Articulate has learnt.
+
+139
+00:08:40,170 --> 00:08:43,920
+But the underlying claim remains
+important because they explain
+
+140
+00:08:43,960 --> 00:08:48,840
+why Articulate believes
+those relationships exist.
+
+141
+00:08:49,170 --> 00:08:52,160
+What evidence supports them,
+where they came from, and
+
+142
+00:08:52,200 --> 00:08:55,430
+how confident we are. And
+when they're believed to
+
+143
+00:08:55,470 --> 00:08:59,840
+be true, the architecture
+model gives us understanding.
+
+144
+00:09:00,170 --> 00:09:03,800
+The claims give us the
+understanding context.
+
+145
+00:09:04,170 --> 00:09:06,280
+This has changed how I
+think about the Knowledge
+
+146
+00:09:06,320 --> 00:09:09,380
+Model. Originally, the problem
+sounded like a data modeling
+
+147
+00:09:09,420 --> 00:09:13,850
+problem. How should Articulate
+store architectural information?
+
+148
+00:09:14,170 --> 00:09:17,810
+But storage isn't really
+the interesting problem.
+
+149
+00:09:18,130 --> 00:09:22,160
+The interesting problem is maintaining
+an evolving understanding of
+
+150
+00:09:22,200 --> 00:09:25,920
+the architecture. New information
+has to be interpreted.
+
+151
+00:09:26,080 --> 00:09:28,840
+It has to be reconciled with
+the existing understanding.
+
+152
+00:09:29,170 --> 00:09:30,790
+Time has to be considered.
+
+153
+00:09:31,460 --> 00:09:33,840
+Evidence and confidence have to matter.
+
+154
+00:09:34,170 --> 00:09:38,770
+And sometimes, uncertainty
+has to remain unresolved.
+
+155
+00:09:39,170 --> 00:09:42,840
+This also clarifies an important
+architectural boundary.
+
+156
+00:09:43,170 --> 00:09:45,860
+Agents shouldn't simply
+modify the Knowledge Model.
+
+157
+00:09:46,170 --> 00:09:48,950
+They can contribute information.
+They can interpret it.
+
+158
+00:09:49,170 --> 00:09:51,980
+They can reconcile claims.
+They can gather evidence.
+
+159
+00:09:52,170 --> 00:09:54,820
+They can reason about what has changed.
+
+160
+00:09:55,170 --> 00:09:59,850
+But changing authoritative architectural
+knowledge is a governed behavior.
+
+161
+00:10:00,180 --> 00:10:03,730
+There's not simply a database update.
+
+162
+00:10:04,460 --> 00:10:08,800
+Knowledge evolution is in itself
+an architectural capability.
+
+163
+00:10:09,100 --> 00:10:11,590
+So, we now have a model
+where Articulate can
+
+164
+00:10:11,630 --> 00:10:16,530
+continually receive new architectural
+information without automatically treating
+
+165
+00:10:16,570 --> 00:10:21,810
+that information as truth. New
+information becomes proposed knowledge.
+
+166
+00:10:22,090 --> 00:10:25,880
+It is interpreted and reconciled
+against existing understanding.
+
+167
+00:10:26,460 --> 00:10:30,650
+Accepted knowledge can evolve our
+understanding of the architecture
+
+168
+00:10:30,690 --> 00:10:33,800
+without rewriting what came before it.
+
+169
+00:10:34,170 --> 00:10:38,600
+And baselines allow us to
+understand the architecture from
+
+170
+00:10:38,640 --> 00:10:40,850
+different points in its evolution.
+
+171
+00:10:41,170 --> 00:10:45,460
+Here's another problem. A
+proposed change can be perfectly
+
+172
+00:10:45,500 --> 00:10:49,780
+consistent with what Articulate
+already knows and still be
+
+173
+00:10:49,820 --> 00:10:54,060
+a bad architectural change. It
+might violate an architectural
+
+174
+00:10:54,100 --> 00:10:57,840
+principle. It might introduce
+a dependency on a system
+
+175
+00:10:57,880 --> 00:10:59,840
+that we're trying to retire.
+
+176
+00:11:00,110 --> 00:11:05,080
+It might improve availability while
+significantly increasing operational
+
+177
+00:11:05,120 --> 00:11:08,860
+complexity. Knowing what the
+architecture is isn't enough.
+
+178
+00:11:09,170 --> 00:11:12,920
+We also need to evaluate
+what knowledge means.
+
+179
+00:11:13,170 --> 00:11:15,860
+And that is the question
+for the next episode.
+
+180
+00:11:16,170 --> 00:11:20,660
+How can Articulate continuously
+evaluate an architecture rather than
+
+181
+00:11:20,700 --> 00:11:25,810
+simply storing it? That's where
+architectural assurance begins.
+
+182
+00:11:26,170 --> 00:11:27,790
+See you on the next one.

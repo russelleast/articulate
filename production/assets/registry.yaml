@@ -506,6 +506,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0014-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0014",
+      "status": "approved-recording",
+      "checksum": "sha256:923052c97e8e934b01f76f323be088f04ef63cba4e1236fda09dc0e31a2c2e13",
+      "location": "production/episodes/0014/Ep14-narrator.mp4",
+      "provider": "local"
+    },
+    {
       "id": "episode-0007-architectural-knowledge-journey",
       "type": "diagram",
       "format": "plantuml",
@@ -915,6 +924,13 @@
     {"id":"episode-0013-langgraph-temporal","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/langgraph-temporal.d2","location":"site/public/diagrams/episode-0013-langgraph-temporal.svg","provider":"local"},
     {"id":"episode-0013-compositions","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/compositions.d2","location":"site/public/diagrams/episode-0013-compositions.svg","provider":"local"},
     {"id":"episode-0013-dapr-platform","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/dapr-platform.d2","location":"site/public/diagrams/episode-0013-dapr-platform.svg","provider":"local"},
-    {"id":"episode-0013-dapr-decision","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/dapr-decision.d2","location":"site/public/diagrams/episode-0013-dapr-decision.svg","provider":"local"}
+    {"id":"episode-0013-dapr-decision","type":"diagram","format":"d2","episode":"0013","status":"generated","checksum":null,"source":"production/episodes/0013/diagrams/dapr-decision.d2","location":"site/public/diagrams/episode-0013-dapr-decision.svg","provider":"local"},
+    {"id":"episode-0014-living-knowledge","type":"diagram","format":"d2","episode":"0014","status":"generated","checksum":null,"source":"production/episodes/0014/diagrams/living-knowledge.d2","location":"site/public/diagrams/episode-0014-living-knowledge.svg","provider":"local"},
+    {"id":"episode-0014-competing-claims","type":"diagram","format":"d2","episode":"0014","status":"generated","checksum":null,"source":"production/episodes/0014/diagrams/competing-claims.d2","location":"site/public/diagrams/episode-0014-competing-claims.svg","provider":"local"},
+    {"id":"episode-0014-proposed-knowledge","type":"diagram","format":"d2","episode":"0014","status":"generated","checksum":null,"source":"production/episodes/0014/diagrams/proposed-knowledge.d2","location":"site/public/diagrams/episode-0014-proposed-knowledge.svg","provider":"local"},
+    {"id":"episode-0014-evolution-through-time","type":"diagram","format":"d2","episode":"0014","status":"generated","checksum":null,"source":"production/episodes/0014/diagrams/evolution-through-time.d2","location":"site/public/diagrams/episode-0014-evolution-through-time.svg","provider":"local"},
+    {"id":"episode-0014-baselines","type":"diagram","format":"d2","episode":"0014","status":"generated","checksum":null,"source":"production/episodes/0014/diagrams/baselines.d2","location":"site/public/diagrams/episode-0014-baselines.svg","provider":"local"},
+    {"id":"episode-0014-approval-timeline","type":"diagram","format":"d2","episode":"0014","status":"generated","checksum":null,"source":"production/episodes/0014/diagrams/approval-timeline.d2","location":"site/public/diagrams/episode-0014-approval-timeline.svg","provider":"local"},
+    {"id":"episode-0014-claims-to-architecture","type":"diagram","format":"d2","episode":"0014","status":"generated","checksum":null,"source":"production/episodes/0014/diagrams/claims-to-architecture.d2","location":"site/public/diagrams/episode-0014-claims-to-architecture.svg","provider":"local"}
   ]
 }

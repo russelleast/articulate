@@ -13,6 +13,9 @@ topics:
   - Proposed changes
   - Baselines
   - Knowledge governance
+thumbnail: /media/episodes/0014/episode-0014-thumbnail.png
+thumbnail_alt: "Presenter beside the words Knowledge Evolves and the architectural viewpoints Once Was, As Is and To Be."
+youtube_url: https://youtu.be/vBUXzXXqiy8
 ---
 
 # Episode 14 – Knowledge Evolution

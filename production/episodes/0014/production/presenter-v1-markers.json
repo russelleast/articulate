@@ -1,0 +1,111 @@
+{
+  "version": 2,
+  "authority": "continuous-presenter-media",
+  "mediaDurationSeconds": 689.355333,
+  "selectedDurationSeconds": 689.355333,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 52.21,
+      "narrationReference": "Claims are current belief"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 52.21,
+      "endSeconds": 85,
+      "narrationReference": "A living Knowledge Model"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 85,
+      "endSeconds": 107.5,
+      "narrationReference": "Stale or untrustworthy"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 107.5,
+      "endSeconds": 156.21,
+      "narrationReference": "PostgreSQL and MongoDB"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 156.21,
+      "endSeconds": 179,
+      "narrationReference": "Proposed knowledge"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 179,
+      "endSeconds": 233.21,
+      "narrationReference": "Reconciliation preserves uncertainty"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 233.21,
+      "endSeconds": 298.21,
+      "narrationReference": "Once Was, As Is, To Be"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 298.21,
+      "endSeconds": 360.21,
+      "narrationReference": "Architectural baselines"
+    },
+    {
+      "id": "S009",
+      "startSeconds": 360.21,
+      "endSeconds": 382,
+      "narrationReference": "Questions across baselines"
+    },
+    {
+      "id": "S010",
+      "startSeconds": 382,
+      "endSeconds": 442,
+      "narrationReference": "Approval is not acceptance"
+    },
+    {
+      "id": "S011",
+      "startSeconds": 442,
+      "endSeconds": 459,
+      "narrationReference": "The architecture does not pause"
+    },
+    {
+      "id": "S012",
+      "startSeconds": 459,
+      "endSeconds": 520.21,
+      "narrationReference": "Claims become architecture"
+    },
+    {
+      "id": "S013",
+      "startSeconds": 520.21,
+      "endSeconds": 544.21,
+      "narrationReference": "Claims retain context"
+    },
+    {
+      "id": "S014",
+      "startSeconds": 544.21,
+      "endSeconds": 609.14,
+      "narrationReference": "Knowledge evolution is a capability"
+    },
+    {
+      "id": "S015",
+      "startSeconds": 609.14,
+      "endSeconds": 641,
+      "narrationReference": "Understanding evolves"
+    },
+    {
+      "id": "S016",
+      "startSeconds": 641,
+      "endSeconds": 673.21,
+      "narrationReference": "From description to evaluation"
+    },
+    {
+      "id": "S017",
+      "startSeconds": 673.21,
+      "endSeconds": 689.355,
+      "narrationReference": "Architectural Assurance"
+    }
+  ]
+}
