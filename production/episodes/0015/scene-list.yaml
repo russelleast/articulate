@@ -1,0 +1,139 @@
+{
+  "episode": {
+    "id": "episode-0015",
+    "title": "Architectural Assurance",
+    "production_status": "presenter-v1",
+    "timing_authority": "episode-0015-presenter-v1",
+    "narration_duration_seconds": 679.5789
+  },
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_seconds": 0,
+      "end_seconds": 59.57,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S002",
+      "start_seconds": 59.57,
+      "end_seconds": 75.17,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S016",
+      "start_seconds": 75.17,
+      "end_seconds": 111.24,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0015-database-ownership-principle-conflict"
+    },
+    {
+      "scene_id": "S003",
+      "start_seconds": 111.24,
+      "end_seconds": 170.58,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S004",
+      "start_seconds": 170.58,
+      "end_seconds": 196.19,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S005",
+      "start_seconds": 196.19,
+      "end_seconds": 232.24,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0015-dependency-on-retiring-system"
+    },
+    {
+      "scene_id": "S006",
+      "start_seconds": 232.24,
+      "end_seconds": 277.24,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S007",
+      "start_seconds": 277.24,
+      "end_seconds": 342,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0015-architectural-assurance-capability-model"
+    },
+    {
+      "scene_id": "S008",
+      "start_seconds": 342,
+      "end_seconds": 424.23,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0015-deterministic-and-contextual-assurance"
+    },
+    {
+      "scene_id": "S009",
+      "start_seconds": 424.23,
+      "end_seconds": 484.24,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0015-capability-assurance-refinement"
+    },
+    {
+      "scene_id": "S010",
+      "start_seconds": 484.24,
+      "end_seconds": 550.24,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S011",
+      "start_seconds": 550.24,
+      "end_seconds": 589.2,
+      "visual_type": "Diagram",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": "episode-0015-knowledge-evolution-assurance"
+    },
+    {
+      "scene_id": "S012",
+      "start_seconds": 589.2,
+      "end_seconds": 618,
+      "visual_type": "Evidence",
+      "presenter_mode": "audio-continuous",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S013",
+      "start_seconds": 618,
+      "end_seconds": 654.24,
+      "visual_type": "Focus Canvas",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S014",
+      "start_seconds": 654.24,
+      "end_seconds": 666.58,
+      "visual_type": "Reflection",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    },
+    {
+      "scene_id": "S015",
+      "start_seconds": 666.58,
+      "end_seconds": 679.579,
+      "visual_type": "Narrator",
+      "presenter_mode": "visible",
+      "diagram_asset": null
+    }
+  ]
+}

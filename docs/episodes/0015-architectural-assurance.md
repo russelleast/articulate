@@ -19,6 +19,9 @@ topics:
   - Continuous architecture
 repository_paths:
   - docs/episodes/0015-architectural-assurance.md
+thumbnail: /media/episodes/0015/episode-0015-thumbnail.png
+thumbnail_alt: "Presenter beside the words Architecture Assurance and a progression from knowledge through evaluation to a finding."
+youtube_url: https://youtu.be/0nmoOcTb3EI
 ---
 
 # Episode 15 – Architectural Assurance

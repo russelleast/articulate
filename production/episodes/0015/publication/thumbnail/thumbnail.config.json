@@ -1,0 +1,14 @@
+{
+  "canvas": { "width": 1280, "height": 720 },
+  "presenter": {
+    "sourceMedia": "../../ep15-narrator.mp4",
+    "frameTimestampSeconds": 620,
+    "placement": { "x": -70, "y": 180, "width": 690, "height": 388 }
+  },
+  "episode": {
+    "eyebrow": "ARCHITECTURAL ASSURANCE",
+    "headline": ["ARCHITECTURE", "ASSURANCE"],
+    "supportTitle": "KNOWLEDGE → EVALUATION → FINDING",
+    "supportText": "Findings support human judgement"
+  }
+}

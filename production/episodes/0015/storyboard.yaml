@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0015",
+    "title": "Architectural Assurance",
+    "written_source": "docs/episodes/0015-architectural-assurance.md",
+    "narrative_source": "production/episodes/0015/narrative.md",
+    "scene_plan": "production/episodes/0015/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "recorded-audio",
+    "audio_duration_seconds": 679.5789
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "KNOWLEDGE ISN'T EVALUATION",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N001-N013"
+      ],
+      "start_seconds": 0,
+      "end_seconds": 59.57
+    },
+    {
+      "id": "S002",
+      "title": "A KNOWN RELATIONSHIP",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N014-N018"
+      ],
+      "start_seconds": 59.57,
+      "end_seconds": 75.17
+    },
+    {
+      "id": "S016",
+      "title": "Correct knowledge can reveal a concern",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N019-N029"
+      ],
+      "start_seconds": 75.17,
+      "end_seconds": 111.24
+    },
+    {
+      "id": "S003",
+      "title": "ARCHITECTS EVALUATE CONTEXT",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N030-N043"
+      ],
+      "start_seconds": 111.24,
+      "end_seconds": 170.58
+    },
+    {
+      "id": "S004",
+      "title": "A VALID DEPENDENCY TODAY",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N044-N051"
+      ],
+      "start_seconds": 170.58,
+      "end_seconds": 196.19
+    },
+    {
+      "id": "S005",
+      "title": "The concern is derived",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N052-N062"
+      ],
+      "start_seconds": 196.19,
+      "end_seconds": 232.24
+    },
+    {
+      "id": "S006",
+      "title": "ARCHITECTURAL TIME IS CONTEXT",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N063-N075"
+      ],
+      "start_seconds": 232.24,
+      "end_seconds": 277.24
+    },
+    {
+      "id": "S007",
+      "title": "Architectural Assurance",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N076-N093"
+      ],
+      "start_seconds": 277.24,
+      "end_seconds": 342
+    },
+    {
+      "id": "S008",
+      "title": "Reliable structure + contextual interpretation",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N094-N110"
+      ],
+      "start_seconds": 342,
+      "end_seconds": 424.23
+    },
+    {
+      "id": "S009",
+      "title": "Assurance before implementation",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N111-N123"
+      ],
+      "start_seconds": 424.23,
+      "end_seconds": 484.24
+    },
+    {
+      "id": "S010",
+      "title": "FINDING ≠ TRUTH",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N124-N143"
+      ],
+      "start_seconds": 484.24,
+      "end_seconds": 550.24
+    },
+    {
+      "id": "S011",
+      "title": "Continuous architectural assessment",
+      "archetype": "Diagram",
+      "kind": "presenter-diagram",
+      "narrative_segments": [
+        "N144-N150"
+      ],
+      "start_seconds": 550.24,
+      "end_seconds": 589.2
+    },
+    {
+      "id": "S012",
+      "title": "SIGNAL OVER NOISE",
+      "archetype": "Evidence",
+      "kind": "presenter-evidence",
+      "narrative_segments": [
+        "N151-N159"
+      ],
+      "start_seconds": 589.2,
+      "end_seconds": 618
+    },
+    {
+      "id": "S013",
+      "title": "A CONCEPTUAL ARCHITECTURE",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N160-N168"
+      ],
+      "start_seconds": 618,
+      "end_seconds": 654.24
+    },
+    {
+      "id": "S014",
+      "title": "But so far, all of this is still architecture.",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N169-N174"
+      ],
+      "start_seconds": 654.24,
+      "end_seconds": 666.58
+    },
+    {
+      "id": "S015",
+      "title": "Does this architecture actually work when we build it?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [
+        "N175-N177"
+      ],
+      "start_seconds": 666.58,
+      "end_seconds": 679.579
+    }
+  ]
+}

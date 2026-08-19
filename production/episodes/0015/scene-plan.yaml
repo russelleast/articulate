@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "status": "approved",
+  "episode": {
+    "id": "0015",
+    "title": "Architectural Assurance",
+    "writtenSource": "docs/episodes/0015-architectural-assurance.md",
+    "narrativeSource": "production/episodes/0015/narrative.md",
+    "presenterMedia": "production/episodes/0015/ep15-narrator.mp4"
+  },
+  "editorialPrinciple": "Architectural knowledge becomes useful when it can be evaluated into findings that support accountable human judgement.",
+  "sections": [
+    {"id":"opening","title":"Knowledge is not evaluation","narrativeSegments":["N001-N013"],"startSeconds":0},
+    {"id":"ownership-fact","title":"A known relationship","narrativeSegments":["N014-N018"],"anchor":"Imagine Articulate knows that a Reporting Service"},
+    {"id":"ownership-evaluation","title":"Correct knowledge can reveal a concern","narrativeSegments":["N019-N029"],"anchor":"But suppose we also have an architecture principle"},
+    {"id":"thinking","title":"Architects evaluate context","narrativeSegments":["N030-N043"],"anchor":"This is much closer to what architects actually do"},
+    {"id":"loyalty-current","title":"A valid dependency today","narrativeSegments":["N044-N051"],"anchor":"Consider another example"},
+    {"id":"loyalty-direction","title":"A dependency against architectural direction","narrativeSegments":["N052-N062"],"anchor":"But elsewhere in the Knowledge Model"},
+    {"id":"time","title":"Architectural time provides context","narrativeSegments":["N063-N075"],"anchor":"This also reinforces something from the previous episode"},
+    {"id":"forms","title":"Forms of assurance","narrativeSegments":["N076-N093"],"anchor":"This is the responsibility I'm calling"},
+    {"id":"reasoning","title":"Reliable structure and contextual interpretation","narrativeSegments":["N094-N110"],"anchor":"There's another important distinction here"},
+    {"id":"intent","title":"Assurance before implementation","narrativeSegments":["N111-N123"],"anchor":"And this doesn't have to begin"},
+    {"id":"findings","title":"Findings are not truth","narrativeSegments":["N124-N143"],"anchor":"But there's an important boundary here"},
+    {"id":"continuous","title":"Continuous architectural assessment","narrativeSegments":["N144-N150"],"anchor":"This creates the possibility"},
+    {"id":"signal","title":"Signal over noise","narrativeSegments":["N151-N159"],"anchor":"But there's a danger here as well"},
+    {"id":"architecture","title":"The conceptual architecture accumulates","narrativeSegments":["N160-N168"],"anchor":"We've now spent fifteen episodes"},
+    {"id":"pause","title":"All of this is still architecture","narrativeSegments":["N169-N174"],"anchor":"But so far, all of this is still architecture"},
+    {"id":"implementation","title":"Architecture confronts implementation","narrativeSegments":["N175-N177"],"anchor":"Eventually architecture has to confront implementation"}
+  ],
+  "scenes": [
+    {"id":"S001","section":"opening","archetype":"Narrator","kind":"presenter-focus","transition":"cut","headline":"KNOWLEDGE ISN'T EVALUATION","support":"What do we know? → What does it imply?","items":["Knowledge Model","Architectural Assurance"]},
+    {"id":"S002","section":"ownership-fact","archetype":"Focus Canvas","kind":"presenter-focus","transition":"cut","headline":"A KNOWN RELATIONSHIP","support":"Correct architectural knowledge","items":["Reporting Service","reads","Order Database"],"events":[{"id":"ownership-reads","at":4,"action":"reveal","target":"item-2"},{"id":"ownership-database","at":8,"action":"reveal","target":"item-3"}]},
+    {"id":"S016","section":"ownership-evaluation","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Correct knowledge can reveal a concern","support":"Relationship + principle → potential finding","diagramAssetId":"episode-0015-database-ownership-principle-conflict"},
+    {"id":"S003","section":"thinking","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"ARCHITECTS EVALUATE CONTEXT","support":"Knowledge is information combined with thinking","items":["Retrieve facts","Connect context","Interpret consequences"]},
+    {"id":"S004","section":"loyalty-current","archetype":"Focus Canvas","kind":"presenter-focus","transition":"cut","headline":"A VALID DEPENDENCY TODAY","support":"The current relationship works","items":["Loyalty Service","depends on","Legacy CRM"],"events":[{"id":"loyalty-depends","at":4,"action":"reveal","target":"item-2"},{"id":"loyalty-crm","at":8,"action":"reveal","target":"item-3"}]},
+    {"id":"S005","section":"loyalty-direction","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"The concern is derived","support":"New dependency + retirement intent","diagramAssetId":"episode-0015-dependency-on-retiring-system"},
+    {"id":"S006","section":"time","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"ARCHITECTURAL TIME IS CONTEXT","support":"Valid today can still move in the wrong direction","items":["Once Was","As Is","To Be"]},
+    {"id":"S007","section":"forms","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Architectural Assurance","support":"Structural · principle · trade-off concerns","diagramAssetId":"episode-0015-architectural-assurance-capability-model"},
+    {"id":"S008","section":"reasoning","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Reliable structure + contextual interpretation","support":"Complementary responsibilities","diagramAssetId":"episode-0015-deterministic-and-contextual-assurance"},
+    {"id":"S009","section":"intent","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Assurance before implementation","support":"Structured capability intent can be evaluated","diagramAssetId":"episode-0015-capability-assurance-refinement"},
+    {"id":"S010","section":"findings","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"FINDING ≠ TRUTH","support":"Make the concern visible; keep judgement accountable","items":["Finding","Human judgement","Possible action"],"events":[{"id":"finding-judgement","at":8,"action":"reveal","target":"item-2"},{"id":"finding-action","at":16,"action":"reveal","target":"item-3"}]},
+    {"id":"S011","section":"continuous","archetype":"Diagram","kind":"presenter-diagram","transition":"cut","headline":"Continuous architectural assessment","support":"Evaluate knowledge, proposals and changing decisions","diagramAssetId":"episode-0015-knowledge-evolution-assurance"},
+    {"id":"S012","section":"signal","archetype":"Evidence","kind":"presenter-evidence","transition":"fade","headline":"SIGNAL OVER NOISE","support":"Surface concerns that materially affect outcomes","items":["27 low-value warnings","4 contextual candidates","1 material concern"],"evidence":{"emphasisIndex":2}},
+    {"id":"S013","section":"architecture","archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"A CONCEPTUAL ARCHITECTURE","support":"The ideas accumulate into one system","items":["Knowledge → Reasoning","Intent → AI Runtime","Execute → Evolve → Assure"],"events":[{"id":"architecture-runtime","at":6,"action":"reveal","target":"item-2"},{"id":"architecture-assurance","at":13,"action":"reveal","target":"item-3"}]},
+    {"id":"S014","section":"pause","archetype":"Reflection","kind":"presenter-focus","transition":"fade","headline":"But so far, all of this is still architecture.","support":"Models · capabilities · decisions · principles","items":[]},
+    {"id":"S015","section":"implementation","archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"Does this architecture actually work when we build it?","support":"Next · implementation","items":[]}
+  ]
+}

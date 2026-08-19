@@ -1,0 +1,960 @@
+1
+00:00:00,200 --> 00:00:05,420
+How can Articulate continuously
+evaluate an architecture rather than
+
+2
+00:00:05,500 --> 00:00:06,430
+simply store it?
+
+3
+00:00:07,700 --> 00:00:09,400
+That's the question for this episode.
+
+4
+00:00:09,700 --> 00:00:12,990
+Hello, I'm Russell, and
+welcome to episode 15 of
+
+5
+00:00:13,070 --> 00:00:16,420
+the Articulate Journal, where
+I'm exploring what it takes
+
+6
+00:00:16,420 --> 00:00:19,830
+to build an AI-native architecture
+from first principles.
+
+7
+00:00:20,090 --> 00:00:24,130
+In the previous episode, I explored
+how architectural knowledge
+
+8
+00:00:24,210 --> 00:00:29,300
+evolves. New information simply doesn't
+overwrite what Articulate already
+
+9
+00:00:29,380 --> 00:00:32,800
+knows. It enters as proposed knowledge.
+
+10
+00:00:33,110 --> 00:00:37,200
+It's interpreted, reconciled,
+and assessed before it can become
+
+11
+00:00:37,220 --> 00:00:39,600
+part of the authoritative Knowledge Model.
+
+12
+00:00:40,200 --> 00:00:42,300
+That gives us a way of deciding what we
+
+13
+00:00:42,380 --> 00:00:45,810
+currently believe to be
+true about the architecture.
+
+14
+00:00:46,180 --> 00:00:47,870
+But there's another problem.
+
+15
+00:00:48,200 --> 00:00:51,640
+Just because something is
+true doesn't mean it's good
+
+16
+00:00:51,720 --> 00:00:55,420
+architecture. Having what an
+architecture looks like is very
+
+17
+00:00:55,450 --> 00:00:58,860
+different from evaluating
+what the architecture means.
+
+18
+00:00:59,530 --> 00:01:03,870
+Imagine Articulate knows that a
+reporting service reads directly
+
+19
+00:01:03,940 --> 00:01:05,560
+from the Order database.
+
+20
+00:01:06,200 --> 00:01:07,900
+That might be completely correct.
+
+21
+00:01:08,140 --> 00:01:09,830
+We have evidence for it.
+
+22
+00:01:10,110 --> 00:01:13,340
+We're confident it's happening
+and it belongs in the
+
+23
+00:01:13,420 --> 00:01:14,800
+architecture model.
+
+24
+00:01:15,130 --> 00:01:17,510
+But suppose we have an
+architecture principle saying a
+
+25
+00:01:17,590 --> 00:01:21,560
+service should have exclusive
+ownership of its persistence.
+
+26
+00:01:22,160 --> 00:01:24,870
+Now we have two pieces of
+architectural knowledge.
+
+27
+00:01:25,160 --> 00:01:28,120
+The reporting service reads
+from the Order database.
+
+28
+00:01:28,200 --> 00:01:32,790
+And the Order Service should
+exclusively own that database.
+
+29
+00:01:33,530 --> 00:01:36,830
+Neither statement explicitly
+says there's a problem.
+
+30
+00:01:37,200 --> 00:01:40,840
+The concern only appears when
+we evaluate them together.
+
+31
+00:01:41,200 --> 00:01:42,870
+The architecture may work.
+
+32
+00:01:43,180 --> 00:01:44,870
+The knowledge may be correct.
+
+33
+00:01:45,160 --> 00:01:47,870
+But there's potentially
+an architectural issue.
+
+34
+00:01:48,190 --> 00:01:50,840
+And that's a very
+different kind of problem.
+
+35
+00:01:51,200 --> 00:01:54,800
+This is much closer to what
+architects actually do.
+
+36
+00:01:55,160 --> 00:01:58,770
+We're rarely just looking for information.
+
+37
+00:01:59,160 --> 00:02:01,790
+We're constantly evaluating it.
+
+38
+00:02:02,200 --> 00:02:04,900
+This design conflicts with
+one of our other principles.
+
+39
+00:02:05,200 --> 00:02:08,800
+Does the proposal undermine
+a previous decision?
+
+40
+00:02:09,200 --> 00:02:13,080
+Does this improve reliability
+but make the system harder
+
+41
+00:02:13,160 --> 00:02:14,040
+to operate?
+
+42
+00:02:14,160 --> 00:02:15,860
+And do we accept that trade-off?
+
+43
+00:02:16,180 --> 00:02:19,270
+Are we introducing a new
+dependency on something that
+
+44
+00:02:19,350 --> 00:02:20,790
+we're trying to retire?
+
+45
+00:02:21,130 --> 00:02:23,850
+Is there something important missing?
+
+46
+00:02:24,090 --> 00:02:26,430
+We've taken what we know
+and we're asking what
+
+47
+00:02:26,510 --> 00:02:29,040
+it means in a context of
+the wider architecture.
+
+48
+00:02:29,200 --> 00:02:31,680
+And this takes me back to something I said
+
+49
+00:02:31,760 --> 00:02:34,800
+when I first introduced
+the Knowledge Model.
+
+50
+00:02:35,530 --> 00:02:37,890
+Knowledge is information
+combined with thinking.
+
+51
+00:02:38,120 --> 00:02:40,340
+Up until now, I've spent a lot of time
+
+52
+00:02:40,420 --> 00:02:43,820
+establishing the information
+side of that statement.
+
+53
+00:02:44,570 --> 00:02:49,760
+Architectural assurance starts
+to make thinking executable.
+
+54
+00:02:50,540 --> 00:02:51,880
+Consider another example.
+
+55
+00:02:52,540 --> 00:02:55,790
+Suppose we're proposing
+a new loyalty service.
+
+56
+00:02:56,170 --> 00:02:59,760
+As part of the design,
+that service depends on
+
+57
+00:02:59,840 --> 00:03:01,810
+an existing CRM platform.
+
+58
+00:03:02,070 --> 00:03:04,500
+If we look at the current
+architecture, there may
+
+59
+00:03:04,580 --> 00:03:06,800
+be absolutely nothing wrong with that.
+
+60
+00:03:07,200 --> 00:03:12,140
+The CRM exists, it's operational,
+other systems already depend
+
+61
+00:03:12,220 --> 00:03:12,820
+upon it.
+
+62
+00:03:13,200 --> 00:03:15,830
+The relationship is perfectly valid.
+
+63
+00:03:16,150 --> 00:03:18,560
+But elsewhere in a
+Knowledge Model, we have an
+
+64
+00:03:18,640 --> 00:03:20,790
+accepted architectural decision.
+
+65
+00:03:21,180 --> 00:03:22,850
+The CRM is going to be retired.
+
+66
+00:03:23,200 --> 00:03:27,630
+Again, none of the individual
+pieces of knowledge explicitly
+
+67
+00:03:27,710 --> 00:03:31,840
+say this proposal introduces
+an architectural risk.
+
+68
+00:03:32,140 --> 00:03:33,830
+We have to connect them.
+
+69
+00:03:34,200 --> 00:03:37,670
+The loyalty service introduces
+a new dependency on a
+
+70
+00:03:37,750 --> 00:03:40,120
+CRM and that CRM is
+scheduled for retirement.
+
+71
+00:03:40,540 --> 00:03:44,420
+Therefore, this proposal increases
+our dependency on something we're
+
+72
+00:03:44,480 --> 00:03:46,560
+deliberately trying to remove.
+
+73
+00:03:47,200 --> 00:03:50,480
+That conclusion wasn't stored
+in a Knowledge Model, it
+
+74
+00:03:50,560 --> 00:03:51,800
+was derived from it.
+
+75
+00:03:52,200 --> 00:03:55,840
+This also reinforces something
+from the previous episode.
+
+76
+00:03:56,540 --> 00:03:58,900
+Understanding the baseline
+architecture matters.
+
+77
+00:03:59,570 --> 00:04:02,820
+Architecture isn't only
+about what exists today.
+
+78
+00:04:03,160 --> 00:04:06,920
+We need to understand
+what once existed and what
+
+79
+00:04:07,040 --> 00:04:10,650
+exists now and what
+we're intending to build.
+
+80
+00:04:10,960 --> 00:04:14,180
+A proposal can therefore be
+completely valid against today's
+
+81
+00:04:14,180 --> 00:04:17,860
+architecture, while moving us
+in exactly the wrong direction.
+
+82
+00:04:18,200 --> 00:04:22,780
+That's something a simple
+validation rule can easily miss.
+
+83
+00:04:23,160 --> 00:04:25,870
+The question isn't, is
+this relationship valid?
+
+84
+00:04:26,160 --> 00:04:30,870
+It's also, does this relationship
+make sense given where
+
+85
+00:04:30,940 --> 00:04:33,680
+the architecture is trying to go?
+
+86
+00:04:34,200 --> 00:04:36,810
+That's architectural assessment.
+
+87
+00:04:37,200 --> 00:04:42,780
+This is the responsibility that I'm
+calling Architectural Assurance.
+
+88
+00:04:43,200 --> 00:04:47,530
+Architectural Assurance evaluates
+architectural knowledge and proposed
+
+89
+00:04:47,610 --> 00:04:50,860
+change against the wider
+architectural context.
+
+90
+00:04:51,200 --> 00:04:53,460
+That can happen at several levels.
+
+91
+00:04:53,550 --> 00:04:55,790
+Some concerns are structural.
+
+92
+00:04:55,960 --> 00:04:58,870
+A service depends on something
+that no longer exists.
+
+93
+00:04:58,960 --> 00:05:02,920
+A component has no owner
+or a business capability
+
+94
+00:05:03,040 --> 00:05:05,550
+has no supporting application.
+
+95
+00:05:06,200 --> 00:05:08,820
+Some concerns relate to principles.
+
+96
+00:05:09,200 --> 00:05:12,180
+The design works but
+appears to conflict with an
+
+97
+00:05:12,180 --> 00:05:14,040
+architectural principle.
+
+98
+00:05:14,200 --> 00:05:16,840
+And some concerns are about trade-offs.
+
+99
+00:05:16,960 --> 00:05:21,800
+A proposed change may improve
+resilience but increase operational
+
+100
+00:05:21,880 --> 00:05:27,770
+complexity. It might improve
+availability, while also increasing costs.
+
+101
+00:05:28,560 --> 00:05:31,870
+Architecture isn't about
+maximizing every characteristic.
+
+102
+00:05:32,100 --> 00:05:35,920
+It's about understanding the
+consequences of the choices that
+
+103
+00:05:35,990 --> 00:05:36,790
+we're making.
+
+104
+00:05:37,540 --> 00:05:41,790
+Architectural Assurance should help
+us make those consequences visible.
+
+105
+00:05:42,200 --> 00:05:44,870
+There's another important
+distinction here.
+
+106
+00:05:45,150 --> 00:05:47,460
+Not every assurance check
+needs to go through a
+
+107
+00:05:47,540 --> 00:05:48,850
+large language model.
+
+108
+00:05:49,130 --> 00:05:52,330
+If a component depends
+on a system that doesn't
+
+109
+00:05:52,370 --> 00:05:55,560
+exist, we can determine that reliably.
+
+110
+00:05:56,120 --> 00:05:59,180
+If a service accesses a
+database owned by another
+
+111
+00:05:59,190 --> 00:06:03,180
+service, the Knowledge Model may
+already contain enough structured
+
+112
+00:06:03,180 --> 00:06:05,890
+information to identify that relationship.
+
+113
+00:06:06,130 --> 00:06:09,450
+If a proposal introduces
+a dependency on a system
+
+114
+00:06:09,530 --> 00:06:12,750
+scheduled for retirement,
+we may be able to discover
+
+115
+00:06:12,820 --> 00:06:16,790
+that through structured
+queries and relationships.
+
+116
+00:06:17,090 --> 00:06:20,290
+We shouldn't ask an LLM to
+rediscover something the
+
+117
+00:06:20,370 --> 00:06:23,120
+system can establish deterministically.
+
+118
+00:06:23,190 --> 00:06:27,520
+But identifying a relationship and
+deciding what that relationship
+
+119
+00:06:27,600 --> 00:06:29,560
+means are different problems.
+
+120
+00:06:30,200 --> 00:06:33,230
+Does the principle genuinely
+apply here and is the
+
+121
+00:06:33,310 --> 00:06:34,800
+violation justified?
+
+122
+00:06:35,130 --> 00:06:38,800
+Is this an acceptable
+transitional architecture?
+
+123
+00:06:39,200 --> 00:06:43,050
+Does the improvement in resilience
+justify the additional operational
+
+124
+00:06:43,130 --> 00:06:46,840
+complexity? Do we have
+enough evidence to make that
+
+125
+00:06:46,920 --> 00:06:51,120
+judgement? That's where contextual
+reasoning becomes useful.
+
+126
+00:06:51,120 --> 00:06:56,100
+So the architecture needs both
+deterministic mechanisms, establish what
+
+127
+00:06:56,180 --> 00:06:58,120
+we can identify reliably.
+
+128
+00:06:58,200 --> 00:07:03,720
+And contextual reasoning helps
+interpret why it matters.
+
+129
+00:07:04,190 --> 00:07:07,060
+And this doesn't have to
+begin once we've written
+
+130
+00:07:07,100 --> 00:07:11,160
+software. Earlier in the
+journal, I introduced DCL as
+
+131
+00:07:11,160 --> 00:07:15,920
+a way of describing capability intent
+independently of implementation.
+
+132
+00:07:16,120 --> 00:07:19,200
+If that intent is structured,
+we can evaluate it
+
+133
+00:07:19,280 --> 00:07:19,840
+as well.
+
+134
+00:07:19,960 --> 00:07:23,920
+A capability might define what
+happens when something succeeds,
+
+135
+00:07:24,200 --> 00:07:27,800
+but say nothing about
+insufficient evidence.
+
+136
+00:07:28,200 --> 00:07:30,820
+Two rules might contradict each other.
+
+137
+00:07:31,100 --> 00:07:35,440
+An effect might modify authoritative
+knowledge without defining an
+
+138
+00:07:35,520 --> 00:07:36,820
+approval policy.
+
+139
+00:07:36,960 --> 00:07:40,840
+A capability might consume an
+event that nobody produces.
+
+140
+00:07:41,200 --> 00:07:45,590
+Those are architectural concerns
+we can identify before we've
+
+141
+00:07:45,670 --> 00:07:48,420
+chosen a framework or
+create a service or written
+
+142
+00:07:48,500 --> 00:07:48,940
+a prompt.
+
+143
+00:07:49,140 --> 00:07:55,120
+So Architectural Assurance isn't about
+evaluating implemented architecture.
+
+144
+00:07:55,120 --> 00:07:58,120
+It can also evaluate architectural intent.
+
+145
+00:07:58,140 --> 00:08:01,920
+And finding those problems before
+implementation is considerably cheaper
+
+146
+00:08:02,040 --> 00:08:03,920
+than discovering them afterwards.
+
+147
+00:08:04,200 --> 00:08:06,830
+But there's an important boundary here.
+
+148
+00:08:07,540 --> 00:08:09,870
+Architectural Assurance produces findings.
+
+149
+00:08:10,170 --> 00:08:13,780
+It does not produce unquestionable truth.
+
+150
+00:08:14,540 --> 00:08:18,210
+Suppose Articulate says this
+proposal appears to conflict with
+
+151
+00:08:18,290 --> 00:08:22,850
+the principle that services
+exclusively own their own persistence.
+
+152
+00:08:23,200 --> 00:08:27,050
+That finding might be
+correct, but there may be
+
+153
+00:08:27,130 --> 00:08:28,830
+an approved exception.
+
+154
+00:08:29,130 --> 00:08:31,900
+The relationship might have
+been classified indirectly.
+
+155
+00:08:32,200 --> 00:08:35,920
+The principle might not apply
+in this particular context.
+
+156
+00:08:36,100 --> 00:08:39,850
+Or the architecture might
+deliberately accept that trade-off.
+
+157
+00:08:40,170 --> 00:08:42,900
+The role of architectural
+assurance is not to make
+
+158
+00:08:42,980 --> 00:08:43,890
+that decision.
+
+159
+00:08:44,080 --> 00:08:45,900
+It's to make that decision visible.
+
+160
+00:08:45,960 --> 00:08:48,830
+A finding might lead to more discovery.
+
+161
+00:08:49,090 --> 00:08:50,880
+It might lead to a revised design.
+
+162
+00:08:51,090 --> 00:08:52,880
+It might result in an exception.
+
+163
+00:08:53,160 --> 00:08:55,890
+And it might trigger a new
+architectural decision.
+
+164
+00:08:56,170 --> 00:08:59,850
+And eventually, it might result
+in architectural knowledge.
+
+165
+00:09:00,170 --> 00:09:03,870
+But reasoning shouldn't silently
+refine architectural truth.
+
+166
+00:09:04,200 --> 00:09:09,780
+Human architects still need to
+provide judgment and accountability.
+
+167
+00:09:10,200 --> 00:09:13,920
+This creates the possibility of
+something I've wanted Articulate
+
+168
+00:09:14,030 --> 00:09:15,820
+to support from the beginning.
+
+169
+00:09:16,540 --> 00:09:18,860
+Continuous architectural assessment.
+
+170
+00:09:19,120 --> 00:09:22,570
+As new knowledge enters
+the system, we can evaluate
+
+171
+00:09:22,650 --> 00:09:23,790
+what it implies.
+
+172
+00:09:24,130 --> 00:09:27,500
+As proposals are created,
+we can assess them against
+
+173
+00:09:27,580 --> 00:09:28,800
+what we already know.
+
+174
+00:09:29,160 --> 00:09:34,040
+As decisions change, we can
+understand what those changes
+
+175
+00:09:34,050 --> 00:09:38,420
+affect. As capabilities are
+defined, we can identify gaps
+
+176
+00:09:38,500 --> 00:09:40,830
+before implementation begins.
+
+177
+00:09:41,540 --> 00:09:44,920
+Architecture starts becoming something
+the system can actively reason
+
+178
+00:09:44,960 --> 00:09:48,860
+about, rather than something we
+periodically document and review.
+
+179
+00:09:49,160 --> 00:09:50,880
+But there's a danger here as well.
+
+180
+00:09:51,110 --> 00:09:54,340
+If every change produces
+dozens of warnings, may one
+
+181
+00:09:54,420 --> 00:09:55,800
+will pay attention to them.
+
+182
+00:09:56,530 --> 00:10:00,570
+Architectural Assurance shouldn't become
+another governance gate that teams
+
+183
+00:10:00,650 --> 00:10:01,860
+learn to work around.
+
+184
+00:10:02,150 --> 00:10:04,420
+The objective isn't to
+find as many problems as
+
+185
+00:10:04,450 --> 00:10:07,500
+possible. It's to surface the
+concerns that materially affect
+
+186
+00:10:07,580 --> 00:10:08,880
+architectural outcomes.
+
+187
+00:10:09,200 --> 00:10:13,750
+Assurance should support
+judgment, not replace it.
+
+188
+00:10:14,200 --> 00:10:17,700
+And definitely not overwhelm it.
+
+189
+00:10:18,100 --> 00:10:22,510
+We've spent 15 episodes working
+through the conceptual architecture
+
+190
+00:10:22,550 --> 00:10:23,810
+behind Articulate.
+
+191
+00:10:24,080 --> 00:10:25,900
+We've defined the Knowledge Model.
+
+192
+00:10:26,100 --> 00:10:29,180
+We've explored how agents
+can retrieve and reason over
+
+193
+00:10:29,180 --> 00:10:30,800
+architectural knowledge.
+
+194
+00:10:31,150 --> 00:10:34,790
+We've used DCL to describe
+capability intent.
+
+195
+00:10:35,070 --> 00:10:37,900
+We've established the requirements
+for an AI-native runtime.
+
+196
+00:10:38,100 --> 00:10:40,850
+We've explored memory
+and durable execution.
+
+197
+00:10:41,120 --> 00:10:45,120
+We've selected that runtime, and
+we've established how architectural
+
+198
+00:10:45,200 --> 00:10:46,860
+knowledge safely evolves.
+
+199
+00:10:47,200 --> 00:10:50,940
+And now we've added
+Architectural Assurance, a way of
+
+200
+00:10:51,030 --> 00:10:53,560
+evaluating what knowledge implies.
+
+201
+00:10:54,200 --> 00:10:57,780
+But so far, all of this
+is still architecture.
+
+202
+00:10:58,200 --> 00:11:00,890
+Models, capabilities,
+decisions and principles.
+
+203
+00:11:01,200 --> 00:11:05,790
+Ideas about how architectural
+intelligence should work.
+
+204
+00:11:06,540 --> 00:11:09,850
+Eventually, architecture has
+to confront implementation.
+
+205
+00:11:10,090 --> 00:11:12,200
+So the question for the next episode is a
+
+206
+00:11:12,210 --> 00:11:12,880
+simple one.
+
+207
+00:11:13,200 --> 00:11:15,900
+Does this architecture
+actually work when we build it?
+
+208
+00:11:16,200 --> 00:11:19,180
+See you on the next one!
