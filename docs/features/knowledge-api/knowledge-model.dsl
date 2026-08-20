@@ -3,20 +3,25 @@ workspace {
 
     model {
         architect = person "Architect"
-        ingest = person "Ingest Agent"
+        agents = person "Agents"
+        externalSystem = person "External System"
 
         articulate = softwareSystem "Articulate" {
-            sim = container "Claim Simulator"            
-
+            sim = container "Claim Simulator"
+            
             api = container "Knowledge API" 
-            db = container "Knowledge Model" {
+            db = container "Proposed Knowledge Store" {
                 tags "Database"
             }
 
-            ingest -> sim
+            architect -> sim
+            agents -> api
+            externalSystem -> api
+
             sim -> api
-            ingest -> api
             api -> db
+            
+            
         }     
         
     }
