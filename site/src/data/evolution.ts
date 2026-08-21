@@ -71,5 +71,15 @@ export const evolutionMilestones: EvolutionMilestone[] = [
     links: [
       { type: "Episode", label: "Architectural Assurance", href: "/episodes/0015-architectural-assurance/" }
     ]
+  },
+  {
+    period: "Episode 0016",
+    title: "Conceptual architecture became executable architecture",
+    description: "The first architectural slice implemented Capture Proposed Knowledge and Review Proposed Claim. DCL continued to describe behavioural intent, C4 described structure, and Dapr supplied messaging, state and model boundaries. Claims remained staged rather than authoritative, the first reasoning agent acted only through a controlled effect, and OpenTelemetry made implementation observable evidence that can now challenge and refine the architecture.",
+    links: [
+      { type: "Episode", label: "Building the First Architectural Slice", href: "/episodes/0016-building-the-knowledge-service/" },
+      { type: "Decision", label: "ADR-0001 — AI Runtime", href: "/decisions/adr-0001/" },
+      { type: "Decision", label: "ADR-0005 — OpenTelemetry boundary", href: "/decisions/adr-0005/" }
+    ]
   }
 ];

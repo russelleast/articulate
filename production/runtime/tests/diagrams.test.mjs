@@ -91,6 +91,19 @@ test("the shared asset registry accepts PlantUML and enforces notation extension
   );
 });
 
+test("the shared asset registry accepts Structurizr DSL only with an explicit view", () => {
+  const diagram = {
+    id: "current-architecture", type: "diagram", format: "structurizr", episode: "0016",
+    status: "generated", checksum: null, source: "docs/architecture.dsl", viewKey: "Container-001",
+    location: "site/public/diagrams/current-architecture.svg", provider: "local"
+  };
+  assert.deepEqual(validateRegistryDocument({ version: 1, assets: [diagram] }), [diagram]);
+  assert.throws(
+    () => validateRegistryDocument({ version: 1, assets: [{ ...diagram, viewKey: undefined }] }),
+    /structurizr diagram requires viewKey/
+  );
+});
+
 test("D2 command construction fixes layout, theme and padding", () => {
   const diagram = { sourcePath: "/repo/source.d2", outputPath: "/repo/source.svg" };
   assert.deepEqual(d2Command(diagram), {
@@ -134,6 +147,30 @@ test("PlantUML rendering pipes semantic source to a shared SVG", (t) => {
   assert.equal(renderDiagram({ id: "flow", format: "plantuml", sourcePath, outputPath }, { run }), outputPath);
   assert.equal(fs.readFileSync(outputPath, "utf8"), '<svg viewBox="0 0 10 10"/>');
   assert.deepEqual(calls[0], { command: "plantuml", args: [...PLANTUML_RENDER_ARGUMENTS], input: fs.readFileSync(sourcePath, "utf8") });
+});
+
+test("Structurizr rendering exports the selected DSL view before producing SVG", (t) => {
+  const root = temporaryRepository(t);
+  const sourcePath = path.join(root, "architecture.dsl");
+  const outputPath = path.join(root, "published", "architecture.svg");
+  fs.writeFileSync(sourcePath, "workspace {}\n");
+  const calls = [];
+  const run = (command, args) => {
+    calls.push({ command, args });
+    if (command === "structurizr") {
+      const outputDirectory = args[args.indexOf("-output") + 1];
+      fs.writeFileSync(path.join(outputDirectory, "structurizr-Container-001.dot"), "digraph {}\n");
+    } else {
+      fs.writeFileSync(args[args.indexOf("-o") + 1], '<svg viewBox="0 0 10 10"/>');
+    }
+    return { status: 0, stdout: "", stderr: "" };
+  };
+
+  const diagram = { id: "architecture", format: "structurizr", viewKey: "Container-001", sourcePath, outputPath };
+  assert.equal(renderDiagram(diagram, { command: "structurizr", run }), outputPath);
+  assert.equal(calls[0].command, "structurizr");
+  assert.deepEqual(calls[0].args.slice(0, 5), ["export", "-workspace", sourcePath, "-format", "dot"]);
+  assert.equal(calls[1].command, "dot");
 });
 
 test("rendering failures and false success are surfaced", (t) => {

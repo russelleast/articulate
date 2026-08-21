@@ -62,11 +62,11 @@ test("the home page exposes recent Episodes beside the hero with detailed previe
 
   assert.match(home, /<h2 id="latest-episodes-heading">Latest Episodes<\/h2>/);
   assert.match(home, /class="latest-episode-preview"/);
-  assert.match(home, /href="\/articulate\/episodes\/0015-architectural-assurance\/"/);
-  assert.match(home, /Latest video/);
-  assert.match(home, /href="\/articulate\/episodes\/0013-selecting-the-agent-runtime\/"/);
-  assert.match(home, /src="\/articulate\/media\/episodes\/0013\/episode-0013-thumbnail\.png"/);
-  assert.match(home, /href="https:\/\/youtu\.be\/FdGwipmJQNo"/);
+  assert.match(home, /Latest Episode \/ video/);
+  assert.match(home, /href="\/articulate\/episodes\/0016-building-the-knowledge-service\/"/);
+  assert.match(home, /Building the First Architectural Slice/);
+  assert.match(home, /src="\/articulate\/media\/episodes\/0016\/episode-0016-thumbnail\.png"/);
+  assert.match(home, /href="https:\/\/youtu\.be\/5EwFlwy2oVU"/);
   assert.doesNotMatch(home, /Current Architectural Question|>Start Here<|Architecture at a Glance/);
   assert.match(home, /An architecture journal built through evidence/);
 });
@@ -122,11 +122,11 @@ test("published Episodes are grouped by season and ordered while future Episodes
   assert.match(listing, /Season 2 — Architectural Intelligence/);
   assert.ok(seasonListing.indexOf("0006-ai-assisted-development") < seasonListing.indexOf("0007-the-knowledge-model"));
   assert.ok(seasonListing.indexOf("0014-knowledge-evolution") < seasonListing.indexOf("0015-architectural-assurance"));
-  assert.doesNotMatch(listing, /0016-impact-analysis|0017-observing-agents|0018-building-the-knowledge-service/);
+  assert.ok(seasonListing.indexOf("0015-architectural-assurance") < seasonListing.indexOf("0016-building-the-knowledge-service"));
+  assert.doesNotMatch(listing, /0017-observing-agents|0018-driving-out-the-knowledge-model/);
   for (const slug of [
-    "0016-impact-analysis-and-knowledge-reasoning",
     "0017-observing-agents",
-    "0018-building-the-knowledge-service"
+    "0018-driving-out-the-knowledge-model"
   ]) {
     await assert.rejects(access(new URL(`../dist/episodes/${slug}/index.html`, import.meta.url)));
   }
@@ -136,11 +136,48 @@ test("the Episodes index identifies the latest entry and exposes search and topi
   const listing = await output("episodes/index.html");
 
   assert.match(listing, /<p class="eyebrow">Latest Episode<\/p>/);
-  assert.match(listing, /Episode 0015 \/\s*Season 2 — Architectural Intelligence/);
+  assert.match(listing, /Episode 0016 \/\s*Season 2 — Architectural Intelligence/);
   assert.match(listing, /data-episode-search/);
   assert.match(listing, /data-episode-topic/);
   assert.match(listing, /data-episode-card/);
   assert.match(listing, /No Episodes match these filters/);
+});
+
+test("Episode 0016 publishes its video, navigation and implementation diagrams", async () => {
+  const listing = await output("episodes/index.html");
+  const episode15 = await output("episodes/0015-architectural-assurance/index.html");
+  const episode16 = await output("episodes/0016-building-the-knowledge-service/index.html");
+
+  assert.match(listing, /href="\/articulate\/episodes\/0016-building-the-knowledge-service\/"/);
+  assert.match(episode15, /<p class="eyebrow">Next<\/p>\s*<a href="\/articulate\/episodes\/0016-building-the-knowledge-service\/">/);
+  assert.match(episode16, /<p class="eyebrow">Previous<\/p>\s*<a href="\/articulate\/episodes\/0015-architectural-assurance\/">/);
+  assert.match(episode16, /youtube-nocookie\.com\/embed\/5EwFlwy2oVU/);
+  assert.match(episode16, /episode-0016-thumbnail\.png/);
+  assert.doesNotMatch(episode16, /\[(?:Screenshot|Diagram):/);
+
+  for (const diagram of [
+    "episode-0016-capture-proposed-knowledge-flow.svg",
+    "episode-0016-initial-c4.svg",
+    "episode-0016-evolved-c4.svg",
+    "episode-0016-controlled-agent-effect.svg",
+    "episode-0016-end-to-end-claim-execution.svg"
+  ]) {
+    assert.match(episode16, new RegExp(`src="/articulate/diagrams/${diagram}"`));
+    await access(new URL(`../dist/diagrams/${diagram}`, import.meta.url));
+  }
+});
+
+test("Evolution and Architecture describe the Episode 16 executable transition", async () => {
+  const evolution = await output("evolution/index.html");
+  const architecture = await output("architecture/index.html");
+
+  assert.match(evolution, /Conceptual architecture became executable architecture/);
+  assert.match(evolution, /\/episodes\/0016-building-the-knowledge-service\//);
+  assert.match(architecture, /Current executable slice/);
+  assert.match(architecture, /Architecture still evolving/);
+  assert.match(architecture, /MongoDB currently stores staged proposals/);
+  assert.match(architecture, /Zipkin is the current development trace viewer/);
+  assert.doesNotMatch(architecture, /Future Views/);
 });
 
 test("decision index is concise and full ADRs publish on detail routes", async () => {

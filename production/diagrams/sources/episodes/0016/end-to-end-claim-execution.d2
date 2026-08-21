@@ -1,0 +1,21 @@
+...@../../../styles/articulate
+
+direction: right
+
+scenario: Named Claim Scenario {class: evidence}
+simulator: Claim Simulator {class: external}
+capture: Capture Proposed Knowledge {class: capability}
+proposals: Staged Proposed Knowledge {class: data}
+event: Proposed Claim Event {class: event}
+messaging: Dapr Pub/Sub / RabbitMQ {class: workflow}
+agent: Review Proposed Claim Agent {class: agent}
+model: Replaceable Language Model {class: external}
+effect: Record Review Result {class: capability}
+
+scenario -> simulator -> capture
+capture -> proposals: persists proposal
+capture -> event: publishes
+event -> messaging -> agent
+agent -> model: reasons through Dapr Conversation
+agent -> effect: invokes controlled tool
+effect -> proposals: records review evidence

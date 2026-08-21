@@ -4,7 +4,7 @@ title: "Building the First Architectural Slice"
 description: "The first executable slice of Articulate, using DCL, C4, Dapr and the first reasoning agent to test whether the conceptual architecture survives implementation."
 season: 2
 status: current
-published: true
+published: 2026-08-21
 date: 2026-08-21
 topics:
 - Architectural implementation
@@ -18,6 +18,7 @@ topics:
 - OpenTelemetry
 - Observability
 thumbnail: /media/episodes/0016/episode-0016-thumbnail.png
+thumbnail_alt: "Presenter beside the words Building the First Architectural Slice and a progression from intent to running software."
 youtube_url: https://youtu.be/5EwFlwy2oVU
 ---
 
@@ -85,20 +86,7 @@ Something that still needs to be considered.
 
 The first executable boundary is therefore deliberately simple:
 
-```text
-Architectural Claim
-        │
-        ▼
-Capture Proposed Knowledge
-        │
-        ▼
-Proposed Claim
-        │
-        ▼
-Knowledge Evolution
-```
-
-[Screenshot: CaptureProposedKnowledge DCL capability]
+![An architectural claim enters Capture Proposed Knowledge, becomes a staged proposed claim and then enters governed knowledge evolution.](/diagrams/episode-0016-capture-proposed-knowledge-flow.svg)
 
 This is also the first practical test of DCL inside Articulate.
 
@@ -134,17 +122,7 @@ Together they provide two different views of the same architectural intent.
 
 The initial structure for Capture Proposed Knowledge is deliberately uninteresting:
 
-```text
-Claim Simulator
-      │
-      ▼
-Knowledge API
-      │
-      ▼
-Proposed Knowledge
-```
-
-[Diagram: initial C4 container view]
+![Initial C4 container view showing the Claim Simulator submitting claims through the Knowledge API into the Proposed Knowledge Store.](/diagrams/episode-0016-initial-c4.svg)
 
 The Claim Simulator isn't really part of the Articulate product.
 
@@ -176,8 +154,6 @@ The first agent is deliberately modest:
 
 **Review Proposed Claim.**
 
-[Screenshot: ReviewProposedClaim DCL capability]
-
 Its responsibility is to assess whether the statement contained within the proposed claim represents an architectural assertion.
 
 It then records that assessment against the claim.
@@ -206,7 +182,7 @@ The Knowledge boundary controls the effect.
 
 Introducing the first agent changes the structural architecture considerably.
 
-[Diagram: evolved C4 container view]
+![Evolved C4 container view including the Review Proposed Claim Agent and its supporting runtime infrastructure.](/diagrams/episode-0016-evolved-c4.svg)
 
 The Claim Simulator still submits claims through the Knowledge API.
 
@@ -221,33 +197,6 @@ The Review Proposed Claim Agent consumes the event and performs the initial asse
 The agent also needs execution state, which is stored in Redis through Dapr's state building block.
 
 And it needs access to a language model through Dapr Conversation.
-
-The architecture now looks more like this:
-
-```text
-                         ┌───────────────┐
-                         │ Claim         │
-                         │ Simulator     │
-                         └───────┬───────┘
-                                 │
-                                 ▼
-                         ┌───────────────┐
-                         │ Knowledge API │
-                         └───────┬───────┘
-                                 │
-                   ┌─────────────┴─────────────┐
-                   │                           │
-                   ▼                           ▼
-          Proposed Knowledge               RabbitMQ
-                                               │
-                                               ▼
-                                    Review Proposed Claim
-                                            Agent
-                                         ┌─────┴─────┐
-                                         │           │
-                                         ▼           ▼
-                                       Redis        LLM
-```
 
 What I find interesting is how quickly the architecture changes once reasoning is introduced.
 
@@ -278,8 +227,6 @@ Dapr State provides the abstraction over Redis.
 Dapr Conversation provides the boundary between the agent and the language model.
 
 Secrets are also managed through a Dapr building block.
-
-[Screenshot: Docker Compose / running containers]
 
 The important part isn't that the infrastructure disappears.
 
@@ -332,8 +279,6 @@ The software becomes evidence of whether those different architectural descripti
 The agent also introduces another type of implementation artefact: the prompt.
 
 For this implementation, I'm using Prompty.
-
-[Screenshot: Review Proposed Claim Prompty file]
 
 I like the simplicity of the approach.
 
@@ -413,24 +358,9 @@ The agent does not own the Knowledge Model or the persistence mechanism.
 
 Instead, the capability exposes a controlled tool for recording the review result.
 
-[Screenshot: agent tool definition / claim update]
-
 Architecturally, the relationship is:
 
-```text
-Agent
-  │
-  │ reasoning
-  ▼
-Tool
-  │
-  │ controlled effect
-  ▼
-Knowledge Boundary
-  │
-  ▼
-Proposed Knowledge
-```
+![The agent reasons, invokes a controlled tool, and can affect staged proposed knowledge only through the Knowledge boundary.](/diagrams/episode-0016-controlled-agent-effect.svg)
 
 The language model can reason.
 
@@ -460,41 +390,9 @@ It assesses whether the statement represents an architectural assertion.
 
 And the result is recorded against the proposed claim through the controlled tool.
 
-The flow now looks something like this:
+The end-to-end execution keeps staging, reasoning and controlled effects distinct:
 
-```text
-Scenario
-   │
-   ▼
-Claim Simulator
-   │
-   ▼
-Knowledge API
-   │
-   ▼
-Capture Proposed Knowledge
-   │
-   ├──────────► Proposed Knowledge
-   │
-   ▼
-Proposed Claim Event
-   │
-   ▼
-RabbitMQ / Dapr Pub/Sub
-   │
-   ▼
-Review Proposed Claim Agent
-   │
-   ├──────────► Language Model
-   │
-   ▼
-Controlled Tool
-   │
-   ▼
-Reviewed Proposed Claim
-```
-
-[Screenshot: MongoDB proposed claims and review result]
+![End-to-end execution from a claim scenario through capture, messaging, agent review and the controlled recording of the review result.](/diagrams/episode-0016-end-to-end-claim-execution.svg)
 
 This is obviously still a tiny part of the eventual knowledge-evolution process.
 
@@ -549,8 +447,6 @@ Eventually something comes out of the other end.
 Without distributed tracing, understanding that execution becomes guesswork.
 
 So OpenTelemetry is part of this first slice rather than something to add once the system becomes complicated.
-
-[Screenshot: Zipkin distributed trace]
 
 For now, I'm using Zipkin to inspect those traces.
 

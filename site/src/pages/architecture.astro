@@ -1,43 +1,115 @@
 ---
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { withBase } from "@/utils/site";
 ---
 
 <ArticleLayout
-  title="Architecture"
-  description="The current architecture view for Articulate, limited to what has been established so far."
-  eyebrow="Current state"
+  title="Articulate Architecture"
+  description="The current Articulate architecture at Episode 16: its enduring intent, first executable slice, runtime foundations, and deliberately evolving areas."
+  eyebrow="Current state at Episode 16"
 >
-  <p>
-    This section describes the current state of the system, not the full history of how it arrived
-    here. At this stage, Articulate has established its purpose, principles, and documentation model.
-    Detailed runtime architecture will be added only when decisions and implementation evidence exist.
+  <p class="lede">
+    Articulate is an AI-native architectural-intelligence platform and reference implementation.
+    Its architecture evolves through the journal: intent is established, implemented in small
+    slices, and then refined using evidence from running software.
   </p>
 
   <div class="callout">
-    <h2>Current Architectural Position</h2>
+    <h2>Current architectural position</h2>
     <p>
-      Articulate is being established as a production-oriented reference architecture and public
-      architectural journal. The repository is the canonical record; the website is the navigable
-      narrative surface.
+      Episode 16 marks the transition from a largely conceptual architecture to the first executable
+      slice. This page describes that current state; it is neither a complete Knowledge Service nor
+      a finished target architecture.
     </p>
+    <p><a href={withBase("/episodes/0016-building-the-knowledge-service/")}>Read how the first slice was built and tested</a></p>
   </div>
 
-  <h2>Future Views</h2>
-  <div class="route-grid">
-    {[
-      "System context",
-      "Capability architecture",
-      "Conversational architecture",
-      "Runtime architecture",
-      "Data and memory architecture",
-      "Workflow and agent architecture",
-      "Security and governance",
-      "Operations and observability"
-    ].map((view) => (
-      <article class="index-card">
-        <h3>{view}</h3>
-        <p>This view will be added when the architecture has enough evidence to describe it responsibly.</p>
-      </article>
-    ))}
-  </div>
+  <h2>Architectural approach</h2>
+  <p><strong>Problem → Principles → Capabilities → Architecture → Runtime → Technology</strong></p>
+  <p>
+    Articulate treats capabilities as more durable abstractions than a particular service, agent or
+    framework. DCL describes behavioural intent: inputs, outcomes, effects, policies and observations.
+    C4 describes the structural architecture that implements that intent. Implementation then becomes
+    evidence: it validates decisions, exposes missing detail and can refine the conceptual model.
+  </p>
+
+  <h2>Knowledge architecture</h2>
+  <p>
+    Claims are the fundamental unit of architectural knowledge. Incoming information is staged as
+    proposed knowledge and does not automatically become architectural truth. Authoritative knowledge
+    is intended to evolve through governed processes, while accepted architectural history remains
+    immutable. The Knowledge API protects this boundary so consumers invoke knowledge capabilities
+    rather than mutate persistence directly.
+  </p>
+  <p>
+    The complete authoritative Knowledge Model and its physical persistence architecture have not yet
+    been implemented. MongoDB currently stores staged proposals and their review evidence; it is not a
+    decision that the final Knowledge Model is a document database.
+  </p>
+
+  <h2>Current executable slice</h2>
+  <p>
+    The Claim Simulator submits named test scenarios to the Knowledge API. Capture Proposed Knowledge
+    validates and persists each proposed claim, then publishes an event through Dapr Pub/Sub backed by
+    RabbitMQ. The Review Proposed Claim Agent consumes that event and assesses whether the statement is
+    an architectural assertion.
+  </p>
+  <p>
+    Redis stores agent execution markers through Dapr State. The agent interacts with an external
+    Ollama-hosted Gemma 3 model through Dapr Conversation. It records its assessment through a controlled
+    tool/effect owned by the Knowledge boundary; the agent reasons about knowledge but neither owns it nor
+    promotes a claim into authoritative truth. OpenTelemetry traces and metrics expose the execution.
+  </p>
+  <p>
+    The authoritative structural views are maintained in the repository’s Structurizr model and are
+    published with <a href={withBase("/episodes/0016-building-the-knowledge-service/")}>Episode 16</a>.
+  </p>
+
+  <h2>Runtime architecture</h2>
+  <p>
+    Dapr currently forms the runtime foundation. The executable slice uses sidecars, Pub/Sub, State,
+    Conversation, Secrets and OpenTelemetry integration; Dapr Agents provides the implementation mechanism
+    for the first reasoning capability. RabbitMQ, Redis and the model provider remain visible, replaceable
+    infrastructure behind those runtime boundaries.
+  </p>
+  <p>
+    Dapr Workflows and durable execution are an accepted architectural direction for long-running,
+    recoverable knowledge evolution, but Episode 16 does not yet demonstrate that workflow capability.
+    See <a href={withBase("/decisions/adr-0001/")}>ADR-0001 — AI Runtime</a>.
+  </p>
+
+  <h2>AI model boundary</h2>
+  <p>
+    The language model is deliberately outside the architectural core. The current development environment
+    uses Gemma 3 through Ollama running externally, with Dapr Conversation providing the model-interaction
+    boundary. Model replaceability is the architectural commitment; Gemma and Ollama are current operational
+    choices.
+  </p>
+
+  <h2>Observability</h2>
+  <p>
+    OpenTelemetry is the application observability standard and OTLP keeps application instrumentation
+    independent of a particular backend. Zipkin is the current development trace viewer, not part of the
+    enduring architecture. See <a href={withBase("/decisions/adr-0005/")}>ADR-0005 — OpenTelemetry boundary</a>.
+  </p>
+  <p>
+    Distributed tracing now shows how the software executed, but it does not yet provide enough visibility
+    into the quality, grounding or consistency of agent reasoning. That limitation motivates the next
+    architectural investigation into agent observability and evaluation.
+  </p>
+
+  <h2>Architecture still evolving</h2>
+  <p>
+    Evolution is a deliberate property of Articulate. The current architecture leaves the following areas
+    open until further journal investigation and implementation evidence exist:
+  </p>
+  <ul>
+    <li>authoritative Knowledge Model persistence;</li>
+    <li>reconciliation and multi-agent knowledge evolution;</li>
+    <li>human review and approval;</li>
+    <li>durable knowledge-evolution workflows;</li>
+    <li>agent evaluation and richer reasoning observability;</li>
+    <li>retrieval and knowledge-reasoning infrastructure; and</li>
+    <li>future deployment and hosting architecture.</li>
+  </ul>
 </ArticleLayout>
