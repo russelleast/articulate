@@ -154,7 +154,7 @@ test("Episode 0016 publishes its video, navigation and implementation diagrams",
   assert.match(episode16, /href="https:\/\/youtu\.be\/5EwFlwy2oVU"/);
   assert.match(episode16, /episode-0016-thumbnail\.png/);
   assert.match(episode16, /data-image-preview-dialog/);
-  assert.match(episode16, /data-image-preview-image/);
+  assert.match(episode16, /data-image-preview-image[^>]+alt="Image preview"/);
   assert.doesNotMatch(episode16, /episode-media-video|youtube-nocookie\.com\/embed\/5EwFlwy2oVU/);
   assert.doesNotMatch(episode16, /\[(?:Screenshot|Diagram):/);
 
