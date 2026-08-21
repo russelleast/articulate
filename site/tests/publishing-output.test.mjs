@@ -151,8 +151,11 @@ test("Episode 0016 publishes its video, navigation and implementation diagrams",
   assert.match(listing, /href="\/articulate\/episodes\/0016-building-the-knowledge-service\/"/);
   assert.match(episode15, /<p class="eyebrow">Next<\/p>\s*<a href="\/articulate\/episodes\/0016-building-the-knowledge-service\/">/);
   assert.match(episode16, /<p class="eyebrow">Previous<\/p>\s*<a href="\/articulate\/episodes\/0015-architectural-assurance\/">/);
-  assert.match(episode16, /youtube-nocookie\.com\/embed\/5EwFlwy2oVU/);
+  assert.match(episode16, /href="https:\/\/youtu\.be\/5EwFlwy2oVU"/);
   assert.match(episode16, /episode-0016-thumbnail\.png/);
+  assert.match(episode16, /data-image-preview-dialog/);
+  assert.match(episode16, /data-image-preview-image/);
+  assert.doesNotMatch(episode16, /episode-media-video|youtube-nocookie\.com\/embed\/5EwFlwy2oVU/);
   assert.doesNotMatch(episode16, /\[(?:Screenshot|Diagram):/);
 
   for (const diagram of [
@@ -286,13 +289,9 @@ for (const episode of [
     assert.match(listing, new RegExp(`href="/articulate/episodes/${episode.slug}/"`));
     assert.match(page, new RegExp(episode.thumbnail));
     assert.match(page, /Watch this Episode on YouTube/);
-    assert.match(page, /class="responsive-video episode-media-video"/);
+    assert.doesNotMatch(page, /class="responsive-video episode-media-video"/);
     if (episode.videoId) {
-      assert.match(page, new RegExp(`youtube-nocookie\\.com/embed/${episode.videoId}`));
-      assert.match(
-        page,
-        new RegExp(`title="${episode.iframeTitle}"`)
-      );
+      assert.doesNotMatch(page, new RegExp(`youtube-nocookie\\.com/embed/${episode.videoId}`));
     }
     await access(new URL(`../dist/media/episodes/${episode.slug.slice(0, 4)}/${episode.thumbnail}`, import.meta.url));
   });
