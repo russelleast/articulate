@@ -1,4 +1,4 @@
-# Episode 16 – Basic implementation
+# Episode 16 – Building the First Architectural Slice
 
 > **Question:** *Does this architecture actually work when we build it?*
 
@@ -8,83 +8,469 @@ That's the question for this episode.
 
 Hello, I'm Russell, and welcome to Episode 16 of the Articulate Journal, where I'm exploring what it takes to build an AI-native architecture from first principles.
 
-In the previous episode, I explored architectural assurance.
+In the previous episode, I explored Architectural Assurance and how Articulate could continuously evaluate architectural knowledge rather than simply store it.
 
-In this episode, Articulate will be born, starting with some foundations around the knowledge model and the agent runtime. I will show the implementation so far implementing two capabilities:
+But for the first fifteen episodes, most of Articulate has existed as architecture.
 
-- Capture Proposed Knowledge 
+We've explored the Knowledge Model, knowledge reasoning, DCL, agent runtimes, durable execution, knowledge evolution and architectural assurance.
+
+We've made architectural decisions.
+
+We've drawn diagrams.
+
+We've defined capabilities.
+
+Now it's time to find out whether any of it actually works when we build it.
+
+In this episode, Articulate is finally going to become running software.
+
+I'm going to walk through the first architectural slice, built around two capabilities:
+
+- Capture Proposed Knowledge
 - Review Proposed Claim
 
-## (screen share) [vscode]
+And rather than just talking about the implementation, I'm going to show it running.
+
+---
+
+## [vscode]
 
 ### Capture Proposed Knowledge
 
-Starting with the Capture Proposed Knowledge capability, its described using DCL, the Declarative Capability Language. I have the DCL vscode extension installed that allows vscode to include syntax highlighing, compiler and language server protocol so vscode can navigate code structures. It has a graph workspace that has various visuals like a capability map. As the episodes progress and more capabilities are added, these graphs will become very useful.
+I'm going to start with the Capture Proposed Knowledge capability.
 
-To briefly explain this capability, in DCL you can see the keyword context, context is like a bounded context in domain driven design. a context can contain one or many capabilities and other elements. 
+which is described using DCL, the Declarative Capability Language that I introduced earlier in the journal.
 
-We have actors defined, actors can be of different types, we have humam, systems and agents defined currently.
+I have the DCL VS Code extension installed, which gives me syntax highlighting, compiler diagnostics and language-server support for navigating the DCL model.
 
-We have effects, effects could be seen as I\O bound activities, like persistenance or notifications. other types of effects tools and invocations can be used.
+It also has a graph workspace containing different visuals.
 
-various other constructs can be declared like policies and shapes.
+There isn't much to see in those graphs yet, but as more capabilities are added to Articulate, they're going to become increasingly useful.
 
-DCL supports multiple files. I have a another dcl file called shapes with includes the claim shape. A shape is data type like a record or an enum, we have a shape called claim, it has fields that can be build in data types or other shapes. DCL supports a level of domain modelling. 
+I'm not going to go through every part of DCL, but there are a few things worth looking at in this capability.
 
-Looking at the capability now, it has a number of intents where various actors can supply the claim. Every capability has an outcome, here we see two outcomes. The effects block shows that the capability uses this effect and in order in which effects are used. 
+At the top we have the `context`.
 
-the observe block defines what metrics are important and need to be observed as part of the capability.
+A context maps to a bounded context in Domain-Driven Design. It groups related capabilities and the other elements they depend upon.
 
-The when block defines the mapping of the outcomes of the capability with the results from rules, policies and effects. the invarients
+We also have actors.
 
-This capabiliy is as simple as it comes. a claim can be supplied from various actors, its persisted, then a notification is sent. Happy path returns a captured outcome, else the outcomes returns rejected. 
+Actors can currently be humans, systems or agents, and here they represent the different actors that can supply a proposed claim.
 
-The beauity of DCL is that it describes the intent and as a compiled language is verifies that all outcomes and rules are valid. It is designed to not descibe technology or get into the how. Its about behavioural intent that can be executed. 
+The data itself is defined separately in another DCL file containing the shapes.
 
-The step is to produce some code, my environment is simple, I use Codex as my coding agent. I have an Agents.md file in the root that is architectural and I have an agents.md in the source code folder which outlines the rules and contraints at language level. I have some skills for plan, implement and verify stages. I have also added the DCL MCP server so that it can fully understand the capability rather than use it as text. DCL really helps the context the model needs as it provides semantic intent
+A shape is a data type. It can be something simple like an enum or a record-like structure containing fields made up of built-in types or other shapes.
 
-DCL descibes the behavior, C4 descibes the structure. 
+Here we have the Claim shape that describes the information crossing this capability boundary.
 
-[Browser]
-I use C4 during the design process, here is a very basic diagram. which relates to the capbility we have used looked at. The addition is the Claim Simulator. this service is purely for testing where I will have named scenarios that will throw a collection of claims at the knowledge api. this will be key to testing and demostrating Articulate as development evolves.  
+Shapes give DCL a level of domain modelling, but that's deliberately not its primary responsibility.
 
-The knowledge api will persist claims to a data store.
+DCL is about behavioural intent.
 
-### Review Proposed claim
+Looking at the capability itself, we can see the intents describing who can provide a claim.
 
-This now provides a baseline for the first agent being Review Proposed claim. The goal of the agent to look at the claim and assess that the statement is architectural and it will store the status about the claim. this will act as the first filter in evolving claims .
+Every capability has outcomes, and here we have two: Captured and Rejected.
+
+The effects describe the external effects the capability is allowed to produce.
+
+In this case, the claim is persisted and then a notification is sent.
+
+The observe block describes what is important to observe about the capability when it executes.
+
+And the `when` block connects the results of rules, policies and effects to the outcomes of the capability.
+
+The behaviour here is deliberately simple.
+
+A claim arrives.
+
+It's persisted as proposed knowledge.
+
+A notification is produced.
+
+If that succeeds, the outcome is Captured.
+
+Otherwise, it's Rejected.
+
+That's really all I need DCL to say.
+
+DCL describes the behavioural intent without describing the technology used to implement it.
+
+Because DCL is also a compiled language, the compiler can verify that the elements referenced by the capability exist and that its behavioural definition is structurally valid.
+
+The next step is turning that intent into software.
+
+### AI-assisted development
+
+I'm using Codex as my coding agent.
+
+At the root of the repository I have an `AGENTS.md` containing architectural guidance.
+
+There is another `AGENTS.md` within the source code containing engineering guidance and constraints for the implementation.
+
+I've also created skills that establish a Plan, Implement and Verify development process.
+
+And importantly, I've connected the DCL MCP server.
+
+That means Codex doesn't have to treat this capability as another piece of text I've placed into its context.
+
+It can interrogate the compiled DCL model and understand the semantic intent behind the capability.
+
+That's one of the ideas behind DCL.
+
+Whether giving an AI coding agent explicit architectural and behavioural intent creates a better relationship between architecture and implementation.
+
+But DCL only describes one part of the architecture.
+
+**DCL describes the behaviour. C4 describes the structure.**
+
+---
+
+## [browser]
+
+I use C4 as part of my design process, and at this point the structure is deliberately very simple.
+
+We have the Claim Simulator, the Knowledge API and persistence for proposed knowledge.
+
+The Claim Simulator isn't really part of the Articulate product.
+
+It's a development tool.
+
+As Articulate evolves, I'll be able to create named scenarios containing collections of claims and throw those scenarios at the Knowledge API.
+
+That should become important both for testing Articulate and for demonstrating its behaviour as the architecture becomes more sophisticated.
+
+The Knowledge API provides the boundary through which those claims enter the system.
+
+And initially, those claims simply need somewhere durable to be staged.
+
+So this is enough to implement Capture Proposed Knowledge.
+
+But it doesn't really prove much about an AI-native architecture.
+
+At this point, I've essentially built an API that can persist documents.
+
+I wanted the first architectural slice to contain at least one agent actually acting upon the knowledge entering the system.
+
+And that introduces the second capability.
+
+---
+
+## Review Proposed Claim
+
+The first agent implements the Review Proposed Claim capability.
+
+Its responsibility is deliberately modest.
+
+It receives a proposed claim and assesses whether the statement represents an architectural assertion.
+
+It then records that assessment against the proposed claim.
+
+This isn't deciding whether the claim is architectural truth.
+
+It's the first filter in a much larger knowledge-evolution process.
+
+---
+
+## [vscode]
+
+Looking at the Review Proposed Claim DCL, it's part of the same Knowledge context.
+
+Most of this should now look familiar, so there are only a few additional things I want to point out.
+
+The actor here is a system representing the messaging subscriber.
+
+The capability is triggered when proposed knowledge becomes available for review.
+
+We have some additional shapes describing the review result.
+
+There is also an effect that uses a tool.
+
+That's an important boundary.
+
+The agent can reason about a claim, but it doesn't get unrestricted access to the underlying persistence.
+
+The tool gives the capability a controlled way of recording the review result.
+
+We also have policies.
+
+A policy can contain one or more families of architectural characteristics such as reliability, performance, security, observability or confidence.
+
+Within the capability, the policies block associates those policies with particular parts of the behaviour.
+
+And in the `when` block, we can see that a policy contributes to determining the outcome.
+
+Finally, there is a lifecycle.
+
+DCL isn't intended to be a full workflow language.
+
+But it can describe enough of a capability's lifecycle to express its states, transitions and the events that cause those transitions.
+
+Let's compile the DCL and have a look at the graph workspace.
+
+The architecture overview now shows both capabilities inside the Knowledge context.
+
+It's still not particularly exciting.
+
+But if I switch to the capability graph, we can see the individual parts of the capability and the relationships between them.
+
+Changing the layout makes it easier to see the inputs, outcomes, effects and policies.
+
+There are several other views available, but I'll come back to those in future episodes as the capability model becomes more interesting.
+
+We now have two behaviours:
+
+Capture Proposed Knowledge.
+
+And Review Proposed Claim.
+
+The structure required to execute them is rather more interesting.
+
+---
+
+## [browser]
+
+This is the C4 model now.
+
+The Claim Simulator still submits claims through the Knowledge API.
+
+The Knowledge API persists those proposed claims.
+
+But after a claim has been captured, an event is published.
+
+That event is delivered through RabbitMQ using Dapr Pub/Sub building block.
+
+The Review Proposed Claim Agent consumes that event and performs the initial assessment.
+
+The agent also needs state, which is stored using Redis through Dapr's state building block.
+
+And it needs access to a language model.
+
+I'm using the Dapr Conversation building block for that boundary.
+
+So the architecture has already changed considerably from the first diagram.
+
+And that's useful.
+
+The first capability required little more than an API and persistence.
+
+Introducing reasoning immediately introduces messaging, agent execution, state and model interaction.
+
+---
+
+## [vscode]
+
+The code for these services has now been created.
+
+Dapr Agents is configured and Docker Compose is in place to run the whole development environment, which we'll see shortly.
+
+One thing I particularly like is Prompty.
+
+The prompt is a source-controlled artefact rather than a string buried somewhere inside the Python code.
+
+There's some front matter describing its configuration, followed by the actual prompt used by the agent.
+
+Again, this keeps an important part of the agent's behaviour visible and inspectable.
+
+Alongside Dapr Agents, I'm now using several of the Dapr building blocks.
+
+Pub/Sub handles the proposed-knowledge events.
+
+State provides the agent with persistent execution state.
+
+Conversation provides the model boundary.
+
+Secrets handles configuration that shouldn't be embedded in the application.
+
+And the Dapr runtime integrates with the observability infrastructure.
+
+The language model itself isn't running inside this environment.
+
+I have Ollama running on a separate M4 Mac mini using Gemma 3 12B.
+
+That's useful for this experiment because the model remains outside Articulate itself.
+
+The agent depends upon a conversation capability.
+
+Which model happens to sit behind that capability is a separate concern.
+
+### Persistence
+
+I've talked a lot throughout this journal about the Knowledge Model, but I haven't yet made a decision about its eventual database engine.
+
+And I don't need to make that decision yet.
+
+For this first slice, I need somewhere durable to stage proposed claims and their review information.
+
+I'm using MongoDB.
+
+It's flexible, requires very little ceremony and lets me concentrate on testing the architectural flow rather than prematurely designing the final persistence architecture.
+
+---
+
+## [browser]
+
+So this is where the architecture currently stands.
+
+It's still small.
+
+But this feels like enough for the first meaningful architectural slice.
+
+We have capability intent described using DCL.
+
+Structure described using C4.
+
+A Knowledge API protecting the knowledge boundary.
+
+Messaging between capabilities.
+
+Our first reasoning agent.
+
+Persistent state.
+
+A language model.
+
+And observability.
+
+Now let's actually run it.
+
+---
+
+## [mongo]
+
+I'm starting in MongoDB Compass.
+
+At the moment, there are no proposed claims.
+
+So we have a clean starting point.
+
+---
+
+## [vscode]
+
+I'll start the environment using Docker Compose.
+
+Here we can see the services starting along with the Dapr sidecars and the supporting infrastructure.
+
+Once everything is healthy, we can put some claims through the system.
+
+---
+
+## [browser]
+
+This is the OpenAPI documentation for the Claim Simulator.
+
+I'm going to call this GET endpoint first.
+
+That gives me the named scenarios currently available to the simulator.
+
+Each scenario represents a known collection of claims that I can repeatedly send through Articulate.
+
+I'm going to take this scenario and pass its name into the POST endpoint.
+
+And execute it.
+
+That has now submitted a collection of claims to the Knowledge API.
+
+Capture Proposed Knowledge will process each claim and persist it.
+
+Notifications will be published through Dapr Pub/Sub and RabbitMQ.
+
+The Review Proposed Claim Agent will receive those messages and use the language model to assess whether each statement represents an architectural assertion.
+
+Let's see what actually happened.
+
+---
+
+## [mongo]
+
+If I refresh MongoDB, we now have proposed claims.
+
+Opening one of those claims, we can see the original architectural assertion and its associated information.
+
+And importantly, we can also see the result produced by the Review Proposed Claim capability.
+
+So we've gone from an empty database, through the Knowledge API, through messaging, into an agent, through a language model and back to a recorded review result.
+
+The two capabilities we started with in DCL are now executing.
+
+---
+
+## [browser]
+
+Dapr also gives us distributed tracing through OpenTelemetry.
+
+For this development environment I'm currently using Zipkin to inspect those traces.
+
+Here we can see the execution crossing the different parts of the system.
+
+We can inspect the spans, timings and calls and start to understand what happened during the execution of the scenario.
+
+For a normal distributed application, this is incredibly useful.
+
+And it gives me evidence that the architectural slice we've just looked at is actually executing across the boundaries I designed.
+
+But there's a problem.
+
+---
+
+## [Narrator]
+
+Zipkin can tell me that the agent executed.
+
+I can see the services involved, the spans, the timing and the calls crossing the system.
+
+For a normal distributed application, that's good observability.
+
+But this isn't only a distributed application.
+
+An agent made a judgement.
+
+I want to understand the model interaction.
+
+What context did it receive?
+
+What response did the model produce?
+
+Why did the agent reach the conclusion it did?
+
+Is the response grounded?
+
+Is the agent behaving consistently?
+
+And eventually, is the implementation actually producing the outcome that DCL says the capability should produce?
+
+Distributed tracing can tell me how the software executed.
+
+It doesn't yet tell me whether the intelligence was any good.
+
+So, does this architecture actually work when we build it?
+
+At this scale, yes.
+
+Claims can enter through the Knowledge API.
+
+They're staged rather than becoming architectural truth.
+
+Capture Proposed Knowledge produces an event.
+
+An independent agent responds to that event, reasons about the claim and records its assessment through a controlled capability.
+
+And I can observe that execution across the system.
+
+It's a small start.
+
+But Articulate is now running software.
+
+The next question is whether I can understand and evaluate the behaviour of the intelligence running inside it.
+
+That's the topic for the next episode.
+
+Thanks for watching, and I'll see you in the next one.
+
+---
 
 
-[vscode]
-Looking at the Review Proposed claim DCL code, its part of the same bounded context and it has an actor being the messaging system where its a consumer to a notification. This capability uses some specific shapes and has an effect where its using a tool. A couple of policies have been defined, a policy can contain one or more families of characteristics like availability, performance, security etc.
 
-In the capability, we have covered some of the blocks earlier, but we have the polcies block that maps the policies to parts of the capability. In the When block, a policy is used to control the outcome. The last block is the lifecycle, this is not a full blown workflow language but enough to define the steps and the transistions which can be triggered with events. 
-
-Going to compile the dcl and flip over to the graph workspace. the architecture oberview shows the two capabilities under the context. not that exciting, the capability graph show a visual of the capibility, switching the layout shows the input, the comes etc. Other views exist and we can cover them another time.
-
-The structure now changes, the C4 evolves now to this, we can view the diagram here.
-
-[browser] but using the structuriser playground, it nicer on the eye.
-
-[vscode]
-The code has been created for these services. DAPR Agents is configured and the docker compose is in place to run the services. we will see that shortly. 
-
-I really like "prompty", a bit of front matter and it nice to have the prompt under source control as a specific file.
-
-In addition to Dapr agents, also using blocking buildings used secrets, pub/sub, OpenTelemetry, conversation as well. The LM I am using locally is running on a separate m4 mac mini. Using Gemma3.12b with Ollama. 
-
-The structure of the architect now looks different. Much has been said about the Knowledge model and I have not made a dicussion on the technology, but to get started I am just going to use MongoDb. Its flexible and just works with very litte effort to start with. 
-
-[browser]. The architecture is changing. this feels like a good start. 
-
-[mongo]
-As a quick demo, the mongo database is empty
-
-[vscode]
-Running docker compose
-
-[browser]
-In the swagger docs, going to run this GET endpoint, which will return a couple of scenarios. Going to grab this one, and pass the string into this POST endpoint. That will have create a bunch of claims that would be captured, messages will be flowing through rabbitMQ and the agent will be reviewed all the claims and determined if the statement in each claim was an architectural statement.
 
 [Mongo]
 If I refresh the database, we can see the claims and the result from the agent.
