@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "episodeId": "episode-0016",
+  "narrationAssetId": "episode-0016-presenter-v1",
+  "mediaRole": "continuous-presenter-video-with-embedded-audio",
+  "sha256": "d9958367109c5504404fad51105182a96a89a13861d9c396796c0215c1dec51b",
+  "media": {
+    "durationSeconds": 1114.446667,
+    "sizeBytes": 304436353,
+    "bitRate": 2185381,
+    "codec": "aac",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "channelLayout": "stereo"
+  },
+  "silenceAnalysis": {
+    "noiseThreshold": "-42dB",
+    "minimumSilenceSeconds": 0.35,
+    "leadingSilenceSeconds": 0.429271,
+    "trailingSilenceSeconds": 1.868375,
+    "usableNarrationDurationSeconds": 1112.149021,
+    "detectedPauseCount": 327,
+    "majorPauseMinimumSeconds": 1.3,
+    "majorPauses": [
+      {
+        "startSeconds": 3.262479,
+        "endSeconds": 4.647292,
+        "durationSeconds": 1.384813
+      },
+      {
+        "startSeconds": 16.7355,
+        "endSeconds": 18.117042,
+        "durationSeconds": 1.381542
+      },
+      {
+        "startSeconds": 107.334208,
+        "endSeconds": 108.836708,
+        "durationSeconds": 1.5025
+      },
+      {
+        "startSeconds": 126.633687,
+        "endSeconds": 128.037875,
+        "durationSeconds": 1.404187
+      },
+      {
+        "startSeconds": 152.807562,
+        "endSeconds": 155.069021,
+        "durationSeconds": 2.261459
+      },
+      {
+        "startSeconds": 174.234667,
+        "endSeconds": 177.024604,
+        "durationSeconds": 2.789937
+      },
+      {
+        "startSeconds": 183.183667,
+        "endSeconds": 184.639083,
+        "durationSeconds": 1.455417
+      },
+      {
+        "startSeconds": 185.702625,
+        "endSeconds": 187.027417,
+        "durationSeconds": 1.324792
+      },
+      {
+        "startSeconds": 230.534604,
+        "endSeconds": 232.625792,
+        "durationSeconds": 2.091188
+      },
+      {
+        "startSeconds": 240.835271,
+        "endSeconds": 244.089979,
+        "durationSeconds": 3.254708
+      },
+      {
+        "startSeconds": 284.405937,
+        "endSeconds": 285.995167,
+        "durationSeconds": 1.58923
+      },
+      {
+        "startSeconds": 303.136625,
+        "endSeconds": 305.091396,
+        "durationSeconds": 1.954771
+      },
+      {
+        "startSeconds": 317.606854,
+        "endSeconds": 320.097729,
+        "durationSeconds": 2.490875
+      },
+      {
+        "startSeconds": 323.318583,
+        "endSeconds": 324.874229,
+        "durationSeconds": 1.555646
+      },
+      {
+        "startSeconds": 360.134917,
+        "endSeconds": 361.727271,
+        "durationSeconds": 1.592354
+      },
+      {
+        "startSeconds": 389.844979,
+        "endSeconds": 393.278167,
+        "durationSeconds": 3.433188
+      },
+      {
+        "startSeconds": 403.077354,
+        "endSeconds": 405.568042,
+        "durationSeconds": 2.490688
+      },
+      {
+        "startSeconds": 442.451375,
+        "endSeconds": 444.484333,
+        "durationSeconds": 2.032958
+      },
+      {
+        "startSeconds": 451.547542,
+        "endSeconds": 452.864583,
+        "durationSeconds": 1.317041
+      },
+      {
+        "startSeconds": 466.171104,
+        "endSeconds": 468.157958,
+        "durationSeconds": 1.986854
+      },
+      {
+        "startSeconds": 494.279271,
+        "endSeconds": 497.049562,
+        "durationSeconds": 2.770291
+      },
+      {
+        "startSeconds": 516.702583,
+        "endSeconds": 524.978917,
+        "durationSeconds": 8.276334
+      },
+      {
+        "startSeconds": 535.149604,
+        "endSeconds": 539.356646,
+        "durationSeconds": 4.207042
+      },
+      {
+        "startSeconds": 545.154792,
+        "endSeconds": 547.017021,
+        "durationSeconds": 1.862229
+      },
+      {
+        "startSeconds": 553.009792,
+        "endSeconds": 555.148354,
+        "durationSeconds": 2.138562
+      },
+      {
+        "startSeconds": 564.207,
+        "endSeconds": 565.615021,
+        "durationSeconds": 1.408021
+      },
+      {
+        "startSeconds": 572.425854,
+        "endSeconds": 574.645979,
+        "durationSeconds": 2.220125
+      },
+      {
+        "startSeconds": 578.2035,
+        "endSeconds": 581.183979,
+        "durationSeconds": 2.980479
+      },
+      {
+        "startSeconds": 586.487729,
+        "endSeconds": 588.425604,
+        "durationSeconds": 1.937875
+      },
+      {
+        "startSeconds": 591.132979,
+        "endSeconds": 593.959,
+        "durationSeconds": 2.826021
+      },
+      {
+        "startSeconds": 599.823417,
+        "endSeconds": 602.309271,
+        "durationSeconds": 2.485854
+      },
+      {
+        "startSeconds": 608.019937,
+        "endSeconds": 609.475292,
+        "durationSeconds": 1.455355
+      },
+      {
+        "startSeconds": 614.153479,
+        "endSeconds": 615.897646,
+        "durationSeconds": 1.744167
+      },
+      {
+        "startSeconds": 647.573417,
+        "endSeconds": 648.903167,
+        "durationSeconds": 1.32975
+      },
+      {
+        "startSeconds": 651.163521,
+        "endSeconds": 655.382229,
+        "durationSeconds": 4.218708
+      },
+      {
+        "startSeconds": 658.335938,
+        "endSeconds": 659.996146,
+        "durationSeconds": 1.660208
+      },
+      {
+        "startSeconds": 671.622875,
+        "endSeconds": 674.001875,
+        "durationSeconds": 2.379
+      },
+      {
+        "startSeconds": 688.185062,
+        "endSeconds": 689.935562,
+        "durationSeconds": 1.7505
+      },
+      {
+        "startSeconds": 740.083687,
+        "endSeconds": 741.41075,
+        "durationSeconds": 1.327063
+      },
+      {
+        "startSeconds": 745.31075,
+        "endSeconds": 746.913375,
+        "durationSeconds": 1.602625
+      },
+      {
+        "startSeconds": 753.652333,
+        "endSeconds": 754.984646,
+        "durationSeconds": 1.332313
+      },
+      {
+        "startSeconds": 786.641333,
+        "endSeconds": 788.193021,
+        "durationSeconds": 1.551688
+      },
+      {
+        "startSeconds": 794.033854,
+        "endSeconds": 795.479167,
+        "durationSeconds": 1.445313
+      },
+      {
+        "startSeconds": 817.401729,
+        "endSeconds": 819.022771,
+        "durationSeconds": 1.621042
+      },
+      {
+        "startSeconds": 838.579375,
+        "endSeconds": 842.106792,
+        "durationSeconds": 3.527417
+      },
+      {
+        "startSeconds": 842.755896,
+        "endSeconds": 846.692229,
+        "durationSeconds": 3.936333
+      },
+      {
+        "startSeconds": 858.876917,
+        "endSeconds": 862.05725,
+        "durationSeconds": 3.180333
+      },
+      {
+        "startSeconds": 862.207021,
+        "endSeconds": 865.270437,
+        "durationSeconds": 3.063416
+      },
+      {
+        "startSeconds": 874.110771,
+        "endSeconds": 884.452229,
+        "durationSeconds": 10.341458
+      },
+      {
+        "startSeconds": 884.998979,
+        "endSeconds": 895.76625,
+        "durationSeconds": 10.767271
+      },
+      {
+        "startSeconds": 907.471687,
+        "endSeconds": 909.475958,
+        "durationSeconds": 2.004271
+      },
+      {
+        "startSeconds": 915.039479,
+        "endSeconds": 916.360333,
+        "durationSeconds": 1.320854
+      },
+      {
+        "startSeconds": 926.916646,
+        "endSeconds": 933.437708,
+        "durationSeconds": 6.521062
+      },
+      {
+        "startSeconds": 933.67125,
+        "endSeconds": 935.762896,
+        "durationSeconds": 2.091646
+      },
+      {
+        "startSeconds": 941.537312,
+        "endSeconds": 945.234792,
+        "durationSeconds": 3.697479
+      },
+      {
+        "startSeconds": 975.829917,
+        "endSeconds": 977.900917,
+        "durationSeconds": 2.071
+      },
+      {
+        "startSeconds": 989.303979,
+        "endSeconds": 992.996396,
+        "durationSeconds": 3.692417
+      },
+      {
+        "startSeconds": 993.328,
+        "endSeconds": 995.660854,
+        "durationSeconds": 2.332854
+      },
+      {
+        "startSeconds": 1007.27425,
+        "endSeconds": 1009.003146,
+        "durationSeconds": 1.728896
+      },
+      {
+        "startSeconds": 1069.141187,
+        "endSeconds": 1070.466979,
+        "durationSeconds": 1.325792
+      },
+      {
+        "startSeconds": 1082.362417,
+        "endSeconds": 1083.873687,
+        "durationSeconds": 1.511271
+      },
+      {
+        "startSeconds": 1112.578292,
+        "endSeconds": 1114.452,
+        "durationSeconds": 1.873708
+      }
+    ]
+  },
+  "interpretation": [
+    "The presenter source remains continuous from 0s to 1114.446667s; no interior silence was removed.",
+    "Major pauses are deterministic signal evidence. Editorial scene boundaries are stored in production/episodes/0016/production/presenter-v1-markers.json.",
+    "The embedded audio remains coupled to the presenter picture and is the timing authority."
+  ]
+}

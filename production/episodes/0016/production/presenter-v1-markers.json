@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "authority": "continuous-edited-source",
+  "mediaDurationSeconds": 1114.446667,
+  "selectedDurationSeconds": 1114.446667,
+  "frameRate": 30,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 7,
+      "narrationReference": "DOES THIS ARCHITECTURE ACTUALLY WORK?"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 7,
+      "endSeconds": 22,
+      "narrationReference": "BUILDING THE FIRST ARCHITECTURAL SLICE"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 22,
+      "endSeconds": 39,
+      "narrationReference": "ARCHITECTURE → SOFTWARE"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 39,
+      "endSeconds": 1021,
+      "narrationReference": "THE RUNNING SYSTEM"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 1021,
+      "endSeconds": 1042,
+      "narrationReference": "AN AGENT MADE A JUDGEMENT"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 1042,
+      "endSeconds": 1070,
+      "narrationReference": "OBSERVING EXECUTION ≠ EVALUATING INTELLIGENCE"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 1070,
+      "endSeconds": 1097,
+      "narrationReference": "THE FIRST ARCHITECTURAL SLICE RUNS"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 1097,
+      "endSeconds": 1114.446667,
+      "narrationReference": "CAN WE EVALUATE THE INTELLIGENCE INSIDE IT?"
+    }
+  ]
+}

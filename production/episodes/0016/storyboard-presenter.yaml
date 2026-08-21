@@ -1,0 +1,88 @@
+{
+  "version": 2,
+  "episode": {
+    "id": "0016",
+    "title": "Building the First Architectural Slice",
+    "narrative_source": "production/episodes/0016/narrative.md",
+    "scene_plan": "production/episodes/0016/scene-plan.yaml",
+    "production_status": "presenter-v1"
+  },
+  "timing": {
+    "authority": "continuous-edited-source",
+    "audio_duration_seconds": 1114.446667
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "DOES THIS ARCHITECTURE ACTUALLY WORK?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [],
+      "start_seconds": 0,
+      "end_seconds": 7
+    },
+    {
+      "id": "S002",
+      "title": "BUILDING THE FIRST ARCHITECTURAL SLICE",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [],
+      "start_seconds": 7,
+      "end_seconds": 22
+    },
+    {
+      "id": "S003",
+      "title": "ARCHITECTURE → SOFTWARE",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [],
+      "start_seconds": 22,
+      "end_seconds": 39
+    },
+    {
+      "id": "S004",
+      "title": "THE RUNNING SYSTEM",
+      "archetype": "Evidence",
+      "kind": "presenter",
+      "narrative_segments": [],
+      "start_seconds": 39,
+      "end_seconds": 1021
+    },
+    {
+      "id": "S005",
+      "title": "AN AGENT MADE A JUDGEMENT",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [],
+      "start_seconds": 1021,
+      "end_seconds": 1042
+    },
+    {
+      "id": "S006",
+      "title": "OBSERVING EXECUTION ≠ EVALUATING INTELLIGENCE",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "narrative_segments": [],
+      "start_seconds": 1042,
+      "end_seconds": 1070
+    },
+    {
+      "id": "S007",
+      "title": "THE FIRST ARCHITECTURAL SLICE RUNS",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "narrative_segments": [],
+      "start_seconds": 1070,
+      "end_seconds": 1097
+    },
+    {
+      "id": "S008",
+      "title": "CAN WE EVALUATE THE INTELLIGENCE INSIDE IT?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "narrative_segments": [],
+      "start_seconds": 1097,
+      "end_seconds": 1114.446667
+    }
+  ]
+}

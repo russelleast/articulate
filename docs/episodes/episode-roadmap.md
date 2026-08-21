@@ -22,18 +22,6 @@ Need to introduce 1 agent that acts on a proposed claim
 
 ---
 
-## Episode 18 - multi agent
-
-- managing claims, if two claims exist like Order service uses PostgresSQL and another says Order service uses MongoDb. this does not cause a conflict. It could be valid. If the confidence is equal and then a new claim comes in to say Order service does not use MongoDb with high confidence. then the confidence on the existing claim (or respresentation of it) then the confidence should decrease.
-
-Alternatively if the claim "Order service does not use MongoDb" is low confidence, the existing claim has it confidence reduced still but with a smaller value.
-
-- duplicate claims, if the statement matches and the activity is the same, then ignore duplicate claims. (check this makes sense)
-
-
-
----
-
 ## Episode 17 - Observing agents
 
 Although observbility solutions existing for cloud native systems, this explores the requirements and approach to observing agents.
@@ -43,6 +31,15 @@ Look at changing Zipkin to azire phoenix
 ---
 
 # Season 3 – Implementing Architectural Intelligence
+
+## Episode 18 - multi agent
+
+- managing claims, if two claims exist like Order service uses PostgresSQL and another says Order service uses MongoDb. this does not cause a conflict. It could be valid. If the confidence is equal and then a new claim comes in to say Order service does not use MongoDb with high confidence. then the confidence on the existing claim (or respresentation of it) then the confidence should decrease.
+
+Alternatively if the claim "Order service does not use MongoDb" is low confidence, the existing claim has it confidence reduced still but with a smaller value.
+
+- duplicate claims, if the statement matches and the activity is the same, then ignore duplicate claims. (check this makes sense)
+
 
 ## Episode 19 – Impact Analysis as Knowledge Reasoning
 

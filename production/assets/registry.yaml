@@ -524,6 +524,15 @@
       "provider": "local"
     },
     {
+      "id": "episode-0016-presenter-v1",
+      "type": "presenter-video",
+      "episode": "0016",
+      "status": "approved-edited-recording",
+      "checksum": "sha256:d9958367109c5504404fad51105182a96a89a13861d9c396796c0215c1dec51b",
+      "location": "production/episodes/0016/ep16-narrator.mp4",
+      "provider": "local"
+    },
+    {
       "id": "episode-0007-architectural-knowledge-journey",
       "type": "diagram",
       "format": "plantuml",

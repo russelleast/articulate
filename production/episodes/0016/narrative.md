@@ -466,21 +466,3 @@ The next question is whether I can understand and evaluate the behaviour of the 
 That's the topic for the next episode.
 
 Thanks for watching, and I'll see you in the next one.
-
----
-
-
-
-
-[Mongo]
-If I refresh the database, we can see the claims and the result from the agent.
-
-DAPR also comes with Zipkin, here we can see the trace. This is great for a normal application.
-
-
-
-[Narrator]
-with agents I want to observe and evalute the agents, that the topic for the next episode. That concludes the demo. Thanks for watching. See you on the next one.
-
-
-
