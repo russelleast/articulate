@@ -2,12 +2,12 @@
 import { getCollection } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import { formatDate, withBase } from "@/utils/site";
-import { groupEpisodesBySeason } from "@/utils/episodes";
+import { groupEpisodesBySeason, latestPublishedEpisode } from "@/utils/episodes";
 
 const episodes = (await getCollection("episodes", ({ data }) => data.isPublished))
   .sort((a, b) => a.data.sequence - b.data.sequence);
 const seasons = groupEpisodesBySeason(episodes);
-const latestEpisode = [...episodes].sort((a, b) => b.data.sequence - a.data.sequence)[0];
+const latestEpisode = latestPublishedEpisode(episodes)!;
 const latestSeason = seasons.find((season) =>
   season.episodes.some((episode) => episode.id === latestEpisode.id)
 );

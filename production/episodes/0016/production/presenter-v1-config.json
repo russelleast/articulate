@@ -1,0 +1,305 @@
+{
+  "version": 3,
+  "episode": {
+    "id": "episode-0016",
+    "title": "Building the First Architectural Slice",
+    "journalSource": "docs/episodes/0016-building-the-knowledge-service.md",
+    "narrativeSource": "production/episodes/0016/narrative.md",
+    "storyboard": "production/episodes/0016/storyboard-presenter.yaml",
+    "timingMarkers": "production/episodes/0016/production/presenter-v1-markers.json",
+    "assetRegister": "production/episodes/0016/asset-register.yaml",
+    "scenePlan": "production/episodes/0016/scene-plan.yaml",
+    "timeline": "production/episodes/0016/timeline.json"
+  },
+  "presenter": {
+    "implementation": "continuous-video",
+    "assetId": "episode-0016-presenter-v1",
+    "expectedSha256": "d9958367109c5504404fad51105182a96a89a13861d9c396796c0215c1dec51b",
+    "expectedDurationSeconds": 1114.446667,
+    "audio": "embedded",
+    "audioNormalization": {
+      "mode": "ebu-r128",
+      "integratedLoudness": -16,
+      "loudnessRange": 7,
+      "truePeak": -1.5,
+      "sampleRateHz": 48000
+    },
+    "startOffsetSeconds": 0,
+    "endOffsetSeconds": 1114.446667,
+    "background": "#000000",
+    "compositing": {
+      "mode": "soft-luma-key",
+      "applyTo": [
+        "presenter-focus"
+      ],
+      "darkThreshold": 0.07,
+      "softThresholdRange": 0.1,
+      "maskFeatherRadius": 2.5,
+      "minimumRetainedOpacity": 0,
+      "maskContrast": 1.08,
+      "edgeVignetteRadius": 0,
+      "darkHaloSuppression": 0.08,
+      "temporalSmoothing": 2
+    },
+    "framing": {
+      "presenter-full": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "presenter-focus": {
+        "x": -20,
+        "y": 641,
+        "width": 780,
+        "height": 439
+      }
+    },
+    "safeCrop": {
+      "source": {
+        "width": 1280,
+        "height": 720,
+        "aspectRatio": "16:9"
+      },
+      "note": "Full source scaled uniformly to 1920×1080 during the walkthrough; no crop."
+    }
+  },
+  "rendering": {
+    "visualGrammarProfile": "articulate-visual-grammar-v2",
+    "productionMetadata": false
+  },
+  "review": {
+    "includeTimelineStates": true,
+    "temporalSampleSeconds": 30
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "video": "production/episodes/0016/output/episode-0016-final.mp4",
+    "generatedDirectory": "production/episodes/0016/generated/presenter-v1",
+    "reviewDirectory": "production/episodes/0016/output/review/presenter-v1",
+    "narrationAnalysis": "production/episodes/0016/production/presenter-v1-analysis.json"
+  },
+  "scenes": [
+    {
+      "id": "S001",
+      "title": "DOES THIS ARCHITECTURE ACTUALLY WORK?",
+      "kind": "presenter-focus",
+      "headline": "DOES THIS ARCHITECTURE ACTUALLY WORK?",
+      "support": "The question changes when architecture becomes executable.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "DOES THIS ARCHITECTURE ACTUALLY WORK?",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "title": "BUILDING THE FIRST ARCHITECTURAL SLICE",
+      "kind": "presenter-focus",
+      "headline": "BUILDING THE FIRST ARCHITECTURAL SLICE",
+      "support": "Episode 16 · Articulate Journal",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "BUILDING THE FIRST ARCHITECTURAL SLICE",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "title": "ARCHITECTURE → SOFTWARE",
+      "kind": "presenter-focus",
+      "headline": "ARCHITECTURE → SOFTWARE",
+      "support": "Two capabilities establish the first running slice",
+      "items": [
+        "Capture Proposed Knowledge",
+        "Review Proposed Claim"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "ARCHITECTURE → SOFTWARE",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "title": "THE RUNNING SYSTEM",
+      "kind": "presenter",
+      "compositionMode": "presenter-full",
+      "headline": "THE RUNNING SYSTEM",
+      "support": "The implementation is the evidence",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "THE RUNNING SYSTEM",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "title": "AN AGENT MADE A JUDGEMENT",
+      "kind": "presenter-focus",
+      "headline": "AN AGENT MADE A JUDGEMENT",
+      "support": "Execution traces expose a new class of question",
+      "items": [
+        "Context",
+        "Model interaction",
+        "Conclusion"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "cut",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "AN AGENT MADE A JUDGEMENT",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "title": "OBSERVING EXECUTION ≠ EVALUATING INTELLIGENCE",
+      "kind": "presenter-focus",
+      "headline": "OBSERVING EXECUTION ≠ EVALUATING INTELLIGENCE",
+      "support": "Tracing explains how software ran—not whether the intelligence was good.",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "OBSERVING EXECUTION ≠ EVALUATING INTELLIGENCE",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "title": "THE FIRST ARCHITECTURAL SLICE RUNS",
+      "kind": "presenter-focus",
+      "headline": "THE FIRST ARCHITECTURAL SLICE RUNS",
+      "support": "Intent becomes an observable, event-driven system",
+      "items": [
+        "Stage knowledge",
+        "Respond independently",
+        "Controlled recording"
+      ],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "THE FIRST ARCHITECTURAL SLICE RUNS",
+          "at": 0,
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "title": "CAN WE EVALUATE THE INTELLIGENCE INSIDE IT?",
+      "kind": "presenter-focus",
+      "headline": "CAN WE EVALUATE THE INTELLIGENCE INSIDE IT?",
+      "support": "Next · agent observability and evaluation",
+      "items": [],
+      "companion": false,
+      "assetIds": [
+        "A001",
+        "A002"
+      ],
+      "transition": "fade",
+      "timeline": {
+        "connectorTiming": "with-destination",
+        "events": []
+      },
+      "shots": [
+        {
+          "id": "section",
+          "label": "CAN WE EVALUATE THE INTELLIGENCE INSIDE IT?",
+          "at": 0,
+          "events": []
+        }
+      ]
+    }
+  ]
+}

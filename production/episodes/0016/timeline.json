@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "generatedFrom": "production/episodes/0016/scene-plan.yaml",
+  "authority": "continuous-edited-source",
+  "selectedDurationSeconds": 1114.446667,
+  "scenes": [
+    {
+      "id": "S001",
+      "startSeconds": 0,
+      "endSeconds": 7,
+      "narrationReference": "DOES THIS ARCHITECTURE ACTUALLY WORK?",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "cut"
+    },
+    {
+      "id": "S002",
+      "startSeconds": 7,
+      "endSeconds": 22,
+      "narrationReference": "BUILDING THE FIRST ARCHITECTURAL SLICE",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S003",
+      "startSeconds": 22,
+      "endSeconds": 39,
+      "narrationReference": "ARCHITECTURE → SOFTWARE",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S004",
+      "startSeconds": 39,
+      "endSeconds": 1021,
+      "narrationReference": "THE RUNNING SYSTEM",
+      "archetype": "Evidence",
+      "kind": "presenter",
+      "transition": "cut"
+    },
+    {
+      "id": "S005",
+      "startSeconds": 1021,
+      "endSeconds": 1042,
+      "narrationReference": "AN AGENT MADE A JUDGEMENT",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "cut"
+    },
+    {
+      "id": "S006",
+      "startSeconds": 1042,
+      "endSeconds": 1070,
+      "narrationReference": "OBSERVING EXECUTION ≠ EVALUATING INTELLIGENCE",
+      "archetype": "Reflection",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S007",
+      "startSeconds": 1070,
+      "endSeconds": 1097,
+      "narrationReference": "THE FIRST ARCHITECTURAL SLICE RUNS",
+      "archetype": "Focus Canvas",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    },
+    {
+      "id": "S008",
+      "startSeconds": 1097,
+      "endSeconds": 1114.446667,
+      "narrationReference": "CAN WE EVALUATE THE INTELLIGENCE INSIDE IT?",
+      "archetype": "Narrator",
+      "kind": "presenter-focus",
+      "transition": "fade"
+    }
+  ]
+}

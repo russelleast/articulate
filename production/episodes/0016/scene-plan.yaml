@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "status": "approved",
+  "episode": {
+    "id": "0016",
+    "title": "Building the First Architectural Slice",
+    "narrativeSource": "production/episodes/0016/narrative.md",
+    "presenterMedia": "production/episodes/0016/ep16-narrator.mp4"
+  },
+  "editorialPrinciple": "Architecture → Running System → Reflection",
+  "scenes": [
+    {"id":"S001","start":0,"end":7,"archetype":"Reflection","kind":"presenter-focus","transition":"cut","headline":"DOES THIS ARCHITECTURE ACTUALLY WORK?","support":"The question changes when architecture becomes executable.","items":[]},
+    {"id":"S002","start":7,"end":22,"archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"BUILDING THE FIRST ARCHITECTURAL SLICE","support":"Episode 16 · Articulate Journal","items":[]},
+    {"id":"S003","start":22,"end":39,"archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"ARCHITECTURE → SOFTWARE","support":"Two capabilities establish the first running slice","items":["Capture Proposed Knowledge","Review Proposed Claim"]},
+    {"id":"S004","start":39,"end":1021,"archetype":"Evidence","kind":"presenter","compositionMode":"presenter-full","transition":"cut","headline":"THE RUNNING SYSTEM","support":"The implementation is the evidence","items":[]},
+    {"id":"S005","start":1021,"end":1042,"archetype":"Focus Canvas","kind":"presenter-focus","transition":"cut","headline":"AN AGENT MADE A JUDGEMENT","support":"Execution traces expose a new class of question","items":["Context","Model interaction","Conclusion"]},
+    {"id":"S006","start":1042,"end":1070,"archetype":"Reflection","kind":"presenter-focus","transition":"fade","headline":"OBSERVING EXECUTION ≠ EVALUATING INTELLIGENCE","support":"Tracing explains how software ran—not whether the intelligence was good.","items":[]},
+    {"id":"S007","start":1070,"end":1097,"archetype":"Focus Canvas","kind":"presenter-focus","transition":"fade","headline":"THE FIRST ARCHITECTURAL SLICE RUNS","support":"Intent becomes an observable, event-driven system","items":["Stage knowledge","Respond independently","Controlled recording"]},
+    {"id":"S008","start":1097,"end":1114.446667,"archetype":"Narrator","kind":"presenter-focus","transition":"fade","headline":"CAN WE EVALUATE THE INTELLIGENCE INSIDE IT?","support":"Next · agent observability and evaluation","items":[]}
+  ]
+}

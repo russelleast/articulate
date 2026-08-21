@@ -28,6 +28,8 @@ Install the official D2 CLI using the instructions at <https://d2lang.com/tour/i
 
 Install PlantUML using the instructions at <https://plantuml.com/starting> when the registry contains PlantUML sources. Confirm that `plantuml -version` succeeds on `PATH`.
 
+Structural C4 views use Structurizr DSL as their canonical source. Install the Structurizr CLI and Graphviz, then set `STRUCTURIZR_CLI` to the Structurizr executable when it is not on `PATH` as `structurizr`. The renderer exports the selected Structurizr view to DOT and uses Graphviz to produce the published SVG; the generated DOT is not an authored diagram source.
+
 The renderer fixes the ELK layout engine, D2 theme ID, padding and non-sketch rendering convention for D2, and SVG pipe output with UTF-8 input for PlantUML. Pin both CLI versions in CI or a production environment when byte-for-byte output stability across machines is required.
 
 ## Render and validate

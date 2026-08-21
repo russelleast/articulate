@@ -1,0 +1,14 @@
+{
+  "canvas": { "width": 1280, "height": 720 },
+  "episode": {
+    "eyebrow": "THE FIRST RUNNING SLICE",
+    "headline": ["ARCHITECTURE", "→ SOFTWARE"],
+    "supportTitle": "CONCEPT → EXECUTION",
+    "supportText": "The architecture becomes a running system"
+  },
+  "presenter": {
+    "sourceMedia": "../../ep16-narrator.mp4",
+    "frameTimestampSeconds": 30,
+    "placement": { "x": -74, "y": 122, "width": 650, "height": 650 }
+  }
+}

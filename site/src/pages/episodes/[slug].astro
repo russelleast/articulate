@@ -3,7 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MetadataList from "@/components/MetadataList.astro";
 import RelatedContent from "@/components/RelatedContent.astro";
-import { formatDate, withBase, youtubeEmbedUrl } from "@/utils/site";
+import { formatDate, withBase } from "@/utils/site";
 
 export async function getStaticPaths() {
   const episodes = await getCollection("episodes", ({ data }) => data.isPublished);
@@ -68,7 +68,7 @@ const relatedExperiments = experiments
     { name: episode.data.title, path: `/episodes/${episode.id}/` }
   ]}
 >
-  <article class="article-shell">
+  <article class="article-shell episode-detail">
     <header class="article-header">
       <p class="eyebrow">Episode {episode.data.sequence.toString().padStart(4, "0")}</p>
       <h1>{episode.data.title}</h1>
@@ -109,21 +109,20 @@ const relatedExperiments = experiments
           </p>
           <p><a href={episode.data.youtube_url}>Watch this Episode on YouTube</a></p>
         </div>
-        <div class="responsive-video episode-media-video">
-          <iframe
-            src={youtubeEmbedUrl(episode.data.youtube_url)}
-            title={`${episode.data.title} — Articulate Journal Episode ${episode.data.sequence}`}
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
       </aside>
     )}
 
     <div class="prose">
       <Content />
     </div>
+
+    <dialog class="image-preview-dialog" data-image-preview-dialog aria-label="Image preview">
+      <button type="button" class="image-preview-close" data-image-preview-close aria-label="Close image preview">Close</button>
+      <figure>
+        <img data-image-preview-image src="" alt="" />
+        <figcaption data-image-preview-caption></figcaption>
+      </figure>
+    </dialog>
 
     <section class="section-block" aria-labelledby="episode-relationships">
       <div class="section-heading">
@@ -163,3 +162,40 @@ const relatedExperiments = experiments
     </nav>
   </article>
 </BaseLayout>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("[data-image-preview-dialog]");
+  const preview = dialog?.querySelector<HTMLImageElement>("[data-image-preview-image]");
+  const caption = dialog?.querySelector<HTMLElement>("[data-image-preview-caption]");
+  const close = dialog?.querySelector<HTMLButtonElement>("[data-image-preview-close]");
+  const images = document.querySelectorAll<HTMLImageElement>(".episode-detail .prose img");
+
+  function openPreview(image: HTMLImageElement) {
+    if (!dialog || !preview || !caption) return;
+    preview.src = image.currentSrc || image.src;
+    preview.alt = image.alt;
+    caption.textContent = image.alt;
+    caption.hidden = !image.alt;
+    dialog.showModal();
+    close?.focus();
+  }
+
+  for (const image of images) {
+    image.tabIndex = 0;
+    image.setAttribute("role", "button");
+    image.setAttribute("aria-haspopup", "dialog");
+    image.setAttribute("aria-label", image.alt ? `Preview image: ${image.alt}` : "Preview image");
+    image.addEventListener("click", () => openPreview(image));
+    image.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openPreview(image);
+      }
+    });
+  }
+
+  close?.addEventListener("click", () => dialog?.close());
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>

@@ -10,6 +10,18 @@ export interface EpisodeSeason {
   episodes: Episode[];
 }
 
+export function latestPublishedEpisode(episodes: Episode[]): Episode | undefined {
+  return [...episodes]
+    .filter((episode) => episode.data.isPublished && episode.data.sequence > 0)
+    .sort((a, b) => b.data.sequence - a.data.sequence)[0];
+}
+
+export function latestPublishedVideo(episodes: Episode[]): Episode | undefined {
+  return [...episodes]
+    .filter((episode) => episode.data.isPublished && episode.data.youtube_url && episode.data.thumbnail)
+    .sort((a, b) => b.data.sequence - a.data.sequence)[0];
+}
+
 const seasonDefinitions = [
   {
     id: "season-1",

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { latestPublishedEpisode, latestPublishedVideo } from "@/utils/episodes";
 import { formatDate, withBase } from "@/utils/site";
 
 type Episode = CollectionEntry<"episodes">;
@@ -9,13 +10,12 @@ interface Props {
 }
 
 const { episodes } = Astro.props;
+const latestEpisode = latestPublishedEpisode(episodes);
 const latest = [...episodes]
   .filter((episode) => episode.data.sequence > 0)
   .sort((a, b) => b.data.sequence - a.data.sequence)
   .slice(0, 4);
-const latestVideo = [...episodes]
-  .filter((episode) => episode.data.youtube_url && episode.data.thumbnail)
-  .sort((a, b) => b.data.sequence - a.data.sequence)[0];
+const latestVideo = latestPublishedVideo(episodes);
 const items = latestVideo && !latest.some((episode) => episode.id === latestVideo.id)
   ? [...latest, latestVideo]
   : latest;
@@ -28,6 +28,7 @@ const items = latestVideo && !latest.some((episode) => episode.id === latestVide
   </div>
   <ol class="latest-episode-list">
     {items.map((episode) => {
+      const isLatest = episode.id === latestEpisode?.id;
       const isVideoPick = episode.id === latestVideo?.id;
       const episodeNumber = episode.data.sequence.toString().padStart(4, "0");
       const detailId = `episode-preview-${episodeNumber}`;
@@ -39,7 +40,7 @@ const items = latestVideo && !latest.some((episode) => episode.id === latestVide
             href={withBase(`/episodes/${episode.id}/`)}
             aria-describedby={detailId}
           >
-            <span>{isVideoPick ? "Latest video" : `Episode ${episodeNumber}`}</span>
+            <span>{isLatest && isVideoPick ? "Latest Episode / video" : isVideoPick ? "Latest video" : `Episode ${episodeNumber}`}</span>
             <strong>{episode.data.title}</strong>
           </a>
           <article class="latest-episode-preview" id={detailId}>

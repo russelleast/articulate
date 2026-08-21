@@ -1,0 +1,16 @@
+episode:
+  id: "0016"
+  title: "Building the First Architectural Slice"
+  journal_source: "docs/episodes/0016-building-the-knowledge-service.md"
+  narrative_source: "production/episodes/0016/narrative.md"
+assets:
+  - asset_id: "A001"
+    asset_type: "continuous edited presenter and screen-recording video with embedded narration"
+    source: "production/episodes/0016/ep16-narrator.mp4"
+    generation_method: "human recording and edit"
+    status: "approved-recording"
+  - asset_id: "A002"
+    asset_type: "visual grammar v2 generated plates"
+    source: "production/episodes/0016/scene-plan.yaml"
+    generation_method: "deterministic scene renderer"
+    status: "generated"

@@ -1,0 +1,13 @@
+...@../../../styles/articulate
+
+direction: right
+
+agent: Review Proposed Claim Agent {class: agent}
+tool: Record Review Result {class: capability}
+boundary: Knowledge Boundary {
+  class: boundary
+  proposal: Staged Proposed Knowledge {class: data}
+}
+
+agent -> tool: invokes after reasoning
+tool -> boundary.proposal: controlled effect

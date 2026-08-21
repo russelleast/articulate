@@ -73,6 +73,23 @@ export function requireDiagramRenderers(diagrams, options = {}) {
   const formats = new Set(diagrams.map((diagram) => diagram.format));
   if (formats.has("d2")) requireD2(options.d2);
   if (formats.has("plantuml")) requirePlantUML(options.plantuml);
+  if (formats.has("structurizr")) {
+    requireStructurizr(options.structurizr);
+    requireGraphviz(options.graphviz);
+  }
+}
+
+export function requireStructurizr({ command = process.env.STRUCTURIZR_CLI || "structurizr", run = spawnSync } = {}) {
+  const result = run(command, ["export"], { encoding: "utf8" });
+  if (result.error?.code === "ENOENT") throw new Error("Structurizr CLI is required but was not found. Set STRUCTURIZR_CLI to the structurizr executable.");
+  return command;
+}
+
+export function requireGraphviz({ command = "dot", run = spawnSync } = {}) {
+  const result = run(command, ["-V"], { encoding: "utf8" });
+  if (result.error?.code === "ENOENT") throw new Error("Graphviz 'dot' is required to render Structurizr exports.");
+  if (result.status !== 0) throw new Error(`Graphviz availability check failed: ${(result.stderr || result.stdout || "unknown error").trim()}`);
+  return (result.stderr || result.stdout).trim();
 }
 
 export function d2Command(diagram, { command = "d2" } = {}) {
@@ -86,7 +103,27 @@ export function plantUmlCommand({ command = "plantuml" } = {}) {
 export function renderDiagram(diagram, { command, run = spawnSync, outputPath = diagram.outputPath } = {}) {
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   if (diagram.format === "plantuml") return renderPlantUml(diagram, { command, run, outputPath });
+  if (diagram.format === "structurizr") return renderStructurizr(diagram, { command, run, outputPath });
   return renderD2(diagram, { command, run, outputPath });
+}
+
+function renderStructurizr(diagram, { command = process.env.STRUCTURIZR_CLI || "structurizr", run, outputPath }) {
+  const outputDirectory = fs.mkdtempSync(path.join(process.env.TMPDIR || "/tmp", "articulate-structurizr-"));
+  try {
+    const exported = run(command, ["export", "-workspace", diagram.sourcePath, "-format", "dot", "-output", outputDirectory], { encoding: "utf8" });
+    if (exported.error?.code === "ENOENT") throw new Error("Structurizr CLI is required but was not found. Set STRUCTURIZR_CLI to the structurizr executable.");
+    if (exported.error) throw new Error(`Unable to render diagram '${diagram.id}': ${exported.error.message}`);
+    if (exported.status !== 0) throw new Error(`Structurizr failed to export '${diagram.id}': ${(exported.stderr || exported.stdout || "unknown error").trim()}`);
+    const dotSource = path.join(outputDirectory, `structurizr-${diagram.viewKey}.dot`);
+    if (!fs.existsSync(dotSource)) throw new Error(`Structurizr did not export view '${diagram.viewKey}' for '${diagram.id}'`);
+    const rendered = run("dot", ["-Tsvg", dotSource, "-o", outputPath], { encoding: "utf8" });
+    if (rendered.error) throw new Error(`Unable to render Structurizr view '${diagram.id}' with Graphviz: ${rendered.error.message}`);
+    if (rendered.status !== 0) throw new Error(`Graphviz failed to render '${diagram.id}': ${(rendered.stderr || rendered.stdout || "unknown error").trim()}`);
+    if (!fs.existsSync(outputPath)) throw new Error(`Graphviz reported success for '${diagram.id}' but did not create ${outputPath}`);
+    return outputPath;
+  } finally {
+    fs.rmSync(outputDirectory, { recursive: true, force: true });
+  }
 }
 
 function renderD2(diagram, { command = "d2", run, outputPath }) {
